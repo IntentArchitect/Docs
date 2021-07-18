@@ -32,8 +32,8 @@ items:
 - name: Manage Repositories
   href: manage-repositories/manage-repositories.md
 
-#- name: Use Domain Designer
-#  href: use-the-domain-designer/use-the-domain-designer.md
+- name: Use Domain Designer
+  href: use-the-domain-designer/use-the-domain-designer.md
 
 - name: Use Stereotypes
   href: use-stereotypes/use-stereotypes.md
