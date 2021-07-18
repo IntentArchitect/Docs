@@ -4,16 +4,16 @@ uid: how-to-guides.use-the-domain-designer
 # Use the Domain Designer
 
 This how-to will walk you through using the Domain Designer by working through an example where you will model conceptually how `Shapes` can be drawn on a `Canvas`.
-Assuming you have the `Intent.Modelers.Domain` module installed, open up the `Domain` designer by clicking on `Domain` located left of the screen.
+Ensure you have the `Intent.Modelers.Domain` module installed and open up the `Domain` designer by clicking on `Domain` in left pane of the screen.
 
 ## Add new Classes
 
-Right click on the background and select `New Class`.
-In this example, give it the name `Shape`.
+- Right-click the background and click the `New Class` option.
+- Give it a name of `Shape`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-shape-class.mp4"></video></p>
 
-Create a few more Classes:
+Similarly, create the following additional Classes:
 
 - `Canvas`
 - `Group`
@@ -22,39 +22,44 @@ Create a few more Classes:
 
 ![How all the Classes should look like now](images/all-the-shape-classes.png)
 
-## Add Attributes to Classes
+## Add Attributes to the Classes
 
-Right click on `Shape` and select `Add Attribute`.
-Give it the name `x` of type `double`, add another attribute and name it `y` also of type `double`.
+- Right-click on the `Shape` element and click the `Add Attribute` option.
+- Give it the name `x` and set its type to `double`.
+- Add another attribute the a name of `y` and also set its type to `double`.
 
-Right click on `Triangle` and select `Add Attribute`.
-Give it the name `length` of type `double`.
+- Right-click on the `Triangle` element and click the `Add Attribute` option.
+- Give it the name `length` and set its type to `double`.
 
-Right click on `Circle` and select `Add Attribute`.
-Give it the name `radius` of type `double`.
+- Right-click on the `Circle` element and click the `Add Attribute` option.
+- Give it the name `radius` and set its type to `double`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-attributes.mp4"></video></p>
 
 ![How all the Classes should look like now](images/all-the-shape-attributes.png)
 
-## Add Operations to Classes
+## Add Operations to the Classes
 
-Right click on `Shape` and select `Add Operation`.
-Give it the name of `Draw` (with no return type).
+- Right-click on the `Shape` element and click the `Add Operation` option.
+- Give it the name of `Draw` and leave the return type blank.
 
-Right click on `Canvas` and select `Add Operation` and give it the name `Draw` (with no return type).
-Add another Operation and call it `CreateGroup` and additionally right click on `CreateGroup` and select `Add Parameter`.
-Give it the name of `shapes` with a type of `Shape` and ensure `Is Collection` is checked in the Properties panel.
-Add another Operation on `Shapes` called `AddShape` (with no return type), add a parameter `shape` of type `Shape`.
+- Right-click on the `Canvas` element and click the `Add Operation` option.
+- Give it the name `Draw` and leave the return type blank.
+- Add another Operation giving it a name of `CreateGroup` and again leave the return type blank.
+- Right-click on the `CreateGroup` element and click the `Add Parameter` option.
+- Give it the name `shapes` and set its type to `Shape`.
+- In the properties pane on the bottom right of the window, ensure that `Is Collection` is checked.
+- Add another Operation on `Shapes` called `AddShape` with a blank return type and add a parameter called `shape` with its type set to `Shape`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-operation-with-parameter.mp4"></video></p>
 
 ![How all the Classes should look like now](images/all-the-shape-operations.png)
 
-## Add a Constructor to a Class
+## Add a Constructor to one of the Classes
 
-Right click on `Group` and select `Add Constructor`. Right click on this constructor and select `Add Parameter`.
-Give it the name of `shapes` and specify the type `Shape` and ensure that `Is Collection` is checked in the Properties panel.
+- Right-click on the `Group` element and click the `Add Constructor` option.
+- Right-click on this constructor and click the `Add Parameter` option.
+- Give it the name of `shapes`, set its type to `Shape` and ensure that `Is Collection` is checked in the Properties pane.
 
 ![How all the Classes should look like now](images/all-the-shape-constructors.png)
 
