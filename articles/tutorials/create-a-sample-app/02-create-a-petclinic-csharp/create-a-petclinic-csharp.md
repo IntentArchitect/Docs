@@ -248,8 +248,11 @@ Execute the Software Factory again, click the file `OwnerService` in the changes
 >
 > It is strongly recommended that one _always_ reviews all files in the `Changes` tab of the Software Factory Execution to ensure that all changes that will be applied are what you expect.
 
-
 Click `APPLY CHANGES`.
+
+> [!NOTE]
+> To locate the `OwnerService.cs` file that you inspected before, after the code is generated, open up your File explorer in the directory where you have created this Intent Application, locate the `PetClinicRest` folder and open the `PetClinicRest.sln` file.
+> In the IDE, expand the `PetClinicRest.Application` project then expand the `Implementation` folder and then notice where the `OwnerService.cs` file is.
 
 ## Test your application back-end
 
