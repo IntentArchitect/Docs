@@ -89,15 +89,26 @@ Create an association between `Owner` and `Pet`:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-owner-pet-association.mp4"></video></p>
 
-Create an association between `Owner` and `Pet`:
+Setup the `Visit` entity to be as follows:
 
-- Right-click on `Owner` entity.
-- Click on the `New Association` option.
-- Click on the `Pet` entity which completes the creation of the association.
-- In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
-- In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
+- Add an association between `Pet` and `Visit`:
+  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
+  - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
+- Add the following fields:
+  - `id` of type `int` (Primary Key)
+  - `visitDate` of type `date`
+  - `description` of type `string`
 
-![Pet Clinic Diagram](images/pet-clinic-domain-diagram.png)
+Also, setup the `PetType` in a similar way:
+
+- Add an association between `Pet` and `PetType`:
+  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is *un*checked.
+  - In the property pane within the `Source End` section ensure that `Is Collection` is checked.
+- Add the following fields:
+  - `id` of type `int` (Primary Key)
+  - `name` of type `string`
+
+![This is how the Pet Clinic Diagram should look like](images/pet-clinic-domain-diagram.png)
 
 ## Create a package for the Services designer
 
@@ -192,7 +203,6 @@ In the `DTOs` package, create an `OwnerCreateDTO` and manually add the following
 - Right-click the `addOwner` element and click the `Add parameter` option.
 - Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
 - In the bottom-right properties pane:
-  - Ensure `Is Collection` is checked.
   - Change the `HTTP Verb` to `POST`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/services-add-add-owner.mp4"></video></p>
@@ -238,8 +248,11 @@ Execute the Software Factory again, click the file `OwnerService` in the changes
 >
 > It is strongly recommended that one _always_ reviews all files in the `Changes` tab of the Software Factory Execution to ensure that all changes that will be applied are what you expect.
 
-
 Click `APPLY CHANGES`.
+
+> [!NOTE]
+> To locate the `OwnerService.cs` file that you inspected before, after the code is generated, open up your File explorer in the directory where you have created this Intent Application, locate the `PetClinicRest` folder and open the `PetClinicRest.sln` file.
+> In the IDE, expand the `PetClinicRest.Application` project then expand the `Implementation` folder and then notice where the `OwnerService.cs` file is.
 
 ## Test your application back-end
 
