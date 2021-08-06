@@ -79,6 +79,9 @@ Create an `Owner` entity with the following attributes:
 
 Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect modelers can be initiated by right-clicking an entity in the visual diagram, then clicking the `New Association` option and then completed by clicking on the other class which you want to be the target of the relationship.
 
+> [!NOTE]
+> Refer to [this article](xref:references.domain-designer.associations) if you wish to learn more about Associations.
+
 Create an association between `Owner` and `Pet`:
 
 - Right-click on the `Owner` entity.

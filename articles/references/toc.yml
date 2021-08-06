@@ -18,10 +18,10 @@ items:
 - name: Designer Extensions
   href: designer-extensions/designer-extensions.md
 
-#- name: Domain Designer
-#  items:
-#    - name: Associations
-#      href: domain-designer/associations/associations.md
+- name: Domain Designer
+  items:
+    - name: Associations
+      href: domain-designer/associations/associations.md
 
 # - name: Factory Extensions
 #   href: factory-extensions/factory-extensions.md
