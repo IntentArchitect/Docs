@@ -34,7 +34,7 @@
       <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
               <li ui-sref-active="active"><a href="https://intentarchitect.com/#/features">FEATURES</a></li>
-              <li ui-sref-active="active"><a href="/">DOCS</a></li>
+              <li ui-sref-active="active"><a href="https://intentarchitect.com/docs/">DOCS</a></li>
               <li ui-sref-active="active"><a href="https://intentarchitect.com/#/downloads">DOWNLOADS</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
