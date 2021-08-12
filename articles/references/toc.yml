@@ -44,9 +44,6 @@ items:
 # - name: Packages
 #   href: packages/packages.md
 
-# - name: Release notes
-#   href: release-notes/toc.yml
-
 # - name: Repositories
 #   href: repositories/repositories.md
 
