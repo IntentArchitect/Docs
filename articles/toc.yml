@@ -16,3 +16,6 @@ items:
 
 - name: References
   href: references/toc.yml
+
+- name: Release notes
+  href: release-notes/toc.yml
