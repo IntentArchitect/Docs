@@ -61,3 +61,6 @@ items:
 
 - name: Templates (C#)
   href: templates-csharp/templates-csharp.md
+
+- name: The About Dialog
+  href: the-about-dialog/the-about-dialog.md
