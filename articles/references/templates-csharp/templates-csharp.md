@@ -151,69 +151,11 @@ For C# files, you can use [C# attributes](https://docs.microsoft.com/dotnet/csha
 
 For example you could place `[IntentManaged(Mode.Ignore)]` on a particular method and when Intent Architect sees this during Software Factory execution it will make sure to never change anything for it.
 
-### Using statements from other Templates (dependencies)
+### Using statements for types in other Templates (dependencies)
 
-Intent Architect will automatically add required [using statements](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) to generated C# files based on specified template dependencies as [`GetTypeName(...)`](#resolving-type-names-of-other-template-instances) usages.
-
-To specify a template dependency, use the `AddTypeSource(...)` method in the constructor of the template in the [Template File](#1-template-file):
-
-```csharp
-partial class EntityBaseTemplate : CSharpTemplateBase<object>
-{
-    public EntityBaseTemplate(IOutputTarget outputTarget, object model = null)
-        : base(TemplateId, outputTarget, model)
-    {
-        AddTypeSource(DifferentTemplate.TemplateId);
-    }
-}
-```
+Intent Architect will automatically add required [using statements](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:how-to-guides.get-type-names).
 
 During Software Factory Execution, Intent Architect will [determine the namespaces](#the-namespace-property) of those other Template instances and add them as using statements.
-
-### Resolving type names of other template instances
-
-Similar to how Intent Architect automatically determines the [class name for the current Template instance](#the-classname-property), it can resolve the determined class names of other Template instances.
-
-This is essential for templates which refer to types generated in other template instances as doing so manually would require consideration not only of the the other Template instance's class name, namespace and use generic parameters, but also that Intent Architect allows customization through its UI of the resolution of these, meaning that the rules you thought applied, might have been overridden.
-
-To resolve a type name for a [Single File](#single-file) template instance, you can use the `GetTypeName(string templateId)` method:
-
-```csharp
-// Template File
-namespace <#= Namespace #>
-{
-    public class <#= ClassName #> : <#= GetEntityBaseTypeName() #>
-    {
-    }
-}
-
-// Template Partial File
-public string GetEntityBaseTypeName()
-{
-    return GetTypeName(EntityBaseTemplate.TemplateId);
-}
-```
-
-To resolve a type name for a [File Per Model](#file-per-model) template instance you can use the `GetTypeName(string templateId, IMetadataModel model)` overload:
-
-```csharp
-// Template File
-namespace <#= Namespace #>
-{
-    public class <#= ClassName #>
-    {
-<# foreach (var property in Model.Property) { #>
-        public <#= GetPropertyTypeName(property)#> <#= property.Name.ToPascalCase() #> { get; set; }
-<# } >
-    }
-}
-
-// Template Partial File
-public string GetPropertyTypeName(Property property)
-{
-    return GetTypeName(EntityTemplate.TemplateId, property);
-}
-```
 
 ### NuGet package dependencies
 
