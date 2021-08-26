@@ -1,11 +1,15 @@
 ---
 uid: references.templates-csharp
+remark: We could move the first NOTE on what a Template is to the parent page once the Parent page is done being setup.
 ---
 # Templates (C#)
 
-Intent Architect has first class support for generation and code management of C# files. Out of the box it has [many features](#convenience-and-utility-features-for-c-file-generation) to enable painless authoring C# templates, for example managing things like namespaces, class names, using clauses, automatic resolution of type names, etc.
+Intent Architect has first class support for generation and code management of C# files. Out of the box it has [many features](#convenience-and-utility-features-for-c-file-generation) to enable painless authoring of C# templates, for example managing things like namespaces, class names, using clauses, automatic resolution of type names, etc.
 
-The easiest way to create a C# template is by using the [Module Builder](xref:references.modules.module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:references.modules) screen for your [Application](xref:references.applications).
+> [!NOTE]
+> Simply put, a Template is fundamentally using a `StringBuilder` of sorts and is used by code to produce a text file that conforms to a Template which is setup by a Developer.
+
+The easiest way to create a C# Template is by using the [Module Builder](xref:references.modules.module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:references.modules) screen for your [Application](xref:references.applications).
 
 When the Module is installed, inside the Module Builder [Designer](xref:references.designers) you will then have the option to create a `New C# Template`.
 
@@ -43,9 +47,9 @@ This file contains the other part of the `<Name>Template` partial class. On init
 
 In it you can control the instantiation of the template or adjust its config, but it is exceptionally useful though as a place to create helper methods or properties which can be conveniently used in your `.tt` file.
 
-While it's possible to make methods in the `.tt` file itself, we've found (from a code organization and ergonomics perspective) it works much better to create methods in a partial file to the template.
+While it's possible to make methods in the `.tt` file itself, we've found (from a code organization and ergonomics perspective) it works much better to create methods in a partial file than the template.
 
-Any method or property in this partial class are accessible in the `.tt` as easily as doing `<# =PropertyName #>` (for properties) or `<# =MethodName() #>` for methods.
+Any method or property in this partial class are accessible in the `.tt` as easily as doing `<#= PropertyName #>` (for properties) or `<#= MethodName() #>` (for methods).
 
 ### 3. Template registration file
 
@@ -53,7 +57,7 @@ Any method or property in this partial class are accessible in the `.tt` as easi
 | ------------------------------- |
 | `<Name>TemplateRegistration.cs` |
 
-This file contains the code for _registering_ one or more _instances_ of the template for use during the Software Factory Execution.
+Registration classes act as Factories for the Template types that are _registered_ using them. They will create one or more _instances_ of a given Template during the Software Factory Execution.
 
 > [!NOTE]
 > A key concept to understand about Intent Architect is that the Software Factory Execution will output a single file per registered template _instance_. A template may have none, a single or multiple _instances_ of it registered during Software Factory Execution. For example the [Single File](#single-file) C# Template Type will register a single instance of its template, while the [File Per Model](#file-per-model) C# Template Type will register an instance of its template for each occurrence of a model type in a Designer.
@@ -62,11 +66,25 @@ This file contains the code for _registering_ one or more _instances_ of the tem
 
 ### Single File
 
-An example use case for this C# Template type is generation of infrastructural files, such as `Startup.cs` in an ASP.NET Core project.
+There are two common use cases for a Single File C# Template:
 
-The generated [Template registration file](#3-template-registration-file) derives from `SingleFileTemplateRegistration` and the code will register a single instance of the template. The registration class derives from `SingleFileTemplateRegistration` which allows the amount of code to be kept simple and to a minimum.
+- Generation of files that act as aggregation of models from a certain Designer. As an example: a Dependency Injection configuration class that registers up all the Services defined in the Services Designer.
 
-The generated [Template partial file](#2-template-partial-file)'s class uses `object` for its generic type parameter with the assumption that there is no `model` to be used, but it is there for use cases where you need to pass in metadata.
+    The generated [Template registration file](#3-template-registration-file) derives from `SingleFileListModelTemplateRegistration<TModel>` and the code will register a single instance of the template. The registration class derives from `SingleFileListModelTemplateRegistration<TModel>` which allows the amount of code to be kept simple and to a minimum.
+
+    The generated [Template partial file](#2-template-partial-file)'s class will have a List of `TModel` as the generic type used to define the `model`.
+
+    For both the template registration and partial files, the generated value for `TModel` is determined by the selected `Model Type` in the `Template Settings`:
+
+    ![Template settings](images/template-settings.png)
+
+    The `model` for this type of C# Template is essential as each registered template instance will have a separate output file generated with its name and content dependent upon details on the incoming `model`.
+
+- Generation of infrastructural files, such as `Startup.cs` in an ASP.NET Core project.
+
+    The generated [Template registration file](#3-template-registration-file) derives from `SingleFileTemplateRegistration` and the code will register a single instance of the template. The registration class derives from `SingleFileTemplateRegistration` which allows the amount of code to be kept simple and to a minimum.
+
+    The generated [Template partial file](#2-template-partial-file)'s class uses `object` for its generic type parameter with the assumption that there is no `model` to be used.
 
 ### File Per Model
 
@@ -80,13 +98,13 @@ For both the template registration and partial files, the generated value for `T
 
 ![Template settings](images/template-settings.png)
 
-Unlike [Single File](#single-file) above, The `model` for this type of C# Template is essential as each registered template instance will have a separate output file generated with its name and content dependant upon details on the incoming `model`.
+The `model` for this type of C# Template is essential as each registered template instance will have a separate output file generated with its name and content dependent upon details on the incoming `model`.
 
 ### Custom
 
 This C# Template type is used far less than the other types and is when the other types' template instance registration doesn't doesn't quite work for a particular use case.
 
-Custom is largely the same as [Single File](#single-file) except that the generated [Template registration file](#3-template-registration-file) derives from `ITemplateRegistration` and therefore allows complete control over the implementation.
+The Custom type allows the Developer to take control of the _registration_ process by invoking `RegisterTemplate()` (off of the `ITemplateInstanceRegistry registry` parameter) and creating _instances_ of the Template in question (which does not impose a Model type restriction like the other types). This Registration class derives from `ITemplateRegistration`.
 
 ## Template Configuration
 
@@ -127,14 +145,14 @@ The default Template configuration that uses `this.GetNamespace()` will automati
 
 Ultimately, the output location of a Template instance is determined by two factors:
 
-1. **The `Template Output` location** - i.e. under which folder or project the Template's `Template Output` is placed within the application. With C# Templates this is typically be determined using the `Visual Studio` Designer. In the example below we can see that the `Template Output` for `Intent.AspNetCore.Startup` will be placed in the `ExampleApp.Api` project:
+1. **The `Template Output` location** - i.e. under which folder or project the Template's `Template Output` is placed within the application. With C# Templates this is typically determined using the `Visual Studio` Designer. In the example below we can see that the `Template Output` for `Intent.AspNetCore.Startup` will be placed in the `ExampleApp.Api` project:
 
     ![Template Output in Visual Studio](images/visual-studio-template-output.png)
 
     > [!TIP]
     > We can easily change where a Template's output will be created by dragging the `Template Output` element into a different folder or project.
 
-2. **The Template's `relativeLocation` configuration** - The `relativeLocation` is set relative to the `Template Output`'s location as described above.
+2. **The Template's `relativeLocation` configuration** - The `relativeLocation` is set relative to the `Template Output`'s location as described above. So for example use the `relativeLocation` of `Controllers` to place the Template inside the `Controllers` folder located in the `ExampleApp.Api` project.
 
     > [!TIP]
     > The `relativeLocation`'s default of `this.GetFolderPath()` will respect any folders in the Designer that the `Model` element instance was created within.
@@ -151,9 +169,9 @@ For C# files, you can use [C# attributes](https://docs.microsoft.com/dotnet/csha
 
 For example you could place `[IntentManaged(Mode.Ignore)]` on a particular method and when Intent Architect sees this during Software Factory execution it will make sure to never change anything for it.
 
-### Using statements for types in other Templates (dependencies)
+### Types in other Templates (dependencies)
 
-Intent Architect will automatically add required [using statements](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-statement) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:how-to-guides.get-type-names).
+Intent Architect will automatically add required [using directives](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:how-to-guides.get-type-names) (this can involve primitive types too like `string`).
 
 During Software Factory Execution, Intent Architect will [determine the namespaces](#the-namespace-property) of those other Template instances and add them as using statements.
 
