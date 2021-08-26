@@ -101,3 +101,7 @@ The net result will be determined by the state of that check-box.
 For a given Entity class, if in the designer the check-box is checked, then it will generate that C# class with the `[Serializable]` attribute. If not, it will omit the generation of that attribute.
 
 ![Diff Result](images/serializable-diff-result.png)
+
+## See also
+
+- [](xref:references.stereotypes).

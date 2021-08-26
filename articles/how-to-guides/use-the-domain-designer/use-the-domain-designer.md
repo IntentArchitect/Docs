@@ -214,3 +214,7 @@ Make it so that the following Classes are derived from `Shape`:
 Your diagram should now appear as follows:
 
 ![How all the Classes should now appear](images/all-the-shapes-inherited.png)
+
+## See also
+
+- [](xref:how-to-guides.use-stereotypes).
