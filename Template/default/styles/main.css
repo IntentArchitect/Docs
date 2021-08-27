@@ -34,3 +34,11 @@ footer {
 article h4 {
     border-bottom: none;
 }
+
+div.NOTE a {
+    text-decoration: underline;
+}
+
+div.TIP a {
+    text-decoration: underline;
+}
