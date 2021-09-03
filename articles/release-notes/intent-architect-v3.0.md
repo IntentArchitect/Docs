@@ -1,5 +1,11 @@
 # Release notes: Intent Architect version 3.0
 
+## Version 3.0.17
+
+### Bug fixes
+
+- It was not possible to change names for generic types.
+
 ## Version 3.0.16
 
 ### New features
