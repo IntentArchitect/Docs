@@ -22,7 +22,7 @@ Stereotypes can only be created and applied in Intent Architect Designers if the
 |Icon|Formatted Text|Specify an Icon for this Stereotype using Font Awesome, a boxed character or a Base-64 encoded image|
 |Display Icon|Check box|Allows the Designer to display the visual icon where available|
 |Display Text|Function|Using the Javascript language, write a formatted text string that will be used by the Designer to add a Display Text where available. Example: `` return `[${properties["Router Link"].value}]` ``|
-|Order|Number|Orders Stereotypes according to this numerical value in the Properties panel located on the right hand side in Intent Architect in the designer|
+|Order|Number|Each Stereotype can be ordered according to this numerical value (in ascending order) in the Properties panel located on the right hand side in Intent Architect within a designer|
 
 ## Stereotype Properties
 
@@ -46,3 +46,7 @@ Stereotype Definitions can also hold Properties of their own which can be used t
 |Placeholder|Text|N/A|Specify a description for this Property's input field which a user of the Stereotype can see which describes what is expected|
 |Is Active Function|Javascript|N/A|Write a script that returns `true`/`false` in order to determine if the Property will be visible/hidden or not. By default this will be Active.|
 |Is Required Function|Javascript|N/A|Write a script that returns `true`/`false` in order to determine if the a value is required for this Property which is validated by Intent Architect. By default this will not be required.|
+
+## See also
+
+* [](xref:how-to-guides.use-stereotypes)

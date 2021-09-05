@@ -15,9 +15,13 @@ To illustrate, the standard Services Designer would only allow the user to captu
 
 As soon as the `Intent.Metadata.WebApi` [module](xref:references.modules) is installed, it would offer the `Http Settings` Stereotype (that is automatically applied on all Operations) that would allow the user to specify how a client can access this API using a specific HTTP Verb.
 
+The Stereotype can be located on the Properties panel located on the right of the Designer.
+
 ![How the Services Designer would look like with API Metadata](images/services-designer-api-metadata.png)
 
-Stereotypes not only offers a form of "tagging" on Elements found in Intent Architect Designers, but it allows one to capture additional information using properties. These properties can hold different data types, allowing for a richer way of specifying more information to the Element at hand.
+![How the Http Settings Stereotype looks like](images/http-settings-stereotype.png)
+
+Stereotypes not only offers a form of "tagging" on Elements found in Intent Architect Designers, but it allows one to capture additional information using properties. These properties can hold different data types, allowing for a richer way of specifying more information on the Element at hand.
 
 ## What it consists of
 
