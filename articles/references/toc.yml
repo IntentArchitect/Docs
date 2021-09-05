@@ -54,7 +54,8 @@ items:
   href: software-factory-execution/software-factory-execution.md
 
 - name: Stereotypes
-  href: stereotypes/stereotypes.md
+  href: stereotypes/toc.yml
+  topicUid: references.stereotypes
 
 # - name: Templates
 #   href: templates/templates.md

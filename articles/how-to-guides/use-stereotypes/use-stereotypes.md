@@ -104,4 +104,4 @@ For a given Entity class, if in the designer the check-box is checked, then it w
 
 ## See also
 
-- [](xref:references.stereotypes).
+* [](xref:references.stereotypes)
