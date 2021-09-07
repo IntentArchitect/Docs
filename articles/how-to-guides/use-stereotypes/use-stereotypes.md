@@ -3,51 +3,65 @@ uid: how-to-guides.use-stereotypes
 ---
 # Use Stereotypes
 
-Extending meta-data in Intent Architect is commonly achieved through Stereotypes. This guide will describe how to create one and how to use it inside a template in order to affect how the source code gets generated.
+This how-to will cover the usage of [Stereotypes](xref:references.stereotypes).
+Stereotypes are usually bundled with [Modules](xref:references.modules) and this how-to will assume this to be the case.
 
-If you have followed through the [Create Module](xref:tutorials.creating-modules-net.create-templates-per-model) tutorial, it will be useful to note that we will be extending the Template in order to add a C# attribute `[Serializable]` depending on whether the `Serializable` stereotype is applied to an Element or not.
+See also:
 
-## Create a Stereotype Definition
+- [](xref:tutorials.create-a-module.introduction)
 
-In Intent Architect, open the `MyModule` solution (as was created in the tutorial) and select the `MyModule.Entities` Project that represents the Module that will generate the code for a C# Entity.
+## Create a basic Stereotype
 
-Inside the Module Builder designer you will need to create a Stereotype Definition first before it can be applied. Right click on any of the Tree view folders (found on the right-hand-side panel) and select `New Stereotype-Definition`.
-
-> [!NOTE]
-> You may find that you need to include the package where this new Stereotype Definition was created in to be included with the current Module. In order to do that, click on the Package itself and set the Properties:
->
-> * Include in Module: _Checked_
-> * Reference in Designer: `Domain`
->
-> <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/include-package.mp4"></video></p>
-
-Supply the following in the Stereotype Definition:
-
-* Name: Serializable
-* Target Mode: Elements of Type
-* Targets: Class
-* Apply mode: Always
-
-Now we want to add a Property to this Stereotype Definition. Right click on this Stereotype Definition and select `Add Property`.
-
-Supply the following Property values for this Stereotype Property:
-
-* Name: Enabled
-* Control Type: Checkbox
-* Default value: _Unchecked_
-
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/stereotype-definition.mp4"></video></p>
+In order to have a Stereotype that one can apply on a Designer Element (such as a Class), there needs to be an existing [Stereotype Definition](xref:references.stereotypes.stereotype-definitions).
 
 > [!NOTE]
-> Make sure to Run the Software Factory Execution as this will generate a `ClassModelExtensions` class that provides a convenient way to access your Stereotype from within your Template code.
->
-> ![Software Factory Run](images/software-factory-execution-staging.png)
+> Ensure you have [installed the Domain metadata](xref:tutorials.creating-modules-net.create-templates-per-model#install-the-domain-metadata) first.
+> This how-to uses the Domain Designer as an example but any Designer can be used.
 
-## Update Entity Templates
+Create or open a Module application in Intent Architect, then open the `Module Builder` Designer and right click on the package in the designer and select `New Stereotype-Definition`.
 
-Open your `MyModules.Entities` Visual Studio project and locate the `EntityTemplate.tt` file and open it.
+Ensure in the property pane that:
 
-Make changes to the template so that it looks like this:
+- `Name` is `Entity` (for example)
+- `Target Mode` is `Elements of Type`
+- `Targets` is `Class`
+- `Apply Mode` is `Manually`
+- `Icon` is specified to be a Boxed Character "E" on a Black background `E|#000000`
+- `Display Icon` is checked
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-basic-stereotype.mp4"></video></p>
+
+> [!NOTE]
+> Running the Software Factory Execution will generate an `ClassModelExtensions.cs` file that will simplify the usage of Stereotypes in Template files. Refer [here](#querying-stereotypes-from-templates) for more details.
+
+## Package Stereotype in Module
+
+Open the Module application in Intent Architect where your Stereotype Definition is located, then open the `Module Builder` Designer and click on the package.
+
+Proceed to the Properties panel on the right hand side:
+
+- Check `Include in Module`
+- Select `Domain` (for example) in `Reference in Designer`
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/package-stereotype.mp4"></video></p>
+
+## Add extra metadata to a Stereotype
+
+Open the Module application in Intent Architect where your Stereotype Definition is located, then open the `Module Builder` Designer.
+
+Right click on the `Entity` Stereotype Definition
+
+- Select `Add Property`
+- Give the Name `Change Detection`
+- Select the Type `Checkbox`
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/stereotype-add-property.mp4"></video></p>
+
+## Querying Stereotypes from Templates
+
+Open the Module application in Intent Architect where your [Stereotype Definition](#add-extra-metadata-to-a-stereotype) is located, then open the `Module Builder` Designer.
+
+Ensure there is a Template called `EntityClass` that has the following `.tt` content:
 
 ```cs
 <#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
@@ -59,6 +73,7 @@ Make changes to the template so that it looks like this:
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+
 using System;
 using System.Collections.Generic;
 
@@ -66,42 +81,106 @@ using System.Collections.Generic;
 
 namespace <#= Namespace #>
 {
-    <#= GetClassAttributes() /* Add this method expression */ #>
     public class <#= ClassName #>
     {
-        ...
-```
+<#  foreach(var attribute in Model.Attributes) { #>
 
-Then from the `EntityTemplatePartial.cs` file, we need to define the method `GetClassAttributes`.
+        public <#= GetTypeName(attribute) #> <#= attribute.Name.ToPascalCase() #> { get; set; }
+<#  } #>
+<#  foreach(var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable)) { #>
 
-```cs
-public string GetClassAttributes()
-{
-    return Model.GetSerializable()?.Enabled() == true
-        ? "[Serializable]"
-        : string.Empty;
+        public <#= GetTypeName(associationEnd) #> <#= associationEnd.Name.ToPascalCase() #> { get; set; }
+<#  } #>
+    }
 }
 ```
 
-You may find that in order to use the `GetSerializable` method, you need to add the namespace `MyModules.Entities.Api` as part of your namespace declarations.
+> [!NOTE]
+> Your Code Solution (the Project generated by the Software Factory from the Module application) should contain an `API` folder with a file called `ClassModelExtensions.cs`.
+> It contains a Class with Extension Methods for performing queries against a Class Element with regards to the `Entity` Stereotype. This is because the `Entity` Stereotype has its `Targets` set to `Class` as per [this section](#create-a-basic-stereotype).
+
+A Class Element can be queried for the presence of the `Entity` Stereotype. This can be invoked within your Template code:
+
+```cs
+bool hasEntityStereotype = Model.HasEntity();
+```
+
+The Property of the `Entity` Stereotype "Change Detection" can also be queried by invoking it within your Template code:
+
+```cs
+bool hasChangeDetection = Model.GetEntity().ChangeDetection();
+```
+
+This will enable us to add some additional code to the `EntityClass` Template which checks for the presence of the `Entity` Stereotype and that the "Change Detection" Property is checked...
+
+```cs
+<#  if (Model.HasEntity() && Model.GetEntity().ChangeDetection()) 
+    { #>
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
+        public string UserName { get; set; }
+<#  } #>
+```
 
 > [!IMPORTANT]
-> Make sure to compile your module project before continuing.
+> Don't forget to add the `import` directive to the Template file that references the namespace of the `ClassModelExtensions` class.
+> In this example it would be `<#@ import namespace="NewModule.Api" #>`
 
-## Applying the Stereotype
+In conclusion the Template should look like this:
 
-Install the `MyModule.Entities` to to your `TestApp` in Intent Architect. Follow these [steps](xref:tutorials.create-a-module.install-and-run-the-module#install-the-module) if you are not sure how. Remember to click on Re-install for your updated module.
+```cs
+<#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Intent.Modules.Common" #>
+<#@ import namespace="Intent.Modules.Common.Templates" #>
+<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
+<#@ import namespace="Intent.Templates" #>
+<#@ import namespace="Intent.Metadata.Models" #>
+<#@ import namespace="NewModule.Api" #>
 
-Open up the Domain designer and select one of your Entity Classes that are found on your current selected diagram. You will notice that all of them will have the `Serializable` stereotype present in their property displays and that there is one field that has a `checkbox`.
+using System;
+using System.Collections.Generic;
 
-![Entity Class with Stereotype](images/entity-class-serializable-stereotype.png)
-*Notice the Serializable stereotype in the bottom right corner*
+[assembly: DefaultIntentManaged(Mode.Fully)]
 
-The net result will be determined by the state of that check-box.
-For a given Entity class, if in the designer the check-box is checked, then it will generate that C# class with the `[Serializable]` attribute. If not, it will omit the generation of that attribute.
+namespace <#= Namespace #>
+{
+    public class <#= ClassName #>
+    {
+<#  if (Model.HasEntity() && Model.GetEntity().ChangeDetection()) 
+    { #>
+        public DateTime CreatedDate { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
+        public string UserName { get; set; }
+<#  } #>
 
-![Diff Result](images/serializable-diff-result.png)
+<#  foreach(var attribute in Model.Attributes) { #>
 
-## See also
+        public <#= GetTypeName(attribute) #> <#= attribute.Name.ToPascalCase() #> { get; set; }
+<#  } #>
+<#  foreach(var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable)) { #>
 
-* [](xref:references.stereotypes)
+        public <#= GetTypeName(associationEnd) #> <#= associationEnd.Name.ToPascalCase() #> { get; set; }
+<#  } #>
+    }
+}
+```
+
+## Apply a Stereotype (manually)
+
+Create or open an ASP.NET Core application in Intent Architect.
+
+[Install the module](xref:tutorials.create-a-module.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-basic-stereotype).
+
+Open the Domain Designer and create or select a Class Element.
+
+Right click on this Element and select `Add Stereotype`. A popup dialog appears with a list of detected Stereotypes for this Element.
+Select your `Entity` Stereotype. Locate the Stereotype in the Properties panel and check the checkbox next to "Change Detection".
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/apply-stereotype-manually.mp4"></video></p>
+
+The net result will be determined by the state of that check-box. For a given Entity class, if in the Designer the check-box is checked, then it will generate that C# class with those properties. If not, it will omit the generation of those properties.
+
+![The Diff when the "Change Detection" is checked](images/change-detection-diff-result.png)
