@@ -334,7 +334,7 @@ If you wish to continue exploring the concepts covered by this tutorial you can 
 
 ### Get the completed solution
 
-Alternatively you can view the fully fledged solution for multiple languages on [github](https://github.com/IntentSoftware/Samples-PetClinic).
+Alternatively you can view the fully fledged solution for multiple programming languages on [Github](https://github.com/IntentSoftware/Samples-PetClinic).
 
 ### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
 
