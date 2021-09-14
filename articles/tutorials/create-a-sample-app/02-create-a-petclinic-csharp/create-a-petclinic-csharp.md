@@ -332,6 +332,10 @@ It should also have a success result as well as an array of JSON results includi
 
 If you wish to continue exploring the concepts covered by this tutorial you can make new services, operations and DTOs to cover additional use cases towards a complete implementation of the PetClinic.
 
+### Get the completed solution
+
+Alternatively you can view the fully fledged solution for multiple programming languages on [Github](https://github.com/IntentSoftware/Samples-PetClinic).
+
 ### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
 
 A tutorial on how to create a Module and install it into an Application.
