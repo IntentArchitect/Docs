@@ -34,7 +34,7 @@ In the Properties pane on the right of the screen, ensure that:
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-basic-stereotype.mp4"></video></p>
 
 > [!NOTE]
-> Running the Software Factory Execution will generate a `ClassModelExtensions.cs` which contains an "API" for being able to more easily use the Stereotype in Template files. Use of this will be discussed in more detail [further below](#querying-stereotypes-from-templates) in this how-to.
+> Running the Software Factory Execution will generate a `ClassModelExtensions.cs` which contains an "API" for being able to more easily use the Stereotype in Template files. Use of this will be discussed in more detail [further below](#query-stereotypes-from-templates) in this how-to.
 
 ## Configure Module packaging to include Stereotype Definitions
 
@@ -63,7 +63,7 @@ Right-click on the `Entity` Stereotype Definition.
 
 ## Query Stereotypes from Templates
 
-Open the Module application in Intent Architect where your [Stereotype Definition](#add-extra-metadata-to-a-stereotype) is located, then open the `Module Builder` Designer.
+Open the Module application in Intent Architect where your [Stereotype Definition](#add-properties-to-a-stereotype) is located, then open the `Module Builder` Designer.
 
 Ensure there is a Template called `EntityClass` that has the following `.tt` content:
 
@@ -178,7 +178,7 @@ namespace <#= Namespace #>
 
 Create or open an ASP.NET Core application in Intent Architect.
 
-[Install the module](xref:tutorials.create-a-module.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-basic-stereotype).
+[Install the module](xref:tutorials.create-a-module.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-stereotype-definition).
 
 Open the Domain Designer and create or select a Class Element.
 
