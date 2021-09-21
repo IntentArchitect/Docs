@@ -506,4 +506,8 @@
     margin: auto;
     border-width: 1px;
   }
+
+  .featherlight .featherlight-content {
+    background: var(--theme-body-background);
+  }
   /* CUSTOM END */
