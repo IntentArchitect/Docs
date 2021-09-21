@@ -71,7 +71,7 @@ Allows the Property to capture multiple-lines of free text that represents a str
 
 Provides an additional `Options` field where the Developer can specify explicit options which can be selected for that Stereotype Property.
 
-![Example of the Stereotype Definition for an Option Select Property type](images/control-type-select-options-example-definition.png)
+![Example of the Option Select Property type](images/control-type-select-options-example-definition.png)
 
 ![Property of type Select Options featured on a Stereotype](images/control-type-select-options-example.png)
 
@@ -79,7 +79,7 @@ Provides an additional `Options` field where the Developer can specify explicit 
 
 Provides an additional `Lookup types` field where the Developer can select Element types in order to make the Property a dropdown control that features instances of those Element types.
 
-![Example of the Stereotype Definition for an Element Select Property type](images/control-type-select-lookup-element-example-definition.png)
+![Example of the Element Select Property type](images/control-type-select-lookup-element-example-definition.png)
 
 ![Property of type Select Element Lookup featured on a Stereotype](images/control-type-select-lookup-element-example.png)
 
@@ -87,20 +87,19 @@ Provides an additional `Lookup types` field where the Developer can select Eleme
 
 Provides additional `Root Type Function` and `Lookup types` fields where a Developer can determine which Element type's "child elements" can be selected. Use the `Lookup types` to select the Child-Element to be selected and specify the function to evaluate how to determine the Parent-Element in the `Root Type Function` field.
 
-Example of selecting `Enum Literals` from a specific Enum:
+Example of selecting `Enum Literals` from a previously selected `Enum`:
 
-![Example of an Enum in question](images/control-type-select-child-elements-example-target-enum.png)
+![Example of the Element Select Property type](images/control-type-select-child-element-example-definition-1.png)
 
-![Example of the Stereotype Definition for an Child Element Select Property type](images/control-type-select-child-elements-example-definition.png)
+![Example of the Child Element Select Property type](images/control-type-select-child-element-example-definition-2.png)
 
-> [!NOTE]
-> Specify that `Id` in the `Root Type Function` as to evaluate the function:
->
-> ```js
-> return "b94397e9-c425-48e1-abe5-c3a75fd5b9ca";
-> ```
+Root Type Function expression:
 
-![Property of type Select Child Element Lookup featured on a Stereotype](images/control-type-select-child-elements-example.png)
+```js
+return properties['Enum Selection'].value;
+```
+
+![Property of type Select Child Element Lookup featured on a Stereotype](images/control-type-select-child-element-example.png)
 
 #### Javascript Function
 
