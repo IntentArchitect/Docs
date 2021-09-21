@@ -58,6 +58,7 @@ For the advanced [code-management](#code-management) capabilities described abov
 - TypeScript / JavaScript
 - HTML
 - SQL
+- Kotlin
 
 This list will continue to grow to include other popular programming languages such as Python and Go in the near future.
 
