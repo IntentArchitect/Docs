@@ -3,10 +3,7 @@ uid: references.domain-designer.associations
 ---
 # Domain Designer Associations
 
-Intent Architect's Domain Designer enables modelling of a sub-set of [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language), in particular, [class diagrams](https://en.wikipedia.org/wiki/Class_diagram). It supports modelling of Classes, their Attributes, Operations (method invocations) and [Associations (relationships)](https://en.wikipedia.org/wiki/Class_diagram#Relationships) between classes. Additionally, [Stereotypes](https://en.wikipedia.org/wiki/Stereotype_(UML)) can be used to extend the vocabulary of elements on the diagram.
-
-> [!NOTE]
-> For more information on using Stereotypes in Intent Architect you can refer to [this article](xref:how-to-guides.use-stereotypes).
+Intent Architect's Domain Designer enables modelling of a sub-set of [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language), in particular, [class diagrams](https://en.wikipedia.org/wiki/Class_diagram). It supports modelling of Classes, their Attributes, Operations (method invocations) and [Associations (relationships)](https://en.wikipedia.org/wiki/Class_diagram#Relationships) between classes.
 
 This article will focus on the different options available within the Domain Designer for modelling Associations and how to do so.
 

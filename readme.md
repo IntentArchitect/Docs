@@ -33,7 +33,11 @@ angular.element(document.querySelector("html")).injector().get("EventAggregator"
 
 ### VS Code Extensions
 
-[Docs Authoring Pack for VS Code](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack)
+- [Docs Authoring Pack for VS Code](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack)
+
+#### Formatting markdown tables
+
+Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT+P` and select `Evenly distribute selected table`. This will format markdown tables in a human readable manner.
 
 #### Build and make localhost preview site available
 
