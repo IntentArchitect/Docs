@@ -115,13 +115,21 @@
     color: var(--theme-foreground);
   }
   .sidefilter, .sidetoc {
-    /* CUSTOM BEGIN */
-    top: 118px;
-    /* CUSTOM END */
     background-color: var(--theme-sidenav-background);
     border-left: 1px solid var(--theme-sidenav-border);
     border-right: 1px solid var(--theme-sidenav-border);
   }
+  /* CUSTOM BEGIN */
+  .sidefilter {
+    top: 120px;
+  }
+  .sidetoc {
+    top: 180px;
+  }
+  .sidetoc.shiftup {
+    bottom: 75px;
+  }
+  /* CUSTOM END */
   .toc-filter, .toc-filter > input {
     background-color: var(--theme-sidenav-filter-background);
   }
@@ -490,5 +498,5 @@
     display: block;
     margin: auto;
     border-width: 1px;
-}
+  }
   /* CUSTOM END */
