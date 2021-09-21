@@ -30,22 +30,89 @@ Stereotypes Definitions allow any number of Properties to be added to them. Prop
 
 ![How the properties of Stereotype Definition Properties look like](images/stereotype-definition-property-properties.png)
 
-| Property             | Value               | Nested Value    | Description                                                                                                                                                                                                                                                                                                                                                                          |
-|----------------------|---------------------|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                 | Text                | N/A             | Specify a friendly name for the Property, spaces and punctuation are allowed.                                                                                                                                                                                                                                                                                                        |
-| Control Type         | Text Box            | N/A             | Allows the Property to capture a single line of free text that represents a string.                                                                                                                                                                                                                                                                                                  |
-|                      | Number              | N/A             | Allows only the capture of a Numerical value for this Property.                                                                                                                                                                                                                                                                                                                      |
-|                      | Checkbox            | N/A             | Presents a checkbox to capture a boolean value for the Property.                                                                                                                                                                                                                                                                                                                     |
-|                      | Text Area           | N/A             | Allows the Property to capture multiple-lines of free text that represents a string.                                                                                                                                                                                                                                                                                                 |
-|                      | Select/Multi-select | Options         | Provides an additional `Options` field where the Developer can specify explicit options which can be selected for that Stereotype Property.                                                                                                                                                                                                                                          |
-|                      |                     | Lookup element  | Provides an additional `Lookup types` field where the Developer can select Element types in order to make the Property a dropdown control that features instances of those Element types.                                                                                                                                                                                            |
-|                      |                     | Lookup Children | Provides additional `Root Type Function` and `Lookup types` fields where a Developer can determine which Element type's "child elements" can be selected. Use the `Lookup types` to select the Child-Element to be selected and specify the function to evaluate how to determine the Parent-Element in the `Root Type Function` field. An example would be selecting Enum Literals. |
-|                      | Javascript Function | N/A             | Exposes the Property as a Javascript type field where the Developer can use the built in Javascript editor to define a script which can be leveraged by other Stereotype Properties or Designer elements.                                                                                                                                                                            |
-|                      | Icon                | N/A             | Exposes the Property as a standard Icon selector which acts in the same manner as the `Icon` property found on the Stereotype Definition itself.                                                                                                                                                                                                                                     |
-| Default Value        | Multi-type value    | N/A             | Specify a default value in for this Property depending on the Control Type specified.                                                                                                                                                                                                                                                                                                |
-| Placeholder          | Text                | N/A             | Specify a description for this Property's input field which a user of the Stereotype can see which describes what is expected.                                                                                                                                                                                                                                                       |
-| Is Active Function   | Javascript          | N/A             | Write a script that returns `true`/`false` in order to determine if the Property will be visible/hidden or not. By default this will be Active.                                                                                                                                                                                                                                      |
-| Is Required Function | Javascript          | N/A             | Write a script that returns `true`/`false` in order to determine if the a value is required for this Property which is validated by Intent Architect. By default this will not be required.                                                                                                                                                                                          |
+| Property             | Type                  | Description                                                                                                                                                                                 |
+|----------------------|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name                 | Text                  | Specify a friendly name for the Property, spaces and punctuation are allowed.                                                                                                               |
+| Control Type         | Type                  | Allows the Property to capture a single line of free text that represents a string. See [here](#control-types) for more detail.                                                             |
+| Default Value        | Control Type Value    | Specify a default value in for this Property depending on the Control Type specified.                                                                                                       |
+| Placeholder          | Text                  | Specify a description for this Property's input field which a user of the Stereotype can see which describes what is expected.                                                              |
+| Is Active Function   | Javascript            | Write a script that returns `true`/`false` in order to determine if the Property will be visible/hidden or not. By default this will be Active.                                             |
+| Is Required Function | Javascript            | Write a script that returns `true`/`false` in order to determine if the a value is required for this Property which is validated by Intent Architect. By default this will not be required. |
+
+### Control Types
+
+#### Text Box
+
+Allows the Property to capture a single line of free text that represents a string.
+
+![Property of type Text Box featured on a Stereotype](images/control-type-textbox-example.png)
+
+#### Number
+
+Allows only the capture of a Numerical integer value for this Property.
+
+![Property of type Number featured on a Stereotype](images/control-type-number-example.png)
+
+#### Checkbox
+
+Presents a checkbox to capture a boolean value for the Property.
+
+![Property of type Checkbox featured on a Stereotype](images/control-type-checkbox-example.png)
+
+#### Text Area
+
+Allows the Property to capture multiple-lines of free text that represents a string.
+
+![Property of type Text Area featured on a Stereotype](images/control-type-textarea-example.png)
+
+#### Select/Multi-select
+
+##### Options
+
+Provides an additional `Options` field where the Developer can specify explicit options which can be selected for that Stereotype Property.
+
+![Example of the Stereotype Definition for an Option Select Property type](images/control-type-select-options-example-definition.png)
+
+![Property of type Select Options featured on a Stereotype](images/control-type-select-options-example.png)
+
+##### Lookup element
+
+Provides an additional `Lookup types` field where the Developer can select Element types in order to make the Property a dropdown control that features instances of those Element types.
+
+![Example of the Stereotype Definition for an Element Select Property type](images/control-type-select-lookup-element-example-definition.png)
+
+![Property of type Select Element Lookup featured on a Stereotype](images/control-type-select-lookup-element-example.png)
+
+##### Lookup Children
+
+Provides additional `Root Type Function` and `Lookup types` fields where a Developer can determine which Element type's "child elements" can be selected. Use the `Lookup types` to select the Child-Element to be selected and specify the function to evaluate how to determine the Parent-Element in the `Root Type Function` field.
+
+Example of selecting `Enum Literals` from a specific Enum:
+
+![Example of an Enum in question](images/control-type-select-child-elements-example-target-enum.png)
+
+![Example of the Stereotype Definition for an Child Element Select Property type](images/control-type-select-child-elements-example-definition.png)
+
+> [!NOTE]
+> Specify that `Id` in the `Root Type Function` as to evaluate the function:
+>
+> ```js
+> return "b94397e9-c425-48e1-abe5-c3a75fd5b9ca";
+> ```
+
+![Property of type Select Child Element Lookup featured on a Stereotype](images/control-type-select-child-elements-example.png)
+
+#### Javascript Function
+
+Exposes the Property as a Javascript type field where the Developer can use the built in Javascript editor to define a script which can be leveraged by other Stereotype Properties or Designer elements.
+
+![Property of type Javascript featured on a Stereotype](images/control-type-javascript-example.png)
+
+#### Icon
+
+Exposes the Property as a standard Icon selector which acts in the same manner as the `Icon` property found on the Stereotype Definition itself.
+
+![Property of type Icon featured on a Stereotype](images/control-type-icon-example.png)
 
 ## See also
 
