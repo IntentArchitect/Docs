@@ -8,11 +8,11 @@
   - Can now be minimized and run in the background.
   - You can now run multiple Software Factory Executions for different Applications at the same time.
   - If a change to a Module on your file system is detected, or designer is saved, the Software Factory will automatically re-run itself.
-- [Automatic re-installation of Modules when a rebuild of them is detected by a background file system watcher](#automatic-re-installation-of-modules-when-a-rebuild-of-them-is-detected-by-a-background-file-system-watcher).
+- [Automatic re-installation of rebuilt Modules](#automatic-re-installation-of-rebuilt-modules).
 - [Specify application wide configuration for a Module](#specify-application-wide-configuration-for-a-module).
 - [Overhauled the Application Installer window](#overhauled-the-application-installer-window).
-- [Added keyboard shortcuts to the "Define Mapping" screen](#added-keyboard-shortcuts-to-the-define-mapping-screen).
-- [Keep types of mapped members in sync with the type of the source member](#keep-types-of-mapped-members-in-sync-with-the-type-of-the-source-member).
+- [Keyboard shortcut for the "Define Mapping" screen](#keyboard-shortcut-for-the-define-mapping-screen).
+- [Keep mapped member types in sync](#keep-mapped-member-types-in-sync).
 - ["Contact Support" option now available to live chat with Intent Architect staff](#contact-support).
 - [JavaScript macros](#javascript-macros).
 - Intent Architect now runs on .NET 5.0 and also supports modules compiled for any .NET version compatible with being run by .NET 5.0.
@@ -51,7 +51,7 @@ Intent Architect looks at your configured module repositories, watches all those
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/3.1.0/sf-auto-restart.mp4"></video></p>
 
-### Automatic re-installation of Modules when a rebuild of them is detected by a background file system watcher
+### Automatic re-installation of rebuilt Modules
 
 Intent Architect looks at your configured module repositories, watches all those paths for file system changes and will automatically re-install a module of the same version if a change to it is detected.
 
@@ -69,11 +69,11 @@ The application installer window now provides detailed and structured informatio
 
 ![The updated application installer window](images/3.1.0/application-installer-window.png)
 
-### Added keyboard shortcuts to the "Define Mapping" screen
+### Keyboard shortcut for the "Define Mapping" screen
 
 The "Define Mapping" dialogue now has keyboard shortcuts for common actions such as selecting tree nodes.
 
-### Keep types of mapped members in sync with the type of the source member
+### Keep mapped member types in sync
 
 For a mapped property, there is now an option selected by default for the type reference to be kept in sync. For example, if you change an attribute in the domain from a `string` to an `int`, a field mapped from that attribute will have its type updated also with no intervention required.
 
