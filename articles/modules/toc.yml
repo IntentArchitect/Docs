@@ -1,0 +1,12 @@
+items:
+- name: About Modules
+  href: modules/modules.md
+
+- name: How to debug your Module code
+  href: debug-your-module-code/debug-your-module-code.md
+
+#- name: 'Module: Module Builder'
+#   href: module-module-builder/module-module-builder.md
+
+#- name: 'Module: Visual Studio'
+#   href: module-visual-studio/module-visual-studio.md

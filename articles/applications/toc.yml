@@ -1,0 +1,9 @@
+items:
+- name: About Applications
+  href: applications/applications.md
+  
+- name: About Application Templates
+  href: application-templates/application-templates.md
+
+- name: How to create an Application Templates
+  href: create-an-application-template/create-an-application-template.md

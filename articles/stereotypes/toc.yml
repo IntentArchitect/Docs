@@ -1,0 +1,9 @@
+items:
+- name: About Stereotypes
+  href: stereotypes/stereotypes.md
+
+- name: About Stereotype Definitions
+  href: stereotype-definitions/stereotype-definitions.md
+
+- name: How to use Stereotypes
+  href: use-stereotypes/use-stereotypes.md

@@ -1,42 +1,13 @@
 items:
-- name: Applications
-  href: applications/applications.md
-
-- name: Application Templates
-  href: application-templates/application-templates.md
-
 - name: Code management
   href: code-management/toc.yml
   topicUid: references.code-management
-
-- name: Decorators
-  href: decorators/decorators.md
-
-- name: Designers
-  href: designers/designers.md
-
-- name: Designer Extensions
-  href: designer-extensions/designer-extensions.md
-
-- name: Domain Designer
-  items:
-    - name: Associations
-      href: domain-designer/associations/associations.md
 
 # - name: Factory Extensions
 #   href: factory-extensions/factory-extensions.md
 
 # - name: Metadata
 #   href: metadata/metadata.md
-
-- name: Modules
-  href: modules/modules.md
-
-# - name: 'Module: Module Builder'
-#   href: module-module-builder/module-module-builder.md
-
-# - name: 'Module: Visual Studio'
-#   href: module-visual-studio/module-visual-studio.md
 
 - name: Notations
   href: notations/notations.md
@@ -50,18 +21,5 @@ items:
 - name: Solutions
   href: solutions/solutions.md
 
-- name: Software Factory Execution
-  href: software-factory-execution/software-factory-execution.md
-
-- name: Stereotypes
-  href: stereotypes/toc.yml
-  topicUid: references.stereotypes
-
-# - name: Templates
-#   href: templates/templates.md
-
-- name: Templates (C#)
-  href: templates-csharp/templates-csharp.md
-
-- name: The About Dialog
-  href: the-about-dialog/the-about-dialog.md
+#- name: The About Dialog
+#  href: the-about-dialog/the-about-dialog.md
