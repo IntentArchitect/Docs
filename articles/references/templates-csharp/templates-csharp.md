@@ -205,12 +205,14 @@ And then at the root location of the Module's `.csproj`, create a class as follo
 ```csharp
 public class NuGetPackages
 {
-    public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "9.0.*");
+    public static INugetPackageInfo MediatR = new NugetPackageInfo("MediatR", "9.0.0");
 }
 ```
 
+> [!TIP]
+> While it's not necessary to create a separate static class like the `NuGetPackages` class above, it's highly recommended as a Module will often have multiple Templates using the same NuGet package. This will centralize the version management aspect of nuget packages and enable one to find all usages easily.
 > [!NOTE]
-> While it's not necessary to create a separate static class like the `NuGetPackages` class above, it's highly recommended as a Module will often have multiple Templates using the same NuGet package. By having all your Templates share the same `NugetPackageInfo`, you can more easily upgrade the package version globally or find all usages.
+> Using managed nuget dependencies, one can more easily install and upgrade the package version globally. Intent Architect will not automatically downgrade any managed nuget dependencies.
 
 ### GAC Assembly dependencies
 
