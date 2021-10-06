@@ -673,4 +673,38 @@ article p img {
   background: var(--theme-body-background);
 }
 
+.container {
+  width: 100%;
+}
+
+.col-md-10 {
+  width: 70%;
+}
+
+.sideaffix {
+  width: auto;
+  bottom: 0 !important;
+}
+
+.bs-docs-sidenav {
+  width: 100%;
+}
+
+.affix ul > li.active > ul, .affix ul > li.active > a:before, .affix ul > li > a:hover:before {
+  white-space: normal;
+}
+
+@media screen and (max-width: 992px) {
+  .col-md-10 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+ 
+  p {
+    text-align: justify;
+  }
+}
+
 /* CUSTOM END */
