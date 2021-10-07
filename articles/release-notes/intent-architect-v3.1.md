@@ -1,5 +1,11 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.1
+
+## Issues fixed in 3.1.1
+
+- For accounts which already had Professional licenses and had not re-logged in some time, this fixes "no permission" errors from showing until you log out and then back in again.
+
 ## Version 3.1.0
 
 ### New features added in 3.1.0
