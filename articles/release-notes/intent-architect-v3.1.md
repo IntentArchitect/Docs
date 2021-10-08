@@ -21,9 +21,9 @@
 - [Keep mapped member types in sync](#keep-mapped-member-types-in-sync).
 - ["Contact Support" option now available to live chat with Intent Architect staff](#contact-support).
 - [JavaScript macros](#javascript-macros).
-- Intent Architect now runs on .NET 5.0 and also supports modules compiled for any .NET version compatible with being run by .NET 5.0.
-- "Hints" can now be added to Stereotype Definitions and their Properties.
-- The display name of Type Reference selection fields can now be customized through the Module Builder.
+- [Intent Architect now runs on .NET 5.0](#intent-architect-now-runs-on-net-50).
+- ["Hints" can now be added to Stereotype Definitions and their Properties](#hints-can-now-be-added-to-stereotype-definitions-and-their-properties).
+- [The display name of Type Reference selection fields can now be customized through the Module Builder](#the-display-name-of-type-reference-selection-fields-can-now-be-customized-through-the-module-builder).
 
 ### Issues fixed in 3.1.0
 
@@ -90,3 +90,27 @@ There is now a "Contact Support" option available to be able to live chat with I
 ### JavaScript macros
 
 Intent Architect now supports JavaScript macros for automating certain kinds of tasks. We will be releasing more documentation on this soon.
+
+### Intent Architect now runs on .NET 5.0
+
+By having upgraded Intent Architect to .NET 5.0 it is now possible to create and use modules compiled for any .NET target compatible with the .NET 5.0 runtime.
+
+### "Hints" can now be added to Stereotype Definitions and their Properties
+
+You can now add a "Hint" to Stereotype Definitions and their Properties. These "Hints" can be used to better explain the intended purpose of Stereotype's or properties for users applying them to elements. A subset of markdown is also supported in these hints, namely \*\*bold\*\*, \_italics\_ and \[hyperlinks](https://intentarchitect.com/).
+
+![The Stereotype "Hints" feature in action](images/3.1.0/stereotype-hints.png)
+
+### The display name of Type Reference selection fields can now be customized through the Module Builder
+
+Prior to this feature, when an element could reference another element, the label for this field was hard-coded as "Type".
+
+![The "type" label in the properties pane](images/3.1.0/type-reference-type-label-customization-before.png)
+
+It's now possible to customize this label and provide hint text (which works the same as [hints for stereotypes](#hints-can-now-be-added-to-stereotype-definitions-and-their-properties)) for it. In the module builder set the "Display Name" and "Hint" property values:
+
+![Customizing type and hint for an element in the module builder](images/3.1.0/type-reference-type-label-customization-configuring.png)
+
+Then when using the designer it will show the label customization and hint:
+
+![Type label customization and hint text applied](images/3.1.0/type-reference-type-label-customization-applied.png)
