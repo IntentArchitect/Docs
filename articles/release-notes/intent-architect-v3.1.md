@@ -1,5 +1,16 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.2
+
+### New features added in 3.1.2
+
+- The during the "Preparing Changes" phase of Software Factory, it will skip running Output Transformers when all the following are true since the previous Software Factory execution:
+  - The module for the Output Transformer has not been re-installed or upgraded.
+  - The Template Output hash is the same.
+  - The existing file on your disk drive has the same hash.
+
+  This significantly speeds up the Software Factory Execution time when you have a lot of files and there are very few changes since the previous execution. For the Software Factory to compare the current Software Execution to the previous one, at the end of each execution a `.intent/output.cache` is written/updated. This file is placed in an `.intent` folder as folders of this name should be ignored in your Source Code Management, this also means that the first run of the Software Factory on a particular machine will be slower, but subsequent runs will have the `output.cache` pre-populated and thus be faster.
+
 ## Version 3.1.1
 
 ## Issues fixed in 3.1.1

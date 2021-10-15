@@ -5,5 +5,11 @@
     "**/bower_components": true,
     "**/_site": true,
     "**/.cache": true
+  },
+  "markdownlint.config": {
+    "MD028": false,
+    "MD025": {
+      "front_matter_title": ""
+    }
   }
 }
