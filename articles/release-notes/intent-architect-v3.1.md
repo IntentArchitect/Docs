@@ -1,5 +1,11 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.4
+
+## Issues fixed in 3.1.4
+
+- Sometimes the agent would crash completely during Software Factory execution.
+
 ## Version 3.1.3
 
 ## Issues fixed in 3.1.3
