@@ -1,5 +1,11 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.3
+
+## Issues fixed in 3.1.3
+
+- Sometimes during Software Factory execution a `Collection was modified after the enumerator was instantiated` exception would occur during the `Committing Changes` phase.
+
 ## Version 3.1.2
 
 ### New features added in 3.1.2
