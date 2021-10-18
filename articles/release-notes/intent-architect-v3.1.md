@@ -5,6 +5,7 @@
 ## Issues fixed in 3.1.4
 
 - Sometimes the agent would crash completely during Software Factory execution.
+- If a file that Intent Architect is managing was manually deleted, then a null reference exception would occur during Software Factory execution.
 
 ## Version 3.1.3
 
