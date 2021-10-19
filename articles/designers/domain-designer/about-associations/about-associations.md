@@ -82,7 +82,7 @@ This can be achieved by setting the properties of the Association as follows:
 |⬜ Is Nullable|⬜ Is Nullable|
 |⬜ Is Collection|⬜ Is Collection|
 
-### Zero-or-one to zero-to-one
+### Zero-or-one to zero-or-one
 
 ![How a one-or-one to zero-or-one Association appears in UML and Intent Architect's Domain Designer](images/association-zero-one-to-zero-one.png)
 

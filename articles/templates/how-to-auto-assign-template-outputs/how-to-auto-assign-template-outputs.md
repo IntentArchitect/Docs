@@ -29,4 +29,4 @@ For a Template Output to automatically find this Role, we need to assign it to t
 
 Now, when you install the Module, Intent Architect will automatically assign the Template Output under the project with the same Role.
 
-![Template Output Assigned](images/visual-studio-template-output-assigned.png
+![Template Output Assigned](images/visual-studio-template-output-assigned.png)
