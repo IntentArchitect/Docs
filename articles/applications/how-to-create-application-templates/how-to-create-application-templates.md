@@ -1,9 +1,9 @@
 ---
-uid: how-to-guides.create-an-application-template
+uid: applications.how-to-create-application-templates
 ---
 # How to create Application Templates
 
-This how-to guide will walk you through creating your own [Application Template](xref:references.application-templates) using the `Intent Application Template Builder` [Designer](xref:references.designers).
+This how-to guide will walk you through creating your own [Application Template](xref:applications.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:references.designers).
 
 ## Create a new Application
 
@@ -97,4 +97,4 @@ You can use the `App Templates` Designer to add/change Groups, Components and Mo
 
 ## See also
 
-[](xref:references.application-templates)
+[](xref:applications.about-application-templates)

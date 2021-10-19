@@ -1,12 +1,12 @@
 items:
 - name: About Applications
-  href: applications/applications.md
+  href: about-applications/about-applications.md
 
 - name: About Application Templates
-  href: application-templates/application-templates.md
+  href: about-application-templates/about-application-templates.md
 
 - name: About Solutions
-  href: solutions/solutions.md
+  href: about-solutions/about-solutions.md
 
 - name: How to create Application Templates
-  href: create-an-application-template/create-an-application-template.md
+  href: how-to-create-application-templates/how-to-create-application-templates.md

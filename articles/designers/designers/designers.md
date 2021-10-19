@@ -3,9 +3,9 @@ uid: references.designers
 ---
 # About Designers
 
-Designers in Intent Architect allow you describe your [application's](xref:references.applications) design as visual models and hierarchical concepts. For example, Designers could be used to describe: the entities in a domain, the services that make up the applications API, events that are published and subscribed, etc.
+Designers in Intent Architect allow you describe your [application's](xref:applications.about-applications) design as visual models and hierarchical concepts. For example, Designers could be used to describe: the entities in a domain, the services that make up the applications API, events that are published and subscribed, etc.
 
-Designers are added to the [Application](xref:references.applications) when a [Module](xref:references.modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
+Designers are added to the [Application](xref:applications.about-applications) when a [Module](xref:references.modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
 
 > [!NOTE]
 > Designers can be created and configured by using the [Intent Module Builder](xref:references.modules.module-builder). Existing Designers can also be extended with new concepts and configuration.

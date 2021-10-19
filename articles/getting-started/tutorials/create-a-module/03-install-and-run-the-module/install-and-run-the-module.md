@@ -24,7 +24,7 @@ To get started, let's create an empty Application.
 ![Create Test Application](images/create-test-application.png)
 
 > [!NOTE]
-> We typically create Applications with an [Application Template](xref:how-to-guides.create-an-application-template). Empty Applications are useful when there aren't any Application Templates that fulfill your needs.
+> We typically create Applications with an [Application Template](xref:applications.how-to-create-application-templates). Empty Applications are useful when there aren't any Application Templates that fulfill your needs.
 
 ## Set up Visual Studio projects
 

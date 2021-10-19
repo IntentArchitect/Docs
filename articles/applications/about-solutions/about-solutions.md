@@ -1,9 +1,9 @@
 ---
-uid: references.solutions
+uid: applications.about-solutions
 ---
-# Solutions
+# About Solutions
 
-Solutions in Intent Architect serve as a _view_ on one or more [Applications](xref:references.applications). They have some basic settings and can configure which Repositories are available for the Applications.
+Solutions in Intent Architect serve as a _view_ on one or more [Applications](xref:applications.about-applications). They have some basic settings and can configure which Repositories are available for the Applications.
 
 An Application can only be opened in the context on a Solution, which is represented by an `.isln` (Intent Solution) file on the disk-drive.
 
