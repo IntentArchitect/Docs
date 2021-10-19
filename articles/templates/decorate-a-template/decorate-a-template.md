@@ -120,4 +120,4 @@ Now run the Software Factory to see that it adds the `[Required]` attribute only
 ![Diff Result](images/decorator-diff-result.png)
 
 > [!TIP]
-> You can use Stereotypes to add more complex validation logic to a Class Attribute. To learn how to work with Stereotypes, read [this article](xref:how-to-guides.use-stereotypes)
+> You can use Stereotypes to add more complex validation logic to a Class Attribute. To learn how to work with Stereotypes, read [this article](xref:stereotypes.how-to-use-stereotypes)

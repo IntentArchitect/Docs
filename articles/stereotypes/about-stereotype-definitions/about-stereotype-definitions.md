@@ -1,5 +1,5 @@
 ---
-uid: references.stereotypes.stereotype-definitions
+uid: stereotypes.about-stereotype-definitions
 remarks: |
     Might need to link a "package" article to the phrase "are accessible" to explain how to reference packages with stereotypes.
     Also one might need to explain how to write functions for Display Text fields.
@@ -115,4 +115,4 @@ Exposes the Property as a standard Icon selector which acts in the same manner a
 
 ## See also
 
-* [](xref:how-to-guides.use-stereotypes)
+* [](xref:stereotypes.how-to-use-stereotypes)

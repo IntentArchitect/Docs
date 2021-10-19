@@ -1,9 +1,9 @@
 ---
-uid: how-to-guides.use-stereotypes
+uid: stereotypes.how-to-use-stereotypes
 ---
 # How to use Stereotypes
 
-This how-to will explain how to define and use [Stereotypes](xref:references.stereotypes) in [Modules](xref:modules.about-modules).
+This how-to will explain how to define and use [Stereotypes](xref:stereotypes.about-stereotypes) in [Modules](xref:modules.about-modules).
 
 The Stereotype defined in the Module will are useable in two ways:
 
@@ -14,7 +14,7 @@ This how-to requires knowing how to [create a Module](xref:tutorials.create-a-mo
 
 ## Create a Stereotype Definition
 
-[Stereotype Definitions](xref:references.stereotypes.stereotype-definitions) are used to creates "types" of Stereotypes which can then be applied to Element(s) (such as a Class).
+[Stereotype Definitions](xref:stereotypes.about-stereotype-definitions) are used to creates "types" of Stereotypes which can then be applied to Element(s) (such as a Class).
 
 > [!NOTE]
 > This how-to requires that the Domain Module's metadata is [installed](xref:tutorials.creating-modules-net.create-templates-per-model#install-the-domain-metadata).

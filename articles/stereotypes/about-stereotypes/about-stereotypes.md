@@ -1,5 +1,5 @@
 ---
-uid: references.stereotypes
+uid: stereotypes.about-stereotypes
 ---
 # About Stereotypes
 
@@ -25,8 +25,8 @@ Stereotypes not only offer a form of "tagging" on Elements found in Intent Archi
 
 ## Making your own
 
-Stereotypes can be defined by the use of Stereotype Definitions, refer to this [article](xref:references.stereotypes.stereotype-definitions) for further details.
+Stereotypes can be defined by the use of Stereotype Definitions, refer to this [article](xref:stereotypes.about-stereotype-definitions) for further details.
 
 ## See also
 
-* [](xref:how-to-guides.use-stereotypes)
+* [](xref:stereotypes.how-to-use-stereotypes)

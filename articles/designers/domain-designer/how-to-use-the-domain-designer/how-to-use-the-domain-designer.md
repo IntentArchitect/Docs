@@ -217,4 +217,4 @@ Your diagram should now appear as follows:
 
 ## See also
 
-- [](xref:how-to-guides.use-stereotypes).
+- [](xref:stereotypes.how-to-use-stereotypes).

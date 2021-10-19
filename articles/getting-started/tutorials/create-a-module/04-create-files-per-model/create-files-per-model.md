@@ -170,7 +170,7 @@ In summary, this tutorial introduced how to use the Module Builder to create a M
 
 ## What's Next
 
-### [Use Stereotypes](xref:how-to-guides.use-stereotypes)
+### [Use Stereotypes](xref:stereotypes.how-to-use-stereotypes)
 
 Stereotypes provide powerful metadata extensions, allowing you to add extra custom information to your Designers. This information can be used to make all kinds of decisions in your Modules.
 

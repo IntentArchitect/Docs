@@ -60,7 +60,7 @@ Create a `Pet` entity and then right-click it (on either the visual diagram's bl
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-entity-pet.mp4"></video></p>
 
-Right-click on the `id` attribute and select `Add Stereotype`. Select the `Primary Key` [stereotype](xref:references.stereotypes) from the list.
+Right-click on the `id` attribute and select `Add Stereotype`. Select the `Primary Key` [stereotype](xref:stereotypes.about-stereotypes) from the list.
 
 ![What the `Pet` entity should look like](images/pet-entity-primary-key.png)
 
