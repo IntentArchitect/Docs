@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.filter-templates
+uid: templates.how-to-filter-templates
 ---
 # How to filter Template Instances
 

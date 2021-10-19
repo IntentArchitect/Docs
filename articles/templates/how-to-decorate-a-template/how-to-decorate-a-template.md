@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.decorate-a-template
+uid: templates.how-to-decorate-a-template
 ---
 # How to decorate a Template
 

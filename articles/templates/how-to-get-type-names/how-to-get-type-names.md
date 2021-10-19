@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.get-type-names
+uid: templates.how-to-get-type-names
 todo: |
     - Once we start generating docs from XML document comments in C# files, where applicable below we should hyperlink directly to the methods.
 ---

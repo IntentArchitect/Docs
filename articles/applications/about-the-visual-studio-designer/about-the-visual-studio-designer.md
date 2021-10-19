@@ -4,7 +4,7 @@ remarks: I think we should talk about the project layouts here in the app sectio
 ---
 # About the Visual Studio Designer
 
-The `Intent.VisualStudio.Projects` [Module](xref:modules.about-modules) provides a [Designer](xref:designers.about-designers) for modelling a Visual Studio solutions and projects as well as [Templates](xref:references.templates) to generate them.
+The `Intent.VisualStudio.Projects` [Module](xref:modules.about-modules) provides a [Designer](xref:designers.about-designers) for modelling a Visual Studio solutions and projects as well as [Templates](xref:templates.about-templates) to generate them.
 
 ## Designer
 

@@ -1,5 +1,5 @@
 ---
-uid: references.templates
+uid: templates.about-templates
 remarks: |
     For now this is covered by the `Templates C#` doc, but ultimately
     generalized content will be extracted from there into this and that will

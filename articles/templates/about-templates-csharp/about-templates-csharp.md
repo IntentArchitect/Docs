@@ -1,5 +1,5 @@
 ---
-uid: references.templates-csharp
+uid: templates.about-templates-csharp
 remark: We could move the first NOTE on what a Template is to the parent page once the Parent page is done being setup.
 ---
 # About Templates (C#)
@@ -179,7 +179,7 @@ For example you could place `[IntentManaged(Mode.Ignore)]` on a particular metho
 
 ### Types in other Templates (dependencies)
 
-Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:how-to-guides.get-type-names) (this can involve primitive types too like `string`).
+Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:templates.how-to-get-type-names) (this can involve primitive types too like `string`).
 
 During Software Factory Execution, Intent Architect will [determine the namespaces](#the-namespace-property) of those other Template instances and add them as using statements.
 

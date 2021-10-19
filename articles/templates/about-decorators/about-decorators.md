@@ -1,5 +1,5 @@
 ---
-uid: references.decorators
+uid: templates.about-decorators
 ---
 # About Decorators
 
@@ -7,4 +7,4 @@ Decorators provide a mechanism to extend a Template from another Module. The Tem
 
 ## See also
 
-### [How-to: Decorate a Template](xref:how-to-guides.decorate-a-template)
+### [](xref:templates.how-to-decorate-a-template)

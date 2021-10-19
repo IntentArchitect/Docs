@@ -90,7 +90,7 @@ This is important because it's telling us that we need to assign our `MyModules.
 We've now told Intent Architect that when generating our `EntityBase` template its output should be put in the `TestApp.Domain` project.
 
 > [!NOTE]
-> Assigning Template Outputs can be configured to happen automatically when we install a Module. We [use Roles to achieve this](xref:how-to-guides.auto-assign-template-outputs).
+> Assigning Template Outputs can be configured to happen automatically when we install a Module. We [use Roles to achieve this](xref:templates.how-to-auto-assign-template-outputs).
 
 ## Run the Module
 
