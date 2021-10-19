@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.create-a-factory-extension
+uid: software-factory.how-to-create-a-factory-extension
 ---
 # How to create a Factory Extension
 

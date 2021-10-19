@@ -1,5 +1,5 @@
 ---
-uid: references.modules
+uid: modules.about-modules
 remarks: |
     TODO: Add the following:
 

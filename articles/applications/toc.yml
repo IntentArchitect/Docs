@@ -8,5 +8,8 @@ items:
 - name: About Solutions
   href: about-solutions/about-solutions.md
 
+#- name: 'About the Visual Studio Designer'
+#   href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
+
 - name: How to create Application Templates
   href: how-to-create-application-templates/how-to-create-application-templates.md

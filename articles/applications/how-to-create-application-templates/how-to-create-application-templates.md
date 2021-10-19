@@ -46,7 +46,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Give the new element a name of `Intent.Modelers.Domain`.
 
     > [!IMPORTANT]
-    > This must be the exact name of a [module](xref:references.modules) which is to be installed by the Application Template.
+    > This must be the exact name of a [module](xref:modules.about-modules) which is to be installed by the Application Template.
 - Click the root `Intent.Modelers.Domain` element and in the Properties pane on the right:
   - For `Version` enter `3.0.4`.
 

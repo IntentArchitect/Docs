@@ -6,7 +6,7 @@ remarks: |
 ---
 # About Stereotype Definitions
 
-Stereotypes can only be created and applied in Intent Architect Designers if their `Stereotype Definitions` are accessible. These Definitions need to be created first and can often be found when a [Module](xref:references.modules) is installed in your Application. They offer a blueprint that Intent Architect can recognize when trying to apply them.
+Stereotypes can only be created and applied in Intent Architect Designers if their `Stereotype Definitions` are accessible. These Definitions need to be created first and can often be found when a [Module](xref:modules.about-modules) is installed in your Application. They offer a blueprint that Intent Architect can recognize when trying to apply them.
 
 ![How the base properties of Stereotype Definitions look like](images/stereotype-definition-base-properties.png)
 

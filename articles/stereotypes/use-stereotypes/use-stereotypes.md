@@ -3,7 +3,7 @@ uid: how-to-guides.use-stereotypes
 ---
 # How to use Stereotypes
 
-This how-to will explain how to define and use [Stereotypes](xref:references.stereotypes) in [Modules](xref:references.modules).
+This how-to will explain how to define and use [Stereotypes](xref:references.stereotypes) in [Modules](xref:modules.about-modules).
 
 The Stereotype defined in the Module will are useable in two ways:
 
