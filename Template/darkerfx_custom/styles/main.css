@@ -673,13 +673,6 @@ article p img {
   background: var(--theme-body-background);
 }
 
-@media (min-width: 1200px) {
-  .container {
-    width: 100%;
-    max-width: 1750px; /* And this will prevent things getting too wide */
-  }
-}
-
 .sideaffix {
   width: auto;
   bottom: 0 !important;
@@ -691,6 +684,13 @@ article p img {
 
 .affix ul > li.active > ul, .affix ul > li.active > a:before, .affix ul > li > a:hover:before {
   white-space: normal;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 100%;
+    max-width: 1750px; /* And this will prevent things getting too wide */
+  }
 }
 
 @media screen and (max-width: 992px) {
