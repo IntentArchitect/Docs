@@ -5,7 +5,7 @@ uid: applications.about-applications
 
 Applications in Intent Architect represent a _scope of code files_ that we want to automate. It could be a full-stack monolithic application, a microservice, or even just a single folder in which we wish to generate and manage files.
 
-Applications are fundamentally composed of installed [Modules](xref:references.modules), [Designers](xref:references.designers) and some high-level configuration settings.
+Applications are fundamentally composed of installed [Modules](xref:references.modules), [Designers](xref:designers.about-designers) and some high-level configuration settings.
 
 Creating a new application in Intent Architect can be done by clicking on the "Create a new application" button in the home view to launch the _Create application_ wizard.
 

@@ -1,7 +1,7 @@
 ---
-uid: references.domain-designer.associations
+uid: designers.about-domain-designer.about-associations
 ---
-# Domain Designer Associations
+# About Associations
 
 Intent Architect's Domain Designer enables modelling of a sub-set of [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language), in particular, [class diagrams](https://en.wikipedia.org/wiki/Class_diagram). It supports modelling of Classes, their Attributes, Operations (method invocations) and [Associations (relationships)](https://en.wikipedia.org/wiki/Class_diagram#Relationships) between classes.
 

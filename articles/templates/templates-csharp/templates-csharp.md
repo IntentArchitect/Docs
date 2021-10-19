@@ -11,7 +11,7 @@ Intent Architect has first class support for generation and code management of C
 
 The easiest way to create a C# Template is by using the [Module Builder](xref:references.modules.module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:references.modules) screen for your [Application](xref:applications.about-applications).
 
-When the Module is installed, inside the Module Builder [Designer](xref:references.designers) you will then have the option to create a `New C# Template`.
+When the Module is installed, inside the Module Builder [Designer](xref:designers.about-designers) you will then have the option to create a `New C# Template`.
 
 ![New C# template option](images/new-csharp-template-option.png)
 

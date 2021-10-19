@@ -1,20 +1,15 @@
 items:
 - name: About Designers
-  href: designers/designers.md
+  href: about-designers/about-designers.md
 
 - name: About Designer Extensions
-  href: designer-extensions/designer-extensions.md
+  href: about-designer-extensions/about-designer-extensions.md
 
-- name: About Domain Designers
-  items:
-    - name: Associations
-      href: domain-designer/associations/associations.md
+- name: Domain Designer
+  href: domain-designer/toc.yml
 
-# - name: Create a Designer
-#   href: create-a-designer/create-a-designer.md
+# - name: How to create a Designer
+#   href: how-to-create-a-designer/how-to-create-a-designer.md
 
 - name: How to create a Designer Extension
-  href: create-a-designer-extension/create-a-designer-extension.md
-
-- name: How to use the Domain Designer
-  href: use-the-domain-designer/use-the-domain-designer.md
+  href: how-to-create-a-designer-extension/how-to-create-a-designer-extension.md

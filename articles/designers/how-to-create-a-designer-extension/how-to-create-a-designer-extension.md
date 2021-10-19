@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.create-a-designer-extension
+uid: designers.how-to-create-a-designer-extension
 remarks: |
   This one will only cover the new element creation. We will need to write one
   that will form part of 'creating a new designer' that will allow you to
@@ -7,7 +7,7 @@ remarks: |
 ---
 # How to create a Designer Extension
 
-This how-to guide will walk you through creating a [Designer Extension](xref:references.designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
+This how-to guide will walk you through creating a [Designer Extension](xref:designers.about-designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
 
 - Adding a new element of type `Domain Event` which can be added through a context menu option on folders.
 - Ability to apply a new Stereotype to `Class` elements.
@@ -143,5 +143,5 @@ You will now have the option of creating the new `Domain Event` element and usin
 
 ## See also
 
-- [](xref:references.designers)
-- [](xref:references.designer-extensions)
+- [](xref:designers.about-designers)
+- [](xref:designers.about-designer-extensions)

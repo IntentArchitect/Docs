@@ -3,7 +3,7 @@ uid: references.modules.visual-studio
 ---
 # Module: Visual Studio
 
-The `Intent.VisualStudio.Projects` [Module](xref:references.modules) provides a [Designer](xref:references.designers) for modelling a Visual Studio solutions and projects as well as [Templates](xref:references.templates) to generate them.
+The `Intent.VisualStudio.Projects` [Module](xref:references.modules) provides a [Designer](xref:designers.about-designers) for modelling a Visual Studio solutions and projects as well as [Templates](xref:references.templates) to generate them.
 
 ## Designer
 

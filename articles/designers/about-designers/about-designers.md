@@ -1,5 +1,5 @@
 ---
-uid: references.designers
+uid: designers.about-designers
 ---
 # About Designers
 
@@ -34,4 +34,4 @@ Customized Designers can be created using the Intent Module Builder. For example
 
 ## See also
 
-- [](xref:references.designer-extensions)
+- [](xref:designers.about-designer-extensions)
