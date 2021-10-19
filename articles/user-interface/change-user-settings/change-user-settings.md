@@ -1,7 +1,7 @@
 ---
 uid: how-to-guides.change-user-settings
 ---
-# Change user settings
+# How to change user settings
 
 To access the user settings:
 

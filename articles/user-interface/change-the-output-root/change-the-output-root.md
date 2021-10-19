@@ -1,7 +1,7 @@
 ---
 uid: how-to-guides.change-the-output-root
 ---
-# Change the output root
+# How to change the output root
 
 Applications in Intent Architect have a _Root Output Location_ which is stored as a relative path to the location of the Application's `.application.config` file. To change this location, open the Application's `Settings` tab.
 

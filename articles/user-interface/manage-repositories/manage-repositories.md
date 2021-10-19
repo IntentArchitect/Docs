@@ -1,7 +1,7 @@
 ---
 uid: how-to-guides.manage-repositories
 ---
-# Manage Repositories
+# How to manage Repositories
 
 Intent Architect has a hierarchical system to know which Asset Repositories should be available in any particular application.
 Think of this as similar to _Git_'s repository settings, where you can define your user and email address on a global scope, then on a repository scope.

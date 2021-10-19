@@ -3,23 +3,5 @@ items:
   href: code-management/toc.yml
   topicUid: references.code-management
 
-# - name: Factory Extensions
-#   href: factory-extensions/factory-extensions.md
-
-# - name: Metadata
-#   href: metadata/metadata.md
-
 - name: Notations
   href: notations/notations.md
-
-# - name: Packages
-#   href: packages/packages.md
-
-# - name: Repositories
-#   href: repositories/repositories.md
-
-- name: Solutions
-  href: solutions/solutions.md
-
-#- name: The About Dialog
-#  href: the-about-dialog/the-about-dialog.md

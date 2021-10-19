@@ -4,6 +4,10 @@
 
 Tutorials are step-by-step instructions on how to get users up and running with no decision making in order to learn the tool they're using.
 
+## Navigation Panel TOC
+
+Everything should be alphabetically ordered (in ascending order). There is the exception where we would like to have the Getting started section be at the top of the list so that people can see that tht tutorials are there and to access it easily (especially for newcomers). The Release Notes are at the bottom of the list to distinguish itself from the other topic sections.
+
 ## Screenshots and videos
 
 In the developer console, run the following first which makes the window frame-less:

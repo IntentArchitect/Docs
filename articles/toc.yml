@@ -12,6 +12,9 @@ items:
 - name: Modules
   href: modules/toc.yml
 
+- name: References
+  href: references/toc.yml
+
 - name: Software Factory
   href: software-factory/toc.yml
 
@@ -20,6 +23,9 @@ items:
 
 - name: Templates
   href: templates/toc.yml
+
+- name: User Interface
+  href: user-interface/toc.yml
 
 - name: Release notes
   href: release-notes/toc.yml
