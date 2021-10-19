@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.change-user-settings
+uid: user-interface.how-to-change-user-settings
 ---
 # How to change user settings
 

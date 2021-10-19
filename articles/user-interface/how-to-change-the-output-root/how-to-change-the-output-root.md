@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.change-the-output-root
+uid: user-interface.how-to-change-the-output-root
 ---
 # How to change the output root
 

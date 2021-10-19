@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.manage-repositories
+uid: user-interface.how-to-manage-repositories
 ---
 # How to manage Repositories
 
@@ -14,7 +14,7 @@ Think of this as similar to _Git_'s repository settings, where you can define yo
 
     ![Solution Manage Repositories](images/solution-manage-repositories.png)
 
-3. Finally, if neither exist, Intent Architect will use the global Repositories which are managed in the [User Settings](xref:how-to-guides.change-user-settings).
+3. Finally, if neither exist, Intent Architect will use the global Repositories which are managed in the [User Settings](xref:user-interface.how-to-change-user-settings).
 
 > [!TIP]
 > To remove repository settings at either the Application or Solution level, simply delete the `intent.repositories.config` file.

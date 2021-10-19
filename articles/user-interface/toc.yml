@@ -1,15 +1,15 @@
 items:
 - name: How to change the output root
-  href: change-the-output-root/change-the-output-root.md
+  href: how-to-change-the-output-root/how-to-change-the-output-root.md
 
 - name: How to change user settings
-  href: change-user-settings/change-user-settings.md
+  href: how-to-change-user-settings/how-to-change-user-settings.md
 
 - name: How to manage Repositories
-  href: manage-repositories/manage-repositories.md
+  href: how-to-manage-repositories/how-to-manage-repositories.md
 
 - name: How to use the Change Icon Dialogue
-  href: use-the-change-icon-dialogue/use-the-change-icon-dialogue.md
+  href: how-to-use-the-change-icon-dialogue/how-to-use-the-change-icon-dialogue.md
 
 - name: The About Dialog
   href: the-about-dialog/the-about-dialog.md

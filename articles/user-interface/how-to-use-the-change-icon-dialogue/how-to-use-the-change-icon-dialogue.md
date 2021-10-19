@@ -1,5 +1,5 @@
 ---
-uid: how-to-guides.use-the-change-icon-dialogue
+uid: user-interface.how-to-use-the-change-icon-dialogue
 ---
 # How to use the Change Icon Dialogue
 

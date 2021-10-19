@@ -36,7 +36,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `Group 1` element and click the `Add Component` option.
 - Give the new element a name of `Component 1`.
 - Click the root `Component 1` element and in the Properties pane on the right:
-  - For `Icon` use the ellipses to [choose an icon](xref:how-to-guides.use-the-change-icon-dialogue):
+  - For `Icon` use the ellipses to [choose an icon](xref:user-interface.how-to-use-the-change-icon-dialogue):
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-group-and-component.mp4"></video></p>
 
@@ -77,7 +77,7 @@ Click `CLOSE`.
 
 ## Test your Application Template
 
-Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:how-to-guides.manage-repositories). For the above output, the full path of the Application Template is `C:\Dev\MySolution\Intent.Modules\My Application Template.1.0.0.iat`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
+Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories). For the above output, the full path of the Application Template is `C:\Dev\MySolution\Intent.Modules\My Application Template.1.0.0.iat`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
 
 ![Manage Repositories](images/repo-manager-module-folder.png)
 
