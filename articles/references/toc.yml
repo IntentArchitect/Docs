@@ -1,7 +1,6 @@
 items:
 - name: Code management
-  href: code-management/toc.yml
-  topicUid: references.code-management
+  href: code-management/code-management.md
 
 - name: Notations
   href: notations/notations.md

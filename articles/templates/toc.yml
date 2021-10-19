@@ -14,6 +14,9 @@ items:
 - name: How to decorate a Template
   href: how-to-decorate-a-template/how-to-decorate-a-template.md
 
+- name: How to Disable auto-formatting for C# templates
+  href: how-to-disable-csharp-autoformatting/how-to-disable-csharp-autoformatting.md
+
 - name: How to filter Template Instances
   href: how-to-filter-template-instances/how-to-filter-template-instances.md
 
