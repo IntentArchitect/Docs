@@ -1,0 +1,9 @@
+items:
+- name: About Modules
+  href: about-modules/about-modules.md
+
+- name: How to debug your Module code
+  href: how-to-debug-your-module-code/how-to-debug-your-module-code.md
+
+#- name: 'About the Module Builder'
+#   href: module-module-builder/module-module-builder.md
