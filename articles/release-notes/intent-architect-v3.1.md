@@ -26,7 +26,7 @@
 
 ## Version 3.1.1
 
-## Issues fixed in 3.1.1
+### Issues fixed in 3.1.1
 
 - For accounts which already had Professional licenses and had not re-logged in some time, this fixes "no permission" errors from showing until you log out and then back in again.
 

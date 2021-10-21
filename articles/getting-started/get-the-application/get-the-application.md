@@ -19,7 +19,8 @@ As a new user, creating an account can be done from within Intent Architect. Fol
 
 1. Launch Intent Architect
 2. Fill in your account email address, display name (e.g. first name and surname) and password
-![Create Account](images/create-account-dark.png)
+
+   ![Create Account](images/create-account-dark.png)
 3. Click **Create my account**.
 
 Intent Architect will automatically log in once your account has been created.
