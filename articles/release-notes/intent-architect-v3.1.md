@@ -1,28 +1,40 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.5
+
+### New features added in 3.1.5
+
+- Significant speed up of the "Running Templates" phase of the Software Factory Execution, particularly for applications with many template instances. For the speed benefits to properly take effect you are also required to update the following modules (if installed):
+  - `Intent.Common.CSharp`, to version `3.1.5` or better.
+  - `Intent.Common`, to version `3.1.5` or better.
+
+### Issues fixed in 3.1.5
+
+- File renames were not properly recognized during Software Factory Execution.
+
 ## Version 3.1.4
 
-## Issues fixed in 3.1.4
+### Issues fixed in 3.1.4
 
-- Sometimes the agent would crash completely during Software Factory execution.
-- If a file that Intent Architect is managing was manually deleted, then a null reference exception would occur during Software Factory execution.
+- Sometimes the agent would crash completely during Software Factory Execution.
+- If a file that Intent Architect is managing was manually deleted, then a null reference exception would occur during Software Factory Execution.
 
 ## Version 3.1.3
 
-## Issues fixed in 3.1.3
+### Issues fixed in 3.1.3
 
-- Sometimes during Software Factory execution a `Collection was modified after the enumerator was instantiated` exception would occur during the `Committing Changes` phase.
+- Sometimes during Software Factory Execution a `Collection was modified after the enumerator was instantiated` exception would occur during the `Committing Changes` phase.
 
 ## Version 3.1.2
 
 ### New features added in 3.1.2
 
-- The during the "Preparing Changes" phase of Software Factory, it will skip running Output Transformers when all the following are true since the previous Software Factory execution:
+- Significant speed up of the "Preparing Changes" phase of Software Factory Execution for templates which have been previously run on the same computer and whose output and the existing file content are unchanged. The Software Factory will skip running Output Transformers when all the following are true since the previous Software Factory Execution:
   - The module for the Output Transformer has not been re-installed or upgraded.
   - The Template Output hash is the same.
   - The existing file on your disk drive has the same hash.
 
-  This significantly speeds up the Software Factory Execution time when you have a lot of files and there are very few changes since the previous execution. For the Software Factory to compare the current Software Execution to the previous one, at the end of each execution a `.intent/output.cache` is written/updated. This file is placed in an `.intent` folder as folders of this name should be ignored in your Source Code Management, this also means that the first run of the Software Factory on a particular machine will be slower, but subsequent runs will have the `output.cache` pre-populated and thus be faster.
+  This significantly speeds up the Software Factory Execution time when you have a lot of files and there are very few changes since the previous execution. For the Software Factory to compare the current Software Execution to the previous one, at the end of each execution a `.intent/output.cache` is written/updated. This file is placed in an `.intent` folder as folders of this name should be ignored in your Source Code Management, this also means that the first run of the Software Factory on a particular computer will be slower, but subsequent runs will have the `output.cache` pre-populated and thus be faster.
 
 ## Version 3.1.1
 
