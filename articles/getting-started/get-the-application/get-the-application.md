@@ -4,29 +4,35 @@ uid: getting-started.get-the-application
 
 # Get the application
 
-## Install Intent Architect
-
-The latest version of Intent Architect can be downloaded for either Windows or iOS from the website **[HERE](https://intentarchitect.com/#/downloads)**.
-
-Once downloaded, execute the installation file.
-
-> [!NOTE]
-> Our releases are digitally signed, safe and unintrusive.
-
 ## Create an account
 
-As a new user, creating an account can be done from within Intent Architect. Follow these steps to create your new account:
+If you haven't yet done so, [create an account](https://intentarchitect.com/#/user-access/register).
 
-1. Launch Intent Architect
-2. Fill in your account email address, display name (e.g. first name and surname) and password
+## Confirm your email address
 
-   ![Create Account](images/create-account-dark.png)
-3. Click **Create my account**.
+Your email address will need to be confirmed before you can use Intent Architect. If you haven't already done so, follow the instructions in the email which was sent to you on account creation to confirm your email address.
 
-Intent Architect will automatically log in once your account has been created.
+If you need another confirmation email sent, you can do so from your [account details page](https://intentarchitect.com/#/user-access/account-details).
 
-> [!NOTE]
-> Your information is kept 100% private and secure. We do not share any of your personal information with third parties.
+## Downloading
+
+Intent Architect can run on Windows, macOS and Linux, download links are available on the [downloads page](https://intentarchitect.com/#/downloads) of our website.
+
+## Installation (Windows)
+
+Simply run the digitally signed `.exe` file which is a one-click installer which will install Intent Architect and then run it immediately afterwards.
+
+## Installation (macOS)
+
+Simply open the `.dmg` file and drag Intent Architect into the Applications folder.
+
+## Installation (Linux)
+
+For Linux we recommend downloading the [AppImage](https://appimage.org/) package format option which is able to run on any common Linux based operating system, e.g., Ubuntu, Debian, openSUSE, RHEL, CentOS, Fedora, etc.
+
+Although not essential, the easiest way to use AppImages is to first install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) which makes using AppImages seamless and also enables integration with your desktop environment, for example it will "install" AppImages such that they appear in your desktop environment's list of Applications.
+
+If you just want to run Intent Architect without "installing" it, you can just set the downloaded file to be executable by running `chmod a+x intent-architect*.AppImage` after which you can then run it.
 
 ## What's Next
 
