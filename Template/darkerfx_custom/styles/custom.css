@@ -34,6 +34,12 @@
     margin-top:22px;
 }
 
+@media only screen and (max-width: 768px){
+    .navbar.subnav {
+        margin-top: 56px;
+    }
+}
+
 .navbar-toggle {
     margin: 0;
     display: none; /* Website 2.0: hide for now */
@@ -58,6 +64,12 @@
 
 .article.grid-right {
     margin-left: 315px;
+}
+
+@media only screen and (max-width: 768px){
+    .article.grid-right {
+        margin-left: 0;
+    }
 }
 
 @media (min-width: 1200px) {
