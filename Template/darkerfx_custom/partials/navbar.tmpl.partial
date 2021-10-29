@@ -1,5 +1,4 @@
 {{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
-
 <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -21,32 +20,17 @@
   </div>
 </nav>
 <nav id="autocollapse" class="navbar navbar-inverse navbar-fixed-top headroom" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        {{>partials/logo}}
-      </div>
-      <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-              <li ui-sref-active="active"><a href="https://intentarchitect.com/#/features">FEATURES</a></li>
-              <li ui-sref-active="active"><a href="https://intentarchitect.com/docs/">DOCS</a></li>
-              <li ui-sref-active="active"><a href="https://intentarchitect.com/#/downloads">DOWNLOADS</a></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
-              </form>
-            </div>
-            <li ui-sref-active="{'active': 'shell.useraccess.signup'}" ng-if="!vm.loggedIn"><a class="btn" href="https://intentarchitect.com/#/user-access/register">SIGN UP</a></li>
-          </ul>
-        </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      {{>partials/logo}}
     </div>
+    <div class="navbar-collapse collapse">
+    </div>
+  </div>
 </nav>

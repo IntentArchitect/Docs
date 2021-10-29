@@ -1,5 +1,8 @@
 {{!Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.}}
 
-<a class="navbar-brand" href="https://intentarchitect.com">
-  <img id="logo" class="navbar-brand" src="{{_rel}}{{{_appLogoPath}}}{{^_appLogoPath}}logo.svg{{/_appLogoPath}}" alt="{{_appName}}" style="height: 36px;"  >
+<a class="navbar-brand theme-light" href="https://intentarchitect.com">
+  <img id="logo" class="navbar-brand" src="{{_rel}}{{{_appLogoPath}}}{{^_appLogoPath}}logo.svg{{/_appLogoPath}}" alt="{{_appName}}"  >
+</a>
+<a class="navbar-brand theme-dark" href="https://intentarchitect.com">
+  <img id="logo" class="navbar-brand" src="{{_rel}}{{{_appLogoPathDark}}}{{^_appLogoPathDark}}logo.svg{{/_appLogoPathDark}}" alt="{{_appName}}" >
 </a>

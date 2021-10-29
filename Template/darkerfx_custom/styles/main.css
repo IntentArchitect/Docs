@@ -144,20 +144,6 @@ article h4 {
   border-right: 1px solid var(--theme-sidenav-border);
 }
 
-/* CUSTOM BEGIN */
-.sidefilter {
-  top: 120px;
-}
-
-.sidetoc {
-  top: 180px;
-}
-
-.sidetoc.shiftup {
-  bottom: 75px;
-}
-
-/* CUSTOM END */
 .toc-filter,
 .toc-filter>input {
   background-color: var(--theme-sidenav-filter-background);
@@ -684,13 +670,6 @@ article p img {
 
 .affix ul > li.active > ul, .affix ul > li.active > a:before, .affix ul > li > a:hover:before {
   white-space: normal;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 100%;
-    max-width: 1750px; /* And this will prevent things getting too wide */
-  }
 }
 
 @media screen and (max-width: 992px) {
