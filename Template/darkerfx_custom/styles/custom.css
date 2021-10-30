@@ -34,12 +34,6 @@
     margin-top:22px;
 }
 
-@media only screen and (max-width: 768px){
-    .navbar.subnav {
-        margin-top: 56px;
-    }
-}
-
 .navbar-toggle {
     margin: 0;
     display: none; /* Website 2.0: hide for now */
