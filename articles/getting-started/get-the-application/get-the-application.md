@@ -3,30 +3,33 @@ uid: getting-started.get-the-application
 ---
 
 # Get the application
+Intent Architect needs to be installed on your local machine. You can create an account, download and install the application by following the instructions below.
+> [!NOTE]
+> You will need a license to access the Intent Architect application. This will be auto-assigned if you are an existing customer. If you would like to get a license, please [getting in touch](https://intentarchitect.com/#/contact-us) with our team or sending an email to info@intentarchitect.com.
 
-## Create an account
+## 1. Create an account
 
 If you haven't yet done so, [create an account](https://intentarchitect.com/#/user-access/register).
 
-## Confirm your email address
+## 2. Confirm your email address
 
 Your email address will need to be confirmed before you can use Intent Architect. If you haven't already done so, follow the instructions in the email which was sent to you on account creation to confirm your email address.
 
 If you need another confirmation email sent, you can do so from your [account details page](https://intentarchitect.com/#/user-access/account-details).
 
-## Downloading
+## 3. Downloading & Installing
 
 Intent Architect can run on Windows, macOS and Linux, download links are available on the [downloads page](https://intentarchitect.com/#/downloads) of our website.
 
-## Installation (Windows)
+### Installation (Windows)
 
 Simply run the digitally signed `.exe` file which is a one-click installer which will install Intent Architect and then run it immediately afterwards.
 
-## Installation (macOS)
+### Installation (macOS)
 
 Simply open the `.dmg` file and drag Intent Architect into the Applications folder.
 
-## Installation (Linux)
+### Installation (Linux)
 
 For Linux we recommend downloading the [AppImage](https://appimage.org/) package format option which is able to run on any common Linux based operating system, e.g., Ubuntu, Debian, openSUSE, RHEL, CentOS, Fedora, etc.
 
