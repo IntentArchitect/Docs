@@ -4,13 +4,20 @@
 
 ### New features added in 3.1.6
 
-- Realtime code-management. While changes are staged during Software Factory execution, code-management changes are now applied if the existing source file is changed.
+- [Automatically re-run code weavers when file system change detected](#automatically-re-run-code-weavers-when-file-system-change-detected).
 - Support for multiple mapping configurations
-
 
 ### Issues fixed in 3.1.6
 
 - Contact Support appeared to be loading forever if you were offline, it will now instead show a non-distracting warning icon and try re-connect itself automatically when you're back online.
+
+### Automatically re-run code weavers when file system change detected
+
+During the "Staging Changes" phase of the Software Factory Execution, Intent Architect will now watch existing files on your disk drive for changes. When a change is detected it then re-runs the "Preparing Changes" phase for just that one file allowing instant previewing of code weaver changes.
+
+For example, when looking at a file's diff during "Staging Changes" you realize you actually want to mark a section of code as being ignored, you can make the change in the diff tool, press save and instantly see the effect:
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/3.1.0/rerun-transformers-automatically.mp4"></video></p>
 
 ## Version 3.1.5
 
