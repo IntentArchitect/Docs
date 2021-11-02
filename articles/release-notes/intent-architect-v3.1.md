@@ -6,11 +6,15 @@
 
 - [Automatically re-run code weavers when file system change detected](#automatically-re-run-code-weavers-when-file-system-change-detected).
 - [Warn during Software Factory Execution if installed modules are incompatible](#warn-during-software-factory-execution-if-installed-modules-are-incompatible).
-- Support for multiple mapping configurations
+- Additional mapping configuration support in Intent.ModuleBuilder
+  - Ability to specify name, symbol and styling for mapping configurations on elements.
+  - Support for multiple mapping configurations
+- Restart option added to Software Factory Executions that are minimized in the tray.
 
 ### Issues fixed in 3.1.6
 
 - Contact Support appeared to be loading forever if you were offline, it will now instead show a non-distracting warning icon and try re-connect itself automatically when you're back online.
+- Software Factory Execution will only flash if changes are staged while the execution is minimized.
 
 ### Automatically re-run code weavers when file system change detected
 
