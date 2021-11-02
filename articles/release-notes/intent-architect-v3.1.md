@@ -7,6 +7,11 @@
 - Realtime code-management. While changes are staged during Software Factory execution, code-management changes are now applied if the existing source file is changed.
 - Support for multiple mapping configurations
 
+
+### Issues fixed in 3.1.6
+
+- Contact Support appeared to be loading forever if you were offline, it will now instead show a non-distracting warning icon and try re-connect itself automatically when you're back online.
+
 ## Version 3.1.5
 
 ### New features added in 3.1.5
