@@ -5,6 +5,7 @@
 ### New features added in 3.1.6
 
 - [Automatically re-run code weavers when file system change detected](#automatically-re-run-code-weavers-when-file-system-change-detected).
+- [Warn during Software Factory Execution if installed modules are incompatible](#warn-during-software-factory-execution-if-installed-modules-are-incompatible).
 - Support for multiple mapping configurations
 
 ### Issues fixed in 3.1.6
@@ -18,6 +19,12 @@ During the "Staging Changes" phase of the Software Factory Execution, Intent Arc
 For example, when looking at a file's diff during "Staging Changes" you realize you actually want to mark a section of code as being ignored, you can make the change in the diff tool, press save and instantly see the effect:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/3.1.0/rerun-transformers-automatically.mp4"></video></p>
+
+### Warn during Software Factory Execution if installed modules are incompatible
+
+A warning will now show during Software Factory Execution when an installed module is marked as incompatible with the version of Intent Architect that is running:
+
+![Incompatible module warning](images/3.1.0/warn-when-incompatible-module.png)
 
 ## Version 3.1.5
 
