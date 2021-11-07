@@ -1,10 +1,14 @@
+---
+uid: release-notes.version-3-1
+---
 # Release notes: Intent Architect version 3.1
 
 ## Version 3.1.8
 
 ### New features added in 3.1.8
 
-- When ignoring/un-ignoring files in the Softwary Factory Execution changes dialogue, the preference is now saved immediately whereas before it was saved only on acceptance of changes.
+- When ignoring/un-ignoring files in the Software Factory Execution changes dialogue, the preference is now saved immediately whereas before it was saved only on acceptance of changes.
+- When creating an application or solution, there is now an option to create/update `.gitignore` files to ignore [relevant files](xref:references.scm-ignore-files).
 
 ## Version 3.1.7
 
