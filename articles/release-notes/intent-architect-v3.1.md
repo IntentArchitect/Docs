@@ -1,5 +1,11 @@
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.7
+
+### Issues fixed in 3.1.7
+
+- On Windows the diff tool for comparing staged changes would fail to launch if a user's `HOMEDRIVE` environment variable was set to an offline network drive.
+
 ## Version 3.1.6
 
 ### New features added in 3.1.6
