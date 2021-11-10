@@ -3,7 +3,7 @@ uid: templates.about-decorators
 ---
 # About Decorators
 
-Decorators provide a mechanism to extend a Template from another Module. The Template will set _hook points_ for extension, which can be implemented by the Decorator.
+Decorators are a mechanism which is used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a `Decorator contract` which a bespoke Decorator will implement.
 
 ## See also
 
