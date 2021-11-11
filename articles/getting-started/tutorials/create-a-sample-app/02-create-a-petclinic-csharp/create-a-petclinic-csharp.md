@@ -209,7 +209,7 @@ You will also observe that the `PetDTO` element has multiple fields sharing the 
 
 Lastly, for `OwnerDTO`:
 
-- Right-click the `PetDTO` element and click on the `Mapping...` option.
+- Right-click the `OwnerDTO` element and click on the `Mapping...` option.
 - Select the `Pet` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `id`
