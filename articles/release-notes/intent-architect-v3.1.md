@@ -10,6 +10,10 @@ uid: release-notes.version-3-1
 - When ignoring/un-ignoring files in the Software Factory Execution changes dialogue, the preference is now saved immediately whereas before it was saved only on acceptance of changes.
 - When creating an application or solution, there is now an option to create/update `.gitignore` files to ignore [relevant files](xref:references.scm-ignore-files).
 
+### Issues fixed in 3.1.8
+
+- The space bar key would not work to toggle checkboxes on the mapping screen.
+
 ## Version 3.1.7
 
 ### Issues fixed in 3.1.7
