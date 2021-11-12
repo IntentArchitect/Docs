@@ -199,6 +199,9 @@ Lay them out so that `Shape` is located center-top of the diagram, `Triangle` bo
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/new-diagram-and-move-over.mp4"></video></p>
 
+> [!WARNING]
+> Don't try to copy / cut these diagram elements when wanting to move/duplicate those elements onto separate diagrams since it will affect the actual elements on the tree-view (right hand side) and may have undesired effects. Rather refer to the video above when wanting to move/duplicate elements onto a separate diagram.
+
 ## Specifying inheritance between the Classes
 
 To specify that a Class is derived (or inherited) from another:
