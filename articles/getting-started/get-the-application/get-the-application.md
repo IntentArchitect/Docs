@@ -3,7 +3,7 @@ uid: getting-started.get-the-application
 ---
 
 # Get the application
-Intent Architect needs to be installed on your local machine. You can create an account, download and install the application by following the instructions below.
+Intent Architect needs to be installed on your local machine. You need to have an account created, the application downloaded and installed by following the instructions below.
 > [!NOTE]
 > You will need a license to access the Intent Architect application. This will be auto-assigned if you are an existing customer. If you would like to get a license, please [getting in touch](https://intentarchitect.com/#/contact-us) with our team or sending an email to info@intentarchitect.com.
 
