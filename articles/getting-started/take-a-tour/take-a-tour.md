@@ -42,7 +42,7 @@ To illustrate this, let's create a sample .NET Core Application using the `Clean
 Each block is a _Component_ and each represents one or more Modules that will be installed into the new Application. Each Component may be included or excluded as required. To see exactly which Modules will be installed depending on our selection of Components, we can expand the Component list on the right side of the page.
 
 ![Application Template Modules](images/application-template-modules.png)
-_This screenshot of the component list on the left of the screen shows exactly which modules would be installed from the selected Components._
+_This screenshot of the component list on the right of the screen shows exactly which modules would be installed from the selected Components._
 
 To create the Application we then click on the `CREATE` button.
 
@@ -110,19 +110,20 @@ Designers serve as a **blueprint** of your system. They can be used to describe 
 
 The Software Factory Execution is the process that executes the installed Modules with the metadata from the Designers within an Application. The result is changes to the codebase which are **staged** before being accepted or rejected.
 
-![Software Factory Execution](images/software-factory-execution.gif)
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution.mp4"></video></p>
 
 Intent Architect will not make changes to your codebase without your consent. The changes that are listed can be clicked on which will launch a Diff tool for you to view the changes between the files - like a _pull request_ from your robot developer friend.
 
 ![Diff Example](images/diff-example.png)
 _An example diff of changes made to a C# interface that's managed by Intent Architect._
 
-The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar. The execution is typically kicked off after completing some design changes, or installing / updating Modules.
+The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes, or installing / updating Modules.
 
 ![Play Button](images/software-factory-execution-play-button.png)
 
 > [!NOTE]
-> When you create Modules, it can sometimes be very useful to be able to **debug** them. Intent Architect supports this by prompting you to attach a debugger when you click the _Bug_ button to the left of the _Play_ button before it proceeds to perform the Software Factory Execution.
+> When you are developing Modules, it is possible to **Debug** them. Intent Architect supports this by prompting you to attach a debugger when you click the down arrow next to the the _Play_ button and selecting `Run with Debugging`.
+> ![Debug Button](images/software-factory-execution-debug-button.png)
 
 ## Solutions
 
