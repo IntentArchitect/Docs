@@ -124,6 +124,10 @@ Intent Architect will not make changes to your codebase without your consent. Th
 ![Diff Example](images/diff-example.png)
 _An example diff of changes made to a C# interface that's managed by Intent Architect._
 
+The Software Factory Execution can also be minimized while its busy processing the changes it needs to apply. This is useful when processing times might be long or for executing additional Software Factory Executions in parallel. You can end a Software Factory Execution prematurely by clicking on the Red button with the cross.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-minimize.mp4"></video></p>
+
 The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes, or installing / updating Modules.
 
 ![Play Button](images/software-factory-execution-play-button.png)
