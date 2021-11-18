@@ -4,3 +4,6 @@ items:
 
 - name: Notations
   href: notations/notations.md
+
+- name: SCM ignore files
+  href: scm-ignore-files/scm-ignore-files.md
