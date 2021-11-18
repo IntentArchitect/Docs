@@ -26,7 +26,7 @@ Creating a new application in Intent Architect can be done by clicking on the `C
 
 The first page of the wizard lists the available [Application Templates](#application-templates) in the selected repository (by default this will be Intent Architect's website [https://intentarchitect.com/](https://intentarchitect.com/) but could be a local directory or network location. [Learn how to change your default repositories here](xref:user-interface.how-to-change-user-settings)).
 
-Here you can search and choose which application template you want and directly configure key settings like the Application's name, location and [solution](#solutions) name.
+Here you can search and choose which application template you want and directly configure key settings like the Application's name, location and the [solution](#solutions)'s name.
 
 > [!NOTE]
 > It is possible to create an empty application by clicking on the `CREATE EMPTY` button instead of `NEXT`. This would create a new application without any Modules or metadata installed.
@@ -56,7 +56,7 @@ _The modules downloaded in the example above are specifically related to the `Cl
 
 ## Application Settings
 
-Once Intent Architect has finished creating the application and installing the selected components, it will open it automatically on the _Settings_ view.
+Once Intent Architect has finished creating the application and installing the selected components, it will open the _Settings_ view automatically.
 
 ![Application Settings](images/application-settings.png)
 
@@ -82,6 +82,13 @@ _This example shows the list of Installed Modules in our sample application. The
 
 > [!NOTE]
 > When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions that it is made up of).
+
+### Module Settings
+
+It is worth noting that some Modules provide additional settings that a developer can configure. These sections can be found on the [Application Settings](#application-settings) page.
+
+![Module Settings](images/application-settings-module-settings.png)
+_This example shows that the Module `Entity Key` has a `Key Type` selector which allows a developer to choose which Datatype would best represent a Primary Key for that application. In this case it will be represented as a `guid`._
 
 ## Designers
 
@@ -134,7 +141,9 @@ An Application can only be opened in the context on a Solution, which is represe
 ![Solution Dashboard](images/solution-dashboard.png)
 _A Solution dashboard with a single Application from this tour._
 
-Additional Applications can be created from the Solution dashboard by clicking on the `Create new application...` button. Applications can also be filtered with the text field as well as _favourited_ by clicking the _Star_ in the top right-hand of an Application. They can be removed by right-clicking and selecting the `Delete` option.
+Additional Applications can be created from the Solution dashboard by clicking on the `Create new application...` button or a clone can be performed (similar to a Github template repository) on an existing Intent Architect project by clicking on `Copy Existing Application...`. 
+
+Applications can also be filtered with the text field as well as _favourited_ by clicking the _Star_ in the top right-hand of an Application. They can be removed by right-clicking and selecting the `Delete` option.
 
 ## What's Next
 
