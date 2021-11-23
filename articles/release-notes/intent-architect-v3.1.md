@@ -13,7 +13,8 @@ uid: release-notes.version-3-1
 - SDK now exposes visual metadata for diagrams.
 - Expand/Collapse node functions extended to when more than one tree node is selected. Shortcuts (left arrow & right arrow) apply as before.
 - Stereotypes can now be visualized as annotations:
-  ![Picture of stereotypes visualized as annotations](images/3.1.0/stereotypes-annotation-visualization.png)
+
+![Picture of stereotypes visualized as annotations](images/3.1.0/stereotypes-annotation-visualization.png)
 - Additional triggers for scripts (e.g. on-name-changed and on-mapped for elements).
 
 ### Issues fixed in 3.1.8
