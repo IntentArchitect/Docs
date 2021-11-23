@@ -26,7 +26,7 @@ Creating a new application in Intent Architect can be done by clicking on the `C
 
 The first page of the wizard lists the available [Application Templates](#application-templates) in the selected repository (by default this will be Intent Architect's website [https://intentarchitect.com/](https://intentarchitect.com/) but could be a local directory or network location. [Learn how to change your default repositories here](xref:user-interface.how-to-change-user-settings)).
 
-Here you can search and choose which application template you want and directly configure key settings like the Application's name, location and [solution](#solutions) name.
+Here you can search and choose which application template you want and directly configure key settings like the Application's name, location and the [solution](#solutions)'s name.
 
 > [!NOTE]
 > It is possible to create an empty application by clicking on the `CREATE EMPTY` button instead of `NEXT`. This would create a new application without any Modules or metadata installed.
@@ -42,7 +42,7 @@ To illustrate this, let's create a sample .NET Core Application using the `Clean
 Each block is a _Component_ and each represents one or more Modules that will be installed into the new Application. Each Component may be included or excluded as required. To see exactly which Modules will be installed depending on our selection of Components, we can expand the Component list on the right side of the page.
 
 ![Application Template Modules](images/application-template-modules.png)
-_This screenshot of the component list on the left of the screen shows exactly which modules would be installed from the selected Components._
+_This screenshot of the component list on the right of the screen shows exactly which modules would be installed from the selected Components._
 
 To create the Application we then click on the `CREATE` button.
 
@@ -56,7 +56,7 @@ _The modules downloaded in the example above are specifically related to the `Cl
 
 ## Application Settings
 
-Once Intent Architect has finished creating the application and installing the selected components, it will open it automatically on the _Settings_ view.
+Once Intent Architect has finished creating the application and installing the selected components, it will open the _Settings_ view automatically.
 
 ![Application Settings](images/application-settings.png)
 
@@ -82,6 +82,13 @@ _This example shows the list of Installed Modules in our sample application. The
 
 > [!NOTE]
 > When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions that it is made up of).
+
+### Module Settings
+
+It is worth noting that some Modules provide additional settings that a developer can configure. These sections can be found on the [Application Settings](#application-settings) page.
+
+![Module Settings](images/application-settings-module-settings.png)
+_This example shows that the Module `Entity Key` has a `Key Type` selector which allows a developer to choose which Datatype would best represent a Primary Key for that application. In this case it will be represented as a `guid`._
 
 ## Designers
 
@@ -110,19 +117,24 @@ Designers serve as a **blueprint** of your system. They can be used to describe 
 
 The Software Factory Execution is the process that executes the installed Modules with the metadata from the Designers within an Application. The result is changes to the codebase which are **staged** before being accepted or rejected.
 
-![Software Factory Execution](images/software-factory-execution.gif)
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution.mp4"></video></p>
 
 Intent Architect will not make changes to your codebase without your consent. The changes that are listed can be clicked on which will launch a Diff tool for you to view the changes between the files - like a _pull request_ from your robot developer friend.
 
 ![Diff Example](images/diff-example.png)
 _An example diff of changes made to a C# interface that's managed by Intent Architect._
 
-The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar. The execution is typically kicked off after completing some design changes, or installing / updating Modules.
+The Software Factory Execution can also be minimized while it's busy processing the changes it needs to apply. This is useful when processing times might be long or for executing additional Software Factory Executions in parallel. You can end a Software Factory Execution prematurely by clicking on the Red button with the cross.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-minimize.mp4"></video></p>
+
+The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes, or installing / updating Modules.
 
 ![Play Button](images/software-factory-execution-play-button.png)
 
 > [!NOTE]
-> When you create Modules, it can sometimes be very useful to be able to **debug** them. Intent Architect supports this by prompting you to attach a debugger when you click the _Bug_ button to the left of the _Play_ button before it proceeds to perform the Software Factory Execution.
+> When you are developing Modules, it is possible to **Debug** them. Intent Architect supports this by prompting you to attach a debugger when you click the down arrow next to the the _Play_ button and selecting `Run with Debugging`.
+> ![Debug Button](images/software-factory-execution-debug-button.png)
 
 ## Solutions
 
@@ -133,7 +145,9 @@ An Application can only be opened in the context on a Solution, which is represe
 ![Solution Dashboard](images/solution-dashboard.png)
 _A Solution dashboard with a single Application from this tour._
 
-Additional Applications can be created from the Solution dashboard by clicking on the `Create new application...` button. Applications can also be filtered with the text field as well as _favourited_ by clicking the _Star_ in the top right-hand of an Application. They can be removed by right-clicking and selecting the `Delete` option.
+Additional Applications can be created from the Solution dashboard by clicking on the `Create new application...` button or a clone can be performed (similar to a Github template repository) on an existing Intent Architect project by clicking on `Copy Existing Application...`. 
+
+Applications can also be filtered with the text field as well as _favourited_ by clicking the _Star_ in the top right-hand of an Application. They can be removed by right-clicking and selecting the `Delete` option.
 
 ## What's Next
 
