@@ -9,14 +9,17 @@ In this next part of the tutorial we will extend our `MyModules.Entities` Module
 
 First, to access the `Domain` types so that we can configure our Template correctly, we must install metadata from the `Intent.Modelers.Domain` Module into our Module Builder.
 
-1. Open the `MyModules.Entities` Application.
+1. Open the `MyModules` Application.
 2. Navigate to the `Modules` tab.
-3. Ensure that the `https://intentarchitect.com/` repository is selected.
+3. Ensure that the `All` option in the repository drop-down is selected.
 4. Search for the `Intent.Modelers.Domain` Module.
 5. In the Module details pane, expand the `Options` and check the `Install metadata only` checkbox.
 
     > [!NOTE]
-    > By selecting the `Install Metadata only` option, Intent Architect will not install the Designer but a Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now). This feature is typically used in the Module Builder.
+    > By selecting the `Install Metadata only` option, Intent Architect will not install the Designer. This feature is typically used in the Module Builder.
+    >
+    > [!NOTE]
+    > A Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now).
 6. Click `Install` to install the Module.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/modules-install-domain-metadata-only.mp4"></video></p>
@@ -109,10 +112,10 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     ```
 
     > [!NOTE]
-    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
-
-    > [!NOTE]
     > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single-file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
+    >
+    > [!NOTE]
+    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/templatizing-entities-t4.mp4"></video></p>
 
