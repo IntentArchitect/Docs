@@ -19,19 +19,22 @@ Ensure the following components are selected:
 
 Click `CREATE`.
 
-An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will show `Process complete.` and you can click the `CLOSE` button:
+An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will disappear allowing you to start building your own Module.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-a-new-module.mp4"></video></p>
 
-## Create a package
+## Open and rename the package
 
 Click on `Module Builder` on the left of the screen to enter the designer.
 
-Click `CREATE NEW PACKAGE`.
+Click on the `MyModules` package, right-click and select `Rename`.
 
-Enter a name for the `Package` (such as `MyModules.Entities`) and click `DONE`.
+> [!NOTE]
+> This rename step is optional but demonstrates the process of how to accomplish this if required.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-the-package.mp4"></video></p>
+Enter a name for the `Package` (such as `MyModules.Entities`) and press `ENTER`. It will prompt you whether you want to change the underlying files. Click on `YES`. Finally click on `Save`.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/open-and-rename-the-package.mp4"></video></p>
 
 ## Create a template
 
@@ -48,9 +51,15 @@ We are now ready to run the software factory. Press the play button near the top
 > [!NOTE]
 > If your changes are unsaved you will be asked if you want to save them before proceeding.
 
-Once the Software Factory has executed the templates, it pauses to give you an opportunity to review the proposed changes (called staging). You can click an entry and it will open in a diff tool. If you are satisfied with the proposed changes you can press the `APPLY CHANGES` button to continue. When the Software Factory Execution is complete, you will be presented with the `CLOSE` button to end the session.
+Once the Software Factory has executed the templates, it pauses to give you an opportunity to review the proposed changes (called staging). You can click an entry and it will open in a diff tool. If you are satisfied with the proposed changes you can press the `APPLY CHANGES` button to continue. 
+
+As the Software Factory Execution is running it will present expandable items that allow you to drill deeper into the current activity currently being performed by the Software Factory.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/run-the-software-factory.mp4"></video></p>
+
+When the Software Factory Execution is complete, you can choose to close it (button with the cross) or minimize it (button with the underline). For this tutorial we recommend you minimize it as to make use of Intent Architect's continuous processing feature that runs in the background (which will be demonstrated later in the tutorial).
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/minimize-the-software-factory.mp4"></video></p>
 
 ## Edit the template in Visual Studio
 
