@@ -26,7 +26,7 @@ Ensure that the following Modules are selected:
 - `Entity Framework Core`
 - `Visual Studio Integration`
 
-An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will show `Process complete.` and you can click the `CLOSE` button:
+An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will hide automatically:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-new-app.mp4"></video></p>
 
@@ -50,9 +50,9 @@ This PetClinic application's business domain requires the following [entities](h
 - `Owner` (to which a `Pet` "belongs to")
 - `Visit` (to represent each visit by a `Pet` to the PetClinic)
 
-Entities can be added to the domain modeler by right-clicking on the background of it and clicking the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly clicking the `New Class` option.
+Entities can be added to the domain modeler by right-clicking on the background and selecting the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly selecting the `New Class` option.
 
-Create a `Pet` entity and then right-click it (on either the visual diagram's block, or the tree view element) and click the `Add Attribute` option to add the following attributes:
+Create a `Pet` entity and then right-click it (on either the visual diagram's block, or the tree view element) and select the `Add Attribute` option to add the following attributes:
 
 - `name` of type `string`
 - `birthDate` of type `date`
