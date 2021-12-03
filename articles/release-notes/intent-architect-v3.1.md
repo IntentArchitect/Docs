@@ -14,6 +14,8 @@ uid: release-notes.version-3-1
   - Escape will minimize the modal.
 - Enhanced JavaScript API for Designer Macros to support generics and associations.
 - Associations in diagrams are rendered behind the elements. When selected, selection will high-light over elements.
+- Macro API now allows creation of associations.
+- Macro API now allows specifying of generic type parameters.
 
 ### Issues fixed in 3.1.9
 
