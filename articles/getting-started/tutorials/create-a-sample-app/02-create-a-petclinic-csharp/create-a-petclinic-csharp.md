@@ -26,7 +26,7 @@ Ensure that the following Modules are selected:
 - `Entity Framework Core`
 - `Visual Studio Integration`
 
-An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will show `Process complete.` and you can click the `CLOSE` button:
+An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will hide automatically:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-new-app.mp4"></video></p>
 
@@ -50,23 +50,17 @@ This PetClinic application's business domain requires the following [entities](h
 - `Owner` (to which a `Pet` "belongs to")
 - `Visit` (to represent each visit by a `Pet` to the PetClinic)
 
-Entities can be added to the domain modeler by right-clicking on the background of it and clicking the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly clicking the `New Class` option.
+Entities can be added to the domain modeler by right-clicking on the background and selecting the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly selecting the `New Class` option.
 
-Create a `Pet` entity and then right-click it (on either the visual diagram's block, or the tree view element) and click the `Add Attribute` option to add the following attributes:
+Create a `Pet` entity and then right-click it (on either the visual diagram's block, or the tree view element) and select the `Add Attribute` option to add the following attributes:
 
-- `id` of type `int`
 - `name` of type `string`
 - `birthDate` of type `date`
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-entity-pet.mp4"></video></p>
 
-Right-click on the `id` attribute and select `Add Stereotype`. Select the `Primary Key` [stereotype](xref:stereotypes.about-stereotypes) from the list.
-
-![What the `Pet` entity should look like](images/pet-entity-primary-key.png)
-
 Create an `Owner` entity with the following attributes:
 
-- `id` of type `int` (Primary Key)
 - `firstName` of type `string`
 - `lastName` of type `string`
 - `address` of type `string`
@@ -75,9 +69,12 @@ Create an `Owner` entity with the following attributes:
 
 ![What the `Owner` entity should now look like.](images/owner-entity-alone.png)
 
+> [!NOTE]
+> You may have noticed that no `id` field has been specified. This is because the code that will be generated will automatically generate one for us.
+
 ## Specify the relationships between entities
 
-Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect modelers can be initiated by right-clicking an entity in the visual diagram, then clicking the `New Association` option and then completed by clicking on the other class which you want to be the target of the relationship.
+Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect designers can be initiated by right-clicking on an entity in the visual diagram, then selecting the `New Association` option which is then completed by clicking on the other class which you want to be the target of the relationship.
 
 > [!NOTE]
 > Refer to [this article](xref:designers.about-domain-designer.about-associations) if you wish to learn more about Associations.
@@ -98,7 +95,6 @@ Setup a `Visit` entity to be as follows:
   - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
   - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
 - Add the following attributes:
-  - `id` of type `int` (Primary Key).
   - `visitDate` of type `date`.
   - `description` of type `string`.
 
@@ -108,7 +104,6 @@ Also, setup a `PetType` entity in a similar way:
   - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is *un*checked.
   - In the property pane within the `Source End` section ensure that `Is Collection` is checked.
 - Add the following attributes:
-  - `id` of type `int` (Primary Key).
   - `name` of type `string`.
 
 ![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram.png)
@@ -140,7 +135,7 @@ Create a new Package in which [DTO](https://en.wikipedia.org/wiki/Data_transfer_
 
 Create the `OwnerDTO`:
 
-- Right-click on the `DTOs` package and click the `New DTO` option.
+- Right-click on the `DTOs` package and select the `New DTO` option.
 - Give it the name `OwnerDTO`.
 
 Also create also the following additional DTOs:
@@ -165,7 +160,6 @@ Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add
 - Pull down the `Select an element to map from` dropdown and observe that it has a list of the modelled domain entities.
 - Choose the `Visit` Entity.
 - Ensure that the following attributes are checked:
-  - `id`
   - `visitDate`
   - `description`
 
@@ -178,15 +172,12 @@ Similarly for `PetDTO`:
 - Right-click the `PetDTO` element and click on the `Mapping...` option.
 - Select the `Pet` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
-  - `id`
   - `name`
   - `birthDate`
-  - `Visit`
+  - `Visits`
 - Expand the `PetType` association and ensure the following attributes under it are checked:
-  - `id`
   - `name`
 - Expand the `Owner` association and ensure the following attributes under it are checked:
-  - `id`
   - `firstName`
   - `lastName`
 
@@ -199,9 +190,7 @@ You will likely have noticed that `Visits` field has been highlighted in red, th
 
 You will also observe that the `PetDTO` element has multiple fields sharing the same name. Also observe that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique, it is generally suggested to make the name the same as the path, but without the periods and while also maintaining the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
 
-- `id` from `PetType.id` becomes `petTypeId`.
 - `name` from `PetType.name` becomes `petTypeName`.
-- `id` from `Owner.id` becomes `ownerId`.
 - `firstName` from `Owner.firstName` becomes `ownerFirstName`.
 - `lastName` from `Owner.lastName` becomes `ownerLastName`.
 
@@ -210,9 +199,8 @@ You will also observe that the `PetDTO` element has multiple fields sharing the 
 Lastly, for `OwnerDTO`:
 
 - Right-click the `OwnerDTO` element and click on the `Mapping...` option.
-- Select the `Pet` Entity from the bottom drop-down.
+- Select the `Owner` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
-  - `id`
   - `firstName`
   - `lastName`
   - `address`
@@ -260,33 +248,58 @@ Click on the file located in the `Implementation` folder.
 
 ![View of the Software Factory Changes](images/software-factory-run-staging-ownerservice.png)
 
-On clicking the file, Intent Architect will start up an external "diff" tool which you can use to review the changes. By default Intent Architect will use Visual Studio Code if it can find it, otherwise you can manually configure any other "diff" tool in Settings.
+On double-clicking the file, Intent Architect will start up an external "diff" tool which you can use to review the changes. By default Intent Architect will use Visual Studio Code if it can find it, otherwise you can manually configure any other "diff" tool in Settings.
 
 ![A "diff" showing the staged contents of OwnerService.cs](images/software-factory-run-staging-diff-ownerrestcontroller-impl.png)
 
-Don't apply the changes for the moment and instead click `CANCEL`.
+Don't apply the changes for the moment and instead minimize the Software Factory Execution by clicking on the minimize button.
 
 Click the `Modules` option located in the left pane of the window and install the following modules:
 
 - `Intent.EntityFrameworkCore.Repositories`
 - `Intent.Application.ServiceImplementations.Conventions.CRUD`
 
-Execute the Software Factory again, click the file `OwnerService` in the changes and observe how its output has changed from the previous run.
+Once you've installed those modules, you will notice a blinking button at the bottom of the screen. Click on it to view the Software Factory Execution again. When it detected the module installation, it automatically performed another Software Factory Execution.
+
+Once it is done, double-click the file `OwnerService` in the changes and observe how its output has changed from the previous run.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/view-software-factory-after-module-installation.mp4"></video></p>
 
 ![Service Implementation CRUD](images/software-factory-run-staging-diff-ownerrestcontroller-impl-crud.png)
 
 > [!NOTE]
 > Observe that the operations are now populated with code that will facilitate [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations.
 >
-> The `Intent.Application.ServiceImplementations.Conventions.CRUD` module automatically checked for operations which followed simple conventions and generated basic implementations where found.
+> The `Intent.Application.ServiceImplementations.Conventions.CRUD` module automatically checked for operations which followed simple conventions and generated basic implementations where detected.
 >
-> Anything not meeting these conventions was ignored and no implementations were generated.
+> Anything not meeting those conventions were ignored and no implementations were generated.
 >
 > [!WARNING]
 >
 > It is recommended to always review all files in the `Changes` tab of the Software Factory Execution to ensure that all changes that will be applied are as expected.
 
-This time we will commit the changes, so click `APPLY CHANGES`.
+This time we will commit the changes, so click `APPLY CHANGES`. Minimize the Software Factory Execution once again.
+
+## Add missing Id fields to DTOs
+
+Up to this point we are not presenting any `Id`s to the consumer of our API Services.
+
+Navigate back to the `Services` designer and perform the following:
+
+- Right-click on `OwnerDTO` and add a new field called `id` with the type `guid`.
+- In the properties panel, click on `Is Mapped`.
+- A `Mapping Path` field appears. Enter `Id`.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet-visit-with-ids.mp4"></video></p>
+
+Click on save and again observe a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution-after-id-added.mp4"></video></p>
+
+`APPLY` the change and do the same for the following types:
+
+- `PetDTO`
+- `PetVisitDTO`
 
 ## Test the generated application's back-end
 
