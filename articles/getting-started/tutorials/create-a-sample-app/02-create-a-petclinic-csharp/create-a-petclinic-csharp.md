@@ -199,7 +199,7 @@ You will also observe that the `PetDTO` element has multiple fields sharing the 
 Lastly, for `OwnerDTO`:
 
 - Right-click the `OwnerDTO` element and click on the `Mapping...` option.
-- Select the `Pet` Entity from the bottom drop-down.
+- Select the `Owner` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `firstName`
   - `lastName`
@@ -259,7 +259,7 @@ Click the `Modules` option located in the left pane of the window and install th
 - `Intent.EntityFrameworkCore.Repositories`
 - `Intent.Application.ServiceImplementations.Conventions.CRUD`
 
-Once you've installed those modules, you will notice a blinking button at the bottom of the screen. Click on it to view the Software Factory Execution again. It detected changes being made and performed another Software Factory Execution.
+Once you've installed those modules, you will notice a blinking button at the bottom of the screen. Click on it to view the Software Factory Execution again. When it detected the module installation, it automatically performed another Software Factory Execution.
 
 Once it is done, double-click the file `OwnerService` in the changes and observe how its output has changed from the previous run.
 
@@ -292,7 +292,7 @@ Navigate back to the `Services` designer and perform the following:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet-visit-with-ids.mp4"></video></p>
 
-Click on save and observe that this change is immediately being detected and the Software Factory is executed once more.
+Click on save and again observe a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution-after-id-added.mp4"></video></p>
 
