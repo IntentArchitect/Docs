@@ -3,6 +3,24 @@ uid: release-notes.version-3-1
 ---
 # Release notes: Intent Architect version 3.1
 
+## Version 3.1.9
+
+### New features added in 3.1.9
+
+- Improved shortcuts for Software Factory Execution:
+  - F5 will launch and start the execution.
+  - If launched, F5 will restart execution.
+  - On stage, Enter will apply changes.
+  - Escape will minimize the modal.
+- Enhanced JavaScript API for Designer Macros to support generics and associations.
+- Associations in diagrams are rendered behind the elements. When selected, selection will high-light over elements.
+
+### Issues fixed in 3.1.9
+
+- User settings -> Application location browse button always disabled.
+- Fixed minor bugs in JavaScript API
+- Diagrams unable to select default `New element location` from parent hierarchy.
+
 ## Version 3.1.8
 
 ### New features added in 3.1.8
