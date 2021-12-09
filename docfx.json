@@ -38,6 +38,7 @@
           "obj/**",
           "_site/**",
           "readme.md",
+          "guidelines.md",
           "articles/toc.yml"
         ]
       }
@@ -45,10 +46,10 @@
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "Intent Architect",
-      "_enableSearch":"true",
-      "_appLogoPath":"./images/logo.png",
-      "_appLogoPathDark":"./images/logo-white.png",
-      "_appFaviconPath":"/images/favicon.ico",
+      "_enableSearch": true,
+      "_appLogoPath": "./images/logo.png",
+      "_appLogoPathDark": "./images/logo-white.png",
+      "_appFaviconPath": "/images/favicon.ico",
       "_appFooter": "<span>Copyright © 2017-<script type=\"text/javascript\">document.write((new Date()).getFullYear());</script>, Intent Software (Pty) Ltd.</span>\n<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-106066850-1\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'UA-106066850-1');\n</script>"
     }, 
     "globalMetadataFiles": [],
