@@ -1,7 +1,10 @@
+/* 
+
+NOTE:
+Try not to touch this file. Please make any changes in the custom.css file
+
+*/
 /*
- * NOTE:
- * This was compiled and modified (see CUSTOM BEGIN/END comments) off the the original DarkerFx main.scss file.
- * 
  * Based on darkfx theme for docfx, Copyright (c) Oscar Vasquez and/or
  * steffen-wilke. All rights reserved. Licensed under the MIT license.
  *
@@ -40,10 +43,7 @@ body.theme-dark {
   --theme-background-footer: #171717;
   --theme-background-table-alt: #212123;
   --theme-background-quote: #69696e;
-  /* CUSTOM BEGIN */
-  --theme-code-block-default: #CCC;
-  --theme-inline-code: #ffce76;
-  /* CUSTOM END */
+  --theme-inline-code: inherit;
   --theme-inline-code-background: #454545;
   --theme-code-border: #404040;
   --theme-border-subnav: #404040;
@@ -71,10 +71,7 @@ body.theme-light {
   --theme-background-subnav: #f5f5f5;
   --theme-background-footer: #f8f8f8;
   --theme-background-table-alt: #f9f9f9;
-  /* CUSTOM BEGIN */
-  --theme-code-block-default: #333;
   --theme-inline-code: #c7254e;
-  /* CUSTOM END */
   --theme-inline-code-background: #f9f2f4;
   --theme-code-border: #e7e7e7;
   --theme-border-footer: #e7e7e7;
@@ -85,15 +82,10 @@ body {
   background-color: var(--theme-body-background);
 }
 
-/* CUSTOM BEGIN */
-/*article h4 {
-    border-bottom: 2px solid var(--theme-underline);
-  }*/
 article h4 {
-  border-bottom: none;
+  border-bottom: 2px solid var(--theme-underline);
 }
 
-/* CUSTOM END */
 .navbar-brand>img {
   color: var(--theme-background);
 }
@@ -113,9 +105,7 @@ article h4 {
 .navbar-inverse .navbar-nav>li>a,
 .navbar-inverse .navbar-text {
   color: var(--theme-navbar);
-  /* CUSTOM BEGIN */
-  /*background-color: var(--theme-background-navbar);*/
-  /* CUSTOM END */
+  background-color: var(--theme-background-navbar);
 }
 
 /* Link in navbar being hovered */
@@ -185,7 +175,6 @@ body.theme-dark button,
 body.theme-dark a {
   color: #5999d8;
 }
-
 body.theme-dark .alert>p {
   background-color: var(--theme-background-dark);
 }
@@ -278,20 +267,10 @@ body.theme-light .alert-danger .alert-link {
   color: var(--theme-foreground);
 }
 
-/* CUSTOM BEGIN */
 .footer {
-  /*background-color: var(--theme-background-footer);
-    border-top: 1px solid var(--theme-border-footer);*/
-
-  border-top: none;
-  background-color: inherit;
+  background-color: var(--theme-background-footer);
+  border-top: 1px solid var(--theme-border-footer);
 }
-
-footer {
-  padding: 10px;
-}
-
-/* CUSTOM END */
 
 .toc .nav>li>a:hover,
 .toc .nav>li>a:focus {
@@ -332,9 +311,6 @@ input#search-query:focus {
 blockquote {
   border-left: 5px solid var(--theme-background-quote);
   color: var(--theme-background-quote);
-  /* CUSTOM BEGIN */
-  font-style: normal;
-  /* CUSTOM END */
 }
 
 .pagination>.disabled>a,
@@ -442,7 +418,6 @@ code {
 }
 
 pre code {
-  color: var(--theme-code-block-default);
   background-color: inherit;
 }
 
@@ -453,13 +428,13 @@ pre {
 }
 
 /*
-   * highlight.js custom theme (dark version)
-   *
-   * Visual Studio 2015 dark style
-   * Author: Nicolas LLOBERA <nllobera@gmail.com>
-   *
-   * Original style can be found here: https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs2015.css
-   */
+ * highlight.js custom theme (dark version)
+ *
+ * Visual Studio 2015 dark style
+ * Author: Nicolas LLOBERA <nllobera@gmail.com>
+ *
+ * Original style can be found here: https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs2015.css
+ */
 body.theme-dark .hljs {
   display: block;
   overflow-x: auto;
@@ -569,14 +544,14 @@ body.theme-dark .hljs-deletion {
 }
 
 /*
-   * highlight.js custom theme (light version)
-   *
-   * Visual Studio-like style based on original C# coloring by Jason Diamond
-   <jason@diamond.name>
-   *
-   * Original style can be found here:
-   * https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css
-   */
+ * highlight.js custom theme (light version)
+ *
+ * Visual Studio-like style based on original C# coloring by Jason Diamond
+  <jason@diamond.name>
+ *
+ * Original style can be found here:
+ * https://github.com/highlightjs/highlight.js/blob/main/src/styles/vs.css
+ */
 body.theme-light .hljs {
   display: block;
   overflow-x: auto;
@@ -639,50 +614,3 @@ body.theme-light .hljs-emphasis {
 body.theme-light .hljs-strong {
   font-weight: bold;
 }
-
-/* CUSTOM BEGIN */
-div.NOTE a {
-  text-decoration: underline;
-}
-
-div.TIP a {
-  text-decoration: underline;
-}
-
-article p img {
-  display: block;
-  margin: auto;
-  border-width: 1px;
-}
-
-.featherlight .featherlight-content {
-  background: var(--theme-body-background);
-}
-
-.sideaffix {
-  width: auto;
-  bottom: 0 !important;
-}
-
-.bs-docs-sidenav {
-  width: 100%;
-}
-
-.affix ul > li.active > ul, .affix ul > li.active > a:before, .affix ul > li > a:hover:before {
-  white-space: normal;
-}
-
-@media screen and (max-width: 992px) {
-  .col-md-10 {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 500px) {
- 
-  p {
-    text-align: justify;
-  }
-}
-
-/* CUSTOM END */

@@ -19,18 +19,3 @@
     </div>
   </div>
 </nav>
-<nav id="autocollapse" class="navbar navbar-inverse navbar-fixed-top headroom" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      {{>partials/logo}}
-    </div>
-    <div class="navbar-collapse collapse">
-    </div>
-  </div>
-</nav>

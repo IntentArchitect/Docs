@@ -1,16 +1,79 @@
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1140px;
-    }
+/*
+
+NOTE:
+Contains custom CSS and also CSS Overrides based on all the other CSS files.
+
+*/
+
+:root,
+body.theme-dark {
+    --theme-code-block-default: #CCC;
+    --theme-inline-code: #ffce76;
+}
+
+body.theme-light {
+    --theme-code-block-default: #333;
+    --theme-inline-code: #c7254e;
+    --theme-background-navbar: #f1f1f1;
+}
+
+article h4 {
+    border-bottom: none;
+}
+
+.footer {
+    border-top: none;
+    background-color: inherit;
+}
+
+footer {
+    padding: 10px;
+}
+
+blockquote {
+    font-style: normal;
+}
+
+pre code {
+    color: var(--theme-code-block-default);
+}
+
+div.NOTE a {
+    text-decoration: underline;
+}
+
+div.TIP a {
+    text-decoration: underline;
+}
+
+article p img {
+    display: block;
+    margin: auto;
+    border-width: 1px;
+}
+
+.featherlight .featherlight-content {
+    background: var(--theme-body-background);
+}
+
+.sideaffix {
+    width: auto;
+    bottom: 0 !important;
+}
+
+.bs-docs-sidenav {
+    width: 100%;
+}
+
+.affix ul>li.active>ul,
+.affix ul>li.active>a:before,
+.affix ul>li>a:hover:before {
+    white-space: normal;
 }
 
 .theme-light .navbar.navbar-fixed-top {
     background-color: white;
     border-bottom: 1px solid lightgray;
-}
-
-.navbar.navbar-fixed-top {
-    padding: 22px 0;
 }
 
 .theme-dark .navbar-brand.theme-light {
@@ -30,13 +93,13 @@
     height: auto;
 }
 
-.navbar.subnav {
-    margin-top:22px;
+.navbar-inverse {
+    padding-top: 20px;
+    min-height: 73px;
 }
 
-.navbar-toggle {
-    margin: 0;
-    display: none; /* Website 2.0: hide for now */
+.navbar-form {
+    margin-top: 0px;
 }
 
 .hide-when-search.container {
@@ -47,6 +110,7 @@
     max-width: 100%;
     width: 100%;
 }
+
 .body-content.container {
     padding-right: 15px;
     padding-left: 15px;
@@ -59,20 +123,6 @@
 .article.grid-right {
     margin-left: 315px;
 }
-
-@media only screen and (max-width: 768px){
-    .article.grid-right {
-        margin-left: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .article.grid-right {
-        margin-left: 26%;
-        margin-right: 8.3%
-    }
-}
-
 
 .sidefilter {
     top: 113px;
@@ -92,4 +142,35 @@
 
 .toc {
     margin-left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+    .col-md-10 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    p {
+        text-align: justify;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .article.grid-right {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .article.grid-right {
+        margin-left: 26%;
+        margin-right: 8.3%
+    }
 }

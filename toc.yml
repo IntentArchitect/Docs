@@ -1,0 +1,3 @@
+# This is a hack to fix the top nav panel since we don't want any menu items there and we want the search box visible
+items:
+  - name: ' '
