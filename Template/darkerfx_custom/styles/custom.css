@@ -9,12 +9,14 @@ Contains custom CSS and also CSS Overrides based on all the other CSS files.
 body.theme-dark {
     --theme-code-block-default: #CCC;
     --theme-inline-code: #ffce76;
+    --theme-alert-code-border: #404040;
 }
 
 body.theme-light {
     --theme-code-block-default: #333;
     --theme-inline-code: #c7254e;
     --theme-background-navbar: #f1f1f1;
+    --theme-alert-code-border: #c9c9c9;
 }
 
 article h4 {
@@ -50,6 +52,14 @@ article p img {
     display: block;
     margin: auto;
     border-width: 1px;
+}
+
+/* 
+Since we cannot identify a parent based on a child ("code.lang-text") 
+I can only assume that a "pre" will mean there is a code block to follow. 
+*/
+div.alert pre {
+    border: 1px solid var(--theme-alert-code-border);
 }
 
 .featherlight .featherlight-content {
