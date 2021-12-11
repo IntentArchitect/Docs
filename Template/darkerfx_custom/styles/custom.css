@@ -40,14 +40,6 @@ pre code {
     color: var(--theme-code-block-default);
 }
 
-div.NOTE a {
-    text-decoration: underline;
-}
-
-div.TIP a {
-    text-decoration: underline;
-}
-
 article p img {
     display: block;
     margin: auto;
@@ -60,6 +52,16 @@ I can only assume that a "pre" will mean there is a code block to follow.
 */
 div.alert pre {
     border: 1px solid var(--theme-alert-code-border);
+}
+
+.content p a {
+    text-decoration: underline;
+}
+
+.content a code {
+    background-color: var(--theme-inline-code-background);
+    color: var(--theme-inline-code);
+    text-decoration: underline;
 }
 
 .featherlight .featherlight-content {
