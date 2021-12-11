@@ -68,9 +68,16 @@ div.alert pre {
     background: var(--theme-body-background);
 }
 
+div.sideaffix {
+    bottom: 0 !important;
+}
+
 .sideaffix {
     width: auto;
-    bottom: 0 !important;
+}
+
+.sideaffix.shiftup {
+    bottom: 61px !important;
 }
 
 .bs-docs-sidenav {
@@ -149,7 +156,7 @@ div.alert pre {
 }
 
 .sidetoc.shiftup {
-    bottom: 75px;
+    bottom: 61px;
 }
 
 .toc {
