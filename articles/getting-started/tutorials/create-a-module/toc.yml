@@ -8,5 +8,5 @@ items:
 - name: 3. Install and run the module
   href: 03-install-and-run-the-module/install-and-run-the-module.md
 
-- name: 4. Generate files per model
+- name: 4. Create files per model
   href: 04-create-files-per-model/create-files-per-model.md

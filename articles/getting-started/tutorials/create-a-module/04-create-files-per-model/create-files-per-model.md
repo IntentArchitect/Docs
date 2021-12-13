@@ -9,14 +9,17 @@ In this next part of the tutorial we will extend our `MyModules.Entities` Module
 
 First, to access the `Domain` types so that we can configure our Template correctly, we must install metadata from the `Intent.Modelers.Domain` Module into our Module Builder.
 
-1. Open the `MyModules.Entities` Application.
+1. Open the `MyModules` Application.
 2. Navigate to the `Modules` tab.
-3. Select the `https://intentarchitect.com/` repository.
+3. Ensure that the `All` option in the repository drop-down is selected.
 4. Search for the `Intent.Modelers.Domain` Module.
 5. In the Module details pane, expand the `Options` and check the `Install metadata only` checkbox.
 
     > [!NOTE]
-    > By selecting the `Install Metadata only` option, Intent Architect will not install the Designer or run the Module during a Software Factory Execution. This feature is typically used in the Module Builder.
+    > By selecting the `Install Metadata only` option, Intent Architect will not install the Designer. This feature is typically used in the Module Builder.
+    >
+    > [!NOTE]
+    > A Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now).
 6. Click `Install` to install the Module.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/modules-install-domain-metadata-only.mp4"></video></p>
@@ -32,7 +35,7 @@ Next, we will create a new Template that we can configure to receive the models 
     > [!NOTE]
     > These options are available because we installed the `Intent.Modelers.Domain` Module's metadata in the previous step.
 4. Save your changes.
-5. Rerun the Software Factory Execution.
+5. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
 6. Click `APPLY CHANGES`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/module-builder-create-entity-template.mp4"></video></p>
@@ -109,28 +112,33 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     ```
 
     > [!NOTE]
-    > Here the `GetTypeName(...)` method is passed the Template Identifier of our `EntityBaseTemplate`. Since this is a single-file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced as a `using` class.
-
-5. Rebuild the module by recompiling the project.
+    > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single-file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
+    >
+    > [!NOTE]
+    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/templatizing-entities-t4.mp4"></video></p>
 
 > [!TIP]
 > The Intent Module Builder configures T4 (`.tt`) files to operate in the same way as a `StringBuilder`. The _code-behind_ is regenerated every time the `.tt` file is saved.
 
-## Reinstall the Module
+## Apply Module changes in Test Application
 
-Finally, our Module is ready and can reinstall it into our `TestApp` that we created in the [previous tutorial](xref:tutorials.create-a-module.install-and-run-the-module).
+With the Module changes made, follow the next few steps (keep Visual Studio open):
 
 1. Open the `TestApp` Application in Intent Architect.
-2. Navigate to the `Modules` tab.
-3. Click on the `MyModules.Entities` Module and click `Reinstall` in the details pane. Note that a new unassigned Template Output has been created for our new Template. We will need to assign it.
-    ![module-installed-unassigned-template](images/module-installed-unassigned-template.png)
+2. In Visual Studio, rebuild the module by recompiling the project.
+3. Notice that the Intent Architect has automatically detected the Module change, installed and executed the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
 4. Navigate to the `Visual Studio` Designer and assign the `MyModules.Entities.Entity` Template Output to the `TestApp.Domain` project. The configuration should look as follows:
     ![visual-studio-assigned-template-output](images/visual-studio-assigned-template-output.png)
 
 > [!NOTE]
 > Notice that the `Domain` Designer has now been installed. When we configured our `Entity` Templates to use the `Domain` Designer, the Module Builder automatically added a dependency to the `Intent.Modelers.Domain` Module in the `.imodspec` file.
+>
+> [!TIP]
+> Instead of manually assigning Template Outputs, they can be configured to happen automatically when we install a Module. We [use Roles to achieve this](xref:templates.how-to-auto-assign-template-outputs).
+
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/after-module-changes-steps.mp4"></video></p>
 
 ## Visually model a test domain
 
@@ -159,7 +167,7 @@ Next, we will use the `Domain` Designer to model out a basic test domain. We wil
     > [!TIP]
     > Associations in the `Domain` Designer have a Source End and Target End. To set the multiplicity of relationships we change the `Is Collection` and `Is Nullable` settings of each end. For example a _one-to-many_ relationship will be set up that the Target End `Is Collection` is `true` and the Source End `Is Collection` is `false`.
 6. Save your changes.
-7. Run the Software Factory Execution. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
+7. Notice again the Software Factory Execution kicking in after changes were detected after saving. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
 8. Click `APPLY CHANGES`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/domain-visually-modelling.mp4"></video></p>
@@ -183,5 +191,5 @@ Sometime you may want to optionally extend a Template from another Module. Decor
 When you need to get the name of a type generated by a template while also:
 
 - Automatically applying a collection format if needed.
-- Adding any required `using` statements.
+- Adding any required `using` directives.
 - Adding any required project references.
