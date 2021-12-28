@@ -16,7 +16,7 @@ To get started, let's create an empty Application.
 > Start a new instance of Intent Architect to create this application. It will make switching between your Modules Solution and the Test Application contexts very quick (this article will assume only one instance of Intent Architect).
 
 1. From the home view, click `Create a new application`.
-2. Set the Application's name, location and Solution name. _NOTE: You can ignore which Application Template is selected. It won't affect an empty application._
+2. Set the Application's name, location, and Solution name. _NOTE: You can ignore which Application Template is selected. It won't affect an empty application._
 3. Click `CREATE EMPTY` _NOTE: With `CREATE EMPTY` the selected application template is ignored)._
 4. When prompted with a confirmation, click `YES` to continue.
 5. Close the `Application Installation` dialog.
@@ -35,11 +35,11 @@ To install this module we must navigate to the `Modules` tab within our applicat
 1. Search for the `Intent.VisualStudio.Projects` Module by typing "visual" into the filter.
 2. Select the Module.
     ![Search Modules](images/modules-search-visual-studio.png)
-3. In the details pane, Click `Install` to install the latest version.
+3. In the details pane, click `Install` to install the latest version.
     ![Module Details](images/modules-visual-studio-details.png)
-4. Intent Architect will install the module and it's dependencies. Hide the `Installation Manager` once it's finished.
+4. Intent Architect will install the module and its dependencies. Hide the `Installation Manager` once it's finished.
 
-You may have noticed that a new `Visual Studio` Designer was installed into our Application. It will allow us to structure the C# projects in our codebase. For this tutorial, we can set up a typical web application project structure which separates Domain, Infrastructure and Api concerns.
+You may have noticed that a new `Visual Studio` Designer was installed into our Application. It will allow us to structure the C# projects in our codebase. For this tutorial, we can set up a typical web application project structure that separates Domain, Infrastructure, and API concerns.
 
 1. Click on the `Visual Studio` Designer
 2. Create a new `Visual Studio Solution` package by clicking on the `CREATE NEW PACKAGE` button.
@@ -57,11 +57,11 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 
 ## Install the Module
 
-Next, let's install the Module we created in the [previous step](xref:tutorials.create-a-module.create-a-simple-module). To do this we first navigate to the `Modules` tab of our Application.
+Next, let's install the Module we created in the [previous step](xref:tutorials.create-a-module.create-a-simple-module). To do this, we first navigate to the `Modules` tab of our Application.
 
 ### Finding and Installing the Module
 
-By default Intent Architect is configured only with the repository for official Modules hosted at [https://intentarchitect.com/](https://intentarchitect.com/). To be able to use our own Module we can make the folder where our `MyModule.Entities` was created the default repository.
+By default, Intent Architect is configured only with the repository for official Modules hosted at [https://intentarchitect.com/](https://intentarchitect.com/). To be able to use our own Module we can make the folder where our `MyModule.Entities` was created within the default repository.
 
 1. Open [User Settings](xref:user-interface.how-to-change-user-settings).
 2. Add a new Repository with a unique `Name` (e.g. "My Modules") and the `Address` value being the full location of the folder where our Module was created (e.g. `C:\Dev\MyModules\Intent.Modules`).
@@ -100,7 +100,7 @@ We've now told Intent Architect that when generating the `EntityBase` template t
 
 ## Run the Module
 
-We've created a project structure, installed our Module, and set the Output Target to our `TestApp.Domain` project. We're now ready to run our Module.
+We've created a project structure, installed our Module, and set the Output Target to our `TestApp.Domain` project. We are now ready to run our Module.
 
 1. You will have noticed that the Software Factory executed once more. When you click on it you will see that the following changes should be staged:
 

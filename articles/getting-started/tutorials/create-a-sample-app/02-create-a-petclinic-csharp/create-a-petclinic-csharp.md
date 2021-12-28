@@ -7,11 +7,11 @@ uid: tutorials.create-a-sample-app.create-a-petclinic-csharp
 ## Prerequisites
 
 - Ensure Intent Architect has been [installed](xref:getting-started.get-the-application).
-- The latest [Microsoft Visual Studio for Windows/Mac](https://visualstudio.microsoft.com/), [JetBrains Rider](https://www.jetbrains.com/rider/download/) or any other IDE capable of working with .NET Core projects.
+- The latest [Microsoft Visual Studio for Windows/Mac](https://visualstudio.microsoft.com/), [JetBrains Rider](https://www.jetbrains.com/rider/download/), or any other IDE capable of working with .NET Core projects.
 
 ## Create a new Application
 
-On the home screen click `Create a new application`.
+On the home screen, click `Create a new application`.
 
 Select the `Web Application ASP.NET Core 5.0` Application Template.
 
@@ -19,14 +19,14 @@ Fill in a `Name` (such as `PetClinicRest`), review/change the `Location` as desi
 
 Ensure that the following Modules are selected:
 
-- `ASP.NET Core RESTful Api`
+- `ASP.NET Core RESTful API`
 - `OpenAPI (Swashbuckle)`
 - `Basic Service Implementation`
 - `Entities`
 - `Entity Framework Core`
 - `Visual Studio Integration`
 
-An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will hide automatically:
+An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application and once it's finished, will hide automatically:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-new-app.mp4"></video></p>
 
@@ -52,7 +52,7 @@ This PetClinic application's business domain requires the following [entities](h
 
 Entities can be added to the domain modeler by right-clicking on the background and selecting the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly selecting the `New Class` option.
 
-Create a `Pet` entity and then right-click it (on either the visual diagram's block, or the tree view element) and select the `Add Attribute` option to add the following attributes:
+Create a `Pet` entity and then right-click it (on either the visual diagram's block or the tree view element) and then select the `Add Attribute` option to add the following attributes:
 
 - `name` of type `string`
 - `birthDate` of type `date`
@@ -98,11 +98,11 @@ Setup a `Visit` entity to be as follows:
   - `visitDate` of type `date`.
   - `description` of type `string`.
 
-Also, setup a `PetType` entity in a similar way:
+Also, set up a `PetType` entity in a similar way:
 
 - Add an association from `Pet` to `PetType`:
-  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is *un*checked.
-  - In the property pane within the `Source End` section ensure that `Is Collection` is checked.
+  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section, ensure that `Is Collection` is *un*checked.
+  - In the property pane within the `Source End` section, ensure that `Is Collection` is checked.
 - Add the following attributes:
   - `name` of type `string`.
 
@@ -127,7 +127,7 @@ Create a new Package in which [DTO](https://en.wikipedia.org/wiki/Data_transfer_
 - Right-click the background of the modeller and click the `Create new package` option.
 - Give it the name `DTOs`.
 - Click on the `Save` button.
-- Right-click on the `References` element located in the `Services` Package and click on the `Add Package Reference...` option.
+- Right-click on the `References` element located in the `Services` Package and click on the `Add Package Reference ...` option.
 - On the modal which pops up check the `DTOs` entry.
 - Click on `Save` again.
 
@@ -138,7 +138,7 @@ Create the `OwnerDTO`:
 - Right-click on the `DTOs` package and select the `New DTO` option.
 - Give it the name `OwnerDTO`.
 
-Also create also the following additional DTOs:
+Also, create the following additional DTOs:
 
 - `PetDTO`
 - `PetVisitDTO`
@@ -157,7 +157,7 @@ Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add
 ## Map the DTO fields from Domain Entities
 
 - Right-click the `PetVisitDTO` element and click on the `Mapping...` option.
-- Pull down the `Select an element to map from` dropdown and observe that it has a list of the modelled domain entities.
+- Pull down the `Select an element to map from` the dropdown and observe that it has a list of the modelled domain entities.
 - Choose the `Visit` Entity.
 - Ensure that the following attributes are checked:
   - `visitDate`
@@ -183,12 +183,12 @@ Similarly for `PetDTO`:
 
 Click `DONE`.
 
-You will likely have noticed that `Visits` field has been highlighted in red, this is because you will need to let Intent Architect know which type should be used for this field:
+You will likely have noticed that the `Visits` field has been highlighted in red, this is because you will need to let Intent Architect know which type should be used for this field:
 
 - Select the `Visits` element.
 - In the properties pane on the right, change the `Type` to `PetVisitDTO`.
 
-You will also observe that the `PetDTO` element has multiple fields sharing the same name. Also observe that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique, it is generally suggested to make the name the same as the path, but without the periods and while also maintaining the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
+You will see that the `PetDTO` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique, it is generally suggested to make the name the same as the path, but without the periods, while also adopting the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
 
 - `name` from `PetType.name` becomes `petTypeName`.
 - `firstName` from `Owner.firstName` becomes `ownerFirstName`.
@@ -214,18 +214,18 @@ Lastly, for `OwnerDTO`:
 ## Add Operations to the Service
 
 - Right-click on the `OwnerRestController` element and click the `Add Operation` option.
-- Give it a name of `getOwners` and set the return type to `OwnerDTO`.
+- Name it `getOwners` and set the return type to `OwnerDTO`.
 - In the properties pane on the right:
   - Ensure `Is Collection` is checked.
   - Change the `HTTP Verb` to `GET`.
 
 > [!WARNING]
-> If you find that the list of DTOs from the `DTOs` package do not show in the list of available types, save your work, navigate to another designer/screen (such as the Domain) then navigate back to the Services designer.
+> If you find that the list of DTOs from the `DTOs` package does not show in the list of available types, save your work, navigate to another designer/screen (such as the Domain), then navigate back to the Services designer.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/services-add-get-owners.mp4"></video></p>
 
 - Right-click on the `OwnerRestController` element and click the `Add Operation` option.
-- Give it a name of `addOwner` and leave the return type blank.
+- Name it `addOwner` and leave the return type blank.
 - Right-click the `addOwner` element and click the `Add parameter` option.
 - Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
 - In the properties pane on the right:
@@ -248,7 +248,7 @@ Click on the file located in the `Implementation` folder.
 
 ![View of the Software Factory Changes](images/software-factory-run-staging-ownerservice.png)
 
-On double-clicking the file, Intent Architect will start up an external "diff" tool which you can use to review the changes. By default Intent Architect will use Visual Studio Code if it can find it, otherwise you can manually configure any other "diff" tool in Settings.
+On double-clicking the file, Intent Architect will start up an external "diff" tool which you can use to review the changes. By default Intent Architect will use Visual Studio Code if it can find it; otherwise, you can manually configure any other "diff" tool in Settings.
 
 ![A "diff" showing the staged contents of OwnerService.cs](images/software-factory-run-staging-diff-ownerrestcontroller-impl.png)
 
@@ -268,21 +268,21 @@ Once it is done, double-click the file `OwnerService` in the changes and observe
 ![Service Implementation CRUD](images/software-factory-run-staging-diff-ownerrestcontroller-impl-crud.png)
 
 > [!NOTE]
-> Observe that the operations are now populated with code that will facilitate [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations.
+> Notice that the operations are now populated with code that will facilitate [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations.
 >
-> The `Intent.Application.ServiceImplementations.Conventions.CRUD` module automatically checked for operations which followed simple conventions and generated basic implementations where detected.
+> The `Intent.Application.ServiceImplementations.Conventions.CRUD` module automatically checked for operations that followed simple conventions and generated basic implementations where detected.
 >
 > Anything not meeting those conventions were ignored and no implementations were generated.
 >
 > [!WARNING]
 >
-> It is recommended to always review all files in the `Changes` tab of the Software Factory Execution to ensure that all changes that will be applied are as expected.
+> It is recommended to always review all of the files in the `Changes` tab of the Software Factory Execution to ensure that all of the changes that will be applied are as expected.
 
 This time we will commit the changes, so click `APPLY CHANGES`. Minimize the Software Factory Execution once again.
 
 ## Add missing Id fields to DTOs
 
-Up to this point we are not presenting any `Id`s to the consumer of our API Services.
+Up to this point, we are not presenting any `Id`s to the consumer of our API Services.
 
 Navigate back to the `Services` designer and perform the following:
 
@@ -292,7 +292,7 @@ Navigate back to the `Services` designer and perform the following:
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet-visit-with-ids.mp4"></video></p>
 
-Click on save and again observe a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
+Click on save and again note a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution-after-id-added.mp4"></video></p>
 
@@ -307,7 +307,7 @@ We now want to open the generated application's `.sln` file. The easiest way to 
 
 ![Picture of the Settings UI with an arrow pointing to the clickable link](images/open-relative-output-location.png)
 
-Open the `.sln` file using your preferred .NET capable IDE and then ensure that the startup project is set to the `.WebApi` one, then compile and run the solution.
+Open the `.sln` file using your preferred .NET capable IDE and then ensure that the startup project is set to the `.WebApi` one, then compile, and run the solution.
 
 If you're running Visual Studio, it should automatically open the website in your browser. Append `/swagger` to the URL and press your return key to navigate to it.
 
@@ -343,11 +343,11 @@ It should also have a success result as well as an array of JSON results includi
 
 ### Finish the Implementation
 
-If you wish to continue exploring the concepts covered by this tutorial you can make new services, operations and DTOs to cover additional use cases towards a complete implementation of the PetClinic.
+If you wish to continue exploring the concepts covered by this tutorial you can make new services, operations, and DTOs to cover additional use cases towards a complete implementation of the PetClinic.
 
 ### Get the completed solution
 
-Alternatively you can view the fully fledged solution for multiple programming languages on [Github](https://github.com/IntentSoftware/Samples-PetClinic).
+Alternatively, you can view the fully-fledged solution for multiple programming languages on [Github](https://github.com/IntentSoftware/Samples-PetClinic).
 
 ### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
 
