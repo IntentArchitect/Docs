@@ -1,5 +1,4 @@
 ﻿using Microsoft.DocAsCode.MarkdownLite;
-using System;
 using System.Text.RegularExpressions;
 
 namespace Intent.DocFx.TagExtensions.MarkdownVideoTag
@@ -8,7 +7,7 @@ namespace Intent.DocFx.TagExtensions.MarkdownVideoTag
     {
         public virtual string Name => "MarkdownVideo";
 
-        private static readonly Regex VideoRegex = new Regex(@"^:::video source=""([a-zA-Z0-9\:\.\\\/_\-&;]+)"":::", RegexOptions.Compiled);
+        private static readonly Regex VideoRegex = new Regex(@"^\s*\[!Video-Loop\s+([a-zA-Z0-9\:\.\\\/_\-&;]+)\s*\]", RegexOptions.Compiled);
 
         public virtual IMarkdownToken TryMatch(IMarkdownParser parser, IMarkdownParsingContext context)
         {

@@ -28,7 +28,7 @@ Ensure that the following Modules are selected:
 
 An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application and once it's finished, will hide automatically:
 
-:::video source="videos/create-new-app.mp4":::
+[!Video-Loop videos/create-new-app.mp4]
 
 ## Create a package for the Domain designer
 
