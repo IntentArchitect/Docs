@@ -14,6 +14,7 @@ uid: release-notes.version-3-2
  - In designers: new shortcut `CTRL + ENTER` creates a new element of the same type for rapid creation of models. This is available in both diagrams and tree-views.
  - [Added timestamp to output log entries and a clear-log button for clearing log history](#task-output-log-enhancements).
  - Up, Down and Left arrows work the same way in diagrams as they do in the tree-view.
+ - Indicator on Modules manager when there are module updates that are available.
  - Added support for "On Type Changed" events for JavaScript execution.
  - Exposing the execution log of previous Software Factory executions to aid with correct renaming of files by Intent Architect.
 
@@ -66,3 +67,8 @@ Elements may now be visualized multiple times within the same diagram. For examp
 To make it easier to track when events happened in Intent Architect, a timestamp has been added to the Task Output Log. A `Clear Log` button has been added to allow the user to clear the log's history.
 
 ![task-output-log-enhancements](images/3.2.0/task-output-log-enhancements.png)
+
+### Module updates available indicator
+When opening an application in Intent Architect, a background request is kicked off to determine whether there are any Module updates available for the application. If updates are available, a subtle indicator will appear next to the `Modules` navigation item in the left-hand navigation bar. If the user then clicks on `Modules`, the indicator will disappear.
+
+![module-manager-updates-available-indicator](images/3.2.0/module-manager-updates-available-indicator.png)
