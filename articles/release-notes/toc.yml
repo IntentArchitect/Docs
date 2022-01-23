@@ -1,4 +1,7 @@
 items:
+- name: 'Version 3.2'
+  href: intent-architect-v3.2.md
+
 - name: 'Version 3.1'
   href: intent-architect-v3.1.md
 
