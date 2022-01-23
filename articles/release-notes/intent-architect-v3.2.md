@@ -14,7 +14,7 @@ uid: release-notes.version-3-2
  - In designers: new shortcut `CTRL + ENTER` creates a new element of the same type for rapid creation of models. This is available in both diagrams and tree-views.
  - [Added timestamp to output log entries and a clear-log button for clearing log history](#task-output-log-enhancements).
  - Up, Down and Left arrows work the same way in diagrams as they do in the tree-view.
- - Indicator on Modules manager when there are module updates that are available.
+ - [Indicator on Modules manager when there are module updates that are available](#module-updates-available-indicator).
  - Added support for "On Type Changed" events for JavaScript execution.
  - Exposing the execution log of previous Software Factory executions to aid with correct renaming of files by Intent Architect.
 
