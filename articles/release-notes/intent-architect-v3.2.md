@@ -3,6 +3,17 @@ uid: release-notes.version-3-2
 ---
 # Release notes: Intent Architect version 3.2
 
+## Version 3.2.1
+
+### New features added in 3.2.1
+
+### Issues fixed in 3.2.1
+
+- Fixed: Making an association relationship that is not a collection is still pluralizing the relationship name.
+- Fixed: Error occurs when calling `element.typeReference.getType()` function in a JavaScript macros on elements without the type set.
+- Fixed: No error showing when type cannot be found for the type reference on elements.
+
+
 ## Version 3.2.0
 
 ### New features added in 3.2.0
