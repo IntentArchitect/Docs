@@ -11,10 +11,13 @@ items:
 - name: How to auto-assign Template Outputs
   href: how-to-auto-assign-template-outputs/how-to-auto-assign-template-outputs.md
 
+- name: How to control file properties in C# projects
+  href: how-to-control-file-properties-in-cs-projects/how-to-control-file-properties-in-cs-projects.md
+
 - name: How to decorate a Template
   href: how-to-decorate-a-template/how-to-decorate-a-template.md
 
-- name: How to Disable auto-formatting for C# templates
+- name: How to disable auto-formatting for C# templates
   href: how-to-disable-csharp-autoformatting/how-to-disable-csharp-autoformatting.md
 
 - name: How to filter Template Instances
