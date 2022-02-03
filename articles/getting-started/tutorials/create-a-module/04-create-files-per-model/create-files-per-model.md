@@ -131,7 +131,7 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 
 1. Open the `TestApp` Application in Intent Architect.
 2. In Visual Studio, rebuild the module by recompiling the project.
-3. Notice that Intent Architect has automatically detected that the Module's `.imod` file was updated, installed it, and executed the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
+3. Notice that Intent Architect has automatically detected that the Module's `.imod` file was updated, installed, and executed by the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
 4. Navigate to the `Visual Studio` Designer and assign the `MyModules.Entities.Entity` Template Output to the `TestApp.Domain` project. The configuration should look as follows:
     ![visual-studio-assigned-template-output](images/visual-studio-assigned-template-output.png)
 

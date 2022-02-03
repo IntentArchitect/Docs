@@ -81,7 +81,7 @@ By default, Intent Architect is configured only with the repository for official
 
 ### Assigning the Template Output
 
-After the installation of the module, observe that two parts of the UI now show warning symbols.
+After the installation of the module, notice that two parts of the UI are now showing warning symbols.
 ![Warnings displayed after Module Installation](images/after-module-install-sf-warnings.png)
 
 This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project that triggered a re-run of the Software Factory Execution.
@@ -104,7 +104,7 @@ We've now told Intent Architect that when generating the `EntityBase` template, 
 
 We've created a project structure, installed our Module, and set the Output Target to our `TestApp.Domain` project. We are now ready to run our Module.
 
-1. Observe that the Software Factory automatically executed itself when you saved the `Visual Studio` Designer and when clicking on it you should see the following staged changes:
+1. Notice that the Software Factory automatically executed itself when you saved the `Visual Studio` Designer and when clicking on it you should see the following staged changes:
 
     ![Software Factory Output](images/software-factory-module-output.png)
 2. Click the `APPLY CHANGES` button.
