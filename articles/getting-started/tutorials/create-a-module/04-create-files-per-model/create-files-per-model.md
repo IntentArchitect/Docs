@@ -22,7 +22,7 @@ First, to access the `Domain` types so that we can configure our Template correc
     > A Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now).
 6. Click `Install` to install the Module.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/modules-install-domain-metadata-only.mp4"></video></p>
+[!Video-Loop videos/modules-install-domain-metadata-only.mp4]
 
 ## Create a new Template
 
@@ -38,7 +38,7 @@ Next, we will create a new Template that we can configure to receive the models 
 5. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
 6. Click `APPLY CHANGES`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/module-builder-create-entity-template.mp4"></video></p>
+[!Video-Loop videos/module-builder-create-entity-template.mp4]
 
 > [!WARNING]
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
@@ -120,7 +120,7 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     > [!NOTE]
     > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/templatizing-entities-t4.mp4"></video></p>
+[!Video-Loop videos/templatizing-entities-t4.mp4]
 
 > [!TIP]
 > The Intent Module Builder configures T4 (`.tt`) files to operate in the same way as a `StringBuilder`. The _code-behind_ is regenerated every time the `.tt` file is saved.
@@ -141,7 +141,7 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 > [!TIP]
 > Instead of having to manually assign Template Outputs, it can be done automatically by Intent Architect during Module installation through [use of roles](xref:templates.how-to-auto-assign-template-outputs).
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/after-module-changes-steps.mp4"></video></p>
+[!Video-Loop videos/after-module-changes-steps.mp4]
 
 ## Visually model a test domain
 
@@ -173,7 +173,7 @@ Next, we will use the `Domain` Designer to model out a basic test domain. We wil
 7. Notice again that on saving, the Software Factory Execution automatically kicked itself off. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
 8. Click `APPLY CHANGES`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/domain-visually-modelling.mp4"></video></p>
+[!Video-Loop videos/domain-visually-modelling.mp4]
 
 ## Summary
 

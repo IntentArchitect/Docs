@@ -27,7 +27,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Click the root Package element and in the Properties pane on the right:
   - For `Display Name` enter `My Application Template`:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-package.mp4"></video></p>
+[!Video-Loop videos/create-package.mp4]
 
 ## Specify a Group and a Component
 
@@ -38,7 +38,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Click the root `Component 1` element and in the Properties pane on the right:
   - For `Icon` use the ellipses to [choose an icon](xref:user-interface.how-to-use-the-change-icon-dialogue):
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-group-and-component.mp4"></video></p>
+[!Video-Loop videos/create-group-and-component.mp4]
 
 ## Add a Module
 
@@ -53,7 +53,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
     > [!IMPORTANT]
     > This must be a valid version for the Module name chosen above.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-a-module.mp4"></video></p>
+[!Video-Loop videos/add-a-module.mp4]
 
 ## Run the Software Factory to generate the module
 

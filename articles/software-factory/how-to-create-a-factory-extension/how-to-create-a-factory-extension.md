@@ -17,7 +17,7 @@ This guide assumes that you have a Module Project already setup to work from. If
 Inside your Module Builder designer, right click on the package and select `New Factory Extension`.
 Give it the name of `NpmInstallFactoryExtension`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-factory-extension.mp4"></video></p>
+[!Video-Loop videos/create-factory-extension.mp4]
 
 > [!NOTE]
 > Make sure to Run the Software Factory Execution as this will generate the Factory Extension code.

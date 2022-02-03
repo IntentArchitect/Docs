@@ -19,4 +19,4 @@ For example, to debug using Visual Studio:
 
 The breakpoints in your module will now be hit:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/debugging-a-module.mp4"></video></p>
+[!Video-Loop videos/debugging-a-module.mp4]

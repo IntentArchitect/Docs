@@ -40,7 +40,7 @@ Leave the name with its default value of `Domain` and click `DONE`.
 
 This is where the "business domain" will be modelled using a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) class relationship diagram which Intent Architect will use to generate C# classes and ultimately a database schema.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-domain-package.mp4"></video></p>
+[!Video-Loop videos/create-domain-package.mp4]
 
 ### Create the Domain Entities
 
@@ -57,7 +57,7 @@ Create a `Pet` entity and then right-click it (on either the visual diagram's bl
 - `name` of type `string`
 - `birthDate` of type `date`
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-entity-pet.mp4"></video></p>
+[!Video-Loop videos/create-entity-pet.mp4]
 
 Create an `Owner` entity with the following attributes:
 
@@ -87,7 +87,7 @@ Create an association between `Owner` and `Pet`:
 - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
 - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-owner-pet-association.mp4"></video></p>
+[!Video-Loop videos/add-owner-pet-association.mp4]
 
 Setup a `Visit` entity to be as follows:
 
@@ -116,7 +116,7 @@ Click `CREATE NEW PACKAGE`.
 
 Leave the name with its default value of `Services` and click `DONE`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-services-package.mp4"></video></p>
+[!Video-Loop videos/create-services-package.mp4]
 
 Create the `OwnerRestController` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
 
@@ -131,7 +131,7 @@ Create a new Package in which [DTO](https://en.wikipedia.org/wiki/Data_transfer_
 - On the modal which pops up check the `DTOs` entry.
 - Click on `Save` again.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-services-dtos-package.mp4"></video></p>
+[!Video-Loop videos/create-services-dtos-package.mp4]
 
 Create the `OwnerDTO`:
 
@@ -165,7 +165,7 @@ Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add
 
 Click `DONE`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet-visit.mp4"></video></p>
+[!Video-Loop videos/service-mapping-pet-visit.mp4]
 
 Similarly for `PetDTO`:
 
@@ -194,7 +194,7 @@ You will see that the `PetDTO` element has multiple fields sharing the same name
 - `firstName` from `Owner.firstName` becomes `ownerFirstName`.
 - `lastName` from `Owner.lastName` becomes `ownerLastName`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet.mp4"></video></p>
+[!Video-Loop videos/service-mapping-pet.mp4]
 
 Lastly, for `OwnerDTO`:
 
@@ -222,7 +222,7 @@ Lastly, for `OwnerDTO`:
 > [!WARNING]
 > If you find that the list of DTOs from the `DTOs` package does not show in the list of available types, save your work, navigate to another designer/screen (such as the Domain), then navigate back to the Services designer.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/services-add-get-owners.mp4"></video></p>
+[!Video-Loop videos/services-add-get-owners.mp4]
 
 - Right-click on the `OwnerRestController` element and click the `Add Operation` option.
 - Name it `addOwner` and leave the return type blank.
@@ -231,13 +231,13 @@ Lastly, for `OwnerDTO`:
 - In the properties pane on the right:
   - Change the `HTTP Verb` to `POST`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/services-add-add-owner.mp4"></video></p>
+[!Video-Loop videos/services-add-add-owner.mp4]
 
 ## Generate the Code
 
 Run the `Software Factory Execution` by clicking on the Play button located on the top right part of the screen.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-run.mp4"></video></p>
+[!Video-Loop videos/software-factory-run.mp4]
 
 Once the staged `Changes` comes into view, you can review the proposed code changes, for example, the `OwnerService.cs`.
 
@@ -263,7 +263,7 @@ Once you've installed those modules, you will notice a blinking button at the bo
 
 Once it is done, double-click the file `OwnerService` in the changes and observe how its output has changed from the previous run.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/view-software-factory-after-module-installation.mp4"></video></p>
+[!Video-Loop videos/view-software-factory-after-module-installation.mp4]
 
 ![Service Implementation CRUD](images/software-factory-run-staging-diff-ownerrestcontroller-impl-crud.png)
 
@@ -290,11 +290,11 @@ Navigate back to the `Services` designer and perform the following:
 - In the properties panel, click on `Is Mapped`.
 - A `Mapping Path` field appears. Enter `Id`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/service-mapping-pet-visit-with-ids.mp4"></video></p>
+[!Video-Loop videos/service-mapping-pet-visit-with-ids.mp4]
 
 Click on save and again note a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution-after-id-added.mp4"></video></p>
+[!Video-Loop videos/software-factory-execution-after-id-added.mp4]
 
 `APPLY` the change and do the same for the following types:
 

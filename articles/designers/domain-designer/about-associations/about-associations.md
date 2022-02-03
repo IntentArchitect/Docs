@@ -176,4 +176,4 @@ This can be achieved by setting the properties of the Association as follows:
 
 The below video demonstrates how to set up an Association where a `Class` can access another instance of type `Class` via the `Class` Association property.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/association-reflexive.mp4"></video></p>
+[!Video-Loop videos/association-reflexive.mp4]

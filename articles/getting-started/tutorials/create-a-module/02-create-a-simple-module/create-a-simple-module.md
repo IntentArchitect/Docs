@@ -21,7 +21,7 @@ Click `CREATE`.
 
 An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application, once it's finished it will disappear allowing you to start building your own Module.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-a-new-module.mp4"></video></p>
+[!Video-Loop videos/create-a-new-module.mp4]
 
 ## Open and rename the package
 
@@ -34,7 +34,7 @@ Click on the `MyModules` package, right-click and select `Rename`.
 
 Enter a name for the `Package` (such as `MyModules.Entities`) and press `ENTER`. It will prompt you whether you want to change the underlying files. Click on `YES`. Finally, click on `Save`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/open-and-rename-the-package.mp4"></video></p>
+[!Video-Loop videos/open-and-rename-the-package.mp4]
 
 ## Create a template
 
@@ -42,7 +42,7 @@ Right-click the Package and click the `New C# Template` option:
 
 Name it `EntityBase` and for its type select `Single File`:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-the-template.mp4"></video></p>
+[!Video-Loop videos/create-the-template.mp4]
 
 ## Run the software factory
 
@@ -55,11 +55,11 @@ Once the Software Factory has executed the templates, it pauses to allow you to 
 
 As the Software Factory Execution is running, it will present expandable items that allow you to drill deeper into the current activity currently being performed by the Software Factory.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/run-the-software-factory.mp4"></video></p>
+[!Video-Loop videos/run-the-software-factory.mp4]
 
 When the Software Factory Execution is complete, you can choose to close it (the button with the cross) or minimize it (the button with the underscore). For this tutorial, we recommend you minimize it to make use of Intent Architect's continuous processing feature that runs in the background (which will be demonstrated later in the tutorial).
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/minimize-the-software-factory.mp4"></video></p>
+[!Video-Loop videos/minimize-the-software-factory.mp4]
 
 ## Edit the template in Visual Studio
 
@@ -107,7 +107,7 @@ namespace <#= Namespace #>
 
 Save your changes and build the project.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/edit-template-and-build-in-visual-studio.mp4"></video></p>
+[!Video-Loop videos/edit-template-and-build-in-visual-studio.mp4]
 
 Once the build has been completed you will notice that the `Build` log includes the following line:
 `Successfully created package C:\Dev\MyModules\Intent.Modules\MyModules.Entities.1.0.0.imod`

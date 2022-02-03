@@ -40,7 +40,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Check `Install metadata only`.
 - Click `Install`:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/install-domain-module-metadata.mp4"></video></p>
+[!Video-Loop videos/install-domain-module-metadata.mp4]
 
 ## Configure the package to reference the domain designer
 
@@ -49,7 +49,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
   - Check `Include in Module`.
   - Add `Domain` to `Reference in Designer`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/design-setup-designer-reference.mp4"></video></p>
+[!Video-Loop videos/design-setup-designer-reference.mp4]
 
 ## Create and configure the `Domain Event` element
 
@@ -68,7 +68,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `[context-menu]` element (the one directly within `DomainEventSettings`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Property` and select the `Property` type for it:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/design-setup-element.mp4"></video></p>
+[!Video-Loop videos/design-setup-element.mp4]
 
 ## Create an `Add Event` context menu option for `Folder` elements
 
@@ -78,7 +78,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `[context-menu]` element (the one directly within `Folder Extension`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Event` and select the `Domain Event` type for it:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/folder-add-event-context-menu-option.mp4"></video></p>
+[!Video-Loop videos/folder-add-event-context-menu-option.mp4]
 
 ## Create an `Add Event` context menu option for `Package` elements
 
@@ -87,7 +87,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `[context-menu]` element (the one directly within `Package Settings`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Event` and select the `Domain Event` type for it:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/package-add-event-context-menu-option.mp4"></video></p>
+[!Video-Loop videos/package-add-event-context-menu-option.mp4]
 
 ## Create the Stereotype
 
@@ -102,7 +102,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
   - Change `Option Source` to `Lookup Element`.
   - For `Lookup Types` add `Domain Event`:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-the-stereotype.mp4"></video></p>
+[!Video-Loop videos/create-the-stereotype.mp4]
 
 ## Run the Software Factory to generate the module
 
@@ -139,7 +139,7 @@ Ensure you have added the output path as noted in the above step as a repository
 
 You will now have the option of creating the new `Domain Event` element and using it in the `Has Domain Event` Stereotype that was added by the Designer Extension we created above:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/test-module-domain.mp4"></video></p>
+[!Video-Loop videos/test-module-domain.mp4]
 
 ## See also
 

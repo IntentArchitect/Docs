@@ -3,15 +3,7 @@
     "default": true,
     // https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md033
     "MD033": {
-        // To allow the following which we use:
-        // <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/design-setup-element.mp4"></video></p>
-        // Ultimately we should make a DocFX extension which can allow us to use a markdown tag for videos which would also allow us to easily
-        // change the way all videos work in all the articles in a single place:
-        // https://dotnet.github.io/docfx/tutorial/howto_customize_docfx_flavored_markdown.html
-        "allowed_elements": [
-            "p",
-            "video"
-        ]
+        
     },
     // https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md013
     "MD013": false

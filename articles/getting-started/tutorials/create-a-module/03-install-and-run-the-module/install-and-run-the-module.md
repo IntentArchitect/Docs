@@ -70,14 +70,14 @@ By default, Intent Architect is configured only with the repository for official
 3. Reorder the repositories so that this new one is at the top.
 4. Click `Save`.
 
-    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-new-modules-repository.mp4"></video></p>
+    [!Video-Loop videos/add-new-modules-repository.mp4]
 5. Type in the search field `MyModules.Entities` to locate your new Module.
 
    > [!TIP]
    > You can also go to the Respository dropdown and select your newly created Respository which will list only the Modules you have created.
 6. Install the Module and `HIDE` when done.
 
-    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/selecting-repository-and-installing-module.mp4"></video></p>
+    [!Video-Loop videos/selecting-repository-and-installing-module.mp4]
 
 ### Assigning the Template Output
 
@@ -87,7 +87,7 @@ After the installation of the module, notice that two parts of the UI are now sh
 This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project that triggered a re-run of the Software Factory Execution.
 
 After opening the highlighted status button below, you can drill down into the details to inspect what went wrong.
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/after-module-install-sf-warnings-detail.mp4"></video></p>
+[!Video-Loop videos/after-module-install-sf-warnings-detail.mp4]
 
 The logged error lets us know that `MyModules.Entities.EntityBase` template hasn't yet had its output location set within the `Visual Studio` Designer, meaning that the Software Factory cannot determine where to place generated output for it.
 
@@ -95,7 +95,7 @@ The logged error lets us know that `MyModules.Entities.EntityBase` template hasn
 2. Navigate to the `Visual Studio` Designer.
 3. Drag the `MyModules.Entities.EntityBase` Template Output into the `TestApp.Domain` project.
 
-    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/visual-studio-assign-template-output.mp4"></video></p>
+    [!Video-Loop videos/visual-studio-assign-template-output.mp4]
 4. Click on Save.
 
 We've now told Intent Architect that when generating the `EntityBase` template, the output should be placed in the `TestApp.Domain` project.

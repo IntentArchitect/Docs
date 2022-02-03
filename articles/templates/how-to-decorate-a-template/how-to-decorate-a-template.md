@@ -13,14 +13,14 @@ In Intent Architect, open the `MyModule` solution (as was created in the tutoria
 
 Right click on the Entity Template and select `Add Decorator Contract`. Give this contract a name of `FieldAttributeDecoratorContract`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/template-decorator-contract.mp4"></video></p>
+[!Video-Loop videos/template-decorator-contract.mp4]
 
 ## Creating a Decorator
 
 Right click on the package and select `New Template Decorator`.
 Give it the name of `DataAnnotationValidationDecorator` and select (as the type) `FieldAttributeDecoratorContract`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-decorator.mp4"></video></p>
+[!Video-Loop videos/create-decorator.mp4]
 
 > [!NOTE]
 > Make sure to Run the Software Factory Execution as this will generate the Decorator as well as the Contract for the Template.

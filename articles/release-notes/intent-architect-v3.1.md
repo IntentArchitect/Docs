@@ -69,7 +69,7 @@ During the "Staging Changes" phase of the Software Factory Execution, Intent Arc
 
 For example, when looking at a file's diff during "Staging Changes" you realize you actually want to mark a section of code as being ignored, you can make the change in the diff tool, press save and instantly see the effect:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/3.1.0/rerun-transformers-automatically.mp4"></video></p>
+[!Video-Loop videos/3.1.0/rerun-transformers-automatically.mp4]
 
 ### Warn during Software Factory Execution if installed modules are incompatible
 
@@ -168,7 +168,7 @@ While a Software Factory Execution window is minimized, you can start additional
 
 Intent Architect looks at your configured module repositories, watches all those paths for file system changes and will automatically restart the Software Factory when a change to a module is detected:
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/3.1.0/sf-auto-restart.mp4"></video></p>
+[!Video-Loop videos/3.1.0/sf-auto-restart.mp4]
 
 ### Automatic re-installation of rebuilt Modules
 

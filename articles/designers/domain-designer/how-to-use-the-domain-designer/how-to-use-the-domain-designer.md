@@ -14,7 +14,7 @@ Ensure you have the `Intent.Modelers.Domain` module installed and open up the `D
 - Right-click the background and click the `New Class` option.
 - Give it a name of `Shape`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-shape-class.mp4"></video></p>
+[!Video-Loop videos/create-shape-class.mp4]
 
 Similarly, create the following additional Classes:
 
@@ -48,7 +48,7 @@ For the `Circle` Class add the following Attribute:
 
 - `radius` of type `double`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-attributes.mp4"></video></p>
+[!Video-Loop videos/add-attributes.mp4]
 
 Your diagram should now appear as follows:
 
@@ -85,7 +85,7 @@ On the `Canvas` Class add the following Operation:
 - `AddShape` with no return type and the following parameter:
   - `shape` with a type of `Shape`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-operation-with-parameter.mp4"></video></p>
+[!Video-Loop videos/add-operation-with-parameter.mp4]
 
 Your diagram should now appear as follows:
 
@@ -126,7 +126,7 @@ Similarly create an Association from the `Canvas` to `Group` Class and ensure in
 
 - `Navigable` is checked in the `Source End` section.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-composite-association.mp4"></video></p>
+[!Video-Loop videos/add-composite-association.mp4]
 
 Your diagram should now appear as follows:
 
@@ -140,7 +140,7 @@ Finally, create an Association from the `Group` to the `Shape` Class and ensure 
   - `Is Collection` is *un*checked.
   - `Is Nullable` is *un*checked.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-aggregate-association.mp4"></video></p>
+[!Video-Loop videos/add-aggregate-association.mp4]
 
 > [!TIP]
 > The Associations from `Canvas` to `Shape` and `Group` are called "Composite" Associations, while the Association from `Group` to `Shape` is an "Aggregate" association.
@@ -197,7 +197,7 @@ Lay them out so that `Shape` is located center-top of the diagram, `Triangle` bo
 > [!TIP]
 > When you have a Diagram element selected in the tree-view, in the Properties pane in the bottom-right there is a `New diagram elements` field. When you right-click a Diagram and click the `New Class` option, Intent Architect will create the Class in the package selected in that `New diagram elements` field.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/new-diagram-and-move-over.mp4"></video></p>
+[!Video-Loop videos/new-diagram-and-move-over.mp4]
 
 > [!WARNING]
 > Don't try to copy / cut these diagram elements when wanting to move/duplicate those elements onto separate diagrams since it will affect the actual elements on the tree-view (right hand side) and may have undesired effects. Rather refer to the video above when wanting to move/duplicate elements onto a separate diagram.

@@ -31,7 +31,7 @@ In the Properties pane on the right of the screen, ensure that:
 - `Icon` is specified to be a Boxed Character "E" on a Black background `E|#0`.
 - `Display Icon` is checked.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-basic-stereotype.mp4"></video></p>
+[!Video-Loop videos/create-basic-stereotype.mp4]
 
 > [!NOTE]
 > Running the Software Factory Execution will generate a `ClassModelExtensions.cs` which contains an "API" for being able to more easily use the Stereotype in Template files. Use of this will be discussed in more detail [further below](#query-stereotypes-from-templates) in this how-to.
@@ -45,7 +45,7 @@ In the Properties pane on the right of the screen:
 - Check `Include in Module`.
 - Select `Domain` (for example) in `Reference in Designer`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/package-stereotype.mp4"></video></p>
+[!Video-Loop videos/package-stereotype.mp4]
 
 ## Add properties to a Stereotype
 
@@ -59,7 +59,7 @@ Right-click on the `Entity` Stereotype Definition.
 - Give the Name `Change Detection`.
 - Select the Type `Checkbox`.
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/stereotype-add-property.mp4"></video></p>
+[!Video-Loop videos/stereotype-add-property.mp4]
 
 ## Query Stereotypes from Templates
 
@@ -185,7 +185,7 @@ Open the Domain Designer and create or select a Class Element.
 Right-click on the Element and select Add Stereotype. A popup dialog appears with a list of Stereotypes Definitions whose `Targets` property contains this `Element` type.
 Select your `Entity` Stereotype. Locate the Stereotype in the Properties pane on the right and check the checkbox next to "Change Detection".
 
-<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/apply-stereotype-manually.mp4"></video></p>
+[!Video-Loop videos/apply-stereotype-manually.mp4]
 
 The net result will be determined by the state of that check-box. For a given Entity class, if in the Designer the checkbox is checked, then it will generate that C# class with those properties. If not, it will omit the generation of those properties.
 
