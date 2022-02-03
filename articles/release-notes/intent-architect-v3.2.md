@@ -20,7 +20,7 @@ uid: release-notes.version-3-2
 ### New features added in 3.2.0
 
 - [Solution-wide Modules manager](#solution-wide-modules-manager).
-- [Configuration of visual elements to use JavaScript functions](#configuration-of-visual-elements-to-use-javaScript-functions).
+- [Configuration of visual elements to use JavaScript functions](#configuration-of-visual-elements-to-use-javascript-functions).
 - [Support for visually rendering elements and associations more than once in diagrams](#visually-rendering-elements-and-associations-more-than-once-in-diagrams).
 - [Consolidated Z-Index of visual elements and associations in diagrams](#consolidated-z-index-of-visual-elements-and-associations). Added controls to "Bring to Front" and "Send to Back" for associations.
 - In designers: new shortcut `CTRL + ENTER` creates a new element of the same type for rapid creation of models. This is available in both diagrams and tree-views.

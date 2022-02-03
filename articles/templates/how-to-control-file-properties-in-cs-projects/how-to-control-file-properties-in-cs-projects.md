@@ -1,5 +1,5 @@
 ---
-uid: references.code-management.csharp-code-management
+uid: templates.how-to-control-file-properties-in-cs-projects
 ---
 # How to control file properties in C# projects
 
