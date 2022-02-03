@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.DocAsCode.Common">
+      <HintPath>..\..\_tools\DocFX\Microsoft.DocAsCode.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DocAsCode.Dfm">
+      <HintPath>..\..\_tools\DocFX\Microsoft.DocAsCode.Dfm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DocAsCode.MarkdownLite">
+      <HintPath>..\..\_tools\DocFX\Microsoft.DocAsCode.MarkdownLite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DocAsCode.Plugins">
+      <HintPath>..\..\_tools\DocFX\Microsoft.DocAsCode.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\_tools\DocFX\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.AttributedModel">
+      <HintPath>..\..\_tools\DocFX\System.Composition.AttributedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Convention">
+      <HintPath>..\..\_tools\DocFX\System.Composition.Convention.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Hosting">
+      <HintPath>..\..\_tools\DocFX\System.Composition.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.Runtime">
+      <HintPath>..\..\_tools\DocFX\System.Composition.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Composition.TypedParts">
+      <HintPath>..\..\_tools\DocFX\System.Composition.TypedParts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy /y $(TargetPath) $(SolutionDir)..\_tools\DocFX\Plugins" />
+  </Target>
+</Project>
