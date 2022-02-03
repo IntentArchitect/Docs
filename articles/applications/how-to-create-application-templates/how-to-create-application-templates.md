@@ -80,7 +80,7 @@ Click on the close button (the red button).
 
 Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories).
 
-Add a new Asset Repository with the name `My Modules` and address `C:\Dev\MyApplicationTemplates\Intent.Modules` (this is the folder where your `.iat` file resides), then click `Save`.
+Add a new Asset Repository with the name `My Modules` and address `C:\Dev\MyApplicationTemplates\Intent.Modules` (this is the folder where your `.iat` file is located), then click `Save`.
 
 ![Manage Repositories](images/repo-manager-module-folder.png)
 
