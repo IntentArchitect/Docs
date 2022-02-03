@@ -1,5 +1,6 @@
 ---
 uid: applications.how-to-create-application-templates
+remark: Used (https://library.kissclipart.com/20180903/wje/kissclipart-electronic-component-icon-clipart-electronic-compo-d2f1e79cc4feba0f.png) for icon in demo
 ---
 # How to create Application Templates
 
@@ -16,7 +17,7 @@ Create a new `Intent Application Template Builder` application and give it the n
 
 ![Installation dialog](images/installation-dialog.png)
 
-Once the `Application Installation` is complete, click `CLOSE`.
+Once the `Application Installation` is complete, it will automatically hide.
 
 ## Create a new Package
 
@@ -63,24 +64,27 @@ Run the Software Factory and optionally review the proposed changes:
 
 Click `APPLY CHANGES`.
 
-After the Software Factory has applied the changes, you'll see that it runs `dotnet build` on the generated `Visual Studio` solution:
+Before you dismiss the Software Factory Execution dialog (after it's completed applying all the changes) expand the last item called `Finalizing Execution`, then `Execution Life Cycle` to see that a `dotnet build` was executed on the generated `Visual Studio` solution:
 
 ![Software Factory: dotnet build](images/software-factory-dotnet-build.png)
 
 Take note of the following line in the output for the following step:
 
 ```text
-Finished writing C:\Dev\MySolution\Intent.Modules\My Application Template.1.0.0.iat
+Successfully created application template C:\Dev\MyApplicationTemplates\Intent.Modules\My Application Template.1.0.0.iat
 ```
 
-Click `CLOSE`.
+Click on the close button (the red button).
 
 ## Test your Application Template
 
-Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories). For the above output, the full path of the Application Template is `C:\Dev\MySolution\Intent.Modules\My Application Template.1.0.0.iat`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
+Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories).
+
+Add a new Asset Repository with the name `My Modules` and address `C:\Dev\MyApplicationTemplates\Intent.Modules` (this is the folder where your `.iat` file resides), then click `Save`.
 
 ![Manage Repositories](images/repo-manager-module-folder.png)
 
+Navigate to your Intent Solution dashboard then click to add a new application.
 Ensure your module repository is selected in the drop down and you should see your application template:
 
 ![Select your Application Template](images/testing-select-application-template.png)
@@ -89,7 +93,7 @@ Give it a name and click `NEXT`.
 
 ![Application Template Components](images/testing-select-application-template-components.png)
 
-Observe that it's showing all the elements we created in the [Specify a Group and a Component](#specify-a-group-and-a-component) and [Add a Module](#add-a-module) steps.
+Notice that it's showing all the elements we created in the [Specify a Group and a Component](#specify-a-group-and-a-component) and [Add a Module](#add-a-module) steps.
 
 ## Next steps
 
