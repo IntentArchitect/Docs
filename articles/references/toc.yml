@@ -2,6 +2,9 @@ items:
 - name: Code management
   href: code-management/code-management.md
 
+- name: Keyboard Shortcuts
+  href: keyboard-shortcuts/keyboard-shortcuts.md
+
 - name: Notations
   href: notations/notations.md
 
