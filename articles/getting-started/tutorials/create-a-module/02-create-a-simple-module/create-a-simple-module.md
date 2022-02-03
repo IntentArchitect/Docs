@@ -57,7 +57,7 @@ As the Software Factory Execution is running, it will present expandable items t
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/run-the-software-factory.mp4"></video></p>
 
-When the Software Factory Execution is complete, you can choose to close it (button with the cross) or minimize it (button with the underline). For this tutorial, we recommend you minimize it to make use of Intent Architect's continuous processing feature that runs in the background (which will be demonstrated later in the tutorial).
+When the Software Factory Execution is complete, you can choose to close it (the button with the cross) or minimize it (the button with the underscore). For this tutorial, we recommend you minimize it to make use of Intent Architect's continuous processing feature that runs in the background (which will be demonstrated later in the tutorial).
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/minimize-the-software-factory.mp4"></video></p>
 
@@ -68,7 +68,7 @@ During the Software Factory Execution, Intent Architect generated a Visual Studi
 Navigate to the folder where the `.sln` solution file (and associated files) has been placed and open it with Visual Studio.
 
 > [!TIP]
-> Intent Architect can open the folder where the generated content was placed by you going to the Application `Settings` and clicking on the path hyperlink located under the `Relative Output Location` input:
+> Intent Architect can open the folder where the generated content was placed by you going to the Application's `Settings` screen and clicking on the path hyperlink located under the `Relative Output Location` input:
 >
 > ![Open the output path folder](images/open-the-output-path-folder.png)
 

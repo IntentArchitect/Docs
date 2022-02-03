@@ -3,7 +3,7 @@ uid: tutorials.creating-modules-net.create-templates-per-model
 ---
 # Create files per Model
 
-In this next part of the tutorial, we will extend our `MyModules.Entities` Module to create and manage domain entities based on the `Domain` Designer. To do this we will create a Template that generates a new file for each entity we create in the `Domain`.
+In this next part of the tutorial, we will extend our `MyModules.Entities` Module to create and manage domain entities based on the `Domain` Designer. To do this we will create a Template which generates a new file for each entity which has been created in the `Domain` Designer.
 
 ## Install the `Domain` Metadata
 
@@ -44,15 +44,16 @@ Next, we will create a new Template that we can configure to receive the models 
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
 >
 > [!NOTE]
-> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article, you will see how a `ClassModel` ties up with a Class in the actual `Domain` Designer.
+> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel`s relate to Classes in the `Domain` Designer.
 >
 > ![Template Registration Class](images/entity-template-registration-class.png)
 >
->Not every `ClassModel` has to create an `EntityTemplate` instance. A filter can be applied to the `GetModels(...)` method. [Learn more here](xref:templates.how-to-filter-templates).
+> [!TIP]
+> If you want a template to only generate files for some classes and not others, you can edit the `GetModels(...)` method to [filter the available classes](xref:templates.how-to-filter-templates).
 
 ## Implement Template Logic
 
-Next, we will implement the logic of the `Entity` Template, essentially _templatizing_ our entity's pattern. In this tutorial, we will create `public` properties for each _attribute_ and _association_ that we describe in the `Domain` Designer.
+Next, we will implement the logic of the `Entity` Template, essentially _templatizing_ a pattern ("rules" followed by developers) for creating entities. In this tutorial, we will create `public` properties for each _attribute_ and _association_ that we describe in the `Domain` Designer.
 
 1. Open the `MyModule.Entities` code solution in your IDE (e.g. Visual Studio).
 2. Open the `EntityTemplate.tt` file.
@@ -90,11 +91,13 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     ```
 
     > [!NOTE]
-    > The Module Builder has automatically wired up our Template so that the  `Model` property is of the type `ClassModel` (the `Class` model for the Domain which will represent our entities). From the `Model`, they can access the `Attributes` and `AssociatedClasses` collections.
+    > The Module Builder has automatically wired up our Template so that the `Model` property is a `ClassModel` which is a C# class which has all the data of an entity as modelled in the `Domain` Designer including its `Attributes` and `AssociatedClasses` collections.
     >
+    > [!NOTE]
     > The [`GetTypeName(...)`](xref:templates.how-to-get-type-names) method returns the referenced type that was specified as a qualified and namespace-normalized C# type. It also tracks dependencies between this template and others, allowing it to dynamically add `using` statements to managed classes (created by Intent Architect) in different namespaces.
     >
-    > Also note that we filter the `AssociatedClasses` by those that are _Navigable_:
+    > [!NOTE]
+    > We filter the `AssociatedClasses` by those that are _Navigable_:
     >
     > ```text
     > <#  foreach(var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable)) { #>
@@ -112,10 +115,10 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     ```
 
     > [!NOTE]
-    > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
+    > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
     >
     > [!NOTE]
-    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive).
+    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/templatizing-entities-t4.mp4"></video></p>
 
@@ -128,7 +131,7 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 
 1. Open the `TestApp` Application in Intent Architect.
 2. In Visual Studio, rebuild the module by recompiling the project.
-3. Notice that the Intent Architect has automatically detected the Module change, installed and executed the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
+3. Notice that Intent Architect has automatically detected that the Module's `.imod` file was updated, installed, and executed by the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
 4. Navigate to the `Visual Studio` Designer and assign the `MyModules.Entities.Entity` Template Output to the `TestApp.Domain` project. The configuration should look as follows:
     ![visual-studio-assigned-template-output](images/visual-studio-assigned-template-output.png)
 
@@ -136,7 +139,7 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 > Notice that the `Domain` Designer has now been installed. When we configured our `Entity` Templates to use the `Domain` Designer, the Module Builder automatically added a dependency to the `Intent.Modelers.Domain` Module in the `.imodspec` file.
 >
 > [!TIP]
-> Instead of manually assigning Template Outputs, they can be configured to happen automatically when we install a Module. We [use Roles to achieve this](xref:templates.how-to-auto-assign-template-outputs).
+> Instead of having to manually assign Template Outputs, it can be done automatically by Intent Architect during Module installation through [use of roles](xref:templates.how-to-auto-assign-template-outputs).
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/after-module-changes-steps.mp4"></video></p>
 
@@ -167,14 +170,14 @@ Next, we will use the `Domain` Designer to model out a basic test domain. We wil
     > [!TIP]
     > Associations in the `Domain` Designer have a Source End and Target End. To set the multiplicity of relationships we change the `Is Collection` and `Is Nullable` settings of each end. For example, a _one-to-many_ relationship will be set up that the Target End `Is Collection` is `true` and the Source End `Is Collection` is `false`.
 6. Save your changes.
-7. Notice again the Software Factory Execution kicking in after changes were detected after saving. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
+7. Notice again that on saving, the Software Factory Execution automatically kicked itself off. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
 8. Click `APPLY CHANGES`.
 
 <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/domain-visually-modelling.mp4"></video></p>
 
 ## Summary
 
-In summary, this tutorial introduced how to use the Module Builder to create a Module - composed of a _single file_ Template as well as a _file per model_ Template - and then run it in a separate application. We covered how to templatize our entity pattern inside of the T4 `.tt` files, and how to set up methods in the Template's partial class that we call them from the T4. We also covered how to install and reinstall Modules, some basic domain modelling using the `Domain` Designer, as well as how to assign Template Outputs to projects in the `Visual Studio` Designer.
+This tutorial introduced using the Module Builder to create a Module (composed of a _single file_ Template as well as a _file per model_ Template), and then using it in a different Intent Architect application. We then covered how to templatize an entity pattern inside of the T4 `.tt` files, and how to set up methods in the Template's partial class that are called  from the T4. We finally covered how to install and reinstall Modules, some basic domain modelling using the `Domain` Designer, as well as how to assign Template Outputs to projects in the `Visual Studio` Designer.
 
 ## What's Next
 
@@ -190,6 +193,6 @@ Sometimes you may want to optionally extend a Template from another Module. Deco
 
 When you need to get the name of a type generated by a template while also:
 
-- Automatically apply a collection format if needed.
+- Automatically applying a collection format as needed.
 - Adding any required `using` directives.
 - Adding any required project references.
