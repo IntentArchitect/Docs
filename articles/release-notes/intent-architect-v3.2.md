@@ -3,6 +3,20 @@ uid: release-notes.version-3-2
 ---
 # Release notes: Intent Architect version 3.2
 
+## Version 3.2.2
+
+### New features added in 3.2.2
+
+- Clicking on the "update available" icon on the `Modules` entry in the left navigation pane will now navigate directly to the `Updates` tab.
+- In the application `Settings` view, each module's settings section will now show the module's icon instead of a generic cog icon. *(Please note that modules installed prior to 3.2.2 will still show the default cog icon until re-installed.)*
+
+### Issues fixed in 3.2.2
+
+- Fixed: Styling issue on the home screen where recent application pills would sometimes span multiple line.
+- Fixed: The module screen would sometimes still show updates being available for a module even after being upgraded to the latest version.
+- Fixed: Placement of the question mark for nullable collections in the designer type rendering, before it would display as (for example) `string?[*]`, but it will now display as `string[*]?` instead.
+- Fixed: Letter descenders were getting cut off in the left navigation pane.
+
 ## Version 3.2.1
 
 ### New features added in 3.2.1
