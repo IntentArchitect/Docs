@@ -1,17 +1,32 @@
 ---
 uid: references.keyboard-shortcuts
 ---
+<!-- Workaround to align the column widths consistently -->
+<style>
+table th:first-of-type {
+    width: 50%;
+}
+table th:nth-of-type(2) {
+    width: 50%;
+}
+</style>
+
 # Keyboard Shortcuts
+
+>[!NOTE]
+>For Apple users the `Ctrl` button is substituted by the `⌘` (command) key.
 
 ## Generic Shortcuts
 
-| Operation                 | Shortcut     |
-|---------------------------|--------------|
-| New Folder                | Ctrl+Shift+F |
-| Add Stereotype            | F3           |
-| Rename                    | F2           |
-| Delete                    | Delete       |
-| [Empty clone from selected](#empty-clone-from-selected) | Ctrl+Enter   |
+| Operation                                     | Shortcut     |
+|-----------------------------------------------|--------------|
+| New Folder                                    | Ctrl+Shift+F |
+| Add Stereotype                                | F3           |
+| Rename                                        | F2           |
+| Delete                                        | Delete       |
+| Undo                                          | Ctrl+Z       |
+| Redo                                          | Ctrl+Y       |
+| [New of selected type](#new-of-selected-type) | Ctrl+Enter   |
 
 ## Service Designer Shortcuts
 
@@ -24,26 +39,21 @@ uid: references.keyboard-shortcuts
 
 ## Domain Designer Shortcuts
 
-| Operation                           | Shortcut                            |
-|-------------------------------------|-------------------------------------|
-| New Class                           | Ctrl+Shift+C                        |
-| New Type                            | Ctrl+Shift+T                        |
-| New Enum                            | Ctrl+Shift+E                        |
-| New Comment                         | Ctrl+Shift+O                        |
-| New Stereotype Definition           | Ctrl+Shift+S                        |
-| [Drag-scroll diagram](#drag-scroll) | Middle Mouse Click                  |
-|                                     | Ctrl/[Cmd](#cmd) + Left Mouse Click |
+| Operation                 | Shortcut                  |
+|---------------------------|---------------------------|
+| New Class                 | Ctrl+Shift+C              |
+| New Type                  | Ctrl+Shift+T              |
+| New Enum                  | Ctrl+Shift+E              |
+| New Comment               | Ctrl+Shift+O              |
+| New Stereotype Definition | Ctrl+Shift+S              |
+| [Panning](#panning)       | Middle Mouse Click<br />Ctrl + Left Mouse Click |
 
 ## Explanations
 
-### Empty clone from selected
+### New of selected type
 
-[!Video-Loop videos/empty-clone-from-selected.mp4]
+[!Video-Loop videos/new-of-selected-type.mp4]
 
-### Drag-scroll
+### Panning
 
-[!Video-Loop videos/drag-scroll.mp4]
-
-### Cmd
-
-The Apple keyboard modifier equivalent
+[!Video-Loop videos/panning.mp4]
