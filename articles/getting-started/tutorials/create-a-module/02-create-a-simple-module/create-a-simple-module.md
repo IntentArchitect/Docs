@@ -23,6 +23,12 @@ An `Application Installation` dialogue will pop up showing the progress of downl
 
 [!Video-Loop videos/create-a-new-module.mp4]
 
+## Update modules
+
+![Update modules indicator](images/update-modules-indicator.png)
+
+In the event that [Modules](xref:modules.about-modules) shows the update indicator, please ensure that all your modules are kept up to date to ensure that no unnecessary issues occur during your Module development.
+
 ## Open and rename the package
 
 Click on `Module Builder` on the left of the screen to enter the designer.
