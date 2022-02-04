@@ -13,12 +13,14 @@ Topics will be the high-level TOC nodes and nested within each topic there will 
 ### Example
 
 High-level toc.yml:
+
 ```yaml
 - name: Modules
   href: modules/toc.yml
 ```
 
 Inside the `modules` folder's toc.yml:
+
 ```yaml
 items:
 - name: About Modules
@@ -30,7 +32,7 @@ items:
 
 ## Screenshots and videos
 
-In the developer console, run the following first which makes the window frame-less:
+In the developer console (Profile button > Debug), run the following first which makes the window frame-less:
 
 ```js
 require("electron").ipcRenderer.send("relaunch-as-frameless");
