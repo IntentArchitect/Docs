@@ -9,13 +9,33 @@ uid: release-notes.version-3-2
 
 - Clicking on the "update available" icon on the `Modules` entry in the left navigation pane will now navigate directly to the `Updates` tab.
 - In the application `Settings` view, each module's settings section will now show the module's icon instead of a generic cog icon. *(Please note that modules installed prior to 3.2.2 will still show the default cog icon until re-installed.)*
+- [Macro editor/execution improvements](#macro-editorexecution-improvements)
 
 ### Issues fixed in 3.2.2
 
+- Fixed: Filtering of solutions and applications on the home screen no longer matches on character strings within base64 encoded images.
 - Fixed: Styling issue on the home screen where recent application pills would sometimes span multiple line.
 - Fixed: The module screen would sometimes still show updates being available for a module even after being upgraded to the latest version.
 - Fixed: Placement of the question mark for nullable collections in the designer type rendering, before it would display as (for example) `string?[*]`, but it will now display as `string[*]?` instead.
 - Fixed: Letter descenders were getting cut off in the left navigation pane.
+
+### Macro editor/execution improvements
+
+- Intellisense (Ctrl/⌘ + Space) now works on arrays:
+
+![Intellisense options for arrays](images/3.2.0/macro-editor-array-intellisense-1.png)
+
+![Intellisense options for arrays](images/3.2.0/macro-editor-array-intellisense-2.png)
+
+- The `await` keyword now works with and must be used for asynchronous operations (such as dialogues). When the `await` keyword is not used the error dialog may not show and undo/redo will not correctly group all actions performed by the macro as a single operation. Intellisense method descriptions will say when use of `await` is required and a warning shows at the bottom left of the window which can be clicked on:
+
+![Intellisense for methods requiring use of the await keyword](images/3.2.0/macro-editor-await.png)
+
+![Warning shown when await not used](images/3.2.0/macro-editor-await-warning.png)
+
+- If an error occurs during execution of the macro, the error dialog now shows a stack trace with line numbers:
+
+![Macro error](!images/3.2.0/../../images/3.2.0/macro-editor-errors.png)
 
 ## Version 3.2.1
 
@@ -108,6 +128,6 @@ When opening an application in Intent Architect, a background request is kicked 
 
 ### Export functionality
 
-An _Export_ button is now available in the designer view. Clicking this will export metadata as XML and copy it to your clipboard. This exported data can be used for automatic installation of metadata by Application Templates and Modules.
+An *Export* button is now available in the designer view. Clicking this will export metadata as XML and copy it to your clipboard. This exported data can be used for automatic installation of metadata by Application Templates and Modules.
 
 ![Export functionality in the designer](images/3.2.0/export-functionality.png)
