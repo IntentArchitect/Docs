@@ -1,10 +1,10 @@
 ---
-uid: applications.how-to-create-application-templates
+uid: applications.application-templates.how-to-create-application-templates
 remark: Used (https://library.kissclipart.com/20180903/wje/kissclipart-electronic-component-icon-clipart-electronic-compo-d2f1e79cc4feba0f.png) for icon in demo
 ---
 # How to create Application Templates
 
-This how-to guide will walk you through creating your own [Application Template](xref:applications.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:designers.about-designers).
+This how-to guide will walk you through creating your own [Application Template](xref:applications.application-templates.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:designers.about-designers).
 
 ## Create a new Application
 
@@ -101,4 +101,4 @@ You can use the `App Templates` Designer to add/change Groups, Components and Mo
 
 ## See also
 
-[](xref:applications.about-application-templates)
+[](xref:applications.application-templates.about-application-templates)

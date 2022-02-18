@@ -1,5 +1,5 @@
 ---
-uid: applications.about-application-templates
+uid: applications.application-templates.about-application-templates
 ---
 # About Application Templates
 
@@ -26,4 +26,4 @@ _The modules downloaded in the example above are specifically related to the `Cl
 
 ## See also
 
-- [](xref:applications.how-to-create-application-templates)
+- [](xref:applications.application-templates.how-to-create-application-templates)
