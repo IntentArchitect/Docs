@@ -67,6 +67,9 @@ Create an `Owner` entity with the following attributes:
 - `city` of type `string`
 - `telephone` of type `string`
 
+> [!TIP]
+> Follow this [shortcut demonstration](xref:references.keyboard-shortcuts#new-of-selected-type) to add multiple attributes without using the mouse.
+
 ![What the `Owner` entity should now look like.](images/owner-entity-alone.png)
 
 > [!NOTE]
@@ -156,7 +159,7 @@ Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add
 
 ## Map the DTO fields from Domain Entities
 
-- Right-click the `PetVisitDTO` element and click on the `Mapping...` option.
+- Right-click the `PetVisitDTO` element and click on the `Map from Domain...` option.
 - Pull down the `Select an element to map from` the dropdown and observe that it has a list of the modelled domain entities.
 - Choose the `Visit` Entity.
 - Ensure that the following attributes are checked:
@@ -169,7 +172,7 @@ Click `DONE`.
 
 Similarly for `PetDTO`:
 
-- Right-click the `PetDTO` element and click on the `Mapping...` option.
+- Right-click the `PetDTO` element and click on the `Map from Domain...` option.
 - Select the `Pet` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `name`
@@ -198,7 +201,7 @@ You will see that the `PetDTO` element has multiple fields sharing the same name
 
 Lastly, for `OwnerDTO`:
 
-- Right-click the `OwnerDTO` element and click on the `Mapping...` option.
+- Right-click the `OwnerDTO` element and click on the `Map from Domain...` option.
 - Select the `Owner` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `firstName`
@@ -258,6 +261,9 @@ Click the `Modules` option located in the left pane of the window and install th
 
 - `Intent.EntityFrameworkCore.Repositories`
 - `Intent.Application.ServiceImplementations.Conventions.CRUD`
+
+> [!TIP]
+> Please ensure that all your (other) modules are kept up to date for the best possible experience. Click on the Updates tab to see which modules can be updated.
 
 Once you've installed those modules, you will notice a blinking button at the bottom of the screen. Click on it to view the Software Factory Execution again. When it detected the module installation, it automatically performed another Software Factory Execution.
 
