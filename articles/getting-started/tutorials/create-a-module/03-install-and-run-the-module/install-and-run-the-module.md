@@ -19,7 +19,7 @@ To get started, let's create an empty Application.
 2. Set the Application's name, location, and Solution name. _NOTE: You can ignore which Application Template is selected. It won't affect an empty application._
 3. Click `CREATE EMPTY` _NOTE: With `CREATE EMPTY` the selected application template is ignored)._
 4. When prompted with a confirmation, click `YES` to continue.
-5. Close the `Application Installation` dialog.
+5. Hide the `Application Installation` dialog.
 
 ![Create Test Application](images/create-test-application.png)
 

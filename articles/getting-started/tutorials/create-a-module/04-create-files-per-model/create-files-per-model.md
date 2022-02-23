@@ -9,7 +9,7 @@ In this next part of the tutorial, we will extend our `MyModules.Entities` Modul
 
 First, to access the `Domain` types so that we can configure our Template correctly, we must install metadata from the `Intent.Modelers.Domain` Module into our Module Builder.
 
-1. Open the `MyModules` Application.
+1. Open the `MyModules` Application in Intent Architect.
 2. Navigate to the `Modules` tab.
 3. Ensure that the `All` option in the repository drop-down is selected.
 4. Search for the `Intent.Modelers.Domain` Module.
@@ -29,8 +29,8 @@ First, to access the `Domain` types so that we can configure our Template correc
 Next, we will create a new Template that we can configure to receive the models from the `Domain` Designer and create a new C# class for each entity.
 
 1. Navigate to the `Module Builder` Designer.
-2. Create a new Template, call it `Entity`, and set its type to be `File per Model`.
-3. In the properties, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
+2. Create a new C# Template, call it `Entity`, and set its type to be `File per Model`.
+3. In the properties panel, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
 
     > [!NOTE]
     > These options are available because we installed the `Intent.Modelers.Domain` Module's metadata in the previous step.
@@ -44,7 +44,10 @@ Next, we will create a new Template that we can configure to receive the models 
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
 >
 > [!NOTE]
-> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel`s relate to Classes in the `Domain` Designer.
+> In the event that your compilation fails (while using Visual Studio 2022), first try the workaround to delete the `bin` and `obj` folders found in your `MyModules` project then try to build it again.
+>
+> [!NOTE]
+> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel` relate to Classes in the `Domain` Designer.
 >
 > ![Template Registration Class](images/entity-template-registration-class.png)
 >
@@ -113,6 +116,8 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
         return GetTypeName(EntityBaseTemplate.TemplateId);
     }
     ```
+
+    Press `Ctrl+.` (using the Visual Studio shortcut, or right click and select `Quick actions and refactorings`) while the cursor is on `EntityBaseTemplate` and choose `using MyModules.Templates.EntityBase;` to add its using directive.
 
     > [!NOTE]
     > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
