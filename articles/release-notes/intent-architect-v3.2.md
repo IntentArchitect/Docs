@@ -3,6 +3,14 @@ uid: release-notes.version-3-2
 ---
 # Release notes: Intent Architect version 3.2
 
+## Version 3.2.3
+
+### Issues fixed in 3.2.3
+
+- Fixed: It was not possible to load association metadata for template registration through `IMetadataManager`.
+- Fixed: In some scenarios the module metadata installer wouldn't detect that elements of the same name already existed and end up creating a duplicate.
+- Fixed: The Software Factory Metadata Loader will now traverse module dependencies of package dependencies for Stereotype Definitions. This should make it no longer necessary to add direct references to module metadata to prevent certain Software Factory errors from occurring.
+
 ## Version 3.2.2
 
 ### New features added in 3.2.2
