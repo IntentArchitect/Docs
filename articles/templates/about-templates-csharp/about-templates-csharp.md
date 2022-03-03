@@ -171,7 +171,7 @@ Through extensive experience of building templates for generating C# files, we h
 
 ### Code Management
 
-A core feature of Intent Architect is [Code Management](xref:references.code-management) where parts of a file are managed fully by Intent Architect while other parts in the same file are hand crafted and Intent Architect will leave those particular parts alone.
+A core feature of Intent Architect is [Code Management](xref:code-management.about-code-management) where parts of a file are managed fully by Intent Architect while other parts in the same file are hand crafted and Intent Architect will leave those particular parts alone.
 
 For C# files, you can use [C# attributes](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/attributes/) anywhere in the file to opt-out a particular element of code within a file from being overwritten during Software Factory Execution.
 

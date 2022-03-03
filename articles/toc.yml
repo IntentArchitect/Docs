@@ -9,6 +9,9 @@ items:
 - name: Applications
   href: applications/toc.yml
 
+- name: Code Management
+  href: code-management/toc.yml
+
 - name: Designers
   href: designers/toc.yml
 
