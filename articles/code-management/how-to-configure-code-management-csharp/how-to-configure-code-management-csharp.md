@@ -116,14 +116,14 @@ public class Address : EntityBase
 
 Similarly to the [previous](#make-the-whole-file-managed-by-intent-architect) section, the `Mode` has the following that instructs Intent Architect that:
 
-* `Fully` - It has **full** control over the class for Code Automation. If the `[DefaultIntentManaged]` is _also_ set to `Fully` then this attribute is not needed.
+* `Fully` - It has **full** control over the class for Code Automation. If the `[DefaultIntentManaged]` is _also_ set to `Fully` then this attribute is not needed (unless you're planning on adjusting the `Body` or `Signature` properties).
 * `Merge` - It may only make modifications and additions to this class but it's not allowed to remove anything. This will still overwrite existing properties and methods in the class; however if you create a new method (or any other member) manually in the class, Intent Architect will not modify it.
 * `Ignore` - It has **no** control over the class and will not generate or overwrite anything in this file.
 
 This attribute also provides you with the ability to adjust the Code Management withing the `Body` of this class. Setting this configuration option should look like this:
 
 ```cs
-[IntentManaged(Mode.Merge, Body = Mode.Fully)]
+[IntentManaged(Mode.Merge, Body = Mode.Ignore)]
 ```
 
 Setting the class `Body` (in this context: methods, fields, properties, etc.) also instructs Intent Architect that:
@@ -136,7 +136,7 @@ Setting the class `Body` (in this context: methods, fields, properties, etc.) al
 * `Ignore` - The whole class Body is **not** under Code Management and will not generate or overwrite anything in this class.
 
 ```cs
-[IntentManaged(Mode.Merge, Body = Mode.Fully, Signature = Mode.Fully)]
+[IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
 ```
 
 The attribute also allows you to set the `Signature` of the class. This will be all the declarations and definitions of the class itself and not its contents, i.e. inheritance. It will instruct Intent Architect that:
@@ -188,5 +188,6 @@ public void ChangeCountry(string country)
 
 Similarly to the [previous](#make-a-class-managed-by-intent-architect) section, applying the `[IntentManaged()]` attribute over a method will instruct Intent Architect that:
 
-* `Fully` - It has full control over the method for Code Automation. Again if the `[DefaultIntentManaged]` or the `[IntentManaged()]` on the class has their `Mode` set to `Fully`, then this specification is redundant.
-* `Merge` - 
+* `Fully` - It has full control over the method for Code Automation. Again if the `[DefaultIntentManaged]` or the `[IntentManaged()]` on the class has their `Mode` set to `Fully`, then this specification is redundant (unless you're planning on adjusting the `Body` or `Signature` properties).
+* `Merge` and `Ignore` will behave the same way where the method is largely not under Code Automation.
+
