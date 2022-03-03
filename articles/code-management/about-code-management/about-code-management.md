@@ -1,7 +1,7 @@
 ---
-uid: references.code-management
+uid: code-management.about-code-management
 ---
-# Code management
+# About Code management
 
 Code-automation as used in the software industry has two flavours: once-off (scaffolding) and continuous. Both have their place, but come with trade-offs and compromises in customizability and control.
 
