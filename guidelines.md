@@ -48,3 +48,7 @@ angular.element(document.querySelector("html")).injector().get("EventAggregator"
 ## Formatting markdown tables
 
 Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT+P` and select `Evenly distribute selected table`. This will format markdown tables in a human readable manner.
+
+## Headings
+
+In a typical how-to document, the article heading will contain the word "How to" while the sub-sections will be declarative statements without the repetitive "How to" phrase.
