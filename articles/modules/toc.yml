@@ -10,3 +10,5 @@ items:
 
 - name: Metadata installation
   href: metadata-installation/metadata-installation.md
+- name: How to distribute local Modules
+  href: how-to-distribute-local-modules/how-to-distribute-local-modules.md
