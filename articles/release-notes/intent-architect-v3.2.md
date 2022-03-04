@@ -3,6 +3,12 @@ uid: release-notes.version-3-2
 ---
 # Release notes: Intent Architect version 3.2
 
+## Version 3.2.5
+
+### Issues fixed in 3.2.5
+
+- Fixed: When installing a module, folders for template outputs would always get created in the root instead of being nested within projects or other folders.
+
 ## Version 3.2.4
 
 ### New features added in 3.2.4
