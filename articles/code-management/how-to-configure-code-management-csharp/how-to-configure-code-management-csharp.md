@@ -50,11 +50,11 @@ Notice this line:
 
 Reserved for a file scope is the `DefaultIntentManaged` attribute. It sets the default fallback state to instruct Intent Architect as to what level of control it is allowed to have over this file.
 
-The first parameter accepts a `Mode` which instructs Intent Architect that:
+The first parameter of the `[IntentManaged()]` attribute will instruct Intent Architect that:
 
 * `Fully` - It has **full** control over the file for Code Automation (like typical Code Automation).
 * `Merge` - It may only make modifications and additions to this file but it's not allowed to remove anything.
-* `Ignore` - It has **no** control over the file and will not generate or overwrite anything in this file.
+* `Ignore` - It has **no** control over the file and will not generate or overwrite anything in it.
 
 ## Make a class managed by Intent Architect ##
 
@@ -114,13 +114,13 @@ public class Address : EntityBase
 }
 ```
 
-Similarly to the [previous](#make-the-whole-file-managed-by-intent-architect) section, the `Mode` has the following that instructs Intent Architect that:
+The first parameter of the `[IntentManaged()]` attribute will instruct Intent Architect that:
 
-* `Fully` - It has **full** control over the class for Code Automation. If the `[DefaultIntentManaged]` is _also_ set to `Fully` then this attribute is not needed (unless you're planning on adjusting the `Body` or `Signature` properties).
+* `Fully` - It has **full** control over the class for Code Automation.
 * `Merge` - It may only make modifications and additions to this class but it's not allowed to remove anything. This will still overwrite existing properties and methods in the class; however if you create a new method (or any other member) manually in the class, Intent Architect will not modify it.
-* `Ignore` - It has **no** control over the class and will not generate or overwrite anything in this file.
+* `Ignore` - It has **no** control over the class and will not generate or overwrite anything in it.
 
-This attribute also provides you with the ability to adjust the Code Management withing the `Body` of this class. Setting this configuration option should look like this:
+The `[IntentManaged()]` attribute allows the specification of the `Body` of the class too. It can be done like this:
 
 ```cs
 [IntentManaged(Mode.Merge, Body = Mode.Ignore)]
@@ -129,23 +129,25 @@ This attribute also provides you with the ability to adjust the Code Management 
 Setting the class `Body` (in this context: methods, fields, properties, etc.) also instructs Intent Architect that:
 
 > [!NOTE]
-> Not setting Body will default to the value of the first parameter in this attribute.
+> Not setting Body will default to the value of the first parameter in that attribute.
 
-* `Fully` - It has the whole class Body **is** under Code Management.
-* `Merge` - The whole class Body may only undergo modifications and additions but nothing is allowed to be removed.
-* `Ignore` - The whole class Body is **not** under Code Management and will not generate or overwrite anything in this class.
+* `Fully` - It has **full** control over the class Body for Code Automation.
+* `Merge` - It may only make modifications and additions to this class Body but it's not allowed to remove anything.
+* `Ignore` - It has **no** control over the class Body and will not generate or overwrite anything in it.
+
+The `[IntentManaged()]` attribute allows the specification of the `Signature` of the class too. It can be done like this:
 
 ```cs
 [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
 ```
 
-The attribute also allows you to set the `Signature` of the class. This will be all the declarations and definitions of the class itself and not its contents, i.e. inheritance. It will instruct Intent Architect that:
+Setting the class `Signature` (in this context: inheritance, declarations and definitions of the class) also instructs Intent Architect that:
 
 > [!NOTE]
-> Not setting Signature will default to the value of the first parameter in this attribute.
+> Not setting Signature will default to the value of the first parameter in that attribute.
 
-* `Fully` - It **has** the whole class signature under Code Management.
-* `Merge` - The whole class Signature may only undergo modifications and additions but nothing is allowed to be removed. For inheritance it will not modify what is already there but it will only add (if generation would add inheritance) if no inheritance was specified. For example, if you had:
+* `Fully` - It has **full** control over the class Signature for Code Automation.
+* `Merge` - It may only make modifications and additions to this class Signature but it's not allowed to remove anything. In the case of inheritance declared in this class, it will only add a class to be inherited from but it won't modify or remove it. For example, assume the following class:
 
     ```cs
     public class MyClass
@@ -154,7 +156,7 @@ The attribute also allows you to set the `Signature` of the class. This will be 
     }
     ```
 
-    And the Code Automation wanted to add inheritance to the `BaseClass` class, then it will add it:
+    And that Code Automation wanted to add inheritance to the `BaseClass` class, then it will add it:
 
     ```cs
     public class MyClass : BaseClass
@@ -172,22 +174,98 @@ The attribute also allows you to set the `Signature` of the class. This will be 
     }
     ```
 
-    Then the Code Automation will not affect this class.
+    Then the Code Automation will not change (or remove) `OtherClass` to `BaseClass`.
 
-* `Ignore` - The whole class signature is **not** under Code Management and will not generate or overwrite anything in this class.
+* `Ignore` - It has **no** control over the class Signature and will not generate or overwrite anything in it.
 
 ## Make methods managed by Intent Architect ##
 
+Assume for this example that we have a file like this:
+
 ```cs
-[IntentManaged(Mode.Merge)]
+using System;
+using System.Collections.Generic;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+
+namespace TestApp.Domain
+{
+    public class Address : EntityBase
+    {
+
+        public string Line1 { get; set; }
+
+        public string Line2 { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public string Country { get; set; }
+
+        public void ChangeCountry(string country)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+```
+
+Assume we would like to override Intent Architect's ability to manage the method `ChangeCountry`. This can be achieve by adding the `[IntentManaged()]` attribute on top of the `ChangeCountry` method:
+
+```cs
+[IntentManaged(Mode.Ignore)]
 public void ChangeCountry(string country)
 {
     throw new NotImplementedException();
 }
 ```
 
-Similarly to the [previous](#make-a-class-managed-by-intent-architect) section, applying the `[IntentManaged()]` attribute over a method will instruct Intent Architect that:
+The first parameter of the `[IntentManaged()]` attribute will instruct Intent Architect that:
 
-* `Fully` - It has full control over the method for Code Automation. Again if the `[DefaultIntentManaged]` or the `[IntentManaged()]` on the class has their `Mode` set to `Fully`, then this specification is redundant (unless you're planning on adjusting the `Body` or `Signature` properties).
-* `Merge` and `Ignore` will behave the same way where the method is largely not under Code Automation.
+* `Fully` - It has **full** control over the method for Code Automation.
+* `Merge` - On this level, there is practically no difference between `Merge` and `Ignore`.
+* `Ignore` - It has **no** control over the method and will not generate or overwrite anything in it.
+
+The `[IntentManaged()]` attribute allows the specification of the `Body` of the method too. It can be done like this:
+
+```cs
+[IntentManaged(Mode.Merge, Body = Mode.Ignore)]
+```
+
+Setting the method `Body` (in this context: the actual code written in the method) also instructs Intent Architect that:
+
+> [!NOTE]
+> Not setting Body will default to the value of the first parameter in that attribute.
+
+* `Fully` - It has **full** control over the method Body for Code Automation.
+* `Merge` - On this level, there is practically no difference between `Merge` and `Ignore`.
+* `Ignore` - It has **no** control over the method Body and will not generate or overwrite anything in it.
+
+The `[IntentManaged()]` attribute allows the specification of the `Signature` of the method too. It can be done like this:
+
+```cs
+[IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
+```
+
+Setting the class `Signature` (in this context: method name, parameters and attributes) also instructs Intent Architect that:
+
+> [!NOTE]
+> Not setting Signature will default to the value of the first parameter in that attribute.
+
+* `Fully` - It has **full** control over the method Signature for Code Automation.
+* `Merge` - On this level, there is practically no difference between `Merge` and `Ignore`, except with _Parameters_ where it may only make modifications and additions to the parameter list but it's not allowed to remove anything. Assume for the following cases this piece of code:
+
+    ```cs
+    [IntentManaged(Mode.Ignore, Signature = Mode.Merge)]
+    public void ChangeCountry(string country)
+    {
+        throw new NotImplementedException();
+    }
+    ```
+
+    If you were to remove `string country` from the parameter list, it will get added again. In the event that you change `country` to another name, it will respect the name change. However, if you changed the `string` type to something like `int` then it will change it back to `string`. If you added another parameter to the list, it will not change or remove that parameter.
+
+* `Ignore` - It has **no** control over the method Signature and will not generate or overwrite anything in it.
 
