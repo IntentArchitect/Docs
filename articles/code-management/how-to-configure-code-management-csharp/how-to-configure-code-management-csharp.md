@@ -56,6 +56,9 @@ The first parameter of the `[IntentManaged()]` attribute will instruct Intent Ar
 * `Merge` - It may only make modifications and additions to this file but it's not allowed to remove anything.
 * `Ignore` - It has **no** control over the file and will not generate or overwrite anything in it.
 
+> [!NOTE]
+> Comments that are made by the developer (not the Code Automation) outside the scope of a `namespace` will not be modified in any way even if `Mode` is set to `Fully`.
+
 ## Make a class managed by Intent Architect ##
 
 Assume for this example that we have a file like this:
