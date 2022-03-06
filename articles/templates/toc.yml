@@ -8,6 +8,9 @@ items:
 - name: About Templates (C#)
   href: about-templates-csharp/about-templates-csharp.md
 
+- name: About T4 Templates
+  href: about-t4-templates/about-t4-templates.md
+
 - name: How to auto-assign Template Outputs
   href: how-to-auto-assign-template-outputs/how-to-auto-assign-template-outputs.md
 

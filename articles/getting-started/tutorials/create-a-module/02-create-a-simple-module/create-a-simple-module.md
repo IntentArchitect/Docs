@@ -111,6 +111,9 @@ namespace <#= Namespace #>
 }
 ```
 
+> [!NOTE]
+> This is a T4 Template. To learn more, go to [this page](xref:templates.about-t4-templates).
+
 Save your changes and build the project.
 
 [!Video-Loop videos/edit-template-and-build-in-visual-studio.mp4]
