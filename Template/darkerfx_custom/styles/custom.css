@@ -44,6 +44,10 @@ blockquote {
     font-style: normal;
 }
 
+pre {
+    border-radius: 0;
+}
+
 pre code {
     color: var(--theme-code-block-default);
 }
