@@ -12,6 +12,9 @@ This article will explain a more effective way to generate many files that are s
 * Create the Registration class
 * Update `.imodspec` file
 
+> [!TIP]
+> When using Intent Architect, please ensure that all your modules are kept up to date for the best possible experience. Click on the Updates tab to see which modules can be updated.
+
 ## Setting up the content folder
 
 In your Module project where your Visual Studio project is located for your Module, create a folder called `content`. This should be located in the same folder as your project's `.imod` file.
@@ -89,4 +92,3 @@ So any file content that features the following phrase `<#= Today #>` will be re
 
 > [!IMPORTANT]
 > Please ensure that a single space is preserved between the `<#=`, `keyword` and `#>` symbols.
-
