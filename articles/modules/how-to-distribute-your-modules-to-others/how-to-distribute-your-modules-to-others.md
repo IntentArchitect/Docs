@@ -39,8 +39,20 @@ There are good versioning schemes that you can leverage (such as [semantic versi
 
 ## Copying your `.imod` file
 
-To locate the `Intent.Modules` folder for your Module, open up Settings tab inside your Intent Architect module application and click on the link under `Relative Output Location`.
+Locate where your newly built `.imod` file is placed after it's built in Visual Studio. The console output generally displays the location (where it says "Successfully created module"):
 
-![Open the output path folder](images/open-the-output-path-folder.png)
+```text
+Build started...
+1>------ Build started: Project: MyModule, Configuration: Debug Any CPU ------
+1>MyModule -> C:\Dev\MyModule\MyModule\bin\Debug\net5.0\MyModule.dll
+1>Intent Architect Packager PackAll Task (C:\Users\User\.nuget\packages\intent.packager\3.2.0\lib\netstandard2.0\Intent.Packager.BuildTasks.dll)
+1>Packaging module for C:\Dev\MyModule\MyModule\MyModule.imodspec
+1>Added lib/MyModule.dll.
+1>Added lib/MyModule.pdb.
+1>Added MyModule.1.0.0.imodspec.
+1>Successfully created module 'C:\Dev\MyModule\Intent.Modules\MyModule.1.0.0.imod'.
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+```
+_Example of Console output log_
 
-When File Explorer opens up, locate the `Intent.Modules` folder. Copy the relevant `.imod` file to your file sharing location.
+Copy the `.imod` file from the `Intent.Modules` folder to your file sharing location.
