@@ -126,7 +126,7 @@ Click `CLOSE`.
 
 ## Test your Designer Extension Module
 
-Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories). For the above output, the full path of the module is `C:\Dev\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
+Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:applications.how-to-manage-repositories). For the above output, the full path of the module is `C:\Dev\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
 
 ![Manage Repositories](images/repo-manager-module-folder.png)
 
