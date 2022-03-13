@@ -9,5 +9,8 @@ items:
 - name: About Solutions
   href: about-solutions/about-solutions.md
 
+- name: How to manage Repositories
+  href: how-to-manage-repositories/how-to-manage-repositories.md
+
 #- name: 'About the Visual Studio Designer'
 #   href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
