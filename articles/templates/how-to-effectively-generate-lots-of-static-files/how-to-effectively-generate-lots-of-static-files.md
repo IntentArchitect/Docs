@@ -64,6 +64,9 @@ namespace MyModule.Templates.SolutionItems
     public class StaticContentTemplateRegistrations : ModuleContentFilesTemplateRegistrations
     {
         public override string TemplateId => "MyModule.StaticContent";
+        
+        // Optional, you only want contents of this sub-folder to be used for this content.
+        public override string ContentSubFolder => "SubFolder";
     }
 }
 ```
