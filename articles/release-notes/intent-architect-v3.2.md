@@ -3,6 +3,12 @@ uid: release-notes.version-3-2
 ---
 # Release notes: Intent Architect version 3.2
 
+## Version 3.2.6
+
+### Issues fixed in 3.2.6
+
+- Fixed: Script context menu options captured in the Module Builder for packages would not actually appear on the package context menu when the designer was loaded.
+
 ## Version 3.2.5
 
 ### Issues fixed in 3.2.5
