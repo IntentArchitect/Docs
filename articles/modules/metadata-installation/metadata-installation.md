@@ -81,15 +81,15 @@ The software factory has been executed before for these Applications with a work
 
 - Select the `Visual Studio` designer on the left.
 - Press the `CREATE NEW PACKAGE` button.
-- Use `${solution.name}` for the "Name" of the package and press `DONE`:
+- Use `${application.name}` for the "Name" of the package and press `DONE`:
 
 ![Choose package name](images/application-template-metadata-choose-package-name.png)
 
-- Right-click on the `${solution.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
 - Set its name to `${application.name}.Domain`.
 - Right-click the `${application.name}.Domain` element and select `Add Role`.
 - Set its name to `Domain`.
-- Right-click on the `${solution.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
 - Set its name to `${application.name}.Persistence`.
 - Right-click the `${application.name}.Persistence` element and select `Add Role`.
 - Set its name to `Persistence`.
@@ -132,12 +132,12 @@ If you create a new Application with the Application Template, you will see it n
 - Once the Application is created, click on `Modules` in the left pane, search for `Visual Studio`, select the `Intent.VisualStudio.Projects` Module and finally click the install button on the right:
 - Select the `Visual Studio` designer on the left.
 - Press the `CREATE NEW PACKAGE` button.
-- Use `${solution.name}` for the "Name" of the package and press `DONE`.
+- Use `${application.name}` for the "Name" of the package and press `DONE`.
 
 > [!NOTE]
 > By having given the Solution element the same name as for the Application Template, when this Module is installed the [metadata merging](#metadata-merging) logic prevents a duplicate being created.
 
-- Right-click on the `${solution.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
 - Set its name to `${application.name}.UnitTesting`.
 - Right-click the `${application.name}.UnitTesting` element and select `Add Role`.
 - Set its name to `UnitTesting`.
