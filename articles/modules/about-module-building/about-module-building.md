@@ -39,8 +39,24 @@ Components associated with Code Generation will rely on the Designer API to supp
 
 ### Template
 
-Using a Text Template containing control logic, metadata can be consistently transformed based on the format of the Text Template and the output will become the content of a text file. These file types can range from XML to programming languages source code as long as the output type is text based.
+Using a [Text Template](xref:templates.about-templates-csharp) containing control logic, metadata can be consistently transformed based on the format of the Text Template and the output will become the content of a text file. These file types can range from XML to programming languages source code as long as the output type is text based.
 
 ### Decorator
 
-Some Text Templates can be open for extension by exposing hook-in points for Decorators to supply additional content. Decorators offer a way to decouple certain logic from Text Templates. Decorators can also be installed through Modules that are separate from the Modules containing the Text Templates.
+Some Text Templates can be open for extension by exposing hook-in points for [Decorators](xref:templates.about-decorators) to supply additional content. Decorators offer a way to decouple certain logic from Text Templates. Decorators can also be installed through Modules that are separate from the Modules containing the Text Templates.
+
+## Advanced
+
+Components and infrastructural concerns additional to Metadata and Code Generation.
+
+### Eventing Message
+
+Components can achieve a level of decoupling using the Publish / Subscriber pattern with Eventing Messages.
+
+### Factory Extension
+
+One can introduce [Extensions](xref:software-factory.how-to-create-a-factory-extension) which will execute tasks at certain phases of the Software Factory Execution process. This can include:
+
+- Loading Metadata from outside Intent Architect.
+- Alter the output produced from Text Templates.
+- Execute external processes which developers might have needed to execute manually after a Software Factory Execution.
