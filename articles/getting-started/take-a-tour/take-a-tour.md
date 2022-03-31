@@ -153,7 +153,7 @@ Applications can also be filtered with the text field as well as _favourited_ by
 
 ### [Tutorial: Use existing modules to quickly make applications](xref:tutorials.create-a-sample-app.introduction)
 
-Tutorial on how to create a Module and install it into an Application.
+Tutorial on how to create a new Application from scratch.
 
 ### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
 
