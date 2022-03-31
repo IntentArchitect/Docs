@@ -2,6 +2,9 @@ items:
 - name: About Modules
   href: about-modules/about-modules.md
 
+- name: About Module Building
+  href: about-module-building/about-module-building.md
+
 - name: How to debug your Module code
   href: how-to-debug-your-module-code/how-to-debug-your-module-code.md
 
