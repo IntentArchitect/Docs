@@ -53,6 +53,10 @@ Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT
 
 Headings should be short and concise and should refrain from being written in a question form. Rather write it in a declarative form. For instance: `Why isn't Intent Architect not using Package Managers?` should be written as `Why Intent Architect isn't using Package Managers`.
 
+## How-to articles
+
+Don't make how-to depend on previous articles to get started. It should be self-contained with regards to step-by-step instructions. Don't make them complete a tutorial first just to get to the point of starting with the how-to. Of course a how-to may make assumptions that the reader should need to know how certain concepts and actions before the how-to can be started (just as you would have to know arithmetic before you can start algebra) and it may have references to other how-to's or reference articles to help explain or to point to "next" kind of articles.
+
 ## Changing/moving article paths
 
 So that old links carry on working, keep the just the `.md` files for moved/renamed articles and make their content as follows to have them redirect to the new location:
