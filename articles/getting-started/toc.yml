@@ -8,9 +8,6 @@ items:
 - name: Take a tour
   href: take-a-tour/take-a-tour.md
 
-- name: 'The Two Development Roles'
-  href: two-development-roles/two-development-roles.md
-
 - name: 'Tutorial: Create a Module'
   href: tutorials/create-a-module/toc.yml
   topicUid: tutorials.create-a-module.introduction

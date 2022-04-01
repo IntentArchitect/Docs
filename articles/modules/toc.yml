@@ -2,9 +2,6 @@ items:
 - name: About Modules
   href: about-modules/about-modules.md
 
-- name: About Module Building
-  href: about-module-building/about-module-building.md
-
 - name: Distributing your modules to others
   href: distributing-your-modules-to-others/distributing-your-modules-to-others.md
 

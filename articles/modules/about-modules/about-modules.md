@@ -18,9 +18,3 @@ _An example showing the list of Installed Modules in a sample application. The `
 
 > [!NOTE]
 > When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions it is made up of).
-
-## See More
-
-- [](xref:modules.about-module-building)
-  
-  Learn more about Modules and what they are comprised of.

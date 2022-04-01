@@ -3,6 +3,9 @@ items:
   href: getting-started/toc.yml
   topicUid: getting-started.welcome
 
+- name: Overview
+  topicUid: overview
+
 - name: Applications
   href: applications/toc.yml
 
