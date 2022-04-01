@@ -151,6 +151,10 @@ Applications can also be filtered with the text field as well as _favourited_ by
 
 ## What's Next
 
+### [The Two Development Roles](xref:getting-started.two-development-roles)
+
+Building Applications and the supporting infrastructure it needs are maintained as two separate roles and disciplines which Intent Architect respects. Find out more.
+
 ### [Tutorial: Use existing modules to quickly make applications](xref:tutorials.create-a-sample-app.introduction)
 
 Tutorial on how to create a new Application from scratch.
