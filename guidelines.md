@@ -48,3 +48,7 @@ angular.element(document.querySelector("html")).injector().get("EventAggregator"
 ## Formatting markdown tables
 
 Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT+P` and select `Evenly distribute selected table`. This will format markdown tables in a human readable manner.
+
+## Headings
+
+Headings should be short and concise and should refrain from being written in a question form. Rather write it in a declarative form. For instance: `Why isn't Intent Architect not using Package Managers?` should be written as `Why Intent Architect isn't using Package Managers`.
