@@ -3,7 +3,7 @@ uid: applications.how-to-manage-repositories
 ---
 # How to manage Repositories
 
-Asset Repositories represent the default available repositories that are searched when discovering Modules and Application Templates. By default the Intent Architect server is available `https://intentarchitect.com`, which hosts all the official Open Source modules.
+Asset Repositories represent the default available repositories that are searched when discovering Modules and Application Templates. By default the Intent Architect server is available `https://intentarchitect.com/`, which hosts all the official Open Source modules.
 
 Repositories can also point to local folders and network locations, and can be overridden at the Intent Solution level and Application level. Local folders need to be fully qualified for User Settings, but can be relative locations for Intent Solutions and Applications.
 
@@ -22,6 +22,9 @@ See [here](xref:user-interface.about-asset-repositories) on how the Asset Manage
 
 Repositories can be specified on a solution level of Intent Architect. This will ensure that Repositories specified on a global level will not be scanned in addition to the Repositories that are specified on a solution level.
 
+> [!NOTE]
+> In almost all cases [global level](#managing-on-a-global-level) repositories should be used. Solution level repositories should only be used when you want to use a relative path to assets which is consistent across different developer computers, such as when the modules solution is in the same source code repository as the solution which uses the modules.
+
 Click on your Intent Architect solution icon in the top left corner.
 
 ![Navigate Solution Level](iamges/../images/navigate-solution-level.png)
@@ -33,13 +36,14 @@ Click on `Settings` and then on `Manage Repositories`.
 See [here](xref:user-interface.about-asset-repositories) on how the Asset Management dialog works.
 
 > [!NOTE]
-> A `intent.repositories.config` file will be created in the same folder as your `.isln` file for Intent Architect. Deleting this file will reset behaviour so that Intent Architect will scan your global level repositories again.
-> [!NOTE]
-> In almost all cases [global level](#managing-on-a-global-level) repositories should be used. Solution level repositories should only be used when you want to use a relative path to assets which is consistent across different developer computers, such as when the modules solution is in the same source code repository as the solution which uses the modules.
+> An `intent.repositories.config` file will be created in the same folder as your `.isln` file for Intent Architect. Deleting this file will reset behaviour so that Intent Architect will scan your global level repositories again.
 
 ## Managing on an application level
 
 Repositories can be specified on an application level of Intent Architect. This will ensure that Repositories specified on a global or solution level will not be scanned in addition to the Repositories that are specified on an application level.
+
+> [!NOTE]
+> In almost all cases [global level](#managing-on-a-global-level) repositories should be used. Application level repositories should only be used when you want to use a relative path to assets which is consistent across different developer computers, such as when the modules solution is in the same source code repository as the solution which uses the modules.
 
 Navigate to the application found in Intent Architect where the Repository will be added. Click on `Modules` and then on the gear icon located on the right hand side of the screen.
 
@@ -48,6 +52,4 @@ Navigate to the application found in Intent Architect where the Repository will 
 See [here](xref:user-interface.about-asset-repositories) on how the Asset Management dialog works.
 
 > [!NOTE]
-> A `intent.repositories.config` file will be created in the same folder as your Application's `.application.config` file for Intent Architect. Deleting this file will reset behaviour so that Intent Architect will scan your solution or global level repositories again.
-> [!NOTE]
-> In almost all cases [global level](#managing-on-a-global-level) repositories should be used. Application level repositories should only be used when you want to use a relative path to assets which is consistent across different developer computers, such as when the modules solution is in the same source code repository as the solution which uses the modules.
+> An `intent.repositories.config` file will be created in the same folder as your Application's `.application.config` file for Intent Architect. Deleting this file will reset behaviour so that Intent Architect will scan your solution or global level repositories again.
