@@ -20,9 +20,6 @@ items:
 - name: How to decorate a Template
   href: how-to-decorate-a-template/how-to-decorate-a-template.md
 
-- name: How to disable auto-formatting for C# templates
-  href: how-to-disable-csharp-autoformatting/how-to-disable-csharp-autoformatting.md
-
 - name: How to effectively generate lots of static files
   href: how-to-effectively-generate-lots-of-static-files/how-to-effectively-generate-lots-of-static-files.md
 

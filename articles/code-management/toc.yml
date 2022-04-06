@@ -2,5 +2,8 @@ items:
 - name: About Code Management
   href: about-code-management/about-code-management.md
 
-- name: How to configure Code Management for C#
-  href: how-to-configure-code-management-csharp/how-to-configure-code-management-csharp.md
+- name: About Code Management for C#
+  href: about-code-management-csharp/about-code-management-csharp.md
+
+- name: 'FAQs for Code Management (C#)'
+  href: faq-code-management-csharp/faq-code-management-csharp.md
