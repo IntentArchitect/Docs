@@ -41,3 +41,12 @@ steps:
       solution: '$(solutionPath)'
       configuration: 'release'
       msbuildArguments: '/p:DeployOnBuild=true "/p:PublishProfile=$(webDeployPublishProfile)" "/p:Password=$(webDeployPassword)"'
+
+  - task: PowerShell@2
+    displayName: 'Perform HTTP request against docs'
+    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
+    inputs:
+      pwsh: true
+      targetType: 'inline'
+      script: |
+        Invoke-WebRequest "https://intentarchitect.com/docs/"
