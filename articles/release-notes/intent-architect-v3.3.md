@@ -16,9 +16,11 @@ _Will be released between 2022/04/18 and 2202/04/25_
 - [Metadata File Naming Conventions](#metadata-file-naming-conventions).
 - [Extensive Shortcut System Upgrade](#extensive-shortcut-system-upgrade).
 - [Additional Application Template options](#additional-application-template-options).
+- [Additional Event Hooks for Scripts](#additional-event-hooks-for-scripts).
+- [Role-based Template Resolution](#role-based-template-resolution)
 - Intent Architect upgraded to internally run using .NET 6. This allows the Software Factory to now support modules which are compiled to target any framework supported by .NET 6.
 - Elements now allow specifying a custom validation function. This allows Designer authors to specify additional validation rules for their element types which make elements in the tree view highlight in red when any validation fails.
-- Elements Associations created from shortcuts pressed while in the diagram will automatically be added to the diagram.
+- Elements and Associations created from shortcuts pressed in the diagram context will automatically be added to the diagram.
 - When a module is re-installed, unassigned `Template Output` elements will now be removed and re-added to Designers. This means that if a template did not initially have a Role in the Template Builder and one was applied later, on re-install of the module, the `Template Output` will be "moved" to the correct place.
 - Module Settings are now available in scripts. For example, a script could access some setting in the following way: `let yourField = application.getSettings("Your Settings").getField("Your Field").value;`. This provides a mechanism for configuring scripts to behave differently based on settings for a particular application.
 - Module Settings from one module can be extended by another. This prevents fragmentation of a cohesive set of options.
@@ -109,3 +111,29 @@ New keyboard shortcuts are also available from the Apply Stereotype dialog and M
 ![Specify application template settings](images/3.3.0/application-templates-settings-define.png)
 
 ![Application template with settings](images/3.3.0/application-templates-settings-preview.png)
+
+### Additional Event Hooks for Scripts
+
+These event hooks allow scripts to be executed whenever a particular change is detected on an Element / Association. Note that some script (e.g. `On Changed`) must be idempotent so as not to cause an infinite execution loop.
+
+The following event hooks are now available:
+ - `On Loaded` - executed once when the diagram is loaded.
+ - `On Created` - executed on a newly created Element / Associations.
+ - `On Changed` - executed whenever a change related to the Element / Association occurs. It is important that this script is idempotent.
+ - `On Name Changed` - executed whenever the Element's / Association's name is changed. It is important that this script is idempotent.
+ - `On Type Changed` - executed whenever the Element's / Association's type reference is changed. It is important that this script is idempotent.
+ - `On Deleted` - executed when am Element / Associations is deleted.
+
+ Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage of these event hooks to allow Intent Architect to create and maintain PKs and FKs automatically:
+
+ ![module-builder-event-hooks](images/3.3.0/module-builder-event-hooks.png)
+
+ ### Role-based Template Resolution
+
+ Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
+
+ Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
+
+ Under the hood, Intent Architect will fist attempt to resolve the template by assuming the first parameter is the identifier. If no template is found it will then attempt to resolve it based on its role.
+
+ [Roles](xref:templates.how-to-auto-assign-template-outputs) are defined in the Module Builder designer, under the properties of a template. It is worth noting that a template can fulfill more than one role. This can be indicated by separating each role by a comma (`,`), semicolon (`;`) or pipe (`|`) delimiter (e.g. a template with a role of `Domain.Entity; Domain.EntityInterface` can be discovered by either the `Domain.Entity` or `Domain.EntityInterface` role.).
