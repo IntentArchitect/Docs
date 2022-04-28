@@ -3,9 +3,18 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
-_Will be released between 2022/04/18 and 2202/04/25_
+## Version 3.3.1
+_Released 2202/04/28_
+
+### Issues fixed in 3.3.1
+
+- Fixed: Script API throwing errors when accessing parent elements on deleted elements.
+- Fixed: Setting a stereotype value to its existing value still triggering an on-changed event.
+- Fixed: Diagram Loaded logic getting called in certain edge cases where packages have not all finished loading.
+
 
 ## Version 3.3.0
+_Released 2202/04/26_
 
 ### New features added in 3.3.0
 
