@@ -3,6 +3,15 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.2
+_Released 2202/05/01_
+
+### Issues fixed in 3.3.2
+
+- Fixed: Styling issue with statistics in light mode
+- Fixed: Module settings not being displayed in some circumstances.
+
+
 ## Version 3.3.1
 _Released 2202/04/28_
 
