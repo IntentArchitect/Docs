@@ -4,7 +4,7 @@ uid: release-notes.version-3-3
 # Release notes: Intent Architect version 3.3
 
 ## Version 3.3.2
-_Released 2202/05/01_
+_Released 2022/05/01_
 
 ### Issues fixed in 3.3.2
 
@@ -13,7 +13,7 @@ _Released 2202/05/01_
 
 
 ## Version 3.3.1
-_Released 2202/04/28_
+_Released 2022/04/28_
 
 ### Issues fixed in 3.3.1
 
@@ -23,7 +23,7 @@ _Released 2202/04/28_
 
 
 ## Version 3.3.0
-_Released 2202/04/26_
+_Released 2022/04/26_
 
 ### New features added in 3.3.0
 
