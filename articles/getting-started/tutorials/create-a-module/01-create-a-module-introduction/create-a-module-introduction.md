@@ -21,7 +21,7 @@ Modules have similarities with package systems such as NuGet, NPM, and Maven. Ho
 
 - Ensure Intent Architect has been [installed](xref:getting-started.get-the-application).
 - The latest [Microsoft Visual Studio for Windows/Mac](https://visualstudio.microsoft.com/), [JetBrains Rider](https://www.jetbrains.com/rider/download/), or any other IDE capable of working with .NET Core projects and able to pre-compile `.tt` files.
-- **Recommended**: If you're using Visual Studio 2019 for Windows, we recommend installing an extension to add syntax highlighting support for `.tt` files, such as [tangible T4 Editor](https://t4-editor.tangible-engineering.com/T4-Editor-Visual-T4-Editing.html).
+- **Recommended**: If you're using Visual Studio (for Windows), we recommend installing an extension to add syntax highlighting support for `.tt` files, such as [tangible T4 Editor](https://t4-editor.tangible-engineering.com/T4-Editor-Visual-T4-Editing.html).
 
 ## Next Steps
 
