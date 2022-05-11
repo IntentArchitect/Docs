@@ -3,17 +3,28 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.3
+
+_Released 2022/05/11._
+
+### Issues fixed in 3.3.3
+
+- Fixed: When deleting an element, any associations of it weren't being deleted automatically.
+- Fixed: (macOS) The shortcut key for delete was forward delete (⌦) instead of backwards delete (⌫).
+- Fixed: (macOS) If Intent Architect was closed without the Software Factory being closed first, then the Software Factory process would get stuck in a high CPU usage state.
+
 ## Version 3.3.2
-_Released 2022/05/01_
+
+_Released 2022/05/01._
 
 ### Issues fixed in 3.3.2
 
 - Fixed: Styling issue with statistics in light mode
 - Fixed: Module settings not being displayed in some circumstances.
 
-
 ## Version 3.3.1
-_Released 2022/04/28_
+
+_Released 2022/04/28._
 
 ### Issues fixed in 3.3.1
 
@@ -21,9 +32,9 @@ _Released 2022/04/28_
 - Fixed: Setting a stereotype value to its existing value still triggering an on-changed event.
 - Fixed: Diagram Loaded logic getting called in certain edge cases where packages have not all finished loading.
 
-
 ## Version 3.3.0
-_Released 2022/04/26_
+
+_Released 2022/04/26._
 
 ### New features added in 3.3.0
 
@@ -135,23 +146,24 @@ New keyboard shortcuts are also available from the Apply Stereotype dialog and M
 These event hooks allow scripts to be executed whenever a particular change is detected on an Element / Association. Note that some script (e.g. `On Changed`) must be idempotent so as not to cause an infinite execution loop.
 
 The following event hooks are now available:
- - `On Loaded` - executed once when the diagram is loaded.
- - `On Created` - executed on a newly created Element / Associations.
- - `On Changed` - executed whenever a change related to the Element / Association occurs. It is important that this script is idempotent.
- - `On Name Changed` - executed whenever the Element's / Association's name is changed. It is important that this script is idempotent.
- - `On Type Changed` - executed whenever the Element's / Association's type reference is changed. It is important that this script is idempotent.
- - `On Deleted` - executed when am Element / Associations is deleted.
 
- Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage of these event hooks to allow Intent Architect to create and maintain PKs and FKs automatically:
+- `On Loaded` - executed once when the diagram is loaded.
+- `On Created` - executed on a newly created Element / Associations.
+- `On Changed` - executed whenever a change related to the Element / Association occurs. It is important that this script is idempotent.
+- `On Name Changed` - executed whenever the Element's / Association's name is changed. It is important that this script is idempotent.
+- `On Type Changed` - executed whenever the Element's / Association's type reference is changed. It is important that this script is idempotent.
+- `On Deleted` - executed when am Element / Associations is deleted.
 
- ![module-builder-event-hooks](images/3.3.0/module-builder-event-hooks.png)
+Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage of these event hooks to allow Intent Architect to create and maintain PKs and FKs automatically:
 
- ### Role-based Template Resolution
+![module-builder-event-hooks](images/3.3.0/module-builder-event-hooks.png)
 
- Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
+### Role-based Template Resolution
 
- Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
+Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
 
- Under the hood, Intent Architect will fist attempt to resolve the template by assuming the first parameter is the identifier. If no template is found it will then attempt to resolve it based on its role.
+Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
 
- [Roles](xref:templates.how-to-auto-assign-template-outputs) are defined in the Module Builder designer, under the properties of a template. It is worth noting that a template can fulfill more than one role. This can be indicated by separating each role by a comma (`,`), semicolon (`;`) or pipe (`|`) delimiter (e.g. a template with a role of `Domain.Entity; Domain.EntityInterface` can be discovered by either the `Domain.Entity` or `Domain.EntityInterface` role.).
+Under the hood, Intent Architect will fist attempt to resolve the template by assuming the first parameter is the identifier. If no template is found it will then attempt to resolve it based on its role.
+
+[Roles](xref:templates.how-to-auto-assign-template-outputs) are defined in the Module Builder designer, under the properties of a template. It is worth noting that a template can fulfill more than one role. This can be indicated by separating each role by a comma (`,`), semicolon (`;`) or pipe (`|`) delimiter (e.g. a template with a role of `Domain.Entity; Domain.EntityInterface` can be discovered by either the `Domain.Entity` or `Domain.EntityInterface` role).
