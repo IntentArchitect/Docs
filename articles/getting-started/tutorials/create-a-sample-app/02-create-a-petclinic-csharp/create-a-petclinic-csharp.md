@@ -13,36 +13,29 @@ uid: tutorials.create-a-sample-app.create-a-petclinic-csharp
 
 On the home screen, click `Create a new application`.
 
-Select the `Web Application ASP.NET Core 5.0` Application Template.
+Select the `Standard ASP.NET Core Web Application` Application Template.
 
 Fill in a `Name` (such as `PetClinicRest`), review/change the `Location` as desired and click `NEXT`.
 
-Ensure that the following Modules are selected:
+Leave the selected application components as is and click `CREATE`.
 
-- `ASP.NET Core RESTful API`
-- `OpenAPI (Swashbuckle)`
-- `Basic Service Implementation`
-- `Entities`
-- `Entity Framework Core`
-- `Visual Studio Integration`
-
-An `Application Installation` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application and once it's finished, will hide automatically:
+The `Task Output` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application and once it's finished, will hide itself automatically:
 
 [!Video-Loop videos/create-new-app.mp4]
 
-## Create a package for the Domain designer
+> [!NOTE]
+>
+> The `Task Output` dialog can be re-opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready".
 
-Click on `Domain` on the left of the screen to enter the designer.
+## Create the Domain Entities
 
-Click `CREATE NEW PACKAGE`.
+Click on `Domain` on the left of the window to enter the designer.
 
-Leave the name with its default value of `Domain` and click `DONE`.
+Expand the `Domain` element and then double-click the `Default Diagram` element to enter into it.
+
+![Opening the Default Diagram](images/open-default-diagram.png)
 
 This is where the "business domain" will be modelled using a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) class relationship diagram which Intent Architect will use to generate C# classes and ultimately a database schema.
-
-[!Video-Loop videos/create-domain-package.mp4]
-
-### Create the Domain Entities
 
 This PetClinic application's business domain requires the following [entities](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks) (concepts) to be modelled:
 
@@ -70,6 +63,8 @@ Create an `Owner` entity with the following attributes:
 > [!TIP]
 > Follow this [shortcut demonstration](xref:references.keyboard-shortcuts#new-of-selected-type) to add multiple attributes without using the mouse.
 
+The `Owner` entity should appear as follows:
+
 ![What the `Owner` entity should now look like.](images/owner-entity-alone.png)
 
 > [!NOTE]
@@ -77,7 +72,7 @@ Create an `Owner` entity with the following attributes:
 
 ## Specify the relationships between entities
 
-Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect designers can be initiated by right-clicking on an entity in the visual diagram, then selecting the `New Association` option which is then completed by clicking on the other class which you want to be the target of the relationship.
+Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect designers can be initiated by right-clicking on an entity in the visual diagram, then selecting the `New Association` option and the creation is completed by clicking on the other class which you want to be the target of the relationship.
 
 > [!NOTE]
 > Refer to [this article](xref:designers.about-domain-designer.about-associations) if you wish to learn more about Associations.
@@ -87,58 +82,41 @@ Create an association between `Owner` and `Pet`:
 - Right-click on the `Owner` entity.
 - Click on the `New Association` option.
 - Click on the `Pet` entity which completes the creation of the association.
-- In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
+- In the property pane (in the bottom-right corner of the window) within the `Target End` section ensure that `Is Collection` is checked.
 - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
 
 [!Video-Loop videos/add-owner-pet-association.mp4]
 
-Setup a `Visit` entity to be as follows:
+Set up a `Visit` entity to be as follows:
 
 - Add an association from `Pet` to `Visit`:
-  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section ensure that `Is Collection` is checked.
+  - In the property pane (in the bottom-right corner of the window) within the `Target End` section ensure that `Is Collection` is checked.
   - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
 - Add the following attributes:
   - `visitDate` of type `date`.
   - `description` of type `string`.
 
-Also, set up a `PetType` entity in a similar way:
+Also set up a `PetType` entity in a similar way:
 
 - Add an association from `Pet` to `PetType`:
-  - In the property pane (in the bottom-right corner of the screen) within the `Target End` section, ensure that `Is Collection` is *un*checked.
+  - In the property pane (in the bottom-right corner of the window) within the `Target End` section, ensure that `Is Collection` is *un*checked.
   - In the property pane within the `Source End` section, ensure that `Is Collection` is checked.
 - Add the following attributes:
   - `name` of type `string`.
 
 ![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram.png)
 
-## Create a package for the Services designer
+## Create Services
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
-
-Click `CREATE NEW PACKAGE`.
-
-Leave the name with its default value of `Services` and click `DONE`.
-
-[!Video-Loop videos/create-services-package.mp4]
 
 Create the `OwnerRestController` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
 
 ![How the Owner Service should now appear](images/create-service-owner.png)
 
-Create a new Package in which [DTO](https://en.wikipedia.org/wiki/Data_transfer_object)s will be modelled:
-
-- Right-click the background of the modeller and click the `Create new package` option.
-- Give it the name `DTOs`.
-- Click on the `Save` button.
-- Right-click on the `References` element located in the `Services` Package and click on the `Add Package Reference ...` option.
-- On the modal which pops up check the `DTOs` entry.
-- Click on `Save` again.
-
-[!Video-Loop videos/create-services-dtos-package.mp4]
-
 Create the `OwnerDTO`:
 
-- Right-click on the `DTOs` package and select the `New DTO` option.
+- Right-click on the `Services` package and select the `New DTO` option.
 - Give it the name `OwnerDTO`.
 
 Also, create the following additional DTOs:
@@ -149,11 +127,11 @@ Also, create the following additional DTOs:
 
 Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add the following fields:
 
-- `firstName` with type of `string`
-- `lastName` with type of `string`
-- `address` with type of `string`
-- `city` with type of `string`
-- `telephone` with type of `string`
+- `firstName` with type of `string`.
+- `lastName` with type of `string`.
+- `address` with type of `string`.
+- `city` with type of `string`.
+- `telephone` with type of `string`.
 
 ![How the Service DTOs should now appear](images/create-service-dtos.png)
 
@@ -186,12 +164,12 @@ Similarly for `PetDTO`:
 
 Click `DONE`.
 
-You will likely have noticed that the `Visits` field has been highlighted in red, this is because you will need to let Intent Architect know which type should be used for this field:
+You will see that the `Visits` field has been highlighted in red, this is because it is mapping to a collection of another DTO and Intent Architect still needs you to specify which DTO should be used:
 
 - Select the `Visits` element.
 - In the properties pane on the right, change the `Type` to `PetVisitDTO`.
 
-You will see that the `PetDTO` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique, it is generally suggested to make the name the same as the path, but without the periods, while also adopting the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
+You will see that the `PetDTO` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique it is generally suggested to make the name the same as the path, but without the periods, while also adopting the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
 
 - `name` from `PetType.name` becomes `petTypeName`.
 - `firstName` from `Owner.firstName` becomes `ownerFirstName`.
@@ -220,85 +198,52 @@ Lastly, for `OwnerDTO`:
 - Name it `getOwners` and set the return type to `OwnerDTO`.
 - In the properties pane on the right:
   - Ensure `Is Collection` is checked.
-  - Change the `HTTP Verb` to `GET`.
 
-> [!WARNING]
-> If you find that the list of DTOs from the `DTOs` package does not show in the list of available types, save your work, navigate to another designer/screen (such as the Domain), then navigate back to the Services designer.
-
-[!Video-Loop videos/services-add-get-owners.mp4]
+![Services view with the getOwners operation added](images/services-add-get-owners.png)
 
 - Right-click on the `OwnerRestController` element and click the `Add Operation` option.
 - Name it `addOwner` and leave the return type blank.
 - Right-click the `addOwner` element and click the `Add parameter` option.
 - Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
-- In the properties pane on the right:
-  - Change the `HTTP Verb` to `POST`.
 
 [!Video-Loop videos/services-add-add-owner.mp4]
 
 ## Generate the Code
 
-Run the `Software Factory Execution` by clicking on the Play button located on the top right part of the screen.
+Click the `Run Software Factory` button located near the top right of the window.
 
 [!Video-Loop videos/software-factory-run.mp4]
 
-Once the staged `Changes` comes into view, you can review the proposed code changes, for example, the `OwnerService.cs`.
+Once the staged `Changes` comes into view, you can review the proposed code changes.
 
 > [!TIP]
 > The `Filter` box near the top-right of the `Software Factory Execution` modal can be used to help quickly locate particular files.
-
-Click on the file located in the `Implementation` folder.
-
-![View of the Software Factory Changes](images/software-factory-run-staging-ownerservice.png)
-
-On double-clicking the file, Intent Architect will start up an external "diff" tool which you can use to review the changes. By default Intent Architect will use Visual Studio Code if it can find it; otherwise, you can manually configure any other "diff" tool in Settings.
-
-![A "diff" showing the staged contents of OwnerService.cs](images/software-factory-run-staging-diff-ownerrestcontroller-impl.png)
-
-Don't apply the changes for the moment and instead minimize the Software Factory Execution by clicking on the minimize button.
-
-Click the `Modules` option located in the left pane of the window and install the following modules:
-
-- `Intent.EntityFrameworkCore.Repositories`
-- `Intent.Application.ServiceImplementations.Conventions.CRUD`
-
+>
 > [!TIP]
-> Please ensure that all your (other) modules are kept up to date for the best possible experience. Click on the Updates tab to see which modules can be updated.
+> You can double-clicked entries to have Intent Architect start up an external "diff" tool which you can use to review the proposed changes to a particular file. By default Intent Architect will use Visual Studio Code if it can find it; otherwise, you can manually configure any other "diff" tool in Settings.
+>
+> ![A "diff" showing the staged contents of a file](images/software-factory-file-diff.png)
 
-Once you've installed those modules, you will notice a blinking button at the bottom of the screen. Click on it to view the Software Factory Execution again. When it detected the module installation, it automatically performed another Software Factory Execution.
-
-Once it is done, double-click the file `OwnerService` in the changes and observe how its output has changed from the previous run.
-
-[!Video-Loop videos/view-software-factory-after-module-installation.mp4]
-
-![Service Implementation CRUD](images/software-factory-run-staging-diff-ownerrestcontroller-impl-crud.png)
+Click `APPLY CHANGES` and then minimize the Software Factory Execution by using the "_" icon near the top-right.
 
 > [!NOTE]
-> Notice that the operations are now populated with code that will facilitate [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations.
 >
-> The `Intent.Application.ServiceImplementations.Conventions.CRUD` module automatically checked for operations that followed simple conventions and generated basic implementations where detected.
->
-> Anything not meeting those conventions were ignored and no implementations were generated.
->
-> [!WARNING]
->
-> It is recommended to always review all of the files in the `Changes` tab of the Software Factory Execution to ensure that all of the changes that will be applied are as expected.
-
-This time we will commit the changes, so click `APPLY CHANGES`. Minimize the Software Factory Execution once again.
+> When the Software Factory Execution is minimized, it is now watching for any saved changes to the Intent Architect Application or its Modules and will re-run itself should any be detected.
 
 ## Add missing Id fields to DTOs
 
 Up to this point, we are not presenting any `Id`s to the consumer of our API Services.
 
-Navigate back to the `Services` designer and perform the following:
+Navigate back to the `Services` designer and perform the following actions:
 
 - Right-click on `OwnerDTO` and add a new field called `id` with the type `guid`.
 - In the properties panel, click on `Is Mapped`.
 - A `Mapping Path` field appears. Enter `Id`.
+- (Optional) Click and drag the `Id` field onto the `firstName` field which will re-order it such that it is now the first field.
 
 [!Video-Loop videos/service-mapping-pet-visit-with-ids.mp4]
 
-Click on save and again note a blinking button at the bottom of the screen due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
+Click on save and note the blinking button at the bottom of the window due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
 
 [!Video-Loop videos/software-factory-execution-after-id-added.mp4]
 
