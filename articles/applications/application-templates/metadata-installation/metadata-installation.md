@@ -1,13 +1,13 @@
 ---
-uid: modules.metadata-installation
+uid: application-templates.metadata-installation
 ---
 # Metadata installation
 
 ## Overview
 
-Intent Architect can automatically install metadata for Designers as a Module is installed, reinstalled or alternatively as an Intent Architect Application is created from an [Application Template](xref:applications.application-templates.about-application-templates).
+Intent Architect can automatically install metadata for Designers as an Intent Architect Application is created from an [Application Template](xref:applications.application-templates.about-application-templates) or alternatively as a Module is installed/reinstalled.
 
-For both Modules and Application Templates, Intent Architect will look for any `.installation.config` files present in the `content` sub-folder. We recommend following a convention of naming `.installation.config` files after the designer for which they have metadata, for example `visual-studio.installation.config` for the Visual Studio designer or `domain.installation.config` for the Domain Designer.
+During packaging of both Application Templates and Modules, the Intent Architect packager will look for any `.installation.config` files present in the `content` sub-folder. We recommend following a convention of naming `.installation.config` files after the designer for which they have metadata, for example `visual-studio.installation.config` for the Visual Studio designer or `domain.installation.config` for the Domain Designer.
 
 These files are expected to contain an XML representation of the metadata to install as well as specifying which designer it should be installed into. The easiest way to create this XML in a valid format is to use the "Export" button on the toolbar when a designer is open:
 

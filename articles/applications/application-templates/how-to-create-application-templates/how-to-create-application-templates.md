@@ -99,6 +99,9 @@ Notice that it's showing all the elements we created in the [Specify a Group and
 
 You can use the `App Templates` Designer to add/change Groups, Components and Modules, re-run the Software Factory and see the affect it has on your Application Template when used in Intent Architect.
 
+Using the [metadata installation](xref:application-templates.metadata-installation) system, new applications created with your template can have default metadata installed, for example you could have the Visual Studio designer on the new application pre-configured with your desired solution and project layout.
+
 ## See also
 
-[](xref:applications.application-templates.about-application-templates)
+- [](xref:applications.application-templates.about-application-templates)
+- [](xref:application-templates.metadata-installation)

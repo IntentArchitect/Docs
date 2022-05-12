@@ -27,3 +27,4 @@ _The modules downloaded in the example above are specifically related to the `Cl
 ## See also
 
 - [](xref:applications.application-templates.how-to-create-application-templates)
+- [](xref:application-templates.metadata-installation)
