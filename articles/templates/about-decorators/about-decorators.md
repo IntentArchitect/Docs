@@ -7,4 +7,4 @@ Decorators are a mechanism which is used by Templates in order to inject content
 
 ## See also
 
-### [](xref:templates.how-to-decorate-a-template)
+- [](xref:templates.how-to-decorate-a-template)

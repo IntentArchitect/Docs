@@ -29,4 +29,4 @@ Stereotypes can be defined by the use of Stereotype Definitions, refer to this [
 
 ## See also
 
-* [](xref:stereotypes.how-to-use-stereotypes)
+- [](xref:stereotypes.how-to-use-stereotypes)

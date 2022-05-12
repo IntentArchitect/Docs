@@ -115,4 +115,4 @@ Exposes the Property as a standard Icon selector which acts in the same manner a
 
 ## See also
 
-* [](xref:stereotypes.how-to-use-stereotypes)
+- [](xref:stereotypes.how-to-use-stereotypes)
