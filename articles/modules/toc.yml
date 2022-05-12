@@ -8,7 +8,5 @@ items:
 #- name: 'About the Module Builder'
 #   href: module-module-builder/module-module-builder.md
 
-- name: Metadata installation
-  href: metadata-installation/metadata-installation.md
 - name: How to distribute your modules to others
   href: how-to-distribute-your-modules-to-others/how-to-distribute-your-modules-to-others.md

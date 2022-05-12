@@ -7,3 +7,6 @@ items:
 
 - name: How to set Module Versions
   href: how-to-set-module-versions/how-to-set-module-versions.md
+
+- name: Metadata installation
+  href: metadata-installation/metadata-installation.md
