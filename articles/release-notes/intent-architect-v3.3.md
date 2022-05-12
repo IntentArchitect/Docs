@@ -3,6 +3,14 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.4
+
+_Released 2022/05/12._
+
+### Issues fixed in 3.3.4
+
+- Fixed: Under certain circumstances, loading of packages in Designers would take a very long time.
+
 ## Version 3.3.3
 
 _Released 2022/05/11._
