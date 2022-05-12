@@ -52,3 +52,19 @@ Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT
 ## Headings
 
 Headings should be short and concise and should refrain from being written in a question form. Rather write it in a declarative form. For instance: `Why isn't Intent Architect not using Package Managers?` should be written as `Why Intent Architect isn't using Package Managers`.
+
+## Changing/moving article paths
+
+So that old links carry on working, keep the just the `.md` files for moved/renamed articles and make their content as follows to have them redirect to the new location:
+
+```markdown
+# Content moved
+
+Content has moved to <span id="redirect_container">[here](xref:document_xref)</span>.
+
+<script>
+  window.location.href = document.querySelector("#redirect_container a").href;
+</script>
+```
+
+Replace `document_xref` with the `xref` of the document you will point to, and then DocFX's build process will resolve the URL path which the JavaScript will use to redirect automatically to the correct place.
