@@ -144,7 +144,7 @@ New keyboard shortcuts are also available from the Apply Stereotype dialog and M
 
 ![Specify component dependencies and is required](images/3.3.0/application-templates-component-dependencies-and-is-required.png)
 
-- It is now possible to specify settings for an application template which can be used to set different values during [metadata installation](xref:modules.metadata-installation).
+- It is now possible to specify settings for an application template which can be used to set different values during [metadata installation](xref:application-templates.metadata-installation).
 
 ![Specify application template settings](images/3.3.0/application-templates-settings-define.png)
 

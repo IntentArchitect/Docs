@@ -61,7 +61,7 @@ Create an `Owner` entity with the following attributes:
 - `telephone` of type `string`
 
 > [!TIP]
-> Follow this [shortcut demonstration](xref:references.keyboard-shortcuts#new-of-selected-type) to add multiple attributes without using the mouse.
+> Follow this [shortcut demonstration](xref:references.keyboard-shortcuts#create-new-element-of-selected-type) to add multiple attributes without using the mouse.
 
 The `Owner` entity should appear as follows:
 
