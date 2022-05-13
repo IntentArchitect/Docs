@@ -44,7 +44,7 @@ Next, we will create a new Template that we can configure to receive the models 
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
 >
 > [!NOTE]
-> In the event that your compilation fails (while using Visual Studio 2022), first try the workaround to delete the `bin` and `obj` folders found in your `MyModules` project then try to build it again.
+> In the event that your compilation fails (while using Visual Studio), first try the workaround to delete the `bin` and `obj` folders found in your `MyModules` project then try to build it again.
 >
 > [!NOTE]
 > You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel` relate to Classes in the `Domain` Designer.
