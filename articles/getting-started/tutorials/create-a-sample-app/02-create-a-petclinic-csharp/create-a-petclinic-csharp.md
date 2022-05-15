@@ -294,7 +294,8 @@ It should also have a success result as well as an array of JSON results includi
 
 ### Finish the Implementation
 
-If you wish to continue exploring the concepts covered by this tutorial you can make new services, operations, and DTOs to cover additional use cases towards a complete implementation of the PetClinic.
+- [Create additional CRUD services](xref:tutorials.create-a-sample-app.create-crud-services).
+- If you wish to continue exploring the concepts covered by this tutorial you can make new services, operations, and DTOs to cover additional use cases towards a complete implementation of the PetClinic.
 
 ### Get the completed solution
 

@@ -3,3 +3,5 @@ items:
   href: 01-create-a-sample-app-introduction/create-a-sample-app-introduction.md
 - name: 2. Create a sample PetClinic application (C#)
   href: 02-create-a-petclinic-csharp/create-a-petclinic-csharp.md
+- name: 3. Create CRUD services
+  href: 03-create-crud-services/create-crud-services.md

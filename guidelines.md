@@ -55,7 +55,7 @@ Headings should be short and concise and should refrain from being written in a 
 
 ## Changing/moving article paths
 
-So that old links carry on working, keep the just the `.md` files for moved/renamed articles and make their content as follows to have them redirect to the new location:
+So that old links carry on working, keep just the `.md` files for moved/renamed articles and make their content as follows to have them redirect to the new location:
 
 ```markdown
 # Content moved
