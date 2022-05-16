@@ -5,9 +5,10 @@ uid: release-notes.version-3-3
 
 ## Version 3.3.4
 
-_Released 2022/05/13._
+_Released 2022/05/16._
 
 ### New features added in 3.3.4
+
 - Bulk editor for multiple selected elements (i.e. can bulk change `Name`, `Type`, `Value`, `Is Nullable`, `Is Collection` and `Comment` across a set of selected Elements or Associations).
 
 ### Issues fixed in 3.3.4
