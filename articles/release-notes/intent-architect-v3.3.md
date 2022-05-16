@@ -7,10 +7,14 @@ uid: release-notes.version-3-3
 
 _Released 2022/05/13._
 
+### New features added in 3.3.4
+- Bulk editor for multiple selected elements (i.e. can bulk change `Name`, `Type`, `Value`, `Is Nullable`, `Is Collection` and `Comment` across a set of selected Elements or Associations).
+
 ### Issues fixed in 3.3.4
 
 - Fixed: Under certain circumstances, loading of packages in Designers would take a very long time.
-- Fixed: When copying and pasting multiple elements at once, references to other copied elements would still point to the copied element rather than the new copies of them.
+- Fixed: When copying and pasting multiple elements at once, references to other copied elements would still point to the copied element rather than the new copies of them. This applies to Elements, Associations and their applied Stereotypes.
+- Fixed: API metadata changes (e.g. `setMetadata("<key>", "<value>")` in a macro / script) not changing with undo/redo.
 
 ## Version 3.3.3
 
