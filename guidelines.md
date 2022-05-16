@@ -45,6 +45,10 @@ require("electron").ipcRenderer.send("set-size", { width: 1280, height: 720 }); 
 angular.element(document.querySelector("html")).injector().get("EventAggregator").publish("set-presentation-mode", true); // Hides "Update Available", hides "IPC Connected" and changes the user display name to "User".
 ```
 
+## Image markup colours
+
+For image markup colours use "Azure Blue" (`#06C4FF`) from our [brand guidelines](https://intentarchitect.sharepoint.com/sites/IntentArchitectTeam/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FIntentArchitectTeam%2FShared%20Documents%2FMarketing%2FCollateral%2FIA%2DMini%20Brand%20Guidelinesl%5FFA%2Epdf&parent=%2Fsites%2FIntentArchitectTeam%2FShared%20Documents%2FMarketing%2FCollateral).
+
 ## Formatting markdown tables
 
 Select the text in the editor representing the Markdown table. Press `CTRL+SHIFT+P` and select `Evenly distribute selected table`. This will format markdown tables in a human readable manner.
