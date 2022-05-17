@@ -8,6 +8,10 @@ uid: tutorials.create-a-sample-app.create-crud-services
 
 This article continues from [](xref:tutorials.create-a-sample-app.create-a-petclinic-csharp) and shows how to create additional [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) services and operations using the `Create CRUD Operations` context menu option.
 
+Intent Architect was built for automating the most complex conceivable use cases, so for Intent Architect Modules to add automation for simple patterns like CRUD is very easy. The Clean Architecture application template by default includes the `Additional CRUD Support` component which does exactly this.
+
+![The Additional CRUD Support component for the Clean Architecture .NET Application Template](images/application-template-additional-crud-support-component.png)
+
 ## Create the additional services
 
 - Ensure you are in the `Services` designer.
