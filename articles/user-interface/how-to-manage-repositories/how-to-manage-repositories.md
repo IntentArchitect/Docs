@@ -3,7 +3,7 @@ uid: user-interface.how-to-manage-repositories
 ---
 # How to manage Repositories
 
-Asset Repositories represent the default available repositories that are searched when discovering Modules and Application Templates. By default the Intent Architect server is available `https://intentarchitect.com/`, which hosts all the official Open Source modules. Repositories can also point to local folders and network locations.
+Asset Repositories manages the repository locations that are searched when discovering Modules and Application Templates. The official Intent Architect server `https://intentarchitect.com/` is available as a repository hosting all the official (and largely Open Source) Modules for use. Additional sources can be added too which can point to a physical drive or remote/network locations.
 
 ## Locate the Manage Repositories dialog
 
@@ -11,7 +11,7 @@ There are a few ways to locate the Repository Management dialog.
 
 ### Profile Menu
 
-At any point while in Intent Architect, click on the top right Profile menu and select `Repository Management`.
+From any screen within Intent Architect, click on the top right Profile menu and select `Repository Management`.
 
 ![Profile Menu](images/menu-manage-repositories.png)
 
@@ -31,11 +31,11 @@ Within any Modules view, locate the gear icon at the top right of the screen.
 
 ![Default Layout](images/repository-management-diaglog-default.png)
 
-By default, you will find at least the official Intent Architect repository listed.
+At the very least you will always see the Intent Architect repository listed here, it's built-in and cannot be modified or removed on this screen.
 
-A new Repository can be added by clicking on the `Add New` button, and one can browse to the desired location by clicking on the Browse button in order to set the Repository location. This location can be a physical file system or even a network share.
+A new Repository can be added by clicking on the `Add New` button, and one can browse to the desired location by clicking on the Browse button in order to set the Repository location. This location can be any valid path for your operating system, including relative (for application or solution level repositories), fully qualified and UNC paths.
 
-The Context dropdown features the following options:
+The `Context` dropdown has the following options:
 
 | Name | Description |
 |-|-|
