@@ -30,52 +30,61 @@ These are the consumers of the said Module packages who install and benefit from
 
 ![Module Building Ecosystem](images/overview-module-builder-ecosystem.png)
 
-Here is the overview of what you can expect to find inside a Module in Intent Architect. Components inside Modules can be categorized as follows:
+The module building ecosystem comprises of one or more of the following aspects:
 
 ### Metadata
 
-Metadata is the information that is captured by the Designers and are feed to the components that are responsible for generating code.
+Metadata is the term used to describe all information that can be captured with Intent Architect designers. The Software Factory during its execution makes metadata available to modules which then use it to determine what code to generate.
 
-#### Designer
+#### Designers
 
-[Designers](xref:designers.about-designers) provide the interface that allow users to model what an Application should look and behave like while the designer itself also provides the structure for the model. The model can resemble a Tree-view or a Diagram of sorts. Each Designer exists to address a distinct aspect of the Application being developed. Examples are: modelling API services or what the underlying Database structure should look like, yet these Designers can also borrow information from one another so as to enrich the picture of what the Application looks like overall. Designers are themselves composed of Elements which are the building blocks for capturing user metadata.
+[Designers](xref:designers.about-designers) are the visual modellers in an Intent Architect application which allow users to capture and compose metadata. Designers are highly configurable so that they can be tailored to capture information in a way that is intuitive and natural for the particular project or application.
 
-#### Designer Extension
+#### Designer Extensions
 
-Existing Designers are be open for [extension](xref:designers.about-designer-extensions) which allows Module developers to add new Elements to a Designer from a different Module. This retains the idea of reuse and can provide users of Designers with a richer experience and with more ways to model what an Application. This should not be confused with Stereotypes.
+Intent Architect supports extending designers. [Designer extensions](xref:designers.about-designer-extensions) allow adding additional element types and behaviour to an existing designer, providing the following powerful benefits:
+
+- No need to copy an entire existing designer when you want to make a single small addition to it.
+- Multiple designer extensions extending a single designer can be installed at the same time and they all continue working as expected.
+- One can generally upgrade the module with the base designer to take advantage of new designer features with the designer extensions not needing to be updated to continue working.
 
 #### Stereotypes
 
-[Stereotypes](xref:stereotypes.about-stereotypes) offer additional ways to capture metadata from a user but not in the same way as Elements from Designers. They can only be applied on top of Elements (and/or their fields and associations) and offer a way to capture extra information about a given Designer Element.
+[Stereotypes](xref:stereotypes.about-stereotypes) allow "decoration" of elements and are analogous to decoration features in programming languages, such as [`C# Attributes`](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/attributes/) or [`Java Annotations`](https://en.wikipedia.org/wiki/Java_annotation). Common use of Stereotypes is specifying technology or business domain specific metadata for Elements in the Intent Architect designer, such as a Class having a business requirement of being audited, or a Service Operation's HTTP method.
 
-#### Designer API
+>[!NOTE]
+>In comparison to designers and designer extensions, stereotypes allow adding additional "fields" or values to a particular element, while designers and designer extensions are for defining additional element types and element behaviours (such as context menu options, where they can be used, etc).
 
-Not only do users of Intent Architect have an interface with which to model what the metadata should look like, Module developers will also get an easy to use generated API to query the modelled metadata for Template development. Example: [](xref:stereotypes.how-to-use-stereotypes#query-stereotypes-from-templates).
+#### Designer APIs
+
+Not only do users of Intent Architect have an interface with which to model what the metadata should look like, Module developers will also get an easy to use generated API to query the modelled metadata for Template development, [see for example](xref:stereotypes.how-to-use-stereotypes#query-stereotypes-from-templates).
 
 ### Code Generation
 
-Components associated with Code Generation will rely on the Designer API to supply it with metadata. This will then through some process transform the metadata into content that will be written to output files.
+Code generation is the process of running the Software Factory which provides metadata from the designers to installed modules which use it to generate output (normally code).
 
-#### Template
+#### Templates
 
-Using a [Text Template](xref:templates.about-templates-csharp) containing control logic, metadata can be consistently transformed based on the format of the Text Template and the output will become the content of a text file. These file types can range from XML to programming languages source code as long as the output type is text based.
+[Templates](xref:templates.about-templates-csharp) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
 
-#### Decorator
+#### Decorators
 
-Some Text Templates can be open for extension by exposing hook-in points for [Decorators](xref:templates.about-decorators) to supply additional content. Decorators offer a way to decouple certain logic from Text Templates. Decorators can also be installed through Modules that are separate from the Modules containing the Text Templates.
+[Decorators](xref:templates.about-decorators) are a mechanism which can be used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a Decorator contract which can be implemented by Decorators in different modules. In this way Templates can be extended by modules on which they have no dependency and might have been created by completely different authors or even companies.
 
 ### Advanced
 
-Components and infrastructural concerns additional to Metadata and Code Generation.
+Less commonly used module building features for advanced use cases or requirements.
 
-#### Eventing Message
+#### Eventing Messages
 
-Components can achieve a level of decoupling using the Publish / Subscriber pattern with Eventing Messages.
+A fully decoupled mechanism for modules to interact with each other through use of messages and the event dispatcher within the Software Factory, commonly used for fulfilling architectural infrastructural concerns.
 
-#### Factory Extension
+For example a template may need a registration to be performed with a system's dependency injection framework, without the template being aware of what dependency injection framework will ultimately be used. The template would simply publish a message saying what it needs, then multiple different modules (for example, AutoFac or Ninject modules) would be configured to listen to these messages and fulfil them making it so that regardless of which module is installed, everything still works.
 
-One can introduce [Extensions](xref:software-factory.how-to-create-a-factory-extension) which will execute tasks at certain phases of the Software Factory Execution process. This can include:
+#### Factory Extensions
+
+[Factory Extensions](xref:software-factory.how-to-create-a-factory-extension) are used to hook into and extend any of the pre-defined phases of the the Software Factory process, use cases where this is useful include:
 
 - Loading Metadata from outside Intent Architect.
-- Alter the output produced from Text Templates.
+- Alter the output produced from Templates.
 - Execute external processes which developers might have needed to execute manually after a Software Factory Execution.
