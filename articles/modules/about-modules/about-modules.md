@@ -1,19 +1,5 @@
 ---
 uid: modules.about-modules
-remarks: |
-    TODO: Add the following:
-
-    ## Anatomy of a Template
-
-    ### Template
-
-    ### Template Partial
-
-    ### Template Registration
-
-    ## See also
-
-    - [](xref:tutorials.create-a-module.introduction) -->
 ---
 # About Modules
 
