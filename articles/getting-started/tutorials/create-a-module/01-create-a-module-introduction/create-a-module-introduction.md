@@ -17,6 +17,24 @@ Typically, the purpose of a Module is to generate and manage a set of code files
 
 Modules have similarities with package systems such as NuGet, NPM, and Maven. However, where the primary objective of these systems is to facilitate code-reuse, the primary objective of Modules is to facilitate _pattern-reuse_.
 
+## Module Building Process
+
+Intent Architect allows you to make your own Modules that are used in automating your architectures and patterns quite easily. To efficiently craft those Modules requires a process that is easy to follow.
+
+![Module Building Process](images/module-building-process.png)
+
+### Know the pattern
+
+Know how your architecture looks like in code before you attempt to automate it. Hand-rolling at first can be useful to understand how it is supposed to look like.
+
+### Describe the design
+
+Articulate how your current code should look like through a designer. Model it through a designer to get a feel for how you would like to describe it.
+
+### Templatize
+
+Once you’re able to describe it and you know how it is supposed to look like in code, you can begin to create your templates that will roll out any new design changes you have described in your designers.
+
 ## Prerequisites
 
 - Ensure Intent Architect has been [installed](xref:getting-started.get-the-application).
