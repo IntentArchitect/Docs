@@ -7,7 +7,7 @@ uid: tutorials.create-a-sample-app.create-a-petclinic-csharp
 ## Prerequisites
 
 - Ensure Intent Architect has been [installed](xref:getting-started.get-the-application).
-- The latest [Microsoft Visual Studio for Windows/Mac](https://visualstudio.microsoft.com/), [JetBrains Rider](https://www.jetbrains.com/rider/download/), or any other IDE capable of working with .NET Core projects.
+- The latest [Microsoft Visual Studio for Windows/Mac](https://visualstudio.microsoft.com/), [JetBrains Rider](https://www.jetbrains.com/rider/download/), or any other IDE capable of working with .NET projects.
 
 ## Create a new Application
 
@@ -35,7 +35,7 @@ Expand the `Domain` element and then double-click the `Default Diagram` element 
 
 ![Opening the Default Diagram](images/open-default-diagram.png)
 
-This is where the "business domain" will be modelled using a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) class relationship diagram which Intent Architect will use to generate C# classes and ultimately a database schema.
+This is where the "business domain" will be modelled using a [UML class](https://en.wikipedia.org/wiki/Class_diagram) relationship diagram which Intent Architect will use to generate C# classes and ultimately a database schema.
 
 This PetClinic application's business domain requires the following [entities](https://en.wikipedia.org/wiki/Domain-driven_design#Building_blocks) (concepts) to be modelled:
 
@@ -106,6 +106,18 @@ Also set up a `PetType` entity in a similar way:
 
 ![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram.png)
 
+## Configure Explicit Key Creation
+
+In our Domain Entity designing we have not defined any Database Primary Keys. This is due to the fact that Intent Architect by default assumes that each Entity will have an `Id` of type `Guid`. This can however be overridden in the Module Settings.
+
+Click on the `Settings` tab on the left hand side. Locate the `Database Settings` section. Select `Explicit` from the `Key Creation Mode` dropdown.
+
+![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
+
+Navigate back to the Domain designer. You will be presented with `Id` fields with yellow key icons next to them (which indicate they're Primary Keys) as well as foreign keys (if applicable) with silver key icons next to them.
+
+![Pet Clinic Diagram with explicit keys](images/pet-clinic-domain-diagram-explicit-keys.png)
+
 ## Create Services
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
@@ -141,6 +153,7 @@ Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add
 - Pull down the `Select an element to map from` the dropdown and observe that it has a list of the modelled domain entities.
 - Choose the `Visit` Entity.
 - Ensure that the following attributes are checked:
+  - `Id`
   - `visitDate`
   - `description`
 
@@ -153,6 +166,7 @@ Similarly for `PetDTO`:
 - Right-click the `PetDTO` element and click on the `Map from Domain...` option.
 - Select the `Pet` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
+  - `Id`
   - `name`
   - `birthDate`
   - `Visits`
@@ -182,6 +196,7 @@ Lastly, for `OwnerDTO`:
 - Right-click the `OwnerDTO` element and click on the `Map from Domain...` option.
 - Select the `Owner` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
+  - `Id`
   - `firstName`
   - `lastName`
   - `address`
@@ -220,7 +235,7 @@ Once the staged `Changes` comes into view, you can review the proposed code chan
 > The `Filter` box near the top-right of the `Software Factory Execution` modal can be used to help quickly locate particular files.
 >
 > [!TIP]
-> You can double-clicked entries to have Intent Architect start up an external "diff" tool which you can use to review the proposed changes to a particular file. By default Intent Architect will use Visual Studio Code if it can find it; otherwise, you can manually configure any other "diff" tool in Settings.
+> You can double-click on entries to have Intent Architect start up an external "diff" tool which you can use to review the proposed changes to a particular file. By default Intent Architect will use Visual Studio Code if it can find it; otherwise, you can manually configure any other "diff" tool in Settings.
 >
 > ![A "diff" showing the staged contents of a file](images/software-factory-file-diff.png)
 
@@ -229,28 +244,6 @@ Click `APPLY CHANGES` and then minimize the Software Factory Execution by using 
 > [!NOTE]
 >
 > When the Software Factory Execution is minimized, it is now watching for any saved changes to the Intent Architect Application or its Modules and will re-run itself should any be detected.
-
-## Add missing Id fields to DTOs
-
-Up to this point, we are not presenting any `Id`s to the consumer of our API Services.
-
-Navigate back to the `Services` designer and perform the following actions:
-
-- Right-click on `OwnerDTO` and add a new field called `id` with the type `guid`.
-- In the properties panel, click on `Is Mapped`.
-- A `Mapping Path` field appears. Enter `Id`.
-- (Optional) Click and drag the `Id` field onto the `firstName` field which will re-order it such that it is now the first field.
-
-[!Video-Loop videos/service-mapping-pet-visit-with-ids.mp4]
-
-Click on save and note the blinking button at the bottom of the window due to the Software Factory Execution automatically happening again. It detected your having pressed save and automatically initiated a Software Factory Execution.
-
-[!Video-Loop videos/software-factory-execution-after-id-added.mp4]
-
-`APPLY` the change and do the same for the following types:
-
-- `PetDTO`
-- `PetVisitDTO`
 
 ## Test the generated application's back-end
 
