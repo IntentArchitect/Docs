@@ -3,6 +3,12 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.5
+
+### Issues fixed in 3.3.5
+
+- Fixed: Repeated reads of the execution log during Software Factory execution would result in a significant increase in the total execution time.
+
 ## Version 3.3.4
 
 _Released 2022/05/16._
