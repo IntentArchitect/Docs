@@ -3,6 +3,13 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.6
+
+### Issues fixed in 3.3.6
+
+- Fixed: `Allow Multiple Applies` for Stereotypes was not exposed through the SDK. It can now be accessed through the `AllowMultipleApplies` property on `IStereotypeDefinition` provided that version `3.1.1` or higher of the `Intent.SoftwareFactory.SDK` NuGet package is being used.
+- Fixed: (macOS) The Software Factory execution would sometimes get "stuck" such that a restart of Intent Architect would be required before being able to run the Software Factory again.
+
 ## Version 3.3.5
 
 ### Issues fixed in 3.3.5
