@@ -71,11 +71,17 @@ Code generation is the process of running the Software Factory which provides me
 
 [Decorators](xref:templates.about-decorators) are a mechanism which can be used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a Decorator contract which can be implemented by Decorators in different modules. In this way Templates can be extended by modules on which they have no dependency and might have been created by completely different authors or even companies.
 
-### Advanced
+### Additional Tools
 
-Less commonly used module building features for advanced use cases or requirements.
+Building features for the more advanced use cases.
 
-#### Eventing Messages
+#### Module Settings
+
+Allow your module to expose settings to the end-user on the Application Settings view in order to configure how they want your Module to work for them based on the settings provided.
+
+For example a module has a setting that allows the user to choose which primitive type to use when generating Primary Key columns for SQL tables that can either be `int`, `bigint` or `uniqueidentifier`.
+
+#### Eventing
 
 A fully decoupled mechanism for modules to interact with each other through use of messages and the event dispatcher within the Software Factory, commonly used for fulfilling architectural infrastructural concerns.
 
