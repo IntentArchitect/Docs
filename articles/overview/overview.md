@@ -73,11 +73,11 @@ Code generation is the process of running the Software Factory which provides me
 
 ### Additional Tools
 
-Building features for the more advanced use cases.
+More module building features for advanced use cases or requirements.
 
 #### Module Settings
 
-Allow your module to expose settings to the end-user on the Application Settings view in order to configure how they want your Module to work for them based on the settings provided.
+Adds a new section on the Application Settings view to allow end-users to configure how your module should work by adjusting settings that your module exposed.
 
 For example a module has a setting that allows the user to choose which primitive type to use when generating Primary Key columns for SQL tables that can either be `int`, `bigint` or `uniqueidentifier`.
 
