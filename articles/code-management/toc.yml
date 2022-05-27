@@ -1,6 +1,5 @@
 items:
 - name: About Code Management
   topicHref: about-code-management/about-code-management.md
-  items: 
-  - name: C# Code Management
-    href: about-code-management-csharp/about-code-management-csharp.md
+- name: C# Code Management
+  href: about-code-management-csharp/about-code-management-csharp.md

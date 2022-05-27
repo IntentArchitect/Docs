@@ -21,6 +21,10 @@ This attribute is located on a global scope which will instruct the Roslyn Weave
 * `Merge` - It may only make modifications and additions to this file but it's not allowed to remove anything.
 * `Ignore` - It has **no** control over the file and will not generate or overwrite anything in it.
 
+## Syntax Nodes
+
+The C# programming language (like any other programming language) can be represented in the form of an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree) and the RoslynWeaver interprets the C# code in the same way. Nodes may consist of Classes, Members, Methods, Parameters, etc.
+
 ## Override code management using `[IntentManaged]`
 
 For example, to control code management behaviour for a method, you could add an `[IntentManaged]` attribute to it like so:
@@ -74,15 +78,15 @@ This will instruct Intent Architect to order the `using directives` located abov
 
 ### Tag Mode
 
-Intent Architect will use this setting to know how to take guidance from `[IntentManaged]` attributes located within C# files that exist on your hard drive.
+The RoslynWeaver takes instruction from `[IntentManaged]` attributes located within C# files that exist on your file system.
 
-It is worth noting that content that gets generated and written to existing C# files may also have `[IntentManaged]` attributes in them which gives the initial placement of those attributes from the first Software Factory Execution.
+Note that Syntax Nodes that gets generated and written to existing C# files may also have `[IntentManaged]` attributes in them which gives the initial placement of those attributes from the first Software Factory Execution.
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                            |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Explicit      | `IntentManaged` attributes located on existing files will take precedence over the ones found in the generated content.                                                                                                                                                                                                                                                                                |
-| Implicit      | Generated content that have their own `IntentManaged` attributes will be primarily used to guide Intent Architect where to overwrite code within a C# file, however attributes modified by the developer will still take precedence. Everywhere where `IntentManaged` attribute configuration settings matches exactly will be removed in the existing file. This gives the code a cleaner experience. |
-| Template Only | Any `IntentManaged` attributed located in an existing C# file will be removed and the generated content will take precedence over how Intent Architect will overwrite code within a C# file.                                                                                                                                                                                                           |
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Explicit      | The RoslynWeaver will only look to the existing file for `IntentManaged` attributes except in the case where the Generated output will add new Syntax Nodes to the existing file.                                                                                                                                                                                                                                                   |
+| Implicit      | The RoslynWeaver will look to the existing file for `IntentManaged` attributes and compare them with the ones found in the Generated output. If they happen to match then the ones found in the existing file will be removed. Any Syntax Nodes that do not happen to have any `IntentManaged` attributes on them in the existing file, will cause the RoslynWeaver to inspect the Generated output for `IntentManaged` attributes. |
+| Template Only | The RoslynWeaver will only look at the Generated output for `IntentManaged` attributes. The only exception is on the first time the Software Factory is executed with this mode selected, which will afterwards remove all `IntentManaged` attributes from the existing file.                                                                                                                                                       |
 
 ### Usings Placement
 
@@ -95,9 +99,9 @@ This will instruct Intent Architect where to place the `using directives` within
 
 ## Frequently Asked Questions
 
-### Why is Intent Architect formatting my C# files?
+### How can I disable the RoslynWeaver from formatting my C# files?
 
-By default the Software Factory will automatically format files under [code management](xref:code-management.about-code-management). If this is undesired you can disable this behaviour by setting the the `AutoFormat` property to `false` in the `DefineFileConfig` method of your template:
+By default the RoslynWeaver will automatically format files under [code management](xref:code-management.about-code-management). If this is undesired you can disable this behaviour by using the method `WithAutoFormatting` with the first parameter set to `false` in the `DefineFileConfig` method of your template:
 
 ```csharp
 protected override CSharpFileConfig DefineFileConfig()
@@ -105,15 +109,13 @@ protected override CSharpFileConfig DefineFileConfig()
     return new CSharpFileConfig(
         className: "MyClass",
         @namespace: OutputTarget.GetNamespace())
-    {
-        AutoFormat = false
-    };
+        .WithAutoFormatting(false);
 }
 ```
 
-### Why can Intent Architect not fully manage my `using directives`?
+### Why can the RoslynWeaver not remove my `using directives`?
 
-It is a design choice that Intent Architect will not fully overwrite your `using directives` so as to give developers more control in the event where some edge cases might occur. However, there is a way to instruct Intent Architect to take full control if so desired by adding the following attribute underneath the `DefaultIntentManaged` one:
+By default, RoslynWeaver uses `Merge` as the management mode for `using directives`, where it will only ever add new ones and never remove existing ones. This can be overridden by adding an `[assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]` in your file, typically just beneath the existing `DefaultIntentManaged` attribute, for example:
 
 ```csharp
 [assembly: DefaultIntentManaged(Mode.Fully)]
