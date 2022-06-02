@@ -1,0 +1,42 @@
+items:
+  - name: Applications
+    href: about-applications/about-applications.md
+
+  - name: Code management
+    href: code-management/code-management.md
+
+  - name: Designers
+    href: about-designers/about-designers.md
+
+  - name: Designer Extensions
+    href: about-designer-extensions/about-designer-extensions.md
+
+  - name: Domain Designer
+    href: domain-designer/toc.yml
+
+  - name: Keyboard Shortcuts
+    href: keyboard-shortcuts/keyboard-shortcuts.md
+
+  - name: Modules
+    href: about-modules/about-modules.md
+
+  - name: SCM ignore files
+    href: scm-ignore-files/scm-ignore-files.md
+
+  - name: Software Factory Execution
+    href: about-software-factory-execution/about-software-factory-execution.md
+  
+  - name: Software Factory CLI
+    href: software-factory-cli/software-factory-cli.md
+
+  - name: Solutions
+    href: about-solutions/about-solutions.md
+
+  - name: Stereotypes
+    href: about-stereotypes/about-stereotypes.md
+
+  - name: Visual Studio Designer
+    href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
+
+  - name: The About Dialog
+    href: the-about-dialog/the-about-dialog.md
