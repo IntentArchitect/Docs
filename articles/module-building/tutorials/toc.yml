@@ -1,0 +1,4 @@
+items:
+  - name: 'Tutorial: Create a Module'
+    topicUid: module-building.tutorials.create-a-module.introduction
+    href: create-a-module/toc.yml

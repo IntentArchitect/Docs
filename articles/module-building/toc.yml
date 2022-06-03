@@ -1,0 +1,36 @@
+items:
+  - name: Overview
+    topicUid: module-building.overview
+    
+  - name: Tutorials
+    href: tutorials/toc.yml
+
+  - name: Application Templates
+    href: application-templates/toc.yml
+
+  # - name: Designers
+  #   href: designers/toc.yml
+
+  - name: Designer Extensions
+    href: designer-extensions/toc.yml
+
+  - name: Decorators
+    href: decorators/toc.yml
+
+  - name: Templates
+    href: templates/toc.yml
+
+  # - name: Modules
+  #   href: modules/toc.yml
+
+  - name: Stereotypes
+    href: stereotypes/toc.yml
+
+  - name: Additional Tools
+    href: additional-tools/toc.yml
+
+  - name: Debugging Modules
+    href: debugging-modules/debugging-modules.md
+
+  - name: Module Distribution
+    href: module-distribution/module-distribution.md

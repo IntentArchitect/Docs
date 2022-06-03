@@ -1,0 +1,12 @@
+items:
+  - name: Applications and Solutions
+    href: applications-and-solutions/toc.yml
+  
+  - name: Code Weaving and Generation
+    href: code-weaving-and-generation/toc.yml
+
+  - name: Modelling
+    href: modelling/toc.yml
+
+  - name: User Interface
+    href: user-interface/toc.yml
