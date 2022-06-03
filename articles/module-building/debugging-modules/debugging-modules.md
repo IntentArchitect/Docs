@@ -1,7 +1,7 @@
 ---
-uid: module-building.troubleshooting.how-to-debug-your-module-code
+uid: module-building.debugging-modules
 ---
-# How to debug your Module code
+# Debugging Modules
 
 When developing Modules, it's very useful to be able to debug code inside the Module. Intent Architect supports this by pausing the Software Factory Execution process in order to allow you to connect a debugger to the running process.
 

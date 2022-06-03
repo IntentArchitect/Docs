@@ -29,8 +29,8 @@ items:
   - name: Additional Tools
     href: additional-tools/toc.yml
 
-  - name: Troubleshooting
-    href: troubleshooting/toc.yml
+  - name: Debugging Modules
+    href: debugging-modules/debugging-modules.md
 
   - name: Module Distribution
     href: module-distribution/module-distribution.md
