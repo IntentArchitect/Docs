@@ -1,0 +1,9 @@
+items:
+  - name: Application Templates
+    href: about-application-templates/about-application-templates.md
+
+  - name: Create Application Templates
+    href: how-to-create-application-templates/how-to-create-application-templates.md
+
+  - name: Metadata installation
+    href: metadata-installation/metadata-installation.md

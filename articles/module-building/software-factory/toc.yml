@@ -2,5 +2,3 @@ items:
   - name: Create a Factory Extension
     href: how-to-create-a-factory-extension/how-to-create-a-factory-extension.md
     
-  - name: Metadata installation
-    href: metadata-installation/metadata-installation.md

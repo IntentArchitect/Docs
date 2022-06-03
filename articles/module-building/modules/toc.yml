@@ -1,0 +1,15 @@
+items:
+  - name: Auto-assign Template Outputs
+    href: how-to-auto-assign-template-outputs/how-to-auto-assign-template-outputs.md
+
+# - name: 'About the Module Builder'
+#   href: module-module-builder/module-module-builder.md
+
+  - name: Distribute your modules to others
+    href: distributing-your-modules-to-others/distributing-your-modules-to-others.md
+
+  - name: Notations
+    href: notations/notations.md
+
+  - name: Set Module Versions
+    href: how-to-set-module-versions/how-to-set-module-versions.md

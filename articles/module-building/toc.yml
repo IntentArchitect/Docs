@@ -2,11 +2,23 @@ items:
   - name: Overview
     topicUid: overview
     
-  - name: How to
-    href: how-to/toc.yml
-  
-  - name: References
-    href: references/toc.yml
+  - name: Application Templates
+    href: application-templates/toc.yml
 
-  - name: Tutorials
-    href: tutorials/toc.yml
+  - name: Designers
+    href: designers/toc.yml
+
+  - name: Modules
+    href: modules/toc.yml
+
+  - name: Software Factory
+    href: software-factory/toc.yml
+
+  - name: Stereotypes
+    href: stereotypes/toc.yml
+
+  - name: Templates and Decorators
+    href: templates-and-decorators/toc.yml
+
+  - name: Troubleshooting
+    href: troubleshooting/toc.yml
