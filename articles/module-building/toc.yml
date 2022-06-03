@@ -5,20 +5,20 @@ items:
   - name: Application Templates
     href: application-templates/toc.yml
 
-  - name: Designers
-    href: designers/toc.yml
+  # - name: Designers
+  #   href: designers/toc.yml
+
+  - name: Templates
+    href: templates/toc.yml
 
   - name: Modules
     href: modules/toc.yml
 
-  - name: Software Factory
-    href: software-factory/toc.yml
-
   - name: Stereotypes
     href: stereotypes/toc.yml
 
-  - name: Templates and Decorators
-    href: templates-and-decorators/toc.yml
+  - name: Extensibility
+    href: extensibility/toc.yml
 
   - name: Troubleshooting
     href: troubleshooting/toc.yml

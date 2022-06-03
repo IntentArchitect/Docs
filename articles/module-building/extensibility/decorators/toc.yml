@@ -1,0 +1,6 @@
+items:
+  - name: Decorators
+    href: about-decorators/about-decorators.md
+
+  - name: Decorate a Template
+    href: how-to-decorate-a-template/how-to-decorate-a-template.md
