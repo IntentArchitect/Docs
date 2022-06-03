@@ -7,7 +7,7 @@ remarks: |
 ---
 # How to create a Designer Extension
 
-This how-to guide will walk you through creating a [Designer Extension](xref:application-development.extensions.about-designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
+This how-to guide will walk you through creating a [Designer Extension](xref:module-building.designer-extensions.about-designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
 
 - Adding a new element of type `Domain Event` which can be added through a context menu option on folders.
 - Ability to apply a new Stereotype to `Class` elements.
@@ -144,4 +144,4 @@ You will now have the option of creating the new `Domain Event` element and usin
 ## See also
 
 - [](xref:application-development.modelling.about-designers)
-- [](xref:application-development.extensions.about-designer-extensions)
+- [](xref:module-building.designer-extensions.about-designer-extensions)

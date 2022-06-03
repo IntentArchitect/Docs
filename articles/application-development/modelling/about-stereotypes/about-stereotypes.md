@@ -13,7 +13,7 @@ For example, Intent Architect's standard Services Designer only allows modelling
 
 ![What Intent Architect's standard Services Designer looks like](images/services-designer-vanilla.png)
 
-After installing the `Intent.Metadata.WebApi` [module](xref:application-development.extensions.about-modules), an `Http Settings` Stereotype is automatically applied on all Operations and allows specifying via which HTTP Verbs should be accessible.
+After installing the `Intent.Metadata.WebApi` [module](xref:application-development.applications-and-solutions.about-modules), an `Http Settings` Stereotype is automatically applied on all Operations and allows specifying via which HTTP Verbs should be accessible.
 
 The Stereotype can be located on the Properties pane located to the right of the Designer:
 

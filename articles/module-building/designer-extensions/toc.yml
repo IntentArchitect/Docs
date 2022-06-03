@@ -1,3 +1,6 @@
 items:
+  - name: About Designer Extensions
+    href: about-designer-extensions/about-designer-extensions.md
+
   - name: How to create a Designer Extension
     href: how-to-create-a-designer-extension/how-to-create-a-designer-extension.md

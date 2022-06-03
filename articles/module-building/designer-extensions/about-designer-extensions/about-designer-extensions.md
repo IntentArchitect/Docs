@@ -1,5 +1,5 @@
 ---
-uid: application-development.extensions.about-designer-extensions
+uid: module-building.designer-extensions.about-designer-extensions
 ---
 # About Designer Extensions
 

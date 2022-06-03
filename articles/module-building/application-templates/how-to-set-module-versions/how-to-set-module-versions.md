@@ -1,5 +1,5 @@
 ---
-uid: module-building.modules.how-to-set-module-versions
+uid: module-building.application-templates.how-to-set-module-versions
 ---
 # How to set Module Versions
 

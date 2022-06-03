@@ -1,5 +1,5 @@
 ---
-uid: application-development.extensions.about-modules
+uid: application-development.applications-and-solutions.about-modules
 ---
 # About Modules
 

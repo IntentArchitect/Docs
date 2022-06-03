@@ -10,6 +10,3 @@ items:
 
   - name: User Interface
     href: user-interface/toc.yml
-
-  - name: Extensions
-    href: extensions/toc.yml

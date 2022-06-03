@@ -3,7 +3,7 @@ uid: module-building.tutorials.create-a-module.introduction
 ---
 # Tutorial: Create a Module
 
-This tutorial will walk you through creating an Intent Architect [Module](xref:application-development.extensions.about-modules).
+This tutorial will walk you through creating an Intent Architect [Module](xref:application-development.applications-and-solutions.about-modules).
 
 ## What is Intent Architect?
 

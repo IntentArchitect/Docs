@@ -9,7 +9,7 @@ Intent Architect has first class support for generation and code management of C
 > [!NOTE]
 > At a fundamental level all Templates in Intent Architect ultimately just produce text. If you look at the code-behind file for a `.tt` file, you will see that it's using a `StringBuilder` on which `.ToString()` is ultimately called.
 
-The easiest way to create a C# Template is by using the [Module Builder](xref:module-building.modules.about-the-module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:application-development.extensions.about-modules) screen for your [Application](xref:application-development.applications-and-solutions.about-applications).
+The easiest way to create a C# Template is by using the [Module Builder](xref:module-building.modules.about-the-module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:application-development.applications-and-solutions.about-modules) screen for your [Application](xref:application-development.applications-and-solutions.about-applications).
 
 When the Module is installed, inside the Module Builder [Designer](xref:application-development.modelling.about-designers) you will then have the option to create a `New C# Template`.
 

@@ -20,8 +20,8 @@ items:
   - name: Templates
     href: templates/toc.yml
 
-  - name: Modules
-    href: modules/toc.yml
+  # - name: Modules
+  #   href: modules/toc.yml
 
   - name: Stereotypes
     href: stereotypes/toc.yml
@@ -31,3 +31,6 @@ items:
 
   - name: Troubleshooting
     href: troubleshooting/toc.yml
+
+  - name: Module Distribution
+    href: module-distribution/module-distribution.md

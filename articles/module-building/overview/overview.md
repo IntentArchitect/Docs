@@ -5,7 +5,7 @@ uid: module-building.overview
 
 ## The Two Development Roles
 
-In the same way that traditional software development teams have members who fulfil different roles (such as developing infrastructure, architecture, backends, front-end applications, API integration and consumer services, etc.) Intent Architect is no different in that developers who design and implement Applications may be different to the developers who supply the [Modules](xref:application-development.extensions.about-modules) that support the ability for the Application developers to function (more efficiently) and deliver value.
+In the same way that traditional software development teams have members who fulfil different roles (such as developing infrastructure, architecture, backends, front-end applications, API integration and consumer services, etc.) Intent Architect is no different in that developers who design and implement Applications may be different to the developers who supply the [Modules](xref:application-development.applications-and-solutions.about-modules) that support the ability for the Application developers to function (more efficiently) and deliver value.
 
 ![Overview](images/overview-two-development-roles.png)
 
@@ -42,7 +42,7 @@ Metadata is the term used to describe all information that can be captured with 
 
 #### Designer Extensions
 
-Intent Architect supports extending designers. [Designer extensions](xref:application-development.extensions.about-designer-extensions) allow adding additional element types and behaviour to an existing designer, providing the following powerful benefits:
+Intent Architect supports extending designers. [Designer extensions](xref:module-building.designer-extensions.about-designer-extensions) allow adding additional element types and behaviour to an existing designer, providing the following powerful benefits:
 
 - No need to copy an entire existing designer when you want to make a single small addition to it.
 - Multiple designer extensions extending a single designer can be installed at the same time and they all continue working as expected.

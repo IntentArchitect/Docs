@@ -27,7 +27,7 @@ An `Application Installation` dialogue will pop up showing the progress of downl
 
 ![Update modules indicator](images/update-modules-indicator.png)
 
-In the event that [Modules](xref:application-development.extensions.about-modules) shows the update indicator, please ensure that all your modules are kept up to date for the best possible experience.
+In the event that [Modules](xref:application-development.applications-and-solutions.about-modules) shows the update indicator, please ensure that all your modules are kept up to date for the best possible experience.
 
 ## Open and rename the package
 

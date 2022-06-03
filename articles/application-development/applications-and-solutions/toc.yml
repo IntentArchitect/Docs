@@ -2,6 +2,9 @@ items:
   - name: About Applications
     href: about-applications/about-applications.md
 
+  - name: About Modules
+    href: about-modules/about-modules.md
+
   - name: About Solutions
     href: about-solutions/about-solutions.md
 

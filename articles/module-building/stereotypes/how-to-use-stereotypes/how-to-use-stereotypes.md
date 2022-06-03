@@ -3,7 +3,7 @@ uid: module-building.stereotypes.how-to-use-stereotypes
 ---
 # How to use Stereotypes
 
-This how-to will explain how to define [Stereotypes](xref:application-development.modelling.about-stereotypes) that are contained in your [Modules](xref:application-development.extensions.about-modules) and how to apply them to your applications.
+This how-to will explain how to define [Stereotypes](xref:application-development.modelling.about-stereotypes) that are contained in your [Modules](xref:application-development.applications-and-solutions.about-modules) and how to apply them to your applications.
 
 Stereotypes defined in Modules are useable in the following ways:
 

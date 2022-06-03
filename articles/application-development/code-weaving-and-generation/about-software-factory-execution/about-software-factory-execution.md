@@ -7,7 +7,7 @@ remarks: |
 ---
 # About Software Factory Execution
 
-The Software Factory Execution is the process that executes the installed [Modules](xref:application-development.extensions.about-modules) with the metadata from the [Designers](xref:application-development.modelling.about-designers) within an [Application](xref:application-development.applications-and-solutions.about-applications). The result is changes to the codebase which are **staged** before being accepted or rejected.
+The Software Factory Execution is the process that executes the installed [Modules](xref:application-development.applications-and-solutions.about-modules) with the metadata from the [Designers](xref:application-development.modelling.about-designers) within an [Application](xref:application-development.applications-and-solutions.about-applications). The result is changes to the codebase which are **staged** before being accepted or rejected.
 
 ![Software Factory Execution](images/software-factory-execution.gif)
 

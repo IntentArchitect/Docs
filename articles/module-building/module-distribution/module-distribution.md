@@ -1,5 +1,5 @@
 ---
-uid: module-building.modules.distributing-your-modules-to-others
+uid: module-building.module-distribution
 ---
 # Distributing your Modules to others
 

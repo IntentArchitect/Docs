@@ -1,5 +1,5 @@
 ---
-uid: module-building.modules.notations
+uid: module-building.application-templates.version-range-notation
 ---
 # Version Range Notation
 

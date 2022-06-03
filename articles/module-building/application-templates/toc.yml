@@ -5,5 +5,11 @@ items:
   - name: How to create Application Templates
     href: how-to-create-application-templates/how-to-create-application-templates.md
 
+  - name: How to set Module Versions
+    href: how-to-set-module-versions/how-to-set-module-versions.md
+
   - name: Metadata installation
     href: metadata-installation/metadata-installation.md
+
+  - name: Version Range Notation
+    href: version-range-notation/version-range-notation.md

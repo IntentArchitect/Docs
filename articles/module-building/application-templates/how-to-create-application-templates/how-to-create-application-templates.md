@@ -47,7 +47,7 @@ Once the `Application Installation` is complete, it will automatically hide.
 - Give the new element a name of `Intent.Modelers.Domain`.
 
     > [!IMPORTANT]
-    > This must be the exact name of a [module](xref:application-development.extensions.about-modules) which is to be installed by the Application Template.
+    > This must be the exact name of a [module](xref:application-development.applications-and-solutions.about-modules) which is to be installed by the Application Template.
 - Click the root `Intent.Modelers.Domain` element and in the Properties pane on the right:
   - For `Version` enter `3.0.4`.
 
