@@ -8,6 +8,12 @@ items:
   # - name: Designers
   #   href: designers/toc.yml
 
+  - name: Designer Extensions
+    href: designer-extensions/toc.yml
+
+  - name: Decorators
+    href: decorators/toc.yml
+
   - name: Templates
     href: templates/toc.yml
 
@@ -17,8 +23,8 @@ items:
   - name: Stereotypes
     href: stereotypes/toc.yml
 
-  - name: Extensibility
-    href: extensibility/toc.yml
+  - name: Additional Tools
+    href: additional-tools/toc.yml
 
   - name: Troubleshooting
     href: troubleshooting/toc.yml
