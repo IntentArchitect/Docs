@@ -1,9 +1,9 @@
 ---
-uid: stereotypes.how-to-use-stereotypes
+uid: module-building.stereotypes.how-to-use-stereotypes
 ---
 # How to use Stereotypes
 
-This how-to will explain how to define [Stereotypes](xref:stereotypes.about-stereotypes) that are contained in your [Modules](xref:modules.about-modules) and how to apply them to your applications.
+This how-to will explain how to define [Stereotypes](xref:application-development.modelling.about-stereotypes) that are contained in your [Modules](xref:application-development.extensions.about-modules) and how to apply them to your applications.
 
 Stereotypes defined in Modules are useable in the following ways:
 
@@ -12,12 +12,12 @@ Stereotypes defined in Modules are useable in the following ways:
 
 ## Create a Stereotype Definition
 
-[Stereotype Definitions](xref:stereotypes.about-stereotype-definitions) are used to creates "types" of Stereotypes which can then be applied to Element(s) (such as a Class in a Domain).
+[Stereotype Definitions](xref:module-building.stereotypes.about-stereotype-definitions) are used to creates "types" of Stereotypes which can then be applied to Element(s) (such as a Class in a Domain).
 
 > [!NOTE]
-> This how-to requires that the Domain Module's metadata is [installed](xref:tutorials.creating-modules-net.create-templates-per-model#install-the-domain-metadata). Although this how-to uses the Domain Designer, the same principles can be applied to the use of any Designer.
+> This how-to requires that the Domain Module's metadata is [installed](xref:module-building.tutorials.creating-modules-net.create-templates-per-model#install-the-domain-metadata). Although this how-to uses the Domain Designer, the same principles can be applied to the use of any Designer.
 
-Create or open a Module Builder application (such as the one created in [](xref:tutorials.create-a-module.create-a-simple-module)) in Intent Architect, open the Module Builder Designer, right-click on the package in the designer and select `New Stereotype-Definition`.
+Create or open a Module Builder application (such as the one created in [](xref:module-building.tutorials.create-a-module.create-a-simple-module)) in Intent Architect, open the Module Builder Designer, right-click on the package in the designer and select `New Stereotype-Definition`.
 
 In the Properties pane on the right of the screen, ensure that:
 
@@ -175,7 +175,7 @@ namespace <#= Namespace #>
 
 Create or open an ASP.NET Core application in Intent Architect.
 
-[Install the module](xref:tutorials.create-a-module.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-stereotype-definition).
+[Install the module](xref:module-building.tutorials.create-a-module.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-stereotype-definition).
 
 Open the Domain Designer and create or select a Class Element.
 

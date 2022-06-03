@@ -1,6 +1,6 @@
 items:
-- name: Associations
+- name: About Associations
   href: about-associations/about-associations.md
 
-- name: Domain Designer
+- name: How to use Domain Designer
   href: how-to-use-the-domain-designer/how-to-use-the-domain-designer.md

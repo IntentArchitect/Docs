@@ -1,5 +1,5 @@
 ---
-uid: templates.how-to-effectively-generate-lots-of-static-files
+uid: module-building.templates.how-to-effectively-generate-lots-of-static-files
 ---
 # How to effectively generate lots of static files
 

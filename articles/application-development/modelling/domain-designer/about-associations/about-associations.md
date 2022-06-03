@@ -1,5 +1,5 @@
 ---
-uid: designers.about-domain-designer.about-associations
+uid: application-development.modelling.domain-designer.about-associations
 ---
 # About Associations
 

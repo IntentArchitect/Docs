@@ -1,5 +1,5 @@
 ---
-uid: stereotypes.about-stereotypes
+uid: application-development.modelling.about-stereotypes
 ---
 # About Stereotypes
 
@@ -13,7 +13,7 @@ For example, Intent Architect's standard Services Designer only allows modelling
 
 ![What Intent Architect's standard Services Designer looks like](images/services-designer-vanilla.png)
 
-After installing the `Intent.Metadata.WebApi` [module](xref:modules.about-modules), an `Http Settings` Stereotype is automatically applied on all Operations and allows specifying via which HTTP Verbs should be accessible.
+After installing the `Intent.Metadata.WebApi` [module](xref:application-development.extensions.about-modules), an `Http Settings` Stereotype is automatically applied on all Operations and allows specifying via which HTTP Verbs should be accessible.
 
 The Stereotype can be located on the Properties pane located to the right of the Designer:
 
@@ -25,8 +25,8 @@ Stereotypes not only offer a form of "tagging" on Elements found in Intent Archi
 
 ## Making your own
 
-Stereotypes can be defined by the use of Stereotype Definitions, refer to this [article](xref:stereotypes.about-stereotype-definitions) for further details.
+Stereotypes can be defined by the use of Stereotype Definitions, refer to this [article](xref:module-building.stereotypes.about-stereotype-definitions) for further details.
 
 ## See also
 
-- [](xref:stereotypes.how-to-use-stereotypes)
+- [](xref:module-building.stereotypes.how-to-use-stereotypes)

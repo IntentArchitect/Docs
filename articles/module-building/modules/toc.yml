@@ -5,8 +5,8 @@ items:
   - name: Distribute your modules to others
     href: distributing-your-modules-to-others/distributing-your-modules-to-others.md
 
-  - name: Notations
-    href: notations/notations.md
-
-  - name: Set Module Versions
+  - name: How to set Module Versions
     href: how-to-set-module-versions/how-to-set-module-versions.md
+
+  - name: Version Range Notation
+    href: version-range-notation/version-range-notation.md

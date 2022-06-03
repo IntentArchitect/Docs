@@ -1,11 +1,7 @@
 ---
-uid: references.notations
+uid: module-building.modules.notations
 ---
-# Notations
-
-This section will cover the various notations that we are using in Intent Architect for specifying certain values.
-
-## Version Ranges
+# Version Range Notation
 
 You might have come across a version specification looking like this: `[3.0.0,4.0.0)`.
 

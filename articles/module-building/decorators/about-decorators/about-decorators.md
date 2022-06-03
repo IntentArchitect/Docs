@@ -1,5 +1,5 @@
 ---
-uid: templates.about-decorators
+uid: module-building.decorators.about-decorators
 ---
 # About Decorators
 
@@ -7,4 +7,4 @@ Decorators are a mechanism which can be used by Templates in order to inject con
 
 ## See also
 
-- [](xref:templates.how-to-decorate-a-template)
+- [](xref:module-building.decorators.how-to-decorate-a-template)

@@ -1,5 +1,5 @@
 ---
-uid: software-factory.software-factory-cli
+uid: application-development.user-interface.software-factory-cli
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

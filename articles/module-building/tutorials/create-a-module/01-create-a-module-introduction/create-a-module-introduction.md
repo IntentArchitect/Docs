@@ -1,9 +1,9 @@
 ---
-uid: tutorials.create-a-module.introduction
+uid: module-building.tutorials.create-a-module.introduction
 ---
 # Tutorial: Create a Module
 
-This tutorial will walk you through creating an Intent Architect [Module](xref:modules.about-modules).
+This tutorial will walk you through creating an Intent Architect [Module](xref:application-development.extensions.about-modules).
 
 ## What is Intent Architect?
 
@@ -43,6 +43,6 @@ Once you’re able to describe it and you know how it is supposed to look like i
 
 ## Next Steps
 
-### [Create a simple module](xref:tutorials.create-a-module.create-a-simple-module)
+### [Create a simple module](xref:module-building.tutorials.create-a-module.create-a-simple-module)
 
 Create a Module using the Intent Module Builder with a simple Template that generates and manages a single file.

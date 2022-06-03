@@ -1,5 +1,5 @@
 ---
-uid: references.keyboard-shortcuts
+uid: application-development.user-interface.keyboard-shortcuts
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

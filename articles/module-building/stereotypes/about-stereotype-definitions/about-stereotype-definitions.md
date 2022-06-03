@@ -1,12 +1,12 @@
 ---
-uid: stereotypes.about-stereotype-definitions
+uid: module-building.stereotypes.about-stereotype-definitions
 remarks: |
     Might need to link a "package" article to the phrase "are accessible" to explain how to reference packages with stereotypes.
     Also one might need to explain how to write functions for Display Text fields.
 ---
 # About Stereotype Definitions
 
-Stereotypes can only be created and applied in Intent Architect Designers if their `Stereotype Definitions` are accessible. These Definitions need to be created first and can often be found when a [Module](xref:modules.about-modules) is installed in your Application. They offer a blueprint that Intent Architect can recognize when trying to apply them.
+Stereotypes can only be created and applied in Intent Architect Designers if their `Stereotype Definitions` are accessible. These Definitions need to be created first and can often be found when a [Module](xref:application-development.extensions.about-modules) is installed in your Application. They offer a blueprint that Intent Architect can recognize when trying to apply them.
 
 ![How the base properties of Stereotype Definitions look like](images/stereotype-definition-base-properties.png)
 
@@ -19,7 +19,7 @@ Stereotypes can only be created and applied in Intent Architect Designers if the
 | Apply mode   | Manually                   | The user has to explicitly apply a Stereotype on a `Target` Element.                                                                                                                                |
 |              | On element created         | When a `Target` Element is created, the Stereotype is automatically applied but it can be removed.                                                                                                  |
 |              | Always                     | The Stereotype exists permanently on any `Target` Element and cannot be removed (as long as the Stereotype Definition exists).                                                                      |
-| Icon         | Formatted Text             | [Change the icon](xref:user-interface.how-to-use-the-change-icon-dialogue) for the Stereotype by pressing the button with an ellipses.                                                                      |
+| Icon         | Formatted Text             | [Change the icon](xref:application-development.user-interface.how-to-use-the-change-icon-dialogue) for the Stereotype by pressing the button with an ellipses.                                                                      |
 | Display Icon | Check box                  | When selected, the Stereotype's icon will appear in the tree node and visual modellers for elements on which it is applied.                                                                         |
 | Display Text | Function                   | Using the Javascript language, write a formatted text string that will be used by the Designer to add a Display Text where available. Example: `` return `[${properties["Router Link"].value}]` ``. |
 | Order        | Number                     | Each Stereotype can be ordered according to this numerical value (in ascending order) in the Properties panel located on the right hand side in Intent Architect within a designer.                 |
@@ -115,4 +115,4 @@ Exposes the Property as a standard Icon selector which acts in the same manner a
 
 ## See also
 
-- [](xref:stereotypes.how-to-use-stereotypes)
+- [](xref:module-building.stereotypes.how-to-use-stereotypes)

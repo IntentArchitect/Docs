@@ -1,5 +1,5 @@
 ---
-uid: user-interface.the-about-dialog
+uid: application-development.user-interface.the-about-dialog
 ---
 # The About Dialog
 

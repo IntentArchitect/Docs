@@ -1,5 +1,5 @@
 ---
-uid: designers.domain-designer.how-to-use-the-domain-designer
+uid: application-development.modelling.domain-designer.how-to-use-the-domain-designer
 ---
 # How to use the Domain Designer
 
@@ -145,7 +145,7 @@ Finally, create an Association from the `Group` to the `Shape` Class and ensure 
 > [!TIP]
 > The Associations from `Canvas` to `Shape` and `Group` are called "Composite" Associations, while the Association from `Group` to `Shape` is an "Aggregate" association.
 >
-> You can refer to [this article](xref:designers.about-domain-designer.about-associations) for more information on Association types and modelling them within the Domain Designer.
+> You can refer to [this article](xref:application-development.modelling.domain-designer.about-associations) for more information on Association types and modelling them within the Domain Designer.
 
 ## Adding new Diagrams
 
@@ -220,4 +220,4 @@ Your diagram should now appear as follows:
 
 ## See also
 
-- [](xref:stereotypes.how-to-use-stereotypes).
+- [](xref:module-building.stereotypes.how-to-use-stereotypes).

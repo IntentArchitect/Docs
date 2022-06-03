@@ -1,5 +1,5 @@
 ---
-uid: modules.distributing-your-modules-to-others
+uid: module-building.modules.distributing-your-modules-to-others
 ---
 # Distributing your Modules to others
 
@@ -38,7 +38,7 @@ For example, if your organisation has SharePoint and OneDrive, you could use the
 
 ## Configure Intent Architect to look at this location
 
-This [article](xref:user-interface.how-to-manage-repositories) explains how to setup your known Intent Architect module repositories which let Intent know from where it can install and update modules.
+This [article](xref:application-development.applications-and-solutions.how-to-manage-repositories) explains how to setup your known Intent Architect module repositories which let Intent know from where it can install and update modules.
 
 ## Module versioning concerns
 

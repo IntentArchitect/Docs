@@ -1,5 +1,5 @@
 ---
-uid: references.scm-ignore-files
+uid: application-development.applications-and-solutions.scm-ignore-files
 ---
 # SCM ignore files
 

@@ -1,9 +1,9 @@
 ---
-uid: applications.about-solutions
+uid: application-development.applications-and-solutions.about-solutions
 ---
 # About Solutions
 
-Solutions in Intent Architect serve as a collection of one or more [Applications](xref:applications.about-applications).
+Solutions in Intent Architect serve as a collection of one or more [Applications](xref:application-development.applications-and-solutions.about-applications).
 
 They are represented by an `.isln` (Intent Solution) file on the disk-drive. With Intent Architect you can only open Solution files and not Application files; so if you want to open an Intent Architect Application, you have to do that through the context of a Solution.
 

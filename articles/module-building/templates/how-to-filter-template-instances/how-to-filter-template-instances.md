@@ -1,11 +1,11 @@
 ---
-uid: templates.how-to-filter-templates
+uid: module-building.templates.how-to-filter-templates
 ---
 # How to filter Template Instances
 
 When creating Templates that are configured to create a _File per Model_, you may need to filter which Models create Template Instances. An easy place to do this is in the Template Registrations.
 
-For this How-to Guide, we will imagine a use case where we want to _only_ create Repositories for Entities that have been flagged with a [Stereotype](xref:stereotypes.how-to-use-stereotypes). Let's assume that we have an `Entity Settings` Stereotype with a check-box (boolean) property `Has Repository`. It is configured to automatically apply to `Domain` entities.
+For this How-to Guide, we will imagine a use case where we want to _only_ create Repositories for Entities that have been flagged with a [Stereotype](xref:module-building.stereotypes.how-to-use-stereotypes). Let's assume that we have an `Entity Settings` Stereotype with a check-box (boolean) property `Has Repository`. It is configured to automatically apply to `Domain` entities.
 
 Finally, we will assume that a C# Template called `RepositoryTemplate` has been created with the type `File Per Model` and Designer and Model Type set to `Domain` and `Class` retrospectively:
 

@@ -1,5 +1,5 @@
 ---
-uid: user-interface.how-to-manage-repositories
+uid: application-development.applications-and-solutions.how-to-manage-repositories
 ---
 # How to manage Repositories
 

@@ -1,18 +1,18 @@
 items:
-  - name: Applications
+  - name: About Applications
     href: about-applications/about-applications.md
 
-  - name: Change the output root
+  - name: About Solutions
+    href: about-solutions/about-solutions.md
+
+  - name: About Visual Studio Designer
+    href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
+
+  - name: How to change the output root
     href: how-to-change-the-output-root/how-to-change-the-output-root.md
 
-  - name: Manage Repositories
+  - name: How to manage Repositories
     href: how-to-manage-repositories/how-to-manage-repositories.md
 
   - name: SCM ignore files
     href: scm-ignore-files/scm-ignore-files.md
-
-  - name: Solutions
-    href: about-solutions/about-solutions.md
-
-  - name: Visual Studio Designer
-    href: about-the-visual-studio-designer/about-the-visual-studio-designer.md

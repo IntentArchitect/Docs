@@ -1,14 +1,14 @@
 ---
-uid: designers.about-designers
+uid: application-development.modelling.about-designers
 ---
 # About Designers
 
-Designers in Intent Architect allow you describe your [application's](xref:applications.about-applications) design as visual models and hierarchical concepts. For example, Designers could be used to describe: the entities in a domain, the services that make up the applications API, events that are published and subscribed, etc.
+Designers in Intent Architect allow you describe your [application's](xref:application-development.applications-and-solutions.about-applications) design as visual models and hierarchical concepts. For example, Designers could be used to describe: the entities in a domain, the services that make up the applications API, events that are published and subscribed, etc.
 
-Designers are added to the [Application](xref:applications.about-applications) when a [Module](xref:modules.about-modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
+Designers are added to the [Application](xref:application-development.applications-and-solutions.about-applications) when a [Module](xref:application-development.extensions.about-modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
 
 > [!NOTE]
-> Designers can be created and configured by using the [Intent Module Builder](xref:modules.about-the-module-builder). Existing Designers can also be extended with new concepts and configuration.
+> Designers can be created and configured by using the [Intent Module Builder](xref:module-building.modules.about-the-module-builder). Existing Designers can also be extended with new concepts and configuration.
 
 ![Domain Designer](images/designers-domain.png)
 _An example from our from a sample application showing a Domain model inside of the Domain Designer._
@@ -34,4 +34,4 @@ Customized Designers can be created using the Intent Module Builder. For example
 
 ## See also
 
-- [](xref:designers.about-designer-extensions)
+- [](xref:application-development.extensions.about-designer-extensions)

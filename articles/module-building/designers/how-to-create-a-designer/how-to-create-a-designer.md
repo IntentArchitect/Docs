@@ -1,4 +1,4 @@
 ---
-uid: designers.how-to-create-a-designer
+uid: module-building.designers.how-to-create-a-designer
 ---
 # How to create a Designer

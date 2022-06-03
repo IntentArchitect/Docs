@@ -1,5 +1,5 @@
 ---
-uid: templates.how-to-control-file-properties-in-cs-projects
+uid: module-building.templates.how-to-control-file-properties-in-cs-projects
 ---
 # How to control file properties in C# projects
 

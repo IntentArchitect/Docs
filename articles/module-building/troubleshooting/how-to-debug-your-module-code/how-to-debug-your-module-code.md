@@ -1,5 +1,5 @@
 ---
-uid: modules.how-to-debug-your-module-code
+uid: module-building.troubleshooting.how-to-debug-your-module-code
 ---
 # How to debug your Module code
 

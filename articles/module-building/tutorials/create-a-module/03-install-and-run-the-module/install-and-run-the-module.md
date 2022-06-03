@@ -1,9 +1,9 @@
 ---
-uid: tutorials.create-a-module.install-and-run-the-module
+uid: module-building.tutorials.create-a-module.install-and-run-the-module
 ---
 # Install and run the Module
 
-When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:tutorials.create-a-module.create-a-simple-module).
+When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:module-building.tutorials.create-a-module.create-a-simple-module).
 
 ## Create an empty Application
 
@@ -24,7 +24,7 @@ To get started, let's create an empty Application.
 ![Create Test Application](images/create-test-application.png)
 
 > [!NOTE]
-> We typically create Applications with an [Application Template](xref:applications.application-templates.how-to-create-application-templates). Empty Applications are useful when there aren't any Application Templates that fulfill your needs.
+> We typically create Applications with an [Application Template](xref:module-building.application-templates.how-to-create-application-templates). Empty Applications are useful when there aren't any Application Templates that fulfill your needs.
 
 ## Set up Visual Studio projects
 
@@ -59,13 +59,13 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 
 ## Install the Module
 
-Next, let's install the Module we created in the [previous step](xref:tutorials.create-a-module.create-a-simple-module). To do this, we first navigate to the `Modules` tab of our Application.
+Next, let's install the Module we created in the [previous step](xref:module-building.tutorials.create-a-module.create-a-simple-module). To do this, we first navigate to the `Modules` tab of our Application.
 
 ### Finding and Installing the Module
 
 By default, Intent Architect is configured only with the repository for official Modules hosted at [https://intentarchitect.com/](https://intentarchitect.com/). To be able to use our own Module we need to make a new repository which is set to the folder where our `MyModules.Entities.1.0.0.imod` file was created.
 
-1. Open [User Settings](xref:user-interface.how-to-change-user-settings).
+1. Open [User Settings](xref:application-development.user-interface.how-to-change-user-settings).
 2. Add a new Repository with a unique `Name` (e.g. "My Modules") and the `Address` value being the full location of the folder where our Module was created (e.g. `C:\Dev\MyModules\Intent.Modules`).
 3. Reorder the repositories so that this new one is at the top.
 4. Click `Save`.
@@ -116,4 +116,4 @@ We've created a project structure, installed our Module, and set the Output Targ
 
 ## What's Next
 
-### [Create Files per Model](xref:tutorials.creating-modules-net.create-templates-per-model)
+### [Create Files per Model](xref:module-building.tutorials.creating-modules-net.create-templates-per-model)

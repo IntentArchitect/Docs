@@ -1,5 +1,5 @@
 ---
-uid: tutorials.create-a-module.create-a-simple-module
+uid: module-building.tutorials.create-a-module.create-a-simple-module
 ---
 # Create a simple module
 
@@ -27,7 +27,7 @@ An `Application Installation` dialogue will pop up showing the progress of downl
 
 ![Update modules indicator](images/update-modules-indicator.png)
 
-In the event that [Modules](xref:modules.about-modules) shows the update indicator, please ensure that all your modules are kept up to date for the best possible experience.
+In the event that [Modules](xref:application-development.extensions.about-modules) shows the update indicator, please ensure that all your modules are kept up to date for the best possible experience.
 
 ## Open and rename the package
 
@@ -112,7 +112,7 @@ namespace <#= Namespace #>
 ```
 
 > [!NOTE]
-> This is a T4 Template. To learn more, go to [this page](xref:templates.about-t4-templates).
+> This is a T4 Template. To learn more, go to [this page](xref:module-building.templates.about-t4-templates).
 
 Save your changes and build the project.
 
@@ -129,6 +129,6 @@ You have successfully created an Intent Architect Module.
 
 ## Next Steps
 
-### [Install and run the module](xref:tutorials.create-a-module.install-and-run-the-module)
+### [Install and run the module](xref:module-building.tutorials.create-a-module.install-and-run-the-module)
 
 Create a test Application to install and run our Module.

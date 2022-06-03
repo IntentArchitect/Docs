@@ -1,5 +1,5 @@
 ---
-uid: templates.about-templates-csharp
+uid: module-building.templates.about-templates-csharp
 remark: We could move the first NOTE on what a Template is to the parent page once the Parent page is done being setup.
 ---
 # About Templates (C#)
@@ -9,9 +9,9 @@ Intent Architect has first class support for generation and code management of C
 > [!NOTE]
 > At a fundamental level all Templates in Intent Architect ultimately just produce text. If you look at the code-behind file for a `.tt` file, you will see that it's using a `StringBuilder` on which `.ToString()` is ultimately called.
 
-The easiest way to create a C# Template is by using the [Module Builder](xref:modules.about-the-module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:modules.about-modules) screen for your [Application](xref:applications.about-applications).
+The easiest way to create a C# Template is by using the [Module Builder](xref:module-building.modules.about-the-module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:application-development.extensions.about-modules) screen for your [Application](xref:application-development.applications-and-solutions.about-applications).
 
-When the Module is installed, inside the Module Builder [Designer](xref:designers.about-designers) you will then have the option to create a `New C# Template`.
+When the Module is installed, inside the Module Builder [Designer](xref:application-development.modelling.about-designers) you will then have the option to create a `New C# Template`.
 
 ![New C# template option](images/new-csharp-template-option.png)
 
@@ -27,7 +27,7 @@ The Module Builder has three available options for C# Template types, they are b
 
 ## Files generated during the Software Factory Execution of the Module Builder
 
-Regardless of the type selected, during the [Software Factory Execution](xref:software-factory.about-software-factory-execution) the Module Builder will always generate the following three files for each C# Template created in the Module Builder designer.
+Regardless of the type selected, during the [Software Factory Execution](xref:application-development.code-weaving-and-generation.about-software-factory-execution) the Module Builder will always generate the following three files for each C# Template created in the Module Builder designer.
 
 ### 1. Template file
 
@@ -171,7 +171,7 @@ Through extensive experience of building templates for generating C# files, we h
 
 ### Code Management
 
-A core feature of Intent Architect is [Code Management](xref:references.code-management) where parts of a file are managed fully by Intent Architect while other parts in the same file are hand crafted and Intent Architect will leave those particular parts alone.
+A core feature of Intent Architect is [Code Management](xref:application-development.code-weaving-and-generation.code-management) where parts of a file are managed fully by Intent Architect while other parts in the same file are hand crafted and Intent Architect will leave those particular parts alone.
 
 For C# files, you can use [C# attributes](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/attributes/) anywhere in the file to opt-out a particular element of code within a file from being overwritten during Software Factory Execution.
 
@@ -179,7 +179,7 @@ For example you could place `[IntentManaged(Mode.Ignore)]` on a particular metho
 
 ### Types in other Templates (dependencies)
 
-Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:templates.how-to-get-type-names) (this can involve primitive types too like `string`).
+Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:module-building.templates.how-to-get-type-names) (this can involve primitive types too like `string`).
 
 During Software Factory Execution, Intent Architect will [determine the namespaces](#the-namespace-property) of those other Template instances and add them as using statements.
 

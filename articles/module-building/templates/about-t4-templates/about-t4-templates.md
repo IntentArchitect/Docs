@@ -1,9 +1,9 @@
 ---
-uid: templates.about-t4-templates
+uid: module-building.templates.about-t4-templates
 ---
 # About T4 Templates
 
-This article serves the purpose of informing the reader about the essentials of T4 which will be necessary to design Templates for your [Modules](xref:modules.about-modules).
+This article serves the purpose of informing the reader about the essentials of T4 which will be necessary to design Templates for your [Modules](xref:application-development.extensions.about-modules).
 
 ## What T4 Templates are
 

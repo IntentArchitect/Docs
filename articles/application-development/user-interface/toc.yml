@@ -1,6 +1,9 @@
 items:
-  - name: Change user settings
+  - name: How to change user settings
     href: how-to-change-user-settings/how-to-change-user-settings.md
+
+  - name: How to use the Change Icon Dialogue
+    href: how-to-use-the-change-icon-dialogue/how-to-use-the-change-icon-dialogue.md
 
   - name: Keyboard Shortcuts
     href: keyboard-shortcuts/keyboard-shortcuts.md
@@ -10,6 +13,3 @@ items:
 
   - name: The About Dialog
     href: the-about-dialog/the-about-dialog.md
-
-  - name: Use the Change Icon Dialogue
-    href: how-to-use-the-change-icon-dialogue/how-to-use-the-change-icon-dialogue.md

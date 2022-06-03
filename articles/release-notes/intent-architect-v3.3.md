@@ -168,7 +168,7 @@ New keyboard shortcuts are also available from the Apply Stereotype dialog and M
 
 ![Specify component dependencies and is required](images/3.3.0/application-templates-component-dependencies-and-is-required.png)
 
-- It is now possible to specify settings for an application template which can be used to set different values during [metadata installation](xref:application-templates.metadata-installation).
+- It is now possible to specify settings for an application template which can be used to set different values during [metadata installation](xref:module-building.application-templates.metadata-installation).
 
 ![Specify application template settings](images/3.3.0/application-templates-settings-define.png)
 
@@ -193,10 +193,10 @@ Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage o
 
 ### Role-based Template Resolution
 
-Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
+Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:module-building.templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
 
 Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
 
 Under the hood, Intent Architect will fist attempt to resolve the template by assuming the first parameter is the identifier. If no template is found it will then attempt to resolve it based on its role.
 
-[Roles](xref:templates.how-to-auto-assign-template-outputs) are defined in the Module Builder designer, under the properties of a template. It is worth noting that a template can fulfill more than one role. This can be indicated by separating each role by a comma (`,`), semicolon (`;`) or pipe (`|`) delimiter (e.g. a template with a role of `Domain.Entity; Domain.EntityInterface` can be discovered by either the `Domain.Entity` or `Domain.EntityInterface` role).
+[Roles](xref:module-building.templates.how-to-auto-assign-template-outputs) are defined in the Module Builder designer, under the properties of a template. It is worth noting that a template can fulfill more than one role. This can be indicated by separating each role by a comma (`,`), semicolon (`;`) or pipe (`|`) delimiter (e.g. a template with a role of `Domain.Entity; Domain.EntityInterface` can be discovered by either the `Domain.Entity` or `Domain.EntityInterface` role).

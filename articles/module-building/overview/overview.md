@@ -1,11 +1,11 @@
 ---
-uid: overview
+uid: module-building.overview
 ---
 # Overview
 
 ## The Two Development Roles
 
-In the same way that traditional software development teams have members who fulfil different roles (such as developing infrastructure, architecture, backends, front-end applications, API integration and consumer services, etc.) Intent Architect is no different in that developers who design and implement Applications may be different to the developers who supply the [Modules](xref:modules.about-modules) that support the ability for the Application developers to function (more efficiently) and deliver value.
+In the same way that traditional software development teams have members who fulfil different roles (such as developing infrastructure, architecture, backends, front-end applications, API integration and consumer services, etc.) Intent Architect is no different in that developers who design and implement Applications may be different to the developers who supply the [Modules](xref:application-development.extensions.about-modules) that support the ability for the Application developers to function (more efficiently) and deliver value.
 
 ![Overview](images/overview-two-development-roles.png)
 
@@ -38,11 +38,11 @@ Metadata is the term used to describe all information that can be captured with 
 
 #### Designers
 
-[Designers](xref:designers.about-designers) are the visual modellers in an Intent Architect application which allow users to capture and compose metadata. Designers are highly configurable so that they can be tailored to capture information in a way that is intuitive and natural for the particular project or application.
+[Designers](xref:application-development.modelling.about-designers) are the visual modellers in an Intent Architect application which allow users to capture and compose metadata. Designers are highly configurable so that they can be tailored to capture information in a way that is intuitive and natural for the particular project or application.
 
 #### Designer Extensions
 
-Intent Architect supports extending designers. [Designer extensions](xref:designers.about-designer-extensions) allow adding additional element types and behaviour to an existing designer, providing the following powerful benefits:
+Intent Architect supports extending designers. [Designer extensions](xref:application-development.extensions.about-designer-extensions) allow adding additional element types and behaviour to an existing designer, providing the following powerful benefits:
 
 - No need to copy an entire existing designer when you want to make a single small addition to it.
 - Multiple designer extensions extending a single designer can be installed at the same time and they all continue working as expected.
@@ -50,14 +50,14 @@ Intent Architect supports extending designers. [Designer extensions](xref:design
 
 #### Stereotypes
 
-[Stereotypes](xref:stereotypes.about-stereotypes) allow "decoration" of elements and are analogous to decoration features in programming languages, such as [`C# Attributes`](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/attributes/) or [`Java Annotations`](https://en.wikipedia.org/wiki/Java_annotation). Common use of Stereotypes is specifying technology or business domain specific metadata for Elements in the Intent Architect designer, such as a Class having a business requirement of being audited, or a Service Operation's HTTP method.
+[Stereotypes](xref:application-development.modelling.about-stereotypes) allow "decoration" of elements and are analogous to decoration features in programming languages, such as [`C# Attributes`](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/attributes/) or [`Java Annotations`](https://en.wikipedia.org/wiki/Java_annotation). Common use of Stereotypes is specifying technology or business domain specific metadata for Elements in the Intent Architect designer, such as a Class having a business requirement of being audited, or a Service Operation's HTTP method.
 
 >[!NOTE]
 >In comparison to designers and designer extensions, stereotypes allow adding additional "fields" or values to a particular element, while designers and designer extensions are for defining additional element types and element behaviours (such as context menu options, where they can be used, etc).
 
 #### Designer APIs
 
-Not only do users of Intent Architect have an interface with which to model what the metadata should look like, Module developers will also get an easy to use generated API to query the modelled metadata for Template development, [see for example](xref:stereotypes.how-to-use-stereotypes#query-stereotypes-from-templates).
+Not only do users of Intent Architect have an interface with which to model what the metadata should look like, Module developers will also get an easy to use generated API to query the modelled metadata for Template development, [see for example](xref:module-building.stereotypes.how-to-use-stereotypes#query-stereotypes-from-templates).
 
 ### Code Generation
 
@@ -65,11 +65,11 @@ Code generation is the process of running the Software Factory which provides me
 
 #### Templates
 
-[Templates](xref:templates.about-templates-csharp) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
+[Templates](xref:module-building.templates.about-templates-csharp) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
 
 #### Decorators
 
-[Decorators](xref:templates.about-decorators) are a mechanism which can be used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a Decorator contract which can be implemented by Decorators in different modules. In this way Templates can be extended by modules on which they have no dependency and might have been created by completely different authors or even companies.
+[Decorators](xref:module-building.decorators.about-decorators) are a mechanism which can be used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a Decorator contract which can be implemented by Decorators in different modules. In this way Templates can be extended by modules on which they have no dependency and might have been created by completely different authors or even companies.
 
 ### Additional Tools
 
@@ -89,7 +89,7 @@ For example a template may need a registration to be performed with a system's d
 
 #### Factory Extensions
 
-[Factory Extensions](xref:software-factory.how-to-create-a-factory-extension) are used to hook into and extend any of the pre-defined phases of the the Software Factory process, use cases where this is useful include:
+[Factory Extensions](xref:module-building.additional-tools.software-factory-extensions.how-to-create-a-factory-extension) are used to hook into and extend any of the pre-defined phases of the the Software Factory process, use cases where this is useful include:
 
 - Loading Metadata from outside Intent Architect.
 - Alter the output produced from Templates.

@@ -1,6 +1,6 @@
 items:
-  - name: Code management
-    href: code-management/code-management.md
+  - name: About Code management
+    href: about-code-management/about-code-management.md
     
-  - name: Software Factory Execution
+  - name: About Software Factory Execution
     href: about-software-factory-execution/about-software-factory-execution.md

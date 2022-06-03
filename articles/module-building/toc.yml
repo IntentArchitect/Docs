@@ -1,7 +1,10 @@
 items:
   - name: Overview
-    topicUid: overview
+    topicUid: module-building.overview
     
+  - name: Tutorials
+    href: tutorials/toc.yml
+
   - name: Application Templates
     href: application-templates/toc.yml
 

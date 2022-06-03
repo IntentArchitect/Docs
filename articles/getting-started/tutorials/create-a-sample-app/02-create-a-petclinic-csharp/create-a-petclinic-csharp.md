@@ -61,7 +61,7 @@ Create an `Owner` entity with the following attributes:
 - `telephone` of type `string`
 
 > [!TIP]
-> Follow this [shortcut demonstration](xref:references.keyboard-shortcuts#create-new-element-of-selected-type) to add multiple attributes without using the mouse.
+> Follow this [shortcut demonstration](xref:application-development.user-interface.keyboard-shortcuts#create-new-element-of-selected-type) to add multiple attributes without using the mouse.
 
 The `Owner` entity should appear as follows:
 
@@ -75,7 +75,7 @@ The `Owner` entity should appear as follows:
 Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect designers can be initiated by right-clicking on an entity in the visual diagram, then selecting the `New Association` option and the creation is completed by clicking on the other class which you want to be the target of the relationship.
 
 > [!NOTE]
-> Refer to [this article](xref:designers.about-domain-designer.about-associations) if you wish to learn more about Associations.
+> Refer to [this article](xref:application-development.modelling.domain-designer.about-associations) if you wish to learn more about Associations.
 
 Create an association between `Owner` and `Pet`:
 
@@ -301,6 +301,6 @@ It should also have a success result as well as an array of JSON results includi
 
 Alternatively, you can view the fully-fledged solution for multiple programming languages on [Github](https://github.com/IntentSoftware/Samples-PetClinic).
 
-### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
+### [Tutorial: Create a Module (.NET)](xref:module-building.tutorials.create-a-module.introduction)
 
 A tutorial on how to create a Module and install it into an Application.

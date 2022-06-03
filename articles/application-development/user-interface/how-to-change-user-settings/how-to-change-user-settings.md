@@ -1,5 +1,5 @@
 ---
-uid: user-interface.how-to-change-user-settings
+uid: application-development.user-interface.how-to-change-user-settings
 ---
 # How to change user settings
 

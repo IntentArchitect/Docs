@@ -1,11 +1,11 @@
 ---
-uid: application-templates.metadata-installation
+uid: module-building.application-templates.metadata-installation
 ---
 # Metadata installation
 
 ## Overview
 
-Intent Architect can automatically install metadata for Designers as an Intent Architect Application is created from an [Application Template](xref:applications.application-templates.about-application-templates) or alternatively as a Module is installed/reinstalled.
+Intent Architect can automatically install metadata for Designers as an Intent Architect Application is created from an [Application Template](xref:module-building.application-templates.about-application-templates) or alternatively as a Module is installed/reinstalled.
 
 During packaging of both Application Templates and Modules, the Intent Architect packager will look for any `.installation.config` files present in the `content` sub-folder. We recommend following a convention of naming `.installation.config` files after the designer for which they have metadata, for example `visual-studio.installation.config` for the Visual Studio designer or `domain.installation.config` for the Domain Designer.
 
@@ -40,7 +40,7 @@ We recommend that in your Intent Architect "Modules" Solution, you create a new 
 
 This allows you to put [template string](#template-strings) values in element names so that the exported metadata requires no "correction" after export.
 
-Exporting from working Applications also has other disadvantages in that you may export additional data that you didn't intend to (for example since your original export other data was captured as necessary for the Application), or that shouldn't ideally be installed (for example it's better NOT to export and install `Template Output` elements of the Visual Studio designer as these should be managed as per [output targetting](xref:templates.how-to-auto-assign-template-outputs)).
+Exporting from working Applications also has other disadvantages in that you may export additional data that you didn't intend to (for example since your original export other data was captured as necessary for the Application), or that shouldn't ideally be installed (for example it's better NOT to export and install `Template Output` elements of the Visual Studio designer as these should be managed as per [output targetting](xref:module-building.templates.how-to-auto-assign-template-outputs)).
 
 ## Tutorial
 

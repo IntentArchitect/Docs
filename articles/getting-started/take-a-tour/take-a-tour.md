@@ -24,7 +24,7 @@ Creating a new application in Intent Architect can be done by clicking on the `C
 
 ![Create Application Start](images/create-application-start.png)
 
-The first page of the wizard lists the available [Application Templates](#application-templates) in the selected repository (by default this will be Intent Architect's website [https://intentarchitect.com/](https://intentarchitect.com/) but could be a local directory or network location. [Learn how to change your default repositories here](xref:user-interface.how-to-change-user-settings)).
+The first page of the wizard lists the available [Application Templates](#application-templates) in the selected repository (by default this will be Intent Architect's website [https://intentarchitect.com/](https://intentarchitect.com/) but could be a local directory or network location. [Learn how to change your default repositories here](xref:application-development.user-interface.how-to-change-user-settings)).
 
 Here you can search and choose which application template you want and directly configure key settings like the Application's name, location, and the [solution](#solutions)'s name.
 
@@ -155,7 +155,7 @@ Applications can also be filtered with the text field as well as _favourited_ by
 
 Tutorial on how to create a new Application from scratch.
 
-### [Tutorial: Create a Module (.NET)](xref:tutorials.create-a-module.introduction)
+### [Tutorial: Create a Module (.NET)](xref:module-building.tutorials.create-a-module.introduction)
 
 Tutorials on how to create a Module and install it into an Application.
 

@@ -1,10 +1,10 @@
 ---
-uid: applications.application-templates.how-to-create-application-templates
+uid: module-building.application-templates.how-to-create-application-templates
 remark: Used (https://library.kissclipart.com/20180903/wje/kissclipart-electronic-component-icon-clipart-electronic-compo-d2f1e79cc4feba0f.png) for icon in demo
 ---
 # How to create Application Templates
 
-This how-to guide will walk you through creating your own [Application Template](xref:applications.application-templates.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:designers.about-designers).
+This how-to guide will walk you through creating your own [Application Template](xref:module-building.application-templates.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:application-development.modelling.about-designers).
 
 ## Create a new Application
 
@@ -37,7 +37,7 @@ Once the `Application Installation` is complete, it will automatically hide.
 - Right-click the `Group 1` element and click the `Add Component` option.
 - Give the new element a name of `Component 1`.
 - Click the root `Component 1` element and in the Properties pane on the right:
-  - For `Icon` use the ellipses to [choose an icon](xref:user-interface.how-to-use-the-change-icon-dialogue):
+  - For `Icon` use the ellipses to [choose an icon](xref:application-development.user-interface.how-to-use-the-change-icon-dialogue):
 
 [!Video-Loop videos/create-group-and-component.mp4]
 
@@ -47,7 +47,7 @@ Once the `Application Installation` is complete, it will automatically hide.
 - Give the new element a name of `Intent.Modelers.Domain`.
 
     > [!IMPORTANT]
-    > This must be the exact name of a [module](xref:modules.about-modules) which is to be installed by the Application Template.
+    > This must be the exact name of a [module](xref:application-development.extensions.about-modules) which is to be installed by the Application Template.
 - Click the root `Intent.Modelers.Domain` element and in the Properties pane on the right:
   - For `Version` enter `3.0.4`.
 
@@ -78,7 +78,7 @@ Click on the close button (the red button).
 
 ## Test your Application Template
 
-Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:user-interface.how-to-manage-repositories).
+Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:application-development.applications-and-solutions.how-to-manage-repositories).
 
 Add a new Asset Repository with the name `My Modules` and address `C:\Dev\MyApplicationTemplates\Intent.Modules` (this is the folder where your `.iat` file is located), then click `Save`.
 
@@ -99,9 +99,9 @@ Notice that it's showing all the elements we created in the [Specify a Group and
 
 You can use the `App Templates` Designer to add/change Groups, Components and Modules, re-run the Software Factory and see the affect it has on your Application Template when used in Intent Architect.
 
-Using the [metadata installation](xref:application-templates.metadata-installation) system, new applications created with your template can have default metadata installed, for example you could have the Visual Studio designer on the new application pre-configured with your desired solution and project layout.
+Using the [metadata installation](xref:module-building.application-templates.metadata-installation) system, new applications created with your template can have default metadata installed, for example you could have the Visual Studio designer on the new application pre-configured with your desired solution and project layout.
 
 ## See also
 
-- [](xref:applications.application-templates.about-application-templates)
-- [](xref:application-templates.metadata-installation)
+- [](xref:module-building.application-templates.about-application-templates)
+- [](xref:module-building.application-templates.metadata-installation)

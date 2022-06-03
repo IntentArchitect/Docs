@@ -1,9 +1,9 @@
 items:
-  - name: Designers
+  - name: About Designers
     href: about-designers/about-designers.md
+
+  - name: About Stereotypes
+    href: about-stereotypes/about-stereotypes.md
 
   - name: Domain Designer
     href: domain-designer/toc.yml
-
-  - name: Stereotypes
-    href: about-stereotypes/about-stereotypes.md

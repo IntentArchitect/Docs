@@ -1,5 +1,5 @@
 ---
-uid: templates.how-to-auto-assign-template-outputs
+uid: module-building.templates.how-to-auto-assign-template-outputs
 ---
 # How to auto-assign Template Outputs
 
