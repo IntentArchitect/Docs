@@ -1,0 +1,15 @@
+items:
+  - name: Change user settings
+    href: how-to-change-user-settings/how-to-change-user-settings.md
+
+  - name: Keyboard Shortcuts
+    href: keyboard-shortcuts/keyboard-shortcuts.md
+
+  - name: Software Factory CLI
+    href: software-factory-cli/software-factory-cli.md
+
+  - name: The About Dialog
+    href: the-about-dialog/the-about-dialog.md
+
+  - name: Use the Change Icon Dialogue
+    href: how-to-use-the-change-icon-dialogue/how-to-use-the-change-icon-dialogue.md

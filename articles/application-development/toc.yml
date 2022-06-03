@@ -1,6 +1,15 @@
 items:
-  - name: How to
-    href: how-to/toc.yml
-    
-  - name: References
-    href: references/toc.yml
+  - name: Projects and Solutions
+    href: projects-and-solutions/toc.yml
+  
+  - name: Code Weaving and Generation
+    href: code-weaving-and-generation/toc.yml
+
+  - name: Modelling
+    href: modelling/toc.yml
+
+  - name: User Interface
+    href: user-interface/toc.yml
+
+  - name: Extensions
+    href: extensions/toc.yml
