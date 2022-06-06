@@ -40,7 +40,7 @@ We recommend that in your Intent Architect "Modules" Solution, you create a new 
 
 This allows you to put [template string](#template-strings) values in element names so that the exported metadata requires no "correction" after export.
 
-Exporting from working Applications also has other disadvantages in that you may export additional data that you didn't intend to (for example since your original export other data was captured as necessary for the Application), or that shouldn't ideally be installed (for example it's better NOT to export and install `Template Output` elements of the Visual Studio designer as these should be managed as per [output targetting](xref:module-building.templates.how-to-auto-assign-template-outputs)).
+Exporting from working Applications also has other disadvantages in that you may export additional data that you didn't intend to (for example since your original export other data was captured as necessary for the Application), or that shouldn't ideally be installed (for example it's better NOT to export and install `Template Output` elements of the Visual Studio designer as these should be managed as per [output targetting](xref:application-development.code-weaving-and-generation.about-template-output-targeting)).
 
 ## Tutorial
 
