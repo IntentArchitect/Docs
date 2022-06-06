@@ -3,7 +3,7 @@ uid: tutorials.create-a-sample-app.introduction
 ---
 # Tutorial: Create a Sample App
 
-This tutorial will walk you through using already existing [Modules](xref:modules.about-modules) in Intent Architect to quickly create a working sample application.
+This tutorial will walk you through using already existing [Modules](xref:application-development.applications-and-solutions.about-modules) in Intent Architect to quickly create a working sample application.
 
 ## What is Intent Architect?
 

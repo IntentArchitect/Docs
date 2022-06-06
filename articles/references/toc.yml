@@ -1,9 +1,0 @@
-items:
-- name: Keyboard Shortcuts
-  href: keyboard-shortcuts/keyboard-shortcuts.md
-
-- name: Notations
-  href: notations/notations.md
-
-- name: SCM ignore files
-  href: scm-ignore-files/scm-ignore-files.md

@@ -1,37 +1,14 @@
 items:
-- name: Getting started
-  href: getting-started/toc.yml
-  topicUid: getting-started.welcome
+  - name: Getting started
+    href: getting-started/toc.yml
+    topicUid: getting-started.welcome
 
-- name: Overview
-  topicUid: overview
+  - name: Application Development
+    href: application-development/toc.yml
 
-- name: Applications
-  href: applications/toc.yml
+  - name: Module Building
+    topicUid: module-building.overview
+    href: module-building/toc.yml
 
-- name: Code Management
-  href: code-management/toc.yml
-
-- name: Designers
-  href: designers/toc.yml
-
-- name: Modules
-  href: modules/toc.yml
-
-- name: References
-  href: references/toc.yml
-
-- name: Software Factory
-  href: software-factory/toc.yml
-
-- name: Stereotypes
-  href: stereotypes/toc.yml
-
-- name: Templates
-  href: templates/toc.yml
-
-- name: User Interface
-  href: user-interface/toc.yml
-
-- name: Release notes
-  href: release-notes/toc.yml
+  - name: Release notes
+    href: release-notes/toc.yml

@@ -8,10 +8,6 @@ items:
 - name: Take a tour
   href: take-a-tour/take-a-tour.md
 
-- name: 'Tutorial: Create a Module'
-  href: tutorials/create-a-module/toc.yml
-  topicUid: tutorials.create-a-module.introduction
-
 - name: 'Tutorial: Create a Sample App'
   href: tutorials/create-a-sample-app/toc.yml
   topicUid: tutorials.create-a-sample-app.introduction
