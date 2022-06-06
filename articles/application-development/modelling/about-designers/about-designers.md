@@ -7,11 +7,11 @@ Designers in Intent Architect allow you describe your [application's](xref:appli
 
 Designers are added to the [Application](xref:application-development.applications-and-solutions.about-applications) when a [Module](xref:application-development.applications-and-solutions.about-modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
 
-> [!NOTE]
-> Designers can be created and configured by using the [Intent Module Builder](xref:module-building.modules.about-the-module-builder). Existing Designers can also be extended with new concepts and configuration.
-
 ![Domain Designer](images/designers-domain.png)
 _An example from our from a sample application showing a Domain model inside of the Domain Designer._
+
+![Workflow Designer](images/designers-workflow.png)
+_An example of a sample application showing a custom made Workflow designer modelling a bespoke workflow._
 
 Designers serve as a **blueprint** of your system. They can be used to describe any aspect of your Application. Typically, they are used to capture the following:
 
@@ -23,15 +23,3 @@ Designers serve as a **blueprint** of your system. They can be used to describe 
 - **Eventing** - Messages, Topics, Queues, Subscriptions, etc. Often used to support a Microservices architectures.
 - **Workflows** - Workflow Diagrams, Process Diagrams, etc.
 - **Front-End Structure** - Components, Routing, Modules, View Models, Views, etc.
-
-## Creating your own Designer
-
-Customized Designers can be created using the Intent Module Builder. For examples on how Designers can be configured, open the `Intent.Modules.isln` in the [Intent.Modules](https://github.com/IntentSoftware/Intent.Modules) open-source repository on GitHub. See the following Modules:
-
-- `Intent.Modelers.Services`
-- `Intent.Modelers.Services.CQRS`
-- `Intent.Modelers.Domain`
-
-## See also
-
-- [](xref:module-building.designer-extensions.about-designer-extensions)
