@@ -1,13 +1,9 @@
 ---
-uid: module-building.designer-extensions.how-to-create-a-designer-extension
-remarks: |
-  This one will only cover the new element creation. We will need to write one
-  that will form part of 'creating a new designer' that will allow you to
-  define your visuals too.
+uid: module-building.tutorials.tutorial-create-an-event-as-a-designer-extension
 ---
-# How to create a Designer Extension
+# Tutorial: Create an Event as a Designer Extension
 
-This how-to guide will walk you through creating a [Designer Extension](xref:module-building.designer-extensions.about-designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
+This tutorial guide will walk you through creating a [Designer Extension](xref:module-building.designer-extensions.about-designer-extensions) which extends the [Domain Designer](https://github.com/IntentSoftware/Intent.Modules/tree/master/Modules/Intent.Modules.Modelers.Domain) such that in addition to everything it already supports, it will also allow:
 
 - Adding a new element of type `Domain Event` which can be added through a context menu option on folders.
 - Ability to apply a new Stereotype to `Class` elements.
@@ -144,4 +140,3 @@ You will now have the option of creating the new `Domain Event` element and usin
 ## See also
 
 - [](xref:application-development.modelling.about-designers)
-- [](xref:module-building.designer-extensions.about-designer-extensions)
