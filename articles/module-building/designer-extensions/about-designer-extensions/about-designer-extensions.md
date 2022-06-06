@@ -15,9 +15,9 @@ You can use the settings icon in a designer to see what extensions are currently
 
 ## Creating your own Designer Extension
 
-For more information on creating your own Designer Extension see the [](xref:module-building.designer-extensions.how-to-create-a-designer-extension) how-to guide.
+For more information on creating your own Designer Extension see the [](xref:module-building.tutorials.tutorial-create-an-event-as-a-designer-extension) how-to guide.
 
 ## See also
 
 - [](xref:application-development.modelling.about-designers)
-- [](xref:module-building.designer-extensions.how-to-create-a-designer-extension)
+- [](xref:module-building.tutorials.tutorial-create-an-event-as-a-designer-extension)
