@@ -70,6 +70,10 @@ div.alert pre {
     text-decoration: underline;
 }
 
+.content p a.featherlight-image {
+    text-decoration: none;
+}
+
 .content a code {
     background-color: var(--theme-inline-code-background);
     color: var(--theme-inline-code);

@@ -2,6 +2,7 @@
 using Microsoft.DocAsCode.Dfm;
 using System.Collections.Generic;
 using System.Composition;
+using Intent.DocFx.TagExtensions.FeatherlightImageTag;
 
 namespace Intent.DocFx.TagExtensions
 {
@@ -11,6 +12,7 @@ namespace Intent.DocFx.TagExtensions
         public IEnumerable<IDfmCustomizedRendererPart> CreateParts(IReadOnlyDictionary<string, object> parameters)
         {
             yield return new MarkdownVideoTokenRendererPart();
+            yield return new FeatherlightImageTokenRendererPart();
         }
     }
 }
