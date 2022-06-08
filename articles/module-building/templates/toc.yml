@@ -7,8 +7,11 @@ items:
 
   - name: About Templates (C#)
     href: about-templates-csharp/about-templates-csharp.md
-    
-  - name: 'How to auto-assign Template Outputs'
+
+  - name: How to add project dependencies (C#)
+    href: how-to-add-project-dependencies-csharp/how-to-add-project-dependencies-csharp.md
+
+  - name: How to auto-assign Template Outputs
     href: how-to-auto-assign-template-outputs/how-to-auto-assign-template-outputs.md
 
   - name: How to control file properties in C# projects
