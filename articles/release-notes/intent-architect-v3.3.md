@@ -21,6 +21,7 @@ uid: release-notes.version-3-3
 - Fixed: "Include prerelease" was selected by default on the Modules screen.
 - Fixed: The dialog asking whether or not to rename underlying files was not being presented after changing a package's name in from the tree view.
 - Fixed: Auto reinstallation of modules from watched repositories wouldn't work for modules with a `pre-release` component in their version.
+- Fixed: An error would show when there was more than one designer association extension even though only one would be changing the setting.
 
 ## Version 3.3.7
 
