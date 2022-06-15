@@ -3,6 +3,12 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.8
+
+### Issues fixed in 3.3.8
+
+- Fixed: Auto reinstallation of modules from watched repositories wouldn't work for modules with a `pre-release` component in their version.
+
 ## Version 3.3.7
 
 ### Issues fixed in 3.3.7
