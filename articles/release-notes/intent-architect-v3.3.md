@@ -5,8 +5,21 @@ uid: release-notes.version-3-3
 
 ## Version 3.3.8
 
+### New features added in 3.3.8
+
+- A new `setParent(...)` method has been added to elements for the macros and scripting API.
+
 ### Issues fixed in 3.3.8
 
+- Fixed: Scripting errors would occur when accessing stereotypes on mapped associations.
+- Fixed: It was not possible to move projects to different folders / packages in the Visual Studio designer.
+- Fixed: If an element was renamed and a file already existed for the new generated file name, an error would occur during the software factory execution immediately after.
+- Fixed: It was not possible to re-order packages in designers.
+- Fixed: On file changes detected, if the dialog asking to reload the designer was declined, then a task would remain forever in a "processing" state in the output log.
+- Fixed: On deleting an element, the parent was would be selected after instead of an adjacent element.
+- Fixed: When selecting multiple elements and editing a "multi value" stereotype property, the selected values would not be applied.
+- Fixed: "Include prerelease" was selected by default on the Modules screen.
+- Fixed: The dialog asking whether or not to rename underlying files was not being presented after changing a package's name in from the tree view.
 - Fixed: Auto reinstallation of modules from watched repositories wouldn't work for modules with a `pre-release` component in their version.
 
 ## Version 3.3.7
