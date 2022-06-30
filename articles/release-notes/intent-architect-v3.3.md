@@ -3,6 +3,13 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.9
+
+### Issues fixed in 3.3.9
+- Fixed: Multi-select type for Module Settings not working.
+- Fixed: Software Factory failing when running non-C# modules that use the `Intent.RoslynWeaver.Attributes 1.1.3` NuGet package.
+- Fixed: Error on save in designers (e.g. Domain) after copying an element with an association
+
 ## Version 3.3.8
 
 ### New features added in 3.3.8
