@@ -3,6 +3,33 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.9
+
+### Issues fixed in 3.3.9
+- Fixed: Multi-select type for Module Settings not working.
+- Fixed: Software Factory failing when running non-C# modules that use the `Intent.RoslynWeaver.Attributes 1.1.3` NuGet package.
+- Fixed: Error on save in designers (e.g. Domain) after copying an element with an association
+
+## Version 3.3.8
+
+### New features added in 3.3.8
+
+- A new `setParent(...)` method has been added to elements for the macros and scripting API.
+
+### Issues fixed in 3.3.8
+
+- Fixed: Scripting errors would occur when accessing stereotypes on mapped associations.
+- Fixed: It was not possible to move projects to different folders / packages in the Visual Studio designer.
+- Fixed: If an element was renamed and a file already existed for the new generated file name, an error would occur during the software factory execution immediately after.
+- Fixed: It was not possible to re-order packages in designers.
+- Fixed: On file changes detected, if the dialog asking to reload the designer was declined, then a task would remain forever in a "processing" state in the output log.
+- Fixed: On deleting an element, the parent was would be selected after instead of an adjacent element.
+- Fixed: When selecting multiple elements and editing a "multi value" stereotype property, the selected values would not be applied.
+- Fixed: "Include prerelease" was selected by default on the Modules screen.
+- Fixed: The dialog asking whether or not to rename underlying files was not being presented after changing a package's name in from the tree view.
+- Fixed: Auto reinstallation of modules from watched repositories wouldn't work for modules with a `pre-release` component in their version.
+- Fixed: An error would show when there was more than one designer association extension even though only one would be changing the setting.
+
 ## Version 3.3.7
 
 ### Issues fixed in 3.3.7
@@ -193,7 +220,7 @@ Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage o
 
 ### Role-based Template Resolution
 
-Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:module-building.templates.how-to-get-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
+Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:module-building.templates.resolving-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
 
 Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
 

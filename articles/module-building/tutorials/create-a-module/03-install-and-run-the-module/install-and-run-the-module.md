@@ -65,7 +65,7 @@ Next, let's install the Module we created in the [previous step](xref:module-bui
 
 By default, Intent Architect is configured only with the repository for official Modules hosted at [https://intentarchitect.com/](https://intentarchitect.com/). To be able to use our own Module we need to make a new repository which is set to the folder where our `MyModules.Entities.1.0.0.imod` file was created.
 
-1. Open [User Settings](xref:application-development.user-interface.how-to-change-user-settings).
+1. Open `Manage Repositories` from the [Profile Menu](xref:application-development.applications-and-solutions.how-to-manage-repositories#profile-menu).
 2. Add a new Repository with a unique `Name` (e.g. "My Modules") and the `Address` value being the full location of the folder where our Module was created (e.g. `C:\Dev\MyModules\Intent.Modules`).
 3. Reorder the repositories so that this new one is at the top.
 4. Click `Save`.

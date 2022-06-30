@@ -179,7 +179,7 @@ For example you could place `[IntentManaged(Mode.Ignore)]` on a particular metho
 
 ### Types in other Templates (dependencies)
 
-Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:module-building.templates.how-to-get-type-names) (this can involve primitive types too like `string`).
+Intent Architect will automatically add required [using directives](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive) to generated C# files based on specified template dependencies when you use [`GetTypeName(...)`](xref:module-building.templates.resolving-type-names) (this can involve primitive types too like `string`).
 
 During Software Factory Execution, Intent Architect will [determine the namespaces](#the-namespace-property) of those other Template instances and add them as using statements.
 
