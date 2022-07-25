@@ -29,7 +29,7 @@ The `Task Output` dialogue will pop up showing the progress of downloading and i
 
 ## Create the Domain Entities
 
-Click on `Domain` on the left of the window to enter the designer.
+Click on `Domain` on the left of the window to enter the [designer](xref:application-development.modelling.domain-designer.how-to-use-the-domain-designer).
 
 Expand the `Domain` element and then double-click the `Default Diagram` element to enter into it.
 
@@ -43,7 +43,7 @@ This PetClinic application's business domain requires the following [entities](h
 - `Owner` (to which a `Pet` "belongs to")
 - `Visit` (to represent each visit by a `Pet` to the PetClinic)
 
-Entities can be added to the domain modeler by right-clicking on the background and selecting the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly selecting the `New Class` option.
+Entities can be added to the domain designer by right-clicking on the background and selecting the `New Class` option. Alternatively, they can also be added in the tree view by right-clicking on a folder and similarly selecting the `New Class` option.
 
 Create a `Pet` entity and then right-click it (on either the visual diagram's block or the tree view element) and then select the `Add Attribute` option to add the following attributes:
 
@@ -66,9 +66,6 @@ Create an `Owner` entity with the following attributes:
 The `Owner` entity should appear as follows:
 
 ![What the `Owner` entity should now look like.](images/owner-entity-alone.png)
-
-> [!NOTE]
-> You may have noticed that no `id` field has been specified. This is because the code that will be generated will automatically generate one for us.
 
 ## Specify the relationships between entities
 
