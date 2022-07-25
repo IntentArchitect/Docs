@@ -220,4 +220,5 @@ Your diagram should now appear as follows:
 
 ## See also
 
+- [](xref:application-development.modelling.domain-designer.about-associations)
 - [](xref:module-building.stereotypes.how-to-use-stereotypes).
