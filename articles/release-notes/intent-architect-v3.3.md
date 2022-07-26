@@ -3,6 +3,31 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.10
+
+### New features added in 3.3.10
+- Added `isTypeFound(): boolean` to TypeReference API in scripts.
+- Added `isNullable` and `isCollection` to `IGenericTypeParameter` used to set the generic options for TypeReference in scripts.
+- Application Templates now able to pre-configure module settings.
+- Metadata only stores `order` if necessary. This avoids unnecessary noise and clutter in version control when making changes to models.
+
+   > [!WARNING]
+   > Since metadata information is removed this may cause incompatibility with previous versions of Intent Architect. It is therefore recommended that users on a project all upgrade to this version together.
+
+### Issues fixed in 3.3.10
+- Fixed: Mappings fail on first time creation when a package reference is missing
+- Fixed: Stereotype TypeScript API intellisense not showing getProperty function (e.g. in `Is Active` and `Is Required` properties).
+- Fixed: Diagram menu options not showing scripts that have been configured.
+- Fixed: Designer Scripts starting with `const` failing to run.
+- Fixed: Software Factory not discovering packages through references in certain circumstances.
+- Fixed: Templates with `OverwriteBehaviour` as `OnceOff` being overwritten and renamed when Template Output location is changed.
+- Fixed: Packages that come from installed Modules are incorrectly referenced in designers when the Module is updated.
+- Fixed: Designer saves that fail showing a `Model saved successfully` toast.
+- Fixed: Associations being able to connected diagrammatically to not allowed types.
+- Fixed: When drag-copying an element to an another of same type, it would add the element as a child instead of to the parent.
+- Fixed: Copy-dragging class attributes onto diagram background incorrectly creates and adds the attributes to the package.
+- Fixed: Drag-copying classes and associations together loses associations and breaks undo/redo.
+
 ## Version 3.3.9
 
 ### Issues fixed in 3.3.9
