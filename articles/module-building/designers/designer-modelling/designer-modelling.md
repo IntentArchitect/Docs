@@ -144,7 +144,7 @@ This mapping can only be created once there is a `Mapping Setting`. This table d
 
 ![Element Extension](images/element-extension.png)
 
-With the Type set to an instance of an Element outside of the current designer (ensuring that the relevant package is referenced), this Element allows you to extend it by adding nested Elements, mappings, diagrams, etc. [See Element Settings](#element-settings) for more info.
+With the Type set to an instance of an Element outside of the current designer (ensuring that the relevant package is referenced), this Element allows you to extend it by adding nested Elements, mappings, diagrams, etc. [See Element Settings](#the-element-settings-element) for more info.
 
 ### Association Types
 

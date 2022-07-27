@@ -12,9 +12,21 @@ Intent Architect was built for automating the most complex conceivable use cases
 
 ![The Additional CRUD Support component for the Clean Architecture .NET Application Template](images/application-template-additional-crud-support-component.png)
 
-## Create the additional services
+## Preparation for additional services
+
+To disambiguate the DTOs that already exist from the new ones being created, we're going to move them into their own folder.
 
 - Ensure you are in the `Services` designer.
+- Create a Folder called `Owners`.
+- Select all the DTOs using the shift-click method.
+- Drag all the selected DTOs into the `Owners` folder.
+
+It should look like this:
+
+![Preparation for additional services](images/preparation-for-additional-services.png)
+
+## Create the additional services
+
 - Right-click the `Services` tree node.
 - Select the `Create CRUD Operations` context menu option.
 
