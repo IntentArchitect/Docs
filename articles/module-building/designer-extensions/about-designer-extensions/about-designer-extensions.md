@@ -16,3 +16,7 @@ You can use the settings icon in a designer to see what extensions are currently
 ![Designer Settings Icon](images/designer-settings-icon.png)
 
 ![Designer Settings Dialogue](images/designer-settings-dialogue.png)
+
+## See also
+
+- [](xref:module-building.designers.designer-modelling)

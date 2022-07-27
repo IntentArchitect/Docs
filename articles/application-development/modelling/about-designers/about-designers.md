@@ -8,12 +8,12 @@ Designers in Intent Architect allow you describe your [application's](xref:appli
 Designers are added to the [Application](xref:application-development.applications-and-solutions.about-applications) when a [Module](xref:application-development.applications-and-solutions.about-modules) that has designer configuration is installed. You can therefore choose which Designers you would like to use in your Application.
 
 ![Domain Designer](images/designers-domain.png)
-_An example from our from a sample application showing a Domain model inside of the Domain Designer._
+_An example of a sample application showing a Domain Designer with a modelled domain._
 
 ![Workflow Designer](images/designers-workflow.png)
 _An example of a sample application showing a custom made Workflow designer modelling a bespoke workflow._
 
-Designers serve as a **blueprint** of your system. They can be used to describe any aspect of your Application. Typically, they are used to capture the following:
+Designers serve as a **blueprint** of your system. They can be used to describe any aspect of your Application. The following are some examples of what they are used to capture:
 
 - **Codebase Structure** - Visual Studio Projects in .NET, Folder Structures in other languages, etc.
 - **Entities** - Entities and their relationships to one another, Domain Driven Design (DDD) concepts (Aggregate Roots, Entities and Value Objects), etc.
