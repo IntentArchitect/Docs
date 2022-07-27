@@ -80,7 +80,7 @@ Create an association between `Owner` and `Pet`:
 - Click on the `New Association` option.
 - Click on the `Pet` entity which completes the creation of the association.
 - In the property pane (in the bottom-right corner of the window) within the `Target End` section ensure that `Is Collection` is checked.
-- In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
+- In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked, `Is Nullable` is checked and that `Navigable` is checked.
 
 [!Video-Loop videos/add-owner-pet-association.mp4]
 
