@@ -4,6 +4,8 @@ uid: release-notes.version-3-3
 # Release notes: Intent Architect version 3.3
 
 ## Version 3.3.10
+> [!NOTE]
+> This build affects the way underlying Intent Architect model metadata is persisted. It is therefore highly recommended that users on a project all upgrade to this version together.
 
 ### New features added in 3.3.10
 - Added `isTypeFound(): boolean` to TypeReference API in scripts.
@@ -12,7 +14,11 @@ uid: release-notes.version-3-3
 - Metadata only stores `order` if necessary. This avoids unnecessary noise and clutter in version control when making changes to models.
 
    > [!WARNING]
-   > Since metadata information is removed this may cause incompatibility with previous versions of Intent Architect. It is therefore recommended that users on a project all upgrade to this version together.
+   > Since metadata information may be removed when a model is saved this may cause incompatibility with previous versions of Intent Architect.
+
+- Associations can now connect to child visuals within diagrams.
+- Performance improvement applied to diagrams.
+- Metadata File Naming Convention is now "Use element name followed by unique identifier" by default on all new apps.
 
 ### Issues fixed in 3.3.10
 - Fixed: Mappings fail on first time creation when a package reference is missing
@@ -27,6 +33,8 @@ uid: release-notes.version-3-3
 - Fixed: When drag-copying an element to an another of same type, it would add the element as a child instead of to the parent.
 - Fixed: Copy-dragging class attributes onto diagram background incorrectly creates and adds the attributes to the package.
 - Fixed: Drag-copying classes and associations together loses associations and breaks undo/redo.
+- Fixed: Shortcuts don't work after rubber-band selection in diagram
+- Fixed: Classes in a folder are not deleted from diagram when the folder is deleted.
 
 ## Version 3.3.9
 
