@@ -11,14 +11,12 @@ uid: release-notes.version-3-3
 - Added `isTypeFound(): boolean` to TypeReference API in scripts.
 - Added `isNullable` and `isCollection` to `IGenericTypeParameter` used to set the generic options for TypeReference in scripts.
 - Application Templates now able to pre-configure module settings.
+- Minor performance improvement applied to diagrams.
+- Metadata File Naming Convention is now "Use element name followed by unique identifier" by default on all new apps.
 - Metadata only stores `order` if necessary. This avoids unnecessary noise and clutter in version control when making changes to models.
 
    > [!WARNING]
-   > Since metadata information may be removed when a model is saved this may cause incompatibility with previous versions of Intent Architect.
-
-- Associations can now connect to child visuals within diagrams.
-- Performance improvement applied to diagrams.
-- Metadata File Naming Convention is now "Use element name followed by unique identifier" by default on all new apps.
+   > Since metadata information may be removed when a model is saved this may cause some incompatibility (e.g. metadata ordering issues) with previous versions of Intent Architect.
 
 ### Issues fixed in 3.3.10
 - Fixed: Mappings fail on first time creation when a package reference is missing
@@ -35,6 +33,11 @@ uid: release-notes.version-3-3
 - Fixed: Drag-copying classes and associations together loses associations and breaks undo/redo.
 - Fixed: Shortcuts don't work after rubber-band selection in diagram
 - Fixed: Classes in a folder are not deleted from diagram when the folder is deleted.
+- Fixed: Associations could not connect from child visuals within diagrams, only from root visual elements.
+- Fixed: Can't drag and drop stereotype definitions between folders/packages, but cut-paste works.
+- Fixed: Copy-paste of Attributes using shortcuts places new copies above the selected element instead of below.
+- Fixed: Run as debug doesn't pop-up if Software Factory is already running.
+- Fixed: Underlying files changed prompt popping up for no reason during Software Factory executions.
 
 ## Version 3.3.9
 
