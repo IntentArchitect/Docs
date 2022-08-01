@@ -6,7 +6,7 @@ uid: release-notes.version-3-3
 ## Version 3.3.11
 
 ### Issues fixed in 3.3.11
-- Fixed: Software Factory does not restart on model save if completed (introduced in last build).
+- Fixed: Software Factory does not restart on model save if completed (introduced in last build). Causes save button to become disabled and possible errors.
 
 ## Version 3.3.10
 > [!NOTE]
