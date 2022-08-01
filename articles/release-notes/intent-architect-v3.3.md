@@ -3,6 +3,11 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.11
+
+### Issues fixed in 3.3.11
+- Fixed: Software Factory does not restart on model save if completed (introduced in last build).
+
 ## Version 3.3.10
 > [!NOTE]
 > This build affects the way underlying Intent Architect model metadata is persisted. It is therefore highly recommended that users on a project all upgrade to this version together.
