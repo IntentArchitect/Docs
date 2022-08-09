@@ -10,5 +10,9 @@ items:
     topicUid: module-building.overview
     href: module-building/toc.yml
 
+  - name: Application Templates
+    topicUid: application-templates.overview
+    href: application-templates/toc.yml
+
   - name: Release notes
     href: release-notes/toc.yml

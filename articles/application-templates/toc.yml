@@ -1,6 +1,6 @@
 items:
   - name: About Application Templates
-    href: about-application-templates/about-application-templates.md
+    topicUid: application-templates.overview
 
   - name: How to create Application Templates
     href: how-to-create-application-templates/how-to-create-application-templates.md

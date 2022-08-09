@@ -3,6 +3,20 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.12
+
+### New features added in 3.3.12
+- Support for Module release notes. See the `release-notes` tag in the [Module Manifest](xref:module-building.module-manifest) for more information on adding release notes to Modules.
+- Extended JavaScript AssociationApi to have `isSourceEnd(): boolean` and `isTargetEnd(): boolean` methods.
+- FileWatcher will focus now more on *.xml and *.pkg.config file changes instead of everything. Should reduce the amount of unnecessary file change popups.
+
+### Issues fixed in 3.3.12
+- Fixed: When `Metadata File Naming Convention` is set to `Use element name followed by unique identifier` and an element name was only different by casing, its file would be deleted during save.
+- Fixed: JavaScript ElementApi not returning the correct association ends when calling `getAssociations(...)`
+- Fixed: Pixel misalignment on recent-applications in the recent solution list on the home page.
+- Fixed: validations across sibling elements not showing and hiding errors as model changes.
+- Fixed: Application Creation not using selected repository as preferred repository to install modules.
+- Fixed: Dialog for unsaved changes pops up even when no changes made (in the case when associations span across more than one package).
 ## Version 3.3.11
 
 ### Issues fixed in 3.3.11

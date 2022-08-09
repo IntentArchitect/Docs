@@ -4,7 +4,7 @@ remark: Used (https://library.kissclipart.com/20180903/wje/kissclipart-electroni
 ---
 # How to create Application Templates
 
-This how-to guide will walk you through creating your own [Application Template](xref:module-building.application-templates.about-application-templates) using the `Intent Application Template Builder` [Designer](xref:application-development.modelling.about-designers).
+This how-to guide will walk you through creating your own [Application Template](xref:application-templates.overview) using the `Intent Application Template Builder` [Designer](xref:application-development.modelling.about-designers).
 
 ## Create a new Application
 
@@ -103,5 +103,5 @@ Using the [metadata installation](xref:module-building.application-templates.met
 
 ## See also
 
-- [](xref:module-building.application-templates.about-application-templates)
+- [](xref:application-templates.overview)
 - [](xref:module-building.application-templates.metadata-installation)

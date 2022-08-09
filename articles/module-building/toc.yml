@@ -1,12 +1,12 @@
 items:
   - name: Overview
     topicUid: module-building.overview
-    
+
   - name: Tutorials
     href: tutorials/toc.yml
 
-  - name: Application Templates
-    href: application-templates/toc.yml
+  - name: Module Manifest
+    href: module-manifest/module-manifest.md
 
   - name: Designers
     href: designers/toc.yml
@@ -26,8 +26,8 @@ items:
   - name: Stereotypes
     href: stereotypes/toc.yml
 
-  - name: Additional Tools
-    href: additional-tools/toc.yml
+  - name: Software Factory Extensions
+    href: software-factory-extensions/toc.yml
 
   - name: Debugging Modules
     href: debugging-modules/debugging-modules.md

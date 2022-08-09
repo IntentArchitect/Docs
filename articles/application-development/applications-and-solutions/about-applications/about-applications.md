@@ -11,7 +11,7 @@ Creating a new application in Intent Architect can be done by clicking on the "C
 
 ![Create Application Start](images/create-application-start.png)
 
-The first page of the wizard lists the available [Application Templates](xref:module-building.application-templates.about-application-templates) in the selected Repository (The `All` setting being all the Repositories configured in your user settings. [Learn how to change your default repositories here](xref:application-development.user-interface.how-to-change-user-settings)).
+The first page of the wizard lists the available [Application Templates](xref:application-templates.overview) in the selected Repository (The `All` setting being all the Repositories configured in your user settings. [Learn how to change your default repositories here](xref:application-development.user-interface.how-to-change-user-settings)).
 
 Here you can search and choose which application template you want and directly set key settings like the Application's name, location and [solution](xref:application-development.applications-and-solutions.about-solutions) name.
 

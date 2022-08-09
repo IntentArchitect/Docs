@@ -1,5 +1,5 @@
 ---
-uid: module-building.application-templates.about-application-templates
+uid: application-templates.overview
 ---
 # About Application Templates
 
