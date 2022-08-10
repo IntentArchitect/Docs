@@ -17,6 +17,7 @@ uid: release-notes.version-3-3
 - Fixed: validations across sibling elements not showing and hiding errors as model changes.
 - Fixed: Application Creation not using selected repository as preferred repository to install modules.
 - Fixed: Dialog for unsaved changes pops up even when no changes made (in the case when associations span across more than one package).
+
 ## Version 3.3.11
 
 ### Issues fixed in 3.3.11
