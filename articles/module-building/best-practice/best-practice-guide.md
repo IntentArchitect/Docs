@@ -6,7 +6,7 @@ When applying pattern-reuse to software development, there are a set of philosop
 
 These philosophical principles are listed below:
 
-### 1. Developers on in control
+### 1. Developers stay in control
 Changes to the codebase by the automation system should never be done without the direct consent of the developer. In addition, the developer should have a clear view on what the changes in question are.
 
 ### 2. Automate best coding standards.

@@ -22,7 +22,7 @@ The following table provides high level information on each of the tags in the `
 | iconUrl          | The icon URL or base64 encoded image for the Module. |
 | projectUrl          | The project URL for this module. |
 | tags          | Tags that can be used for searching for this module. Note that this is currently not respected but will be in a later release of Intent Architect. |
-| release-notes          | The inline release-notes or  relative path to a file (e.g. `release-notes.md`). Markdown is supported. The release notes can be viewed within Intent Architect in the Module details panel in the Modules manager. |
+| releaseNotes          | The inline release-notes or  relative path to a file (e.g. `release-notes.md`). Markdown is supported. The release notes can be viewed within Intent Architect in the Module details panel in the Modules manager. |
 | templates          | The manifest of [Templates](xref:module-building.templates.about-templates-csharp) contained in this module. |
 | decorators          | The manifest of [Decorators](xref:module-building.decorators.about-decorators) contained in this module. |
 | factoryExtensions          | The manifest of [Software Factory Extensions](xref:module-building.additional-tools.software-factory-extensions.how-to-create-a-factory-extension) contained in this module. |
@@ -47,7 +47,7 @@ An example `.imodspec` file (tags with `...` indidate that their metadata has be
   <iconUrl>...</iconUrl>
   <projectUrl>https://intentarchitect.com/</projectUrl>
   <tags>AspNetCore Controllers</tags>
-  <release-notes>release-notes.md</release-notes>
+  <releaseNotes>release-notes.md</release-notes>
   <templates>
     ...
   </templates>
