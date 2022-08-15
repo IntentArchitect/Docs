@@ -6,28 +6,34 @@ uid: release-notes.version-3-3
 ## Version 3.3.12
 
 ### New features added in 3.3.12
+
 - Support for Module release notes. See the `release-notes` tag in the [Module Manifest](xref:module-building.module-manifest) for more information on adding release notes to Modules.
 - Extended JavaScript AssociationApi to have `isSourceEnd(): boolean` and `isTargetEnd(): boolean` methods.
-- FileWatcher will focus now more on *.xml and *.pkg.config file changes instead of everything. Should reduce the amount of unnecessary file change popups.
+- FileWatcher will focus now more on `*.xml` and `*.pkg.config` file changes instead of everything. Should reduce the amount of unnecessary file change popups.
 
 ### Issues fixed in 3.3.12
+
 - Fixed: When `Metadata File Naming Convention` is set to `Use element name followed by unique identifier` and an element name was only different by casing, its file would be deleted during save.
 - Fixed: JavaScript ElementApi not returning the correct association ends when calling `getAssociations(...)`
 - Fixed: Pixel misalignment on recent-applications in the recent solution list on the home page.
 - Fixed: validations across sibling elements not showing and hiding errors as model changes.
 - Fixed: Application Creation not using selected repository as preferred repository to install modules.
 - Fixed: Dialog for unsaved changes pops up even when no changes made (in the case when associations span across more than one package).
+- Fixed: The Software Factory would show a `More than one template registration is trying to output to the same path` exception for templates which were returning `false` for `CanRunTemplate()`.
 
 ## Version 3.3.11
 
 ### Issues fixed in 3.3.11
+
 - Fixed: Software Factory does not restart on model save if completed (introduced in last build). Causes save button to become disabled and possible errors.
 
 ## Version 3.3.10
+
 > [!NOTE]
 > This build affects the way underlying Intent Architect model metadata is persisted. It is therefore highly recommended that users on a project all upgrade to this version together.
 
 ### New features added in 3.3.10
+
 - Added `isTypeFound(): boolean` to TypeReference API in scripts.
 - Added `isNullable` and `isCollection` to `IGenericTypeParameter` used to set the generic options for TypeReference in scripts.
 - Application Templates now able to pre-configure module settings.
@@ -39,6 +45,7 @@ uid: release-notes.version-3-3
    > Since metadata information may be removed when a model is saved this may cause some incompatibility (e.g. metadata ordering issues) with previous versions of Intent Architect.
 
 ### Issues fixed in 3.3.10
+
 - Fixed: Mappings fail on first time creation when a package reference is missing
 - Fixed: Stereotype TypeScript API intellisense not showing getProperty function (e.g. in `Is Active` and `Is Required` properties).
 - Fixed: Diagram menu options not showing scripts that have been configured.
@@ -62,6 +69,7 @@ uid: release-notes.version-3-3
 ## Version 3.3.9
 
 ### Issues fixed in 3.3.9
+
 - Fixed: Multi-select type for Module Settings not working.
 - Fixed: Software Factory failing when running non-C# modules that use the `Intent.RoslynWeaver.Attributes 1.1.3` NuGet package.
 - Fixed: Error on save in designers (e.g. Domain) after copying an element with an association
