@@ -27,6 +27,15 @@ The `Task Output` dialogue will pop up showing the progress of downloading and i
 >
 > The `Task Output` dialog can be re-opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready".
 
+## Configure Explicit Key Creation
+
+Click on the `Settings` tab on the left hand side. Locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown. It will become apparent in the next section.
+
+> [!NOTE]
+> In the Database Settings section, notice that Key Type is `guid`. It is important for later.
+
+![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
+
 ## Create the Domain Entities
 
 Click on `Domain` on the left of the window to enter the [designer](xref:application-development.modelling.domain-designer.how-to-use-the-domain-designer).
@@ -51,6 +60,9 @@ Create a `Pet` entity and then right-click it (on either the visual diagram's bl
 - `birthDate` of type `date`
 
 [!Video-Loop videos/create-entity-pet.mp4]
+
+> [!NOTE]
+> Here you can see that an `Id` Primary Key attribute has already been added to our `Pet` entity because we've configured the Database settings to use `Explicitly add PKs and FKs automatically`. Also due to the `Key Type` setting (being `guid`) the Primary Key assumes the type of `guid`.
 
 Create an `Owner` entity with the following attributes:
 
@@ -101,32 +113,7 @@ Also set up a `PetType` entity in a similar way:
 - Add the following attributes:
   - `name` of type `string`.
 
-![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram.png)
-
-## Configure Explicit Key Creation
-
-In our Domain Entity designing we have not defined any Database Primary Keys. This is due to the fact that Intent Architect by default assumes that each Entity will have an `Id` of type `Guid`. We will override this in Module Settings.
-
-Click on the `Settings` tab on the left hand side. Locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown.
-
-> [!NOTE]
-> In the Database Settings section, notice that Key Type is `guid`. It is important for what follows.
-
-![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
-
-Navigate back to the Domain designer.
-
-On the `Owner` entity do the following:
-
-- Add Attribute `Id` and set its Type to `guid` (this is the setting we referred to in the Database Settings).
-- Right click on `Id` and select `Apply Stereotype`.
-- Select `Primary Key` when the dialog appears.
-
-`Owner` will now have a Primary Key (as denoted by the yellow key icon) explicitly defined which caused a Foreign Key to be created on `Pet` called `OwnerId` that is of type `guid?` (with a silver key icon next to it).
-
-Perform the same steps on `Visit`, `Pet` and `PetType` and feel free to re-order the `Id` attributes so that they are positioned at the top (by performing the drag-and-drop mouse gesture) so that you get the following:
-
-![Pet Clinic Diagram with explicit keys](images/pet-clinic-domain-diagram-explicit-keys.png)
+![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram-explicit-keys.png)
 
 ## Create Services
 
