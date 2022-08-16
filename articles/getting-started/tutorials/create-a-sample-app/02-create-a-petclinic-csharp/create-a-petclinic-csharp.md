@@ -32,7 +32,7 @@ The `Task Output` dialogue will pop up showing the progress of downloading and i
 Click on the `Settings` tab on the left hand side. Locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown. It will become apparent in the next section.
 
 > [!NOTE]
-> In the Database Settings section, notice that Key Type is `guid`. It is important for later.
+> In the Database Settings section, make note that Key Type is `guid` as this is the type we will be using later for our Primary Keys.
 
 ![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
 
@@ -62,7 +62,7 @@ Create a `Pet` entity and then right-click it (on either the visual diagram's bl
 [!Video-Loop videos/create-entity-pet.mp4]
 
 > [!NOTE]
-> Here you can see that an `Id` Primary Key attribute has already been added to our `Pet` entity because we've configured the Database settings to use `Explicitly add PKs and FKs automatically`. Also due to the `Key Type` setting (being `guid`) the Primary Key assumes the type of `guid`.
+> An `Id` Primary Key attribute has been automatically added to our `Pet` entity because we've configured the Database settings to use `Explicitly add PKs and FKs automatically` and its type was set to `guid` due as per the `Key Type` setting.
 
 Create an `Owner` entity with the following attributes:
 
