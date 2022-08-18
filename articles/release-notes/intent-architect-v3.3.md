@@ -3,6 +3,18 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.13
+
+### Improvements added in 3.3.13
+
+- Enhanced designer loading performance.
+
+### Issues fixed in 3.3.13
+
+- Fixed: Undo / redo not working on stereotype multi-selects
+- Fixed: Deleted items not being removed from stereotype property lookup options
+- Fixed: Incorrect error message tooltip not showing on Stereotype Properties
+
 ## Version 3.3.12
 
 ### New features added in 3.3.12
@@ -14,7 +26,8 @@ uid: release-notes.version-3-3
 ### Issues fixed in 3.3.12
 
 - Fixed: When `Metadata File Naming Convention` is set to `Use element name followed by unique identifier` and an element name was only different by casing, its file would be deleted during save.
-- Fixed: JavaScript ElementApi not returning the correct association ends when calling `getAssociations(...)`
+- Fixed: JavaScript ElementApi not returning the correct association ends when calling `getAssociations(...)`.
+- Fixed: Packages JavaScript API not showing stereotype functions.
 - Fixed: Pixel misalignment on recent-applications in the recent solution list on the home page.
 - Fixed: validations across sibling elements not showing and hiding errors as model changes.
 - Fixed: Application Creation not using selected repository as preferred repository to install modules.
