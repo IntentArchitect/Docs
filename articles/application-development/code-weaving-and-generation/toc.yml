@@ -7,5 +7,6 @@ items:
     
   - name: About Template Output Targeting
     href: about-template-output-targeting/about-template-output-targeting.md
-      - name: C# Code Management
+
+  - name: C# Code Management
     href: code-management-csharp/code-management-csharp.md

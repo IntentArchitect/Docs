@@ -7,7 +7,7 @@ uid: application-development.code-weaving-and-generation.about-template-output-t
 
 `Output Targeting` refers to how Intent Architect determines where a Template's output should be placed on the file system during the software execution through configuration within designers and the template itself.
 
-Some designers (such as the "Folders" and "Visual Studio" designers) support "Output Configuration" which lets Intent Architect know during module installation that "Template Outputs" should be placed in it. During Software Factory Execution, those "Template Outputs" will mark clear locations where the output should be placed.
+Some designers (such as the `Folders` and `Visual Studio` designers) support "Output Configuration" which lets Intent Architect know during module installation that `Template Output`s should be placed in it. The Software Factory Execution uses these `Template Outputs` to determine the output paths for template instances.
 
 ![Output Config Template Output](images/output-config-template-output-side-by-side.png)
 _Example features both a Folder (left) and Visual Studio (right) designer layout with Template Output items highlighted_
@@ -22,31 +22,33 @@ Some designers (such as the Visual Studio designer) will show unassigned Templat
 
 ![Unassigned Template in Output Configuration Designer](images/output-config-vs-unassigned-template.png)
 
-And running the the SF while these template are unassigned will result in errors during the SF execution about there being unassigned templates.
+Running the the Software Factory while these template are unassigned will result in errors during the execution about there being unassigned templates.
 
 Templates can specify where their "Template Output" should be placed by default during module installation so that things work automatically, this is covered in the next section.
 
 ## Roles and Default Locations
 
-Templates in the module builder can have their Role and Default Location configured. These are used by Intent Architect during module installation to determine where the template's Template Output should be placed.
+Templates in the module builder can have their `Role` and `Default Location` configured. These are used by Intent Architect during module installation to determine where the template's `Template Output` should be placed.
 
 ![Module Builder Template Role Specification](images/module-builder-template-role-specification.png)
 
-Here you can specify the name of the `Role` which the Template need to be associated with so that when a Module installs this Template, it will locate that Role and place the `Template Output` in the exact same place as the `Role` so that it will not be placed by default in the root location of the `Output Configuration Designer` and be considered an unassigned `Template Output`.
+As part of the module installation Intent Architect will search "Output Configuration" designers for a `Role` element with a name matching the `Role` value captured in the Module Builder.
 
-The `Default Location` field accepts a directory path relative to the location of where the `Role` is where the `Template Output` will be placed.
+If a `Role` with a matching name is found, then Intent Architect will then add any additional sub-folders specified in the `Default Location` as needed and finally place the new `Template Output` for the template within the correct sub-folder as specified by the template's `Default Location`. If `Default Location` was blank, then the `Template Output` is placed in the same folder as the `Role`.
+
+If no `Role` with a matching name was found then the `Template Output` is placed in the "root" folder of the designer.
 
 The following example depicts a Template created in the Module Builder and installed in a target Application.
 
 ![Module Builder Template Settings Relative Location Example](images/module-builder-template-settings-example-relative-location.png)
 
-The `Role` is set to "Distribution" and `Default Location` is set to "Controllers".
+The `Role` is set to `Distribution` and `Default Location` is set to `Controllers`.
 
 ![Output Configuration Relative Location Example](images/output-config-example-relative-location.png)
 
-In the example above the `Distribution` Role can be identified by the blue badge icon and on the same tree level you will find the `Controllers` Folder.
+In the example above the `Distribution` `Role` can be identified by the blue badge icon and at the same tree depth is the `Controllers` Folder.
 
-Once that Module is installed, it will create the `Template Output` named "Intent.AspNetCore.Controllers.Controller" where the `Role` "Distribution" is located but in a folder location relative to the `Role` which is "Controllers".
+Once that Module is installed, it will create the `Template Output` named `Intent.AspNetCore.Controllers.Controller` where the `Role` named `Distribution` is located but in a folder location relative to the `Role` which is `Controllers`.
 
 > [!NOTE]
 > Re-installing a Module may cause unassigned Template Outputs to be relocated, however assigned Template Outputs will remain untouched. This will allow you as a user to customize the output layout as you need it to be.
