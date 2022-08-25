@@ -8,6 +8,10 @@ uid: release-notes.version-3-3
 ### Improvements added in 3.3.13
 
 - Enhanced designer loading performance.
+- SDK updates (requires version `3.3.2` or higher of the `Intent.SoftwareFactory.SDK` NuGet package):
+  - `OverwriteBehaviour.OnceOff` is now truly "Once Off", even if the file is deleted it will not be generated again unless its template's entry is manually removed from the `<application name>.application.output.log` file.
+  - Added `OverwriteBehaviour.OverwriteDisabled` which will never overwrite a file, but will re-generate it if it's deleted.
+  - Detailed XML documentation applied to `OverwriteBehaviour` and its members.
 
 ### Issues fixed in 3.3.13
 
