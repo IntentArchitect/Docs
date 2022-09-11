@@ -7,7 +7,7 @@ uid: release-notes.version-3-3
 
 ### Issues fixed in 3.3.15
 
- - Fixed: changing isNullable/isCollection on associations causes type to be changed.
+ - Fixed: Changing isNullable/isCollection on associations causes type to be changed.
 
 
 ## Version 3.3.14
