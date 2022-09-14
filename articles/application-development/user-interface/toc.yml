@@ -8,8 +8,5 @@ items:
   - name: Keyboard Shortcuts
     href: keyboard-shortcuts/keyboard-shortcuts.md
 
-  - name: Software Factory CLI
-    href: software-factory-cli/software-factory-cli.md
-
   - name: The About Dialog
     href: the-about-dialog/the-about-dialog.md

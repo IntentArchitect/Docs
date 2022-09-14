@@ -14,5 +14,8 @@ items:
     topicUid: application-templates.overview
     href: application-templates/toc.yml
 
+  - name: CLI Tools
+    href: cli-tools/toc.yml
+
   - name: Release notes
     href: release-notes/toc.yml
