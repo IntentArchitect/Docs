@@ -48,7 +48,7 @@ Tool 'intent.packager.cli' (version 'x.x.x') was successfully installed.
 
 |Command|Description|
 |-------|-----------|
-|[package-application](#package-application-command) \<applicationPath\> \<destinationFolder\> |Package an application.|
+|`package-application <applicationPath> <destinationFolder>` |Package an application.|
 
 ## package-application command
 
