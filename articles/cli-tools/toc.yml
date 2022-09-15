@@ -1,3 +1,6 @@
 items:
+  - name: Packager CLI
+    href: packager-cli/packager-cli.md
+
   - name: Software Factory CLI
     href: software-factory-cli/software-factory-cli.md
