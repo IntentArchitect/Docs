@@ -5,10 +5,15 @@ uid: release-notes.version-3-3
 
 ## Version 3.3.16
 
-### Improvements added in 3.3.15
+### Improvements added in 3.3.16
 
 - Improved speed of refreshing errors on designers immediately after loading.
 - Refreshing of errors immediately after loading a designer no longer blocks interaction with the user interface.
+
+### Issues fixed in 3.3.16
+
+- Fixed: Domain query mapping freezes UI in large, complex domains. Now limits association inspection to 5 traversals.
+- Fixed: Loading mapping to Services designer in a different application would fail.
 
 ## Version 3.3.15
 
