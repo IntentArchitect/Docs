@@ -7,6 +7,7 @@ uid: release-notes.version-3-3
 
 ### Improvements added in 3.3.16
 
+- Module searching now searches the Module's Summary and Tags fields.
 - Improved speed of refreshing errors on designers immediately after loading.
 - Refreshing of errors immediately after loading a designer no longer blocks interaction with the user interface.
 
