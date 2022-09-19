@@ -10,11 +10,13 @@ uid: release-notes.version-3-3
 - Module searching now searches the Module's Summary and Tags fields.
 - Improved speed of refreshing errors on designers immediately after loading.
 - Refreshing of errors immediately after loading a designer no longer blocks interaction with the user interface.
+- Shift + F5 shortcut key added for running the Software Factory with debugging.
 
 ### Issues fixed in 3.3.16
 
 - Fixed: Domain query mapping freezes UI in large, complex domains. Now limits association inspection to 5 traversals.
 - Fixed: Loading mapping to Services designer in a different application would fail.
+- Fixed: Selection of Software Factory Execution file changes would ignore the search filter resulting in up, down and shift shortcut keys being able to select hidden elements.
 
 ## Version 3.3.15
 
