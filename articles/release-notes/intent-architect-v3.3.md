@@ -17,6 +17,8 @@ uid: release-notes.version-3-3
 - Fixed: Domain query mapping freezes UI in large, complex domains. Now limits association inspection to 5 traversals.
 - Fixed: Loading mapping to Services designer in a different application would fail.
 - Fixed: Selection of Software Factory Execution file changes would ignore the search filter resulting in up, down and shift shortcut keys being able to select hidden elements.
+- Fixed: Ordering of sub-elements not respected by SF when metadata files are saved as own-files.
+- Fixed: Copy/paste on folders causes UI to crash.
 
 ## Version 3.3.15
 
