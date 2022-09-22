@@ -19,6 +19,7 @@ uid: release-notes.version-3-3
 - Fixed: Selection of Software Factory Execution file changes would ignore the search filter resulting in up, down and shift shortcut keys being able to select hidden elements.
 - Fixed: Ordering of sub-elements not respected by SF when metadata files are saved as own-files.
 - Fixed: Copy/paste on folders causes UI to crash.
+- Fixed: Dragging classes in the Domain over other elements (e.g. other classes or comments) prevents it from being moved.
 
 ## Version 3.3.15
 
