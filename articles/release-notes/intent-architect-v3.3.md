@@ -3,6 +3,12 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.17
+
+### Issues fixed in 3.3.17
+
+- Fixed: Designer buttons / shortcuts become disabled under certain, rare circumstances.
+
 ## Version 3.3.16
 
 ### Improvements added in 3.3.16
