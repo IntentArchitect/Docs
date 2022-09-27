@@ -26,6 +26,9 @@ The Software Factory CLI is available as a [.NET Tool](https://docs.microsoft.co
 dotnet tool install Intent.SoftwareFactory.CLI --global
 ```
 
+> [!NOTE]
+> If `dotnet tool install` fails with an error to the effect of `The required NuGet feed can't be accessed, perhaps because of an Internet connection problem.` and it shows a private NuGet feed URL, you can try add the `--ignore-failed-sources` command line option ([source](https://learn.microsoft.com/dotnet/core/tools/troubleshoot-usage-issues#nuget-feed-cant-be-accessed)).
+
 You should see output to the effect of:
 
 ```text
