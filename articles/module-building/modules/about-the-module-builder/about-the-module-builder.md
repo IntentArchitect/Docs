@@ -12,13 +12,13 @@ The `Intent.ModuleBuilder` [Module](xref:application-development.applications-an
 - [Factory Extensions](xref:application-development.code-weaving-and-generation.about-software-factory-execution)
 - [Stereotypes](xref:application-development.modelling.about-stereotypes)
 
-See the [create a module tutorial](xref:module-building.tutorials.create-a-module.introduction) for an overview on creating your own module.
-
 ![A screenshot of the module builder](images/module-builder-basic.png)
 
-## See also
+See the following to learn more about Module Building:
 
-- [](xref:module-building.designers.designer-modelling)
+- [](xref:module-building.tutorials.create-a-module.introduction)
 - [](xref:module-building.tutorials.tutorial-create-an-event-as-a-designer-extension)
+- [](xref:module-building.designers.designer-modelling)
+- [](xref:module-building.modules.configuring-the-template-default-output-location)
 - [](xref:module-building.module-distribution)
   

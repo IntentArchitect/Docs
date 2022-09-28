@@ -144,7 +144,7 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 > Notice that the `Domain` Designer has now been installed. When we configured our `Entity` Templates to use the `Domain` Designer, the Module Builder automatically added a dependency to the `Intent.Modelers.Domain` Module in the `.imodspec` file.
 >
 > [!TIP]
-> Instead of having to manually assign Template Outputs, it can be done automatically by Intent Architect during Module installation through [use of roles](xref:application-development.code-weaving-and-generation.about-template-output-targeting#roles-and-default-locations).
+> Instead of having to manually assign Template Outputs, it can be done automatically by Intent Architect during Module installation through [use of roles](xref:module-building.modules.configuring-the-template-default-output-location).
 
 [!Video-Loop videos/after-module-changes-steps.mp4]
 
