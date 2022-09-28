@@ -3,6 +3,12 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.18
+
+### Improvements added in 3.3.18
+
+- When the Software Factory Execution has an element not found error, the error now also lists the packages that were searched.
+
 ## Version 3.3.17
 
 ### Issues fixed in 3.3.17
