@@ -9,6 +9,10 @@ uid: release-notes.version-3-3
 
 - When the Software Factory Execution has an element not found error, the error now also lists the packages that were searched.
 
+### Issues fixed in 3.3.18
+
+- Fixed: When updating a module, any packages from it which were loaded in designers would not be updated and still continue to load the package from the older module version.
+
 ## Version 3.3.17
 
 ### Issues fixed in 3.3.17
