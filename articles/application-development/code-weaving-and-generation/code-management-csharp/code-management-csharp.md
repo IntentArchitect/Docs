@@ -117,7 +117,7 @@ This will instruct Intent Architect where to place the `using` directives within
 | Default                  | All using directives will be placed at the top of the C# file.         |
 | Move to inside namespace | All using directives will be placed within the scope of a `namespace`. |
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 ### How can I disable the RoslynWeaver from formatting my C# files?
 
