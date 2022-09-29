@@ -14,6 +14,7 @@ uid: release-notes.version-3-3
 - Fixed: When updating a module, any packages from it which were loaded in designers would not be updated and still continue to load the package from the older module version.
 - Fixed: Selecting multiple elements can cause performance issues and long delays before UI responds.
 - Fixed: Incorrect ordering of types in TypeReference drop-downs when new elements added.
+- Fixed: The [Software Factory CLI](xref:cli-tools.software-factory-cli) would return a `0` return code even when an exception occurred during Software Factory execution.
 
 ## Version 3.3.17
 
