@@ -1,3 +1,6 @@
 items:
   - name: About Designer Extensions
     href: about-designer-extensions/about-designer-extensions.md
+
+  - name: 'Tutorial: Create an Event as a Designer Extension'
+    href: tutorial-create-an-event-as-a-designer-extension/tutorial-create-an-event-as-a-designer-extension.md

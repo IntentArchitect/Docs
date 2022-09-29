@@ -1,5 +1,5 @@
 ---
-uid: module-building.tutorials.tutorial-create-an-event-as-a-designer-extension
+uid: module-building.designer-extensions.tutorial-create-an-event-as-a-designer-extension
 ---
 # Tutorial: Create an Event as a Designer Extension
 

@@ -1,9 +1,9 @@
 ---
-uid: module-building.tutorials.create-a-module.install-and-run-the-module
+uid: module-building.templates.tutorial-create-a-template.install-and-run-the-module
 ---
 # Install and run the Module
 
-When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:module-building.tutorials.create-a-module.create-a-simple-module).
+When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:module-building.templates.tutorial-create-a-template.create-the-module-and-a-template).
 
 ## Create an empty Application
 
@@ -59,7 +59,7 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 
 ## Install the Module
 
-Next, let's install the Module we created in the [previous step](xref:module-building.tutorials.create-a-module.create-a-simple-module). To do this, we first navigate to the `Modules` tab of our Application.
+Next, let's install the Module we created in the [previous step](xref:module-building.templates.tutorial-create-a-template.create-the-module-and-a-template). To do this, we first navigate to the `Modules` tab of our Application.
 
 ### Finding and Installing the Module
 
@@ -116,4 +116,4 @@ We've created a project structure, installed our Module, and set the Output Targ
 
 ## What's Next
 
-### [Create Files per Model](xref:module-building.tutorials.creating-modules-net.create-templates-per-model)
+### [Create Files per Model](xref:module-building.templates.tutorial-create-a-template.create-a-files-per-model-template)

@@ -1,7 +1,7 @@
 ---
-uid: module-building.tutorials.creating-modules-net.create-templates-per-model
+uid: module-building.templates.tutorial-create-a-template.create-a-files-per-model-template
 ---
-# Create files per Model
+# Create a "Files Per Model" template
 
 In this next part of the tutorial, we will extend our `MyModules.Entities` Module to create and manage domain entities based on the `Domain` Designer. To do this we will create a Template which generates a new file for each entity which has been created in the `Domain` Designer.
 

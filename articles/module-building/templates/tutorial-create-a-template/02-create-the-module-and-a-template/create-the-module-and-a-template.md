@@ -1,7 +1,7 @@
 ---
-uid: module-building.tutorials.create-a-module.create-a-simple-module
+uid: module-building.templates.tutorial-create-a-template.create-the-module-and-a-template
 ---
-# Create a simple module
+# Create a Module and Template
 
 In this step of the tutorial, we will create a new Module Builder Application in Intent Architect, use the Designer to add a template to it, run the Software Factory against this Application to generate a .NET Core C# solution, and then finally build in our IDE to generate the Module.
 
@@ -129,6 +129,6 @@ You have successfully created an Intent Architect Module.
 
 ## Next Steps
 
-### [Install and run the module](xref:module-building.tutorials.create-a-module.install-and-run-the-module)
+### [Install and run the module](xref:module-building.templates.tutorial-create-a-template.install-and-run-the-module)
 
 Create a test Application to install and run our Module.

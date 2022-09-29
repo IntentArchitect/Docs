@@ -67,6 +67,8 @@ Code generation is the process of running the Software Factory which provides me
 
 [Templates](xref:module-building.templates.about-templates-csharp) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
 
+For more information on authoring templates, see the [tutorial](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction).
+
 #### Decorators
 
 [Decorators](xref:module-building.decorators.about-decorators) are a mechanism which can be used by Templates in order to inject content at certain _hook points_ within a Template. Templates expose a Decorator contract which can be implemented by Decorators in different modules. In this way Templates can be extended by modules on which they have no dependency and might have been created by completely different authors or even companies.
@@ -94,3 +96,7 @@ For example a template may need a registration to be performed with a system's d
 - Loading Metadata from outside Intent Architect.
 - Alter the output produced from Templates.
 - Execute external processes which developers might have needed to execute manually after a Software Factory Execution.
+
+## See also
+
+- [](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction)

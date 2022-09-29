@@ -2,9 +2,6 @@ items:
   - name: Overview
     topicUid: module-building.overview
 
-  - name: Tutorials
-    href: tutorials/toc.yml
-
   - name: Module Manifest
     href: module-manifest/module-manifest.md
 

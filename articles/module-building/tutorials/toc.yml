@@ -1,7 +1,0 @@
-items:
-  - name: 'Tutorial: Create a Module'
-    topicUid: module-building.tutorials.create-a-module.introduction
-    href: create-a-module/toc.yml
-    
-  - name: 'Tutorial: Create an Event as a Designer Extension'
-    href: tutorial-create-an-event-as-a-designer-extension/tutorial-create-an-event-as-a-designer-extension.md

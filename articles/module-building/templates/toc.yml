@@ -1,9 +1,13 @@
 items:
+  # - name: About Templates
+  #   href: about-templates/about-templates.md
+
+  - name: 'Tutorial: Create a Template'
+    topicUid: module-building.templates.tutorial-create-a-template.create-a-template-introduction
+    href: tutorial-create-a-template/toc.yml
+
   - name: About T4 Templates
     href: about-t4-templates/about-t4-templates.md
-
-# - name: About Templates
-#   href: about-templates/about-templates.md
 
   - name: About Templates (C#)
     href: about-templates-csharp/about-templates-csharp.md
