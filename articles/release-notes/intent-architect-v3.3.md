@@ -12,6 +12,8 @@ uid: release-notes.version-3-3
 ### Issues fixed in 3.3.18
 
 - Fixed: When updating a module, any packages from it which were loaded in designers would not be updated and still continue to load the package from the older module version.
+- Fixed: Selecting multiple elements can cause performance issues and long delays before UI responds.
+- Fixed: Incorrect ordering of types in TypeReference drop-downs when new elements added.
 
 ## Version 3.3.17
 
