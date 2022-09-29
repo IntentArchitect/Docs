@@ -1,33 +1,33 @@
 items:
-  - name: Overview
-    topicUid: module-building.overview
+- name: Overview
+  topicUid: module-building.overview
 
-  - name: Module Manifest
-    href: module-manifest/module-manifest.md
+- name: 'About the Module Builder'
+  href: about-the-module-builder/about-the-module-builder.md
 
-  - name: Designers
-    href: designers/toc.yml
+- name: Module Manifest
+  href: module-manifest/module-manifest.md
 
-  - name: Designer Extensions
-    href: designer-extensions/toc.yml
+- name: Designers
+  href: designers/toc.yml
 
-  - name: Decorators
-    href: decorators/toc.yml
+- name: Designer Extensions
+  href: designer-extensions/toc.yml
 
-  - name: Templates
-    href: templates/toc.yml
+- name: Decorators
+  href: decorators/toc.yml
 
-  - name: Modules
-    href: modules/toc.yml
+- name: Templates
+  href: templates/toc.yml
 
-  - name: Stereotypes
-    href: stereotypes/toc.yml
+- name: Stereotypes
+  href: stereotypes/toc.yml
 
-  - name: Software Factory Extensions
-    href: software-factory-extensions/toc.yml
+- name: Software Factory Extensions
+  href: software-factory-extensions/toc.yml
 
-  - name: Debugging Modules
-    href: debugging-modules/debugging-modules.md
+- name: Debugging Modules
+  href: debugging-modules/debugging-modules.md
 
-  - name: Module Distribution
-    href: module-distribution/module-distribution.md
+- name: Module Distribution
+  href: module-distribution/module-distribution.md

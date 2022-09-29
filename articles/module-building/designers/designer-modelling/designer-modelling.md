@@ -3,7 +3,7 @@ uid: module-building.designers.designer-modelling
 ---
 # Designer Modelling
 
-The [Module Builder](xref:module-building.modules.about-the-module-builder) is a designer for authoring [Designers](xref:application-development.modelling.about-designers) and [Designer Extensions](xref:module-building.designer-extensions.about-designer-extensions).
+The [Module Builder](xref:module-building.about-the-module-builder) is a designer for authoring [Designers](xref:application-development.modelling.about-designers) and [Designer Extensions](xref:module-building.designer-extensions.about-designer-extensions).
 
 ## Structure
 

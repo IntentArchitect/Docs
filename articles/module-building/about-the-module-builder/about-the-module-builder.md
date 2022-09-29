@@ -1,5 +1,5 @@
 ---
-uid: module-building.modules.about-the-module-builder
+uid: module-building.about-the-module-builder
 ---
 # About the Module Builder
 
@@ -19,6 +19,6 @@ See the following to learn more about Module Building:
 - [](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction)
 - [](xref:module-building.designer-extensions.tutorial-create-an-event-as-a-designer-extension)
 - [](xref:module-building.designers.designer-modelling)
-- [](xref:module-building.modules.configuring-the-template-default-output-location)
+- [](xref:module-building.templates.configuring-a-templates-default-output-location)
 - [](xref:module-building.module-distribution)
   
