@@ -2,15 +2,10 @@ trigger:
   batch: 'true'
   branches:
     include:
-    - master
+    - 'master'
 
 pool:
   vmImage: 'windows-latest'
-
-variables:
-  webDeployPassword: $(web-deploy-password)
-  webDeployPublishProfile: 'intent-architect-website-za-north'
-  solutionPath: '**/Intent.Docs.sln'
 
 steps:
 
@@ -18,35 +13,10 @@ steps:
     persistCredentials: 'true'
     fetchDepth: '1'
 
-  - task: NuGetToolInstaller@1
-    displayName: 'nuget tool installer'
-    inputs:
-      versionSpec: '4.7.1'
-
-  - task: NuGetCommand@2
-    displayName: 'nuget restore'
-    inputs:
-      command: 'restore'
-      feedsToUse: 'select'
-      restoreSolution: '$(solutionPath)'
+  - pwsh: |
+      $(Build.SourcesDirectory)\_tools\DocFX\docfx.exe $(Build.SourcesDirectory)\docfx.json
+    displayName: 'run docfx'
 
   - pwsh: |
-      $(Build.SourcesDirectory)/_tools/DocFX/docfx.exe $(Build.SourcesDirectory)/docfx.json
-    displayName: run docfx
-
-  - task: MSBuild@1
-    displayName: 'msbuild: webdeploy'
-    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
-    inputs:
-      solution: '$(solutionPath)'
-      configuration: 'release'
-      msbuildArguments: '/p:DeployOnBuild=true "/p:PublishProfile=$(webDeployPublishProfile)" "/p:Password=$(webDeployPassword)"'
-
-  - task: PowerShell@2
-    displayName: 'Perform HTTP request against docs'
-    condition: and(succeeded(), eq(variables['Build.SourceBranchName'], 'master'))
-    inputs:
-      pwsh: true
-      targetType: 'inline'
-      script: |
-        Invoke-WebRequest "https://intentarchitect.com/docs/"
+      az storage blob sync -s '$(Build.SourcesDirectory)\_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+    displayName: 'az storage blob sync'
