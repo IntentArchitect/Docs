@@ -7,11 +7,12 @@ This article explains how to control [Code Management](xref:application-developm
 
 | Instruction | Description                                                                                                                                                                    |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `@IntentIgnore()`    | Instructs Intent Architect to ignore this member (i.e. do not update or remove it). |
-| `@IntentIgnoreBody()`    | Instructs Intent Architect to ignore the body of the member, but allows it to manage the signature. |
-| `@IntentMerge()`   | Instructs Intent Architect to manage this element, allowing adding, updating, but not removing, of its child members. |
-| `@IntentManage()`   | Instructs Intent Architect to manage this element, allowing adding, updating and removing of its child members. |
+| `@IntentIgnore()`    | Instructs Intent Architect to ignore this declaration (i.e. do not update or remove it). |
+| `@IntentIgnoreBody()`    | Instructs Intent Architect to ignore the body of the declaration, but allows it to manage the signature. This instruction is typically applied over _business-logic placeholder methods_ throughout the codebase. |
+| `@IntentMerge()`   | Instructs Intent Architect to manage this declaration, allowing adding, updating, but not removing, of its child members. This instruction is typically used in areas of business logic to ensure that if the developer creates additional methods within a call, that those methods are not deleted. |
+| `@IntentManage()`   | Instructs Intent Architect to manage this declaration, allowing adding, updating and removing of its child members. This instruction is useful in cases where Intent Architect is not fully management a declaration and you would like it to. |
 | `@IntentManageClass()`   | Instructs Intent Architect to manage this class, allowing adding, updating and removing of its child members. Additional management options can be supplied to this instruction to instruct Intent Architect how to treat `methods`, `properties` and `constructors`. |
 
+
 > [!NOTE]
-> Instructions can be applied as decorators or comments to any of the following declarations: `class`, `interface`, `method`, `property`, `function`, or `constant`.
+> Instructions can be applied as `decorators` (or `comments` if preferred, or where a decorator is not allowed) to any of the following declarations: `class`, `interface`, `constructor`, `method`, `property`, `function`, or `constant`.
