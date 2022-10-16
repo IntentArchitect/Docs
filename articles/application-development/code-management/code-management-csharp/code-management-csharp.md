@@ -3,7 +3,7 @@ uid: application-development.code-weaving-and-generation.about-code-management-c
 ---
 # C# Code Management
 
-This article explains how to control [Code Management](xref:application-development.code-weaving-and-generation.code-management) (Code Weaving) behaviour for C# files when "RoslynWeaver" (the C# code management extension of the `Intent.OutputManager.RoslynWeaver` Module) is used.
+This article explains how to control [Code Management](xref:application-development.code-management.about-code-management) (Code Weaving) behaviour for C# files when "RoslynWeaver" (the C# code management extension of the `Intent.OutputManager.RoslynWeaver` Module) is used.
 
 ## Overview of how it works
 
@@ -121,7 +121,7 @@ This will instruct Intent Architect where to place the `using` directives within
 
 ### How can I disable the RoslynWeaver from formatting my C# files?
 
-By default the RoslynWeaver will automatically format files under [code management](xref:application-development.code-weaving-and-generation.code-management). If this is undesired you can disable this behaviour by using the `.WithAutoFormatting(...)` extension method with the first parameter set to `false` in the `DefineFileConfig` method of your template:
+By default the RoslynWeaver will automatically format files under [code management](xref:application-development.code-management.about-code-management). If this is undesired you can disable this behaviour by using the `.WithAutoFormatting(...)` extension method with the first parameter set to `false` in the `DefineFileConfig` method of your template:
 
 ```csharp
 protected override CSharpFileConfig DefineFileConfig()

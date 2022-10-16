@@ -3,7 +3,7 @@ uid: application-development.code-weaving-and-generation.about-code-management-t
 ---
 # TypeScript Code Management
 
-This article explains how to control [Code Management](xref:application-development.code-weaving-and-generation.code-management) (Code Weaving) behaviour for TypeScript files. The following table describes the various instructions that may be used to control which parts of the codebase Intent Architect manages, and which parts are managed by the developers, at a very fine-grained level of control.
+This article explains how to control [Code Management](xref:application-development.code-management.about-code-management) (Code Weaving) behaviour for TypeScript files. The following table describes the various instructions that may be used to control which parts of the codebase Intent Architect manages, and which parts are managed by the developers, at a very fine-grained level of control.
 
 | Instruction | Description                                                                                                                                                                    |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

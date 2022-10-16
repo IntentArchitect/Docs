@@ -1,5 +1,5 @@
 ---
-uid: application-development.code-weaving-and-generation.about-software-factory-execution
+uid: application-development.software-factory.about-software-factory-execution
 remarks: |
     # TODO
 

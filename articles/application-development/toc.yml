@@ -1,12 +1,19 @@
 items:
   - name: Applications and Solutions
     href: applications-and-solutions/toc.yml
+    topicUid: application-development.applications-and-solutions.about-applications
   
-  - name: Code Weaving and Generation
-    href: code-weaving-and-generation/toc.yml
+  - name: The Software Factory
+    href: software-factory/toc.yml
+    topicUid: application-development.software-factory.about-software-factory-execution
 
-  - name: Modelling
+  - name: Code-Management
+    href: code-management/toc.yml
+    topicUid: application-development.code-management.about-code-management
+
+  - name: Visual Modelling
     href: modelling/toc.yml
+    topicUid: application-development.modelling.about-designers
 
   - name: User Interface
     href: user-interface/toc.yml

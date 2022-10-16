@@ -9,7 +9,7 @@ The `Intent.ModuleBuilder` [Module](xref:application-development.applications-an
 - [Designers](xref:application-development.modelling.about-designers)
 - [Designer Extensions](xref:module-building.designer-extensions.about-designer-extensions)
 - [Decorators](xref:module-building.decorators.about-decorators)
-- [Factory Extensions](xref:application-development.code-weaving-and-generation.about-software-factory-execution)
+- [Factory Extensions](xref:application-development.software-factory.about-software-factory-execution)
 - [Stereotypes](xref:application-development.modelling.about-stereotypes)
 
 ![A screenshot of the module builder](images/module-builder-basic.png)
