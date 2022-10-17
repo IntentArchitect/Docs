@@ -3,6 +3,12 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.19
+
+### Other changes in 3.3.19
+
+- Updates to the communication API contracts between the Intent Architect client and server.
+
 ## Version 3.3.18
 
 ### Improvements added in 3.3.18
