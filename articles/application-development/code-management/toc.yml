@@ -7,3 +7,6 @@ items:
 
   - name: TypeScript Code-Management
     href: code-management-typescript/code-management-typescript.md
+
+  - name: Java Code-Management
+    href: code-management-java/code-management-java.md
