@@ -5,6 +5,10 @@ uid: release-notes.version-3-3
 
 ## Version 3.3.19
 
+### Issues fixed in 3.3.19
+
+- Fixed - Scripting API for the application's `name` and `description` return the application's `id`.
+
 ### Other changes in 3.3.19
 
 - Updates to the communication API contracts between the Intent Architect client and server.
