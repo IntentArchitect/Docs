@@ -3,11 +3,17 @@ uid: release-notes.version-3-3
 ---
 # Release notes: Intent Architect version 3.3
 
+## Version 3.3.20
+
+### Issues fixed in 3.3.20
+
+- Fixed: Module release notes would render incorrectly for some markdown text.
+
 ## Version 3.3.19
 
 ### Issues fixed in 3.3.19
 
-- Fixed - Scripting API for the application's `name` and `description` return the application's `id`.
+- Fixed: Scripting API for the application's `name` and `description` returned the application's `id`.
 
 ### Other changes in 3.3.19
 
