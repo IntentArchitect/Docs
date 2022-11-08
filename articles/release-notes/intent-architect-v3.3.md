@@ -7,7 +7,10 @@ uid: release-notes.version-3-3
 
 ### Issues fixed in 3.3.20
 
+- Fixed: (Windows) When adding an existing Package to a Designer, saving the Designer would delete the existing Package and its metadata from the file system.
 - Fixed: Module release notes would render incorrectly for some markdown text.
+- Fixed: Attempting to use an Element Type named `Constructor` in Designers would cause cause errors to occur.
+- Fixed: Metadata installation would not update IDs for types selected in Stereotype properties.
 
 ## Version 3.3.19
 
