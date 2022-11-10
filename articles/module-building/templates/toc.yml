@@ -18,6 +18,9 @@ items:
 - name: Resolving type names
   href: resolving-type-names/resolving-type-names.md
 
+- name: How to add nuget dependencies (C#)
+  href: how-to-add-nuget-dependencies-csharp/how-to-add-nuget-dependencies-csharp.md
+
 - name: How to add project dependencies (C#)
   href: how-to-add-project-dependencies-csharp/how-to-add-project-dependencies-csharp.md
 
