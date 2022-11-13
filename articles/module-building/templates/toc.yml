@@ -38,3 +38,6 @@ items:
 
 - name: How to update `appsettings.json` files
   href: how-to-update-appsettings-json-files/how-to-update-appsettings-json-files.md
+
+- name: How to query models from different designers
+  href: how-to-query-models-from-different-designers/how-to-query-models-from-different-designers.md

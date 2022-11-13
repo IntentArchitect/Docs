@@ -32,3 +32,7 @@ To apply filtering to our Template, in the Visual Studio solution:
 
 > [!TIP]
 > Any metadata can be used to filter the creation of Template Instances. You may decide to use Stereotypes to be explicit or base the filtering on a convention like the name of the entity.
+
+## See more
+
+- [](xref:module-building.templates.how-to-query-models-from-different-designers)
