@@ -17,7 +17,7 @@ Pressing this button will copy an XML representation of all (even unsaved) conte
 
 ## Template strings
 
-If an element's name contains template strings, then these are substituted during installation of the metadata. At this time the following template strings are supported:
+If an element's name contains template strings, then these are substituted during installation of the metadata. The following template strings are always available:
 
 |Template String|Description|
 |-|-|
@@ -25,6 +25,8 @@ If an element's name contains template strings, then these are substituted durin
 |`${application.name}`|The Intent Architect Application name.|
 
 These template strings are commonly used for the Visual Studio designer metadata where the root element has a name of `${solution.name}` and projects have names like `${application.name}.Data.Entities`.
+
+Additionally, [Field Configuration values can be used](xref:module-building.application-templates.how-to-create-application-templates#for-metadata-installationconfig-files).
 
 ## Metadata merging
 
