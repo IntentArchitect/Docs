@@ -5,7 +5,7 @@ uid: module-building.about-the-module-builder
 
 The `Intent.ModuleBuilder` [Module](xref:application-development.applications-and-solutions.about-modules) provides a designer for modelling Intent Architect Modules along with their components such as:
 
-- [Templates](xref:module-building.templates.about-templates-csharp)
+- [Templates](xref:module-building.templates-csharp.about-csharp-templates)
 - [Designers](xref:application-development.modelling.about-designers)
 - [Designer Extensions](xref:module-building.designer-extensions.about-designer-extensions)
 - [Decorators](xref:module-building.decorators.about-decorators)
@@ -16,9 +16,9 @@ The `Intent.ModuleBuilder` [Module](xref:application-development.applications-an
 
 See the following to learn more about Module Building:
 
-- [](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction)
+- [](xref:module-building.templates-general.tutorial-create-a-template.create-a-template-introduction)
 - [](xref:module-building.designer-extensions.tutorial-create-an-event-as-a-designer-extension)
 - [](xref:module-building.designers.designer-modelling)
-- [](xref:module-building.templates.configuring-a-templates-default-output-location)
+- [](xref:module-building.templates-general.configuring-a-templates-default-output-location)
 - [](xref:module-building.module-distribution)
   

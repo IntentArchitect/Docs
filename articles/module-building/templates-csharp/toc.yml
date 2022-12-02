@@ -1,0 +1,19 @@
+items:
+
+- name: About C# Templates
+  href: about-csharp-templates/about-csharp-templates.md
+
+- name: How to add NuGet dependencies
+  href: how-to-add-nuget-dependencies-csharp/how-to-add-nuget-dependencies-csharp.md
+
+- name: How to add project dependencies
+  href: how-to-add-project-dependencies-csharp/how-to-add-project-dependencies-csharp.md
+
+- name: How to control file properties in C# projects
+  href: how-to-control-file-properties-in-cs-projects/how-to-control-file-properties-in-cs-projects.md
+
+- name: How to disable auto-formatting templates
+  href: how-to-disable-csharp-autoformatting/how-to-disable-csharp-autoformatting.md
+
+- name: How to update `appsettings.json` files
+  href: how-to-update-appsettings-json-files/how-to-update-appsettings-json-files.md

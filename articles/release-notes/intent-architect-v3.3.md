@@ -364,7 +364,7 @@ Below illustrates how the new Intent.Metadata.RDBMS module is taking advantage o
 
 ### Role-based Template Resolution
 
-Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:module-building.templates.resolving-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
+Up until this release, Modules would resolve other templates based on their identifier using the [`GetTypeName(...)`](xref:module-building.templates-general.resolving-type-names) system (e.g. `GetTypeName("<template-id>")`). This would couple modules together making it very difficult to swap out / replace a single module. Typically, if a developer would like to swap out a particular Module from the stack, they would have to fork all other modules too.
 
 Now in Intent Architect 3.3, Modules can resolve templates in an additional way - by their roles. This is done in exactly the same way as resolving by identifier (e.g. `GetTypeName("<template-role>")` for a single template, `GetTypeName("<template-role">", "<model-id>")` for a template per model).  This allows modules to be _decoupled_ from each other but still be able to operate interdependently.
 

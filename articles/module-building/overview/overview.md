@@ -65,9 +65,9 @@ Code generation is the process of running the Software Factory which provides me
 
 #### Templates
 
-[Templates](xref:module-building.templates.about-templates-csharp) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
+[Templates](xref:module-building.templates-csharp.about-csharp-templates) are responsible for generating the actual content of output files, the Software Factory runs each template for each installed module in turn to ultimately generate the output of all the different files. The vast majority of module building is the authoring of templates.
 
-For more information on authoring templates, see the [tutorial](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction).
+For more information on authoring templates, see the [tutorial](xref:module-building.templates-general.tutorial-create-a-template.create-a-template-introduction).
 
 #### Decorators
 
@@ -99,4 +99,4 @@ For example a template may need a registration to be performed with a system's d
 
 ## See also
 
-- [](xref:module-building.templates.tutorial-create-a-template.create-a-template-introduction)
+- [](xref:module-building.templates-general.tutorial-create-a-template.create-a-template-introduction)

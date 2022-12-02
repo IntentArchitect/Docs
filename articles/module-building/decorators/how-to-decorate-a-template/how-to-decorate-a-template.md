@@ -109,7 +109,7 @@ public override IEnumerable<string> GetEntityFieldAttributes(AttributeModel attr
 
 ## Applying the Decorator
 
-Install the `MyModule.Entities` to to your `TestApp` in Intent Architect. Follow these [steps](xref:module-building.templates.tutorial-create-a-template.install-and-run-the-module#install-the-module) if you are not sure how. Remember to click on Re-install for your updated module.
+Install the `MyModule.Entities` to to your `TestApp` in Intent Architect. Follow these [steps](xref:module-building.templates-general.tutorial-create-a-template.install-and-run-the-module#install-the-module) if you are not sure how. Remember to click on Re-install for your updated module.
 
 Open your Domain designer and select the `User` Entity. Let's make the `firsName` and `lastName` fields `nullable` to test that our decorator works.
 

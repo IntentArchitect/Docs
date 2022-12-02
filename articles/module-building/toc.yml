@@ -17,9 +17,15 @@ items:
 - name: Decorators
   href: decorators/toc.yml
 
-- name: Templates
-  href: templates/toc.yml
+- name: Templates (General)
+  href: templates-general/toc.yml
 
+- name: Templates (C#)
+  href: templates-csharp/toc.yml
+
+# - name: Templates (Java)
+#   href: templates-java/toc.yml
+#
 - name: Stereotypes
   href: stereotypes/toc.yml
 

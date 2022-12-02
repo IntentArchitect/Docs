@@ -1,0 +1,22 @@
+items:
+- name: 'Tutorial: Create a Template'
+  topicUid: module-building.templates-general.tutorial-create-a-template.create-a-template-introduction
+  href: tutorial-create-a-template/toc.yml
+
+- name: About T4 Templates
+  href: about-t4-templates/about-t4-templates.md
+
+- name: Configuring a Template's default output location
+  href: configuring-a-templates-default-output-location/configuring-a-templates-default-output-location.md
+
+- name: Resolving type names
+  href: resolving-type-names/resolving-type-names.md
+
+- name: How to generate static files
+  href: how-to-generate-static-files/how-to-generate-static-files.md
+
+- name: How to filter Template Instances
+  href: how-to-filter-template-instances/how-to-filter-template-instances.md
+
+- name: How to query models from different designers
+  href: how-to-query-models-from-different-designers/how-to-query-models-from-different-designers.md
