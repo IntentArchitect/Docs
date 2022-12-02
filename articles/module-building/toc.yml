@@ -23,9 +23,9 @@ items:
 - name: Templates (C#)
   href: templates-csharp/toc.yml
 
-# - name: Templates (Java)
-#   href: templates-java/toc.yml
-#
+- name: Templates (Java)
+  href: templates-java/toc.yml
+
 - name: Stereotypes
   href: stereotypes/toc.yml
 
