@@ -3,17 +3,28 @@ uid: module-building.application-settings
 ---
 # Application Settings
 
-Application Settings offer Modules the ability to let end-users customize certain parts and behaviors within Intent Architect. These settings can be located on the `Settings` screen within your Application. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
+Application Settings offer Modules the ability to let end-users customize certain parts and behaviors of it within Intent Architect. These Settings can be located on the `Settings` screen within your Application. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
 
 ![Application Settings Example](images/application-settings-example.png)
 
 ## Creating Application Settings for your Module
 
-Open the Module Builder for your Module do the following:
+Open the Module Builder for your Module and do the following:
 
 - Right click on the Package element at the top of the tree-view and select `New Settings Group`.
 - Give the `Settings Group` a name which will reflect on the Application Settings screen (for example `My Module Settings`).
-- Add a field by right clicking on the newly created `Settings Group` and give it a name (i.e. `Enable My Setting`) and choose a Type (i.e. `Checkbox`).
+- Right click on the `Settings Group` and select `Add Field` and give it a name (i.e. `Enable My Setting`) and choose a Type (i.e. `Checkbox`).
+
+![My Modules Setting Example](images/my-module-settings-example.png)
+
+Once the Module is installed in your target Application, it will introduce this `Settings Group` on the Application's Settings screen.
+
+![My Modules Settings Screen Example](images/my-module-settings-screen-example.png)
+
+> [!TIP]
+> You can change the icon for the Setting by setting the icon for that Module.
+>
+> ![Change Settings Icon](images/change-settings-icon.png)
 
 ## Consuming Application Settings inside your Module
 
@@ -34,3 +45,18 @@ protected override void OnBeforeTemplateExecution(IApplication application)
     var isMySettingEnabled = application.Settings.GetMyModuleSettings().EnableMySetting();
 }
 ```
+
+## Extending an existing Module Settings Group
+
+Install the target Module with the `Settings Group` that you would like to extend (also ensuring the `Install Metadata only` option is checked). For example install the `Intent.Modelers.Designer` module.
+
+Open the Module Builder for your Module and do the following:
+
+- Right click on the Package element at the top of the tree-view and select `New Settings Extension`.
+- Specify a distinct name for that `Settings Extension`.
+- Choose the `Settings Group` that you would like to extend in the Type drop-down (i.e. `Domain Settings`).
+- Right click on the newly created `Settings Extension` and select `Add Field`. Give it the name `Custom Settings Field` and choose the control type of `Checkbox`.
+
+Once the Module is installed in your target Application, it will add your new field to the `Domain Settings` Group.
+
+![My Modules Setting Extension Example](images/my-module-settings-extension-example.png)
