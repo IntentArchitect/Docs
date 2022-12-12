@@ -2,6 +2,9 @@ items:
 - name: Overview
   topicUid: module-building.overview
 
+- name: Application Settings
+  href: application-settings/application-settings.md
+
 - name: 'About the Module Builder'
   href: about-the-module-builder/about-the-module-builder.md
 
