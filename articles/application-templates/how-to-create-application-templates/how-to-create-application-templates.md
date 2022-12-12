@@ -199,3 +199,4 @@ Using the [metadata installation](xref:module-building.application-templates.met
 
 - [](xref:application-templates.overview)
 - [](xref:module-building.application-templates.metadata-installation)
+- [](xref:module-building.application-settings)

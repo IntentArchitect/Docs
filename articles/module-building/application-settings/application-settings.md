@@ -60,3 +60,7 @@ Open the Module Builder for your Module and do the following:
 Once the Module is installed in your target Application, it will add your new field to the `Domain Settings` Group.
 
 ![My Modules Setting Extension Example](images/my-module-settings-extension-example.png)
+
+See also:
+
+- [](xref:module-building.application-templates.how-to-create-application-templates#for-module-settings)
