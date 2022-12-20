@@ -1,3 +1,6 @@
 items:
+- name: How to add application properties
+  href: how-to-add-application-properties/how-to-add-application-properties.md
+
 - name: How to add Maven dependencies
   href: how-to-add-maven-dependencies/how-to-add-maven-dependencies.md
