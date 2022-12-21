@@ -32,6 +32,9 @@ items:
 - name: Stereotypes
   href: stereotypes/toc.yml
 
+- name: Software Factory Events
+  href: software-factory-events/software-factory-events.md
+
 - name: Software Factory Extensions
   href: software-factory-extensions/toc.yml
 
