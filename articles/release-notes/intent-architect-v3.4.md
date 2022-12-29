@@ -15,6 +15,7 @@ uid: release-notes.version-3-4
 - Find usages context menu option for elements - highlights references to the type within the model view.
 - Stereotype display icon function - allows logic around whether to display the applied stereotypes icon and can be used to configure the display of different icons
 - Configurable default Package names using JavaScript function.
+- Support for adding child elements to associations.
 
 ### Improvements in 3.4.0
 
