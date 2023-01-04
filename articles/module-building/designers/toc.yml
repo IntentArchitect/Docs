@@ -1,3 +1,5 @@
 items:
   - name: 'Designer Modelling'
     href: designer-modelling/designer-modelling.md
+  - name: 'Designer Scripting'
+    href: designer-scripting/designer-scripting.md
