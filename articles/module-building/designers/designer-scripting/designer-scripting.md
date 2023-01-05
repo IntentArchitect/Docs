@@ -7,11 +7,11 @@ Designers in Intent Architect support the configuration of scripts which can be 
 
 ## Manually triggered scripts
 
-Scripts can triggered manually by creating a `Run Script Option` menu item against a Package, Element or Association.
+Scripts can triggered manually by creating a `Run Script Option` context-menu item against a Package, Element or Association.
 
-### Example: Adding a script to a classes in the Domain designer
+### Example: Adding a script context-menu option
 
-We can add a menu option to our `Class` elements in the Domain designer in the following way.
+In this scenario we want to add a context-menu option to our `Class` elements in the Domain designer. We can achieve this in the following way:
 
 ![Designers Folder](images/manual-script-example-add-script-option.png)
 
@@ -46,7 +46,7 @@ Scrips can be configured to execute automatically on certain events.
  * `On Type Changed` - executed whenever the Association's type reference is changed. It is important that this script is idempotent as it can lead to looped executions.
  * `On Deleted` - executed when the Association is deleted.
 
- Access to the association instance can be done through the `association` variable. Note that this is the target-end of the association. To access the source end, use `association.getOtherEnd()`.
+ Access to the association instance can be done through the `association` variable. Note that this is the target-end of the association. To access the source-end, use `association.getOtherEnd()`.
 
 ### Example: Auto-adding attributes on classes in the Domain designer
 
