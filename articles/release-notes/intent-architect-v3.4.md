@@ -3,6 +3,18 @@ uid: release-notes.version-3-4
 ---
 # Release notes: Intent Architect version 3.4
 
+## Version 3.4.1
+
+### Issues fixed in 3.4.1
+
+- Fixed: Child Elements of Associations unable to resolve type references after save and reload.
+- Fixed: `ITypeReference` JavaScript API returning incorrect values from `getIsNullable()` function.
+- Fixed: `setMapping(elementId, mappingSettingsId)` on `IElement` JavaScript API not finding correct mapping-settings when passing in a `mappingSettingsId`.
+
+### Other changes in 3.4.1
+
+- Software Factory Executable skips running git diff if more than 50 file overwrites/renames occur. This prevents performance delays on large change sets.
+
 ## Version 3.4.0
 
 ### New features in 3.4.0
