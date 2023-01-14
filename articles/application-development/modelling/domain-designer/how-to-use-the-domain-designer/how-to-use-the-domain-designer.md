@@ -134,7 +134,7 @@ Finally, create an Association from the `Group` to the `Shape` Class and ensure 
   - `Is Collection` is checked.
 - In the `Source End` section that:
   - `Is Collection` is *un*checked.
-  - `Is Nullable` is *un*checked.
+  - `Is Nullable` is checked.
 
 [!Video-Loop videos/add-aggregate-association.mp4]
 
