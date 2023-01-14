@@ -72,11 +72,7 @@ On the `Shape` Class add the following Operation:
 
 - `Draw` with no return type.
 
-On the `Canvas` Class add the following Operation:
-
-- `Draw` with no return type.
-
-On the `Canvas` Class add the following Operation:
+On the `Canvas` Class add the following Operations:
 
 - `Draw` with no return type.
 - `CreateGroup` with no return type and the following parameter:
