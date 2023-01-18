@@ -72,11 +72,7 @@ On the `Shape` Class add the following Operation:
 
 - `Draw` with no return type.
 
-On the `Canvas` Class add the following Operation:
-
-- `Draw` with no return type.
-
-On the `Canvas` Class add the following Operation:
+On the `Canvas` Class add the following Operations:
 
 - `Draw` with no return type.
 - `CreateGroup` with no return type and the following parameter:
@@ -138,7 +134,7 @@ Finally, create an Association from the `Group` to the `Shape` Class and ensure 
   - `Is Collection` is checked.
 - In the `Source End` section that:
   - `Is Collection` is *un*checked.
-  - `Is Nullable` is *un*checked.
+  - `Is Nullable` is checked.
 
 [!Video-Loop videos/add-aggregate-association.mp4]
 
@@ -184,16 +180,6 @@ Now re-add the classes which were removed from the other Diagram, namely the fol
 
 Lay them out so that `Shape` is located center-top of the diagram, `Triangle` bottom-left and `Circle` bottom-right.
 
-> [!NOTE]
-> Even though you may not be able to visually see the Associations on the Diagram, adding / removing Classes to Diagrams has not actually affected or removed them.
->
-> It is always possible to see all Associations on a Class as sub-elements on the Class in the tree-view in the top-right pane, locate `Shape` (for instance), expand it to show its contents and you will notice that there are four Associations:
->
-> - `Group`
-> - `Canvas`
-> - `Circle`
-> - `Triangle`
->
 > [!TIP]
 > When you have a Diagram element selected in the tree-view, in the Properties pane in the bottom-right there is a `New diagram elements` field. When you right-click a Diagram and click the `New Class` option, Intent Architect will create the Class in the package selected in that `New diagram elements` field.
 
@@ -217,6 +203,16 @@ Make it so that the following Classes are derived from `Shape`:
 Your diagram should now appear as follows:
 
 ![How all the Classes should now appear](images/all-the-shapes-inherited.png)
+
+> [!NOTE]
+> Even though you may not be able to visually see the Associations on the Diagram, adding / removing Classes to Diagrams has not actually affected or removed them.
+>
+> It is always possible to see all Associations on a Class as sub-elements on the Class in the tree-view in the top-right pane, locate `Shape` (for instance), expand it to show its contents and you will notice that there are four Associations:
+>
+> - `Group`
+> - `Canvas`
+> - `Circle`
+> - `Triangle`
 
 ## See also
 
