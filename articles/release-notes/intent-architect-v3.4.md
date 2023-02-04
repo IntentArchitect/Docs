@@ -11,6 +11,7 @@ uid: release-notes.version-3-4
 - Fixed: Child Elements of Associations unable to resolve type references after save and reload.
 - Fixed: `ITypeReference` JavaScript API returning incorrect values from `getIsNullable()` function.
 - Fixed: `setMapping(elementId, mappingSettingsId)` on `IElement` JavaScript API not finding correct mapping-settings when passing in a `mappingSettingsId`.
+- Fixed: Elements with generic type parameters would always be expanded to during loading of the designer.
 
 ### Other changes in 3.4.1
 
