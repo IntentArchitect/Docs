@@ -12,6 +12,7 @@ uid: release-notes.version-3-4
 - Fixed: `ITypeReference` JavaScript API returning incorrect values from `getIsNullable()` function.
 - Fixed: `setMapping(elementId, mappingSettingsId)` on `IElement` JavaScript API not finding correct mapping-settings when passing in a `mappingSettingsId`.
 - Fixed: Elements with generic type parameters would always be expanded to during loading of the designer.
+- Fixed: Clicking links in module release notes would open them within the Intent Architect application instead of the default system web browser.
 
 ### Other changes in 3.4.1
 
