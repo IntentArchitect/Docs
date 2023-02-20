@@ -3,6 +3,12 @@ uid: release-notes.version-3-4
 ---
 # Release notes: Intent Architect version 3.4
 
+## Version 3.4.2
+
+### Issues fixed in 3.4.2
+
+- Fixed: Search criteria would sometimes go out of sync between the "Browse", "Installed" and "Updates" tabs under "Modules".
+
 ## Version 3.4.1
 
 ### Issues fixed in 3.4.1
