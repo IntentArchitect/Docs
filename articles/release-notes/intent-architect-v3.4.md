@@ -8,6 +8,7 @@ uid: release-notes.version-3-4
 ### Issues fixed in 3.4.2
 
 - Fixed: Search criteria would sometimes go out of sync between the "Browse", "Installed" and "Updates" tabs under "Modules".
+- Fixed: When copying elements between packages, element metadata information and associations would not always copy correctly for certain scenarios.
 
 ## Version 3.4.1
 
