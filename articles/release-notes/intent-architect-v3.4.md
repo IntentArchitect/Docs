@@ -3,12 +3,19 @@ uid: release-notes.version-3-4
 ---
 # Release notes: Intent Architect version 3.4
 
+## Version 3.4.3
+
+### Issues fixed in 3.4.3
+
+- Fixed: When copying elements between packages, element metadata information, associations and diagrams would not always copy correctly for certain scenarios.
+- Fixed: When copying elements, the value for `externalReference` was copied over to the new element.
+- Fixed: When there were duplicate values for `externalReference`s an exception would occur when installing modules with metadata installation. A warning will now instead be shown when a duplicate is detected.
+
 ## Version 3.4.2
 
 ### Issues fixed in 3.4.2
 
 - Fixed: Search criteria would sometimes go out of sync between the "Browse", "Installed" and "Updates" tabs under "Modules".
-- Fixed: When copying elements between packages, element metadata information and associations would not always copy correctly for certain scenarios.
 
 ## Version 3.4.1
 
