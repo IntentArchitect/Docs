@@ -21,7 +21,7 @@ uid: release-notes.version-3-4
 
 ### Issues fixed in 3.4.1
 
-- Intent will no log a debug level message instead of throwing error when creating an Application with unresolved `${...}` entries in any of its installation metadata.
+- Intent will now log a debug level message instead of throwing error when creating an Application with unresolved `${...}` entries in any of its installation metadata.
 - Fixed: Child Elements of Associations unable to resolve type references after save and reload.
 - Fixed: `ITypeReference` JavaScript API returning incorrect values from `getIsNullable()` function.
 - Fixed: `setMapping(elementId, mappingSettingsId)` on `IElement` JavaScript API not finding correct mapping-settings when passing in a `mappingSettingsId`.
