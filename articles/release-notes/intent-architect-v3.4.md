@@ -5,6 +5,17 @@ uid: release-notes.version-3-4
 
 ## Version 3.4.3
 
+### New features in 3.4.3
+
+- The following Application Template settings now respect defaults as defined in Application Templates:
+  - `Place solution and application in the same directory`
+  - `Store Intent Architect files separate to codebase`
+  - `Set .gitignore entries`
+  - `Relative Output Location`
+
+  Use version `3.4.3-pre.0` of the `Intent.ApplicationTemplate.Builder` to be able to set these default values.
+- For new Applications, the `Relative Output Location` text field has been replaced with an `Output Location` text field which is used to specify the absolute output location and a `Browse` button has been added for convenience. A preview of the `Relative Output Location` which will ultimately be saved to the `.application.config` file is computed in real time and displayed beneath the `Output Location` text field.  
+
 ### Issues fixed in 3.4.3
 
 - Fixed: When copying elements between packages, element metadata information, associations and diagrams would not always copy correctly for certain scenarios.
