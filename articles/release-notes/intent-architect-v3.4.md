@@ -39,6 +39,11 @@ uid: release-notes.version-3-4
 
 ## Version 3.4.1
 
+### Improvements in 3.4.1
+- Extended Designer Scripting API to support diagram control (e.g. adding and removing visual elements). The currently active diagram can be accessed through the `currentDiagram` property.
+- Type References dropdown clears when focused which allows the user to start typing without first pressing backspacing.
+- Now routing all designer scripting `console.<log|warn|error>(...)` outputs to the IA console (instead of the electron devtools).
+
 ### Issues fixed in 3.4.1
 
 - Intent will now log a debug level message instead of throwing error when creating an Application with unresolved `${...}` entries in any of its installation metadata.
@@ -47,6 +52,7 @@ uid: release-notes.version-3-4
 - Fixed: `setMapping(elementId, mappingSettingsId)` on `IElement` JavaScript API not finding correct mapping-settings when passing in a `mappingSettingsId`.
 - Fixed: Elements with generic type parameters would always be expanded to during loading of the designer.
 - Fixed: Clicking links in module release notes would open them within the Intent Architect application instead of the default system web browser.
+- Fixed: Domain Class names not updating when Generalization association's generic type is changed.
 
 ### Other changes in 3.4.1
 
