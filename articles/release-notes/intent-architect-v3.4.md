@@ -5,6 +5,11 @@ uid: release-notes.version-3-4
 
 ## Version 3.4.3
 
+### New features in 3.4.4
+
+- The `Intent.SoftwareFactory.CLI` `dotnet tool` will now always output its version when starting.
+- Added the Intent Architect version to the warning message which is displayed when the current version of Intent Architect is out of range of a module's supported client version.
+
 ### New features in 3.4.3
 
 - The following Application Template settings now respect defaults as defined in Application Templates:
