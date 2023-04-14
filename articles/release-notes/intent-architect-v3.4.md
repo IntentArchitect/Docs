@@ -5,6 +5,10 @@ uid: release-notes.version-3-4
 
 ## Version 3.4.3
 
+### Issues fixed in 3.4.5
+
+- Fixed: Output Location path was being computed incorrectly when creating a new application for an existing solution.
+
 ### New features in 3.4.4
 
 - The `Intent.SoftwareFactory.CLI` `dotnet tool` will now always output its version when starting.
