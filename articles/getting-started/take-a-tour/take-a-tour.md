@@ -131,7 +131,7 @@ The Software Factory Execution can also be minimized while it's busy processing 
 
 [!Video-Loop videos/software-factory-minimize.mp4]
 
-The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top nav-bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes or installing/updating Modules.
+The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top tool bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes or installing/updating Modules.
 
 ![Play Button](images/software-factory-execution-play-button.png)
 
@@ -148,7 +148,7 @@ An Application can only be opened in the context on a Solution, which is represe
 ![Solution Explorer](images/solution-explorer.png)
 _Solution Explorer with a single Application from this tour._
 
-Additional Applications can be created from the Solution Explorer through the by context menu clicking on the `Create new application ...` button or the `+` icon in the toolbar.
+Additional Applications can be created from the Solution Explorer through the by context menu clicking on the `Create new application ...` menu option or the `+` icon in the toolbar.
 
 ## What's Next
 
