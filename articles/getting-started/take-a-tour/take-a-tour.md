@@ -35,7 +35,7 @@ Here you can search and choose which application template you want and directly 
 
 Application Templates allow specifying a pre-defined set of options of which Modules and Metadata (for [Designers](#designers)) to automatically install into the new Application during its creation.
 
-To illustrate this, let's create a sample .NET Core Application using the `Clean Architecture .NET Core 3.1` Application Template. Following the steps we took above, select the template and fill out the Application's name, location, and the Solution name, then click `NEXT`. The wizard then moves to the next page which displays the high-level _Components_ that make up the template.
+To illustrate this, let's create a sample .NET Core Application using the `Clean Architecture .NET` Application Template. Following the steps we took above, select the template and fill out the Application's name, location, and the Solution name, then click `NEXT`. The wizard then moves to the next page which displays the high-level _Components_ that make up the template.
 
 ![Application Template Components](images/application-template-components.png)
 
@@ -47,9 +47,6 @@ _This screenshot of the component list on the right of the screen shows exactly 
 To create the Application, we then click on the `CREATE` button.
 
 Intent Architect will download and install the Modules correlating to the selected Components, as well as create any default metadata that is required.
-
-![Application Template Installation](images/application-template-installation.png)
-_The modules downloaded in the example above are specifically related to the `Clean Architecture .NET Core 3.1` Application Template._
 
 > [!NOTE]
 > Although this example is targeting .NET, this process would work in the same way for other Application Templates that are designed for other languages.
@@ -67,6 +64,8 @@ Below the _Relative Output Location_, Intent Architect shows the full path into 
 > [!NOTE]
 > If the path doesn't exist yet, it won't be able to open.
 
+Settings can be accessed through the applications's context menu.
+
 ## Modules
 
 Modules are distributable artifacts which are the _building blocks_ of pattern reuse in Intent Architect.
@@ -76,6 +75,10 @@ Typically, the purpose of a Module is to generate and manage a set of code files
 Modules have similarities with package systems such as NuGet, NPM, and Maven. However, where the primary objective of these systems is to facilitate code-reuse, the primary objective of Modules is to facilitate _pattern-reuse_.
 
 Modules have versions and dependencies and don't directly introduce any runtime dependencies. They can, however, be configured to introduce package dependencies if the designer of the Module so chooses.
+
+To see your applications installed modules right-click on the application and select the the `Manage Modules` menu option.
+
+![Application Context Menu](images/application-context-menu.png)
 
 ![Application Modules](images/application-modules-installed.png)
 _This example shows the list of Installed Modules in our sample application. The `Intent.Application.MediatR` Module has been selected, with its details displayed in the pane on the right._
@@ -88,7 +91,7 @@ _This example shows the list of Installed Modules in our sample application. The
 It is worth noting that some Modules provide additional settings that a developer can configure. These sections can be found on the [Application Settings](#application-settings) page.
 
 ![Module Settings](images/application-settings-module-settings.png)
-_This example shows that the Module `Entity Key` has a `Key Type` selector which allows a developer to choose which Datatype would best represent a Primary Key for that application. In this case, it will be represented as a `guid`._
+_This example shows `Database Settings` which have been introduced by the installed modules, as an example the `Key Type` selector, which allows a developer to choose which Datatype would best represent a Primary Key for that application. In this case, it will be represented as a `guid`._
 
 ## Designers
 
@@ -142,12 +145,10 @@ Solutions in Intent Architect serve as a _view_ on one or more Applications. The
 
 An Application can only be opened in the context on a Solution, which is represented by an `.isln` (Intent Solution) file on the disk drive.
 
-![Solution Dashboard](images/solution-dashboard.png)
-_A Solution dashboard with a single Application from this tour._
+![Solution Explorer](images/solution-explorer.png)
+_Solution Explorer with a single Application from this tour._
 
-Additional Applications can be created from the Solution dashboard by clicking on the `Create new application ...` button or a clone can be performed (similar to a Github template repository) on an existing Intent Architect project by clicking on `Copy Existing Application ...`.
-
-Applications can also be filtered with the text field as well as _favourited_ by clicking the _Star_ in the top right-hand of an Application. They can be removed by right-clicking and selecting the `Delete` option.
+Additional Applications can be created from the Solution Explorer through the by context menu clicking on the `Create new application ...` button or the `+` icon in the toolbar.
 
 ## What's Next
 
