@@ -80,7 +80,7 @@ The software factory has been executed before for these Applications with a work
 ![Choose Application name](images/create-application-name.png)
 
 - Press `YES` when asked to confirm that you want to continue creating an empty Application.
-- Once the application is created, click on `Modules` in the left pane, search for `Visual Studio`, select the `Intent.VisualStudio.Projects` Module and finally click the install button on the right:
+- Once the application is created, right-click on the application and select `Manage Modules`. On the Modules tab search for `Visual Studio`, select the `Intent.VisualStudio.Projects` Module and finally click the install button on the right:
 
 ![Search for and install the Visual Studio Module](images/application-template-metadata-add-visual-studio-module.png)
 
@@ -90,11 +90,11 @@ The software factory has been executed before for these Applications with a work
 
 ![Choose package name](images/application-template-metadata-choose-package-name.png)
 
-- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `C# Project (.NET)`.
 - Set its name to `${application.name}.Domain`.
 - Right-click the `${application.name}.Domain` element and select `Add Role`.
 - Set its name to `Domain`.
-- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `C# Project (.NET)`.
 - Set its name to `${application.name}.Persistence`.
 - Right-click the `${application.name}.Persistence` element and select `Add Role`.
 - Set its name to `Persistence`.
@@ -142,7 +142,7 @@ If you create a new Application with the Application Template, you will see it n
 > [!NOTE]
 > By having given the Solution element the same name as for the Application Template, when this Module is installed the [metadata merging](#metadata-merging) logic prevents a duplicate being created.
 
-- Right-click on the `${application.name}` element and select `Class Library (.NET Core)`.
+- Right-click on the `${application.name}` element and select `C# Project (.NET)`.
 - Set its name to `${application.name}.UnitTesting`.
 - Right-click the `${application.name}.UnitTesting` element and select `Add Role`.
 - Set its name to `UnitTesting`.

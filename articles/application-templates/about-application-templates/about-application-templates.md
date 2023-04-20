@@ -5,7 +5,7 @@ uid: application-templates.overview
 
 Application Templates allow specifying a pre-defined set of options of which [Modules](xref:application-development.applications-and-solutions.about-modules) and Metadata (for [Designers](xref:application-development.modelling.about-designers)) to automatically install into a new [Application](xref:application-development.applications-and-solutions.about-applications) during its creation.
 
-To illustrate this, from the home screen create a sample .NET Core Application using the `Clean Architecture .NET Core 3.1` Application Template. Fill out the Application's name, location, and the Solution name, then click `NEXT`. The wizard then moves to next page which displays the high-level _Components_ that make up the Application Template.
+To illustrate this, from the home screen create a sample .NET Core Application using the `Clean Architecture .NET` Application Template. Fill out the Application's name, location, and the Solution name, then click `NEXT`. The wizard then moves to next page which displays the high-level _Components_ that make up the Application Template.
 
 ![Application Template Components](images/application-template-components.png)
 
@@ -16,10 +16,10 @@ _This screenshot of the component list on the left of the screen shows exactly w
 
 To create the Application using the selected Application Template and its selected Components, click on the `CREATE` button.
 
-Intent Architect will download and install the Modules correlating to the selected Components, as well as create any default metadata that is required.
+Intent Architect will download and install the Modules correlating to the selected Components, as well as create any default metadata that is required. When the installation is complete you will see a 'Ready' message as illustrated below. 
 
-![Application Template Installation](images/application-template-installation.png)
-_The modules downloaded in the example above are specifically related to the `Clean Architecture .NET Core 3.1` Application Template._
+![Application Template Installation](images/application-created.png)
+_The modules downloaded in the example above are specifically related to the `Clean Architecture .NET` Application Template._
 
 > [!NOTE]
 > Although this example is based in .NET, this process would work in the same way for other Application Templates that are designed for other languages.

@@ -15,9 +15,9 @@ Create a new `Intent Application Template Builder` application and give it the n
 - Click `NEXT`.
 - Leave the ticked options as is and click `CREATE`:
 
-![Installation dialog](images/installation-dialog.png)
+![Installation dialog](images/application-template-ready.png)
 
-Once the `Application Installation` is complete, it will automatically hide.
+Once the `Application Installation` is complete, you will see a 'Ready' message.
 
 ## Create a new Package
 
@@ -49,7 +49,7 @@ Once the `Application Installation` is complete, it will automatically hide.
     > [!IMPORTANT]
     > This must be the exact name of a [module](xref:application-development.applications-and-solutions.about-modules) which is to be installed by the Application Template.
 - Click the root `Intent.Modelers.Domain` element and in the Properties pane on the right:
-  - For `Version` enter `3.0.4`.
+  - For `Version` enter `3.4.0`.
 
     > [!IMPORTANT]
     > This must be a valid version for the Module name chosen above.
@@ -64,27 +64,29 @@ Run the Software Factory and optionally review the proposed changes:
 
 Click `APPLY CHANGES`.
 
-Before you dismiss the Software Factory Execution dialog (after it's completed applying all the changes) expand the last item called `Finalizing Execution`, then `Execution Life Cycle` to see that a `dotnet build` was executed on the generated `Visual Studio` solution:
+Before you dismiss the Software Factory Execution dialog (after it's completed applying all the changes) expand the second last item called `Finalizing Execution`, then `Execution Life Cycle` to see that a `dotnet build` was executed on the generated `Visual Studio` solution:
 
-![Software Factory: dotnet build](images/software-factory-dotnet-build.png)
+![Software Factory: dotnet build](images/application-template-sf-execution.png)
 
 Take note of the following line in the output for the following step:
 
 ```text
-Successfully created application template C:\Dev\MyApplicationTemplates\Intent.Modules\My Application Template.1.0.0.iat
+Successfully created application template C:\Dev\.Intent-modules\My Application Template.1.0.0.iat
 ```
-
-Click on the close button (the red button).
+> [!IMPORTANT]
+> This output location may be different depending on your environment configuration. 
+ 
+Click on the close button.
 
 ## Test your Application Template
 
 Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:application-development.applications-and-solutions.how-to-manage-repositories).
 
-Add a new Asset Repository with the name `My Modules` and address `C:\Dev\MyApplicationTemplates\Intent.Modules` (this is the folder where your `.iat` file is located), then click `Save`.
+Add a new Asset Repository with the name `My Modules` and address `C:\Dev\.Intent-modules` (this is the folder where your `.iat` file is located), then click `Save`.
 
-![Manage Repositories](images/repo-manager-module-folder.png)
+![Manage Repositories](images/repository-config.png)
 
-Navigate to your Intent Solution dashboard then click to add a new application.
+In the Solution Explorer click to add a new application.
 Ensure your module repository is selected in the drop down and you should see your application template:
 
 ![Select your Application Template](images/testing-select-application-template.png)

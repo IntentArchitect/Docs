@@ -5,7 +5,7 @@ uid: module-building.application-settings
 
 Application Settings offer Modules the ability to let end-users customize certain parts and behaviors of it within Intent Architect. These Settings can be located on the `Settings` screen within your Application. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
 
-![Application Settings Example](images/application-settings-example.png)
+![Application Settings Example](images/application-module-settings.png)
 
 ## Creating Application Settings for your Module
 
@@ -48,7 +48,7 @@ protected override void OnBeforeTemplateExecution(IApplication application)
 
 ## Extending an existing Module Settings Group
 
-Install the target Module with the `Settings Group` that you would like to extend (also ensuring the `Install Metadata only` option is checked). For example install the `Intent.Modelers.Designer` module.
+Install the target Module with the `Settings Group` that you would like to extend (also ensuring the `Install Metadata only` option is checked). For example install the `Intent.Modelers.Domain` module.
 
 Open the Module Builder for your Module and do the following:
 
@@ -56,6 +56,7 @@ Open the Module Builder for your Module and do the following:
 - Specify a distinct name for that `Settings Extension`.
 - Choose the `Settings Group` that you would like to extend in the Type drop-down (i.e. `Domain Settings`).
 - Right click on the newly created `Settings Extension` and select `Add Field`. Give it the name `Custom Settings Field` and choose the control type of `Checkbox`.
+- Fill in the `Hint` property to provide information about what this setting does.
 
 Once the Module is installed in your target Application, it will add your new field to the `Domain Settings` Group.
 

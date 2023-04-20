@@ -4,15 +4,15 @@
 
 We're proud to announce the release of Version 4 of intent Architect. This release has the result of many hours of effort and planning by the Intent Architect team. We're also pleased to say that the feedback we've received thus far from our beta testers has been incredibly positive.
 
-Below is a link to a webinar that covers the major enhancements that are part of verion 4, as well as some information on the backward compatibility and, of course, the hightlights of the new release.
+Below is a link to a webinar that covers the major enhancements that are part of version 4, as well as some information on the backward compatibility and, of course, the highlights of the new release.
 
 ### Watch the webinar
 
 [![Incompatible module warning](images/4.0.0/intent-architect-v4-webinar-cover-page.png)](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4)
 
-To watch the webinar, `middle-click` on the image above or use the following link: [Introduction to Intent Archtiect V4](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4)
+To watch the webinar, `middle-click` on the image above or use the following link: [Introduction to Intent Architect V4](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4)
 
-Please share your feedback on this version (and the webinar) by fillin in this 1 min survey: [Share your feedback](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4-feedback-survey)
+Please share your feedback on this version (and the webinar) by filling in this 1 min survey: [Share your feedback](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4-feedback-survey)
 
 
 ### Backward Compatibility
@@ -21,17 +21,17 @@ This release of Intent Architect is fully backward compatible with V3.4.x. It do
 
 The installation of this version is done alongside previous major version of Intent Architect, which means that both V3.x and V4.x can be installed at the same time. This should make it much easier to adopt without risk of disrupting team deadlines.
 
-### Hightlights in 4.0.0
+### Highlights in 4.0.0
 
 #### New splash screen:
 - Shows the version
-- New background image to make it distinguisable from V3.x
+- New background image to make it distinguishable from V3.x
 
 #### Home page:
-- New background and layout to make it distinguisable from V3.x
+- New background and layout to make it distinguishable from V3.x
 - Tightened up recent solutions view
 - Increased max number of most recent solutions to 25
-- Application version is visiable in the bottom right
+- Application version is visible in the bottom right
 - User settings access in the top right
 
 #### New solution layout:
@@ -56,9 +56,9 @@ The installation of this version is done alongside previous major version of Int
 - Each tab runs as a separate processes. This improves performance of the application as different the different processes are more light-weight and can take advantage of multi-core CPUs.
 - Each tab is kept in memory while it is open, so unsaved changes are not lost if a different tab is opened.
 - Each tab has a context menu to perform common actions (e.g. Close all other tabs, etc.)
-- Tabs can be reorded by dragging them.
+- Tabs can be reordered by dragging them.
 - Tabs remember their state if (i.e. which tree node elements were expanded and selected) and reload to this state when being reopened.
-- A solution remembers which tabs were openeded and reopens them on opening the solution.
+- A solution remembers which tabs were opened and reopens them on opening the solution.
 - Tabs indicate visually which one is currently being viewed and if the focus moves away from that tab.
 - A tab list can be brought up to quickly flick between the different open tabs using the `Ctrl/Cmd + Tab` and `Ctrl/Cmd + Shift + Tab` shortcuts.
 - Package changes on saving in one tab automatically triggers a reload of that package if it's a reference in another open tab.
@@ -71,7 +71,7 @@ The installation of this version is done alongside previous major version of Int
 #### Designers
 - Tracks dirty changes.
 - Automatically reload packages packages that have changed from external sources (e.g. other open tabs, when they save).
-- Improved error tracking system. Errors now only show on the element that has the error and on its owning package. By clicking on the red error warning icon, the selection in the model will automatically be set to all elements that have errors. This makes it much easier to see who the culprits are when an error is occuring.
+- Improved error tracking system. Errors now only show on the element that has the error and on its owning package. By clicking on the red error warning icon, the selection in the model will automatically be set to all elements that have errors. This makes it much easier to see who the culprits are when an error is occurring.
 - Stereotype Definitions can now use the `Filter by Function` option from the `Target Mode` which allows the user to specify a JavaScript function for whether the Stereotype can be applied to an element or not.
 - Several minor bug fixes.
 

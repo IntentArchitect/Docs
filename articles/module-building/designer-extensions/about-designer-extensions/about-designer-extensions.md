@@ -9,6 +9,8 @@ Designer Extensions extend an existing [Designer](xref:application-development.m
 
 _Example of a Designer Extension where a new Element (Value Object) is introduced in an existing designer `Domain`._
 
+The image above is illustrating how the `Intent.Modeller.Domain.ValueObjects` module, has extended the `Domain Designer` by adding `Value Object` element and it's associated modelling behaviours to the designer.
+
 ## How to see which Designer Extensions are currently applied
 
 You can use the settings icon in a designer to see what extensions are currently applied:
