@@ -7,7 +7,7 @@ remark: We could move the first NOTE on what a Template is to the parent page on
 Intent Architect has first class support for generation and code management of C# files. Out of the box it has [many features](#convenience-and-utility-features-for-c-file-generation) to enable painless authoring of C# templates, for example managing things like namespaces, class names, using clauses, automatic resolution of type names, etc.
 
 > [!NOTE]
-> At a fundamental level all Templates in Intent Architect ultimately just produce text. If you look at the code-behind file for a `.tt` file, you will see that it's using a `StringBuilder` on which `.ToString()` is ultimately called.
+> At a fundamental level all Templates in Intent Architect simply just produce text. If you look at the code-behind file for a `.tt` file, you will see that it's using a `StringBuilder` on which `.ToString()` is ultimately called.
 
 The easiest way to create a C# Template is by using the [Module Builder](xref:module-building.about-the-module-builder) and ensuring you have the `Intent.ModuleBuilder.CSharp` Module installed. If you selected the `Module Builder - C#` component during the `Create new Module` wizard it will already have been installed, otherwise it can be added at any time through the [Modules](xref:application-development.applications-and-solutions.about-modules) screen for your [Application](xref:application-development.applications-and-solutions.about-applications).
 
@@ -25,33 +25,30 @@ The Module Builder has three available options for C# Template types, they are b
 | [File Per Model](#file-per-model) | A file is generated per model in your application. |
 | [Custom](#custom)                 | For advanced use cases.                            |
 
+### Template Methods
+Intent Architect supports several templating technologies, the default (and recommended) approach is our `C# File Builder` method .
+
+![Template Method Options](images/template-methods.png)
+
+
 ## Files generated during the Software Factory Execution of the Module Builder
 
-Regardless of the type selected, during the [Software Factory Execution](xref:application-development.software-factory.about-software-factory-execution) the Module Builder will always generate the following three files for each C# Template created in the Module Builder designer.
+Regardless of the type selected, during the [Software Factory Execution](xref:application-development.software-factory.about-software-factory-execution) the Module Builder will always generate the following 2 files for each C# Template created in the Module Builder designer.
 
-### 1. Template file
-
-| Generated file name |
-| ------------------- |
-| `<Name>Template.tt` |
-
-This file is for authoring the output of the template in [T4 syntax](https://docs.microsoft.com/visualstudio/modeling/writing-a-t4-text-template). Every time this file is saved the IDE will auto "pre-compile" it and re-generate the backing `<Name>Template.cs` file which contains a [partial](https://docs.microsoft.com/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods) class named `<Name>Template`.
-
-### 2. Template partial file
+### 1. Template partial file
 
 | Generated file name        |
 | -------------------------- |
 | `<Name>TemplatePartial.cs` |
 
-This file contains the other part of the `<Name>Template` partial class. On initial generation it contains the class constructor and the `DefineFileConfig` method.
+This file is the logic to render your c# file(s). On initial generation it contains the class constructor and the `DefineFileConfig` method. In this class you can control the output of the template or adjust its config.
 
-In it you can control the instantiation of the template or adjust its config, but it is exceptionally useful though as a place to create helper methods or properties which can be conveniently used in your `.tt` file.
+In the case of the `C# File Builder` the template, you would use the `CSharpFile` builder class to construct you output, using the various Apis it provides for constructing a C# file. 
 
-While it's possible to make methods in the `.tt` file itself, we've found (from a code organization and ergonomics perspective) it works much better to create methods in a partial file than the template.
+Some Template Methods produce a 3rd file, which is the `View` aspect of the template, for example T4, would produce a `<Name>Template.tt` file.
 
-Any methods or properties in this partial class are accessible in the `.tt` as easily as doing `<#= PropertyName #>` (for properties) or `<#= MethodName() #>` (for methods).
 
-### 3. Template registration file
+### 2. Template registration file
 
 | Generated file name             |
 | ------------------------------- |
@@ -151,19 +148,19 @@ Ultimately, the output location of a Template instance is determined by two fact
 
 #### 1. The `Template Output` location
 
-That is to say, under which folder or project the Template's `Template Output` is placed within the application. With C# Templates this is typically determined using the `Visual Studio` Designer. In the example below we can see that the `Template Output` for `Intent.AspNetCore.Startup` will be placed in the `ExampleApp.Api` project:
+That is to say, under which folder or project the Template's `Template Output` is placed within the application. With C# Templates this is typically determined using the `Visual Studio` Designer. In the example below we can see that the `Template Output` for `Intent.AspNetCore.Startup` will be placed in the `MyApplication.Api` project:
 
 ![Template Output in Visual Studio](images/visual-studio-template-output.png)
 
 > [!TIP]
 > We can easily change where a Template's output will be created by dragging the `Template Output` element into a different folder or project.
 
-#### 2. The Template's `relativeLocation` configuration
+#### 2. The Template's `Default Location` configuration
 
-The `relativeLocation` is set relative to the `Template Output`'s location as described above. So for example use the `relativeLocation` of `Controllers` to place the Template inside the `Controllers` folder located in the `ExampleApp.Api` project.
+The `Default Location` is set relative to the `Template Output`'s location as described above. So for example use the `Default Location` of `Controllers` to place the Template inside the `Controllers` folder located in the `MyApplication.Api` project.
 
 > [!TIP]
-> The `relativeLocation`'s default of `this.GetFolderPath()` will respect any folders in the Designer that the `Model` element instance was created within.
+> The `Default Location`'s default of `this.GetFolderPath()` will respect any folders in the Designer that the `Model` element instance was created within.
 
 ## Convenience and utility features for C# file generation
 

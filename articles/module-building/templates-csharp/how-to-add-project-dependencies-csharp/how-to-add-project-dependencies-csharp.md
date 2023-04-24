@@ -9,14 +9,14 @@ For other cases where you want to specify a project dependency without using `Ge
 
 ![Example solution layout](images/sample-solution.png)
 
-From the above example, you would like to force `NewApplication5.Api` to have a reference to `NewApplication5.Infrastructure`.
+From the above example, you would like to force `MyApplication.Api` to have a reference to `MyApplication.Infrastructure`.
 
-In the constructor for template within the project where the reference should be created, for example `Intent.AspNetCore.Startup`, you would add the following:
+In the constructor for a template within the project where the reference should be created, for example `Intent.AspNetCore.Startup`, you would add the following:
 
 ```csharp
 AddProjectDependency("Infrastructure");
 ```
 
-`Infrastructure` in this case is the name of a role which can be seen in the above screenshot as being within the `NewApplication5.Infrastructure` project that we want to force a reference to.
+`Infrastructure` in this case is the name of a role which can be seen in the above screenshot as being within the `MyApplication.Infrastructure` project that we want to force a reference to.
 
-With this line added, the software factory when running the `Intent.AspNetCore.Startup` template will ensure that a project reference exists to the project containing the role, `NewApplication5.Infrastructure`.
+With this line added, the software factory when running the `Intent.AspNetCore.Startup` template will ensure that a project reference exists to the project containing the role, `MyApplication.Infrastructure`.

@@ -23,12 +23,6 @@ An `Application Installation` dialogue will pop up showing the progress of downl
 
 [!Video-Loop videos/create-a-new-module.mp4]
 
-## Update modules
-
-![Update modules indicator](images/update-modules-indicator.png)
-
-In the event that [Modules](xref:application-development.applications-and-solutions.about-modules) shows the update indicator, please ensure that all your modules are kept up to date for the best possible experience.
-
 ## Open and rename the package
 
 Click on `Module Builder` on the left of the screen to enter the designer.
@@ -74,9 +68,9 @@ During the Software Factory Execution, Intent Architect generated a Visual Studi
 Navigate to the folder where the `.sln` solution file (and associated files) has been placed and open it with Visual Studio.
 
 > [!TIP]
-> Intent Architect can open the folder where the generated content was placed by you going to the Application's `Settings` screen and clicking on the path hyperlink located under the `Relative Output Location` input:
+> Intent Architect can open the folder where the generated content was placed by you using the Application's context menu and clicking `Open output location`:
 >
-> ![Open the output path folder](images/open-the-output-path-folder.png)
+> ![Open the output path folder](images/output-location-application.png)
 
 Go to the `MyModules` Project and expand the `Templates` folder and then the `EntityBase` folder.
 

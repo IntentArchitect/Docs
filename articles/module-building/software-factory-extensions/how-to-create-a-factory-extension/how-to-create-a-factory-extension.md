@@ -17,7 +17,7 @@ This guide assumes that you have a Module Project already setup to work from. If
 Inside your Module Builder designer, right click on the package and select `New Factory Extension`.
 Give it the name of `NpmInstallFactoryExtension`.
 
-[!Video-Loop videos/create-factory-extension.mp4]
+![Create Factory Extension](images/create-factory-extension.png)
 
 > [!NOTE]
 > Make sure to Run the Software Factory Execution as this will generate the Factory Extension code.
@@ -36,31 +36,30 @@ using Intent.Modules.Common.Plugins;
 using Intent.Plugins.FactoryExtensions;
 using Intent.RoslynWeaver.Attributes;
 using Intent.Utils;
-using System;
 using System.Diagnostics;
 using System.IO;
+using System;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.ModuleBuilder.Templates.FactoryExtension", Version = "1.0")]
 
-namespace ExtensionModule.FactoryExtensions
+namespace SampleModule.FactoryExtensions
 {
-    [IntentManaged(Mode.Merge)]
-    public class NpmInstallFactoryExtension : FactoryExtensionBase, IExecutionLifeCycle
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public class NpmInstallFactoryExtension : FactoryExtensionBase
     {
-        public override string Id => "MyModules.Extension.NpmInstallFactoryExtension";
-        public override int Order => 0;
+        public override string Id => "SampleModule.NpmInstallFactoryExtension";
 
         [IntentManaged(Mode.Ignore)]
-        public void OnStep(IApplication application, string step)
+        public override int Order => 0;
+
+        protected override void OnAfterCommitChanges(IApplication application)
         {
-            if (step == ExecutionLifeCycleSteps.AfterCommitChanges)
+            try
             {
-                try
+                var cmd = new Process
                 {
-                    var cmd = new Process
-                    {
-                        StartInfo =
+                    StartInfo =
                         {
                             FileName = "cmd.exe",
                             RedirectStandardInput = true,
@@ -69,21 +68,20 @@ namespace ExtensionModule.FactoryExtensions
                             UseShellExecute = false,
                             WorkingDirectory = Path.GetFullPath(application.RootLocation)
                         }
-                    };
-                    cmd.Start();
+                };
+                cmd.Start();
 
-                    cmd.StandardInput.WriteLine("npm install");
+                cmd.StandardInput.WriteLine("npm install");
 
-                    cmd.StandardInput.Flush();
-                    cmd.StandardInput.Close();
+                cmd.StandardInput.Flush();
+                cmd.StandardInput.Close();
 
-                    var output = cmd.StandardOutput.ReadToEnd();
-                    Logging.Log.Info(output);
-                }
-                catch (Exception e)
-                {
-                    Logging.Log.Failure($@"Failed to execute: ""npm install"", Reason: {e.Message}");
-                }
+                var output = cmd.StandardOutput.ReadToEnd();
+                Logging.Log.Info(output);
+            }
+            catch (Exception e)
+            {
+                Logging.Log.Failure($@"Failed to execute: ""npm install"", Reason: {e.Message}");
             }
         }
     }
@@ -100,3 +98,12 @@ Install your Module to your Test Application in Intent Architect. Follow these [
 Once that is done, run the Software Factory and click on the Apply button. Then you will observe the following at the end of the process in the console output:
 
 ![Complete](images/software-factory-execution-complete.png)
+
+## Factory Extension extension points
+
+If the above example the factory extension used the `OnAfterCommitChanges` extension point, here is a list of all the commonly used extension points.
+
+* OnAfterTemplateRegistrations
+* OnBeforeTemplateExecution
+* OnAfterCommitChanges
+
