@@ -54,7 +54,7 @@ Once the `Application Installation` is complete, you will see a 'Ready' message.
     > [!IMPORTANT]
     > This must be a valid version for the Module name chosen above.
 
-[!Video-Loop videos/add-a-module.mp4]
+![Add a Module](images/add-module.png)
 
 ## Run the Software Factory to generate the module
 
