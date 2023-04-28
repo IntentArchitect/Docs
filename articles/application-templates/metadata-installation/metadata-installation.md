@@ -5,7 +5,10 @@ uid: module-building.application-templates.metadata-installation
 
 ## Overview
 
-Intent Architect can automatically install metadata for Designers as an Intent Architect Application is created from an [Application Template](xref:application-templates.overview) or alternatively as a Module is installed/reinstalled.
+Intent Architect can automatically install metadata for Designers as an Intent Architect Application is created from an [Application Template](xref:application-templates.overview) or alternatively as a Module is installed.
+
+> [!NOTE]
+> Metadata installation for a Module does not occur it is being upgraded or re-installed, this allows users to delete installed metadata from Designers without it "coming back" again each time a Module is updated or re-installed.
 
 During packaging of both Application Templates and Modules, the Intent Architect packager will look for any `.installation.config` files present in the `content` sub-folder. We recommend following a convention of naming `.installation.config` files after the designer for which they have metadata, for example `visual-studio.installation.config` for the Visual Studio designer or `domain.installation.config` for the Domain Designer.
 
@@ -30,7 +33,7 @@ Additionally, [Field Configuration values can be used](xref:module-building.appl
 
 ## Metadata merging
 
-To avoid duplicate elements from being created each time a Module is re-installed, Intent Architect merges the metadata to install with any metadata already existing in the designer. For each element it needs to install, it searches in all folders by its `id` in the `.installation.config` file with the `externalReference` value in the Designer's existing metadata. If no match is found by `id` and `externalReference` it will then try match by name and folder path within the metadata.
+To avoid duplicate elements from being created, Intent Architect merges the metadata to install with any metadata already existing in the designer. For each element it needs to install, it searches in all folders by its `id` in the `.installation.config` file with the `externalReference` value in the Designer's existing metadata. If no match is found by `id` and `externalReference` it will then try match by name and folder path within the metadata.
 
 When there is a match it will merge child elements recursively following the same logic.
 
