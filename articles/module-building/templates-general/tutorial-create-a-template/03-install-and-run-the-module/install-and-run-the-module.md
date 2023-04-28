@@ -17,9 +17,8 @@ To get started, let's create an empty Application.
 
 1. From the home view, click `Create a new application`.
 2. Set the Application's name, location, and Solution name. _NOTE: You can ignore which Application Template is selected. It won't affect an empty application._
-3. Click `CREATE EMPTY` _NOTE: With `CREATE EMPTY` the selected application template is ignored)._
+3. Click `CREATE EMPTY` _NOTE: With `CREATE EMPTY` the selected application template is ignored._
 4. When prompted with a confirmation, click `YES` to continue.
-5. Hide the `Application Installation` dialog.
 
 ![Create Test Application](images/create-test-application.png)
 
@@ -46,9 +45,9 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 1. Click on the `Visual Studio` Designer
 2. Create a new `Visual Studio Solution` package by clicking on the `CREATE NEW PACKAGE` button.
 3. Fill in the name of the Visual Studio solution, then click `DONE`.
-4. Next, create a set of projects by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create an `ASP.NET Core Web Application` and two `Class Library (.NET Core)` projects in this tutorial.
+4. Next, create a set of projects by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create an `ASP.NET Core Web Application` and two `C# Project (.NET)` projects in this tutorial.
 
-    ![Create Projects](images/visual-studio-create-projects.gif)
+    [!Video-Loop videos/visual-studio-create-projects.mp4]
 
     The application structure should look as follows:
 
@@ -59,14 +58,14 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 
 ## Install the Module
 
-Next, let's install the Module we created in the [previous step](xref:module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template). To do this, we first navigate to the `Modules` tab of our Application.
+Next, let's install the Module we created in the [previous step](xref:module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template). To do this, we first navigate to the `Modules` tab of our Application. Right click on the `TestApp` application and select `Manage Modules` .
 
 ### Finding and Installing the Module
 
 By default, Intent Architect is configured only with the repository for official Modules hosted at [https://intentarchitect.com/](https://intentarchitect.com/). To be able to use our own Module we need to make a new repository which is set to the folder where our `MyModules.Entities.1.0.0.imod` file was created.
 
 1. Open `Manage Repositories` from the [Profile Menu](xref:application-development.applications-and-solutions.how-to-manage-repositories#profile-menu).
-2. Add a new Repository with a unique `Name` (e.g. "My Modules") and the `Address` value being the full location of the folder where our Module was created (e.g. `C:\Dev\MyModules\Intent.Modules`).
+2. Add a new Repository with a unique `Name` (e.g. "My Modules") and the `Address` value being the full location of the folder where our Module was created (e.g. `C:\Code\MyModules\Intent.Modules`).
 3. Reorder the repositories so that this new one is at the top.
 4. Click `Save`.
 
@@ -75,13 +74,13 @@ By default, Intent Architect is configured only with the repository for official
 
    > [!TIP]
    > You can also go to the Respository dropdown and select your newly created Respository which will list only the Modules you have created.
-6. Install the Module and `HIDE` when done.
+6. Install the Module.
 
-    [!Video-Loop videos/selecting-repository-and-installing-module.mp4]
+![Install the Module](images/selecting-repository-and-installing-module.png)
 
 ### Assigning the Template Output
 
-After the installation of the module, notice that two parts of the UI are now showing warning symbols.
+After the installation of the module, notice that the minimized Software Factory is now showing a warning symbol.
 ![Warnings displayed after Module Installation](images/after-module-install-sf-warnings.png)
 
 This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project that triggered a re-run of the Software Factory Execution.

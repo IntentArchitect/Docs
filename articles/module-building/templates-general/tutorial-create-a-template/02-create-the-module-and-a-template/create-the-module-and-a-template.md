@@ -113,7 +113,7 @@ Save your changes and build the project.
 [!Video-Loop videos/edit-template-and-build-in-visual-studio.mp4]
 
 Once the build has been completed you will notice that the `Build` log includes the following line:
-`Successfully created package C:\Dev\MyModules\Intent.Modules\MyModules.Entities.1.0.0.imod`
+`Successfully created package C:\Code\MyModules\Intent.Modules\MyModules.Entities.1.0.0.imod`
 
 This was output by the Intent Packager and lets you know where it has placed the built Module.
 
