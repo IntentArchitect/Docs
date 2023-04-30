@@ -9,18 +9,17 @@ In this next part of the tutorial, we will extend our `MyModules.Entities` Modul
 
 First, to access the `Domain` types so that we can configure our Template correctly, we must install metadata from the `Intent.Modelers.Domain` Module into our Module Builder.
 
-1. Open the `MyModules` Application in Intent Architect.
-2. Navigate to the `Modules` tab.
-3. Ensure that the `All` option in the repository drop-down is selected.
-4. Search for the `Intent.Modelers.Domain` Module.
-5. In the Module details pane, expand the `Options` and check the `Install metadata only` checkbox.
+1. Right click on the `MyModules` Application in Intent Architect, and select `Manage Modules`.
+2. Ensure that the `All` option in the repository drop-down is selected.
+3. Search for the `Intent.Modelers.Domain` Module.
+4. In the Module details pane, expand the `Options` and check the `Install metadata only` checkbox.
 
     > [!NOTE]
     > By selecting the `Install Metadata only` option, Intent Architect will not install the Designer. This feature is typically used in the Module Builder.
     >
     > [!NOTE]
     > A Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now).
-6. Click `Install` to install the Module.
+5. Click `Install` to install the Module.
 
 [!Video-Loop videos/modules-install-domain-metadata-only.mp4]
 
@@ -30,13 +29,14 @@ Next, we will create a new Template that we can configure to receive the models 
 
 1. Navigate to the `Module Builder` Designer.
 2. Create a new C# Template, call it `Entity`, and set its type to be `File per Model`.
-3. In the properties panel, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
+4. In the properties panel, under `C# Template Settings`, set its `Templating Method` to `T4 Templating`.
+4. In the properties panel, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
 
     > [!NOTE]
     > These options are available because we installed the `Intent.Modelers.Domain` Module's metadata in the previous step.
-4. Save your changes.
-5. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
-6. Click `APPLY CHANGES`.
+5. Save your changes.
+6. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
+7. Click `APPLY CHANGES`.
 
 [!Video-Loop videos/module-builder-create-entity-template.mp4]
 
@@ -145,8 +145,6 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 >
 > [!TIP]
 > Instead of having to manually assign Template Outputs, it can be done automatically by Intent Architect during Module installation through [use of roles](xref:module-building.templates-general.configuring-a-templates-default-output-location).
-
-[!Video-Loop videos/after-module-changes-steps.mp4]
 
 ## Visually model a test domain
 

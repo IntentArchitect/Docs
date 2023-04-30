@@ -29,18 +29,23 @@ The `Task Output` dialogue will pop up showing the progress of downloading and i
 
 ## Configure Explicit Key Creation
 
-Click on the `Settings` tab on the left hand side. Locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown. It will become apparent in the next section.
+The application `Settings` tab should be open, locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown. It will become apparent in the next section.
 
 > [!NOTE]
 > In the Database Settings section, make note that Key Type is `guid` as this is the type we will be using later for our Primary Keys.
 
 ![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
 
+> [!NOTE]
+> You can get back to your Application settings through it's context menu.
+> ![Application Context Menu](images/application-context-menu.png)
+
+
 ## Create the Domain Entities
 
 Click on `Domain` on the left of the window to enter the [designer](xref:application-development.modelling.domain-designer.how-to-use-the-domain-designer).
 
-Expand the `Domain` element and then double-click the `Default Diagram` element to enter into it.
+Out the box, the designer will add, and open, a `Default Diagram` to start visual modelling on.
 
 ![Opening the Default Diagram](images/open-default-diagram.png)
 
@@ -56,8 +61,8 @@ Entities can be added to the domain designer by right-clicking on the background
 
 Create a `Pet` entity and then right-click it (on either the visual diagram's block or the tree view element) and then select the `Add Attribute` option to add the following attributes:
 
-- `name` of type `string`
-- `birthDate` of type `date`
+- `Name` of type `string`
+- `BirthDate` of type `date`
 
 [!Video-Loop videos/create-entity-pet.mp4]
 
@@ -66,11 +71,11 @@ Create a `Pet` entity and then right-click it (on either the visual diagram's bl
 
 Create an `Owner` entity with the following attributes:
 
-- `firstName` of type `string`
-- `lastName` of type `string`
-- `address` of type `string`
-- `city` of type `string`
-- `telephone` of type `string`
+- `FirstName` of type `string`
+- `LastName` of type `string`
+- `Address` of type `string`
+- `City` of type `string`
+- `Telephone` of type `string`
 
 > [!TIP]
 > Follow this [shortcut demonstration](xref:application-development.user-interface.keyboard-shortcuts#create-new-element-of-selected-type) to add multiple attributes without using the mouse.
@@ -123,93 +128,75 @@ Create the `OwnerRestController` service in the `Services` package by right-clic
 
 ![How the Owner Service should now appear](images/create-service-owner.png)
 
-Create the `OwnerDTO`:
+Create the `OwnerDto`:
 
 - Right-click on the `Services` package and select the `New DTO` option.
-- Give it the name `OwnerDTO`.
+- Give it the name `OwnerDto`.
 
 Also, create the following additional DTOs:
 
-- `PetDTO`
-- `PetVisitDTO`
-- `OwnerCreateDTO`
+- `PetDto`
+- `OwnerCreateDto`
 
-Right-click the `OwnerCreateDTO` element and click the `Add Field` option to add the following fields:
+Right-click the `OwnerCreateDto` element and click the `Add Field` option to add the following fields:
 
-- `firstName` with type of `string`.
-- `lastName` with type of `string`.
-- `address` with type of `string`.
-- `city` with type of `string`.
-- `telephone` with type of `string`.
+- `FirstName` with type of `string`.
+- `LastName` with type of `string`.
+- `Address` with type of `string`.
+- `City` with type of `string`.
+- `Telephone` with type of `string`.
 
 ![How the Service DTOs should now appear](images/create-service-dtos.png)
 
 ## Map the DTO fields from Domain Entities
 
-- Right-click the `PetVisitDTO` element and click on the `Map from Domain...` option.
-- Pull down the `Select an element to map from` the dropdown and observe that it has a list of the modelled domain entities.
-- Choose the `Visit` Entity.
-- Ensure that the following attributes are checked:
-  - `Id`
-  - `visitDate`
-  - `description`
-
-Click `DONE`.
-
-[!Video-Loop videos/service-mapping-pet-visit.mp4]
-
-Similarly for `PetDTO`:
-
-- Right-click the `PetDTO` element and click on the `Map from Domain...` option.
+- Right-click the `PetDto` element and click on the `Map from Domain...` option.
 - Select the `Pet` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `Id`
-  - `name`
-  - `birthDate`
+  - `Name`
+  - `BirthDate`
   - `Visits`
 - Expand the `PetType` association and ensure the following attributes under it are checked:
-  - `name`
+  - `Name`
 - Expand the `Owner` association and ensure the following attributes under it are checked:
-  - `firstName`
-  - `lastName`
+  - `FirstName`
+  - `LastName`
 
 Click `DONE`.
 
-You will see that the `Visits` field has been highlighted in red, this is because it is mapping to a collection of another DTO and Intent Architect still needs you to specify which DTO should be used:
+You will see that the `Visits` field has automatically been mapped to a `VisitsDto`, which has been added for you:
 
-- Select the `Visits` element.
-- In the properties pane on the right, change the `Type` to `PetVisitDTO`.
+You will see that the `PetDto` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique it is generally suggested to make the name the same as the path:
 
-You will see that the `PetDTO` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique it is generally suggested to make the name the same as the path, but without the periods, while also adopting the [camel casing](https://en.wikipedia.org/wiki/Camel_case) convention:
-
-- `name` from `PetType.name` becomes `petTypeName`.
-- `firstName` from `Owner.firstName` becomes `ownerFirstName`.
-- `lastName` from `Owner.lastName` becomes `ownerLastName`.
+- `Name` from `PetType.name` becomes `PetTypeName`.
+- `FirstName` from `Owner.firstName` becomes `OwnerFirstName`.
+- `LastName` from `Owner.lastName` becomes `OwnerLastName`.
 
 [!Video-Loop videos/service-mapping-pet.mp4]
 
-Lastly, for `OwnerDTO`:
+Lastly, for `OwnerDto`:
 
-- Right-click the `OwnerDTO` element and click on the `Map from Domain...` option.
+- Right-click the `OwnerDto` element and click on the `Map from Domain...` option.
 - Select the `Owner` Entity from the bottom drop-down.
 - Ensure that the following attributes are checked:
   - `Id`
-  - `firstName`
-  - `lastName`
-  - `address`
-  - `city`
-  - `telephone`
+  - `FirstName`
+  - `LastName`
+  - `Address`
+  - `City`
+  - `Telephone`
   - `Pets`
 - Click `DONE`
 - Select the `Pets` element.
-- In the properties pane on the right, change the `Type` to `PetDTO`.
 
 ## Add Operations to the Service
 
 - Right-click on the `OwnerRestController` element and click the `Add Operation` option.
-- Name it `getOwners` and set the return type to `OwnerDTO`.
+- Name it `GetOwners` and set the return type to `OwnerDto`.
 - In the properties pane on the right:
   - Ensure `Is Collection` is checked.
+- Right-Click on the `GetOwners` operation and click `Expose as Http Endpoint`.
 
 ![Services view with the getOwners operation added](images/services-add-get-owners.png)
 

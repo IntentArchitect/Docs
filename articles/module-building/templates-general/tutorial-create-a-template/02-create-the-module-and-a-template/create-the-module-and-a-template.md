@@ -40,7 +40,9 @@ Enter a name for the `Package` (such as `MyModules.Entities`) and press `ENTER`.
 
 Right-click the Package and click the `New C# Template` option:
 
-Name it `EntityBase` and for its type select `Single File`:
+Name it `EntityBase` and for its type select `Single File`.
+
+On the Properties window, change `Templating Method` to `T4 Template`
 
 [!Video-Loop videos/create-the-template.mp4]
 
