@@ -13,14 +13,14 @@ In Intent Architect, open the `MyModule` solution (as was created in the tutoria
 
 Right click on the Entity Template and select `Add Decorator Contract`. Give this contract a name of `FieldAttributeDecoratorContract`.
 
-[!Video-Loop videos/template-decorator-contract.mp4]
+![Create Decorator Contract](images/add-decorator-contract.png)
 
 ## Creating a Decorator
 
 Right click on the package and select `New Template Decorator`.
 Give it the name of `DataAnnotationValidationDecorator` and select (as the type) `FieldAttributeDecoratorContract`.
 
-[!Video-Loop videos/create-decorator.mp4]
+![Create Decorator](images/add-decorator.png)
 
 > [!NOTE]
 > Make sure to Run the Software Factory Execution as this will generate the Decorator as well as the Contract for the Template.
@@ -87,7 +87,7 @@ Next open the `EntityTemplatePartial.cs` file and add the following method imple
 public string GetAttributesForClassAttribute(AttributeModel attributeModel)
 {
     return GetDecoratorsOutput(decorator => string.Join(
-        separator: $"{Environment.NewLine}{base.CurrentIndent}",
+        separator: $"{System.Environment.NewLine}{base.CurrentIndent}",
         values: decorator.GetEntityFieldAttributes(attributeModel)));
 }
 ```

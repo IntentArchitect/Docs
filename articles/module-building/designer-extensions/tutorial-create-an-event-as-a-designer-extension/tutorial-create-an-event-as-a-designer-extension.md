@@ -24,13 +24,11 @@ Click `NEXT` and on the following screen ensure that the following extra options
 
 Click `CREATE`:
 
-![Installation Dialog](images/installation-dialog.png)
-
-Once the `Application Installation` is complete, click `CLOSE`.
+Once the `Application Installation` is complete, you will see a `Ready` message in the `Taskbar`.(bottom left of Intent Architect).
 
 ## Install the Domain designer
 
-- Click on `Modules` on the left.
+- Right-Click on the `DomainDesignerExtension` Application and select the `Manage Modules` option.
 - Search for `Intent.Modelers.Domain`.
 - Expand `Options` on the right.
 - Check `Install metadata only`.
@@ -61,10 +59,10 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Select the `Property` element and in the Properties pane on the right:
   - Change `Mode` to `Required`.
   - For `Target Types` add `Class`, `Enum` and `Type-Definition`.
-- Right-click the `[context-menu]` element (the one directly within `DomainEventSettings`) and click the `Add Element Creation` option.
+- Right-click the `[context-menu]` element (the one directly within `Domain Event`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Property` and select the `Property` type for it:
 
-[!Video-Loop videos/design-setup-element.mp4]
+![Design Domain Event](images/design-domain-event.png)
 
 ## Create an `Add Event` context menu option for `Folder` elements
 
@@ -74,7 +72,7 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `[context-menu]` element (the one directly within `Folder Extension`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Event` and select the `Domain Event` type for it:
 
-[!Video-Loop videos/folder-add-event-context-menu-option.mp4]
+![Add Folder Extension](images/add-folder-extension.png)
 
 ## Create an `Add Event` context menu option for `Package` elements
 
@@ -83,14 +81,14 @@ Once the `Application Installation` is complete, click `CLOSE`.
 - Right-click the `[context-menu]` element (the one directly within `Package Settings`) and click the `Add Element Creation` option.
 - Give the new element a name of `Add Event` and select the `Domain Event` type for it:
 
-[!Video-Loop videos/package-add-event-context-menu-option.mp4]
+![Add Package Extension](images/add-package-extension.png)
 
 ## Create the Stereotype
 
 - Right-click the root Package element and click the `New Stereotype-Definition` option.
 - Give the new Stereotype Definition a name of `Has Domain Event`.
 - Select the `Has Domain Event` element and in the Properties pane on the right:
-  - For `Targets` add `Class`.
+  - For `Target Types` add `Class`.
 - Right-click the `Has Domain Event` element and click the `Add Property` option.
 - Give the Property a name of `Event`.
 - Select the `Event` element and in the Properties pane on the right:

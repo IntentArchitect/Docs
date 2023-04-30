@@ -124,7 +124,7 @@ Also set up a `PetType` entity in a similar way:
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
 
-Create the `OwnerRestController` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
+Create the `OwnerController` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
 
 ![How the Owner Service should now appear](images/create-service-owner.png)
 
@@ -192,15 +192,16 @@ Lastly, for `OwnerDto`:
 
 ## Add Operations to the Service
 
-- Right-click on the `OwnerRestController` element and click the `Add Operation` option.
+- Right-click on the `OwnerController` element and click the `Add Operation` option.
 - Name it `GetOwners` and set the return type to `OwnerDto`.
 - In the properties pane on the right:
   - Ensure `Is Collection` is checked.
 - Right-Click on the `GetOwners` operation and click `Expose as Http Endpoint`.
+- Click on the `OwnerController`, in the `Properties` window change the Route to `api/Owner`
 
 ![Services view with the getOwners operation added](images/services-add-get-owners.png)
 
-- Right-click on the `OwnerRestController` element and click the `Add Operation` option.
+- Right-click on the `OwnerController` element and click the `Add Operation` option.
 - Name it `addOwner` and leave the return type blank.
 - Right-click the `addOwner` element and click the `Add parameter` option.
 - Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
@@ -241,7 +242,7 @@ If you're running Visual Studio, it should automatically open the website in you
 
 ![Initial Swagger Page](images/app-browser-swagger.png)
 
-Click on the `POST` version of the `/api/OwnerRest` panel and then click on the `Try it out` button.
+Click on the `POST` version of the `/api/Owner` panel and then click on the `Try it out` button.
 
 Paste the following in the request body text box:
 
@@ -261,7 +262,7 @@ It should show a success result which means that the application should have add
 
 ![Screenshot of Swagger UI showing the results of the POST request](images/app-browser-swagger-add-owner-resp.png)
 
-To see the database record inserted above, in Swagger now click on the `GET` version of the `/api/OwnerRest` panel and click on the `Try it out` button followed by clicking on the blue `Execute` button.
+To see the database record inserted above, in Swagger now click on the `GET` version of the `/api/Owner` panel and click on the `Try it out` button followed by clicking on the blue `Execute` button.
 
 It should also have a success result as well as an array of JSON results including the entry you created above.
 
