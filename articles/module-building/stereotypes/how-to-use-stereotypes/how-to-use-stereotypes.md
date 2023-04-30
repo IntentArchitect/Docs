@@ -26,7 +26,7 @@ In the Properties pane on the right of the screen, ensure that:
 - `Targets` has `Class`.
 - `Apply Mode` is set to `Manually`.
 - `Icon` is specified to be a Boxed Character "E" on a Black background `E|#0`.
-- `Display Icon` is checked.
+- `Display Icon` is should be `return true;`.
 
 [!Video-Loop videos/create-basic-stereotype.mp4]
 
@@ -62,7 +62,13 @@ Right-click on the `Entity` Stereotype Definition.
 
 Open the Module application in Intent Architect where your [Stereotype Definition](#add-properties-to-a-stereotype) is located, then open the `Module Builder` Designer.
 
-Add a Template called `EntityClass` and once you have executed the Software Factory, add the following content to the generated `EntityClassTemplate.tt` file:
+Add a `C# Template` called `EntityClass` with the following properties:
+- `Type` set to `File Per Model`
+- `Templating Method` set to `T4 Templating`
+- `Designer` set to `Domain`
+- `Model Type` set to `Class`
+
+Now execute the Software Factory, add the following content to the generated `EntityClassTemplate.tt` file:
 
 ```cs
 <#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>

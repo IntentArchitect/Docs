@@ -3,7 +3,7 @@ uid: module-building.application-settings
 ---
 # Application Settings
 
-Application Settings offer Modules the ability to let end-users customize certain parts and behaviors of it within Intent Architect. These Settings can be located on the `Settings` screen within your Application. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
+Application Settings offer Modules the ability to let end-users customize certain parts and behaviors of it within Intent Architect. These Settings can be located through the Application's context menu option `Settings`. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
 
 ![Application Settings Example](images/application-module-settings.png)
 

@@ -113,19 +113,19 @@ After the Software Factory has applied the changes, you'll see that it runs `dot
 Take note of the following line in the output for the following step:
 
 ```text
-Successfully created module C:\Dev\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod
+Successfully created module C:\Code\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod
 ```
 
 Click `CLOSE`.
 
 ## Test your Designer Extension Module
 
-Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:application-development.applications-and-solutions.how-to-manage-repositories). For the above output, the full path of the module is `C:\Dev\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
+Ensure you have added the output path as noted in the above step as a repository in the [Repository Manager](xref:application-development.applications-and-solutions.how-to-manage-repositories). For the above output, the full path of the module is `C:\Code\MySolution\Intent.Modules\DomainDesignerExtension.1.0.0.imod`, so the repository would point to its folder, which is `C:\Dev\MySolution\Intent.Modules`:
 
 ![Manage Repositories](images/repo-manager-module-folder.png)
 
 - Open or create the Intent Architect application where you want to install your newly created Module.
-- Click on the Modules option on the panel to the left.
+- Right-Click on the application and select `Manage Modules`.
 - Ensure the application has the `Intent.Modelers.Domain` module installed.
 - Select your repository from the drop-down on the right and locate your Module to install:
 
