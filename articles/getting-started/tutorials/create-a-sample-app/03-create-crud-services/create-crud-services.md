@@ -61,58 +61,65 @@ using PetClinicRest.Application.Pets;
 using PetClinicRest.Domain.Entities;
 using PetClinicRest.Domain.Repositories;
 
-[assembly: DefaultIntentManaged(Mode.Merge)]
-[assembly: IntentTemplate("Intent.Application.ServiceImplementations", Version = "1.0")]
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("Intent.Application.ServiceImplementations.ServiceImplementation", Version = "1.0")]
 
 namespace PetClinicRest.Application.Implementation
 {
+    [IntentManaged(Mode.Merge)]
     public class PetsService : IPetsService
     {
-        private IPetRepository _petRepository;
-        private IMapper _mapper;
+        private readonly IPetRepository _petRepository;
+        private readonly IMapper _mapper;
 
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public PetsService(IPetRepository petRepository, IMapper mapper)
         {
             _petRepository = petRepository;
             _mapper = mapper;
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public async Task Create(PetCreateDTO dto)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<Guid> CreatePet(PetCreateDto dto)
         {
             var newPet = new Pet
             {
                 Name = dto.Name,
                 BirthDate = dto.BirthDate,
+                OwnerId = dto.OwnerId,
+                PetTypeId = dto.PetTypeId,
             };
-
             _petRepository.Add(newPet);
+            await _petRepository.UnitOfWork.SaveChangesAsync();
+            return newPet.Id;
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public async Task<PetDTO> FindById(Guid id)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<PetDto> FindPetById(Guid id)
         {
             var element = await _petRepository.FindByIdAsync(id);
-            return element.MapToPetDTO(_mapper);
+            return element.MapToPetDto(_mapper);
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public async Task<List<PetDTO>> FindAll()
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task<List<PetDto>> FindPets()
         {
             var elements = await _petRepository.FindAllAsync();
-            return elements.MapToPetDTOList(_mapper);
+            return elements.MapToPetDtoList(_mapper);
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public async Task Update(Guid id, PetUpdateDTO dto)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task UpdatePet(Guid id, PetUpdateDto dto)
         {
             var existingPet = await _petRepository.FindByIdAsync(id);
             existingPet.Name = dto.Name;
             existingPet.BirthDate = dto.BirthDate;
+            existingPet.OwnerId = dto.OwnerId;
+            existingPet.PetTypeId = dto.PetTypeId;
         }
 
-        [IntentManaged(Mode.Merge, Body = Mode.Ignore, Signature = Mode.Fully)]
-        public async Task Delete(Guid id)
+        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+        public async Task DeletePet(Guid id)
         {
             var existingPet = await _petRepository.FindByIdAsync(id);
             _petRepository.Remove(existingPet);
