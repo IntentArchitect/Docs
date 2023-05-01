@@ -103,6 +103,7 @@ Create an association between `Owner` and `Pet`:
 
 Set up a `Visit` entity to be as follows:
 
+- Add a `Visit` entity.
 - Add an association from `Pet` to `Visit`:
   - In the property pane (in the bottom-right corner of the window) within the `Target End` section ensure that `Is Collection` is checked.
   - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
@@ -111,7 +112,7 @@ Set up a `Visit` entity to be as follows:
   - `description` of type `string`.
 
 Also set up a `PetType` entity in a similar way:
-
+- Add a `PetType` entity.
 - Add an association from `Pet` to `PetType`:
   - In the property pane (in the bottom-right corner of the window) within the `Target End` section, ensure that `Is Collection` is *un*checked.
   - In the property pane within the `Source End` section, ensure that `Is Collection` is checked.
@@ -124,7 +125,7 @@ Also set up a `PetType` entity in a similar way:
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
 
-Create the `OwnerController` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
+Create the `OwnersService` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
 
 ![How the Owner Service should now appear](images/create-service-owner.png)
 
@@ -138,15 +139,18 @@ Also, create the following additional DTOs:
 - `PetDto`
 - `OwnerCreateDto`
 
-Right-click the `OwnerCreateDto` element and click the `Add Field` option to add the following fields:
+Right-click the `OwnerCreateDto` element and click the `Project to Domain`, in the expanded `Dropdown` choose `Owner`, in the `TreeView` check the following:
 
-- `FirstName` with type of `string`.
-- `LastName` with type of `string`.
-- `Address` with type of `string`.
-- `City` with type of `string`.
-- `Telephone` with type of `string`.
+- `FirstName` 
+- `LastName` 
+- `Address` 
+- `City` 
+- `Telephone` 
 
-![How the Service DTOs should now appear](images/create-service-dtos.png)
+[!Video-Loop videos/project-to-domain.mp4]
+
+> [!NOTE]
+> `Project to Domain` and `Map from Domain` are both options for creating mappings between Domain Entities and Dto's. `Project to Domain` is typically used for in-bound Dto's which tend to be more loosely coupled to the domain,  `Map from Domain` is typically used for out-bound Dto's 
 
 ## Map the DTO fields from Domain Entities
 
@@ -192,18 +196,17 @@ Lastly, for `OwnerDto`:
 
 ## Add Operations to the Service
 
-- Right-click on the `OwnerController` element and click the `Add Operation` option.
-- Name it `GetOwners` and set the return type to `OwnerDto`.
+- Right-click on the `OwnersService` element and click the `Add Operation` option.
+- Name it `FindOwners` and set the return type to `OwnerDto`.
 - In the properties pane on the right:
   - Ensure `Is Collection` is checked.
-- Right-Click on the `GetOwners` operation and click `Expose as Http Endpoint`.
-- Click on the `OwnerController`, in the `Properties` window change the Route to `api/Owner`
+- Right-Click on the `FindOwners` operation and click `Expose as Http Endpoint`.
 
 ![Services view with the getOwners operation added](images/services-add-get-owners.png)
 
-- Right-click on the `OwnerController` element and click the `Add Operation` option.
-- Name it `addOwner` and leave the return type blank.
-- Right-click the `addOwner` element and click the `Add parameter` option.
+- Right-click on the `OwnersService` element and click the `Add Operation` option.
+- Name it `CreateOwner` and make return type `guid`.
+- Right-click the `CreateOwner` element and click the `Add parameter` option.
 - Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
 
 [!Video-Loop videos/services-add-add-owner.mp4]

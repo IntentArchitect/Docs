@@ -80,6 +80,7 @@ Now execute the Software Factory, add the following content to the generated `En
 <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
 <#@ import namespace="Intent.Templates" #>
 <#@ import namespace="Intent.Metadata.Models" #>
+<#@ import namespace="NewModule.Api" #>
 
 using System;
 using System.Collections.Generic;
@@ -131,7 +132,7 @@ The example below uses these extension methods in the `EntityClass` Template to 
 ```
 
 > [!IMPORTANT]
-> Don't forget to add the `import` directive to the Template file that references the namespace of the `ClassModelExtensions` class.
+> In the code example above there is an `import` directive to reference the namespace of the `ClassModelExtensions` class.
 >
 > In this example it would be `<#@ import namespace="NewModule.Api" #>`
 
@@ -179,7 +180,7 @@ namespace <#= Namespace #>
 
 ## Apply a Stereotype (manually)
 
-Create or open an ASP.NET Core application in Intent Architect.
+Create or open an `Standard ASP.NET Core Web Application` application in Intent Architect.
 
 [Install the module](xref:module-building.templates-general.tutorial-create-a-template.install-and-run-the-module#install-the-module) that contains the [newly created Stereotype Definition](#create-a-stereotype-definition).
 
