@@ -1,5 +1,9 @@
 # Release notes: Intent Architect version 4.0
 
+## Version 4.0.1
+
+- Fixed: Under certain circumstances Intent Architect wouldn't install the correct version a module dependency.
+
 ## Version 4.0.0
 
 We're proud to announce the release of Version 4 of intent Architect. This release has the result of many hours of effort and planning by the Intent Architect team. We're also pleased to say that the feedback we've received thus far from our beta testers has been incredibly positive.
