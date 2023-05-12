@@ -4,6 +4,7 @@
 
 - Fixed: Under certain circumstances Intent Architect wouldn't install the correct version a module dependency.
 - Module metadata installation will now occur only when a module is not currently installed, previously it would also occur when a module was being updated.
+- Fixed: Packages added to designers as part of metadata installation from modules or application templates would sometimes be added in an order which was different from the source.
 
 ## Version 4.0.0
 
