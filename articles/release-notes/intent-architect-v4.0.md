@@ -3,6 +3,7 @@
 ## Version 4.0.1
 
 - Fixed: Under certain circumstances Intent Architect wouldn't install the correct version a module dependency.
+- Module metadata installation will now occur only when a module is not currently installed, previously it would also occur when a module was being updated.
 
 ## Version 4.0.0
 
