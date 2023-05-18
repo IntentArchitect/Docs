@@ -2,9 +2,16 @@
 
 ## Version 4.0.1
 
-- Fixed: Under certain circumstances Intent Architect wouldn't install the correct version a module dependency.
+### Improvements in 4.0.1
+
 - Module metadata installation will now occur only when a module is not currently installed, previously it would also occur when a module was being updated.
+
+### Issues fixed in 4.0.1
+
 - Fixed: Packages added to designers as part of metadata installation from modules or application templates would sometimes be added in an order which was different from the source.
+- Fixed: Under certain circumstances Intent Architect wouldn't install the correct version a module dependency.
+- Fixed: Repository watchers are not refreshed when a new repository is added while in the context of a Solution.
+- Fixed: If you start creating an association in the diagram but don't connect the target end and then click on properties, it puts the diagram in a broken state. Now cancels the association creation.
 
 ## Version 4.0.0
 
