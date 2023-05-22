@@ -26,10 +26,10 @@ The Module Builder has three available options for C# Template types, they are b
 | [Custom](#custom)                 | For advanced use cases.                            |
 
 ### Template Methods
+
 Intent Architect supports several templating technologies, the default (and recommended) approach is our `C# File Builder` method .
 
 ![Template Method Options](images/template-methods.png)
-
 
 ## Files generated during the Software Factory Execution of the Module Builder
 
@@ -43,10 +43,9 @@ Regardless of the type selected, during the [Software Factory Execution](xref:ap
 
 This file is the logic to render your c# file(s). On initial generation it contains the class constructor and the `DefineFileConfig` method. In this class you can control the output of the template or adjust its config.
 
-In the case of the `C# File Builder` the template, you would use the `CSharpFile` builder class to construct you output, using the various Apis it provides for constructing a C# file. 
+In the case of the `C# File Builder` the template, you would use the `CSharpFile` builder class to construct you output, using the various Apis it provides for constructing a C# file.
 
 Some Template Methods produce a 3rd file, which is the `View` aspect of the template, for example T4, would produce a `<Name>Template.tt` file.
-
 
 ### 2. Template registration file
 
@@ -69,9 +68,9 @@ There are two common use cases for a Single File C# Template:
 
 For example, a Dependency Injection configuration class that registers up all the Services defined in the Services Designer.
 
-The generated [Template registration file](#3-template-registration-file) derives from `SingleFileListModelTemplateRegistration<TModel>` and the code will register a single instance of the template. The registration class derives from `SingleFileListModelTemplateRegistration<TModel>` which allows the amount of code to be kept simple and to a minimum.
+The generated [Template registration file](#2-template-registration-file) derives from `SingleFileListModelTemplateRegistration<TModel>` and the code will register a single instance of the template. The registration class derives from `SingleFileListModelTemplateRegistration<TModel>` which allows the amount of code to be kept simple and to a minimum.
 
-The generated [Template partial file](#2-template-partial-file)'s class will have a List of `TModel` as the generic type used to define the `model`.
+The generated [Template partial file](#1-template-partial-file)'s class will have a List of `TModel` as the generic type used to define the `model`.
 
 For both the template registration and partial files, the generated value for `TModel` is determined by the selected `Model Type` in the `Template Settings`:
 
@@ -83,17 +82,17 @@ The `model` for this type of C# Template is essential as each registered templat
 
 For example, `Startup.cs` in an ASP.NET Core project.
 
-The generated [Template registration file](#3-template-registration-file) derives from `SingleFileTemplateRegistration` and the code will register a single instance of the template. The registration class derives from `SingleFileTemplateRegistration` which allows the amount of code to be kept simple and to a minimum.
+The generated [Template registration file](#2-template-registration-file) derives from `SingleFileTemplateRegistration` and the code will register a single instance of the template. The registration class derives from `SingleFileTemplateRegistration` which allows the amount of code to be kept simple and to a minimum.
 
-The generated [Template partial file](#2-template-partial-file)'s class uses `object` for its generic type parameter with the assumption that there is no `model` to be used.
+The generated [Template partial file](#1-template-partial-file)'s class uses `object` for its generic type parameter with the assumption that there is no `model` to be used.
 
 ### File Per Model
 
 This C# Template type is for when you want a separate `.cs` file for each instance of a model in a Designer of a type, EG: domain entities, WebApi endpoint, DTO, etc.
 
-The generated [Template registration file](#3-template-registration-file) derives from `FilePerModelTemplateRegistration<TModel>` and the code will register an instance of the template per model.
+The generated [Template registration file](#2-template-registration-file) derives from `FilePerModelTemplateRegistration<TModel>` and the code will register an instance of the template per model.
 
-The generated [Template partial file](#2-template-partial-file)'s class uses `TModel` for its generic type parameter.
+The generated [Template partial file](#1-template-partial-file)'s class uses `TModel` for its generic type parameter.
 
 For both the template registration and partial files, the generated value for `TModel` is determined by the selected `Model Type` in the `Template Settings`:
 
@@ -109,7 +108,7 @@ The Custom type allows the Developer to take control of the _registration_ proce
 
 ## Template Configuration
 
-The Template configuration is specified in the [Template partial file](#2-template-partial-file), inside the `DefineFileConfig` method. In this method, the configuration of each instance can be set as literal values or determined by functions and string interpolation. The required values set in the configuration determine the Template's `ClassName` and `Namespace` properties.
+The Template configuration is specified in the [Template partial file](#1-template-partial-file), inside the `DefineFileConfig` method. In this method, the configuration of each instance can be set as literal values or determined by functions and string interpolation. The required values set in the configuration determine the Template's `ClassName` and `Namespace` properties.
 
 ![DefineFileConfig method example](images/csharp-template-config-method.png)
 
@@ -184,7 +183,7 @@ During Software Factory Execution, Intent Architect will [determine the namespac
 
 Intent Architect will automatically install NuGet packages for projects based on specified NuGet package requirements in Templates.
 
-To specify a NuGet package dependency, use the `AddNugetDependency(...)` method in the constructor of the template in the [Template File](#1-template-file):
+To specify a NuGet package dependency, use the `AddNugetDependency(...)` method in the constructor of the template in the [Template File](#1-template-partial-file):
 
 ```csharp
 partial class EntityBaseTemplate : CSharpTemplateBase<object>
@@ -215,7 +214,7 @@ public class NuGetPackages
 
 Intent Architect will automatically add [GAC](https://docs.microsoft.com/dotnet/framework/app-domains/gac) Assembly references to `.csproj` files based on specified requirements in Templates.
 
-To specify a GAC Assembly reference requirement, use the `AddAssemblyReference(...)` method in the constructor of the template in the [Template File](#1-template-file):
+To specify a GAC Assembly reference requirement, use the `AddAssemblyReference(...)` method in the constructor of the template in the [Template File](#1-template-partial-file):
 
 ```csharp
 partial class EntityBaseTemplate : CSharpTemplateBase<object>
