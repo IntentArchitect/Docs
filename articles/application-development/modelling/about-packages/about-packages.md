@@ -23,4 +23,4 @@ When "adding an existing package" a Designer reference is created which is refer
 
 By default, Package folders are placed in the `Intent.Metadata/<designer-name>` folder which is relative to an application's `.application.config` file. One can easily open an Application's `.application.config` file's containing folder by clicking the path link beneath the Application's name on the [Application Settings](xref:module-building.application-settings) screen of the application:
 
-![Application config location on the settings screen](images/application-config-location.png).
+![Application config location on the settings screen](images/application-config-location.png)
