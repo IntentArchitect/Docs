@@ -123,7 +123,7 @@ Also set up a `PetType` entity in a similar way:
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
 
-Now we will create a CQRS style `Service` for creating and retrieving `Owner`s. 
+Now we will create a CQRS style `Service` for adding and retrieving `Owner`s. 
 
 * Create a `Folder` named `Owners`, this folder represents our Owners service and will contain it's associated `Command`s and `Query`s.
 
