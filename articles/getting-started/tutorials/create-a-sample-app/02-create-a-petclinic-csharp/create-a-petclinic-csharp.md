@@ -13,7 +13,7 @@ uid: tutorials.create-a-sample-app.create-a-petclinic-csharp
 
 On the home screen, click `Create a new application`.
 
-Select the `Clean Architecture.Net` Application Template.
+Select the `Clean Architecture.NET` Application Template.
 
 Fill in a `Name` (such as `PetClinicApp`), review/change the `Location` as desired and click `NEXT`.
 
@@ -23,21 +23,7 @@ Leave the selected application components as is and click `CREATE`.
 
 > [!NOTE]
 >
-> The `Task Output` dialog can be opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready".
-
-## Configure Explicit Key Creation
-
-The application `Settings` tab should be open, locate the `Database Settings` section. Select `Explicitly add PKs and FKs automatically` from the `Key Creation Mode` dropdown. It will become apparent in the next section.
-
-> [!NOTE]
-> In the Database Settings section, make note that Key Type is `guid` as this is the type we will be using later for our Primary Keys.
-
-![Module Settings Explicit Key Creation](images/module-settings-explicit-key-creation.png)
-
-> [!NOTE]
-> You can get back to your Application settings through it's context menu.
-> ![Application Context Menu](images/application-context-menu.png)
-
+> At this point Intent Architect is busy downloading and installing `Clean Architecture.NET` associated modules, this progress can be seen in the 'Task Output'.  The `Task Output` dialog can be opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready". 
 
 ## Create the Domain Entities
 
