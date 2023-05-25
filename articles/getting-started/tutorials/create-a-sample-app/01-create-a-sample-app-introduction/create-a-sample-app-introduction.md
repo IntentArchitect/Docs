@@ -11,7 +11,7 @@ Intent Architect is a non-prescriptive, integrated, architecture-design platform
 
 ## What will the sample application be?
 
-The sample application will be a PetClinic application which is a fictional, but also easily understandable and a plausible business domain of running a "pet clinic". It was originally [created by the Spring team](https://projects.spring.io/spring-petclinic/) to demonstrate how one could use various Spring features to build an application.
+The sample application will be a PetClinic application which is a fictional, but also easily understandable and a plausible business domain of running a "pet clinic". It was originally [created by the Spring team](https://spring-petclinic.github.io/) to demonstrate how one could use various Spring features to build an application.
 
 We have chosen to also use it when demonstrating how Intent Architect can be used.
 

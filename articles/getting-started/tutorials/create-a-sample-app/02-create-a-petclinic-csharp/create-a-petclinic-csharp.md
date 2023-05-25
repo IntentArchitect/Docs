@@ -13,19 +13,17 @@ uid: tutorials.create-a-sample-app.create-a-petclinic-csharp
 
 On the home screen, click `Create a new application`.
 
-Select the `Standard ASP.NET Core Web Application` Application Template.
+Select the `Clean Architecture.Net` Application Template.
 
-Fill in a `Name` (such as `PetClinicRest`), review/change the `Location` as desired and click `NEXT`.
+Fill in a `Name` (such as `PetClinicApp`), review/change the `Location` as desired and click `NEXT`.
 
 Leave the selected application components as is and click `CREATE`.
-
-The `Task Output` dialogue will pop up showing the progress of downloading and installing Modules and Metadata for the Application and once it's finished, will hide itself automatically:
 
 [!Video-Loop videos/create-new-app.mp4]
 
 > [!NOTE]
 >
-> The `Task Output` dialog can be re-opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready".
+> The `Task Output` dialog can be opened at any time by clicking on the text at the bottom-left corner of the window which shows the name of any currently executing task or otherwise says "Ready".
 
 ## Configure Explicit Key Creation
 
@@ -108,8 +106,8 @@ Set up a `Visit` entity to be as follows:
   - In the property pane (in the bottom-right corner of the window) within the `Target End` section ensure that `Is Collection` is checked.
   - In the property pane within the `Source End` section ensure that `Is Collection` is *un*checked and that `Navigable` is checked.
 - Add the following attributes:
-  - `visitDate` of type `date`.
-  - `description` of type `string`.
+  - `VisitDate` of type `date`.
+  - `Description` of type `string`.
 
 Also set up a `PetType` entity in a similar way:
 - Add a `PetType` entity.
@@ -117,7 +115,7 @@ Also set up a `PetType` entity in a similar way:
   - In the property pane (in the bottom-right corner of the window) within the `Target End` section, ensure that `Is Collection` is *un*checked.
   - In the property pane within the `Source End` section, ensure that `Is Collection` is checked.
 - Add the following attributes:
-  - `name` of type `string`.
+  - `Name` of type `string`.
 
 ![How the Pet Clinic Diagram should now appear](images/pet-clinic-domain-diagram-explicit-keys.png)
 
@@ -125,21 +123,17 @@ Also set up a `PetType` entity in a similar way:
 
 Click on the `Services` designer located in the left panel. This is where API Services can be modelled to interact with the entities modelled in the domain designer.
 
-Create the `OwnersService` service in the `Services` package by right-clicking on the `Services` package and clicking the `New Service` option.
+Now we will create a CQRS style `Service` for creating and retrieving `Owner`s. 
+
+* Create a `Folder` named `Owners`, this folder represents our Owners service and will contain it's associated `Command`s and `Query`s.
+
+* Right-click on the `Owners` folder and select `New Command`.
+Name it `CreateOwnerCommand` with a return type of `Guid`, this will be the newly created `Owner`'s Id.
 
 ![How the Owner Service should now appear](images/create-service-owner.png)
 
-Create the `OwnerDto`:
-
-- Right-click on the `Services` package and select the `New DTO` option.
-- Give it the name `OwnerDto`.
-
-Also, create the following additional DTOs:
-
-- `PetDto`
-- `OwnerCreateDto`
-
-Right-click the `OwnerCreateDto` element and click the `Project to Domain`, in the expanded `Dropdown` choose `Owner`, in the `TreeView` check the following:
+Right-click on the `CreateOwnerCommand` command and select `Map to Domain Data`.
+In the expanded `Dropdown` choose `Owner`, in the `TreeView` check the following:
 
 - `FirstName` 
 - `LastName` 
@@ -147,69 +141,36 @@ Right-click the `OwnerCreateDto` element and click the `Project to Domain`, in t
 - `City` 
 - `Telephone` 
 
+Click `Done`.
+
 [!Video-Loop videos/project-to-domain.mp4]
+
+To retrieve the `Owner` we first need to describe the data contract our application will return.
+
+* Right-click on the `Owners` folder and select `New DTO`.
+* Name it `OwnerDto`
+* Right-click on the `OwnerDto` and select `Map From Domain`
+* Check the box next to `Owner` to select all the attributes
+* Click `Done`.
+
+[!Video-Loop videos/mapping-ownerdto.mp4]
 
 > [!NOTE]
 > `Project to Domain` and `Map from Domain` are both options for creating mappings between Domain Entities and Dto's. `Project to Domain` is typically used for in-bound Dto's which tend to be more loosely coupled to the domain,  `Map from Domain` is typically used for out-bound Dto's 
 
-## Map the DTO fields from Domain Entities
+* Right-click on the `Owners` folder and select `New Query`.
+* Name it `GetOwnersQuery` with a return type of `OwnerDto`.
+* Check the `IsCollection` option in the Properties window on the right.
 
-- Right-click the `PetDto` element and click on the `Map from Domain...` option.
-- Select the `Pet` Entity from the bottom drop-down.
-- Ensure that the following attributes are checked:
-  - `Id`
-  - `Name`
-  - `BirthDate`
-  - `Visits`
-- Expand the `PetType` association and ensure the following attributes under it are checked:
-  - `Name`
-- Expand the `Owner` association and ensure the following attributes under it are checked:
-  - `FirstName`
-  - `LastName`
+[!Video-Loop videos/create-getownersquery.mp4]
 
-Click `DONE`.
+The final thing we need to do is to configure how our service will be distributed.
+* Select both 'CreateOwnerCommand' and 'GetOwnersQuery'
+* Right-click and select `Expose as Http Endpoint`
 
-You will see that the `Visits` field has automatically been mapped to a `VisitsDto`, which has been added for you:
+[!Video-Loop videos/exposing-services.mp4]
 
-You will see that the `PetDto` element has multiple fields sharing the same name. Notice that the arrow to the right of the field name shows the "source path" for each field's mapping in the format `<AssociationName>.<AttributeName>`. To make the field names on the DTO unique it is generally suggested to make the name the same as the path:
-
-- `Name` from `PetType.name` becomes `PetTypeName`.
-- `FirstName` from `Owner.firstName` becomes `OwnerFirstName`.
-- `LastName` from `Owner.lastName` becomes `OwnerLastName`.
-
-[!Video-Loop videos/service-mapping-pet.mp4]
-
-Lastly, for `OwnerDto`:
-
-- Right-click the `OwnerDto` element and click on the `Map from Domain...` option.
-- Select the `Owner` Entity from the bottom drop-down.
-- Ensure that the following attributes are checked:
-  - `Id`
-  - `FirstName`
-  - `LastName`
-  - `Address`
-  - `City`
-  - `Telephone`
-  - `Pets`
-- Click `DONE`
-- Select the `Pets` element.
-
-## Add Operations to the Service
-
-- Right-click on the `OwnersService` element and click the `Add Operation` option.
-- Name it `FindOwners` and set the return type to `OwnerDto`.
-- In the properties pane on the right:
-  - Ensure `Is Collection` is checked.
-- Right-Click on the `FindOwners` operation and click `Expose as Http Endpoint`.
-
-![Services view with the getOwners operation added](images/services-add-get-owners.png)
-
-- Right-click on the `OwnersService` element and click the `Add Operation` option.
-- Name it `CreateOwner` and make return type `guid`.
-- Right-click the `CreateOwner` element and click the `Add parameter` option.
-- Give the parameter a name of `dto` and set its type to `OwnerCreateDTO`.
-
-[!Video-Loop videos/services-add-add-owner.mp4]
+Click the `Save All` icon.
 
 ## Generate the Code
 
