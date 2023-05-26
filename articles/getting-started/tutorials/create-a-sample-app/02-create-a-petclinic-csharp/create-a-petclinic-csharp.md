@@ -144,6 +144,7 @@ To retrieve the `Owner` we first need to describe the data contract our applicat
 > [!NOTE]
 > `Project to Domain` and `Map from Domain` are both options for creating mappings between Domain Entities and Dto's. `Project to Domain` is typically used for in-bound Dto's which tend to be more loosely coupled to the domain,  `Map from Domain` is typically used for out-bound Dto's 
 
+Now let's add the `Query`
 * Right-click on the `Owners` folder and select `New Query`.
 * Name it `GetOwnersQuery` with a return type of `OwnerDto`.
 * Check the `IsCollection` option in the Properties window on the right.
