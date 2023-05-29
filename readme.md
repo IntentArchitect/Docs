@@ -1,6 +1,6 @@
 # Intent Architect Docs
 
-This repository contains the Intent Architect documentation hosted at [https://intentarchitect.com/docs](https://intentarchitect.com/docs). See the Contributing Guide below and the [issues list](https://github.com/IntentSoftware/Docs/issues) if you would like to help out.
+This repository contains the Intent Architect documentation hosted at [https://docs.intentarchitect.com/docs](https://docs.intentarchitect.com/). See the Contributing Guide below and the [issues list](https://github.com/IntentArchitect/Docs/issues) if you would like to help out.
 
 ## Contributing to the Intent Architect documentation
 
@@ -10,7 +10,7 @@ Articles in the repository are stored as Markdown files. Simple changes to the c
 
 ### How to make a more complex submission
 
-To make more complex submissions, contact the Intent team at support@intentarchitect.com outlining what you want to do. We will respond with steps on how you can make your submission.
+To make more complex submissions, contact the Intent team at [support@intentarchitect.com](mailto:support@intentarchitect.com) outlining what you want to do. We will respond with steps on how you can make your submission.
 
 ### Contribution guidelines
 
@@ -50,8 +50,4 @@ _tools/DocFX/docfx.exe docfx.json
 
 #### Troubleshooting
 
-If there is a strange build error, try completely deleting the `obj` folder. This folder only contains build artifacts, the worst that can happen from its deletion is that the next build may take longer.
-
-### Publishing (for Intent Software employees)
-
-For information on publishing the docs to our website, refer to the `readme.md` in the Intent Architect private repository.
+If there is a strange build error, try completely deleting the `obj` folder. This folder only contains build artifacts, the worst that can happen from its deletion is that the next build may take a little longer.
