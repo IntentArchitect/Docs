@@ -1,3 +1,7 @@
+---
+uid: release-notes.intent-architect-v4.0
+---
+
 # Release notes: Intent Architect version 4.0
 
 ## Version 4.0.1
