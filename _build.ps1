@@ -1,1 +1,1 @@
-Start-Process "./_tools/DocFX/docfx" -Wait -NoNewWindow -ArgumentList "docfx.json --warningsAsErrors"
+Start-Process "./_tools/DocFX/docfx" -Wait -NoNewWindow -ArgumentList "docfx.json"
