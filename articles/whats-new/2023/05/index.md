@@ -8,6 +8,10 @@ Welcome to the May 2023 edition of highlights of What's New with Intent Architec
   - **[`IReadOnlyCollection` support for "private setter" Domain Entities](#ireadonlycollection-support-for-private-setter-domain-entities)** - Make entity collections immutable except from within the same class.
   - **[`async` and `CancellationToken` support in more places](#async-and-cancellationtoken-support-in-more-places)** - Domain operations, domain services and normal services now now support `async` and `CancellationToken`s.
   - **[Stored Procedure support for EF Core](#stored-procedure-support-for-ef-core)** - It's now possible to have methods generated on repositories for using stored procedures.
+  - **[OpenAPI support for Azure Functions](#openapi-support-for-azure-functions)** - Provides `OpenAPI` support for `Azure Functions` applications.
+  - **[GraphQL support for Azure Functions](#graphql-support-for-azure-functions)** - Provides `GraphQL` support for `Azure Functions` applications, through `Hot Chocolate`.
+  - **[Designer comments as Xml documentation comments ](#designer-comments-as-xml-documentation-comments)** - `Service` and `Domain` designer element comments are being included in relevant `Xml document comments`.
+
 
 ## Product updates
 
@@ -54,3 +58,33 @@ It's now possible to have methods generated on repositories for using stored pro
 Available from:
 
 - Intent.EntityFrameworkCore.Repositories 4.2.2-pre.1
+### OpenAPI support for Azure Functions
+
+This module brings in `OpenAPI` support for your `Azure Function` application. 
+
+Available from:
+
+- Intent.AzureFunction.OpenApi 1.0.0. 
+
+### GraphQL support for Azure Functions
+
+This module brings in `GraphQL` support for your `Azure Function` application, allowing you to expose your `Azure Function`s through a `GraphQL` api. This module uses `Hot Chocolate` as it's `GraphQL` engine.
+
+Available from:
+
+- Intent.HotChocolate.GraphQL.AzureFunctions 1.0.0. 
+
+### Designer comments as Xml documentation comments
+
+Most designer elements support a comments field, if these comments are captured, these comments are included in the relevant generated code as `Xml document comments.`
+
+Available from:
+
+- Intent.Application.Contracts 5.0.0
+- Intent.Application.Dtos 4.0.3
+- Intent.Application.MediatR 4.0.6
+- Intent.Application.ServiceImplementations 4.2.0
+- Intent.DomainEvents 4.0.4
+- Intent.DomainServices 1.1.0
+- Intent.Entities 4.3.0
+- Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.3
