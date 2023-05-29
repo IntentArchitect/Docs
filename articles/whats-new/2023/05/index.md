@@ -58,6 +58,7 @@ It's now possible to have methods generated on repositories for using stored pro
 Available from:
 
 - Intent.EntityFrameworkCore.Repositories 4.2.2-pre.1
+
 ### OpenAPI support for Azure Functions
 
 This module brings in `OpenAPI` support for your `Azure Function` application. 
@@ -69,6 +70,8 @@ Available from:
 ### GraphQL support for Azure Functions
 
 This module brings in `GraphQL` support for your `Azure Function` application, allowing you to expose your `Azure Function`s through a `GraphQL` api. This module uses `Hot Chocolate` as it's `GraphQL` engine.
+
+- In the `Service` designer simply apply the `GraphQL Enabled` stereotype to the `Service Operation`s you wish to expose through `GraphQL`
 
 Available from:
 
