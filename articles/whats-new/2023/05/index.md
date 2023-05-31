@@ -10,7 +10,10 @@ Welcome to the May 2023 edition of highlights of What's New with Intent Architec
   - **[Stored Procedure support for EF Core](#stored-procedure-support-for-ef-core)** - It's now possible to have methods generated on repositories for using stored procedures.
   - **[OpenAPI support for Azure Functions](#openapi-support-for-azure-functions)** - Provides `OpenAPI` support for `Azure Functions` applications.
   - **[GraphQL support for Azure Functions](#graphql-support-for-azure-functions)** - Provides `GraphQL` support for `Azure Functions` applications, through `Hot Chocolate`.
-  - **[Designer comments as Xml documentation comments ](#designer-comments-as-xml-documentation-comments)** - `Service` and `Domain` designer element comments are being included in relevant `Xml document comments`.
+  - **[Designer comments as Xml documentation comments](#designer-comments-as-xml-documentation-comments)** - `Service` and `Domain` designer element comments are being included in relevant `Xml document comments`.
+  - **[Parameter default value support for Domain and Service Designers](#parameter-default-value-support-for-domain-and-service-designers)** - It is now possible to specify default values for Parameters that are found on Service operations, Domain Class operations (and constructors) and Domain Service operations.
+  - **[Support for EF Core 7 _JSON Columns_](#support-for-ef-core-7-json-columns)** - It is now possible to leverage JSON Columns support which was introduced in Entity Framework Core 7.
+  - **[Azure Key Vault support added for ASP.NET Core](#azure-key-vault-support-added-for-aspnet-core)** - Secrets that are stored in Azure Key Vault can now be queried from the `IConfiguration` service inside your app.
 
 
 ## Product updates
@@ -91,3 +94,32 @@ Available from:
 - Intent.DomainServices 1.1.0
 - Intent.Entities 4.3.0
 - Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.3
+
+### Parameter default value support for Domain and Service Designers
+
+It is now possible to specify default values for Parameters that are found on Service operations, Domain Class operations (and constructors) and Domain Service operations.
+
+Available from:
+
+- Intent.Application.ServiceImplementations 4.2.0
+- Intent.AspNetCore.Controllers 5.1.0
+- Intent.DomainServices 1.1.0
+- Intent.Entities 4.3.0
+
+### Support for EF Core 7 _JSON Columns_
+
+It is now possible to leverage [JSON Columns](https://learn.microsoft.com/ef/core/what-is-new/ef-core-7.0/whatsnew#json-columns) support which was introduced in Entity Framework Core 7. Adding a `Serialization Settings` stereotype on `Value Objects` in the Domain designer will cause `Value Object`s and their associated entities to be stored in a `JSON` serialized format in a single database column.
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.0
+- Intent.ValueObjects 4.1.0
+
+### Azure Key Vault support added for ASP.NET Core
+
+Secrets that are stored in Azure Key Vault can now be queried from the `IConfiguration` service inside your app. It is also configurable so that secrets may only be accessed from particular environments, using specified credentials or automated discovery.
+
+Available from:
+
+- Intent.Azure.KeyVault 1.0.0
+- Intent.AspNetCore 5.0.0
