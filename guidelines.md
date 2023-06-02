@@ -4,6 +4,12 @@
 
 Tutorials are step-by-step instructions on how to get users up and running with no decision making in order to learn the tool they're using.
 
+## Running Intent Architect
+Run it from the command line using the following argument
+--docs-mode
+
+This correctly sizes the application, removes the OS specific title base and squares the corners for easier screen captures.
+
 ## Navigation Panel TOC
 
 Everything should be alphabetically ordered (in ascending order). There is the exception where we would like to have the Getting started section be at the top of the list so that people can see that tht tutorials are there and to access it easily (especially for newcomers). The Release Notes are at the bottom of the list to distinguish itself from the other topic sections.

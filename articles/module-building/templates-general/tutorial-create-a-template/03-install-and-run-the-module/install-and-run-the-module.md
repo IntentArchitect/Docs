@@ -38,14 +38,13 @@ To install this module we must navigate to the `Modules` tab within our applicat
 3. In the details pane, click `Install` to install the latest version.
 
     ![Module Details](images/modules-visual-studio-details.png)
-4. Intent Architect will install the module and its dependencies. Hide the `Installation Manager` once it's finished.
 
 You may have noticed that a new `Visual Studio` Designer was installed into our Application. It will allow us to structure the C# projects in our codebase. For this tutorial, we can set up a typical web application project structure that separates Domain, Infrastructure, and API concerns.
 
 1. Click on the `Visual Studio` Designer
 2. Create a new `Visual Studio Solution` package by clicking on the `CREATE NEW PACKAGE` button.
 3. Fill in the name of the Visual Studio solution, then click `DONE`.
-4. Next, create a set of projects by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create an `ASP.NET Core Web Application` and two `C# Project (.NET)` projects in this tutorial.
+4. Next, create a set of projects by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create a `C# Project (.NET)` project name `TestProject` in this tutorial.
 
     [!Video-Loop videos/visual-studio-create-projects.mp4]
 
@@ -92,16 +91,16 @@ The logged error lets us know that `MyModules.Entities.EntityBase` template hasn
 
 1. Minimize the Execution window.
 2. Navigate to the `Visual Studio` Designer.
-3. Drag the `MyModules.Entities.EntityBase` Template Output into the `TestApp.Domain` project.
+3. Drag the `MyModules.Entities.EntityBase` Template Output into the `TestProject` project.
 
     [!Video-Loop videos/visual-studio-assign-template-output.mp4]
 4. Click on Save.
 
-We've now told Intent Architect that when generating the `EntityBase` template, the output should be placed in the `TestApp.Domain` project.
+We've now told Intent Architect that when generating the `EntityBase` template, the output should be placed in the `TestProject` project.
 
 ## Run the Module
 
-We've created a project structure, installed our Module, and set the Output Target to our `TestApp.Domain` project. We are now ready to run our Module.
+We've created a project structure, installed our Module, and set the Output Target to our `TestProject` project. We are now ready to run our Module.
 
 1. Notice that the Software Factory automatically executed itself when you saved the `Visual Studio` Designer and when clicking on it you should see the following staged changes:
 
@@ -111,7 +110,7 @@ We've created a project structure, installed our Module, and set the Output Targ
 4. Open the codebase to verify that the new `EntityBase.cs` file was created in the correct location.
 
 > [!NOTE]
-> You may have noticed that a NuGet package (`Intent.RoslynWeaver.Attributes`) was added to the `TestApp.Domain.csproj` file. This package provides _non-executing_ C# attributes which are used to instruct the [Code-Management](xref:getting-started.welcome#code-management) systems in C#. This is not a hard dependency, does not affect runtime execution in any way and can be swapped out or removed if needed.
+> You may have noticed that a NuGet package (`Intent.RoslynWeaver.Attributes`) was added to the `TestProject.csproj` file. This package provides _non-executing_ C# attributes which are used to instruct the [Code-Management](xref:getting-started.welcome#code-management) systems in C#. This is not a hard dependency, does not affect runtime execution in any way and can be swapped out or removed if needed.
 
 ## What's Next
 
