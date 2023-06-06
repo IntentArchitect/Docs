@@ -44,7 +44,7 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 1. Click on the `Visual Studio` Designer
 2. Create a new `Visual Studio Solution` package by clicking on the `CREATE NEW PACKAGE` button.
 3. Fill in the name of the Visual Studio solution, then click `DONE`.
-4. Next, create a set of projects by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create a `C# Project (.NET)` project name `TestProject` in this tutorial.
+4. Next, create a project by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create a `C# Project (.NET)` project name `TestProject` in this tutorial.
 
     [!Video-Loop videos/visual-studio-create-projects.mp4]
 

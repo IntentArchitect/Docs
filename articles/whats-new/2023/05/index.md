@@ -10,6 +10,9 @@ Welcome to the May 2023 edition of highlights of What's New with Intent Architec
   - **[Stored Procedure support for EF Core](#stored-procedure-support-for-ef-core)** - It's now possible to have methods generated on repositories for using stored procedures.
   - **[Designer comments as XML documentation comments](#designer-comments-as-xml-documentation-comments)** - `Service` and `Domain` designer element comments are being included in relevant `XML document comments`.
   - **[Parameter default value support for Domain and Service Designers](#parameter-default-value-support-for-domain-and-service-designers)** - It is now possible to specify default values for Parameters that are found on Service operations, Domain Class operations (and constructors) and Domain Service operations.
+  - **[GraphQL module for C#(using HotChocolate)](#graphql-module-for-c)** - GraphQL support for your applications, all.
+  - **[Support for DTO return types on CRUD operations](#support-for-dto-return-types-on-crud-operations)** - the ability to return mapped DTOs on generated CRUD operations.
+  - **[Better Association visualization in Domain Designer tree view](#better-association-visualization-in-domain-designer-tree-view)** - Domain Designer now visualizes cardinality in the tree view.
 
 - Pre-released Module updates (C#)
   - **[`async` and `CancellationToken` support in more places](#async-and-cancellationtoken-support-in-more-places)** - Domain operations, domain services and normal services now now support `async` and `CancellationToken`s.
@@ -79,6 +82,33 @@ Available from:
 - Intent.AspNetCore.Controllers 5.1.0
 - Intent.DomainServices 1.1.0
 - Intent.Entities 4.3.0
+
+### GraphQL module for C#
+
+This module supports exposing a GraphQL interface into your application.
+This module brings designer support for exposing modelled services as GraphQL through the `GraphQL Enabled` stereotype, as well as a new `GraphQL` designer extensions for more advanced scenarios.  
+This module is implemented using HotChocolate. 
+
+Available from:
+
+- Intent.HotChocolate.GraphQL 4.0.0
+
+### Support for DTO return types on CRUD operations
+
+The ability to return mapped DTOs on generated CRUD operations.
+For example, if you have a `CreateCustomer` `Command` or `Service Operation` it can not be modelled to return a `CustomerDTO` as opposed the current CRUD implementations which returned the primary key. 
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 5.0.2
+- Intent.Application.ServiceImplementations.Conventions.CRUD 4.2.3
+
+### Better Association visualization in Domain Designer tree view
+
+The Domain Designer better visualized associations in the `Treeview`, showing information about cardinality. Associations are now visualized with syntax which will look like `* --> 1`
+
+Available from:
+- Intent.Modelers.Domain 3.4.1
 
 ## Pre-released Module updates (C#)
 
