@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
+## Version 4.0.2
+
+### Improvements in 4.0.2
+
+- Trying to press "Save and Close" on User Settings will now show an error when either `Diff Tool Executable` or `Diff Tool Arguments` is set without the other also being set.
+
 ## Version 4.0.1
 
 ### Improvements in 4.0.1
