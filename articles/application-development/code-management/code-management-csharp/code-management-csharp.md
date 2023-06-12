@@ -141,3 +141,11 @@ By default RoslynWeaver uses `Merge` as the management mode for `using directive
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: DefaultIntentManaged(Mode.Fully, Targets = Targets.Usings)]
 ```
+
+### Why are are class members (such methods, properties, fields, etc) being overwritten by Intent even though the class has [IntentManaged(Mode.Merge)] on it?
+
+`IntentManaged` attributes are not hierarchical, they only apply to the code element they are applied to. Each member of the class will have it's own `Mode`.
+So, what does the `Body` mode refer to for a class? It is the existence of class members. This is what Intent Architect will do under the following `Body` modes.
+* **Fully**, Intent Architect will add and remove members as required.
+* **Merge**, Intent Architect will only add new members and never remove members.
+* **Ignore**, Intent Architect will not add or remove any members.
