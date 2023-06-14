@@ -4,16 +4,16 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
-using NewApplication9.Domain.Entities;
-using NewApplication9.Domain.Repositories;
+using SimplifiedEShopTutorial.Domain.Entities;
+using SimplifiedEShopTutorial.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
-namespace NewApplication9.Application.Baskets.GetBasketById
+namespace SimplifiedEShopTutorial.Application.Baskets.GetBasketById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetBasketByIdHandler : IRequestHandler<GetBasketById, BasketDto>
+    public class GetBasketByIdHandler : IRequestHandler<GetBasketByIdCommand, BasketDto>
     {
         private readonly IBasketRepository _basketRepository;
         private readonly IMapper _mapper;
@@ -26,7 +26,7 @@ namespace NewApplication9.Application.Baskets.GetBasketById
         }
 
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
-        public async Task<BasketDto> Handle(GetBasketById request, CancellationToken cancellationToken)
+        public async Task<BasketDto> Handle(GetBasketByIdCommand request, CancellationToken cancellationToken)
         {
             var basket = await _basketRepository.FindByIdAsync(request.Id);
             if (basket == null)

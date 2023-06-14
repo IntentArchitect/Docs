@@ -4,13 +4,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
-using NewApplication9.Domain.Entities;
-using NewApplication9.Domain.Repositories;
+using SimplifiedEShopTutorial.Domain.Entities;
+using SimplifiedEShopTutorial.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
-namespace NewApplication9.Application.Orders.Checkout
+namespace SimplifiedEShopTutorial.Application.Orders.Checkout
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CheckoutCommandHandler : IRequestHandler<CheckoutCommand, Guid>
@@ -35,7 +35,7 @@ namespace NewApplication9.Application.Orders.Checkout
             }
             var order = new Order()
             {
-                CustomerId = basket.id,
+                CustomerId = basket.Id,
                 OrderDate = DateTime.Now,
                 OrderItems = basket.BasketItems.Select(CreateOrderItem).ToList(),
                 Status = Domain.OrderStatus.Submitted
