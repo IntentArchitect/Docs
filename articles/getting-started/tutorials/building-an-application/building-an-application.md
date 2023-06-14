@@ -361,6 +361,10 @@ Next you will modify the `CreateOrderCommand` to how you would like the check ou
 Expose your services.
 
 * Expose your `Order` commands and queries as Http EndPoints.
+* Select the `CheckoutCommand`
+* In the `Properties` panel, in the `Http Settings` section
+    * Change the `Verb` to `Post`.
+    * Change the `Route` to `api/orders/checkout`.
 
 ![Expose Order Service](images/expose-order-service.png)
 
@@ -394,18 +398,88 @@ You should be presented with a Swagger UI as follows:
 
 ![Home Screen](images/swagger-home.png)
 
-Take a look at all the end points, you should see all the services you designed in Intent Architect.
+Take a look at all the end points, you should see all the services you designed in Intent Architect. 
 
-First thing we need to do is create a Customer.
+First thing you need to do is create a Customer.
+* Click on the `Post /api/customers` row in the Customers section.
+* Click `Try it out` button on the right hand side.
+* In the `Request Body` json fill in
+```json
+{
+  "name": "Customer1",
+  "email": "Customer1@Somewhere.com"
+}
+```
+* Click the big blue `Execute` button
 
-Then we can create a product.
+![Create a customer](images/rest-create-customer-response.png)
 
-Check our shopping cart is empty.
+* Record the `CustomerId` response as you will need it later.
 
-Add to the Cart.
+In a similar fashion you can create a `Product` using the `Post /api/products` row in the Products section. Don't forget to record your `ProductId` so we can use it later.
 
-Check out.
+Next lets check our customers shopping cart.
 
-Confirm our order is placed.
+* Click on the `Post /api/baskets/{id}` row in the Basketss section.
+* Click `Try it out` button on the right hand side.
+* Fill in your `CustomerId` in the `Id` field
+* Click the big blue `Execute` button
+
+You should get back an empty `Basket` as follows.
+
+![Empty Shopping Basket](images/rest-empty-basket.png)
+
+Lets add an Item to the Cart.
+
+* Click on the `Post /api/baskets/{id}/add` row in the Basketss section.
+* Click `Try it out` button on the right hand side.
+* Fill in your `CustomerId` in the `Id` field
+* In the `Request Body` json fill in
+```json
+{
+  "basketId": "{CustomerId}",
+  "productId": "{ProductId}",
+  "quantity": 1,
+  "unitPrice": 200
+}
+```
+* Click the big blue `Execute` button
+
+Let's check the `BasketItem` is in our `Basket`.
+* Click on the `Post /api/baskets/{id}` row in the Baskets section.
+* Click `Try it out` button on the right hand side.
+* Fill in your `CustomerId` in the `Id` field
+* Click the big blue `Execute` button
+
+You should get a result similar to this:
+
+![Shopping Basket With Item](images/rest-basket-with-item.png)
+
+Now you can Checkout your `Order`.
+* Click on the `Post /api/orders/checkout` row in the Orders section.
+* Click `Try it out` button on the right hand side.
+* In the `Request Body` json fill in
+```json
+{
+  "basketId": "{CustomerId}"
+}
+```
+* Click the big blue `Execute` button
+* Record the `OrderId` response as you will need use it now to retrieve the order.
+
+Query the `Order` to confirm it's placed.
+* Click on the `Get /api/orders/{id}` row in the Orders section.
+* Click `Try it out` button on the right hand side.
+* Fill in your `OrderId` in the `Id` field
+* Click the big blue `Execute` button
+
+You should get a result similar to this:
+
+![Shopping Basket With Item](images/rest-basket-with-item.png)
+
+## Summary
+
+Congratulation's you have build an application using Intent Architect.
+
 
 
