@@ -11,6 +11,9 @@ items:
 - name: 'Tutorial: Hello World'
   href: tutorials/hello-world/hello-world-tutorial.md
   
+- name: 'Tutorial: Build an Application'
+  href: tutorials/building-an-application/building-an-application.md
+
 - name: 'Tutorial: Create a Sample App'
   href: tutorials/create-a-sample-app/toc.yml
   topicUid: tutorials.create-a-sample-app.introduction

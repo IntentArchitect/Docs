@@ -14,6 +14,7 @@ body.theme-dark {
     --theme-code-header-forecolor: #e3e3e3;
     --theme-code-header-border: #404040;
     --theme-code-header-highlight: #6a360b;
+    --theme-code-highlight-color:#514e0f;
 }
 
 body.theme-light {
@@ -25,6 +26,7 @@ body.theme-light {
     --theme-code-header-forecolor: #171717;
     --theme-code-header-border: #e3e3e3;
     --theme-code-header-highlight: #fafafa;
+    --theme-code-highlight-color:#efefdc;
 }
 
 article h4 {
@@ -286,4 +288,8 @@ https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100
 .code-header > .action .successful-copy-alert.is-transparent {
     opacity: 0;
     transition: 500ms opacity ease-in-out;
+}
+
+pre > code .line-highlight{
+    background-color: var(--theme-code-highlight-color);
 }
