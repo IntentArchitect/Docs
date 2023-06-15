@@ -63,7 +63,7 @@ The domain model is where you model your business / problem domain. What are the
 ![Model a Planet](images/model-planet.png)
 
 > [!Note]
-> This is the simplest domain model possible for the purposes of the "Hello  World" Tutorial. Real domain models are much more complex and interesting. If you want know more, check out this webinar, [A deep dive into Domain Modeling](https://www.youtube.com/watch?v=AFcOyF_TWAg).  TO DO Update link
+> This is the simplest domain model possible for the purposes of the "Hello  World" Tutorial. Real domain models are much more complex and interesting. If you want know more, check this out  [Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME).  
 
 Next you will be designing how your application can be interacted with.
 
@@ -192,6 +192,6 @@ TO DO Link to Training Tutorial
 
 ## Additional Related Resources
 [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
-[A deep dive into Domain Modeling](https://www.youtube.com/watch?v=AFcOyF_TWAg).  TO DO Update link
+[Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME)  
 
 

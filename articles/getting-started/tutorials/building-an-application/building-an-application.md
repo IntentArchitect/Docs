@@ -481,5 +481,8 @@ You should get a result similar to this:
 
 Congratulation's you have build an application using Intent Architect.
 
+## Additional Related Resources
+[Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
+[Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME)  
 
 
