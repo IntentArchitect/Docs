@@ -23,7 +23,7 @@ This tutorial should take around 5 minutes.
 
 ![Home Screen](images/create-application.png)
 
-On the first screen of the wizard you can select your desired application architecture, go with the `Clean Architecture .NET` option.
+On the first screen of the wizard, you can select your desired architecture. For this tutorial, go with the `Clean Architecture .NET` option.
 
 * Select the `Clean Architecture .NET` template.
 * Change the application name to `HelloWorldTutorial`.
@@ -32,19 +32,19 @@ On the first screen of the wizard you can select your desired application archit
 
 ![Select your architecture](images/choose-application-template.png)
 
-This screen allows you to configure your selected Architecture, in the tutorial you are just going to use the default configuration.
+This screen allows you to configure your selected Architecture, for the tutorial you are just going to use the default configuration.
 
 * Click `Create`.
 
 ![Home Screen](images/choose-your-patterns.png)
 
 You have successfully created an Intent Architect application.
-* Intent Architect will now download and install modules based on the application setup wizard you just went through.
+* Intent Architect will now configure your application, based on your choices in application setup wizard. In the background it is downloading and installing the relevant Intent modules.
 * You should see a `Ready` message in the bottom left, when this process is complete.
 
 ![Application created](images/application-created.png)
 
-Next you will be designing the more functional aspects of your system, starting with Domain modeling.
+Next you will be designing the more functional aspects of your application, starting with Domain modeling.
 
 ## Model your domain
 
@@ -69,7 +69,7 @@ Next you will be designing how your application can be interacted with.
 
 ## Model your services
 
-In the `Service Designer` you can describe your application services, which dictates how you application can be interacted with. This designer also allows you to define which services are remotely accessible and how they are exposed.
+In the `Service Designer` you can describe your application services, which prescribe how your application can be interacted with. This designer also allows you to define which services are remotely accessible and how they are exposed.
 
 * Open the `Services Designer`
 
