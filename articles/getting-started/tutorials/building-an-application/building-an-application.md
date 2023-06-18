@@ -26,7 +26,7 @@ On the first screen of the wizard you can select your desired application archit
 
 ![Select your architecture](images/choose-your-architecture.png)
 
-This screen allows you to configure your selected Architecture, in the tutorial you are just going to use the default configuration.
+The next screen allows you to configure your selected Architecture, in the tutorial you are just going to use the default configuration.
 
 * Click `Create`.
 
@@ -38,7 +38,7 @@ You have successfully created an Intent Architect application.
 
 ![Application created](images/application-ready.png)
 
-Before you start domain modeling, let's run the Software Factory, so that later on when you're modelling you can see the impact of the modelling changes to the code base in isolation.
+Before you start domain modeling, let's run the Software Factory, so that later on when you're modelling you can see the impact of the modelling changes in isolation.
 
 * Run the `Software Factory`, either by pressing `F5` or the button in the tool bar.
 * Click `Apply Changes`.
@@ -47,7 +47,7 @@ Before you start domain modeling, let's run the Software Factory, so that later 
 
 ## Domain Modeling
 
-Our business domain is going to reflect the problem domain concepts, here are some of the high-level concepts we are go have to model.
+The `eShopOnCantainers` is an e-commerce web site where customers can browse products, building up to shopping cart, to eventually make a purchase. Our business domain is going to reflect the problem domain concepts, here are some of the high-level concepts we are go have to model.
 * **Product**, an item for sale on the website.
 * **Basket**, the Customer's shopping cart, which they are building as they browse the site.
 * **Order**, the customers finalized order, when they checkout their shopping cart.
@@ -92,35 +92,35 @@ Now you will model the relationships between these entities.
 
 ![Model First Association](images/association-basket-item.png)
 
-You have configured a one to many relationship, i.e. a `Basket` has many `BasketItem`s and a `BasketItem` belongs to one `Basket`.
-Next lets map the association between `BasketItem` and `Product`
+You have configured a `one to many` relationship, i.e. a `Basket` has many `BasketItem`s and a `BasketItem` belongs to one `Basket`.
+Next lets map the association between `BasketItem` and `Product`.
 
 * Right-click on the `BasketItem` class, and select `New Association`.
 * Click on `Product` 
 
-You have configured a many to one relationship, i.e. a `BasketItem` has one `Product` and a `Product` can be associated with many `BasketItem`s.
+You have configured a `many to one` relationship, i.e. a `BasketItem` has one `Product` and a `Product` can be associated with many `BasketItem`s.
 
 ![Model Second Association](images/association-basketItem-product.png)
 
 ### Modelling Data
 
-To finish these entities up, you will not model their data.
+To finish these entities up, you will now model their data.
 
-Model the `Product`
+Model the `Product`.
 * Right-click on the `Product` entity and select `Add Attribute`.
 * Type `Name`, the default type is `string` so you just press enter.
 * To add another attribute, press `ctrl` + `enter`.
 * Type `Description` of type `string`.
-* To add another attribute, press `ctrl` + `enter`.
+* again, add another attribute, press `ctrl` + `enter`.
 * Type `Price` of type `decimal`.
 
 >[!Tip]
-> You can use the `F2` shortcut to rename things like `Entity`s and `Attribute`s. In the case of `Attribute`s it also allows you to change their type.
+> You can use the `F2` shortcut to rename things like `Entity`s and `Attribute`s. In the case of `Attribute`s it also allows you to change the `Attribute's` type.
 
 Model the `BasketItem`
 * Right-click on the `BasketItem` entity and select `Add Attribute`.
 * Type `Quantity`, of type `int`.
-* To add another attribute, press `ctrl` + `enter`.
+* Add another attribute, press `ctrl` + `enter`.
 * Type `UnitPrice` of type `decimal`.
 
 ![Data modelled](images/modelling-data.png)
@@ -139,15 +139,15 @@ Here is what your domain should look like when you are complete.
 ![User complete model](images/complete-domain-model.png)
 
 >[!Note]
-> Even in this simple domain, there are many perfectly valid ways to model this domain. For example, `Customer` could be associated with `Basket` or `Basket` with `Order`. This model is trying to keep the model as close to the original design where these tables are in physically separate applications and data stores. 
+> Even in this simple domain, there are many perfectly valid ways to model this domain. For example, `Customer` could be associated with `Basket` or `Basket` with `Order`. Here we are trying to keep the model as close to the original design where these tables are in physically separate applications and data stores. 
 
-The last thing to add to the model would be a `Status` to the order so that our customer can see what is happening with their order. 
+The last thing to add to the model will be a `Status` on the order, so that our customer can see what is happening with their order. 
 
 Add an `OrderStatus` `Enum` to the model.
-* In the `TreeView` panel (Top right), right-click on `Domain Package` (Root node of the tree) and click `New Enum`. 
+* In the `TreeView Panel` (Top right), right-click on root node of the tree (SimplifiedEShopTutorial.Domain)  and click `New Enum`. 
 * Type in `OrderStatus` as it's name.
 * Right-click on OrderStatus and select `Add Literal`.
-* Type `Submitted`, in the `Property` panel below set `Value` to `1`.
+* Type `Submitted`, in the `Property Panel` below set `Value` to `1`.
 * Add 2 more statuses:
     * `Shipped` - `2`.
     * `Cancelled` - `3`.
@@ -155,74 +155,81 @@ Add an `OrderStatus` `Enum` to the model.
 ![Enum Modelled](images/enum-added.png)
 
 >[!Tip]
-> Starting your `Enum` literal values from `1`, as opposed to `0`, is a good practice to avoid / detect "default initialization bugs" as uninitialized enums will have a value of `0`.
+> Starting your `Enum` literal values from `1`, as opposed to `0`, is a good practice to catch "default initialization bugs" as uninitialized enums will have a value of `0`.
 
-Add status attribute to the `Order`
+Add a Status attribute to the `Order`
 * On your `Order` entity, add an attribute named `Status` of type `OrderStatus`.
 
 ![Add Order Status](images/model-order-status.png)
 
-You can now apply your modeling changes to your code base.
+You can now apply your modeling changes to your codebase.
 * Save your Modeling (`ctrl`+ `s`).
 * Run the `Software Factory` (`F5`) this will produce all the code related to your Domain Modeling.
 * Feel free to review / explore the changes in the `Software Factory` dialog.
-* Click `Apply Changes`.
+* If you double-click on any of the changing files, the changes will be opened in the configured diff tool. (Visual Studio Code -> Visual Studio are the defaults)
 
 ![Software Factory After Domain](images/software-factory-domain-done.png)
 
+Apply the Changes.
+* Click `Apply Changes`.
+
 ## Service Modelling
 
-Next up you are going to want to model the services of your application. Look at the domain `Customer`s and `Product`s are really supporting data for `Basket`s and `Order`s. Given that, you can easily use Intent Architect to create these CRUD services for you.
+Next up you are going to want to model the services of your application. Looking at the domain `Customer`s and `Product`s are really just supporting data for `Basket`s and `Order`s. Given that, you can easily use Intent Architect to create CRUD services for these.
 
 * Open the `Services Designer`.
-* In the `TreeView` panel (Center), right-click on `Services Package` (Root node of the tree) and click `Create CQRS CRUD Operations`. 
+* In the `TreeView Panel` (Center), right-click on the root node of the tree(SimplifiedEShopTutorial.Services) and click `Create CQRS CRUD Operations`. 
 * In the dialog box select `Customer`.
 * Click `Done.`
 
 ![Customer Service Added](images/crud-customer-service.png)
 
-Looking at what has been created, you can see a logical `Customer` service in a `CQRS` style. Intent has all the basic CRUD operations you'd expect to see.
+Look at what has been created, you can see a logical `Customer` service in a `CQRS` style. Intent has added all the basic CRUD operations you'd expect to see.
 
 >[!Note]
 > Simplifying it a bit, the CQRS paradigm is about separating server instructions into two groups
->* Commands, these mutate / change the servers state. 
->* Queries, these only read state, never changing it. 
+>* `Commands`, these mutate / change the servers state. 
+>* `Query`s, these only read state, never changing it. 
+
 Your next action is to expose these commands and queries as REST end points.
 
 * Click on `CreateCustomerCommand`.
 * Hold down `Shift`.
 * Click on `GetCustomersQuery`.
 * You should have all the `Command`s and `Query`s highlighted
-* Right-click on any of the highlighted items and select `Expose as Http Endpoint`
+* Right-click on any of the highlighted items and select `Expose as Http Endpoint`.
 
 ![Expose Customer Service](images/expose-as-endpoints-customer.png)
 
 >[!Tip]
-> When modelling services in Intent Architect you are modelling application level services, i.e. they are not necessarily available for remote access. In this tutorial you have chosen to expose your services as Http REST endpoints.
+> When modelling services in Intent Architect you are modelling application level services, i.e. they are not necessarily available for remote access. In this tutorial 
+you have chosen to expose your services as Http REST endpoints.
 
 Similarly, create a CRUD Service for `Product`s, don't forget to expose them so that we can interact with them through Swagger later on.
 
 * Create your CRUD `Product` service, in the same way you made the `Customer` service.
 
+Your result, should look are follows:
+
 ![Expose Customer Service](images/crud-product-service.png)
 
-At this point is might, you can apply these changes to see how your modelling to translating into code.
+At this point, you can apply these changes and see how your modelling is translating into code.
 
 * Save your Modeling (`ctrl`+ `s`).
-* Run the `Software Factory` (`F5`) this will produce all the code to the two services you just modeled.
+* Run the `Software Factory` (`F5`) this will produce all the code for the two services you just modeled.
 * Feel free to review / explore the changes in the `Software Factory` dialog.
 * Click `Apply Changes`.
 
 ![Customer / Product Services Generated](images/software-factory-create-customer-product-services.png)
 
 >[!Tip]
-> Using Intent Architects CRUD modules to create services can be a great productivity boost whether you using them as-is or using them as a starting point to extend.
+> Using Intent Architects CRUD modules to create services can be a great productivity boost whether you are using them as-is or as a starting point to extend.
 
 Now let's look at our `Basket` service. These operations are going to be more bespoke in nature. Online shopping carts usually don't have an explicit creation step, but rather create themselves lazily on demand, so lets model it that way. You are going to create a `Command` called `GetBasketById` which will create or get the customer's basket and return it as a `BasketDto`. It will also use the `Customer`'s Id as the `Basket`'s Id, this means a customer can only ever have 1 basket and it can be persist and easily identified across visits to our site.
 
 Before we create the `Command`, lets design it's return type `BasketDto`.
 
-* In the `TreeView` panel (Center), right-click on `Services Package` (Root node of the tree) and click `Add Folder`. 
+* In the `TreeView Panel` (Center), right-click on the root node and click `Add Folder`. 
 * Name the folder `Baskets`.
 * Right-click on the `Baskets` folder, and select `New DTO`.
 * Name the Dto, `BasketDto`.
@@ -257,7 +264,7 @@ Now you can create the `GetBasketById` command.
 ![Model GetBasketById Command](images/create-getBasketByIdCommand.png)
 
 >[!Note]
-> In the service designer we have used both the `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the domain and services allowing modules to use this information. This mappings are visualize by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which Dto's typically are. 
+> In the service designer we have used both the `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the domain and services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which Dto's typically are. 
 
 Again. lets look at the results of your modelling.
 
@@ -281,10 +288,10 @@ The basic logic of this handler will be to create a new `Basket` if one doesn't 
 
 [!code-csharp[](code/complete-GetBasketByIdHandler.cs?highlight=7,8,18,19,22,24,25,31-37)]
 
-The next `Command` you will need to one to Add items to the customers `Basket`.
+The next `Command` you will need is one to add items to the customer's `Basket`.
 
 * Right-click on the `Baskets` folder and select `Add Command`.
-* Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added line item.
+* Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added `BasketItem`.
 * Right-click on `AddToBasketCommand` and select `Map to Domain Data`
 * A dialog will open, with an expanded dropdown menu, select `BasketItem`.
 * Check the following :
@@ -294,7 +301,7 @@ The next `Command` you will need to one to Add items to the customers `Basket`.
     * `Unit Price`
 * Click `Done`.
 * Right-click on `AddToBasketCommand`, and select `Expose as Http EndPoint.`.
-* In the `Properties` panel, in the `Http Settings` section
+* In the `Properties Panel`, in the `Http Settings` section
     * Change the `Route` to `api/baskets/{basketId}/add`.
 
 ![Add Basket Item Modelled](images/model-add-item-to-basket-command.png)
@@ -306,21 +313,24 @@ Again. lets look at the results of this modelling.
 
 ![SF - Add Basket Item](images/software-factory-add-item-to-basket.png)
 
-There should be a change to `AddToBasketCommandHandler`, if you double-click and inspect the change, you will notice that this class has been fully implemented for us. Here the CRUD module has figured out what you are trying to do and given us an implementation which meets our requirements. 
+There should be a change to `AddToBasketCommandHandler`, if you double-click and inspect the change, you will notice that this class has been fully implemented for us. Here the CRUD module has figured out what you are trying to do and given you an implementation which meets your requirements. 
 
 ![Add BasketItem Auto Implemented](images/diff-add-item-to-basket.png)
 
-Lastly, you will want to implement an order service. This service should allow customers to:
-1. Check out their `Basket`, creating an `Order`
-2. Read their `Order`s
+>[!Tip]
+> If we were not happy with the convention-based crud implementation there are several ways you could opt out of this. One way to do this would be to adjust he `IntentManged` attribute changing the `Body = Mode.Fully` to `Body = Mode.Ignore`. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
 
-In this example you will bootstrap the service using the CRUD feature and customize according to your needs.
+Lastly, you will want to implement an order service. This service should allow customers to:
+1. Check out their `Basket`, creating an actual `Order`.
+2. Read their `Order`.
+
+For this service you will bootstrap the service using the CRUD feature and customize according to your needs.
 
 * Open the `Services Designer`.
-* In the `TreeView` panel (Center), right-click on `Services Package` (Root node of the tree) and click `Create CQRS CRUD Operations`. 
+* In the `TreeView Panel` (Center), right-click on the root node and click `Create CQRS CRUD Operations`. 
 * In the dialog box select `Order`.
-* Click `Done.`
-* Open the `Orders` folder
+* Click `Done`.
+* Open the `Orders` folder.
 
 ![CRUD Order Service](images/crud-order.png)
 
@@ -331,7 +341,7 @@ You are now going to remove the `Command`s you don't need.
 
 ![Remove Commands](images/crud-remove-orders.png)
 
-Let's enrich the `OrderDto` so that when we query it, the relevant information is there.
+Let's enrich the `OrderDto` so that when you query it, the relevant information is there.
 * Right-click on the `OrderDto` and select `Map from Domain`.
 * In the tree view check `OrderItem`.
 * Click `Done`.
@@ -346,7 +356,7 @@ Let's enrich the `OrderDto` so that when we query it, the relevant information i
 
 ![Model Order Dto](images/model-order-dto.png)
 
-Next you will modify the `CreateOrderCommand` to how you would like the check out process to work. In this case we will simply pass through our `BasketId` and the  server can create our order based on the current Basket.
+Next you will modify the `CreateOrderCommand` to better reflect how the check out process should work. In this case we will simply pass through our `BasketId` and the  server can create our `Order` based on the current `Basket`.
 
 * Select the `CreateOrderCommand`.
 * Press `F2` and rename the `Command` to `CheckoutCommand`.
@@ -362,7 +372,7 @@ Expose your services.
 
 * Expose your `Order` commands and queries as Http EndPoints.
 * Select the `CheckoutCommand`
-* In the `Properties` panel, in the `Http Settings` section
+* In the `Properties Panel`, in the `Http Settings` section
     * Change the `Verb` to `Post`.
     * Change the `Route` to `api/orders/checkout`.
 
@@ -403,7 +413,8 @@ Take a look at all the end points, you should see all the services you designed 
 First thing you need to do is create a Customer.
 * Click on the `Post /api/customers` row in the Customers section.
 * Click `Try it out` button on the right hand side.
-* In the `Request Body` json fill in
+* In the `Request Body` json fill in:
+
 ```json
 {
   "name": "Customer1",
@@ -416,25 +427,26 @@ First thing you need to do is create a Customer.
 
 * Record the `CustomerId` response as you will need it later.
 
-In a similar fashion you can create a `Product` using the `Post /api/products` row in the Products section. Don't forget to record your `ProductId` so we can use it later.
+In a similar fashion you can create a `Product` using the `Post /api/products` row in the Products section. Don't forget to record your `ProductId` so you can use it later.
 
-Next lets check our customers shopping cart.
+Next lets check the customers shopping cart.
 
-* Click on the `Post /api/baskets/{id}` row in the Basketss section.
+* Click on the `Post /api/baskets/{id}` row in the Baskets section.
 * Click `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field
-* Click the big blue `Execute` button
+* Fill in your `CustomerId` in the `Id` field.
+* Click the big blue `Execute` button.
 
 You should get back an empty `Basket` as follows.
 
 ![Empty Shopping Basket](images/rest-empty-basket.png)
 
-Lets add an Item to the Cart.
+Lets add an item to the cart.
 
-* Click on the `Post /api/baskets/{id}/add` row in the Basketss section.
+* Click on the `Post /api/baskets/{id}/add` row in the Baskets section.
 * Click `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field
-* In the `Request Body` json fill in
+* Fill in your `CustomerId` in the `Id` field.
+* In the `Request Body` json fill in (replacing the relevant Ids):
+
 ```json
 {
   "basketId": "{CustomerId}",
@@ -445,20 +457,20 @@ Lets add an Item to the Cart.
 ```
 * Click the big blue `Execute` button
 
-Let's check the `BasketItem` is in our `Basket`.
+Let's check the `Basket` has updated
 * Click on the `Post /api/baskets/{id}` row in the Baskets section.
 * Click `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field
-* Click the big blue `Execute` button
+* Fill in your `CustomerId` in the `Id` field.
+* Click the big blue `Execute` button.
 
 You should get a result similar to this:
 
 ![Shopping Basket With Item](images/rest-basket-with-item.png)
 
-Now you can Checkout your `Order`.
+Now you can Checkout your `Basket`.
 * Click on the `Post /api/orders/checkout` row in the Orders section.
 * Click `Try it out` button on the right hand side.
-* In the `Request Body` json fill in
+* In the `Request Body` json fill in (replacing the relevant Ids) :
 ```json
 {
   "basketId": "{CustomerId}"
@@ -477,9 +489,13 @@ You should get a result similar to this:
 
 ![Shopping Basket With Item](images/rest-basket-with-item.png)
 
-## Summary
+## Next Steps
 
 Congratulation's you have build an application using Intent Architect.
+We will have more Tutorials like these out in the future.
+
+We also have a series of [webinars](https://www.youtube.com/@IntentArchitect) covering various many facets od Intent Architect.
+
 
 ## Additional Related Resources
 [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
