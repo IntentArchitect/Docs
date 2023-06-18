@@ -8,10 +8,10 @@ items:
 - name: Take a tour
   href: take-a-tour/take-a-tour.md
 
-- name: 'Tutorial: Hello World'
+- name: 'Tutorial 1: Hello World'
   href: tutorials/hello-world/hello-world-tutorial.md
   
-- name: 'Tutorial: Build an Application'
+- name: 'Tutorial 2: Build an Application'
   href: tutorials/building-an-application/building-an-application.md
 
 - name: 'Tutorial: Create a Sample App'
