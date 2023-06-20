@@ -14,7 +14,8 @@ items:
 - name: 'Tutorial 2: Build an Application'
   href: tutorials/building-an-application/building-an-application.md
 
-- name: 'Tutorial: Create a Sample App'
-  href: tutorials/create-a-sample-app/toc.yml
-  topicUid: tutorials.create-a-sample-app.introduction
+# this to be converted to Java tutorial
+# - name: 'Tutorial: Create a Sample App'
+#   href: tutorials/create-a-sample-app/toc.yml
+#   topicUid: tutorials.create-a-sample-app.introduction
 
