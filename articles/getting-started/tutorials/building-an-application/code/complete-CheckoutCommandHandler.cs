@@ -28,27 +28,31 @@ namespace SimplifiedEShopTutorial.Application.Orders.Checkout
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Guid> Handle(CheckoutCommand request, CancellationToken cancellationToken)
         {
-            var basket = await _basketRepository.FindByIdAsync(request.BasketId);
+            var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
             if (basket == null)
             {
                 throw new ArgumentException("Invalid basketId");
             }
-            var order = new Order()
+
+            var order = new Order
             {
                 CustomerId = basket.Id,
                 OrderDate = DateTime.Now,
                 OrderItems = basket.BasketItems.Select(CreateOrderItem).ToList(),
                 Status = Domain.OrderStatus.Submitted
             };
+
             _orderRepository.Add(order);
             _basketRepository.Remove(basket);
+
             await _orderRepository.UnitOfWork.SaveChangesAsync(cancellationToken);
+
             return order.Id;
         }
 
-        private OrderItem CreateOrderItem(BasketItem basketItem)
+        private static OrderItem CreateOrderItem(BasketItem basketItem)
         {
-            return new OrderItem()
+            return new OrderItem
             {
                 ProductId = basketItem.ProductId,
                 Quantity = basketItem.Quantity,

@@ -13,13 +13,13 @@ using SimplifiedEShopTutorial.Domain.Repositories;
 namespace SimplifiedEShopTutorial.Application.Baskets.GetBasketById
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
-    public class GetBasketByIdHandler : IRequestHandler<GetBasketByIdCommand, BasketDto>
+    public class GetBasketByIdCommandHandler : IRequestHandler<GetBasketByIdCommand, BasketDto>
     {
         private readonly IBasketRepository _basketRepository;
         private readonly IMapper _mapper;
 
         [IntentManaged(Mode.Merge)]
-        public GetBasketByIdHandler(IMapper mapper, IBasketRepository basketRepository)
+        public GetBasketByIdCommandHandler(IMapper mapper, IBasketRepository basketRepository)
         {
             _basketRepository = basketRepository;
             _mapper = mapper;
@@ -28,12 +28,13 @@ namespace SimplifiedEShopTutorial.Application.Baskets.GetBasketById
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<BasketDto> Handle(GetBasketByIdCommand request, CancellationToken cancellationToken)
         {
-            var basket = await _basketRepository.FindByIdAsync(request.Id);
+            var basket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
             if (basket == null)
             {
-                basket = new Basket() { Id = request.Id };
+                basket = new Basket { Id = request.Id };
                 _basketRepository.Add(basket);
             }
+
             return basket.MapToBasketDto(_mapper);
         }
     }

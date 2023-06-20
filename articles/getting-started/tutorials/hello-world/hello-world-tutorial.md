@@ -23,11 +23,11 @@ This tutorial should take around 5 minutes.
 
 ![Home Screen](images/create-application.png)
 
-On the first screen of the wizard, you can select your desired architecture. For this tutorial, go with the `Clean Architecture .NET` option.
+On the first screen of the wizard you can select your desired architecture. For this tutorial use the `Clean Architecture .NET` option.
 
 * Select the `Clean Architecture .NET` template.
 * Change the application name to `HelloWorldTutorial`.
-* Check / change the `Location` field. (This is where your Intent Architect application will be created)
+* Check / change the `Location` field (this is where your Intent Architect application will be created).
 * Click `Next`.
 
 ![Select your architecture](images/choose-application-template.png)
@@ -38,10 +38,12 @@ This screen allows you to configure your selected Architecture, for the tutorial
 
 ![Home Screen](images/choose-your-patterns.png)
 
-You have successfully created an Intent Architect application.
+* Intent Architect will now configure your application based on your choices in the setup wizard.
+* You will be navigated to the Intent Architect Solution view.
+* The Application's icon in the left pane is a spinner while Intent Architect downloads and installs Modules for it.
+* When the process is complete the spinner will change to a static icon and the status at the bottom left of the UI will show `Ready`.
 
-* Intent Architect will now configure your application, based on your choices in the setup wizard. In the background Intent is busy downloading and installing the relevant modules.
-* You will see a `Ready` message in the bottom left, when this process is complete.
+You have successfully created an Intent Architect application.
 
 ![Application created](images/application-created.png)
 
@@ -49,30 +51,30 @@ Next you will be designing the more functional aspects of your application, star
 
 ## Model your domain
 
-The domain designer is where you model your business / problem domain. What are the concepts that exist in your problem space, what data do they have, how are they related, etc.
+The `Domain` Designer is where you model your business/problem domain (the concepts that exist in your problem space, what data they have, how are they related, etc.).
 
-* Open the `Domain Designer`
+* Open the `Domain` Designer.
 
 ![Open Domain Designer](images/open-domain-designer.png)
 
 * Right-click anywhere on the grid, and select `New Class`.
 * Change the name to `Planet`.
-* Right-click on the Planet class, and select `Add Attribute`.
+* Right-click on the `Planet` class, and select `Add Attribute`.
 * Name the attribute `Name` of type `string`.
 * Save the domain (`ctrl`+`s`).
 
 ![Model a Planet](images/model-planet.png)
 
 > [!NOTE]
-> This is the simplest domain model possible for the purposes of the "Hello  World" tutorial. Real domain models are much more complex and interesting. If you want know more about domain modelling, check this out  [Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME).  
+> This is the simplest domain model possible for the purposes of the "Hello World" tutorial. Real world domain models are much more complex and interesting. If you want know more about domain modelling check out our [Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME).
 
-Next you will be moving onto the Service Designer.
+Next you will be moving onto the `Services` Designer.
 
 ## Model your services
 
-In the `Service Designer` you  describe your application services, which is the contract for how your application can be interacted with. This designer also allows you to define which services are remotely accessible and how they are exposed.
+In the `Services` Designer you describe your application services, which is the contract for how your application can be interacted with. This Designer also allows you to define which services are remotely accessible and how they are exposed.
 
-* Open the `Services Designer`
+* Open the `Services` Designer.
 
 ![Open Service Designer](images/open-service-designer.png)
 
@@ -90,7 +92,7 @@ Intent Architect has created a minimalist CQRS style service for you with basic 
 > [!NOTE]
 > The `Clean Architecture in .NET` template has installed an optional CRUD feature, which is what you used to quickly create service definitions and it will create default convention-based service implementations for you. This is a feature which can be used as is, embraced and extended or skipped all together.
 
-These service operations are currently only available with-in the application, your next step will be to expose these operations as a RESTful Api.  
+These service operations are currently only available within the application, your next step will be to expose these operations as a RESTful API.
 
 * Click on `CreatePlanetCommand`.
 * Hold down `Shift`.
@@ -114,7 +116,7 @@ In Intent Architect there is a process called the `Software Factory`, this proce
 
 So, lets see it in action.
 
-* Click `Run Software Factory` (or Press `F5`).
+* Click `Run Software Factory` (or press `F5`).
 
 ![Generate the code](images/run-software-factory.png)
 
@@ -138,14 +140,14 @@ Now you can open up the solution in your C# IDE.
 
 ![The generated solution](images/vs-solution.png)
 
-> [!NOTE]
-> If you are curious about the architecture of this solution, check out this webinar, [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg).  
+> [!TIP]
+> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg).
 
 ## Run the application
 
 Run the application in your IDE and you should be presented with a Swagger based UI which you can use to interact with the application.
 
-In the UI you can see the 5 service operations you modeled earlier, and are now able to invoke them
+In the UI you can see the 5 service operations you modeled earlier and you are now able to invoke them
 
 ![Swagger of Service](images/swagger-ui.png)
 
@@ -170,12 +172,12 @@ If you scroll down a little you should see a `Server Response` with a code of `2
 If you'd like to verify this:
 
 * Copy to `Planet` id.
-* Click on the `Get` operation, with route `/api/planets/{id}`.
+* Click on the `GET` operation, with route `/api/planets/{id}`.
 * Click on `Try it out`, right hand side of screen.
 * Paste the `Planet` id in the `id` text-box.
 * Click the big blue `Execute` button.
 
-You should get a response similar to this
+You should get a response similar to this:
 
 ```json
 {
@@ -190,18 +192,18 @@ Congratulations, you have successfully built your first application using Intent
 
 At this point you should have some sense of what Intent Architect can do:
 
-* Rapidly building applications
-* Configure your application architecture
-* Visually design your application and domain through modeling
-* Achieve better architectural adherence and consistency through automation
+* Rapidly build applications.
+* Configure your application architecture.
+* Visually design your application and domain through modeling.
+* Achieve better architectural adherence and consistency through automation.
 
-## Next Steps
+## Next steps
 
 The next tutorial will take you step by step through building a simplified version of the Microsoft `eShopOnContainers` technology example.
 
 [Tutorial 2: Build an Application](xref:tutorials.building-an-application)
 
-## Additional Related Resources
+## Additional related resources
 
 [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
 
