@@ -52,7 +52,7 @@ Before you start domain modeling, let's run the Software Factory so that later o
 
 ![Application scaffolded](images/software-factory-scaffolding.png)
 
-## Domain Modeling
+## Modeling the domain
 
 The Microsoft `eShopOnContainers` is an e-commerce web site where customers can browse products, adding them to a shopping cart, to eventually make a purchase. Our business domain is going to reflect the problem domain concepts, here are some of the high-level ones we are going to have to model:
 
@@ -189,7 +189,7 @@ Apply the Changes:
 
 * Click `Apply Changes`.
 
-## Service Modeling
+## Modeling the services
 
 Next up you are going to want to model the services of your application. Looking at the domain, `Customer`s and `Product`s are really just supporting data for `Basket`s and `Order`s. Given that, you can easily use Intent Architect to create CRUD services for these:
 
@@ -242,7 +242,7 @@ At this point, you can apply these changes and see how your modeling is translat
 > [!TIP]
 > Using Intent Architect's CRUD modules to create services can be a great productivity boost whether you are using them as-is or as a starting point to extend.
 
-Now let's look at our `Basket` service. These operations are going to be more bespoke in nature. Online shopping carts usually don't have an explicit creation step, but rather create themselves lazily on demand, so let's model it that way. You are going to create a `Command` called `GetBasketById` which will create or get the customer's basket and return it as a `BasketDto`. It will also use the `Customer`'s `Id` as the `Basket`'s `Id`, this means a customer can only ever have one basket and it can be persisted and easily identified across visits to our site.
+Now let's look at our `Basket` service. These operations are going to be more bespoke in nature. Online shopping carts usually don't have an explicit creation step, but rather create themselves lazily on demand, so let's model it that way. You are going to create a `Command` called `CreateOrGetBasketCommand` which will create or get the customer's basket and return it as a `BasketDto`. It will also use the `Customer`'s `Id` as the `Basket`'s `Id`, this means a customer can only ever have one basket and it can be persisted and easily identified across visits to our site.
 
 Before we create the `Command`, let's design its return type `BasketDto`:
 
@@ -265,20 +265,17 @@ Before we create the `Command`, let's design its return type `BasketDto`:
 
 ![Model Basket DTO](images/create-basket-dto.png)
 
-Now you can create the `GetBasketById` command:
+Now you can create the `CreateOrGetBasketCommand` command:
 
 * Right-click on the `Baskets` folder, and select `New Command`.
-* Name the command `GetBasketByIdCommand` and set its return type to `BasketDto`.
-* Right-click on the `GetBasketByIdCommand` command and select `Map to Domain Data`.
+* Name the command `CreateOrGetBasketCommand` and set its return type to `BasketDto`.
+* Right-click on the `CreateOrGetBasketCommand` command and select `Map to Domain Data`.
 * A dialog will open with an expanded dropdown menu, select `Basket`.
 * Check the `Id` field.
 * Click `Done`.
-* Right-click on the `GetBasketByIdCommand` command, and select `Expose as Http Endpoint`.
-* In the `Properties` pane, scroll to the `Http Settings` section:
-  * Change the `Verb` to `POST`.
-  * Change the `Route` to `api/baskets/{id}`.
+* Right-click on the `CreateOrGetBasketCommand` command, and select `Expose as Http Endpoint`.
 
-![Model GetBasketById Command](images/create-getBasketByIdCommand.png)
+![Model CreateOrGetBasketCommand](images/create-getBasketByIdCommand.png)
 
 > [!NOTE]
 > In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which DTO's typically are.
@@ -288,22 +285,25 @@ Again, let's look at the results of your modeling:
 * Save (`Ctrl`+ `S`).
 * Run the `Software Factory` (`F5`).
 
-![SF for GetBasketById](images/software-factory-getBasketById.png)
+![SF for CreateOrGetBasketCommand](images/software-factory-getBasketById.png)
 
-There should be a change to `GetBasketByIdCommandHandler`, if you double-click and inspect the change you will notice that this Class needs to be implemented and that's what you will tackle next.
+There should be a change to `CreateOrGetBasketCommandHandler`, if you double-click and inspect the change you will notice that the Intent CRUD Module has provided a default `Create` implementation which is not what you want, so the lets change it.
 
-![Need Implementation for GetBasketById](images/implement-getBasketById-command-handler.png)
+![Need to change Implementation for CreateOrGetBasketCommand](images/implement-getBasketById-command-handler.png)
 
 * Click `Apply Changes`.
 * Click on the blue hyperlink at the bottom left of the `Software Factory` dialog, this should open a folder containing all the generated source code.
 * Open the `.sln` file.
-* Open the `GetBasketByIdCommandHandler.cs` file.
+* Open the `CreateOrGetBasketCommandHandler.cs` file.
 
 The basic logic of this handler will be to create a new `Basket` if one doesn't exist, otherwise work with the existing `Basket`, and then send the `Basket` details back to the caller:
 
 * Update the code as follows:
 
-[!code-csharp[](code/complete-GetBasketByIdCommandHandler.cs?highlight=7,8,18,19,22,24,25,31-38)]
+[!code-csharp[](code/complete-CreateOrGetBasketCommandHandler.cs?highlight=29,32-39)]
+
+> [!TIP]
+> If you were not happy with the convention-based crud implementation there are several ways you could opt-out. One way to do this would be to adjust the `IntentManged` attribute, changing the `Body = Mode.Fully` to `Body = Mode.Ignore`, as you did in this example. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
 
 The next `Command` you will need is one to add items to the customer's `Basket`:
 
@@ -333,9 +333,6 @@ Again, let's look at the results of this modeling:
 There should be a change to `AddToBasketCommandHandler`, if you double-click and inspect the change, you will notice that this class has been fully implemented for us. Here the CRUD module has figured out what you are trying to do and given you an implementation which meets your requirements.
 
 ![Add BasketItem Auto Implemented](images/diff-add-item-to-basket.png)
-
-> [!TIP]
-> If we were not happy with the convention-based crud implementation there are several ways you could opt-out of this. One way to do this would be to adjust he `IntentManged` attribute changing the `Body = Mode.Fully` to `Body = Mode.Ignore`. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
 
 Lastly, you will want to implement an order service. This service should allow customers to:
 
