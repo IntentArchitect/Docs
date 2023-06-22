@@ -66,7 +66,7 @@ The `Domain` Designer is where you model your business/problem domain (the conce
 ![Model a Planet](images/model-planet.png)
 
 > [!NOTE]
-> This is the simplest domain model possible for the purposes of the "Hello World" tutorial. Real world domain models are much more complex and interesting. If you want know more about domain modelling check out our [Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME).
+> This is the simplest domain model possible for the purposes of the "Hello World" tutorial. Real world domain models are much more complex and interesting. If you want know more about domain modelling check out our [Intent Architect Webinar on Domain Modeling in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Domain-Modeling-Webinar).
 
 Next you will be moving onto the `Services` Designer.
 
@@ -141,7 +141,7 @@ Now you can open up the solution in your C# IDE.
 ![The generated solution](images/vs-solution.png)
 
 > [!TIP]
-> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg).
+> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
 
 ## Run the application
 
@@ -205,6 +205,6 @@ The next tutorial will take you step by step through building a simplified versi
 
 ## Additional related resources
 
-[Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
+[Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
 
-[Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME)
+[Intent Architect Webinar on Domain Modeling in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Domain-Modeling-Webinar)

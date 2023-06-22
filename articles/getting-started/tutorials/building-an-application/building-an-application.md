@@ -22,6 +22,14 @@ This tutorial will take around 40 minutes.
 
 On the first screen of the wizard you can select your desired architecture. For this tutorial use the `Clean Architecture .NET` option:
 
+> [!NOTE]
+> In this tutorial we are using Clean Architecture because is a very popular Architecture, especially for typical business applications. It's key features are :
+>
+> * Separation of concerns
+> * Technology independent business layer
+>
+> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
+
 * Select the `Clean Architecture .NET` template.
 * Change the application name to `SimplifiedEShopTutorial`.
 * Check / change the `Location` field (this is where your Intent Architect application will be created).
@@ -242,16 +250,14 @@ At this point, you can apply these changes and see how your modeling is translat
 > [!TIP]
 > Using Intent Architect's CRUD modules to create services can be a great productivity boost whether you are using them as-is or as a starting point to extend.
 
-Now let's look at our `Basket` service. These operations are going to be more bespoke in nature. Online shopping carts usually don't have an explicit creation step, but rather create themselves lazily on demand, so let's model it that way. You are going to create a `Command` called `CreateOrGetBasketCommand` which will create or get the customer's basket and return it as a `BasketDto`. It will also use the `Customer`'s `Id` as the `Basket`'s `Id`, this means a customer can only ever have one basket and it can be persisted and easily identified across visits to our site.
+Now let's look at our `Basket` service. You can use the Intent CRUD module to create the service and then tailor it to the specific needs.
 
-Before we create the `Command`, let's design its return type `BasketDto`:
+As before using the `Create CQRS CRUD Operations`, but on the `Basket` this time.
+![CRUD the Basket Service](images/crud-basket.png)
 
-* In the tree-view in the center pane, right-click on the root node and click `Add Folder`.
-* Name the folder `Baskets`.
-* Right-click on the `Baskets` folder, and select `New DTO`.
-* Name the DTO, `BasketDto`.
+Before we look at the `Command`s, let's update the `BasketDto` to better reflect our needs :
+
 * Right-click on the `BasketDto` and select `Map from Domain`.
-* A dialog will open with an expanded dropdown menu, select `Basket`.
 * In the tree-view check `BasketItems` node.
 * Click `Done`.
 * Right-click on the `BasketItemDto` and select `Map from Domain`.
@@ -265,47 +271,25 @@ Before we create the `Command`, let's design its return type `BasketDto`:
 
 ![Model Basket DTO](images/create-basket-dto.png)
 
-Now you can create the `CreateOrGetBasketCommand` command:
+Now you can model the commands. Most of the `Command`s meet our requirements and you can use them as is. The customizations to the service will be as follows:
 
-* Right-click on the `Baskets` folder, and select `New Command`.
-* Name the command `CreateOrGetBasketCommand` and set its return type to `BasketDto`.
-* Right-click on the `CreateOrGetBasketCommand` command and select `Map to Domain Data`.
-* A dialog will open with an expanded dropdown menu, select `Basket`.
-* Check the `Id` field.
-* Click `Done`.
-* Right-click on the `CreateOrGetBasketCommand` command, and select `Expose as Http Endpoint`.
+* Get rid of `GetBasketsQuery` as you don't need it.
+* Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
+* Add a `CheckoutCommand` for the customer to checkout.
 
-![Model CreateOrGetBasketCommand](images/create-getBasketByIdCommand.png)
+Remove the unwanted `Command`s and `Query`s.
 
-> [!NOTE]
-> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which DTO's typically are.
+* Select `GetBasketsQuery` and `UpdateBasketCommand` (you can use the `Ctrl` key to select/de-select multiple nodes ones by one).
+* Press `Delete`.
 
-Again, let's look at the results of your modeling:
+Expose your `Command`s and `Query`s as REST Endpoints.
 
-* Save (`Ctrl`+ `S`).
-* Run the `Software Factory` (`F5`).
+* Select `CreateBasketCommand`, `DeleteBasketCommand` and `GetBasketByIdQuery`. 
+* Right-click on any of the highlighted items and select `Expose as Http Endpoint`.
 
-![SF for CreateOrGetBasketCommand](images/software-factory-getBasketById.png)
+![Cleaned up Commands and Queries](images/crud-basket-exposed.png)
 
-There should be a change to `CreateOrGetBasketCommandHandler`, if you double-click and inspect the change you will notice that the Intent CRUD Module has provided a default `Create` implementation which is not what you want, so the lets change it.
-
-![Need to change Implementation for CreateOrGetBasketCommand](images/implement-getBasketById-command-handler.png)
-
-* Click `Apply Changes`.
-* Click on the blue hyperlink at the bottom left of the `Software Factory` dialog, this should open a folder containing all the generated source code.
-* Open the `.sln` file.
-* Open the `CreateOrGetBasketCommandHandler.cs` file.
-
-The basic logic of this handler will be to create a new `Basket` if one doesn't exist, otherwise work with the existing `Basket`, and then send the `Basket` details back to the caller:
-
-* Update the code as follows:
-
-[!code-csharp[](code/complete-CreateOrGetBasketCommandHandler.cs?highlight=29,32-39)]
-
-> [!TIP]
-> If you were not happy with the convention-based crud implementation there are several ways you could opt-out. One way to do this would be to adjust the `IntentManged` attribute, changing the `Body = Mode.Fully` to `Body = Mode.Ignore`, as you did in this example. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
-
-The next `Command` you will need is one to add items to the customer's `Basket`:
+Next you are going to model the `AddToBasketCommand` command:
 
 * Right-click on the `Baskets` folder and select `Add Command`.
 * Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added `BasketItem`.
@@ -323,10 +307,13 @@ The next `Command` you will need is one to add items to the customer's `Basket`:
 
 ![Add Basket Item Modeled](images/model-add-item-to-basket-command.png)
 
-Again, let's look at the results of this modeling:
+> [!NOTE]
+> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which DTO's typically are.
+
+Again, let's look at the results of your modeling:
 
 * Save (`Ctrl`+ `S`).
-* Run the Software Factory (`F5`).
+* Run the `Software Factory` (`F5`).
 
 ![SF - Add Basket Item](images/software-factory-add-item-to-basket.png)
 
@@ -334,74 +321,38 @@ There should be a change to `AddToBasketCommandHandler`, if you double-click and
 
 ![Add BasketItem Auto Implemented](images/diff-add-item-to-basket.png)
 
-Lastly, you will want to implement an order service. This service should allow customers to:
+> [!TIP]
+> If you were not happy with the convention-based crud implementation there are several ways you could opt-out. One way to do this would be to adjust the `IntentManged` attribute, changing the `Body = Mode.Fully` to `Body = Mode.Ignore`, as you did in this example. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
 
-1. Check out their `Basket`, creating an actual `Order`.
-2. Read their `Order`.
+Accept all the changes.
 
-For this service you will bootstrap the service using the CRUD feature and customize according to your needs:
+* Click `Apply Changes`.
 
-* Open the `Services` Designer.
-* In the tree-view in the center pane, right-click on the root node and click `Create CQRS CRUD Operations`.
-* In the dialog box select `Order`.
+To finish up the `Basket` service, you are going to create the `CheckoutCommand`.
+
+* Right-click on the `Baskets` folder and select `Add Command`.
+* Name the command `CheckoutCommand` and return a `Guid` which will be the `Id` of the newly added `Order`.
+* Right-click on `CheckoutCommand` and select `Map to Domain Data`
+* A dialog will open with an expanded dropdown menu, select `Basket`.
+* Check the box next to `Id`.
 * Click `Done`.
-* Open the `Orders` folder.
-
-![CRUD Order Service](images/crud-order.png)
-
-You are now going to remove the `Command`s you don't need:
-
-* Select the `UpdateOrderCommand` and `DeleteOrderCommand` commands (you can use the `Ctrl` key to select/de-select multiple nodes ones by one).
-* Press `Delete`.
-
-![Remove Commands](images/crud-remove-orders.png)
-
-Let's enrich the `OrderDto` so that when you query it, the relevant information is there:
-
-* Right-click on the `OrderDto` and select `Map from Domain`.
-* In the tree-view check `OrderItems`.
-* Click `Done`.
-* Right-click on the `OrderItemDto` and select `Map from Domain`.
-* Uncheck `OrderId`.
-* Expand the `Product` node and check `Name`.
-* Click `Done`.
-* Expand the `OrderItemDto`
-* Find the `Name` field:
-  * Select this field.
-  * Press `F2` and change its name to `ProductName`.
-
-![Model Order DTO](images/model-order-dto.png)
-
-Next you will modify the `CreateOrderCommand` to better reflect how the check out process should work. In this case we will simply pass through our `BasketId` and the server can create our `Order` based on the current `Basket`:
-
-* Select the `CreateOrderCommand`.
-* Press `F2` and rename the `Command` to `CheckoutCommand`.
-* Expand the `CheckoutCommand`, and remove all its properties:
-  * Select the three properties (`OrderDate`, `CustomerId`, `Status`)
-  * Press `Delete`.
-* Right-click on the `CheckoutCommand`, and select `Add Property`
-* Name the property `BasketId` of type `Guid`
-
-![Model CheckoutCommand](images/model-checkout-command.png)
-
-Expose your services:
-
-* Expose your `Order` commands and queries as HTTP endpoints.
-* Select the `CheckoutCommand`
+* Rename the `Id` property on the `CheckoutCommand` to `BasketId`.
+* Right-click on `CheckoutCommand` and select `Expose as Http Endpoint`
 * In the `Properties` pane, in the `Http Settings` section:
   * Change the `Verb` to `POST`.
-  * Change the `Route` to `api/orders/checkout`.
 
-![Expose Order Service](images/expose-order-service.png)
+![Model CheckoutCommand](images/model-checkout-command.png)
 
 Generate the outputs:
 
 * Save (`Ctrl`+ `S`).
 * Run the Software Factory (`F5`).
 
-![SF - Order Service](images/software-factory-order-service.png)
+![SF - Check out](images/software-factory-checkout.png)
 
 If you double-click the `CheckoutCommandHandler`, you will notice that this class needs to be implemented and that's what you will tackle next:
+
+![SF - Check out](images/checkout-needs-implementation.png)
 
 * Click `Apply Changes`.
 * Click on the blue hyperlink at the bottom left of the Software Factory dialog, this should open a folder containing all the generated source code.
@@ -412,7 +363,63 @@ Now you need to implement the `CommandHandler`. Basically this service should cr
 
 * Update the code as follows:
 
-[!code-csharp[](code/complete-CheckoutCommandHandler.cs?highlight=2,7,8,18,19,22,24,25,31-50,52-61)]
+[!code-csharp[](code/complete-CheckoutCommandHandler.cs?highlight=2,7-9,19,20,23,25,26,32-51,54-62)]
+
+Lastly, you will want to implement an order service. This service should allow customers to view their orders. Here we will create the service from scratch.
+
+* In the tree-view in the center pane, right-click on the root node and click `New Folder`.
+* Name the folder `Orders`.
+* Right-click on the `Orders` folder and select `New Query`.
+* Name the query `GetMyOrdersQuery`.
+
+You will need to model the `DTO` that this `Query` returns.
+
+* Right-click on the `Orders` folder and select `New DTO`.
+* Name the DTO `OrderDto`.
+* Right-click on the `OrderDto` and select `Map from Domain`.
+* Select `Order` from the expanded dropdown.
+* Check the following fields:
+  * `OrderDate`
+  * `Status`
+  * `OrderItems`
+* Click `Done`.
+* Right-click on the `OrderItemDto` and select `Map from Domain`.
+* Expand the `Product` node, check `Name`.
+* Click `Done`.
+* Rename `Name` to `ProductName`.
+
+![OrderDto Modeled](images/orderdto-modelled.png)
+
+* Select `GetMyOrdersQuery`
+* In the `Property` pane change
+  * `Type` to `OrderDto`
+  * Check `IsCollection`
+* Right-click on `GetMyOrdersQuery` and select `Add Property`.
+* Name it `CustomerId` of type `guid`.
+* Right-click on `GetMyOrdersQuery`, and select `Expose as Http Endpoint`.
+* In the `Properties` pane, in the `Http Settings` section:
+  * Change the `Route` to `api/orders/my-orders/{customerId}`.
+
+![OrderDto Modeled](images/get-my-orders-command.png)
+
+Run the Software Factory:
+
+* Save (`Ctrl`+ `S`).
+* Run the Software Factory (`F5`).
+
+![SF - GetMyOrdersQuery](images/software-factory-get-my-orders.png)
+
+If you double-click the `GetMyOrdersQueryCommandHandler`, you will notice that there is a default implementation but it's not what you need, it's not taking into account the `CustomerId` parameter.
+
+![Default GetMyOrdersQuery implementation](images/get-my-orders-default-impl.png)
+
+* Click `Apply Changes`.
+* Click on the blue hyperlink at the bottom left of the Software Factory dialog, this should open a folder containing all the generated source code.
+* Open the `.sln` file.
+* Open the `GetMyOrdersQueryCommandHandler.cs` file.
+* Update the code as follows:
+
+[!code-csharp[](code/complete-GetMyOrdersQueryHandler.cs?highlight=28,31)]
 
 At this point you are done coding and you can see the application in action.
 
@@ -447,22 +454,26 @@ First thing you need to do is create a Customer:
 
 In a similar fashion you can create a `Product` using the `POST /api/products` row in the Products section. Don't forget to record your `ProductId` so you can use it later.
 
-Next let's check the customer's shopping cart:
+Next let's create the customer's shopping cart:
 
-* Click on the `POST /api/baskets/{id}` row in the Baskets section.
+* Click on the `POST /api/baskets` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field.
+* In the `Request Body` JSON fill in (replacing the relevant Ids):
+
+```json
+{
+  "customerId": "{CustomerId}",
+}
+```
+
 * Click the big blue `Execute` button.
-
-You should get back an empty `Basket` as follows.
-
-![Empty Shopping Basket](images/rest-empty-basket.png)
+* Record the `BasketId` response as you will need it later.
 
 Let's add an item to the cart:
 
 * Click on the `POST /api/baskets/{id}/add` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field.
+* Fill in your `BasketId` in the `Id` field.
 * In the `Request Body` JSON fill in (replacing the relevant Ids):
 
 ```json
@@ -478,9 +489,9 @@ Let's add an item to the cart:
 
 Let's check the `Basket` has updated:
 
-* Click on the `POST /api/baskets/{id}` row in the Baskets section.
+* Click on the `GET /api/baskets/{id}` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `CustomerId` in the `Id` field.
+* Fill in your `BasketId` in the `Id` field.
 * Click the big blue `Execute` button.
 
 You should get a result similar to this:
@@ -489,24 +500,17 @@ You should get a result similar to this:
 
 Now you can Checkout your `Basket`:
 
-* Click on the `POST /api/orders/checkout` row in the Orders section.
+* Click on the `POST /api/baskets/{basketId}/checkout` row in the Orders section.
 * Click the `Try it out` button on the right hand side.
-* In the `Request Body` JSON fill in (replacing the relevant Ids):
-
-```json
-{
-  "basketId": "{CustomerId}"
-}
-```
-
+* Fill in your `BasketId` in the `basketId` field.
 * Click the big blue `Execute` button.
 * Record the `OrderId` response as you will need use it now to retrieve the order.
 
 Query the `Order` to confirm it's placed:
 
-* Click on the `GET /api/orders/{id}` row in the Orders section.
+* Click on the `GET /api/orders/my-orders/{customerId}` row in the Orders section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `OrderId` in the `Id` field
+* Fill in your `CustomerId` in the `customerId` field
 * Click the big blue `Execute` button
 
 You should get a result similar to this:
@@ -523,5 +527,5 @@ We also have a series of [webinars](https://www.youtube.com/@IntentArchitect) co
 
 ## Additional related resources
 
-* [Intent Architect Webinar on Clean Architecture in .NET 7](https://www.youtube.com/watch?v=AFcOyF_TWAg)
-* [Intent Architect Webinar on Domain Modeling in .NET](https://www.youtube.com/watch?v=yRfTXxsIKME)
+* [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
+* [Intent Architect Webinar on Domain Modeling in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Domain-Modeling-Webinar)

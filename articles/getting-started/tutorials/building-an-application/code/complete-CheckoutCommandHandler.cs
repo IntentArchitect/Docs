@@ -4,13 +4,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Intent.RoslynWeaver.Attributes;
 using MediatR;
+using SimplifiedEShopTutorial.Domain.Common.Exceptions;
 using SimplifiedEShopTutorial.Domain.Entities;
 using SimplifiedEShopTutorial.Domain.Repositories;
 
 [assembly: DefaultIntentManaged(Mode.Fully)]
 [assembly: IntentTemplate("Intent.Application.MediatR.CommandHandler", Version = "1.0")]
 
-namespace SimplifiedEShopTutorial.Application.Orders.Checkout
+namespace SimplifiedEShopTutorial.Application.Baskets.Checkout
 {
     [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
     public class CheckoutCommandHandler : IRequestHandler<CheckoutCommand, Guid>
@@ -31,12 +32,12 @@ namespace SimplifiedEShopTutorial.Application.Orders.Checkout
             var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
             if (basket == null)
             {
-                throw new ArgumentException("Invalid basketId");
+                throw new NotFoundException($"Could not find Basket {request.BasketId}");
             }
 
             var order = new Order
             {
-                CustomerId = basket.Id,
+                CustomerId = basket.CustomerId,
                 OrderDate = DateTime.Now,
                 OrderItems = basket.BasketItems.Select(CreateOrderItem).ToList(),
                 Status = Domain.OrderStatus.Submitted
