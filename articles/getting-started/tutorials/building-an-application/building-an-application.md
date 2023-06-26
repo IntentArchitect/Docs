@@ -256,31 +256,31 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 * Right-click on the `BasketDto` and select `Map from Domain`.
 * In the tree-view check `BasketItems` node.
 * Click `Done`.
-* Right-click on the `BasketItemDto` and select `Map from Domain`.
+* Right-click on the `BasketBasketItemDto` and select `Map from Domain`.
 * You can uncheck `BasketId`.
 * Expand the `Product` node and check `Name`.
 * Click `Done`.
-* Expand the `BasketItemDto` node.
+* Expand the `BasketBasketItemDto` node.
 * Find the `Name` field
   * Select this field.
   * Press `F2`and change its name to `ProductName`.
 
 ![Model Basket DTO](images/create-basket-dto.png)
 
-Now you can model the commands. Most of the `Command`s meet your requirements and you can use them as is. The customizations to the service will be as follows:
+Now you can model the commands. Most of the the current `Command`s meet your requirements and you can use them as is. The customizations to the service will be as follows:
 
 * Get rid of `GetBasketsQuery` as you don't need it.
 * Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
 * Add a `CheckoutCommand` for the customer to place their order.
 
-Remove the unwanted `Command`s and `Query`s.
+Remove the unwanted `Command`s and `Query`s:
 
 * Select `GetBasketsQuery` and `UpdateBasketCommand` (you can use the `Ctrl` key to select/de-select multiple nodes ones by one).
 * Press `Delete`.
 
-Expose the remaining `Command`s and `Query`s as REST Endpoints.
+Expose the remaining `Command`s and `Query`s as REST Endpoints:
 
-* Select `CreateBasketCommand`, `DeleteBasketCommand` and `GetBasketByIdQuery`. 
+* Select `CreateBasketCommand`, `DeleteBasketCommand` and `GetBasketByIdQuery`.
 * Right-click on any of the highlighted items and select `Expose as Http Endpoint`.
 
 ![Cleaned up Commands and Queries](images/crud-basket-exposed.png)
@@ -289,7 +289,7 @@ Next you are going to model the `AddToBasketCommand` command:
 
 * Right-click on the `Baskets` folder and select `New Command`.
 * Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added `BasketItem`.
-* Right-click on `AddToBasketCommand` and select `Map to Domain Data`
+* Right-click on `AddToBasketCommand` and select `Map to Domain Data`.
 * A dialog will open with an expanded dropdown menu, select `BasketItem`.
 * Check the following:
   * `BasketId`
@@ -304,7 +304,7 @@ Next you are going to model the `AddToBasketCommand` command:
 ![Add Basket Item Modeled](images/model-add-item-to-basket-command.png)
 
 > [!NOTE]
-> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like Command and Queries. Left facing arrows are typically used for outbound contracts, which DTO's typically are.
+> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like `Command`s and `Query`s. Left facing arrows are typically used for outbound contracts, which `DTO`s typically are.
 
 Again, let's look at the results of your modeling:
 
@@ -318,13 +318,13 @@ There should be a change to `AddToBasketCommandHandler`, if you double-click and
 ![Add BasketItem Auto Implemented](images/diff-add-item-to-basket.png)
 
 > [!TIP]
-> If you were not happy with the convention-based crud implementation there are several ways you could opt-out. One way to do this would be to adjust the `IntentManged` attribute, changing the `Body = Mode.Fully` to `Body = Mode.Ignore`, as you did in this example. This will stop the Software Factory from generating the body of this method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
+> If you were not happy with the convention-based CRUD implementation there are several ways you could opt-out. One way to do this after applying the changes is to open the file in your IDE, adjust the `IntentManged` attribute above the `Handle` method and change `Body = Mode.Fully` to `Body = Mode.Ignore`. This will instruct the Software Factory's Code Management algorithms to "Ignore" the body of the method, allowing you to change the implementation. See [Code Management](xref:application-development.code-weaving-and-generation.about-code-management-csharp) for more details.
 
-Accept all the changes.
+Accept all the changes:
 
 * Click `Apply Changes`.
 
-To finish up the `Basket` service, you are going to create the `CheckoutCommand`.
+To finish up the `Basket` service, you are going to create the `CheckoutCommand`:
 
 * Right-click on the `Baskets` folder and select `New Command`.
 * Name the command `CheckoutCommand` and return a `guid` which will be the identifier of the newly added `Order`.
@@ -360,14 +360,14 @@ Now you need to implement the `CommandHandler`. Basically this service should cr
 
 [!code-csharp[](code/complete-CheckoutCommandHandler.cs?highlight=2,7-9,19,20,23,25,26,32-51,54-62)]
 
-Lastly, you will want to implement an order service. This service will allow customers to view their orders. Let's create the service from scratch.
+Lastly, you will want to implement an order service. This service will allow customers to view their orders. Let's create the service from scratch:
 
 * In the tree-view in the center pane, right-click on the root node and click `New Folder`.
 * Name the folder `Orders`.
 * Right-click on the `Orders` folder and select `New Query`.
 * Name the query `GetMyOrdersQuery`.
 
-You will need to model the `DTO` that this `Query` returns.
+You will need to model the `DTO` that this `Query` returns:
 
 * Right-click on the `Orders` folder and select `New DTO`.
 * Name the DTO `OrderDto`.
@@ -409,7 +409,7 @@ If you double-click the `GetMyOrdersQueryCommandHandler`, you will notice that t
 ![Default GetMyOrdersQuery implementation](images/get-my-orders-default-impl.png)
 
 * Click `Apply Changes`.
-* Go to the generated solution in C# IDE
+* Open the generated solution in your C# IDE.
 * Open the `GetMyOrdersQueryCommandHandler.cs` file.
 * Update the code as follows:
 
@@ -417,9 +417,9 @@ If you double-click the `GetMyOrdersQueryCommandHandler`, you will notice that t
 
 ## Running the Application
 
-At this point you are done coding and you can see your application in action.
+At this point you are done coding and you can see your application in action:
 
-* Run the application in you C# IDE.
+* Run the application in your C# IDE (`F5` in Visual Studio).
 
 You should be presented with a Swagger UI as follows:
 
@@ -494,7 +494,7 @@ You should get a result similar to this:
 
 Now you can Checkout your `Basket`:
 
-* Click on the `POST /api/baskets/{basketId}/checkout` row in the Orders section.
+* Click on the `POST /api/baskets/{id}/checkout` row in the Orders section.
 * Click the `Try it out` button on the right hand side.
 * Fill in your `BasketId` in the `id` field.
 * Click the big blue `Execute` button.
@@ -512,7 +512,7 @@ You should get a result similar to this:
 
 ## Next steps
 
-Congratulation's, you have build an application using Intent Architect.
+Congratulations, you have built an application using Intent Architect!
 
 We will have more Tutorials like these out in the future.
 

@@ -28,7 +28,7 @@ namespace SimplifiedEShopTutorial.Application.Orders.GetMyOrders
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<List<OrderDto>> Handle(GetMyOrdersQuery request, CancellationToken cancellationToken)
         {
-            var orders = await _orderRepository.FindAllAsync((order) => order.CustomerId == request.CustomerId, cancellationToken);
+            var orders = await _orderRepository.FindAllAsync(order => order.CustomerId == request.CustomerId, cancellationToken);
             return orders.MapToOrderDtoList(_mapper);
         }
     }
