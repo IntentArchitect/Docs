@@ -22,18 +22,14 @@ This tutorial will take around 40 minutes.
 
 On the first screen of the wizard you can select your desired architecture. For this tutorial use the `Clean Architecture .NET` option:
 
-> [!NOTE]
-> In this tutorial we are using Clean Architecture because is a very popular Architecture, especially for typical business applications. It's key features are :
->
-> * Separation of concerns
-> * Technology independent business layer
->
-> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
-
-* Select the `Clean Architecture .NET` template.
+* Select the `Clean Architecture .NET` application template.
 * Change the application name to `SimplifiedEShopTutorial`.
 * Check / change the `Location` field (this is where your Intent Architect application will be created).
 * Click `Next`.
+
+> [!NOTE]
+> In this tutorial we will be using a .NET implementation of the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as explained by Robert C. Martin (aka "Uncle Bob"). This popular architecture promotes separation of concerns and the dependency rule to create systems that are modular, maintainable, and testable.
+> If you are curious about the architecture of this solution, check out our [Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
 
 ![Select your architecture](images/choose-your-architecture.png)
 
