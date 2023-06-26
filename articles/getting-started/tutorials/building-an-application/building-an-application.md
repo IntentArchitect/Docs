@@ -155,7 +155,7 @@ You can go ahead and model out the rest of the domain in the same way you just m
 ![User complete model](images/complete-domain-model.png)
 
 > [!NOTE]
-> Even in this simple domain, there are many perfectly valid ways to model this domain. For example, `Customer` could be associated with `Basket` or `Basket` with `Order`. Here we are trying to keep the model as close to the original design where these tables are in completely separate applications and data stores.
+> Even in this simple domain, there are many perfectly valid ways to model this domain. For example, `Basket` could be associated with `Order`. Here we are trying to keep the model as close to the original design where these tables are in completely separate applications and data stores.
 
 The last thing to add to the model will be a `Status` on the order, so that our customer can see what is happening with their order.
 
@@ -267,18 +267,18 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 
 ![Model Basket DTO](images/create-basket-dto.png)
 
-Now you can model the commands. Most of the `Command`s meet our requirements and you can use them as is. The customizations to the service will be as follows:
+Now you can model the commands. Most of the `Command`s meet your requirements and you can use them as is. The customizations to the service will be as follows:
 
 * Get rid of `GetBasketsQuery` as you don't need it.
 * Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
-* Add a `CheckoutCommand` for the customer to checkout.
+* Add a `CheckoutCommand` for the customer to place their order.
 
 Remove the unwanted `Command`s and `Query`s.
 
 * Select `GetBasketsQuery` and `UpdateBasketCommand` (you can use the `Ctrl` key to select/de-select multiple nodes ones by one).
 * Press `Delete`.
 
-Expose your `Command`s and `Query`s as REST Endpoints.
+Expose the remaining `Command`s and `Query`s as REST Endpoints.
 
 * Select `CreateBasketCommand`, `DeleteBasketCommand` and `GetBasketByIdQuery`. 
 * Right-click on any of the highlighted items and select `Expose as Http Endpoint`.
@@ -287,7 +287,7 @@ Expose your `Command`s and `Query`s as REST Endpoints.
 
 Next you are going to model the `AddToBasketCommand` command:
 
-* Right-click on the `Baskets` folder and select `Add Command`.
+* Right-click on the `Baskets` folder and select `New Command`.
 * Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added `BasketItem`.
 * Right-click on `AddToBasketCommand` and select `Map to Domain Data`
 * A dialog will open with an expanded dropdown menu, select `BasketItem`.
@@ -299,7 +299,7 @@ Next you are going to model the `AddToBasketCommand` command:
 * Click `Done`.
 * Right-click on `AddToBasketCommand`, and select `Expose as Http Endpoint`.
 * In the `Properties` pane, in the `Http Settings` section:
-  * Change the `Route` to `api/baskets/{basketId}/add`.
+  * Change the `Route` to `api/baskets/{id}/add`.
 
 ![Add Basket Item Modeled](images/model-add-item-to-basket-command.png)
 
@@ -326,13 +326,12 @@ Accept all the changes.
 
 To finish up the `Basket` service, you are going to create the `CheckoutCommand`.
 
-* Right-click on the `Baskets` folder and select `Add Command`.
-* Name the command `CheckoutCommand` and return a `Guid` which will be the `Id` of the newly added `Order`.
+* Right-click on the `Baskets` folder and select `New Command`.
+* Name the command `CheckoutCommand` and return a `guid` which will be the identifier of the newly added `Order`.
 * Right-click on `CheckoutCommand` and select `Map to Domain Data`
 * A dialog will open with an expanded dropdown menu, select `Basket`.
 * Check the box next to `Id`.
 * Click `Done`.
-* Rename the `Id` property on the `CheckoutCommand` to `BasketId`.
 * Right-click on `CheckoutCommand` and select `Expose as Http Endpoint`
 * In the `Properties` pane, in the `Http Settings` section:
   * Change the `Verb` to `POST`.
@@ -361,7 +360,7 @@ Now you need to implement the `CommandHandler`. Basically this service should cr
 
 [!code-csharp[](code/complete-CheckoutCommandHandler.cs?highlight=2,7-9,19,20,23,25,26,32-51,54-62)]
 
-Lastly, you will want to implement an order service. This service should allow customers to view their orders. Here we will create the service from scratch.
+Lastly, you will want to implement an order service. This service will allow customers to view their orders. Let's create the service from scratch.
 
 * In the tree-view in the center pane, right-click on the root node and click `New Folder`.
 * Name the folder `Orders`.
@@ -410,16 +409,15 @@ If you double-click the `GetMyOrdersQueryCommandHandler`, you will notice that t
 ![Default GetMyOrdersQuery implementation](images/get-my-orders-default-impl.png)
 
 * Click `Apply Changes`.
-* Click on the blue hyperlink at the bottom left of the Software Factory dialog, this should open a folder containing all the generated source code.
-* Open the `.sln` file.
+* Go to the generated solution in C# IDE
 * Open the `GetMyOrdersQueryCommandHandler.cs` file.
 * Update the code as follows:
 
 [!code-csharp[](code/complete-GetMyOrdersQueryHandler.cs?highlight=28,31)]
 
-At this point you are done coding and you can see the application in action.
-
 ## Running the Application
+
+At this point you are done coding and you can see your application in action.
 
 * Run the application in you C# IDE.
 
@@ -454,7 +452,7 @@ Next let's create the customer's shopping cart:
 
 * Click on the `POST /api/baskets` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
-* In the `Request Body` JSON fill in (replacing the relevant Ids):
+* In the `Request Body` JSON fill in (replacing `{CustomerId}` with your customer's Id ):
 
 ```json
 {
@@ -465,7 +463,7 @@ Next let's create the customer's shopping cart:
 * Click the big blue `Execute` button.
 * Record the `BasketId` response as you will need it later.
 
-Let's add an item to the cart:
+Let's add an item to the basket:
 
 * Click on the `POST /api/baskets/{id}/add` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
@@ -476,8 +474,8 @@ Let's add an item to the cart:
 {
   "basketId": "{CustomerId}",
   "productId": "{ProductId}",
-  "quantity": 1,
-  "unitPrice": 200
+  "quantity": 3,
+  "unitPrice": 150
 }
 ```
 
@@ -498,11 +496,10 @@ Now you can Checkout your `Basket`:
 
 * Click on the `POST /api/baskets/{basketId}/checkout` row in the Orders section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `BasketId` in the `basketId` field.
+* Fill in your `BasketId` in the `id` field.
 * Click the big blue `Execute` button.
-* Record the `OrderId` response as you will need use it now to retrieve the order.
 
-Query the `Order` to confirm it's placed:
+Query the customer's `Order`s to confirm it's been placed:
 
 * Click on the `GET /api/orders/my-orders/{customerId}` row in the Orders section.
 * Click the `Try it out` button on the right hand side.
@@ -511,7 +508,7 @@ Query the `Order` to confirm it's placed:
 
 You should get a result similar to this:
 
-![Shopping Basket With Item](images/rest-basket-with-item.png)
+![Shopping Basket With Item](images/rest-order-for-customer.png)
 
 ## Next steps
 

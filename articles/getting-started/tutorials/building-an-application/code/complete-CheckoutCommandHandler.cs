@@ -29,10 +29,10 @@ namespace SimplifiedEShopTutorial.Application.Baskets.Checkout
         [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
         public async Task<Guid> Handle(CheckoutCommand request, CancellationToken cancellationToken)
         {
-            var basket = await _basketRepository.FindByIdAsync(request.BasketId, cancellationToken);
+            var basket = await _basketRepository.FindByIdAsync(request.Id, cancellationToken);
             if (basket == null)
             {
-                throw new NotFoundException($"Could not find Basket {request.BasketId}");
+                throw new NotFoundException($"Could not find Basket {request.Id}");
             }
 
             var order = new Order
