@@ -8,6 +8,7 @@ Welcome to the June 2023 edition of highlights of What's New with Intent Archite
   - **[Version AspNetCore.NET services](#version-aspnetcorenet-services)** - Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library.
   - **[AspNetCore & AzureFunctions featuring 404 response types for entities not found](#aspnetcore--azurefunctions-featuring-404-response-types-for-entities-not-found)** - CRUD-based patterns will now throw `NotFoundExceptions` when an Entity of given `id` could not be found.
 - Pre-released Module updates (C#)
+  - **[Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit](#configure-subscription-based-concerns-for-rabbitmq--azureservicebus-using-stereotypes-for-masstransit)** - Overwrite default settings for your queues so that MassTransit can set it up automatically for you.
 
 ## Product updates
 
@@ -101,3 +102,22 @@ Available from (only update those that are applicable):
 - Intent.Dapr.AspNetCore 1.1.0
 
 ## Pre-released Module updates (C#)
+
+### Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit
+
+Overwrite default settings for your queues so that MassTransit can set it up automatically for you. This is achieved by applying the `Azure Service Bus Consumer Settings` and `Rabbit MQ Consumer Settings` stereotypes (depending on the configured Message broker) inside the Eventing designer by selecting a subscription for a message and applying it there. This also includes an enhancement to the Message retry policy where you can configure the number of attempts as well as intervals inside your `appsettings.json` file:
+
+```json
+"MassTransit": {
+  "Retry": {
+    "RetryCount": 10,
+    "Interval": "00:00:30"
+  }
+}
+```
+
+Available from:
+
+- Intent.Eventing.MassTransit 5.0.0 (pre)
+- Intent.Eventing.MassTransit.EntityFrameworkCore 5.0.0 (pre)
+- Intent.Infrastructure.DependencyInjection 4.0.6 (pre)
