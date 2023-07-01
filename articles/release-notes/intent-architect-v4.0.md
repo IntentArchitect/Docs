@@ -9,6 +9,14 @@ uid: release-notes.intent-architect-v4.0
 ### Improvements in 4.0.2
 
 - Trying to press "Save and Close" on User Settings will now show an error when either `Diff Tool Executable` or `Diff Tool Arguments` is set without the other also being set.
+- Element extensions now add validations instead of override.
+- Association Ends now support validations.
+- Added "Need help? Have a question?" support links to home page and main toolbar.
+
+### Issues fixed in 4.0.2
+
+- Fixed: Reloading of designers is triggered unnecessarily between designers.
+- Fixed: Element Mappings created via scripts aren't able to resolve on path.
 
 ## Version 4.0.1
 
