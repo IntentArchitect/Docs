@@ -86,6 +86,9 @@ public class ExceptionFilter : IExceptionFilter
 }
 ```
 
+> [!NOTE]
+> The `Intent.AspNetCore.Controllers.FluentValidation` module has been deprecated (which installed its own FluentValidation Filter class) and will instead (on `Intent.AspNetCore.Controllers` update) update the `ExceptionFilter` class with a check for a `ValidationException`.
+
 As for Azure Functions, there is an additional `catch` statement for `NotFoundExceptions`:
 
 ```c#
