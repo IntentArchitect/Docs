@@ -12,6 +12,8 @@ uid: release-notes.intent-architect-v4.0
 - Element extensions now add validations instead of override.
 - Association Ends now support validations.
 - Added "Need help? Have a question?" support links to home page and main toolbar.
+- `Copy Application` feature (re)added to the application context menu in the Solution Explorer.
+- Added user prompt on loading a designer if one or more settings could not be found.
 
 ### Issues fixed in 4.0.2
 
