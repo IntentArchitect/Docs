@@ -10,6 +10,8 @@ Welcome to the June 2023 edition of highlights of What's New with Intent Archite
   - **[Version AspNetCore.NET services](#version-aspnetcorenet-services)** - Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library.
   - **[AspNetCore & AzureFunctions featuring 404 response types for entities not found](#aspnetcore--azurefunctions-featuring-404-response-types-for-entities-not-found)** - CRUD-based patterns will now throw `NotFoundExceptions` when an Entity of given `id` could not be found.
   - **[Service Designer mapping support for `Value Objects` and `Data Contracts`](#service-designer-ability-to-create-mappings-to-value-objects-and-data-contracts)** - Within the Service Designer mappings can be configured for these complex types and the CRUD modules have been updated to support them too.
+  - **[Domain Events indicate they are published by `Constructor`s and `Operations`](#domain-events-indicate-they-are-published-by-constructors-and-operations)** - Domain Events can be modelled to reflect the `Constructor`s and/or `Operation`s which publish them.
+  - **[Integration Messages can map from `Domain Event`s](#integration-messages-can-map-from-domain-events)** - `Domain Event`'s can be closely related to Integration event, Eventing Designer now supports mapping these relationships.
 - Pre-released Module updates (C#)
   - **[Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit](#configure-subscription-based-concerns-for-rabbitmq--azureservicebus-using-stereotypes-for-masstransit)** - Overwrite default settings for your queues so that MassTransit can set it up automatically for you.
 
@@ -166,6 +168,59 @@ Available from:
 
 - Intent.Application.MediatR.CRUD 5.1.3
 - Intent.Application.ServiceImplementations.Conventions.CRUD 4.3.1
+
+### Domain Events indicate they are published by `Constructor`s and `Operations`
+
+The Domain Designer can now be used to model, what is publishing `Domain Events`, to that end  `Constructor`s and `Operation`s have a `Publish Domain Event` option on their context menu, which allows you to indicate what `Domain Event`s they publish.
+
+Here is an example of such a model:
+
+![Modelling Domain Event Publishing](images/domain-event-modelling.png)
+
+Note the designer also minimal view of domain events, for example the `OrderStartedDomainEvent` is not showing it's `Properties` due it's sizing versus the `OrderCancelledDomainEvent` which has been made larger.
+
+Available from:
+
+- Intent.Modelers.Domain.Events 3.5.0
+
+### Integration Messages can map from `Domain Event`s
+
+`Domain Event`s often result in `Integration Event`s to other systems to make them aware of the change. We have made this easier to do and model by enabling you to model ths relationship. In the `Eventing Designer` on an `Integration Event`, when you select `Map From Domain`, you can now map from `Domain Events`.
+
+Here is an example:
+
+![Mapping Domain Events to Integration Events](images/mapping-integration-events-from-domain-events.png)
+
+In this example, you can see the `OrderStatusChangedToCancelledIntegrationEvent` is mapped from the `OrderCancelledDomainEvent`.
+The `Domain Eventing` modules is aware of these mappings and generate default EventHandlers as follows:
+
+```csharp
+
+    [IntentManaged(Mode.Merge, Signature = Mode.Fully)]
+    public class OrderCancelledDomainEventHandler : INotificationHandler<DomainEventNotification<OrderCancelledDomainEvent>>
+    {
+        private readonly IEventBus _eventBus;
+
+        public OrderCancelledDomainEventHandler(IEventBus eventBus)
+        {
+            _eventBus = eventBus;
+        }
+
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public async Task Handle(
+            DomainEventNotification<OrderCancelledDomainEvent> notification,
+            CancellationToken cancellationToken)
+        {
+            var integrationEvent = notification.DomainEvent.MapToOrderStatusChangedToCancelledIntegrationEvent();
+            _eventBus.Publish(integrationEvent);
+        }
+    }
+```
+
+Available from:
+
+- Intent.DomainEvents 4.1.0
+- Intent.MediatR.DomainEvents 4.2.0
 
 ## Pre-released Module updates (C#)
 
