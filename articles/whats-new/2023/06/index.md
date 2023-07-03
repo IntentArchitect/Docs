@@ -3,8 +3,13 @@
 Welcome to the June 2023 edition of highlights of What's New with Intent Architect.
 
 - Product updates
+  - **[JSON document database domain importer CLI tool now available](#json-document-database-domain-importer-cli-tool-now-available)** - A [CLI tool](https://docs.intentarchitect.com/articles/cli-tools/json-metadata-synchronizer/json-metadata-synchronizer.html) is now available for importing object graphs from JSON files into the Domain Designer for document databases (Cosmos DB, MongoDB, etc).
+  - **[Intent Architect C# code management attributes and dependency sanitizer CLI tool now available](#intent-architect-c-code-management-attributes-and-dependency-sanitizer-cli-tool-now-available)** - A [CLI tool](https://docs.intentarchitect.com/articles/cli-tools/roslyn-weaver-sanitizer/roslyn-weaver-sanitizer.html) which can be used during a "release build" process to remove all Intent code management attributes and NuGet package dependencies from a Visual Studio solution if required by an organisation policy.
+  - **[Hyperlinks inside designers will now open in your operating system's default browser](#hyperlinks-inside-designers-will-now-open-in-your-operating-systems-default-browser)** - Instead of opening these inside a new "Intent Architect" window, these are now opened in your operating system's default browser.
 - Documentation updates
   - **[New application building tutorials](#new-application-building-tutorials)** - Added two new tutorials to assist users in becoming better acquainted with application building.
+- Designer updates
+  - **["New Enum" option now also available on the Domain diagram context menu](#new-enum-option-now-also-available-on-the-domain-diagram-context-menu)** - This context menu option is now also available when right-clicking a Domain diagram whereas before it was only available when right-clicking the tree view.
 - Module updates (C#)
   - **[Generate contracts only for services](#generate-contracts-only-for-services)** - Optionally turn off generation of implementations for a `Service` modelled in the Service designer.
   - **[Version AspNetCore.NET services](#version-aspnetcorenet-services)** - Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library.
@@ -12,10 +17,31 @@ Welcome to the June 2023 edition of highlights of What's New with Intent Archite
   - **[Service Designer mapping support for `Value Objects` and `Data Contracts`](#service-designer-ability-to-create-mappings-to-value-objects-and-data-contracts)** - Within the Service Designer mappings can be configured for these complex types and the CRUD modules have been updated to support them too.
   - **[Domain Events indicate they are published by `Constructor`s and `Operations`](#domain-events-indicate-they-are-published-by-constructors-and-operations)** - Domain Events can be modelled to reflect the `Constructor`s and/or `Operation`s which publish them.
   - **[Integration Messages can map from `Domain Event`s](#integration-messages-can-map-from-domain-events)** - `Domain Event`'s can be closely related to Integration event, Eventing Designer now supports mapping these relationships.
+  - **[Domain Event handlers now fully support `CancellationToken`s when dispatched with Entity Framework](#domain-event-handlers-now-fully-support-cancellationtokens-when-dispatched-with-entity-framework)** - Domain Events are now dispatched from EF's `DbContext` with a `CancellationToken`, allowing cancellation requests to propagate to the Event Handlers.
+  - **[`Microsoft.Azure.Cosmos` based Cosmos DB domain persistence](#microsoftazurecosmos-based-cosmos-db-domain-persistence)** - A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
 - Pre-released Module updates (C#)
   - **[Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit](#configure-subscription-based-concerns-for-rabbitmq--azureservicebus-using-stereotypes-for-masstransit)** - Overwrite default settings for your queues so that MassTransit can set it up automatically for you.
+  - **[Dapr State Management domain persistence](#dapr-state-management-domain-persistence)** - The Dapr State Management module can now persist full object graphs of entities modelled in the Domain Designer.
 
 ## Product updates
+
+### JSON document database domain importer CLI tool now available
+
+A [CLI tool](https://docs.intentarchitect.com/articles/cli-tools/json-metadata-synchronizer/json-metadata-synchronizer.html) is now available for importing object graphs from JSON files into the Domain Designer for document databases (Cosmos DB, MongoDB, etc).
+
+### Intent Architect C# code management attributes and dependency sanitizer CLI tool now available
+
+A [CLI tool](https://docs.intentarchitect.com/articles/cli-tools/roslyn-weaver-sanitizer/roslyn-weaver-sanitizer.html) which can be used during a "release build" process to remove all Intent code management attributes and NuGet package dependencies from a Visual Studio solution if required by an organisation policy.
+
+### Hyperlinks inside designers will now open in your operating system's default browser
+
+Instead of opening these inside a new "Intent Architect" window, these are now opened in your operating system's default browser.
+
+## Designer updates
+
+### "New Enum" option now also available on the Domain diagram context menu
+
+This context menu option is now also available when right-clicking a Domain diagram whereas before it was only available when right-clicking the tree view.
 
 ## Documentation updates
 
@@ -31,6 +57,8 @@ Two new tutorials have been added to the Intent Architect documentation website.
 ### Generate contracts only for services
 
 It is now possible to specify that only contracts should be generated for a service by applying the `Contract Only` Stereotype to a Service. When applied, the interface ("contract") for the service will still be generated, but no implementation and corresponding dependency injection registration.
+
+!["Contract Only" applied to a Service in the Services Designer](images/contract-only-service.png)
 
 Available from:
 
@@ -225,6 +253,36 @@ Available from:
 - Intent.DomainEvents 4.1.0
 - Intent.MediatR.DomainEvents 4.2.0
 
+### `Microsoft.Azure.Cosmos` based Cosmos DB domain persistence
+
+A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
+
+Leveraging Microsoft employee David Pine's [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository), our new `Intent.CosmosDB` module adds Cosmos DB concepts to the Domain Designer and generates repository implementation which use Cosmos DB for persistence.
+
+Available from:
+
+- Intent.CosmosDB 1.0.0 (alpha)
+
+- ### Domain Event handlers now fully support `CancellationToken`s when dispatched with Entity Framework
+
+Domain Events are now dispatched from EF's `DbContext` with a `CancellationToken`, allowing cancellation requests to propagate to the Event Handlers.
+
+Available from:
+
+- Intent.DomainEvents 4.1.1 (pre)
+- Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.4 (pre)
+- Intent.MediatR.DomainEvents 1.2.1 (pre)
+
+### Entity Framework Stored Procedures now support OUTPUT and User Defined Table Type parameters
+
+Parameters for _Stored Procedures_ in the Domain Designer now have an `Is Output Parameter` option and can also reference `Data Contract` collections which are passed to the stored procedure as a populated user defined table type.
+
+![Stored procedure modelling in the Domain Designer](images/stored-procedure-updates.png)
+
+Available from:
+
+- Intent.EntityFrameworkCore.Repositories 4.2.5 (pre)
+
 ## Pre-released Module updates (C#)
 
 ### Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit
@@ -245,3 +303,13 @@ Available from:
 - Intent.Eventing.MassTransit 5.0.0 (pre)
 - Intent.Eventing.MassTransit.EntityFrameworkCore 5.0.0 (pre)
 - Intent.Infrastructure.DependencyInjection 4.0.6 (pre)
+
+### Dapr State Management domain persistence
+
+The Dapr State Management module can now persist full object graphs of entities modelled in the Domain Designer.
+
+This module now generates domain entity repository implementations which use Dapr's State Management building block for persistence. By default the `statestore` Dapr component is used as the persistence target for a Domain package's entities, but this can be overridden by applying the `Dapr State Store Settings` stereotype to the Domain package.
+
+Available from:
+
+- Intent.Dapr.AspNetCore.StateManagement 1.1.0 (alpha)
