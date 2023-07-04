@@ -74,6 +74,10 @@ Apply version information to Commands, Queries or Service elements in your servi
 
 ![Sample Api Version Overview](images/api-version-overview.png)
 
+There is also integration with Swashbuckle to produce the different version definitions in the Swagger UI.
+
+![Swashbuckle Integration](images/api-version-swashbuckle.png)
+
 Available from:
 
 - Intent.AspNetCore.Versioning 1.0.2
