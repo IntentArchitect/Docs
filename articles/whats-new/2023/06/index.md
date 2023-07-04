@@ -18,9 +18,10 @@ Welcome to the June 2023 edition of highlights of What's New with Intent Archite
   - **[Domain Events indicate they are published by `Constructor`s and `Operations`](#domain-events-indicate-they-are-published-by-constructors-and-operations)** - Domain Events can be modelled to reflect the `Constructor`s and/or `Operation`s which publish them.
   - **[Integration Messages can map from `Domain Event`s](#integration-messages-can-map-from-domain-events)** - `Domain Event`'s can be closely related to Integration event, Eventing Designer now supports mapping these relationships.
   - **[Domain Event handlers now fully support `CancellationToken`s when dispatched with Entity Framework](#domain-event-handlers-now-fully-support-cancellationtokens-when-dispatched-with-entity-framework)** - Domain Events are now dispatched from EF's `DbContext` with a `CancellationToken`, allowing cancellation requests to propagate to the Event Handlers.
-  - **[`Microsoft.Azure.Cosmos` based Cosmos DB domain persistence](#microsoftazurecosmos-based-cosmos-db-domain-persistence)** - A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
-- Pre-released Module updates (C#)
   - **[Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit](#configure-subscription-based-concerns-for-rabbitmq--azureservicebus-using-stereotypes-for-masstransit)** - Overwrite default settings for your queues so that MassTransit can set it up automatically for you.
+  - **[Improved integration with Open Telemetry and API Responses for HTTP 500 errors](#improved-integration-with-open-telemetry-and-api-responses-for-http-500-errors)** - Open Telemetry is an open framework for collecting and exporting telemetry data in order to observe how your system behaves in real time.
+- Pre-released Module updates (C#)
+  - **[`Microsoft.Azure.Cosmos` based Cosmos DB domain persistence](#microsoftazurecosmos-based-cosmos-db-domain-persistence)** - A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
   - **[Dapr State Management domain persistence](#dapr-state-management-domain-persistence)** - The Dapr State Management module can now persist full object graphs of entities modelled in the Domain Designer.
 
 ## Product updates
@@ -66,14 +67,16 @@ Available from:
 
 ### Version AspNetCore.NET services
 
-Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library. Add an `Api Version` (populate it with a few version numbers) and then apply the `API Version Settings` stereotype to the services you wish to apply versioning to.
+Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Asp.Versioning.Mvc` library. Add an `Api Version` (populate it with a few version numbers) and then apply the `API Version Settings` stereotype to the services you wish to apply versioning to.
 
 > [!NOTE]
 > This is only available for AspNetCore.NET currently even though the `Api Version` element can be added in other tech-stacks' Services designers.
 
+![Sample Api Version Overview](images/api-version-overview.png)
+
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.1
+- Intent.AspNetCore.Versioning 1.0.2
 - Intent.Metadata.WebApi 4.2.2
 - Intent.AspNetCore.Controllers 5.2.0
 - Intent.AspNetCore.Controllers.Dispatch.MediatR 5.2.0
@@ -98,9 +101,11 @@ public class ExceptionFilter : IExceptionFilter
                 }
                 context.Result = new BadRequestObjectResult(new ValidationProblemDetails(context.ModelState))
                 .AddContextInformation(context);
+                context.ExceptionHandled = true;
                 break;
             case ForbiddenAccessException:
                 context.Result = new ForbidResult();
+                context.ExceptionHandled = true;
                 break;
             case NotFoundException exception:
                 context.Result = new NotFoundObjectResult(new ProblemDetails
@@ -108,6 +113,7 @@ public class ExceptionFilter : IExceptionFilter
                     Detail = exception.Message
                 })
                 .AddContextInformation(context);
+                context.ExceptionHandled = true;
                 break;
         }
     }
@@ -139,7 +145,7 @@ catch (FormatException exception)
 
 Available from (only update those that are applicable):
 
-- Intent.AspNetCore.Controllers 5.2.0
+- Intent.AspNetCore.Controllers 5.3.0
 - Intent.Entities.Repositories.Api 4.1.0
 - Intent.Application.MediatR.CRUD 5.1.1
 - Intent.Application.MediatR.CRUD.Tests 1.1.0
@@ -253,25 +259,15 @@ Available from:
 - Intent.DomainEvents 4.1.0
 - Intent.MediatR.DomainEvents 4.2.0
 
-### `Microsoft.Azure.Cosmos` based Cosmos DB domain persistence
-
-A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
-
-Leveraging Microsoft employee David Pine's [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository), our new `Intent.CosmosDB` module adds Cosmos DB concepts to the Domain Designer and generates repository implementation which use Cosmos DB for persistence.
-
-Available from:
-
-- Intent.CosmosDB 1.0.0 (alpha)
-
 - ### Domain Event handlers now fully support `CancellationToken`s when dispatched with Entity Framework
 
 Domain Events are now dispatched from EF's `DbContext` with a `CancellationToken`, allowing cancellation requests to propagate to the Event Handlers.
 
 Available from:
 
-- Intent.DomainEvents 4.1.1 (pre)
-- Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.4 (pre)
-- Intent.MediatR.DomainEvents 1.2.1 (pre)
+- Intent.DomainEvents 4.1.1
+- Intent.EntityFrameworkCore.Interop.DomainEvents 4.0.4
+- Intent.MediatR.DomainEvents 1.2.1
 
 ### Entity Framework Stored Procedures now support OUTPUT and User Defined Table Type parameters
 
@@ -281,9 +277,7 @@ Parameters for _Stored Procedures_ in the Domain Designer now have an `Is Output
 
 Available from:
 
-- Intent.EntityFrameworkCore.Repositories 4.2.5 (pre)
-
-## Pre-released Module updates (C#)
+- Intent.EntityFrameworkCore.Repositories 4.2.5
 
 ### Configure subscription based concerns for RabbitMQ / AzureServiceBus using Stereotypes for MassTransit
 
@@ -298,11 +292,57 @@ Overwrite default settings for your queues so that MassTransit can set it up aut
 }
 ```
 
+![Sample Message Broker Subscriber Settings](images/masstransit-subscriber-messagebrokersettings.png)
+
 Available from:
 
-- Intent.Eventing.MassTransit 5.0.0 (pre)
-- Intent.Eventing.MassTransit.EntityFrameworkCore 5.0.0 (pre)
-- Intent.Infrastructure.DependencyInjection 4.0.6 (pre)
+- Intent.Eventing.MassTransit 5.0.0
+- Intent.Eventing.MassTransit.EntityFrameworkCore 5.0.0
+- Intent.Infrastructure.DependencyInjection 4.0.6
+
+### Improved integration with Open Telemetry and API Responses for HTTP 500 errors
+
+[Open Telemetry](https://opentelemetry.io/) is an open framework for collecting and exporting telemetry data in order to observe how your system behaves in real time.
+
+It is integrated with AspNetCore and (if you have it installed) MassTransit and allows you to opt-in to other kind of telemetry data which in turn can be published to APM (Application Performance Monitoring) systems like Azure Application Insights.
+
+![Open Telemetry Settings](images/open-telemetry-settings.png)
+
+This will produce the kind of trace information that you can find in your APM systems, like the example below where there is 3 different microservices that talk to one another through Http Client and Message Broker integration. It also captured the Serilog messages as part of the conversation.
+
+![Sample Application Insights](images/app-insights-telemetry.png)
+
+Updated is also the way Internal Server Errors are returned from API services. Initially AspNetCore didn't provide any information other than the HTTP 500 status code and (in Development environments) Exception stack traces.
+
+In Development environments the Exception stack trace is still returned.
+
+![Sample HTTP 500 with Exception Stack Trace](images/http-500-exception.png)
+
+In Production environments the Exception is omitted from the response.
+
+![Sample HTTP 500 without Exception Stack Trace](images/http-500-without-exception.png)
+
+With this update, a `ProblemDetails` object will be returned with a `Trace ID` which can be used by callers to submit for troubleshooting purposes.
+
+The number that is situated between the first two `-` symbols (`25c51c5f8041f49df93f9ea880d4150d` in this case) is the `Operation ID` that you can use in your APM to look up the message trace as shown above.
+
+Available from:
+
+- Intent.AspNetCore (5.1.0)
+- Intent.Eventing.MassTransit (5.0.0)
+- Intent.OpenTelemetry (1.1.0)
+
+## Pre-released Module updates (C#)
+
+### `Microsoft.Azure.Cosmos` based Cosmos DB domain persistence
+
+A new module which uses non-Entity Framework based Cosmos DB repository implementations for persistence of domain entities.
+
+Leveraging Microsoft employee David Pine's [Azure Cosmos DB Repository .NET SDK](https://github.com/IEvangelist/azure-cosmos-dotnet-repository), our new `Intent.CosmosDB` module adds Cosmos DB concepts to the Domain Designer and generates repository implementation which use Cosmos DB for persistence.
+
+Available from:
+
+- Intent.CosmosDB 1.0.0 (alpha)
 
 ### Dapr State Management domain persistence
 
