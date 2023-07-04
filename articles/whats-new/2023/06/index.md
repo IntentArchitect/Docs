@@ -332,7 +332,7 @@ The number that is situated between the first two `-` symbols (`25c51c5f8041f49d
 
 Available from:
 
-- Intent.AspNetCore (5.1.0)
+- Intent.AspNetCore (5.1.1)
 - Intent.Eventing.MassTransit (5.0.0)
 - Intent.OpenTelemetry (1.1.0)
 
