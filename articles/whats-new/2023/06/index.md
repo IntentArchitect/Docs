@@ -11,9 +11,9 @@ Welcome to the June 2023 edition of highlights of What's New with Intent Archite
 - Designer updates
   - **["New Enum" option now also available on the Domain diagram context menu](#new-enum-option-now-also-available-on-the-domain-diagram-context-menu)** - This context menu option is now also available when right-clicking a Domain diagram whereas before it was only available when right-clicking the tree view.
 - Module updates (C#)
-  - **[Version AspNetCore.NET services](#version-aspnetcorenet-services)** - Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library.
+  - **[Version ASP.NET Core API services](#version-aspnet-core-api-services)** - Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Microsoft.AspNetCore.Mvc.Versioning` library.
   - **[Generate contracts only for services](#generate-contracts-only-for-services)** - Optionally turn off generation of implementations for a `Service` modelled in the Service designer.
-  - **[AspNetCore & AzureFunctions featuring 404 response types for entities not found](#aspnetcore--azurefunctions-featuring-404-response-types-for-entities-not-found)** - CRUD-based patterns will now throw `NotFoundExceptions` when an Entity of given `id` could not be found.
+  - **[ASP.NET Core & AzureFunctions featuring 404 response types for entities not found](#aspnet-core--azurefunctions-featuring-404-response-types-for-entities-not-found)** - CRUD-based patterns will now throw `NotFoundExceptions` when an Entity of given `id` could not be found.
   - **[Service Designer mapping support for `Value Objects` and `Data Contracts`](#service-designer-ability-to-create-mappings-to-value-objects-and-data-contracts)** - Within the Service Designer mappings can be configured for these complex types and the CRUD modules have been updated to support them too.
   - **[Domain Events indicate they are published by `Constructor`s and `Operations`](#domain-events-indicate-they-are-published-by-constructors-and-operations)** - Domain Events can be modelled to reflect the `Constructor`s and/or `Operation`s which publish them.
   - **[Integration Messages can map from `Domain Event`s](#integration-messages-can-map-from-domain-events)** - `Domain Event`'s can be closely related to Integration event, Eventing Designer now supports mapping these relationships.
@@ -55,12 +55,12 @@ Two new tutorials have been added to the Intent Architect documentation website.
 
 ## Module updates (C#)
 
-### Version AspNetCore.NET services
+### Version ASP.NET Core API services
 
 Apply version information to Commands, Queries or Service elements in your service designer to make use of the `Asp.Versioning.Mvc` library. Add an `Api Version` (populate it with a few version numbers) and then apply the `API Version Settings` stereotype to the services you wish to apply versioning to.
 
 > [!NOTE]
-> This is only available for AspNetCore.NET currently even though the `Api Version` element can be added in other tech-stacks' Services designers.
+> This is only available for ASP.NET Core currently even though the `Api Version` element can be added in other tech-stacks' Services designers.
 
 ![Sample Api Version Overview](images/api-version-overview.png)
 
@@ -85,11 +85,11 @@ Available from:
 
 - Intent.Application.ServiceImplementations 4.3.0
 
-### AspNetCore & AzureFunctions featuring 404 response types for entities not found
+### ASP.NET Core & AzureFunctions featuring 404 response types for entities not found
 
 CRUD-based patterns will now throw `NotFoundExceptions` when an Entity of given `id` could not be found. This will be intercepted by middleware to translate into a 404 `Not found` error but may contain additional error details around what kind of Entity could not be found with a given `id`. Also other Exception handling code patterns have received an update too.
 
-In the case for AspNetCore.NET applications, there is now an Exception Filter that will deal with all the known exceptions:
+In the case for ASP.NET Core applications, there is now an Exception Filter that will deal with all the known exceptions:
 
 ```c#
 public class ExceptionFilter : IExceptionFilter
