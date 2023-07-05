@@ -1,0 +1,12 @@
+items:
+- name: 'Tutorial 1: Hello World'
+  href: hello-world/hello-world-tutorial.md
+  
+- name: 'Tutorial 2: Build an Application'
+  href: building-an-application/building-an-application.md
+
+# this to be converted to Java tutorial
+# - name: 'Tutorial: Create a Sample App'
+#   href: tutorials/create-a-sample-app/toc.yml
+#   topicUid: tutorials.create-a-sample-app.introduction
+

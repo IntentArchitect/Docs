@@ -152,6 +152,6 @@ Additional Applications can be created from the Solution Explorer through the by
 
 ## What's Next
 
-### [Tutorial: Use existing modules to quickly make applications](xref:tutorials.create-a-sample-app.introduction)
+### [The "Hello World" tutorial](xref:tutorials.hello-world-tutorial)
 
 Tutorial on how to create a new Application from scratch.

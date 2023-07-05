@@ -3,6 +3,10 @@ items:
     href: getting-started/toc.yml
     topicUid: getting-started.welcome
 
+  - name: Tutorials
+    href: tutorials/toc.yml
+    topicUid: tutorials.hello-world-tutorial
+
   - name: Application Development
     href: application-development/toc.yml
 

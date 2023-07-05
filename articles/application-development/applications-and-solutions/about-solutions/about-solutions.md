@@ -21,7 +21,7 @@ At the top of the Solution Explorer, or the context menu, you will find these co
 
 ### Create New Application
 
-Create a new Application such as in the [](xref:tutorials.create-a-sample-app.introduction).
+Create a new Application such as in the [](xref:tutorials.building-an-application).
 
 ### Add Existing Application
 
