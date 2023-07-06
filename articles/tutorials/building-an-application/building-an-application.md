@@ -197,15 +197,17 @@ You have successfully modelled the domain.
 
 ## Configuring your database
 
-The `Clean Architecture .NET` template you used to create your application has already configured the application to use `Entity Framework Core` with the `In-Memory Database Provider`.
-In this section you will reconfigure the application for SQL Server, adjust the relevant configuration and use `Entity Framework Core` to produce your applications database SQL schema.
+The `Clean Architecture .NET` template used to create your application has already configured the application to use `Entity Framework Core` defaulting the database provider to the`In-Memory Database Provider`.
+In this section you will reconfigure the application for SQL Server and use `Entity Framework Core` tooling to produce your applications database.
 
 > [!NOTE]
 > This section is optional as the tutorial will work with the `Entity Framework Core` `In-Memory Database Provider` by default.
 > You will need a SQL Server instance to complete this section of the tutorial.
 
+Lets start by changing your `Database Provider`.
+
 * Open the application setting tab.
-  * Right-click on the Application in the `Solution Explorer` and select `Settings`
+  * Right-click on the Application in the `Solution Explorer` and select `Settings`.
 * Scroll down to the `Database Settings` section.
 * Change `Database Provider` to `SQL Server`.
 * Click `Save Changes` (directly under the `Database Setting` section).
@@ -216,22 +218,22 @@ Run the Software Factory to apply these changes.
 
 * Run the Software Factory (`F5`).
 
-You will be presented with a set of changes similar to these:
+The changes should look as follows:
 
 ![SQL Server Provider changes to codebase](images/software-factory-after-db-provider-change.png)
 
-If you take a look at the changes to `appsettings.json` you will see Intent Architect has added a default connection string for the database as follows:
+Take a look at the changes to `appsettings.json`, you will see Intent Architect has added a default connection string for the database as follows:
 
 ![appsetting.json diff shows newly added connection string](images/connection-string-added.png)
 
 > [!NOTE]
-> This connection string may need to be modified depending on your specific SQL Server set up. You can freely edit the connection string to what it needs to be.
+> This connection string may need to be modified depending on your specific SQL Server set up. You can freely edit the connection string as required. The database name has been defaulted to your application name.
 
 Apply these changes to your codebase.
 
 * Click `Apply Changes`.
 
-The next step is to create your applications database schema. To achieve this you are going to use `Entity Framework Core`'s migrations system. Go the your application in your C# IDE.
+The next step is to create your application's database. To achieve this you are going to use `Entity Framework Core`'s migration system. Switch to the codebase in your C# IDE.
 
 * Navigate to the `SimplifiedEShopTutorial.Infrastructure` project.
 * Expand the `Persistence` folder.
@@ -239,35 +241,35 @@ The next step is to create your applications database schema. To achieve this yo
 
 ![View of MIGRATION_README.txt](images/migration-readme.png)
 
-This file is an easy-to-use reference of commonly run migration commands, pre-configured for your C# solution. You first step will be to create a new migration.
+This file is an easy-to-use reference of commonly needed migration commands, pre-configured for this C# solution. Your first step will be to create a new migration.
 
-* Find the `Create a new migration` section in the `MIGRATION_README.txt`.
+* Find the `Create a new migration` section.
 * Run the migration command, changing `{ChangeName}` to `Initial`(`{Initial}` also works).
   * If you are using Visual Studio, open the `Package Manager Console`. (View > Other Windows > Package Manager Console)
-  * Paste the Command onto the console - `Add-Migration -Name {ChangeName} -StartupProject "SimplifiedEShopTutorial.Api" -Project "SimplifiedEShopTutorial.Infrastructure"`.
+  * Paste the Command into the console - `Add-Migration -Name {ChangeName} -StartupProject "SimplifiedEShopTutorial.Api" -Project "SimplifiedEShopTutorial.Infrastructure"`.
   * Change `{ChangeName}` to `Initial`.
   * Press `Enter`.
 
-At this point `Entity Framework Core` tooling will produce a migration code file, which will look as follows.
+At this point the `Entity Framework Core` tooling will produce a migration code file, which will look as follows.
 
 ![EF Migration Added](images/migration-added.png)
 
-Now you can use the `Entity Framework Core` tooling to create / update your database schema for you.
+Now you can use another command to create / update your database schema for you.
 
-* Find the `Update schema to the latest version` section in the `MIGRATION_README.txt`.
+* Find the `Update schema to the latest version` section.
 * Run the migration command.
   * Again, from the `Package Manager Console`. (View > Other Windows > Package Manager Console)
   * Paste the Command onto the console - `Update-Database -StartupProject "SimplifiedEShopTutorial.Api" -Project "SimplifiedEShopTutorial.Infrastructure"`.
   * Press `Enter`.
 
-At this point `Entity Framework Core` tooling will connect to your database server, create the database and update the schema accordingly. If you check your SQL Server it should look something like this:
+At this point the `Entity Framework Core` tooling will connect to your database server, create the database and update the schema accordingly. Switching to SQL Server you should see the following:
 
 ![Database produced](images/database-created.png)
 
 > [!NOTE]
-> If you are unable to successfully run the `Update-Database` command, it could be permissions related. You would need elevated permission on the database to perform such an operation. You can alternatively use the `Generate a script which detects the current database schema version and updates it to the latest` command which will generate a SQL Script, which can be manually applied to the SQL Server.
+> If you are unable to successfully run the `Update-Database` command, check your connection string is correct and that the account being used has the required permissions. You may need specific permissions on the SQL Server to create a database and alter schemas. You can alternatively use the `Generate a script which detects the current database schema version and updates it to the latest` command, which will generate a SQL Script, which can be manually applied to the SQL Server using an account with the required permissions.
 
-And that's it, now you have created a SQL database based on your modeled design and configured your application to use it.
+And that's it, now you have created a SQL Server database, based on your modeled design and configured your application to use it.
 
 > [!TIP]
 > For more information on `Entity Framework Core' migrations, check out [the official documentation](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
@@ -589,9 +591,9 @@ You should get a result similar to this:
 
 ![Shopping Basket With Item](images/rest-order-for-customer.png)
 
-## Configuring security on your services
+## Securing your services
 
-Securing your services is the next thing you'll be looking at, or the purposes of the tutorial we'll just look at securing the products service.
+Configuring security on your services is next on the list, for the purposes of the tutorial we'll just look at securing the `Product`s service, but these principles should be applied through out your service as required.
 
 * Go back to Intent Architect.
 * Open up the `Services Designer` and expand the `Products` folder.
@@ -603,7 +605,7 @@ Note the Visual indicators in the `Service Designer` indicating which service en
 
 ![The service is now secured.](images/authentication-products.png)
 
-These services are now secured, in the sense that they can not be accessed without an authenticated JWT token. We can also apply more fine grained security or authorization through roles. Lets lock down the `Command`s so that only `ProductAdministrator`s can access these.
+These services will be created as secured endpoints, that is to say they can only accessed with an valid JWT token. We can also apply more fine grained security or authorization through the use of roles. Lets lock down the `Command`s so that only product administrator`s can access these these operations.
 
 * Select all the product `Command`s . (CreateProductCommand, DeleteProductCommand and UpdateProductCommand)
 * In the `Properties` pane on the right hand side, in the `Authorize` section, set Roles to `ProductAdministrator`.
@@ -611,28 +613,31 @@ These services are now secured, in the sense that they can not be accessed witho
 
 ![Command new require `ProductAdministrator` role to access them](images/authorization-products.png)
 
-The `Command` endpoint not not only require consumers to have a valid JWT token but the token must contain the appropriate role for the request to succeed.
+> [!TIP]
+> You can specify multiple roles as a comma separated list.
 
-Let apply the changes.
+The `Command` endpoints now not only require consumers to have a valid JWT token, but the token must contain the appropriate role for the request to succeed.
+
+Let apply the changes and see how it affects the code base.
 
 * Run the Software Factory (`F5`).
 
 ![Software Factory changes from the security changes](images/software-factory-security.png)
 
-Let's take a close look at the ProductsController changes.
+Let's take a closer look at the `ProductsController`` changes.
 
 * Double-click on the `ProductsController`.
 
-Here you can see the standard `ASP.NET Core` controller `Authorize` attributes being applied to the controller operations as your modelled design. Also note the controllers are now being decorated with appropriate attributes to indicate that they can now return 401 and 403 Http error codes.
+Here you can see the standard `ASP.NET Core` controller `Authorize` attributes being applied to the controller operations as per your modelled design. Also note the controllers are now being decorated with the appropriate attributes to indicate that they can now return 401 and 403 Http error codes.
 
 ![Products Controller changes](images/security-controller-changes.png)
 
 * Click `Apply Changes`.
 
 > [!NOTE]
-> You may have noticed in the C# that the `Authorize` attributes are not only applied to the `Controller`s but also to the `Command`s and `Query`s themselves. In this architecture security checks are applied at both the `Controller` and the `Mediatr` pipeline entry points. This means that any `Command`s and `Query`s been processed through the `Mediatr` pipeline have the appropriate security applied to them, even if they do not originate from the `Controller`s.
+> You may have noticed in the code that the `Authorize` attributes are not only applied to the `Controller`s but also to the `Command`s and `Query`s themselves. Security checks are applied at both the `Controller` and the `Mediatr` pipeline entry points. This means that any `Command`s and `Query`s been processed through the `Mediatr` pipeline have the appropriate security applied, even if they do not originate from the `Controller`s.
 
-Attempting to access these end points through the Swagger UI now, without providing a valid JWT token will result in the following.
+Attempting to access these endpoints through the Swagger UI without providing a valid JWT token will result in the following.
 
 ![Access Denied service request](images/access-denied-service-request.png)
 
