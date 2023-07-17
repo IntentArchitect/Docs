@@ -20,6 +20,7 @@ uid: release-notes.intent-architect-v4.0
 - Fixed: Reloading of designers is triggered unnecessarily between designers.
 - Fixed: Element Mappings created via scripts aren't able to resolve on path.
 - Fixed: Module installation issues would sometimes occur when creating an additional Application to an already existing Solution.
+- Fixed: Module installation wasn't respecting the `metadataOnly="true"` attribute on `<dependency />` elements in `.imodspec` files.
 
 ## Version 4.0.1
 
