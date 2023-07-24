@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
+## Version 4.0.3
+
+### Issues fixed in 4.0.3
+
+- Fixed: When Intent Architect is opened by opening a `.isln` file, trying to run the Software Factory for any other solution fails with a `Failed to set up execution environment` error.
+
 ## Version 4.0.2
 
 ### Improvements in 4.0.2
