@@ -6,20 +6,34 @@ uid: release-notes.intent-architect-v4.0
 
 ## Version 4.0.3
 
+### Improvements in 4.0.3
+
+- Create Application wizard now shows total and selected number of modules per component in summary pane.
+
 ### Issues fixed in 4.0.3
 
+- Fixed: Stereotypes looking up their definition unnecessarily which can cause Software Factory exceptions.
 - Fixed: When Intent Architect is opened by opening a `.isln` file, trying to run the Software Factory for any other solution fails with a `Failed to set up execution environment` error.
+- Fixed: Software Factory Execution not searching package references tree deeper than the first level.
+- Fixed: Styling issues on pre-release modules in the Create Application wizard.
+- Fixed: Errors on copied Domain Classes intermittently not showing on package.
+- Fixed: Copying and pasting elements multiple between designers can cause duplicate identifier issues.
+- Fixed: Copy and paste of elements and associations between designers ignoring associations.
+- Fixed: Dropping associations on diagram causing existing elements to be moved too.
+- Fixed: Domain scripts can go into an infinite loop when a cyclic loop between associations and elements exists.
 
 ## Version 4.0.2
 
 ### Improvements in 4.0.2
 
+- Upgraded Package Reference manager to show Package Icon, Type and Source. Also supports filtering and sorting.
 - Trying to press "Save and Close" on User Settings will now show an error when either `Diff Tool Executable` or `Diff Tool Arguments` is set without the other also being set.
 - Element extensions now add validations instead of override.
 - Association Ends now support validations.
 - Added "Need help? Have a question?" support links to home page and main toolbar.
 - `Copy Application` feature (re)added to the application context menu in the Solution Explorer.
 - Added user prompt on loading a designer if one or more settings could not be found.
+- Mapping system will suffix the names of newly mapped types with the parent's name (when traversing types).
 
 ### Issues fixed in 4.0.2
 
