@@ -9,6 +9,7 @@ uid: release-notes.intent-architect-v4.0
 ### Improvements in 4.0.3
 
 - Create Application wizard now shows total and selected number of modules per component in summary pane.
+- SDK Update: OutputTransformers can now implement a `MustTransform` method where the transformer must run regardless of whether or not the template output was unchanged since the previous Software Factory execution. This is to cater for scenarios like the code management modules needing to run migrations.
 
 ### Issues fixed in 4.0.3
 
