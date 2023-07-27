@@ -10,6 +10,7 @@ uid: release-notes.intent-architect-v4.0
 
 - Create Application wizard now shows total and selected number of modules per component in summary pane.
 - SDK Update: OutputTransformers can now implement a `MustTransform` method where the transformer must run regardless of whether or not the template output was unchanged since the previous Software Factory execution. This is to cater for scenarios like the code management modules needing to run migrations.
+- Implemented improved caching in the Software Factory Executions which leads to noticeable performance improvements.
 
 ### Issues fixed in 4.0.3
 
@@ -22,6 +23,7 @@ uid: release-notes.intent-architect-v4.0
 - Fixed: Copy and paste of elements and associations between designers ignoring associations.
 - Fixed: Dropping associations on diagram causing existing elements to be moved too.
 - Fixed: Domain scripts can go into an infinite loop when a cyclic loop between associations and elements exists.
+- Fixed: Dirty flag not appearing on the Services designer after running a CRUD script.
 
 ## Version 4.0.2
 
