@@ -5,7 +5,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
 - Module updates (C#)
   - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
-  - **[Duplicate Rest route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate Rest routes on your services.
+  - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
   - **[Clone/Copy App feature](#clonecopy-app-feature)** - Clone/Copy App is now available in Intent Architect v4.
   - **[CRUD CQRS available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
   - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Improved documentation around working with the Entity Framework Core module.
@@ -17,40 +17,88 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[CQRS - `Map Constructor / Operation` support inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer, now support mapping to base classes.
   - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become Xml documentation comments on the c# services and interfaces.
   - **[Repositories support composite primary keys](#repositories-support-composite-primary-keys)** - repositories now support composite primary keys.
-  - **[`Expose as Http` improved support for composite keys](#expose-as-http-improved-support-for-composite-keys)** - Rest route generation algorithm handles several scenarios better including composite keys.
+  - **[`Expose as Http` improved support for composite keys](#expose-as-http-improved-support-for-composite-keys)** - REST route generation algorithm handles several scenarios better including composite keys.
   - **[Blazor account controller proxy module](#blazor-account-controller-proxy-module)** - New module to create a Blazor proxy for interacting with the `Intent.AspNetCore.Identity.AccountController` module.
 
 ## Module updates (C#)
 
 ### MediatR 12.1 upgrade
 
+We have upgraded our modules from MediatR 10.X to the latest MediatR 12.1. From a MediatR perspective these are breaking changes. From an Intent perspective our modules will handle the migration for you.
+
+**Noteworthy changes you can expect to see.**
+
+- Dependency Injection registrations for MediatR are now done through the `MediatrServiceConfiguration`.
+- `CommandHandler`s and `QueryHandler`s which do not return results now return `Task` instead of `Task<Unit>` and no longer need to return Unit.Value.
+- `CommandHandler`s, `QueryHandler`s and `PipelineBehaviour`s method signatures changed in some scenarios.
+- `PipelineBehaviour`s must be registered with `MediatrServiceConfiguration` not directly with the container.
+- `PipelineBehaviour`s generic constraints change from `TRequest : IRequest<TResponse>` to `TRequest : notnull`.
+
+NB : If you have any **custom** MediatR `PipelineBehaviour`s, please ensure you upgrade them appropriately and ensure they are still running as expected.
+
+Relevant MediatR Migration Guides
+
+[Migration Guide 10.x to 11.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-10.x-to-11.0)
+
+[Migration Guide 11.x to 12.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-11.x-to-12.0)
+
+[Migration Guide 12.0 to 12.1](https://github.com/jbogard/MediatR/wiki/Migration-Guide-12.0-to-12.1)
+
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+Intent.Application.MediatR 4.1.0
+Intent.Application.DependencyInjection.MediatR 3.5.0
+Intent.Application.MediatR.Behaviours 4.2.0
+Intent.MediatR.DomainEvents 4.3.0
+Intent.Application.MediatR.CRUD 5.2.0
 
 ### RDBMS Improved Schema modeling
 
+A new `Schema` stereotype has been added, which can be applied to `Class`s, `Folder`s and / or `Package`s.
+
+This stereotype works hierarchically i.e. if you apply it to a `Package` all tables / views in the package will belong to that schema.
+Similarly you can apply the `Schema` stereotype to a folder, all tables / views under that folder belong to that schema.
+
+The "Closest" `Schema` stereotype to the `Class` will apply.
+
+Note. If you have `Table` or `View` stereotypes with schema's specified these are more specific and will override the `Schema` stereotype. If you do not fill the schema in on these stereotypes, the schema name will fall back to the "Closest" `Schema` stereotype.
+
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+- Intent.EntityFrameworkCore 4.4.6
 
-### Duplicate Rest route validation
+### Duplicate REST route validation
+
+Added a Services Designer validation to detect duplicate REST Routes for `Command`s, `Query`s and `Operations`.
 
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+- Intent.Metadata.WebApi 4.2.5
 
 ### Clone/Copy App feature
 
+The `Clone Application`, which was available in previous versions of Intent Architect, is now available in version 4. It is now called `Copy Application` and is available on the Application context menu.
+
+![Clone / Copy Application available on application context menu](images/clone-application.png)
+
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+- Intent Architect 4.0.2
 
 ### CRUD CQRS available on folders
 
+`Create CQRS CRUD Operations` is now also available on `Folder`s within the Services Designer.
+
+![CRUD from Folders](images/crud-from-folder.png)
+
+The Rest route generation algorithm has also been enhanced to include the folder structure into the default REST route.
+
+![CRUD from Folders](images/crud-folder-routes.png)
+
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+- Intent.Metadata.WebApi 4.2.4
+- Intent.Application.MediatR.CRUD 5.1.4
 
 ### Module Documentation - Entity Framework Core
 
@@ -60,7 +108,7 @@ We have released documentation around using and configuring EF in Intent. This d
 
 Available from:
 
-- Intent.AspNetCore.Versioning 1.0.2
+- Intent.EntityFrameworkCore 4.4.6
 
 ### Services `Paginate` feature
 
@@ -182,7 +230,7 @@ Available from:
 
 ### `Expose as Http` improved support for composite keys
 
-There was a general overhaul of the algorithm which generated the default Rest routes. The algorithm now better supports
+There was a general overhaul of the algorithm which generated the default REST routes. The algorithm now better supports
 
 - Composite Primary Keys
 - Non-conventionally names primary keys i.e. primary keys not named `id` or `{entity name}Id`
