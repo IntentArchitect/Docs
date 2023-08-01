@@ -10,15 +10,18 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[CRUD CQRS available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
   - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Improved documentation around working with the Entity Framework Core module.
   - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Desginer.
+  - **[Support for `CustomAsync(…)` in FluentValidation modules](#add-support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reason.
   - **[Index column sort directions](#index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
   - **[EF SQL Table name pluralization convention](#ef-sql-table-name-pluralization-convention)** - You can now configure your SQL table name convention, these are still pluralized by default, but can now be configured.
   - **[Duplicate `Operation` validation](#duplicate-operation-validation)** - Service Designer validation to detect duplicate operations based on operation name and parameter types.
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
-  - **[CQRS - `Map Constructor / Operation` support inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer, now support mapping to base classes.
-  - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become Xml documentation comments on the c# services and interfaces.
+  - **[CQRS - `Map Constructor / Operation` support inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer, now support apping to base classes.
+  - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become Xml documentation comments on the c# ervices and interfaces.
   - **[Repositories support composite primary keys](#repositories-support-composite-primary-keys)** - repositories now support composite primary keys.
   - **[`Expose as Http` improved support for composite keys](#expose-as-http-improved-support-for-composite-keys)** - REST route generation algorithm handles several scenarios better including composite keys.
   - **[Blazor account controller proxy module](#blazor-account-controller-proxy-module)** - New module to create a Blazor proxy for interacting with the `Intent.AspNetCore.Identity.AccountController` module.
+  - **[CORS is now configuration driven](#code-generated-by-cors-module-is-now-configuration-driven)** - Use configuration to specify any combination of policies.
+  - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
 
 ## Module updates (C#)
 
@@ -34,23 +37,23 @@ We have upgraded our modules from MediatR 10.X to the latest MediatR 12.1. From 
 - `PipelineBehaviour`s must be registered with `MediatrServiceConfiguration` not directly with the container.
 - `PipelineBehaviour`s generic constraints change from `TRequest : IRequest<TResponse>` to `TRequest : notnull`.
 
-NB : If you have any **custom** MediatR `PipelineBehaviour`s, please ensure you upgrade them appropriately and ensure they are still running as expected.
+> [!IMPORTANT]
+>
+> If you have any **custom** MediatR `PipelineBehaviour`s, please ensure you upgrade them appropriately and ensure they are still running as expected.
 
-Relevant MediatR Migration Guides
+Relevant MediatR migration guides:
 
-[Migration Guide 10.x to 11.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-10.x-to-11.0)
-
-[Migration Guide 11.x to 12.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-11.x-to-12.0)
-
-[Migration Guide 12.0 to 12.1](https://github.com/jbogard/MediatR/wiki/Migration-Guide-12.0-to-12.1)
+- [Migration Guide 10.x to 11.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-10.x-to-11.0)
+- [Migration Guide 11.x to 12.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-11.x-to-12.0)
+- [Migration Guide 12.0 to 12.1](https://github.com/jbogard/MediatR/wiki/Migration-Guide-12.0-to-12.1)
 
 Available from:
 
-Intent.Application.MediatR 4.1.0
-Intent.Application.DependencyInjection.MediatR 3.5.0
-Intent.Application.MediatR.Behaviours 4.2.0
-Intent.MediatR.DomainEvents 4.3.0
-Intent.Application.MediatR.CRUD 5.2.0
+- Intent.Application.MediatR 4.1.0
+- Intent.Application.DependencyInjection.MediatR 3.5.0
+- Intent.Application.MediatR.Behaviours 4.2.0
+- Intent.MediatR.DomainEvents 4.3.0
+- Intent.Application.MediatR.CRUD 5.2.0
 
 ### RDBMS Improved Schema modeling
 
@@ -124,6 +127,42 @@ Available from:
 
 - Intent.Application.Dtos.Pagination 4.0.5
 
+### Add support for `CustomAsync(…)` to FluentValidation modules
+
+FluentValidation's `CustomAsync(…)` allows adding of custom validation failure messages which, as with other validation failure messages, is populated into a ASP.NET Core's [RFC    7807 compliant ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails) response.
+
+Previously, the `Validations`' stereotype had a `Has Custom Validation` checkbox property which would create a `.MustAsync(…)` invocation and corresponding method stub on the validator. This property has now been replaced with a more appropriately named `Must` property and its value is automatically migrated from the old `Has Custom Validation` property.
+
+A new `Custom` checkbox property has been added to the stereotype and when checked it will create a `.CustomAsync(…)` invocation and corresponding method stub:
+
+```csharp
+private void ConfigureValidationRules()
+{
+        RuleFor(v => v.Field)
+                .NotNull()
+                .CustomAsync(ValidateFieldAsync);
+}
+
+[IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+private async Task ValidateFieldAsync(
+        string value,
+        ValidationContext<ValidatedCommand> validationContext,
+        CancellationToken cancellationToken)
+{
+        validationContext.AddFailure("Custom failure message");
+}
+```
+
+The `Validations`' stereotype now appears (depending on the field's type) similar to the following:
+
+![Validations stereotype properties](images/fluent-validation-properties.png)
+
+Available from:
+
+- Intent.Application.FluentValidation 3.7.2
+- Intent.Application.FluentValidation.Dtos 3.6.1
+- Intent.Application.MediatR.FluentValidation 4.3.0
+
 ### Index column sort directions
 
 When defining Indexes either through the `Add Index` or the `Index` stereotype, you can now specify the sort direction either `Ascending` or `Descending`. Sort direction is `Ascending` by default.
@@ -168,19 +207,19 @@ You then need to configure the relevant security settings in the `app.setting` f
 
 ```json
 "Swashbuckle": {
-  "Security": {
-    "OAuth2": {
-      "Implicit": {
-        "AuthorizationUrl": "[AuthorizationUrl]",
-        "TokenUrl": "[TokenUrl]",
-        "Scope": {
-          "[Scope Description]": "[ScopeUrl]"
-        },
-        "ClientId": "[ClientId]"
+    "Security": {
+        "OAuth2": {
+            "Implicit": {
+                "AuthorizationUrl": "[AuthorizationUrl]",
+                "TokenUrl": "[TokenUrl]",
+                "Scope": {
+                    "[Scope Description]": "[ScopeUrl]"
+                },
+                "ClientId": "[ClientId]"
+                        }
+                    }
+                }
             }
-          }
-        }
-      }
 ```
 
 Available from:
@@ -202,12 +241,12 @@ Available from:
 Enhanced XmlDocComments to add `Operation` `Parameters` comments into the Service and Service Interface classes XmlDoComments.
 
 ```csharp
-        /// <summary>
-        /// Removes a customer.
-        /// </summary>
-        /// <param name="id">>The customer Id of the customer to remove.</param>
-        [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-        public async Task DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
+                /// <summary>
+                /// Removes a customer.
+                /// </summary>
+                /// <param name="id">>The customer Id of the customer to remove.</param>
+                [IntentManaged(Mode.Fully, Body = Mode.Fully)]
+                public async Task DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
 ```
 
 Available from:
@@ -249,3 +288,110 @@ This proxy can be used to easily interact with the controller from within a Blaz
 Available from:
 
 - Intent.Blazor.HttpClients.AccountController 1.0.0
+
+### Code generated by CORS module is now configuration driven
+
+The CORS policies to apply are now configuration driven. A `CorsPolicies` section is automatically added to your `appsettings.json` file(s) with the following default configuration:
+
+```json
+{
+  "CorsPolicies": {
+    "Default": {
+      "Origins": [
+        "*"
+      ],
+      "Methods": [
+        "*"
+      ],
+      "Headers": [
+        "*"
+      ]
+    }
+  }
+}
+```
+
+As this default configuration is completely open, it's advised to update it to be more restrictive based on your application URLs. The configuration supports optional `Default` and `Named` sections, here is an example of a more complex configuration as JSON:
+
+```json
+{
+  "CorsPolicies": {
+    "Default": {
+      "Origins": [
+        "https://application1.example.com/",
+        "https://application2.example.com/"
+      ],
+      "Methods": [
+        ["POST", "GET"]
+      ],
+      "Headers": [
+        "*"
+      ],
+      "ExposedHeaders": [
+        "*"
+      ],
+      "AllowCredentials": true
+    },
+    "Named": {
+      "CustomPolicy1": {
+        "Origins": [
+          "https://application3.example.com/"
+        ],
+        "Methods": [
+          ["GET"]
+        ],
+        "Headers": [
+          "*"
+        ],
+        "ExposedHeaders": [
+          "Content-Encoding"
+        ]
+      },
+      "CustomPolicy2": {
+        "Origins": [
+          "https://application4.example.com/"
+        ],
+        "Methods": [
+          ["PUT"]
+        ],
+        "Headers": [
+          "*"
+        ],
+        "PreflightMaxAge": "00:01:00"
+      }
+    }
+  }
+}
+```
+
+For reference, the configuration is deserialized into the following C# classes so will need to match their structure:
+
+```csharp
+public class CorsPolicies
+{
+    public PolicyOptions? Default { get; set; }
+    public Dictionary<string, PolicyOptions>? Named { get; set; }
+}
+
+public class PolicyOptions
+{
+    public string[]? Origins { get; set; }
+    public string[]? Methods { get; set; }
+    public string[]? Headers { get; set; }
+    public string[]? ExposedHeaders { get; set; }
+    public bool AllowCredentials { get; set; }
+    public TimeSpan? PreflightMaxAge { get; set; }
+}
+```
+
+Available from:
+
+- Intent.AspNetCore.Cors 3.3.11
+
+### Additional SDK options for .csproj files
+
+All [.NET Core Available SDKs](https://learn.microsoft.com/dotnet/core/project-sdk/overview#available-sdks) are now available for selection on `.NET Project`s in the Visual Studio designer.
+
+Available from:
+
+- Intent.AspNetCore.Cors 3.3.29
