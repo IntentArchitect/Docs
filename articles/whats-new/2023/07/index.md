@@ -3,6 +3,9 @@
 Welcome to the July 2023 edition of highlights of What's New with Intent Architect.
 
 - Module updates (C#)
+  - **[SignalR (Preview)](#signalr-preview)** - Introduced capability to model communication from Service to Clients using SignalR.
+  - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
+  - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
   - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
   - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
@@ -24,6 +27,61 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
 
 ## Module updates (C#)
+
+### SignalR (Preview)
+
+Introduced capability to model communication from Service to Clients using SignalR.
+
+This makes working with SignalR not only simple but opens up the ability to model contracts which can be shared between Clients and Services and can be automated.
+
+> [!NOTE]
+> This is in Preview and may be subject to change.
+
+![Overview](images/signalr-overview.png)
+
+Available from:
+
+- Intent.AspNetCore.SignalR 1.0.0-beta.0
+
+### ASP.NET Health Checks
+
+Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
+
+#### Health check endpoint
+
+See how your application fares by inspecting database connections, message bus connections, etc. All updated automatically when modules that are aware of the health check module's presence.
+
+![Health Check Endpoint](images/health-check-endpoint.png)
+
+### Publish metrics to your APM
+
+Automatically publish metrics that help track your application's heartbeat to something like Azure Application Insight's Metrics to measure how healthy your application is and setup alerts under certain conditions.
+
+![Health Check Metrics](images/health-check-metrics.png)
+
+### Health Check UI
+
+View visually how your application is doing if you're not planning on using an APM. Health Check UI gives you webhook capabilities to notify in the event if something goes wrong.
+
+![Health Check UI](images/health-check-ui-endpoint.png)
+
+### Basic Auditing for Entity Framework Core
+
+Extend Domain Entities to have fields that record which user created / updated them and at what time.
+
+It is now only a matter of opening the context menu for a Class and selecting `Toggle Basic Auditing`.
+
+![Basic Auditing Apply](images/basic-auditing-apply.png)
+
+It will produce these fields that are maintained by the module.
+
+![Basic Auditing Applied](images/basic-auditing-applied.png)
+
+When a Class gets created / updated, it will automatically update the timestamps and the user who touched it.
+
+Available from:
+
+- Intent.EntityFrameworkCore.BasicAuditing 1.0.0
 
 ### MediatR 12.1 upgrade
 
