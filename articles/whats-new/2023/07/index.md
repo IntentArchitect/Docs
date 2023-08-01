@@ -6,6 +6,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[SignalR (Preview)](#signalr-preview)** - Introduced capability to model communication from Service to Clients using SignalR.
   - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
+  - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
   - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
   - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
@@ -25,6 +26,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Blazor account controller proxy module](#blazor-account-controller-proxy-module)** - New module to create a Blazor proxy for interacting with the `Intent.AspNetCore.Identity.AccountController` module.
   - **[CORS is now configuration driven](#code-generated-by-cors-module-is-now-configuration-driven)** - Use configuration to specify any combination of policies.
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
+  - **[Fluent Validation Update to 11.6.0](#fluent-validation-update-to-1160)** - Fluent Validation's nuget packages have been updated to version 11.6.0.
 
 ## Module updates (C#)
 
@@ -65,6 +67,10 @@ View visually how your application is doing if you're not planning on using an A
 
 ![Health Check UI](images/health-check-ui-endpoint.png)
 
+Available from:
+
+- Intent.AspNetCore.HealthChecks 1.0.0
+
 ### Basic Auditing for Entity Framework Core
 
 Extend Domain Entities to have fields that record which user created / updated them and at what time.
@@ -82,6 +88,19 @@ When a Class gets created / updated, it will automatically update the timestamps
 Available from:
 
 - Intent.EntityFrameworkCore.BasicAuditing 1.0.0
+
+### Microsoft.AspNetCore.Authentication.JwtBearer security update
+
+For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
+
+> [!IMPORTANT]
+> Please update one of the following modules as soon as possible!
+
+Available from:
+
+- Intent.AspNetCore.Identity.AccountController 2.0.2
+- Intent.Security.JWT 4.1.4
+- Intent.Security.MSAL 4.1.4
 
 ### MediatR 12.1 upgrade
 
@@ -453,3 +472,15 @@ All [.NET Core Available SDKs](https://learn.microsoft.com/dotnet/core/project-s
 Available from:
 
 - Intent.AspNetCore.Cors 3.3.29
+
+### Fluent Validation Update to 11.6.0
+
+Fluent Validation's nuget packages have been updated from 9.3.0 to version 11.6.0.
+
+More detail can be found with the [upgrade guide to version 11](https://docs.fluentvalidation.net/en/latest/upgrading-to-11.html).
+
+Available from:
+
+- Intent.Application.FluentValidation.Dtos 3.6.0
+- Intent.Application.FluentValidation 3.7.0
+- Intent.Application.MediatR.FluentValidation 4.2.0
