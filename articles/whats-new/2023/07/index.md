@@ -7,9 +7,10 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
   - **[Support for `CustomAsync(…)` in FluentValidation modules](#add-support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
-  - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
+  - **[Blazor HttpClients](#blazor-httpclients)** - Generate HttpClients in Blazor projects for services and CQRS operations modeled in the Services Designer.
 
 - More updates
+  - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
   - **[Clone/Copy App feature](#clonecopy-app-feature)** - Clone/Copy App is now available in Intent Architect v4.
@@ -27,6 +28,8 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Blazor account controller proxy module](#blazor-account-controller-proxy-module)** - New module to create a Blazor proxy for interacting with the `Intent.AspNetCore.Identity.AccountController` module.
   - **[CORS is now configuration driven](#code-generated-by-cors-module-is-now-configuration-driven)** - Use configuration to specify any combination of policies.
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
+  - **[Document DB inheritance support](#support-for-modeling-generalizations-in-document-db-packages-in-the-domain-designer)** - The Domain Designer and Document DB modules now properly supports modelling generalization in Document DB packages.
+  - **[FluentValidation max length rules for fields mapped to Class Operation/Constructor parameters](#fluentvalidation-max-length-rules-for-fields-mapped-to-class-operationconstructor-parameters)** - Generates max length rules for mapped parameters similarly to how they're generated for mapped attributes.
   - **[Fluent Validation Update to 11.6.0](#fluent-validation-update-to-1160)** - Fluent Validation's nuget packages have been updated to version 11.6.0.
   - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
   - **[Http Client mapping to a Service can select specific operations now](#http-client-mapping-to-a-service-can-select-specific-operations-now)** - Granular reference operation selection now possible.
@@ -192,6 +195,18 @@ We have released documentation around using and configuring EF in Intent. This d
 Available from:
 
 - Intent.EntityFrameworkCore 4.4.6
+
+### Blazor HttpClients
+
+It is now possible to generate Blazor compatible HttpClients for services/operations/CQRS endpoints modelled in the Service Designer of same or different Intent Architect applications.
+
+Once the module is installed, in the `Web Client` Designer use the `New Service Proxy` context menu option to get started.
+
+Details and examples on using this module are available in the module's [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Blazor.HttpClients/README.md).
+
+Available from:
+
+- Intent.Blazor.HttpClients 1.0.1
 
 ### Services `Paginate` feature
 
@@ -475,6 +490,26 @@ All [.NET Core Available SDKs](https://learn.microsoft.com/dotnet/core/project-s
 Available from:
 
 - Intent.AspNetCore.Cors 3.3.29
+
+### Support for modeling generalizations in Document DB packages in the Domain Designer
+
+Modeling of generalizations is now properly supported for `Class`es in `Document DB` packages, in particular, primary keys are updated/removed from derived types based on their presence in base types and associations will correctly check inheritance hierarchies when generating foreign keys.
+
+Relatedly, modules which generate files based on Document DB packages have been updated as needed to work properly in cases of generalization.
+
+> [!NOTE]
+> At this time, only abstract base types are supported.
+
+Available from:
+
+- Intent.CosmosDB 1.0.0-alpha.11
+- Intent.Dapr.AspNetCore.StateManagement 1.0.2
+- Intent.Metadata.DocumentDB 1.1.2
+- Intent.MongoDb 1.0.2
+
+### FluentValidation max length rules for fields mapped to Class Operation/Constructor parameters
+
+The FluentValidation modules would already generate max length validation rule for `Command` and `DTO` fields mapped to `Class` `Attribute`s of type `string` with a `Text Constraints` stereotype with its `MaxLength` value set. An equivalent rule is now generated for fields mapped to `Operation` or `Constructor` `Parameter`s.
 
 ### Fluent Validation Update to 11.6.0
 
