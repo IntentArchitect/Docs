@@ -29,6 +29,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
   - **[Fluent Validation Update to 11.6.0](#fluent-validation-update-to-1160)** - Fluent Validation's nuget packages have been updated to version 11.6.0.
   - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
+  - **[Http Client mapping to a Service can select specific operations now](#http-client-mapping-to-a-service-can-select-specific-operations-now)** - Granular reference operation selection now possible.
 
 ## Update details
 
@@ -486,3 +487,13 @@ Available from:
 - Intent.Application.FluentValidation.Dtos 3.6.0
 - Intent.Application.FluentValidation 3.7.0
 - Intent.Application.MediatR.FluentValidation 4.2.0
+
+### Http Client mapping to a Service can select specific operations now
+
+Referencing a Service from the Service Proxy designer will now allow you to select specific operations from that Service as opposed to pulling all the operations all the time.
+
+![Http Client Operation Selection](images/http-client-operation-selection.png)
+
+Available from:
+
+- Intent.Integration.HttpClients 4.1.0
