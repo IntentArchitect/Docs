@@ -14,24 +14,24 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
   - **[Clone/Copy App feature](#clonecopy-app-feature)** - Clone/Copy App is now available in Intent Architect v4.
-  - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
-  - **[Index column sort directions](#index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
-  - **[CRUD CQRS available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
-  - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Improved documentation around working with the Entity Framework Core module.
+  - **[MediatR NuGet packages upgraded 12.1](#mediatr-nuget-packages-upgraded-121)** - All our modules have been upgraded to work with the latest version of MediatR.
+  - **[Control index column sort direction](#control-index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
+  - **[CRUD CQRS context menu option available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
+  - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Added module readme with documentation on working with the Entity Framework Core module.
   - **[EF SQL Table name pluralization convention](#ef-sql-table-name-pluralization-convention)** - You can now configure your SQL table name convention, these are still pluralized by default, but can now be configured.
   - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
   - **[Duplicate `Operation` validation](#duplicate-operation-validation)** - Service Designer validation to detect duplicate operations based on operation name and parameter types.
-  - **[CQRS - `Map Constructor / Operation` support inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer, now support apping to base classes.
-  - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become Xml documentation comments on the c# ervices and interfaces.
-  - **[Repositories support composite primary keys](#repositories-support-composite-primary-keys)** - repositories now support composite primary keys.
-  - **[`Expose as Http` improved support for composite keys](#expose-as-http-improved-support-for-composite-keys)** - REST route generation algorithm handles several scenarios better including composite keys.
+  - **[CQRS - `Map Constructor / Operation` support for inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer now support mapping to attributes on base classes.
+  - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become XML documentation comments on c# services and interfaces.
+  - **[Composite primary key support for repositories](#composite-primary-key-support-for-repositories)** - Repositories now support composite primary keys.
+  - **[Improved composite and general key support for `Expose as Http`](#improved-composite-and-general-key-support-for-expose-as-http)** - REST route generation algorithm handles several scenarios better, including composite keys.
   - **[Blazor account controller proxy module](#blazor-account-controller-proxy-module)** - New module to create a Blazor proxy for interacting with the `Intent.AspNetCore.Identity.AccountController` module.
   - **[CORS is now configuration driven](#code-generated-by-cors-module-is-now-configuration-driven)** - Use configuration to specify any combination of policies.
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
   - **[Document DB inheritance support](#support-for-modeling-generalizations-in-document-db-packages-in-the-domain-designer)** - The Domain Designer and Document DB modules now properly supports modelling generalization in Document DB packages.
   - **[FluentValidation max length rules for fields mapped to Class Operation/Constructor parameters](#fluentvalidation-max-length-rules-for-fields-mapped-to-class-operationconstructor-parameters)** - Generates max length rules for mapped parameters similarly to how they're generated for mapped attributes.
-  - **[Fluent Validation Update to 11.6.0](#fluent-validation-update-to-1160)** - Fluent Validation's nuget packages have been updated to version 11.6.0.
-  - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
+  - **[FluentValidation NuGet packages upgraded to 11.6.0](#fluentvalidation-nuget-packages-upgraded-to-1160)** - Fluent Validation's NuGet packages have been updated to version 11.6.0.
+  - **[Microsoft.AspNetCore.Authentication.JwtBearer NuGet package upgraded due to security advisory](#microsoftaspnetcoreauthenticationjwtbearer-nuget-package-upgraded-due-to-security-advisory)** - It's advised to upgrade the listed modules to ensure you aren't running NuGet package versions which are known to be vulnerable.
   - **[Http Client mapping to a Service can select specific operations now](#http-client-mapping-to-a-service-can-select-specific-operations-now)** - Granular reference operation selection now possible.
 
 ## Update details
@@ -97,7 +97,7 @@ Available from:
 
 ### Support for `CustomAsync(…)` to FluentValidation modules
 
-FluentValidation's `CustomAsync(…)` allows adding of custom validation failure messages which, as with other validation failure messages, is populated into a ASP.NET Core's [RFC    7807 compliant ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails) response.
+FluentValidation's `CustomAsync(…)` allows adding of custom validation failure messages which, as with other validation failure messages, is populated into a ASP.NET Core's [RFC 7807 compliant ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails) response.
 
 Previously, the `Validations`' stereotype had a `Has Custom Validation` checkbox property which would create a `.MustAsync(…)` invocation and corresponding method stub on the validator. This property has now been replaced with a more appropriately named `Must` property and its value is automatically migrated from the old `Has Custom Validation` property.
 
@@ -211,9 +211,9 @@ Available from:
 
 - Intent Architect 4.0.2
 
-### MediatR 12.1 upgrade
+### MediatR NuGet packages upgraded 12.1
 
-We have upgraded our modules from MediatR 10.X to the latest MediatR 12.1. From a MediatR perspective these are breaking changes. From an Intent perspective our modules will handle the migration for you.
+We have upgraded our MediatR modules from using version `10.x` of the NuGet packages to use the latest `12.1.x` packages. Although the changes to MediatR NuGet packages are considered "breaking", Intent Architect's MediatR module is able to fix these breaking changes in your codebase automatically.
 
 **Noteworthy changes you can expect to see.**
 
@@ -241,9 +241,9 @@ Available from:
 - Intent.MediatR.DomainEvents 4.3.0
 - Intent.Application.MediatR.CRUD 5.2.0
 
-### Index column sort directions
+### Control index column sort directions
 
-When defining Indexes either through the `Add Index` or the `Index` stereotype, you can now specify the sort direction either `Ascending` or `Descending`. Sort direction is `Ascending` by default.
+When defining Indexes either through the `Add Index` or the `Index` stereotype, you can now specify the sort direction of either `Ascending` or `Descending`. Sort direction is `Ascending` by default.
 
 ![Sort Direction](images/sort-direction.png)
 
@@ -270,7 +270,7 @@ Available from:
 
 We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being all our modules will eventually have documentation available in this way.
 
-[Documentation available here.](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md)
+The documentation is viewable [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md).
 
 Available from:
 
@@ -278,15 +278,15 @@ Available from:
 
 ### EF SQL Table name pluralization convention
 
-There is a new `Database Settings` named `Table naming convention` available in your application settings.
+There is a new `Database Settings` setting named `Table naming convention` available in your application settings.
 
 This setting allows you to configure a convention for your SQL table names. The available options are as follows:
 
-- Pluralized, SQL table name will be the pluralized version of the domain model `Class`'s name.
-- Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
-- None, SQL table name will be the same as domain model `Class`'s name.
+- Pluralized: The SQL table name will be the pluralized version of the domain model `Class`'s name.
+- Singularized: The SQL table name will be the singularized version of the domain model `Class`'s name.
+- None: The SQL table name will be the same as the domain model `Class`'s name.
 
-The default setting `Pluralized` to maintain backwards compatibility.
+The default setting is `Pluralized` to maintain backwards compatibility.
 
 Available from:
 
@@ -320,15 +320,15 @@ Available from:
 
 ### XML documentation comment support for `Operation` parameters
 
-Enhanced XmlDocComments to add `Operation` `Parameters` comments into the Service and Service Interface classes XmlDoComments.
+Enhanced XML Documentation Comment generation to add `Operation` `Parameter` comments to the generated Service and Service Interface classes.
 
 ```csharp
-                /// <summary>
-                /// Removes a customer.
-                /// </summary>
-                /// <param name="id">>The customer Id of the customer to remove.</param>
-                [IntentManaged(Mode.Fully, Body = Mode.Fully)]
-                public async Task DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
+/// <summary>
+/// Removes a customer.
+/// </summary>
+/// <param name="id">>The customer Id of the customer to remove.</param>
+[IntentManaged(Mode.Fully, Body = Mode.Fully)]
+public async Task DeleteCustomer(Guid id, CancellationToken cancellationToken = default)
 ```
 
 Available from:
@@ -336,12 +336,12 @@ Available from:
 - Intent.Application.ServiceImplementations 4.3.1
 - Intent.Application.Contracts 5.0.2
 
-### Repositories support composite primary keys
+### Composite primary key support for repositories
 
 Repositories now provide support for composite primary keys if required. The syntax for composite usage is as follows.
 
 ```csharp
-var existingMyEntity = await _myEntityRepository.FindByIdAsync(new(request.KeyPart1Id, request.KeyPart2), cancellationToken);
+var existingMyEntity = await _myEntityRepository.FindByIdAsync((request.KeyPart1Id, request.KeyPart2), cancellationToken);
 ```
 
 Available from:
@@ -349,9 +349,9 @@ Available from:
 - Intent.Entities.Repositories.Api 4.1.1
 - Intent.EntityFrameworkCore.Repositories 4.2.6
 
-### `Expose as Http` improved support for composite keys
+### Improved composite and general key support for `Expose as Http`
 
-There was a general overhaul of the algorithm which generated the default REST routes. The algorithm now better supports
+There was a general overhaul of the algorithm which generated the default REST routes. The algorithm now better supports:
 
 - Composite Primary Keys
 - Non-conventionally names primary keys i.e. primary keys not named `id` or `{entity name}Id`
@@ -364,8 +364,7 @@ Available from:
 
 ### Blazor account controller proxy module
 
-The module will generate a `HttpClient` proxy for the `AccountController` produced by the `Intent.AspNetCore.Identity.AccountController` module.
-This proxy can be used to easily interact with the controller from within a Blazor application.
+The module will generate a `HttpClient` proxy for the `AccountController` produced by the `Intent.AspNetCore.Identity.AccountController` module. This proxy can be used to easily interact with the controller's endpoints from within a Blazor application.
 
 Available from:
 
@@ -498,24 +497,24 @@ Available from:
 
 The FluentValidation modules would already generate max length validation rule for `Command` and `DTO` fields mapped to `Class` `Attribute`s of type `string` with a `Text Constraints` stereotype with its `MaxLength` value set. An equivalent rule is now generated for fields mapped to `Operation` or `Constructor` `Parameter`s.
 
-### Fluent Validation Update to 11.6.0
+### FluentValidation NuGet packages upgraded to 11.6.0
 
-Fluent Validation's nuget packages have been updated from 9.3.0 to version 11.6.0.
+Fluent Validation's NuGet packages have been updated from 9.3.0 to version 11.6.0.
 
 More detail can be found with the [upgrade guide to version 11](https://docs.fluentvalidation.net/en/latest/upgrading-to-11.html).
 
 Available from:
 
-- Intent.Application.FluentValidation.Dtos 3.6.0
 - Intent.Application.FluentValidation 3.7.0
+- Intent.Application.FluentValidation.Dtos 3.6.0
 - Intent.Application.MediatR.FluentValidation 4.2.0
 
-### Microsoft.AspNetCore.Authentication.JwtBearer security update
-
-For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
+### Microsoft.AspNetCore.Authentication.JwtBearer NuGet package upgraded due to security advisory
 
 > [!IMPORTANT]
-> Please update one of the following modules as soon as possible!
+> `Microsoft.AspNetCore.Authentication.JwtBearer` NuGet package versions before 6.x may be affected by [this](https://github.com/dotnet/aspnetcore/issues/35246) security advisory.
+>
+> So as to not be affected by this known vulnerability, it's advised you install the latest modules listed below which will update the NuGet package as needed.
 
 Available from:
 
