@@ -2,23 +2,24 @@
 
 Welcome to the July 2023 edition of highlights of What's New with Intent Architect.
 
-- Module updates (C#)
+- Highlights
   - **[SignalR (Preview)](#signalr-preview)** - Introduced capability to model communication from Service to Clients using SignalR.
   - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
-  - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
-  - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
+  - **[Support for `CustomAsync(…)` in FluentValidation modules](#add-support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
+  - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
+
+- More updates
+  - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
-  - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
   - **[Clone/Copy App feature](#clonecopy-app-feature)** - Clone/Copy App is now available in Intent Architect v4.
+  - **[MediatR 12.1 upgrade](#mediatr-121-upgrade)** - Upgrade all our modules to work with the latest version of MediatR.
+  - **[Index column sort directions](#index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
   - **[CRUD CQRS available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
   - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Improved documentation around working with the Entity Framework Core module.
-  - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Desginer.
-  - **[Support for `CustomAsync(…)` in FluentValidation modules](#add-support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reason.
-  - **[Index column sort directions](#index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
   - **[EF SQL Table name pluralization convention](#ef-sql-table-name-pluralization-convention)** - You can now configure your SQL table name convention, these are still pluralized by default, but can now be configured.
+  - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
   - **[Duplicate `Operation` validation](#duplicate-operation-validation)** - Service Designer validation to detect duplicate operations based on operation name and parameter types.
-  - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[CQRS - `Map Constructor / Operation` support inheritance mappings](#cqrs---map-constructor--operation-support-inheritance-mappings)** - The `Map Constructor` and `Map Operation` options in the Domain Designer, now support apping to base classes.
   - **[XML documentation comment support for `Operation` parameters](#xml-documentation-comment-support-for-operation-parameters)** - Comments placed on `Operation` parameters now become Xml documentation comments on the c# ervices and interfaces.
   - **[Repositories support composite primary keys](#repositories-support-composite-primary-keys)** - repositories now support composite primary keys.
@@ -27,8 +28,9 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[CORS is now configuration driven](#code-generated-by-cors-module-is-now-configuration-driven)** - Use configuration to specify any combination of policies.
   - **[Additional SDK options for .csproj files](#additional-sdk-options-for-csproj-files)** - Including `BlazorWebAssembly` and `Worker` SDKs.
   - **[Fluent Validation Update to 11.6.0](#fluent-validation-update-to-1160)** - Fluent Validation's nuget packages have been updated to version 11.6.0.
+  - **[Microsoft.AspNetCore.Authentication.JwtBearer security update](#microsoftaspnetcoreauthenticationjwtbearer-security-update)** - For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
 
-## Module updates (C#)
+## Update details
 
 ### SignalR (Preview)
 
@@ -55,13 +57,13 @@ See how your application fares by inspecting database connections, message bus c
 
 ![Health Check Endpoint](images/health-check-endpoint.png)
 
-### Publish metrics to your APM
+#### Publish metrics to your APM
 
 Automatically publish metrics that help track your application's heartbeat to something like Azure Application Insight's Metrics to measure how healthy your application is and setup alerts under certain conditions.
 
 ![Health Check Metrics](images/health-check-metrics.png)
 
-### Health Check UI
+#### Health Check UI
 
 View visually how your application is doing if you're not planning on using an APM. Health Check UI gives you webhook capabilities to notify in the event if something goes wrong.
 
