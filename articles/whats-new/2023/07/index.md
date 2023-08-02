@@ -6,7 +6,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[SignalR (Preview)](#signalr-preview)** - Introduced capability to model communication from Service to Clients using SignalR.
   - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
-  - **[Support for `CustomAsync(…)` in FluentValidation modules](#add-support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
+  - **[Support for `CustomAsync(…)` in FluentValidation modules](#support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
   - **[Blazor HttpClients](#blazor-httpclients)** - Generate HttpClients in Blazor projects for services and CQRS operations modeled in the Services Designer.
 
 - More updates
@@ -95,134 +95,7 @@ Available from:
 
 - Intent.EntityFrameworkCore.BasicAuditing 1.0.0
 
-### Microsoft.AspNetCore.Authentication.JwtBearer security update
-
-For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
-
-> [!IMPORTANT]
-> Please update one of the following modules as soon as possible!
-
-Available from:
-
-- Intent.AspNetCore.Identity.AccountController 2.0.2
-- Intent.Security.JWT 4.1.4
-- Intent.Security.MSAL 4.1.4
-
-### MediatR 12.1 upgrade
-
-We have upgraded our modules from MediatR 10.X to the latest MediatR 12.1. From a MediatR perspective these are breaking changes. From an Intent perspective our modules will handle the migration for you.
-
-**Noteworthy changes you can expect to see.**
-
-- Dependency Injection registrations for MediatR are now done through the `MediatrServiceConfiguration`.
-- `CommandHandler`s and `QueryHandler`s which do not return results now return `Task` instead of `Task<Unit>` and no longer need to return Unit.Value.
-- `CommandHandler`s, `QueryHandler`s and `PipelineBehaviour`s method signatures changed in some scenarios.
-- `PipelineBehaviour`s must be registered with `MediatrServiceConfiguration` not directly with the container.
-- `PipelineBehaviour`s generic constraints change from `TRequest : IRequest<TResponse>` to `TRequest : notnull`.
-
-> [!IMPORTANT]
->
-> If you have any **custom** MediatR `PipelineBehaviour`s, please ensure you upgrade them appropriately and ensure they are still running as expected.
-
-Relevant MediatR migration guides:
-
-- [Migration Guide 10.x to 11.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-10.x-to-11.0)
-- [Migration Guide 11.x to 12.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-11.x-to-12.0)
-- [Migration Guide 12.0 to 12.1](https://github.com/jbogard/MediatR/wiki/Migration-Guide-12.0-to-12.1)
-
-Available from:
-
-- Intent.Application.MediatR 4.1.0
-- Intent.Application.DependencyInjection.MediatR 3.5.0
-- Intent.Application.MediatR.Behaviours 4.2.0
-- Intent.MediatR.DomainEvents 4.3.0
-- Intent.Application.MediatR.CRUD 5.2.0
-
-### RDBMS Improved Schema modeling
-
-A new `Schema` stereotype has been added, which can be applied to `Class`s, `Folder`s and / or `Package`s.
-
-This stereotype works hierarchically i.e. if you apply it to a `Package` all tables / views in the package will belong to that schema.
-Similarly you can apply the `Schema` stereotype to a folder, all tables / views under that folder belong to that schema.
-
-The "Closest" `Schema` stereotype to the `Class` will apply.
-
-Note. If you have `Table` or `View` stereotypes with schema's specified these are more specific and will override the `Schema` stereotype. If you do not fill the schema in on these stereotypes, the schema name will fall back to the "Closest" `Schema` stereotype.
-
-Available from:
-
-- Intent.EntityFrameworkCore 4.4.6
-
-### Duplicate REST route validation
-
-Added a Services Designer validation to detect duplicate REST Routes for `Command`s, `Query`s and `Operations`.
-
-Available from:
-
-- Intent.Metadata.WebApi 4.2.5
-
-### Clone/Copy App feature
-
-The `Clone Application`, which was available in previous versions of Intent Architect, is now available in version 4. It is now called `Copy Application` and is available on the Application context menu.
-
-![Clone / Copy Application available on application context menu](images/clone-application.png)
-
-Available from:
-
-- Intent Architect 4.0.2
-
-### CRUD CQRS available on folders
-
-`Create CQRS CRUD Operations` is now also available on `Folder`s within the Services Designer.
-
-![CRUD from Folders](images/crud-from-folder.png)
-
-The Rest route generation algorithm has also been enhanced to include the folder structure into the default REST route.
-
-![CRUD from Folders](images/crud-folder-routes.png)
-
-Available from:
-
-- Intent.Metadata.WebApi 4.2.4
-- Intent.Application.MediatR.CRUD 5.1.4
-
-### Module Documentation - Entity Framework Core
-
-We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being all our modules will eventually have documentation available in this way.
-
-[Documentation available here.](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md)
-
-Available from:
-
-- Intent.EntityFrameworkCore 4.4.6
-
-### Blazor HttpClients
-
-It is now possible to generate Blazor compatible HttpClients for services/operations/CQRS endpoints modelled in the Service Designer of same or different Intent Architect applications.
-
-Once the module is installed, in the `Web Client` Designer use the `New Service Proxy` context menu option to get started.
-
-Details and examples on using this module are available in the module's [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Blazor.HttpClients/README.md).
-
-Available from:
-
-- Intent.Blazor.HttpClients 1.0.1
-
-### Services `Paginate` feature
-
-The Service Designer now has a `Paginate` command to make it easier to configure pagination on your `Query`s and `Operation`s.
-
-![Paginate Command](images/paginate-command.png)
-
-Configuring the relevant paging data.
-
-![Paginated Command](images/paginate-configured.png)
-
-Available from:
-
-- Intent.Application.Dtos.Pagination 4.0.5
-
-### Add support for `CustomAsync(…)` to FluentValidation modules
+### Support for `CustomAsync(…)` to FluentValidation modules
 
 FluentValidation's `CustomAsync(…)` allows adding of custom validation failure messages which, as with other validation failure messages, is populated into a ASP.NET Core's [RFC    7807 compliant ProblemDetails](https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.problemdetails) response.
 
@@ -258,39 +131,31 @@ Available from:
 - Intent.Application.FluentValidation.Dtos 3.6.1
 - Intent.Application.MediatR.FluentValidation 4.3.0
 
-### Index column sort directions
+### Blazor HttpClients
 
-When defining Indexes either through the `Add Index` or the `Index` stereotype, you can now specify the sort direction either `Ascending` or `Descending`. Sort direction is `Ascending` by default.
+It is now possible to generate Blazor compatible HttpClients for services/operations/CQRS endpoints modelled in the Service Designer of same or different Intent Architect applications.
 
-![Sort Direction](images/sort-direction.png)
+Once the module is installed, in the `Web Client` Designer use the `New Service Proxy` context menu option to get started.
 
-Available from:
-
-- Intent.EntityFrameworkCore 4.4.6
-
-### EF SQL Table name pluralization convention
-
-There is a new `Database Settings` named `Table naming convention` available in your application settings.
-
-This setting allows you to configure a convention for your SQL table names. The available options are as follows:
-
-- Pluralized, SQL table name will be the pluralized version of the domain model `Class`'s name.
-- Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
-- None, SQL table name will be the same as domain model `Class`'s name.
-
-The default setting `Pluralized` to maintain backwards compatibility.
+Details and examples on using this module are available in the module's [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Blazor.HttpClients/README.md).
 
 Available from:
 
-- Intent.EntityFrameworkCore 4.4.5
+- Intent.Blazor.HttpClients 1.0.1
 
-### Duplicate `Operation` validation
+### Services `Paginate` feature
 
-Add a Service Designer validation to detect duplicate operations, i.e. operations where the name and parameter types are identical.
+The Service Designer now has a `Paginate` command to make it easier to configure pagination on your `Query`s and `Operation`s.
+
+![Paginate Command](images/paginate-command.png)
+
+Configuring the relevant paging data.
+
+![Paginated Command](images/paginate-configured.png)
 
 Available from:
 
-- Intent.Modelers.Services 3.4.7
+- Intent.Application.Dtos.Pagination 4.0.5
 
 ### Swagger - OAuth 2.0 Implicit Flows
 
@@ -320,6 +185,128 @@ You then need to configure the relevant security settings in the `app.setting` f
 Available from:
 
 - Intent.AspNetCore.Swashbuckle.Security 4.0.4
+
+### RDBMS Improved Schema modeling
+
+A new `Schema` stereotype has been added, which can be applied to `Class`s, `Folder`s and / or `Package`s.
+
+This stereotype works hierarchically i.e. if you apply it to a `Package` all tables / views in the package will belong to that schema.
+Similarly you can apply the `Schema` stereotype to a folder, all tables / views under that folder belong to that schema.
+
+The "Closest" `Schema` stereotype to the `Class` will apply.
+
+Note. If you have `Table` or `View` stereotypes with schema's specified these are more specific and will override the `Schema` stereotype. If you do not fill the schema in on these stereotypes, the schema name will fall back to the "Closest" `Schema` stereotype.
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.6
+
+### Clone/Copy App feature
+
+The `Clone Application`, which was available in previous versions of Intent Architect, is now available in version 4. It is now called `Copy Application` and is available on the Application context menu.
+
+![Clone / Copy Application available on application context menu](images/clone-application.png)
+
+Available from:
+
+- Intent Architect 4.0.2
+
+### MediatR 12.1 upgrade
+
+We have upgraded our modules from MediatR 10.X to the latest MediatR 12.1. From a MediatR perspective these are breaking changes. From an Intent perspective our modules will handle the migration for you.
+
+**Noteworthy changes you can expect to see.**
+
+- Dependency Injection registrations for MediatR are now done through the `MediatrServiceConfiguration`.
+- `CommandHandler`s and `QueryHandler`s which do not return results now return `Task` instead of `Task<Unit>` and no longer need to return Unit.Value.
+- `CommandHandler`s, `QueryHandler`s and `PipelineBehaviour`s method signatures changed in some scenarios.
+- `PipelineBehaviour`s must be registered with `MediatrServiceConfiguration` not directly with the container.
+- `PipelineBehaviour`s generic constraints change from `TRequest : IRequest<TResponse>` to `TRequest : notnull`.
+
+> [!IMPORTANT]
+>
+> If you have any **custom** MediatR `PipelineBehaviour`s, please ensure you upgrade them appropriately and ensure they are still running as expected.
+
+Relevant MediatR migration guides:
+
+- [Migration Guide 10.x to 11.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-10.x-to-11.0)
+- [Migration Guide 11.x to 12.0](https://github.com/jbogard/MediatR/wiki/Migration-Guide-11.x-to-12.0)
+- [Migration Guide 12.0 to 12.1](https://github.com/jbogard/MediatR/wiki/Migration-Guide-12.0-to-12.1)
+
+Available from:
+
+- Intent.Application.MediatR 4.1.0
+- Intent.Application.DependencyInjection.MediatR 3.5.0
+- Intent.Application.MediatR.Behaviours 4.2.0
+- Intent.MediatR.DomainEvents 4.3.0
+- Intent.Application.MediatR.CRUD 5.2.0
+
+### Index column sort directions
+
+When defining Indexes either through the `Add Index` or the `Index` stereotype, you can now specify the sort direction either `Ascending` or `Descending`. Sort direction is `Ascending` by default.
+
+![Sort Direction](images/sort-direction.png)
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.6
+
+### CRUD CQRS available on folders
+
+`Create CQRS CRUD Operations` is now also available on `Folder`s within the Services Designer.
+
+![CRUD from Folders](images/crud-from-folder.png)
+
+The Rest route generation algorithm has also been enhanced to include the folder structure into the default REST route.
+
+![CRUD from Folders](images/crud-folder-routes.png)
+
+Available from:
+
+- Intent.Metadata.WebApi 4.2.4
+- Intent.Application.MediatR.CRUD 5.1.4
+
+### Module Documentation - Entity Framework Core
+
+We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being all our modules will eventually have documentation available in this way.
+
+[Documentation available here.](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md)
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.6
+
+### EF SQL Table name pluralization convention
+
+There is a new `Database Settings` named `Table naming convention` available in your application settings.
+
+This setting allows you to configure a convention for your SQL table names. The available options are as follows:
+
+- Pluralized, SQL table name will be the pluralized version of the domain model `Class`'s name.
+- Singularized, SQL table name will be the singularized version of the domain model `Class`'s name.
+- None, SQL table name will be the same as domain model `Class`'s name.
+
+The default setting `Pluralized` to maintain backwards compatibility.
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.5
+
+### Duplicate REST route validation
+
+Added a Services Designer validation to detect duplicate REST Routes for `Command`s, `Query`s and `Operations`.
+
+Available from:
+
+- Intent.Metadata.WebApi 4.2.5
+
+### Duplicate `Operation` validation
+
+Add a Service Designer validation to detect duplicate operations, i.e. operations where the name and parameter types are identical.
+
+Available from:
+
+- Intent.Modelers.Services 3.4.7
 
 ### CQRS - `Map Constructor / Operation` support inheritance mappings
 
@@ -522,6 +509,19 @@ Available from:
 - Intent.Application.FluentValidation.Dtos 3.6.0
 - Intent.Application.FluentValidation 3.7.0
 - Intent.Application.MediatR.FluentValidation 4.2.0
+
+### Microsoft.AspNetCore.Authentication.JwtBearer security update
+
+For security reasons we have updated the `Microsoft.AspNetCore.Authentication.JwtBearer` nuget package to ensure that no known security vulnerabilities are kept in your code base.
+
+> [!IMPORTANT]
+> Please update one of the following modules as soon as possible!
+
+Available from:
+
+- Intent.AspNetCore.Identity.AccountController 2.0.2
+- Intent.Security.JWT 4.1.4
+- Intent.Security.MSAL 4.1.4
 
 ### Http Client mapping to a Service can select specific operations now
 
