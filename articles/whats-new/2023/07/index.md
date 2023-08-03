@@ -14,7 +14,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
   - **[Clone/Copy App feature](#clonecopy-app-feature)** - Clone/Copy App is now available in Intent Architect v4.
-  - **[MediatR NuGet packages upgraded 12.1](#mediatr-nuget-packages-upgraded-121)** - All our modules have been upgraded to work with the latest version of MediatR.
+  - **[MediatR NuGet packages upgraded to 12.1](#mediatr-nuget-packages-upgraded-to-121)** - All our modules have been upgraded to work with the latest version of MediatR.
   - **[Control index column sort direction](#control-index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
   - **[CRUD CQRS context menu option available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
   - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Added module readme with documentation on working with the Entity Framework Core module.
@@ -211,7 +211,7 @@ Available from:
 
 - Intent Architect 4.0.2
 
-### MediatR NuGet packages upgraded 12.1
+### MediatR NuGet packages upgraded to 12.1
 
 We have upgraded our MediatR modules from using version `10.x` of the NuGet packages to use the latest `12.1.x` packages. Although the changes to MediatR NuGet packages are considered "breaking", Intent Architect's MediatR module is able to fix these breaking changes in your codebase automatically.
 
