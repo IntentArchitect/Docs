@@ -42,6 +42,8 @@ module.
 
 We are adding module orientated documentation, which can be accessed through the modules `ProjectUrl`. This documentation takes the form of a mark down readme file, which is available in the module repository, the idea being, all our modules will eventually have documentation available in this way.
 
+![Module Documentation](images/project-url.png)
+
 As an example, the `Intent.Modules.EntityFrameworkCore` modules documentation is available [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md).
 
 ### SignalR (Preview)
