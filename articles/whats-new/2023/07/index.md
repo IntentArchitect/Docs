@@ -225,6 +225,9 @@ Available from:
 
 We have upgraded our MediatR modules from using version `10.x` of the NuGet packages to use the latest `12.1.x` packages. Although the changes to MediatR NuGet packages are considered "breaking", Intent Architect's MediatR module is able to fix these breaking changes in your codebase automatically.
 
+> [!NOTE]
+> Intent Architect 4.0.3 is required for this update.
+
 **Noteworthy changes you can expect to see.**
 
 - Dependency Injection registrations for MediatR are now done through the `MediatrServiceConfiguration`.
