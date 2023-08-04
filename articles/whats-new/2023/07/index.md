@@ -8,6 +8,7 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
   - **[Support for `CustomAsync(…)` in FluentValidation modules](#support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
   - **[Blazor HttpClients](#blazor-httpclients)** - Generate HttpClients in Blazor projects for services and CQRS operations modeled in the Services Designer.
+  - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Added module readme with documentation on working with the Entity Framework Core module.
 
 - More updates
   - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
@@ -17,7 +18,6 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[MediatR NuGet packages upgraded to 12.1](#mediatr-nuget-packages-upgraded-to-121)** - All our modules have been upgraded to work with the latest version of MediatR.
   - **[Control index column sort direction](#control-index-column-sort-directions)** - Modeled Indexes now support configuring the index sort direction for indexed columns.
   - **[CRUD CQRS context menu option available on folders](#crud-cqrs-available-on-folders)** - Create CQRS style services from folders in the Service Designer.
-  - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Added module readme with documentation on working with the Entity Framework Core module.
   - **[EF SQL Table name pluralization convention](#ef-sql-table-name-pluralization-convention)** - You can now configure your SQL table name convention, these are still pluralized by default, but can now be configured.
   - **[Duplicate REST route validation](#duplicate-rest-route-validation)** - Service Designer validation to detect duplicate REST routes on your services.
   - **[Duplicate `Operation` validation](#duplicate-operation-validation)** - Service Designer validation to detect duplicate operations based on operation name and parameter types.
@@ -143,6 +143,16 @@ Available from:
 
 - Intent.Blazor.HttpClients 1.0.1
 
+### Module Documentation - Entity Framework Core
+
+We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being, all our modules will eventually have documentation available in this way.
+
+The documentation is viewable [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md).
+
+Available from:
+
+- Intent.EntityFrameworkCore 4.4.6
+
 ### Services `Paginate` feature
 
 The Service Designer now has a `Paginate` command to make it easier to configure pagination on your `Query`s and `Operation`s.
@@ -265,16 +275,6 @@ Available from:
 
 - Intent.Metadata.WebApi 4.2.4
 - Intent.Application.MediatR.CRUD 5.1.4
-
-### Module Documentation - Entity Framework Core
-
-We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being all our modules will eventually have documentation available in this way.
-
-The documentation is viewable [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md).
-
-Available from:
-
-- Intent.EntityFrameworkCore 4.4.6
 
 ### EF SQL Table name pluralization convention
 
