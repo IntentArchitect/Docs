@@ -3,14 +3,16 @@
 Welcome to the July 2023 edition of highlights of What's New with Intent Architect.
 
 - Highlights
+  - **[Module based documentation](#module-based-documentation)** - We are adding module orientated documentation which can be accessed through the modules `ProjectUrl`.
   - **[SignalR (Preview)](#signalr-preview)** - Introduced capability to model communication from Service to Clients using SignalR.
   - **[ASP.NET Health Checks](#aspnet-health-checks)** - Add Health checks to your ASP.NET Core app to monitor various aspects of your application to determine if is responding to requests normally.
   - **[Basic Auditing for Entity Framework Core](#basic-auditing-for-entity-framework-core)** - Extend Domain Entities to have fields that record which user created / updated them and at what time.
   - **[Support for `CustomAsync(…)` in FluentValidation modules](#support-for-customasync-to-fluentvalidation-modules)** - Allows returning of custom validation failure reasons.
   - **[Blazor HttpClients](#blazor-httpclients)** - Generate HttpClients in Blazor projects for services and CQRS operations modeled in the Services Designer.
-  - **[Module Documentation - Entity Framework Core](#module-documentation---entity-framework-core)** - Added module readme with documentation on working with the Entity Framework Core module.
+module.
 
 - More updates
+  - **[Entity Framework Core - Module documentation](#entity-framework-core---module-documentation)** - Added module readme with documentation on working with the Entity Framework Core 
   - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
@@ -35,6 +37,12 @@ Welcome to the July 2023 edition of highlights of What's New with Intent Archite
   - **[Http Client mapping to a Service can select specific operations now](#http-client-mapping-to-a-service-can-select-specific-operations-now)** - Granular reference operation selection now possible.
 
 ## Update details
+
+### Module based documentation
+
+We are adding module orientated documentation, which can be accessed through the modules `ProjectUrl`. This documentation takes the form of a mark down readme file, which is available in the module repository, the idea being, all our modules will eventually have documentation available in this way.
+
+As an example, the `Intent.Modules.EntityFrameworkCore` modules documentation is available [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.EntityFrameworkCore/README.md).
 
 ### SignalR (Preview)
 
@@ -143,7 +151,7 @@ Available from:
 
 - Intent.Blazor.HttpClients 1.0.1
 
-### Module Documentation - Entity Framework Core
+### Entity Framework Core - Module Documentation
 
 We have released documentation around using and configuring EF in Intent. This documentation takes the form of a mark down read me, which is available in the module repository. We have also included this link as the modules `Project Url`, the idea being, all our modules will eventually have documentation available in this way.
 
