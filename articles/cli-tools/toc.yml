@@ -2,6 +2,9 @@ items:
   - name: JSON Metadata Synchronizer
     href: json-metadata-synchronizer/json-metadata-synchronizer.md
 
+  - name: OpenAPI Metadata Synchronizer
+    href: open-api-metadata-synchronizer/open-api-metadata-synchronizer.md
+
   - name: Packager CLI
     href: packager-cli/packager-cli.md
 
