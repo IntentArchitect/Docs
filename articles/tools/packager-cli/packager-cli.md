@@ -1,5 +1,5 @@
 ---
-uid: cli-tools.packager-cli
+uid: tools.packager-cli
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

@@ -1,5 +1,5 @@
 ---
-uid: cli-tools.roslyn-weaver-sanitizer
+uid: tools.roslyn-weaver-sanitizer
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>
