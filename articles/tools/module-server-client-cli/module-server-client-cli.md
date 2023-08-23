@@ -1,9 +1,16 @@
 ---
 uid: tools.module-server-client-cli
 ---
+<!-- Workaround to align the column widths consistently -->
+<style>
+table th:first-of-type {
+    width: 375px;
+}
+</style>
+
 # Module Server Client CLI
 
-The Module Server Client CLI tool can be used for interacting with an Intent Module Server instance to perform tasks such as uploading artifacts.
+The Module Server Client CLI tool can be used for interacting with an Intent Architect [](xref:tools.module-server) instance to perform tasks such as uploading artifacts.
 
 ## Pre-requisites
 
@@ -11,7 +18,7 @@ Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/do
 
 ## Installation
 
-The CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/core/tools/global-tools) and can be installed with the following command:
+This CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/core/tools/global-tools) and can be installed with the following command:
 
 ```powershell
 dotnet tool install Intent.ModuleServer.Client.CLI --global
@@ -29,14 +36,14 @@ Tool 'intent.moduleserver.client.cli' (version 'x.x.x') was successfully install
 
 ## Usage
 
-`Intent.ModuleServer.Client.CLI [command] [options]`
+`module-server-client-cli [command] [options]`
 
 ## Options
 
 |Option|Description|
 |------|-----------|
-|`--version`          |Show version information|
-|`-?`, `-h`, `--help` |Show help and usage information|
+|`--version`      |Show version information|
+|`-?, -h, --help` |Show help and usage information|
 
 ## Commands
 
@@ -52,7 +59,7 @@ Upload a module .imod file.
 ### upload-module usage
 
 ```bash
-Intent.ModuleServer.Client.CLI upload-module [<serverUrl> [<apiKey> [<path>]]] [options]
+module-server-client-cli upload-module [<serverUrl> [<apiKey> [<path>]]] [options]
 ```
 
 ### upload-module arguments
@@ -65,10 +72,10 @@ Intent.ModuleServer.Client.CLI upload-module [<serverUrl> [<apiKey> [<path>]]] [
 
 ### upload-module options
 
-|Option          |Description|
-|----------------|-----------|
-|`--force        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
-|`-?, -h, --help |Show help and usage information|
+|Option           |Description|
+|-----------------|-----------|
+|`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`-?, -h, --help` |Show help and usage information|
 
 ## upload-application-template command
 
@@ -77,7 +84,7 @@ Upload an application template .iat file.
 ### upload-application-template usage
 
 ```bash
-Intent.ModuleServer.Client.CLI upload-application-template [<serverUrl> [<apiKey> [<path>]]] [options]
+module-server-client-cli upload-application-template [<serverUrl> [<apiKey> [<path>]]] [options]
 ```
 
 ### upload-application-template arguments
@@ -90,7 +97,7 @@ Intent.ModuleServer.Client.CLI upload-application-template [<serverUrl> [<apiKey
 
 ### upload-application-template options
 
-|Option          |Description|
-|----------------|-----------|
-|`--force        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
-|`-?, -h, --help |Show help and usage information|
+|Option           |Description|
+|-----------------|-----------|
+|`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`-?, -h, --help` |Show help and usage information|
