@@ -3,3 +3,94 @@ uid: tools.module-server-client-cli
 ---
 # Module Server Client CLI
 
+The Module Server Client CLI tool can be used for interacting with an Intent Module Server instance to perform tasks such as uploading artifacts.
+
+## Pre-requisites
+
+Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+
+## Installation
+
+The CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/core/tools/global-tools) and can be installed with the following command:
+
+```powershell
+dotnet tool install Intent.ModuleServer.Client.CLI --global
+```
+
+> [!NOTE]
+> If `dotnet tool install` fails with an error to the effect of `The required NuGet feed can't be accessed, perhaps because of an Internet connection problem.` and it shows a private NuGet feed URL, you can try add the `--ignore-failed-sources` command line option ([source](https://learn.microsoft.com/dotnet/core/tools/troubleshoot-usage-issues#nuget-feed-cant-be-accessed)).
+
+You should see output to the effect of:
+
+```text
+You can invoke the tool using the following command: module-server-client-cli
+Tool 'intent.moduleserver.client.cli' (version 'x.x.x') was successfully installed.
+```
+
+## Usage
+
+`Intent.ModuleServer.Client.CLI [command] [options]`
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|`--version`          |Show version information|
+|`-?`, `-h`, `--help` |Show help and usage information|
+
+## Commands
+
+|Command|Description|
+|-------|-----------|
+|`upload-module <serverUrl> <apiKey> <path>`               |Upload a module .imod file.|
+|`upload-application-template <serverUrl> <apiKey> <path>` |Upload an application template .iat file.|
+
+## upload-module command
+
+Upload a module .imod file.
+
+### upload-module usage
+
+```bash
+Intent.ModuleServer.Client.CLI upload-module [<serverUrl> [<apiKey> [<path>]]] [options]
+```
+
+### upload-module arguments
+
+|Argument    |Description|
+|------------|-----------|
+|`serverUrl` |The module server's https address.|
+|`apiKey`    |The API key to use to authenticate the request.|
+|`path`      |The path of the file to upload.|
+
+### upload-module options
+
+|Option          |Description|
+|----------------|-----------|
+|`--force        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`-?, -h, --help |Show help and usage information|
+
+## upload-application-template command
+
+Upload an application template .iat file.
+
+### upload-application-template usage
+
+```bash
+Intent.ModuleServer.Client.CLI upload-application-template [<serverUrl> [<apiKey> [<path>]]] [options]
+```
+
+### upload-application-template arguments
+
+|Argument    |Description|
+|------------|-----------|
+|`serverUrl` |The module server's https address.|
+|`apiKey`    |The API key to use to authenticate the request.|
+|`path`      |The path of the file to upload.|
+
+### upload-application-template options
+
+|Option          |Description|
+|----------------|-----------|
+|`--force        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`-?, -h, --help |Show help and usage information|
