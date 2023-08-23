@@ -17,7 +17,7 @@ The RoslynWeaver compares the generated content from the template with the exist
 
 ## Code management instructions
 
-Instructing the RoslynWeaver on how to treat particular _syntax nodes_ is done using the C# `[IntentManaged]` and `[DefaultIntentManaged]` attributes.
+Instructing the RoslynWeaver on how to treat particular _syntax nodes_ is done using code management instructions in your source code, such as e.g. `[IntentManaged(Mode.Ignore)]`, `[IntentIgnore]`.
 
 ### Management modes
 
@@ -82,6 +82,206 @@ The following table documents the available attribute properties and how the Ros
 | Field, Property     | Signature          | Instructs the RoslynWeaver to treat the definition of a Field (field name, type, etc.) differently to the default parameter setting.                                     |
 | Field, Property     | Body               | Instructs the RoslynWeaver to treat the value differently to the default parameter setting.                                                                              |
 
+### Shorthand attributes
+
+> [!NOTE]
+> Shorthand attributes were introduced in version `4.2.0` of the `Intent.RoslynWeaver` module, ensure you have at least this version of the module installed for them to be able to work.
+
+In situations where you are using a simple `[IntentManaged(Mode.<mode>)]` attribute, you can use any of the following attributes:
+
+- `[IntentFully]` (equivalent to `[IntentManaged(Mode.Fully)]`)
+- `[IntentIgnore]` (equivalent to `[IntentManaged(Mode.Ignore)]`)
+- `[IntentMerge]` (equivalent to `[IntentManaged(Mode.Merge)]`)
+
+Additionally, the following attributes can be used to override particular [code management properties](#code-management-attribute-properties):
+
+- `[IntentFullyAttributes]`
+- `[IntentFullyBody]`
+- `[IntentFullyComments]`
+- `[IntentFullySignature]`
+- `[IntentIgnoreAttributes]`
+- `[IntentIgnoreBody]`
+- `[IntentIgnoreComments]`
+- `[IntentIgnoreSignature]`
+- `[IntentMergeAttributes]`
+- `[IntentMergeBody]`
+- `[IntentMergeComments]`
+- `[IntentMergeSignature]`
+
+These attributes can also be combined, for example to have a method have its signature fully managed, but the rest of it ignored, you can combine them as follows:
+
+```csharp
+[IntentIgnore]
+[IntentFullySignature]
+public void ChangeCountry(string country)
+{
+    throw new NotImplementedException();
+}
+```
+
+You can also combine the attributes into a single list, the following code is functionally identical to the previous example:
+
+```csharp
+[IntentIgnore, IntentFullySignature]
+public void ChangeCountry(string country)
+{
+    throw new NotImplementedException();
+}
+```
+
+### "Tag Mode" attributes
+
+> [!NOTE]
+> File level "Tag Mode" attributes were introduced in version `4.2.0` of the `Intent.RoslynWeaver` module, ensure you have at least this version of the module installed for them to be able to work.
+
+These attributes manage the "Tag Mode" for the current file.
+
+#### Explicit Tag Mode
+
+- `[assembly: IntentTagMode(TagMode.Explicit)]`
+
+  or
+
+- `[assembly: IntentTagModeExplicit]`
+
+The RoslynWeaver will only look at the existing file for code management attributes except in the case where the generated template output will add new _syntax nodes_ to the existing file.
+
+#### Implicit Tag Mode
+
+- `[assembly: IntentTagMode(TagMode.Implicit)]`
+
+  or
+
+- `[assembly: IntentTagModeImplicit]`
+
+When a _syntax node_ has no code management attribute of its own, the RoslynWeaver will attempt to find the corresponding _syntax_ node in the template generated content and use its code management attribute instructions. If the RoslynWeaver sees that the existing file's _syntax node's_ code management attribute instructions are identical to that of the _syntax node_ in the generated template output, it will remove it from existing file. This mode is useful if you want to keep the amount of code management attributes in your files to an absolute minimum.
+
+> [!TIP]
+> If you would like make to make "implicit tag mode" the default for all files, this can be done with the [tag mode application setting](#tag-mode).
+
+### Block statement code management behaviour
+
+Statements within code block _syntax nodes_ (e.g. method body, constructor body, delegate body, etc) can also support certain code management capabilities.
+
+> [!NOTE]
+> Support for management of statements was added in version `4.0.0` of the `Intent.RoslynWeaver` module, ensure you have at least this version of the module installed for them to be able to work.
+
+#### Fully mode
+
+You can add your own statements to a code block by adding a comment above with a code management instruction, for example:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+}
+
+// Content in your file, added after initial generation:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    // IntentIgnore
+    var myVariable = "myVariable";
+}
+```
+
+With the above, even though the body of the method is "fully" managed, the `var myVariable = "myVariable";` will not be removed due to having `// IntentIgnore` above it.
+
+This also works for statements which have statement blocks, with the above example you could have alternatively added an `if` statement:
+
+```csharp
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    // IntentIgnore
+    if (SomeCondition)
+    {
+        var myStatement1 = "myStatement1";
+        var myStatement2 = "myStatement2";
+    }
+}
+```
+
+#### Merge mode
+
+Inline with merge behaviour of other _syntax nodes_, the RoslynWeaver will only ever add statements from the template to your code if they are missing, it will never remove statements. For example:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+}
+
+// Content in your file, added after initial generation:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    var myVariable = "myVariable";
+}
+```
+
+If at a later time, the template content changes to have an additional statement, then it will get added without removing your code:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    var variable2 = "variable2";
+}
+
+// Content in your file before running the software factory:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    var myVariable = "myVariable";
+}
+
+// Content in your file after running the software factory:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+    var myVariable = "myVariable";
+    var variable2 = "variable2";
+}
+```
+
+Block statement merge mode also allows you to update variable values:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "variable1";
+}
+
+// Content in your file (will not be updated by the software factory):
+[IntentManaged(Mode.Fully)]
+public void Method()
+{
+    var variable1 = "my alternative value";
+}
+```
+
+> [!NOTE]
+> At this time it is only possible to override individual statements which are _variable declarations_, for all other statements (e.g. a method call), RoslynWeaver will assume it's a different statement and re-add the template's statement because it thinks it's missing.
+
+As with [fully mode](#fully-mode), if your statement was an if statement with a block statement, that would be retained too.
+
+> [!NOTE]
+> Because merge mode will never remove statements, if a template's output changes such that a statement is no longer being generated, the statement will not be removed from your file.
+
 ## Module Settings
 
 ![RoslynWeaver Settings](images/roslynweaver-settings.png)
@@ -145,7 +345,8 @@ By default RoslynWeaver uses `Merge` as the management mode for `using directive
 ### Why are are class members (such methods, properties, fields, etc) being overwritten by Intent even though the class has [IntentManaged(Mode.Merge)] on it?
 
 `IntentManaged` attributes are not hierarchical, they only apply to the code element they are applied to. Each member of the class will have it's own `Mode`.
-So, what does the `Body` mode refer to for a class? It is the existence of class members. This is what Intent Architect will do under the following `Body` modes.
-* **Fully**, Intent Architect will add and remove members as required.
-* **Merge**, Intent Architect will only add new members and never remove members.
-* **Ignore**, Intent Architect will not add or remove any members.
+On a type definition (e.g. `class`, `interface`, `enum`, `record`, etc) `Body` mode refers its members (i.e. methods, fields, properties, etc). This is what Intent Architect will do under the following `Body` modes.
+
+- **Fully:** Intent Architect will add and remove members as required.
+- **Merge:** Intent Architect will only add new members and never remove members.
+- **Ignore:** Intent Architect will not add or remove any members.
