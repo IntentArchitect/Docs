@@ -3,7 +3,7 @@ uid: module-building.templates-general.about-t4-templates
 ---
 # About T4 Templates
 
-This article serves the purpose of informing the reader about the essentials of T4 which will be necessary to design Templates for your [Modules](xref:application-development.applications-and-solutions.about-modules).
+This article serves the purpose of informing the reader about the essentials of T4 which is an option for creating Templates in your [Modules](xref:application-development.applications-and-solutions.about-modules).
 
 ## What T4 Templates are
 
@@ -20,6 +20,9 @@ Similar concepts in other languages and frameworks:
 
 > [!NOTE]
 > Though your template will be aimed at generating code for a given file or programming language, the control logic of the template itself will be written in C#.
+
+> [!NOTE]
+> If you're using Visual Studio (for Windows), we recommend installing an extension to add syntax highlighting support for `.tt` files, such as [tangible T4 Editor](https://t4-editor.tangible-engineering.com/T4-Editor-Visual-T4-Editing.html), [devart T4 editor](https://www.devart.com/t4-editor/) or [T4Editor by Tim Maes](https://marketplace.visualstudio.com/items?itemName=TimMaes.t4editor).
 
 ## T4 Text Blocks and Control Blocks
 

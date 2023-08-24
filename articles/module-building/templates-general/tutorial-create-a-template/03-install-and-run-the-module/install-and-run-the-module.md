@@ -51,8 +51,11 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
     The application structure should look as follows:
 
     ![Create Projects](images/visual-studio-project-structure.png)
+
 5. To create this project structure, run the Software Factory Execution. Intent Architect should stage the changes as follows:
+
     ![Create Projects](images/software-factory-execution-project-structure.png)
+
 6. Finally, click `APPLY CHANGES` to instruct Intent Architect to create the files in our codebase and minimize the Software Factory Execution.
 
 ## Install the Module
@@ -72,7 +75,7 @@ By default, Intent Architect is configured only with the repository for official
 5. Type in the search field `MyModules.Entities` to locate your new Module.
 
    > [!TIP]
-   > You can also go to the Respository dropdown and select your newly created Respository which will list only the Modules you have created.
+   > You can also go to the Repository dropdown and select your newly created Repository which will list only the Modules you have created.
 6. Install the Module.
 
 ![Install the Module](images/selecting-repository-and-installing-module.png)
@@ -82,7 +85,7 @@ By default, Intent Architect is configured only with the repository for official
 After the installation of the module, notice that the minimized Software Factory is now showing a warning symbol.
 ![Warnings displayed after Module Installation](images/after-module-install-sf-warnings.png)
 
-This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project that triggered a re-run of the Software Factory Execution.
+This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project which triggered a re-run of the Software Factory Execution.
 
 After opening the highlighted status button below, you can drill down into the details to inspect what went wrong.
 [!Video-Loop videos/after-module-install-sf-warnings-detail.mp4]
@@ -112,6 +115,31 @@ We've created a project structure, installed our Module, and set the Output Targ
 > [!NOTE]
 > You may have noticed that a NuGet package (`Intent.RoslynWeaver.Attributes`) was added to the `TestProject.csproj` file. This package provides _non-executing_ C# attributes which are used to instruct the [Code-Management](xref:getting-started.welcome#code-management) systems in C#. This is not a hard dependency, does not affect runtime execution in any way and can be swapped out or removed if needed.
 
+Looking at the generated file `EntityBase.cs`, you will see the generated code is as we expected and should look as follows:
+
+```csharp
+
+using System;
+using Intent.RoslynWeaver.Attributes;
+
+[assembly: DefaultIntentManaged(Mode.Fully)]
+[assembly: IntentTemplate("MyModules.Entities.EntityBase", Version = "1.0")]
+
+namespace TestProject
+{
+    public class EntityBase
+    {
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+    }
+}
+
+```
+
 ## What's Next
 
-### [Create Files per Model](xref:module-building.templates.tutorial-create-a-template.create-a-files-per-model-template)
+### [Create a template which generates code based on designers](xref:module-building.templates.tutorial-create-a-template.create-a-files-per-model-template)
+
+In the next section you will learn how to integrated you the data from your Intent Architect designers (e.g. the Domain Designer or Services Designer) with the templating eco-system. In this tutorial you will produce C# classes based off of entities modelled in the Domain Designer.

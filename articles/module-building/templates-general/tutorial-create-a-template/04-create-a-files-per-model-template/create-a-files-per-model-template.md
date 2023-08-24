@@ -3,7 +3,7 @@ uid: module-building.templates.tutorial-create-a-template.create-a-files-per-mod
 ---
 # Create a "Files Per Model" template
 
-In this next part of the tutorial, we will extend our `MyModules.Entities` Module to create and manage domain entities based on the `Domain` Designer. To do this we will create a Template which generates a new file for each entity which has been created in the `Domain` Designer.
+In this next part of the tutorial, we will extend our `MyModules.Entities` Module to create and manage domain entities based on modeling in the `Domain` Designer. To do this we will create a Template which generates a new file for each `Entity` which has been created in the `Domain` Designer.
 
 ## Install the `Domain` Metadata
 
@@ -29,25 +29,20 @@ Next, we will create a new Template that we can configure to receive the models 
 
 1. Navigate to the `Module Builder` Designer.
 2. Create a new C# Template, call it `Entity`, and set its type to be `File per Model`.
-4. In the properties panel, under `C# Template Settings`, set its `Templating Method` to `T4 Templating`.
-4. In the properties panel, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
+3. In the properties panel, under `Template Settings`, set its `Designer` to `Domain` and Model Type to `Class`.
 
     > [!NOTE]
     > These options are available because we installed the `Intent.Modelers.Domain` Module's metadata in the previous step.
-5. Save your changes.
-6. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
-7. Click `APPLY CHANGES`.
+4. Save your changes.
+5. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
+6. Click `APPLY CHANGES`.
 
 [!Video-Loop videos/module-builder-create-entity-template.mp4]
 
 > [!WARNING]
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
->
 > [!NOTE]
-> In the event that your compilation fails (while using Visual Studio), first try the workaround to delete the `bin` and `obj` folders found in your `MyModules` project then try to build it again.
->
-> [!NOTE]
-> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel` relate to Classes in the `Domain` Designer.
+> You may notice that the `EntityTemplateRegistration.cs` class is wired up to create a new Template _instance_ for each `ClassModel` that is retrieved from the `Domain` Designer by Intent Architect's metadata management system. Later in this article you will see how `ClassModel`s relate to Classes in the `Domain` Designer.
 >
 > ![Template Registration Class](images/entity-template-registration-class.png)
 >
@@ -59,39 +54,10 @@ Next, we will create a new Template that we can configure to receive the models 
 Next, we will implement the logic of the `Entity` Template, essentially _templatizing_ a pattern ("rules" followed by developers) for creating entities. In this tutorial, we will create `public` properties for each _attribute_ and _association_ that we describe in the `Domain` Designer.
 
 1. Open the `MyModule.Entities` code solution in your IDE (e.g. Visual Studio).
-2. Open the `EntityTemplate.tt` file.
+2. Open the `EntityTemplatePartial.cs` file.
 3. Implement the following logic to create the properties for the attributes and associations of each `Domain` entity:
 
-    ```csharp
-    <#@ template language="C#" inherits="CSharpTemplateBase<Intent.Modelers.Domain.Api.ClassModel>" #>
-    <#@ assembly name="System.Core" #>
-    <#@ import namespace="System.Collections.Generic" #>
-    <#@ import namespace="System.Linq" #>
-    <#@ import namespace="Intent.Modules.Common" #>
-    <#@ import namespace="Intent.Modules.Common.Templates" #>
-    <#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
-    <#@ import namespace="Intent.Templates" #>
-    <#@ import namespace="Intent.Metadata.Models" #>
-    using System;
-    using System.Collections.Generic;
-
-    [assembly: DefaultIntentManaged(Mode.Fully)]
-
-    namespace <#= Namespace #>
-    {
-        public class <#= ClassName #> : <#= GetBaseType() #>
-        {
-    <#  foreach(var attribute in Model.Attributes) { #>
-
-            public <#= GetTypeName(attribute) #> <#= attribute.Name.ToPascalCase() #> { get; set; }
-    <#  } #>
-    <#  foreach(var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable)) { #>
-
-            public <#= GetTypeName(associationEnd) #> <#= associationEnd.Name.ToPascalCase() #> { get; set; }
-    <#  } #>
-        }
-    }
-    ```
+    [!code-csharp[](code/entity-template-attributes.cs?highlight=3-10)]
 
     > [!NOTE]
     > The Module Builder has automatically wired up our Template so that the `Model` property is a `ClassModel` which is a C# class which has all the data of an entity as modelled in the `Domain` Designer including its `Attributes` and `AssociatedClasses` collections.
@@ -102,33 +68,18 @@ Next, we will implement the logic of the `Entity` Template, essentially _templat
     > [!NOTE]
     > We filter the `AssociatedClasses` by those that are _Navigable_:
     >
-    > ```text
-    > <#  foreach(var associationEnd in Model.AssociatedClasses.Where(x => x.IsNavigable)) { #>
+    > ```csharp
+    > foreach (var association in model.AssociatedClasses.Where(x => x.IsNavigable))
     > ```
     >
     > This prevents every association relationship from being expressed as bidirectional in our code.
 
-4. Open the `EntityTemplatePartial.cs` file. Add the `GetBaseType()` method, that we call in the `EntityTemplate.tt` file, as follows:
+4. Open the `EntityTemplatePartial.cs` file. Now we want to make our `Entity`s inherit from our `EntityBase`, as follows:
 
-    ```csharp
-    private string GetBaseType()
-    {
-        return GetTypeName(EntityBaseTemplate.TemplateId);
-    }
-    ```
-
-    Press `Ctrl+.` (using the Visual Studio shortcut, or right click and select `Quick actions and refactorings`) while the cursor is on `EntityBaseTemplate` and choose `using MyModules.Templates.EntityBase;` to add its using directive.
-
-    > [!NOTE]
-    > Here the `GetTypeName(...)` method resolves the Template Identifier of our `EntityBaseTemplate`. Since this is a single file and the outputs will be in the same namespace, Intent Architect will resolve it as the class name `EntityBase`. If the classes were in different namespaces, the namespace would be introduced using a [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
+    [!code-csharp[](code/entity-template-base-class.cs?highlight=3)]
     >
     > [!NOTE]
-    > You will need to include the namespace `MyModules.Templates.EntityBase` using the [`using` directive](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive).
-
-[!Video-Loop videos/templatizing-entities-t4.mp4]
-
-> [!TIP]
-> The Intent Module Builder configures T4 (`.tt`) files to operate in the same way as a `StringBuilder`. The _code-behind_ is regenerated every time the `.tt` file is saved.
+    > The `this.GetEntityBaseName()` is a helper extension method, which is simply using `GetTypeName(...)` under the hood. These methods allow you to easily reference the generated template output types of other templates. In this case we want our entity generated by the `Entity` template, to inherit from the class generated by the `EntityBase` template.
 
 ## Apply Module changes in Test Application
 
@@ -137,8 +88,9 @@ With the Module changes made, follow the next few steps (keep Visual Studio open
 1. Open the `TestApp` Application in Intent Architect.
 2. In Visual Studio, rebuild the module by recompiling the project.
 3. Notice that Intent Architect has automatically detected that the Module's `.imod` file was updated, installed, and executed by the Software Factory process again. There should be no output changes so click on `APPLY` and minimize it.
-4. Navigate to the `Visual Studio` Designer and assign the `MyModules.Entities.Entity` Template Output to the `TestApp.Domain` project. The configuration should look as follows:
-    ![visual-studio-assigned-template-output](images/visual-studio-assigned-template-output.png)
+4. Navigate to the `Visual Studio` Designer and assign the `MyModules.Entities.Entity` Template Output to the `TestProject` project. The configuration should look as follows:
+
+![visual-studio-assigned-template-output](images/visual-studio-assigned-template-output.png)
 
 > [!NOTE]
 > Notice that the `Domain` Designer has now been installed. When we configured our `Entity` Templates to use the `Domain` Designer, the Module Builder automatically added a dependency to the `Intent.Modelers.Domain` Module in the `.imodspec` file.

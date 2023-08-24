@@ -4,7 +4,8 @@
 
 Tutorials are step-by-step instructions on how to get users up and running with no decision making in order to learn the tool they're using.
 
-## Running Intent Architect
+## Running Intent Architect For Documentation
+
 Run it from the command line using the following argument
 --docs-mode
 

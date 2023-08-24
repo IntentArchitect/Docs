@@ -30,7 +30,7 @@ Click on `Module Builder` on the left of the screen to enter the designer.
 Click on the `MyModules` package, right-click and select `Rename`.
 
 > [!NOTE]
-> This rename step is optional but demonstrates the process of how to accomplish this if required.
+> The name of the package is what the name of your module will be. This rename step is optional but demonstrates the process of how to accomplish this if required.
 
 Enter a name for the `Package` (such as `MyModules.Entities`) and press `ENTER`. It will prompt you whether you want to change the underlying files. Click on `YES`. Finally, click on `Save`.
 
@@ -41,8 +41,6 @@ Enter a name for the `Package` (such as `MyModules.Entities`) and press `ENTER`.
 Right-click the Package and click the `New C# Template` option:
 
 Name it `EntityBase` and for its type select `Single File`.
-
-On the Properties window, change `Templating Method` to `T4 Template`
 
 [!Video-Loop videos/create-the-template.mp4]
 
@@ -76,43 +74,80 @@ Navigate to the folder where the `.sln` solution file (and associated files) has
 
 Go to the `MyModules` Project and expand the `Templates` folder and then the `EntityBase` folder.
 
-Open the `EntityBaseTemplate.tt` file and update its content to the following:
+Open the `EntityBaseTemplatePartial.cs` file and it should look as follows:
 
 ```csharp
-<#@ template language="C#" inherits="CSharpTemplateBase<object>" #>
-<#@ assembly name="System.Core" #>
-<#@ import namespace="System.Collections.Generic" #>
-<#@ import namespace="System.Linq" #>
-<#@ import namespace="Intent.Modules.Common" #>
-<#@ import namespace="Intent.Modules.Common.Templates" #>
-<#@ import namespace="Intent.Modules.Common.CSharp.Templates" #>
-<#@ import namespace="Intent.Templates" #>
-<#@ import namespace="Intent.Metadata.Models" #>
-using System;
 
-[assembly: DefaultIntentManaged(Mode.Fully)]
+...
 
-namespace <#= Namespace #>
+namespace MyModules.Templates.EntityBase
 {
-    public abstract class <#= ClassName #>
+    [IntentManaged(Mode.Fully, Body = Mode.Merge)]
+    public partial class EntityBaseTemplate : CSharpTemplateBase<object>, ICSharpFileBuilderTemplate
     {
-        public DateTime CreatedDate { get; set; }
+        public const string TemplateId = "MyModules.Entities.EntityBase";
 
-        public DateTime UpdatedDate { get; set; }
-
-        public string CreatedBy { get; set; }
-
-        public string UpdatedBy { get; set; }
+        [IntentManaged(Mode.Fully, Body = Mode.Ignore)]
+        public EntityBaseTemplate(IOutputTarget outputTarget, object model = null) : base(TemplateId, outputTarget, model)
+        {
+            CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+                .AddClass($"EntityBase", @class =>
+                {
+                    @class.AddConstructor(ctor =>
+                    {
+                        ctor.AddParameter("string", "exampleParam", param =>
+                        {
+                            param.IntroduceReadonlyField();
+                        });
+                    });
+                });
+        }
+        ...
     }
 }
 ```
 
 > [!NOTE]
-> This is a T4 Template. To learn more, go to [this page](xref:module-building.templates-general.about-t4-templates).
+> This is a C# File Builder template, this templating paradigm uses a builder pattern to construct your C# file. The methods on the builder are intuitive and semantically aligned with concept's you would find in a C# code file, for example methods, constructors, fields, properties etc.
+
+Reading through the builder code you can get a sense for what it is constructing:
+
+- Add a class named `EntityBase`.
+- within that class ->
+  - Add a constructor.
+  - for that constructor ->
+    - Add a parameter of type `string`, named 'exampleParam.
+    - Add a read only field to the class, for storing this parameter.
+
+And as you can imagine this builder will end up producing a C# file as follows:
+
+```csharp
+...
+
+    public class EntityBase
+    {
+        private readonly string _exampleParam;
+
+        public EntityBase(string exampleParam)
+        {
+            _exampleParam = exampleParam;
+        }
+    }
+
+```
+
+Let's change this sample implementation to something more relevant for a `EntityBase` class. For the purpose of this tutorial let's assume you would like to add some standard auditing properties to the base class. Go ahead and modify the code as follows:
+
+[!code-csharp[](code/entity-base-completed.cs?highlight=14,17-20)]
+
+As you can intuition, the template will now output a file like this:
+
+[!code-csharp[](code/entity-based-change-visualize.cs?highlight=1,7-10)]
+
+> [!NOTE]
+> The actual output may look a little different to this, due to things like [Code Management](xref:application-development.code-management.about-code-management).
 
 Save your changes and build the project.
-
-[!Video-Loop videos/edit-template-and-build-in-visual-studio.mp4]
 
 Once the build has been completed you will notice that the `Build` log includes the following line:
 `Successfully created package C:\Code\MyModules\Intent.Modules\MyModules.Entities.1.0.0.imod`
