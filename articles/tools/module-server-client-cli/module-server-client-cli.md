@@ -21,7 +21,7 @@ Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/do
 This CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/core/tools/global-tools) and can be installed with the following command:
 
 ```powershell
-dotnet tool install Intent.ModuleServer.Client.CLI --global
+dotnet tool install Intent.ModuleServer.Client.CLI --global --prerelease
 ```
 
 > [!NOTE]
