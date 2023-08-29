@@ -14,6 +14,12 @@ Welcome to the August 2023 edition of highlights of What's New with Intent Archi
   - **[Improved Queue Trigger support in Azure Functions applications](#improved-queue-trigger-support-in-azure-functions-applications)** - Improved the Azure Functions Queue Trigger functionality to support additional features.
   - **[Abstract domain operations](#abstract-domain-operations)** - Domain operations can now be modeled as abstract.
   - **[DataAnnotation validations on Blazor data contracts](#dataannotation-validations-on-blazor-data-contracts)** - Blazor proxies module now generated DataAnnotation validations on proxy contracts, inline with service modelled validations.
+  - **[FluentValidation Custom Validators](#fluentvalidation-custom-validators)** - Ability to add [Custom Validator](https://docs.fluentvalidation.net/en/latest/custom-validators.html#writing-a-custom-validator) rules.
+  - **[Shorthand C# Code Management Attributes](#shorthand-c-code-management-attributes)** - Alternative shorthand code management attributes such as `[IntentIgnore]` or `[IntentIgnoreBody]`.
+  - **[File level C# Code Management "Tag Mode" control](#file-level-c-code-management-tag-mode-control)** - Specify that Tag Mode is explicit or implicit at a file level.
+  - **[Azure Pipelines Module](#azure-pipelines-module)** - Generate a `azure-pipeline.yml` file to have Azure Pipelines build and test your code on every commit.
+  - **[Module Server](#module-server)** - Self hostable Module Server for your organization's custom Modules and Application Templates.
+  - **[Dapr CRON Binding](#dapr-cron-binding)** - Specify CRON schedules for invocation of `Command`s.
 
 ## Update details
 
@@ -116,3 +122,74 @@ Blazor proxies now produce DataAnnotation validation attributes, like `Required`
 Available from:
 
 - Intent.Blazor.HttpClients 2.0.1
+
+### FluentValidation Custom Validators
+
+It is now possible to apply [Custom Validator Rules](https://docs.fluentvalidation.net/en/latest/custom-validators.html#writing-a-custom-validator) which allow custom failure messages to be specified. Previously it was only possible to add [Predicate Validator](https://docs.fluentvalidation.net/en/latest/custom-validators.html#predicate-validator).
+
+This information is also documented in the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.FluentValidation/README.md).
+
+Available from:
+
+- Intent.Application.FluentValidation 3.7.3
+
+### Shorthand C# Code Management Attributes
+
+Alternative shorthand code management attributes such as `[IntentIgnore]` or `[IntentIgnoreBody]` can now be used. These have been introduced as a less verbose option to the already existing instructions such as `[IntentManaged(<Mode>, Body = <Mode>)]`.
+
+```csharp
+[IntentIgnore]
+[IntentFullySignature]
+public void ChangeCountry(string country)
+{
+    throw new NotImplementedException();
+}
+```
+
+For more information, refer to the [docs](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-csharp/code-management-csharp.html#shorthand-attributes).
+
+Available from:
+
+- Intent.RoslynWeaver 4.2.0
+
+### File level C# Code Management "Tag Mode" control
+
+It is now possible to specify that Tag Mode is explicit or implicit at a file level whereas before it could only be configured globally in application settings.
+
+For more information, refer to the [docs](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-csharp/code-management-csharp.html#tag-mode-attributes).
+
+Available from:
+
+- Intent.RoslynWeaver 4.2.0
+
+### Azure Pipelines Module
+
+Scaffolds a basic Azure Pipelines pipeline which will attempt to compile your solution on every commit and ensure there are no outstanding Intent Architect changes.
+
+![Azure Pipelines screenshot](images/azure-pipelines.jpeg)
+
+See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md) for more information.
+
+Available from:
+
+- Intent.ContinuousIntegration.AzurePipelines 1.0.0
+
+### Module Server
+
+A self-hostable "Module Server" in the form of a Docker image is now available. The [Module Server Client CLI](https://docs.intentarchitect.com/articles/tools/module-server-client-cli/module-server-client-cli.html) can be used to upload Modules and Application templates to it and then Intent Architect clients can be configured to use the server as a repository for your organization's custom Modules and Application Templates.
+
+![Azure Create Web App screenshot](images/module-server.png)
+
+For full details, refer to the [docs](https://docs.intentarchitect.com/articles/tools/module-server/module-server.html).
+
+### Dapr CRON Binding
+
+Right-click any `Command` and apply the `Dapr Cron Binding` stereotype to have it invoked by Dapr on that CRON schedule.
+
+![Screenshot of Command with Dapr Cron Binding stereotype applied](images/dapr-cron-binding.png)
+
+See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Dapr.AspNetCore.Bindings.Cron/README.md) for more information.
+
+Available from:
+
+- Intent.Dapr.AspNetCore.Bindings.Cron 1.0.0
