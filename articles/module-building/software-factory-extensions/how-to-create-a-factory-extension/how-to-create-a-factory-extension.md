@@ -10,7 +10,7 @@ This guide will explain how to create a `Factory Extension` and using it to invo
 npm install
 ```
 
-This guide assumes that you have a Module Project already setup to work from. If you would like to know how to set one up please visit the [Create Module](xref:module-building.templates-general.tutorial-create-a-template.create-a-template-introduction) tutorial.
+This guide assumes that you have a Module Project already setup to work from. If you would like to know how to set one up please visit the [Create Module](xref:module-building.tutorial-create-a-template.create-a-template-introduction) tutorial.
 
 ## Creating a Factory Extension
 
@@ -93,7 +93,7 @@ namespace SampleModule.FactoryExtensions
 
 ## Running the Factory Extension
 
-Install your Module to your Test Application in Intent Architect. Follow these [steps](xref:module-building.templates-general.tutorial-create-a-template.install-and-run-the-module#install-the-module) if you are not sure how.
+Install your Module to your Test Application in Intent Architect. Follow these [steps](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module) if you are not sure how.
 
 Once that is done, run the Software Factory and click on the Apply button. Then you will observe the following at the end of the process in the console output:
 

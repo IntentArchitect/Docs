@@ -1,9 +1,9 @@
 ---
-uid: module-building.templates-general.tutorial-create-a-template.install-and-run-the-module
+uid: module-building.tutorial-create-a-template.install-and-run-the-module
 ---
 # Install and run the Module
 
-When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template).
+When creating Modules it is often very useful to have a _test_ Application that we can use to test that our Modules are working correctly. This tutorial explains how to create this _test_ Application and how to install and run the Module we created in the [previous tutorial](xref:module-building.tutorial-create-a-template.create-the-module-and-a-template).
 
 ## Create an empty Application
 
@@ -60,7 +60,7 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 
 ## Install the Module
 
-Next, let's install the Module we created in the [previous step](xref:module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template). To do this, we first navigate to the `Modules` tab of our Application. Right click on the `TestApp` application and select `Manage Modules` .
+Next, let's install the Module we created in the [previous step](xref:module-building.tutorial-create-a-template.create-the-module-and-a-template). To do this, we first navigate to the `Modules` tab of our Application. Right click on the `TestApp` application and select `Manage Modules` .
 
 ### Finding and Installing the Module
 

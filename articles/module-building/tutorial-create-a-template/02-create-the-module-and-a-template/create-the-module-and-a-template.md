@@ -1,5 +1,5 @@
 ---
-uid: module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template
+uid: module-building.tutorial-create-a-template.create-the-module-and-a-template
 ---
 # Create a Module and Template
 
@@ -160,6 +160,6 @@ You have successfully created an Intent Architect Module.
 
 ## Next Steps
 
-### [Install and run the module](xref:module-building.templates-general.tutorial-create-a-template.install-and-run-the-module)
+### [Install and run the module](xref:module-building.tutorial-create-a-template.install-and-run-the-module)
 
 Create a test Application to install and run our Module.

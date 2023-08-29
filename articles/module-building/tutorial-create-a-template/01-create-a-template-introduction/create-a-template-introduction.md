@@ -1,5 +1,5 @@
 ---
-uid: module-building.templates-general.tutorial-create-a-template.create-a-template-introduction
+uid: module-building.tutorial-create-a-template.create-a-template-introduction
 ---
 # Tutorial: Create a Template
 
@@ -42,6 +42,6 @@ Once you’re able to describe it and you know how it is supposed to look like i
 
 ## Next Steps
 
-### [Create a simple module](xref:module-building.templates-general.tutorial-create-a-template.create-the-module-and-a-template)
+### [Create a simple module](xref:module-building.tutorial-create-a-template.create-the-module-and-a-template)
 
 Create a Module using the Intent Module Builder with a simple Template that generates and manages a single file.

@@ -16,7 +16,7 @@ The `Intent.ModuleBuilder` [Module](xref:application-development.applications-an
 
 See the following to learn more about Module Building:
 
-- [](xref:module-building.templates-general.tutorial-create-a-template.create-a-template-introduction)
+- [](xref:module-building.tutorial-create-a-template.create-a-template-introduction)
 - [](xref:module-building.designer-extensions.tutorial-create-an-event-as-a-designer-extension)
 - [](xref:module-building.designers.designer-modelling)
 - [](xref:module-building.templates-general.configuring-a-templates-default-output-location)

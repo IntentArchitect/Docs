@@ -2,6 +2,10 @@ items:
 - name: Overview
   topicUid: module-building.overview
 
+- name: 'Tutorial: Create a Template'
+  topicUid: module-building.tutorial-create-a-template.create-a-template-introduction
+  href: tutorial-create-a-template/toc.yml
+
 - name: Application Settings
   href: application-settings/application-settings.md
 
