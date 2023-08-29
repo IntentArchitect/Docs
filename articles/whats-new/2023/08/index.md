@@ -20,6 +20,11 @@ Welcome to the August 2023 edition of highlights of What's New with Intent Archi
   - **[Azure Pipelines Module](#azure-pipelines-module)** - Generate a `azure-pipeline.yml` file to have Azure Pipelines build and test your code on every commit.
   - **[Module Server](#module-server)** - Self hostable Module Server for your organization's custom Modules and Application Templates.
   - **[Dapr CRON Binding](#dapr-cron-binding)** - Specify CRON schedules for invocation of `Command`s.
+  - **[Azure Functions using `System.Text.Json` instead of `Newtonsoft.Json`](#azure-functions-using-systemtextjson-instead-of-newtonsoftjson)** - The Azure Functions patterns are now utilizing the utilizing System.Text.Json over the previously used Newtonsoft.Json.
+  - **[CSharpFileBuilder offers CSharpEnum as part of builder pattern suite](#csharpfilebuilder-offers-csharpenum-as-part-of-builder-pattern-suite)** - Building Modules using the C# File Builder now has Enums as part of its builder suite.
+  - **[`Intent.Application.MediatR.CRUD.Tests` now supports new test cases and more](#intentapplicationmediatrcrudtests-now-supports-new-test-cases-and-more)** - Generates unit tests for Paginated services, caters also for commands projecting onto Entity constructors and improved stability changes.
+  - **[New delayed publishing messages for MassTransit](#new-delayed-publishing-messages-for-masstransit)** - Publish messages that will be dispatched at a future date using your Message Broker.
+  - **[Override topic names in MassTransit](#override-topic-names-in-masstransit)** - Applying the `Message Topology Settings` stereotype on a message allows you to change the Entity Type which translates into a Message Broker's topic / exchange name.
 
 ## Update details
 
@@ -193,3 +198,76 @@ See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/
 Available from:
 
 - Intent.Dapr.AspNetCore.Bindings.Cron 1.0.0
+
+### Azure Functions using `System.Text.Json` instead of `Newtonsoft.Json`
+
+The Azure Functions patterns are now utilizing the utilizing `System.Text.Json` over the previously used `Newtonsoft.Json`. This change aims to offer improved performance and reduced memory footprint for serverless workloads.
+
+Available from:
+
+- Intent.AzureFunctions 4.0.8
+
+### CSharpFileBuilder offers CSharpEnum as part of builder pattern suite
+
+Building Modules using the C# File Builder now has Enums as part of its builder suite.
+
+```csharp
+new CSharpFile("Project.Domain", "Enums")
+    .AddUsing("System")
+    .AddEnum("AddressType", e =>
+    {
+        e.AddAttribute(@"[Description(""Address Type"")]");
+        e.AddLiteral("Residential", "1");
+        e.AddLiteral("PostOffice", "2");
+        e.AddLiteral("Office", "3");
+    });
+```
+
+Available from:
+
+- Intent.Common.CSharp 3.3.40
+
+### `Intent.Application.MediatR.CRUD.Tests` now supports new test cases and more
+
+Generates unit tests for Paginated services, caters also for commands projecting onto Entity constructors and improved stability changes.
+
+> [!NOTE]
+> Some unit test names and unit test logic has been updated to conform with other names and to fix certain test logic.
+
+For a full list of changes refer to the [release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.MediatR.CRUD.Tests/release-notes.md).
+
+Available from:
+
+- Intent.Application.MediatR.CRUD.Tests 1.2.0
+
+### New delayed publishing messages for MassTransit
+
+Publish messages that will be dispatched at a future date using your Message Broker.
+
+See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Eventing.MassTransit.Scheduling/README.md) for more information.
+
+Available from:
+
+- Intent.Eventing.MassTransit.Scheduling 1.0.0
+
+### Override topic names in MassTransit
+
+Applying the `Message Topology Settings` stereotype on a message allows you to change the Entity Type which translates into a Message Broker's topic / exchange name.
+
+![Message Topology Example](images/masstransit-message-topology-settings-example.png)
+
+Available from:
+
+- Intent.Eventing.MassTransit 5.2.0
+
+### Specify Retry policy in MassTransit
+
+Specify the default retry policy in MassTransit by selecting one of the newly added retry policies.
+
+![Retry Policy Setting](images/masstransit-settings-retry-policy.png)
+
+See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Eventing.MassTransit/README.md#retry-policy-setting) for more information.
+
+Available from:
+
+- Intent.Eventing.MassTransit 5.2.0
