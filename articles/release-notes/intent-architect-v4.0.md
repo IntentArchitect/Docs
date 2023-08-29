@@ -4,6 +4,13 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
+
+## Version 4.0.4
+
+### Improvements in 4.0.4
+
+- Improved performance of change updates in and between designers.
+
 ## Version 4.0.3
 
 ### Improvements in 4.0.3
