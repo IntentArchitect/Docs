@@ -7,11 +7,11 @@ Welcome to the August 2023 edition of highlights of What's New with Intent Archi
 - More updates
   - **[Import OpenApi / Swagger documents into the Services Designer](#import-openapi--swagger-documents-into-the-services-designer)** - Created a new import tool for populating service package metadata from OpenApi / Swagger contracts.
   - **[Module building tutorial updated to use the File builder pattern](#module-building-tutorial-updated-to-use-the-file-builder-pattern)** - The module building tutorial has been updated to use the File builder pattern, more inline with how we recommend building templates today.
-  - **[Modeling different Document DB technologies with-in one application](#modeling-different-document-db-technologies-with-in-one-application)** - We now support modeling different Document Store databases within a single application.
-  - **[Dapr - Configuration Module](#dapr---configuration-module)** - Added a module for Dapr Configuration patterns.
-  - **[Dapr - Secrets Module](#dapr---secrets-module)** - Added a module for Dapr Secrets patterns.
+  - **[Modeling different Document DB technologies with-in one application](#modeling-different-document-db-technologies-with-in-one-application)** - Domain model packages can now be associated with a specific document store technology.
+  - **[Dapr - Configuration Module](#dapr---configuration-module)** - Added a module for patterns around the Dapr Configuration building block.
+  - **[Dapr - Secrets Module](#dapr---secrets-module)** - Added a module for patterns around the Dapr Secrets building block.
   - **[MassTransit Finbuckle integration](#masstransit-finbuckle-integration)** - Updated the MassTransit module to  support tenancy on messaging with Finbuckle.
-  - **[Improved Queue Trigger support in Azure Functions applications](#improved-queue-trigger-support-in-azure-functions-applications)** - Improved the Azure Functions Queue Trigger functionality to support additional features. 
+  - **[Improved Queue Trigger support in Azure Functions applications](#improved-queue-trigger-support-in-azure-functions-applications)** - Improved the Azure Functions Queue Trigger functionality to support additional features.
   - **[Abstract domain operations](#abstract-domain-operations)** - Domain operations can now be modeled as abstract.
   - **[DataAnnotation validations on Blazor data contracts](#dataannotation-validations-on-blazor-data-contracts)** - Blazor proxies module now generated DataAnnotation validations on proxy contracts, inline with service modelled validations.
 
