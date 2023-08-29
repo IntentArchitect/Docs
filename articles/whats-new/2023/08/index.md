@@ -234,6 +234,8 @@ Generates unit tests for Paginated services, caters also for commands projecting
 > [!NOTE]
 > Some unit test names and unit test logic has been updated to conform with other names and to fix certain test logic.
 
+See the [module's readme](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.MediatR.CRUD.Tests/README.md) for more information.
+
 For a full list of changes refer to the [release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.MediatR.CRUD.Tests/release-notes.md).
 
 Available from:
