@@ -121,7 +121,7 @@ You can find the start of the tutorial [here](https://docs.intentarchitect.com/a
 A new module which implements patterns for working with Dapr (Distributed Application Runtime) Configuration component, alongside our existing Dapr modules.
 The Dapr Configuration component is all about centralizing configuration for distributed systems.
 
-Check out the module documentation for full [details](https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.Dapr.AspNetCore.Configuration/README.md).
+Check out the module documentation for full [details](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Dapr.AspNetCore.Configuration/README.md).
 
 Available from:
 
@@ -132,7 +132,7 @@ Available from:
 A new module which implements patterns for working with Dapr (Distributed Application Runtime) Secrets component, alongside our existing Dapr modules.
 The Dapr Secrets component is all about centralizing secrets for distributed systems.
 
-Check out the module documentation for full [details](https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.Dapr.AspNetCore.Secrets/README.md).
+Check out the module documentation for full [details](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Dapr.AspNetCore.Secrets/README.md).
 
 Available from:
 
