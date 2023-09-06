@@ -12,6 +12,10 @@ table th:first-of-type {
 
 A CLI (command line interface) version of the Intent Architect Software Factory.
 
+## Why use this tool ?
+
+This tool can easily be configured as part of your CI/CD pipeline to ensure your Intent Architect design and actual solution code-base are in-sync. A developer should not commit Intent changes without having applied them to the code-base, as part of their work is to validate that they are happy with the resultant code changes. This is  analogous to ensuring your code compiles and all tests pass when committing code, and is one of the major benefits of a CI/CD pipeline. This tool simply extends the CI/CD pipeline checks and balances to include that all Intent Architect related changes have been applied to the code-base. This tool allows developers to apply the same rigor to Intent Architect changes as they do to code-base changes, ensuring a more consistent and reliable code base. This practice is particularly important when you have a team of developers collaborating on a shared repository.
+
 ## Pre-requisites
 
 Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
