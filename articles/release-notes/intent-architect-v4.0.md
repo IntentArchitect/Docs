@@ -4,12 +4,16 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
-
 ## Version 4.0.4
 
 ### Improvements in 4.0.4
 
 - Improved performance of change updates in and between designers.
+- It is now possible to control whether or not hardware acceleration is enabled in the User Settings dialogue. Hardware acceleration was always enabled by default, but can now be disabled if needed.
+
+### Issues fixed in 4.0.4
+
+- Fixed: The Manage Repositories dialogue was not always able to correctly handle URLs for [self-hosted module servers](xref:tools.module-server).
 
 ## Version 4.0.3
 
