@@ -50,7 +50,7 @@
       "_appLogoPath": "./images/logo.png",
       "_appLogoPathDark": "./images/logo-white.png",
       "_appFaviconPath": "/images/favicon.ico",
-      "_appFooter": "<span>Copyright © 2017-<script type=\"text/javascript\">document.write((new Date()).getFullYear());</script>, Intent Software Pte Ltd.</span>\n<!-- Global site tag (gtag.js) - Google Analytics -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-106066850-1\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'UA-106066850-1');\n</script>"
+      "_appFooter": "<span>Copyright © 2017-<script type=\"text/javascript\">document.write((new Date()).getFullYear());</script>, Intent Software Pte Ltd.</span>\n<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-GWP11LTGRN\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-GWP11LTGRN');\n</script>"
     }, 
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
