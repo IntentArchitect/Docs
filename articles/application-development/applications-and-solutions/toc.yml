@@ -11,6 +11,9 @@ items:
   - name: About Visual Studio Designer
     href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
 
+  - name: Intent Architect in the development environment
+    href: ../development-environment/intent-in-the-development-environment.md
+
   - name: How to change the output root
     href: how-to-change-the-output-root/how-to-change-the-output-root.md
 
