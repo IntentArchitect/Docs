@@ -1,32 +1,32 @@
 ---
-uid: application-development.development-environment.intent-architect-in-your-development-environment
+uid: application-development.development-environment.intent-architect-in-the-development-environment
 ---
-# Intent Architect in your Development Environment
+# Intent Architect in the Development Environment
 
 This article covers various aspect's of working with Intent Architect withing your Software development life cycle.
 
-* How Intent Architect solutions are structured.
+* How Intent Architect solutions are structured on the file system.
 * Using Intent Architect solutions with Version Control.
 * Integrating Intent Architect solutions with your CI/CD Pipelines Extensions.
 * Configuring module discovery.
 
-## How are Intent Architect solutions structured
+## How Intent Architect solutions are structured
 
-When you create an Intent Architect solution, it create many folders and files related to the solution, at a high level there are a few high level concepts you should be aware of. The create application wizard, allows you to specify several settings, as follows:
+When you create an Intent Architect solution, it creates many folders and files related to the solution, at a high level there are a few high level concepts you should be aware of. The application wizard, allows you to specify several settings, as follows:
 
 ![Solution configuration](./images/default-solution-setup.png)
 
-The main settings we will be concerned with here are:-
+The main settings we will be concerned with here are:
 
 * Location
 * Solution Name
 * Application Name
 
-### File structure basics
+### Folder structure basics
 
 Intent Architect will create a folder `{Location}\{Solution Name}`, everything related to the solution will be stored in this folder. This folder contains 2 sub-folders, namely `intent` and `{Application Name}`.
 
-The `intent` folder contains all data related to this specific solution, this data includes:-
+The `intent` folder contains all data related to this specific solution, this includes:
 
 * Solution / Application settings, Intent Architect configuration information.
 * Designer Metadata, all designer related data, i.e. domain models, service models, etc.
@@ -42,7 +42,7 @@ The `{Application Name}` folder contains the full source code for the {Applicati
 
 ### The Intent Architect solution file (`.isln`)
 
-This Intent Architect solution file, .isln file extension, is the entry point file for your Intent Architect solution, very analogous to a Visual Studio solution file. You can double-click this file to open the solution in Intent Architect. When you create a new Solution within Intent Architect it will create an `isln` file for you in the following location:=
+This Intent Architect solution file, .isln file extension, is the entry point file for your Intent Architect solution, very analogous to a Visual Studio solution file. You can double-click this file to open the solution in Intent Architect. When you create a new Solution within Intent Architect it will create an `isln` file for you in the following location:
 
 ```csharp
 {Location}\{Solution Name}\intent\{Solution Name}.isln
@@ -52,14 +52,14 @@ More details on the file structure are available [here](#code-structure-details)
 
 ## Version Control
 
-It is considered a best practice to commit your Intent Architect solution to your Version Control System, along with the solution source code. The Intent Architect solution would cover everything inside of the "{Location}\{Solution Name}\intent\" folder. You Intent Architect solution is an extension of your application codebase and should be versioned likewise, when you switch branches or look at different versions of the codebase you want you Intent Architect solution to reflect the relevant design fot that version of the codebase.
+It is considered a best practice to commit your Intent Architect solution to your Version Control System, along with the solution source code. The Intent Architect solution would cover everything inside of the "{Location}\{Solution Name}\intent\" folder. Your Intent Architect solution is an extension of your application codebase and should be versioned accordingly, when you switch branches or look at different versions of the codebase you want your Intent Architect solution to reflect the relevant design for that version of the codebase.
 
 > [!TIP]
 > When upgrading your solutions modules, it is best to do this off of a clean check out. This way you can see and validate the module changes to your codebase in isolation. This also allows you to easily roll back the modules / changes, if for some reason you wanted to.
 
 ## CI/CD Pipelines Extensions
 
-Most software projects are running, and should be running, a CI/CD pipeline. We have a Software Factory CLI tool, which can be configured to run as part of your CI/CD process, which ensures that Intent Architect designs have been applied to the code base when committed, ensuring these two concepts are always in sync.
+Most software projects are running, and should be running, a CI/CD pipeline. Intent Architect has a Software Factory CLI tool, which can be configured to run as part of your CI/CD process, which ensures that Intent Architect designs have been applied to the code base when committed, ensuring these two concepts are always in sync.
 
 More information on our Software Factory CLI tool, available [here](xref:tools.software-factory-cli).
 
@@ -68,18 +68,18 @@ More information on our Software Factory CLI tool, available [here](xref:tools.s
 
 ## Module Repositories
 
-One of the key features of Intent Architect is it's Module system. Module discovery is done through a Repository configuration which can be configured per Intent Architect solutions. This can be particularly useful if you have custom modules which you want share / distribute either with-in your own development team or external parties.
+One of the key features of Intent Architect is it's Module system. Module discovery is done through a Repository configuration which can be setup per Intent Architect solutions. This can be particularly useful if you have custom modules which you want share / distribute either with-in your own development team or with external parties.
 
-These repositories can be either :-
+These repositories can be either:
 
-* Url to a module server, by default solution's are configured to the Intent Architect official module server and you can also host your own.
+* Url to a module server, by default solution's are configured to point to the Intent Architect official module server and you can also host your own.
 * UNC Path, e.g. a local file folder or a mapped drive.
 
 For more information on configuring Module Repositories, read further [here](xref:application-development.applications-and-solutions.how-to-manage-repositories).
 
 ## Module Server
 
-If you have custom modules which you wish to distribute and don't want to go the  UNC Path route, you can host your own Module Server to distribute your modules, this is very analogous to setting up a custom Nuget hosting solution for distributing your own Nuget packages.
+If you have custom modules which you wish to distribute and don't want to go the UNC Path route, you can host your own Module Server to distribute your modules, this is very analogous to setting up a custom NuGet hosting solution for distributing your own NuGet packages.
 
 For more information on deploying a Module Server, read further [here](xref:tools.module-server).
 
@@ -101,9 +101,6 @@ Note the folder structure of created inline with your selected options i.e. {Loc
 
 * `intent`, this folder contains all the Intent Architect data for this solution.
 * `MyApplication`({Application Name}), this folder contains the source code for the `MyApplication` Intent Application.
-
-> [!NOTE]
-> If you had multiple applications in your solution you would a sub-folder per application in this directory.
 
 ### Application source code
 
@@ -149,7 +146,7 @@ The `MyApplication` folder contains application specific data, looking into this
 
 ### Application Metadata folder
 
-This Folder contains all the Metadata described in the installed `Designer`s, for example let's say you have the following 3 designers installed:=
+This Folder contains all the Metadata described in the installed `Designer`s, for example let's say you have the following 3 designers installed:
 
 * Domain Designer
 * Services Designer
