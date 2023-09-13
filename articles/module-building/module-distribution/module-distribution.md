@@ -3,9 +3,19 @@ uid: module-building.module-distribution
 ---
 # Distributing your Modules to others
 
-Modules built using Intent Architect can be distributed to other team members using any file system based custom repositories (an HTTPS based module repository is only supported for `https://intentarchitect.com/` which contains official Intent Architect Modules).
+Modules built using Intent Architect can be distributed to other team members using a [self-hosted Module Server](#distributing-modules-using-a-self-hosted-module-server) instance or a [file system based repository location](#distributing-modules-using-file-system-based-repositories).
 
-## Overview of distributing modules to others
+## Distributing modules using a self-hosted Module Server
+
+Custom modules can be uploaded to a self-hosted Module Server which makes them accessible at an https URL.
+
+For more information on setting up the Module Server, refer to [this](xref:tools.module-server) article. For more information on uploading modules to your self-hosted Module Server, refer to [this](xref:tools.module-server-client-cli) article.
+
+Once the self-hosted Module Server has been set up, [configure Intent Architect to use its address as repository](#configure-intent-architect-to-use-your-repository-location)
+
+## Distributing modules using file system based repositories
+
+At a high level:
 
 * Decide on a common file system accessible location which everyone within your team has read access to.
 * Each Intent Architect user in your team adds this common location to their repositories under their user settings.
@@ -13,30 +23,30 @@ Modules built using Intent Architect can be distributed to other team members us
 * Build the module to get the `.imod` artifact.
 * Copy the `.imod` to the common file system accessible location.
 
-## Decide on a location for the repository
+### Decide on a location for the file system based repository
 
-### Network based file sharing option
+#### Network based file sharing option
 
 If all members are connected via a local network (or via VPN for remote working), one can make use of network file sharing hosting solutions. For example, most operating systems can access a Windows hosted network file location that resembles `\\server\intent-modules`.
 
 This is a simple way to distribute modules so long as everyone has at least readonly access (except for the publisher who needs write access) to that server location.
 
-### Cloud based file sharing option
+#### Cloud based file sharing option
 
-If your team is geographically distributed (but can still be leveraged for members on a local network too), then we recommend internet based file sharing with automatic synchronization to users machines, for example, Google Drive, Dropbox, OneDrive (SharePoint with OneDrive), etc.
+If your team is geographically distributed (but this option can still be leveraged for members on a local network too), then we recommend internet based file sharing with automatic synchronization to users machines, for example, Google Drive, Dropbox, OneDrive (SharePoint with OneDrive), etc.
 
 One of the benefits of this approach is that you have an offline cache available during network disruptions and your cloud storage provider also makes backups on your behalf.
 
-#### Example: Using Sharepoint and OneDrive
+##### Example: Using Sharepoint and OneDrive
 
 For example, if your organisation has SharePoint and OneDrive, you could use the following process to sync `.imod` files to developers computers:
 
 * If you don't already have a document library for this purpose, [create one in SharePoint](https://support.microsoft.com/office/create-a-document-library-in-sharepoint-306728fe-0325-4b28-b60d-f902e1d75939).
 * If desired, [create a folder](https://support.microsoft.com/office/create-a-document-library-in-sharepoint-306728fe-0325-4b28-b60d-f902e1d75939) within the document library for the `.imod` files.
 * [Set up syncing](https://support.microsoft.com/office/sync-sharepoint-and-teams-files-with-your-computer-6de9ede8-5b6e-4503-80b2-6190f3354a88) of the SharePoint folder to your computer's file system.
-* Make note of the location of the folder on your computer's file system to where OneDrive is syncing the folder with the `.imod` files and then [configure Intent Architect to use this location as a repository](#configure-intent-architect-to-look-at-this-location).
+* Make note of the location of the folder on your computer's file system to where OneDrive is syncing the folder with the `.imod` files and then [configure Intent Architect to use this location as a repository](#configure-intent-architect-to-use-your-repository-location).
 
-## Configure Intent Architect to look at this location
+## Configure Intent Architect to use your repository location
 
 This [article](xref:application-development.applications-and-solutions.how-to-manage-repositories) explains how to setup your known Intent Architect module repositories which let Intent know from where it can install and update modules.
 

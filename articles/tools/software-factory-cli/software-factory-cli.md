@@ -20,6 +20,16 @@ This tool can easily be configured as part of your CI/CD pipeline to ensure your
 
 Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
 
+### Additional considerations when running custom modules
+
+If your Intent Architect applications are running custom modules (i.e. modules which are not available at the `https://intentarchitect.com/` repository), you will need to ensure the following:
+
+- The repository location containing your custom modules will need to be [added as a repository with its Context set to `Current Solution`](xref:application-development.applications-and-solutions.how-to-manage-repositories#repository-context).
+- The operating system instance running the Software Factory CLI will need access to the location of the `.imod` files in order for it to be able to restore them during execution.
+
+> [!TIP]
+> The [](xref:tools.module-server) can be used for self-hosting custom modules to make them available over HTTP.
+
 ## Installation
 
 This CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/core/tools/global-tools) and can be installed with the following command:

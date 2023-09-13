@@ -35,15 +35,17 @@ At the very least you will always see the Intent Architect repository listed her
 
 A new Repository can be added by clicking on the `Add New` button, and one can browse to the desired location by clicking on the Browse button in order to set the Repository location. This location can be any valid path for your operating system, including relative (for solution level repositories) paths, fully qualified paths, UNC paths or the URL for a [self-hosted module servers](https://docs.intentarchitect.com/articles/tools/module-server/module-server.html).
 
-The `Context` dropdown has the following options:
-
-| Name | Description |
-|-|-|
-| Global | Intent Architect will search this Repository from any Intent Architect Solution. |
-| Current Solution | Intent Architect will search this Repository only in the current Solution across all its Applications. |
-
 The arrow buttons allow you to adjust the order in which Intent Architect searches in each Repository. The top most Repository will be visited first and the bottom most Repository will be visited last.
 
 ![Location and Status](images/repository-location-and-status.png)
 
 Each Repository has a hyperlink (clicking on it opens up your File explorer on that location) and a counter badge next to it (indicating how many modules it detected at that location).
+
+### Repository Context
+
+Each configured Repository has a `Context` dropdown with the following options:
+
+| Name             | Description |
+|------------------|-|
+| Global           | Intent Architect will save this Repository's configuration in your operating system's user folder and it can be used in any Intent Architect Solution for your user. |
+| Current Solution | Intent Architect will save this Repository's configuration in an `intent.repositories.config` file in the same folder as the Solution's `.isln` file and it will only be used by the current Solution's Applications. |
