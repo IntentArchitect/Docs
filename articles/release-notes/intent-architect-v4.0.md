@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
+## Version 4.0.5
+
+### Improvements in 4.0.5
+
+- Improved output of [Software Factory CLI](xref:tools.software-factory-cli) when there are outstanding changes to show details of what is outstanding.
+
 ## Version 4.0.4
 
 ### Improvements in 4.0.4
