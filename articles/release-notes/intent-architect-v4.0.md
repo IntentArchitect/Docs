@@ -9,6 +9,7 @@ uid: release-notes.intent-architect-v4.0
 ### Improvements in 4.0.5
 
 - Improved output of [Software Factory CLI](xref:tools.software-factory-cli) when there are outstanding changes to show details of what is outstanding.
+- Fixed: The Manage Modules screen would sometimes mix search results with that of previous searches which were still in progress.
 
 ## Version 4.0.4
 
