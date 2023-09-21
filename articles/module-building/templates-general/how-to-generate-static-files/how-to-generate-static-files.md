@@ -12,6 +12,7 @@ Inside Intent Architect create a new Module for example `MyStaticContent` and cl
 Open the `Module Builder` designer and create a `New Static Content Template` in the package provided for this Module. Give the template a name for example `MyHtmlFiles`. In the properties panel specify the following:
 
 * Content Subfolder. Give it the path for example `htmlfiles`.
+* Binary File Globbing Patterns. Supply file globbing patterns, to identify "binary" files in your content, this would include any file which should not be processed as text based files .
 * Role. Give it the name of `Static.Html` for example.
 
 >[!NOTE]
@@ -37,3 +38,16 @@ So any file content that features the following phrase `<#= Today #>` will be re
 
 > [!IMPORTANT]
 > Please ensure that a single space is preserved between the `<#=`, `keyword` and `#>` symbols.
+
+## Binary File Globbing Patterns
+
+These patterns are used to identify binary or non text based files, so that they don't get processed as text based templates. This patterns are standard `File globbing` patterns,  for more information [see](https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing).
+The standard exclusions are images (jpg, png, ico), excel files and pdfs. This list can be adapted to your specific requirements.
+
+```text
+*.jpg
+*.png
+*.ico
+*.xlsx
+*.pdf
+``````
