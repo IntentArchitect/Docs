@@ -3,16 +3,16 @@ uid: application-development.development-environment.intent-architect-in-the-dev
 ---
 # Intent Architect in the Development Environment
 
-This article covers various aspect's of working with Intent Architect withing your Software development life cycle.
+This article covers various aspect's of working with Intent Architect within your Software Development Life Cycle.
 
 * How Intent Architect solutions are structured on the file system.
 * Using Intent Architect solutions with Version Control.
-* Integrating Intent Architect solutions with your CI/CD Pipelines Extensions.
+* Integrating Intent Architect solutions with your CI/CD Pipelines.
 * Configuring module discovery.
 
 ## How Intent Architect solutions are structured
 
-When you create an Intent Architect solution, it creates many folders and files related to the solution, at a high level there are a few high level concepts you should be aware of. The application wizard, allows you to specify several settings, as follows:
+When you create an Intent Architect solution, it creates many folders and files related to the solution, at a high level there are a few concepts you should be aware of. The application wizard, allows you to specify several settings which influence this structure, as follows:
 
 ![Solution configuration](./images/default-solution-setup.png)
 
@@ -35,24 +35,24 @@ The `intent` folder contains all data related to this specific solution, this in
 The `{Application Name}` folder contains the full source code for the {Application Name} application. In the context of a .Net application, this would be:-
 
 * Visual Studio solution file
-* Various CSProj files and all related project artifacts.
+* Various `CSProj` files and their related artifacts.
 
 > [!NOTE]
-> Every additional Application you add to your Intent Architect solution will add an additional folder here, with that applications source code in it.
+> Every additional Application you add to your Intent Architect solution will add an additional folder here, with that application's source code in it.
 
 ### The Intent Architect solution file (`.isln`)
 
-This Intent Architect solution file, .isln file extension, is the entry point file for your Intent Architect solution, very analogous to a Visual Studio solution file. You can double-click this file to open the solution in Intent Architect. When you create a new Solution within Intent Architect it will create an `isln` file for you in the following location:
+The Intent Architect solution file, `.isln` file extension, is the entry point file for your Intent Architect solution, very analogous to a Visual Studio solution file. Double-clicking this file will open the solution in Intent Architect. When you create a new Solution within Intent Architect it will create an `isln` file for you in the following location:
 
 ```csharp
 {Location}\{Solution Name}\intent\{Solution Name}.isln
 ```
 
-More details on the file structure are available [here](#code-structure-details).
+For more detailed information on the file structure, read on [here](#code-structure-details).
 
 ## Version Control
 
-It is considered a best practice to commit your Intent Architect solution to your Version Control System, along with the solution source code. The Intent Architect solution would cover everything inside of the "{Location}\{Solution Name}\intent\" folder. Your Intent Architect solution is an extension of your application codebase and should be versioned accordingly, when you switch branches or look at different versions of the codebase you want your Intent Architect solution to reflect the relevant design for that version of the codebase.
+It is considered a best practice to commit your Intent Architect solution to your Version Control System, along with the solution source code. The Intent Architect solution would cover everything inside of the "{Location}\\{Solution Name}\intent\" folder. Your Intent Architect solution is an extension of your application codebase and should be versioned accordingly, when you switch branches or look at different versions of the codebase you want your Intent Architect solution to reflect the relevant design for that version of the codebase.
 
 > [!TIP]
 > When upgrading your solutions modules, it is best to do this off of a clean check out. This way you can see and validate the module changes to your codebase in isolation. This also allows you to easily roll back the modules / changes, if for some reason you wanted to.
