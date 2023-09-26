@@ -17,7 +17,7 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
 
 ### Blazor WebAssembly bootstrap module
 
-This modules bootstraps a Blazor WebAssembly project into an Intent Architect solution.
+This modules bootstraps a Blazor WebAssembly project into an Intent Architect solution. This includes all the infrastructural setup and a functional Blazor WebAssembly sample.
 
 Full details available in the [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Blazor.WebAssembly/README.md).
 
@@ -27,7 +27,7 @@ Available from:
 
 ### Blazor Server bootstrap module
 
-This modules bootstraps a Blazor Server infrastructure into an existing Intent Architect ASP.Net Core solution.
+This modules bootstraps a Blazor Server infrastructure into an existing Intent Architect ASP.Net Core solution. This include wiring into the existing infrastructural setup and a functional Blazor Server sample.
 
 Full details available in the [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Blazor.Server/README.md).
 
