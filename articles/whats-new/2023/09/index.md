@@ -13,6 +13,10 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
   - **[EF Core configurable lazy loading proxies](#ef-core-configurable-lazy-loading-proxies)** - You can now configure whether or not you want you EF Core implementation to support Lazy Loading proxies.
   - **[DB Schema Importer Filtering](#db-schema-importer-filtering)** - You can now apply filtering you which DB artifacts you wish to import.
 
+- Java updates
+  - **[Updated modules to support Spring Boot v3](#updated-modules-to-support-spring-boot-v3)** - The Spring Boot module now supports a version selection setting to upgrade from v2 to v3.
+  - **[Domain entities moved away from using the @Data annotation](#domain-entities-moved-away-from-using-the-data-annotation)** - Following best practices, the Java Spring Boot community suggests avoiding the @Data annotation from Lombok on domain entities.
+
 ## Update details
 
 ### Blazor WebAssembly bootstrap module
@@ -97,3 +101,34 @@ Full details available in the [documentation](https://github.com/IntentArchitect
 Available from:
 
 - Intent.SQLSchemaExtractor.exe 1.1.0
+
+### Updated modules to support Spring Boot v3
+
+The Spring Boot module now supports a version selection setting to upgrade from v2 to v3. This not only provides Maven dependency updates and API code code changes, but also some improved patterns to existing code even under Spring Boot v2.
+
+Available from:
+
+- Intent.Java.SpringBoot 3.6.0
+
+Other Java modules that will require updates:
+
+- Intent.Java.SpringBoot.Security 3.4.0
+- Intent.Java.BeanValidation 3.4.0
+- Intent.Java.Domain.Maven 1.2.0
+- Intent.Java.ModelMapper 3.4.0
+- Intent.Java.Persistence.JPA.Queries 3.5.0
+- Intent.Java.Persistence.JPA 4.2.0
+- Intent.Java.Services.CRUD 3.6.0
+- Intent.Java.Spring.Data.Repositories 4.3.0
+- Intent.Java.SpringDoc.OpenApi 1.1.0
+- Intent.Java.Spring.Cors 3.4.0
+- Intent.Java.SpringBoot.Validation 3.4.0
+- Intent.Java.Domain 4.2.0
+
+### Domain entities moved away from using the @Data annotation
+
+Following best practices, the Java Spring Boot community suggests avoiding the `@Data` annotation from Lombok on domain entities. More details can be found in this [article](https://thorben-janssen.com/lombok-hibernate-how-to-avoid-common-pitfalls/) and [this blog post](https://jpa-buddy.com/blog/lombok-and-jpa-what-may-go-wrong/).
+
+Available from:
+
+- Intent.Java.Domain 4.2.0
