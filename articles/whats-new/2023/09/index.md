@@ -13,6 +13,7 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
   - **[EF Core configurable lazy loading proxies](#ef-core-configurable-lazy-loading-proxies)** - You can now configure whether or not you want you EF Core implementation to support Lazy Loading proxies.
   - **[DB Schema Importer Filtering](#db-schema-importer-filtering)** - You can now apply filtering you which DB artifacts you wish to import.
   - **[Specify Default API Route Prefix](#specify-default-api-route-prefix)** - Define the API Route Prefix for newly created services.
+  - **[Validate unique constraints with Fluent Validation](#validate-unique-constraints-with-fluent-validation)** - Enabling this validation will look at your indexed fields to ensure the Fluent Validator can catch whether a Create/Update is violating a unique constraint.
 
 - Java updates
   - **[Updated modules to support Spring Boot v3](#updated-modules-to-support-spring-boot-v3)** - The Spring Boot module now supports a version selection setting to upgrade from v2 to v3.
@@ -118,6 +119,70 @@ Becomes:
 Available from:
 
 - Intent.AspNetCore.Controllers 5.4.0
+
+### Validate unique constraints with Fluent Validation
+
+Enabling this validation will look at your indexed fields to ensure the Fluent Validator can catch whether a Create/Update is violating a unique constraint.
+
+Enable it from the Module Settings page:
+
+![Fluent Validation Unique constraint setting](images/fluent-validation-unique-constraint-setting.png)
+
+Add an Index to the Entity:
+
+![Entity with Index](images/fluent-validation-unique-constraint-index.png)
+
+Ensure the Unique flag is set:
+
+![Index with unique flag](images/fluent-validation-unique-constraint-flag.png)
+
+Add services that map to the Entity while using Fluent Validation for DTO validation:
+
+![Services mapped to Entity](images/fluent-validation-unique-constraint-services-mapped.png)
+
+After the Software Factory is executed, you will see code like this:
+
+```csharp
+public class CreateContactPersonCommandValidator : AbstractValidator<CreateContactPersonCommand>
+{
+    private readonly IContactPersonRepository _contactPersonRepository;
+    [IntentManaged(Mode.Merge)]
+    public CreateContactPersonCommandValidator(IContactPersonRepository contactPersonRepository)
+    {
+        ConfigureValidationRules();
+        _contactPersonRepository = contactPersonRepository;
+    }
+
+    private void ConfigureValidationRules()
+    {
+        RuleFor(v => v.FirstName)
+            .NotNull();
+
+        RuleFor(v => v.LastName)
+            .NotNull();
+
+        RuleFor(v => v.ContactNumber)
+            .NotNull();
+
+        RuleFor(v => v)
+            .MustAsync(CheckUniqueConstraint_FirstName_LastName)
+            .WithMessage("The combination of FirstName and LastName already exists.");
+    }
+
+    private async Task<bool> CheckUniqueConstraint_FirstName_LastName(
+        CreateContactPersonCommand model,
+        CancellationToken cancellationToken)
+    {
+        return !await _contactPersonRepository.AnyAsync(p => p.FirstName == model.FirstName && p.LastName == model.LastName, cancellationToken);
+    }
+}
+```
+
+Available from:
+
+- Intent.Application.FluentValidation 3.8.1
+- Intent.Application.FluentValidation.Dtos 3.7.0
+- Intent.Application.MediatR.FluentValidation 4.4.0
 
 ### Updated modules to support Spring Boot v3
 
