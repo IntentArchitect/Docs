@@ -301,6 +301,11 @@ public void Method()
 }
 ```
 
+> [!NOTE]
+> Because merge mode will never remove statements, if a template's output changes such that a statement is no longer being generated, the statement will not be removed from your file.
+
+##### Updating variable values
+
 Block statement merge mode also allows you to update variable values:
 
 ```csharp
@@ -319,13 +324,34 @@ public void Method()
 }
 ```
 
-> [!NOTE]
-> At this time it is only possible to override individual statements which are _variable declarations_, for all other statements (e.g. a method call), RoslynWeaver will assume it's a different statement and re-add the template's statement because it thinks it's missing.
+##### Updating other kinds statements
+
+For other kinds of statements that you would like to update, you can use an `// [IntentMatch("…")]` comment to specify how Intent Architect should know which statement to replace:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Merge)]
+public void Method()
+{
+    SomeOtherMethod(argument);
+}
+
+// Content in your file (will not be updated by the software factory):
+[IntentManaged(Mode.Merge)]
+public void Method()
+{
+    // [IntentMatch("SomeOtherMethod")]
+    SomeOtherMethod(argument, additionalArgument);
+}
+```
+
+In the above example, the `SomeOtherMethod` value for the commented out attribute lets Intent know to correlate this statement in your existing file with the first statement in the template output starting with that string.
+
+Template authors can also add this line to their templates which lets Intent know how to try correlate the template expression with that in the existing file. When the `// [IntentMatch("…")]` only exists on the template, it is not included in the template output.
+
+##### Nested block statements
 
 As with [fully mode](#fully-mode), if your statement was an if statement with a block statement, that would be retained too.
-
-> [!NOTE]
-> Because merge mode will never remove statements, if a template's output changes such that a statement is no longer being generated, the statement will not be removed from your file.
 
 ## Module Settings
 

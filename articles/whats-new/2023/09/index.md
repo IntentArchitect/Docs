@@ -14,6 +14,12 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
   - **[DB Schema Importer Filtering](#db-schema-importer-filtering)** - You can now apply filtering you which DB artifacts you wish to import.
   - **[Specify Default API Route Prefix](#specify-default-api-route-prefix)** - Define the API Route Prefix for newly created services.
   - **[Validate unique constraints with Fluent Validation](#validate-unique-constraints-with-fluent-validation)** - Enabling this validation will look at your indexed fields to ensure the Fluent Validator can catch whether a Create/Update is violating a unique constraint.
+  - **[Additional C# code management statement merging capabilities](#additional-c-code-management-statement-merging-capabilities)** - "Replace" additional types of template generated statements with your own.
+  - **[Blazor FluentValidation module now available](#blazor-fluentvalidation-module-now-available)** - Generate FluentValidation validators for client side validation of Blazor forms.
+  - **[Include documentation in generated OpenAPI/Swagger definitions](#include-xml-documentation-comments-in-generated-openapiswagger-definitions)** - Comments captured in Intent Architect designers can now also be shown in the Swagger UI.
+  - **[Software Factory CLI improvements](#software-factory-cli-improvements)** - Run all Applications for a Solution and see more detailed errors on failure.
+  - **[Basic Auditing now also applied to Cosmos DB entities](#basic-auditing-is-now-also-applied-to-cosmos-db-entities)** - Cosmos DB entities can now also have basic auditing applied to them.
+  - **[Finbuckle Http Remote Store Support](#finbuckle-http-remote-store-support)** - You can now choose Http Remote as a Finbuckle store option.
 
 - Java updates
   - **[Updated modules to support Spring Boot v3](#updated-modules-to-support-spring-boot-v3)** - The Spring Boot module now supports a version selection setting to upgrade from v2 to v3.
@@ -183,6 +189,123 @@ Available from:
 - Intent.Application.FluentValidation 3.8.1
 - Intent.Application.FluentValidation.Dtos 3.7.0
 - Intent.Application.MediatR.FluentValidation 4.4.0
+
+### Additional C# code management statement merging capabilities
+
+It is now possible "replace" additional types of template generated statements with your own using a new `[IntentMatch("…")]` instruction:
+
+```csharp
+// Template generated content:
+[IntentManaged(Mode.Merge)]
+public void Method()
+{
+    SomeOtherMethod(argument);
+}
+
+// Content in your file (will not be updated by the software factory):
+[IntentManaged(Mode.Merge)]
+public void Method()
+{
+    // [IntentMatch("SomeOtherMethod")]
+    SomeOtherMethod(argument, additionalArgument);
+}
+```
+
+For more information you can refer to [this](xref:application-development.code-weaving-and-generation.about-code-management-csharp#updating-other-kinds-statements) article.
+
+Available from:
+
+- Intent.OutputManager.RoslynWeaver 4.3.0
+
+### Blazor FluentValidation module now available
+
+This module generates Blazor compatible "client side" FluentValidation validators, these validators can be used to validate forms on every field change (if desired) without any calls to the server being required.
+
+Please refer to the [Intent.Application.FluentValidation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.FluentValidation/README.md) module's README for more information on the generated validators as this module shares common logic with it.
+
+Available from:
+
+- Intent.Blazor.HttpClients.Dtos.FluentValidation 1.0.0
+
+### Include XML documentation comments in generated OpenAPI/Swagger definitions
+
+Intent could already generate [XML documentation comments](https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/) for your DTOs, DTO members and controller operations based on comments captured in Intent Architect designers, these comments can now also be visible on your OpenAPI/Swagger definitions.
+
+For more information see the module's [README.md](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.Swashbuckle/README.md#xml-comments).
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 4.0.8
+
+### Software Factory CLI improvements
+
+The [Software Factory CLI](xref:tools.software-factory-cli) tool has had significant quality of life improvements applied to it.
+
+It will now by default run all Intent Architect Applications for an Intent Architect Solution, no more need to specify a specific Application's ID.
+
+It will no longer show full output of runs unless an error occurs.
+
+To facilitate diagnosing issues when they occur on a CI server, the output of a failed run now shows an easy to read summary of the outstanding changes along with diffs of `Overwrite` changes:
+
+```text
+[INF] The following changes are outstanding:
+[ERR] [?? Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDtoMappingExtensions.cs
+[ERR] [?? Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDto.cs
+[ERR] [?? Create                ] Standard.AspNetCore.TestApplication.Application\TheNewDto.cs
+[WRN] [?? Overwrite (?? ignored)] Standard.AspNetCore.TestApplication.Application\Implementation\PluralsService.cs
+[ERR] [?? Overwrite             ] Standard.AspNetCore.TestApplication.Application\Interfaces\IPluralsService.cs
+[ERR] [?? Delete                ] Standard.AspNetCore.TestApplication.Application\ToDeleteDto.cs
+[INF]  diff --git "a/C:\\Dev\\Intent.Modules.NET\\Tests\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsDtoMappingExtensions.cs" "b/C:\\Users\\User\\AppData\\Local\\Temp\\intent\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsRenamedDtoMappingExtensions.cs"
+[INF]  index 4495710..3482dff 100644
+[INF]  --- "a/C:\\Dev\\Intent.Modules.NET\\Tests\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsDtoMappingExtensions.cs"
+[INF]  +++ "b/C:\\Users\\User\\AppData\\Local\\Temp\\intent\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsRenamedDtoMappingExtensions.cs"
+[INF]  @@ -9,12 +9,12 @@ using Standard.AspNetCore.TestApplication.Domain.Entities;
+[INF]
+[INF]   namespace Standard.AspNetCore.TestApplication.Application.Plurals
+[INF]   {
+[INF] ??    public static class PluralsDtoMappingExtensions
+[INF] ??    public static class PluralsRenamedDtoMappingExtensions
+[INF]       {
+[INF] ??        public static PluralsDto MapToPluralsDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
+[INF] ??            => mapper.Map<PluralsDto>(projectFrom);
+[INF] ??        public static PluralsRenamedDto MapToPluralsRenamedDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
+[INF] ??            => mapper.Map<PluralsRenamedDto>(projectFrom);
+[INF]
+[INF] ??        public static List<PluralsDto> MapToPluralsDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
+[INF] ??            => projectFrom.Select(x => x.MapToPluralsDto(mapper)).ToList();
+[INF] ??        public static List<PluralsRenamedDto> MapToPluralsRenamedDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
+[INF] ??            => projectFrom.Select(x => x.MapToPluralsRenamedDto(mapper)).ToList();
+[INF]       }
+[INF]   }
+[INF]  \ No newline at end of file
+```
+
+Available from:
+
+- Intent.SoftwareFactory.CLI 4.0.5
+
+### Basic Auditing is now also applied to Cosmos DB entities
+
+Basic Auditing of Entities is now also applied to Cosmos DB entities (previously it would only be applied to EF entities).
+
+For more information on the Basic Auditing module, refer to its [README.md](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Entities.BasicAuditing/README.md).
+
+> [!NOTE]
+> The `Intent.EntityFrameworkCore.BasicAuditing` module has now been marked as obsolete and has been replaced with the `Intent.Entities.BasicAuditing` module.
+
+Available from:
+
+- Intent.Entities.BasicAuditing 1.0.0-pre.1
+
+### Finbuckle Http Remote Store Support
+
+It is now possible to choose [Http Remote](https://www.finbuckle.com/MultiTenant/Docs/v6.12.0/Stores#http-remote-store) as a Store option for Multitenancy Settings:
+
+![Intent Architect Application Multitenancy Settings](images/finbuckle-settings.png)
+
+Available from:
+
+- Intent.Modules.AspNetCore.MultiTenancy 4.1.8-pre.0
 
 ### Updated modules to support Spring Boot v3
 
