@@ -4,11 +4,20 @@ uid: release-notes.intent-architect-v4.0
 
 # Release notes: Intent Architect version 4.0
 
+## Version 4.0.6
+
+### Issues fixed in 4.0.6
+
+- Fixed: The [Software Factory CLI](xref:tools.software-factory-cli) would hang when generating diffs beyond a certain size.
+
 ## Version 4.0.5
 
 ### Improvements in 4.0.5
 
 - Improved output of [Software Factory CLI](xref:tools.software-factory-cli) when there are outstanding changes to show details of what is outstanding.
+
+### Issues fixed in 4.0.5
+
 - Fixed: The Manage Modules screen would sometimes mix search results with that of previous searches which were still in progress.
 
 ## Version 4.0.4
