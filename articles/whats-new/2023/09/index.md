@@ -12,6 +12,7 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
   - **[Azure Function Cosmos DB Triggers](#azure-function-cosmos-db-triggers)** - You can not model Cosmos DB triggers in the Service Designer.
   - **[EF Core configurable lazy loading proxies](#ef-core-configurable-lazy-loading-proxies)** - You can now configure whether or not you want you EF Core implementation to support Lazy Loading proxies.
   - **[DB Schema Importer Filtering](#db-schema-importer-filtering)** - You can now apply filtering you which DB artifacts you wish to import.
+  - **[Specify Default API Route Prefix](#specify-default-api-route-prefix)** - Define the API Route Prefix for newly created services.
 
 - Java updates
   - **[Updated modules to support Spring Boot v3](#updated-modules-to-support-spring-boot-v3)** - The Spring Boot module now supports a version selection setting to upgrade from v2 to v3.
@@ -101,6 +102,22 @@ Full details available in the [documentation](https://github.com/IntentArchitect
 Available from:
 
 - Intent.SQLSchemaExtractor.exe 1.1.0
+
+### Specify Default API Route Prefix
+
+Define the API Route Prefix for newly created services.
+
+Example:
+
+![Default Route API Prefix Settings Page](images/default-route-api-prefix-settings.png)
+
+Becomes:
+
+![Commands with new Route API Prefix](images/commands-route-api-prefix-sample.png)
+
+Available from:
+
+- Intent.AspNetCore.Controllers 5.4.0
 
 ### Updated modules to support Spring Boot v3
 
