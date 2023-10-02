@@ -49,7 +49,7 @@ Available from:
 
 ### Additional C# code management statement merging capabilities
 
-It is now possible "replace" additional types of template generated statements with your own using a new `[IntentMatch("�")]` instruction:
+It is now possible "replace" additional types of template generated statements with your own using a new `[IntentMatch("...")]` instruction:
 
 ```csharp
 // Template generated content:
