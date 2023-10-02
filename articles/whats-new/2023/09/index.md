@@ -6,8 +6,8 @@ Welcome to the September 2023 edition of highlights of What's New with Intent Ar
   - **[Blazor WebAssembly bootstrap module](#blazor-webassembly-bootstrap-module)** - Bootstraps a Blazor WebAssembly project.
   - **[Azure Function Cosmos DB Triggers](#azure-function-cosmos-db-triggers)** - You can not model Cosmos DB triggers in the Service Designer.
   - **[Additional C# code management statement merging capabilities](#additional-c-code-management-statement-merging-capabilities)** - "Replace" additional types of template generated statements with your own.
-  - **[Basic Auditing now also applied to Cosmos DB entities](#basic-auditing-is-now-also-applied-to-cosmos-db-entities)** - Cosmos DB entities can now also have basic   - **[Software Factory CLI improvements](#software-factory-cli-improvements)** - Run all Applications for a Solution and see more detailed errors on failure.
-auditing applied to them.
+  - **[Basic Auditing now also applied to Cosmos DB entities](#basic-auditing-is-now-also-applied-to-cosmos-db-entities)** - Cosmos DB entities can now also have basic   auditing applied to them.
+  - **[Software Factory CLI improvements](#software-factory-cli-improvements)** - Run all Applications for a Solution and see more detailed errors on failure.
 
 - More updates
   - **[Blazor Server bootstrap module](#blazor-server-bootstrap-module)** - Bootstraps a Blazor Server infrastructure into an ASP.Net Core application.
