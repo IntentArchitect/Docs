@@ -49,7 +49,7 @@ Available from:
 
 ### Additional C# code management statement merging capabilities
 
-It is now possible "replace" additional types of template generated statements with your own using a new `[IntentMatch("...")]` instruction:
+It is now possible "replace" additional types of template generated statements with your own using a new `[IntentMatch("…")]` instruction:
 
 ```csharp
 // Template generated content:
@@ -99,12 +99,12 @@ To facilitate diagnosing issues when they occur on a CI server, the output of a 
 
 ```text
 [INF] The following changes are outstanding:
-[ERR] [?? Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDtoMappingExtensions.cs
-[ERR] [?? Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDto.cs
-[ERR] [?? Create                ] Standard.AspNetCore.TestApplication.Application\TheNewDto.cs
-[WRN] [?? Overwrite (?? ignored)] Standard.AspNetCore.TestApplication.Application\Implementation\PluralsService.cs
-[ERR] [?? Overwrite             ] Standard.AspNetCore.TestApplication.Application\Interfaces\IPluralsService.cs
-[ERR] [?? Delete                ] Standard.AspNetCore.TestApplication.Application\ToDeleteDto.cs
+[ERR] [🔵 Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDtoMappingExtensions.cs
+[ERR] [🔵 Rename                ] Standard.AspNetCore.TestApplication.Application\Plurals\PluralsRenamedDto.cs
+[ERR] [🟢 Create                ] Standard.AspNetCore.TestApplication.Application\TheNewDto.cs
+[WRN] [🟡 Overwrite (🚫 ignored)] Standard.AspNetCore.TestApplication.Application\Implementation\PluralsService.cs
+[ERR] [🟡 Overwrite             ] Standard.AspNetCore.TestApplication.Application\Interfaces\IPluralsService.cs
+[ERR] [🔴 Delete                ] Standard.AspNetCore.TestApplication.Application\ToDeleteDto.cs
 [INF]  diff --git "a/C:\\Dev\\Intent.Modules.NET\\Tests\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsDtoMappingExtensions.cs" "b/C:\\Users\\User\\AppData\\Local\\Temp\\intent\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsRenamedDtoMappingExtensions.cs"
 [INF]  index 4495710..3482dff 100644
 [INF]  --- "a/C:\\Dev\\Intent.Modules.NET\\Tests\\Standard.AspNetCore.TestApplication\\Standard.AspNetCore.TestApplication.Application\\Plurals\\PluralsDtoMappingExtensions.cs"
@@ -113,18 +113,18 @@ To facilitate diagnosing issues when they occur on a CI server, the output of a 
 [INF]
 [INF]   namespace Standard.AspNetCore.TestApplication.Application.Plurals
 [INF]   {
-[INF] ??    public static class PluralsDtoMappingExtensions
-[INF] ??    public static class PluralsRenamedDtoMappingExtensions
+[INF] 🔴    public static class PluralsDtoMappingExtensions
+[INF] 🟢    public static class PluralsRenamedDtoMappingExtensions
 [INF]       {
-[INF] ??        public static PluralsDto MapToPluralsDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
-[INF] ??            => mapper.Map<PluralsDto>(projectFrom);
-[INF] ??        public static PluralsRenamedDto MapToPluralsRenamedDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
-[INF] ??            => mapper.Map<PluralsRenamedDto>(projectFrom);
+[INF] 🔴        public static PluralsDto MapToPluralsDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
+[INF] 🔴            => mapper.Map<PluralsDto>(projectFrom);
+[INF] 🟢        public static PluralsRenamedDto MapToPluralsRenamedDto(this Domain.Entities.Plurals projectFrom, IMapper mapper)
+[INF] 🟢            => mapper.Map<PluralsRenamedDto>(projectFrom);
 [INF]
-[INF] ??        public static List<PluralsDto> MapToPluralsDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
-[INF] ??            => projectFrom.Select(x => x.MapToPluralsDto(mapper)).ToList();
-[INF] ??        public static List<PluralsRenamedDto> MapToPluralsRenamedDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
-[INF] ??            => projectFrom.Select(x => x.MapToPluralsRenamedDto(mapper)).ToList();
+[INF] 🔴        public static List<PluralsDto> MapToPluralsDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
+[INF] 🔴            => projectFrom.Select(x => x.MapToPluralsDto(mapper)).ToList();
+[INF] 🟢        public static List<PluralsRenamedDto> MapToPluralsRenamedDtoList(this IEnumerable<Domain.Entities.Plurals> projectFrom, IMapper mapper)
+[INF] 🟢            => projectFrom.Select(x => x.MapToPluralsRenamedDto(mapper)).ToList();
 [INF]       }
 [INF]   }
 [INF]  \ No newline at end of file
