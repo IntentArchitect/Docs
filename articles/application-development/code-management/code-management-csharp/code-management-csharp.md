@@ -202,7 +202,7 @@ The RoslynWeaver will only look at the existing file for code management attribu
 When a _syntax node_ has no code management attribute of its own, the RoslynWeaver will attempt to find the corresponding _syntax_ node in the template generated content and use its code management attribute instructions. If the RoslynWeaver sees that the existing file's _syntax node's_ code management attribute instructions are identical to that of the _syntax node_ in the generated template output, it will remove it from existing file. This mode is useful if you want to keep the amount of code management attributes in your files to an absolute minimum.
 
 > [!TIP]
-> If you would like make to make "implicit tag mode" the default for all files, this can be done with the [tag mode application setting](#tag-mode).
+> If you would like to make "implicit tag mode" the default for all files, this can be done with the [tag mode application setting](#tag-mode).
 
 ### Block statement code management behaviour
 
