@@ -33,7 +33,7 @@ public async Task<ActionResult> UpdatePerson(
 {
     if (command.Id == default)
     {
-        command.SetId(id);
+        command.Id = id;
     }
     if (id != command.Id)
     {
@@ -45,31 +45,8 @@ public async Task<ActionResult> UpdatePerson(
 }
 ```
 
-```csharp
-public class UpdatePersonCommand : IRequest, ICommand
-{
-    public UpdatePersonCommand(Guid id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
-
-    public Guid Id { get; private set; }
-    public string Name { get; set; }
-
-    public void SetId(Guid id)
-    {
-        Id = id;
-    }
-}
-```
-
 Available from:
 
 - Intent.AspNetCore.Controllers 5.4.1
-- Intent.Application.MediatR.CRUD 5.3.0
 - Intent.Application.MediatR 4.1.4
-
-Other modules that need to be updated:
-
-- Intent.Application.MediatR.CRUD.Tests 1.4.0
+- Intent.AspNetCore.Controllers.Dispatch.MediatR 5.4.0
