@@ -554,7 +554,7 @@ Let's add an item to the basket:
 
 ```json
 {
-  "basketId": "{CustomerId}",
+  "basketId": "{BasketId}",
   "productId": "{ProductId}",
   "quantity": 3,
   "unitPrice": 150
