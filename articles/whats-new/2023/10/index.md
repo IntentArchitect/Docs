@@ -5,10 +5,23 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
 - Highlights
 
 - More updates
+  - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Update Command consumption convenience](#crud-update-command-consumption-convenience)** - When Controller parameters match with Update Command fields, we've made consuming these endpoints easier.
 
 ## Update details
+
+### Specify OpenAPI `operationId` values for endpoints
+
+![The OpenAPI Settings stereotype](images/open-api-settings-stereotype.png)
+
+A new `OpenAPI Settings` stereotype can be applied to endpoints (Commands, Queries, Operations and Azure Functions) to control its [`operationId`](https://swagger.io/docs/specification/paths-and-operations/), see [here](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Metadata.WebApi/README.md) for more information.
+
+Available from:
+
+- Intent.Metadata.WebApi 4.3.1
+- Intent.AspNetCore.Controllers 5.4.2
+- Intent.AzureFunctions.OpenApi 1.0.3
 
 ### Apple Silicon Support
 
