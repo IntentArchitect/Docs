@@ -5,11 +5,26 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
 - Highlights
 
 - More updates
+  - **[Support for NuGet Central Package Management (CPM)](#support-for-nuget-central-package-management-cpm)** - Centralize `.csproj` NuGet package versions using a `Directory.Packages.props` file.
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Update Command consumption convenience](#crud-update-command-consumption-convenience)** - When Controller parameters match with Update Command fields, we've made consuming these endpoints easier.
 
 ## Update details
+
+### Support for NuGet Central Package Management (CPM)
+
+In .NET, [Central Package Management (CPM)](https://learn.microsoft.com/nuget/consume-packages/central-package-management) allows management of versions of NuGet packages for multiple .csproj from a central Directory.Packages.props file and an MSBuild property.
+
+You can now specify you wish to use CPM for your Solution and Intent will then manage your NuGet package versions accordingly:
+
+![Solution CPM](images/cpm-for-solution.png)
+
+For more information refer to the module's [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.VisualStudio.Projects/README.md#central-package-management).
+
+Available from:
+
+- Intent.VisualStudio.Projects 3.4.0
 
 ### Specify OpenAPI `operationId` values for endpoints
 
