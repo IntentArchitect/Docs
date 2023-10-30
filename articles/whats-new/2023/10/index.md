@@ -5,12 +5,36 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
 - Highlights
 
 - More updates
+  - **[Binary output template support](#binary-output-template-support)** - Intent Architect now support creating templates which produce binary files, as opposed to text based files.
+  - **[Azure Table Storage Support](#azure-table-storage-support)** - Azure Table Storage is now available as a persistance option for Domain Modeling.
   - **[Support for NuGet Central Package Management (CPM)](#support-for-nuget-central-package-management-cpm)** - Centralize `.csproj` NuGet package versions using a `Directory.Packages.props` file.
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
+  - **[Domain Event Refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Update Command consumption convenience](#crud-update-command-consumption-convenience)** - When Controller parameters match with Update Command fields, we've made consuming these endpoints easier.
+  - **[CRUD Scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
 
 ## Update details
+
+### Azure Table Storage Support
+
+This module brings in a new `Document Database Provider`, `Azure.TableStorage`, allowing you realize your DocumentDB paradigm Domain Models with an Azure Table Storage persistance layer. This module includes
+
+- Modeler customizations.
+- Table Storage repositories.
+- Table Storage unit of work.
+- Improve support for compositional key support in CRUD scripting.
+
+For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Azure.TableStorage/README.md).
+
+Available from:
+
+- Intent Architect 4.1.*
+- Intent.Azure.TableStorage 1.0.0-beta.*
+- Intent.Application.MediatR.CRUD 6.0.0-beta.0
+
+### Binary output template support
+
 
 ### Support for NuGet Central Package Management (CPM)
 
@@ -37,6 +61,17 @@ Available from:
 - Intent.Metadata.WebApi 4.3.1
 - Intent.AspNetCore.Controllers 5.4.2
 - Intent.AzureFunctions.OpenApi 1.0.3
+
+### Domain Event Refinements
+
+Previously domain eventing infrastructure was added to all Aggregate roots with-in your domain model, we have now added a new application setting "Domain Settings -> Implement Domain Eventing on", which has the following option:
+
+- **All Aggregates**, this option is the original behaviour and is the default option for backwards compatibility.
+- **Aggregates with modelled Domain Events**, only Aggregate roots with Domain Event publishing modelled against them, with get the Domain Eventing related code.
+
+Available from:
+
+- Intent.DomainEvents 4.1.2
 
 ### Apple Silicon Support
 
@@ -78,3 +113,15 @@ Available from:
 - Intent.AspNetCore.Controllers 5.4.1
 - Intent.Application.MediatR 4.1.4
 - Intent.AspNetCore.Controllers.Dispatch.MediatR 5.4.0
+
+### CRUD Scripting improvements
+
+In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys in the RDBMS paradigm.
+
+![Model Example](images/crud-script-improvements.png)
+
+Looking at the above model, performing `Map to Domain Data` on the `CreateInvoiceCommand` and selecting to include `LineItem` will now include `ProductId` as part of the `CreateInvoiceItemDto`.
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 5.3.1
