@@ -4,11 +4,11 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
 
 - Highlights
   - **[Intent Architect 4.1 (Beta)](#binary-output-template-support)** - Intent Architect 4.1 is now available as a Beta version, with many new product features.
-
-- More updates
   - **[Binary output template support](#binary-output-template-support)** - Intent Architect now supports creating templates which produce binary files, as opposed to text based files.
   - **[Azure Table Storage Support](#azure-table-storage-support)** - Azure Table Storage is now available as a persistance option for Domain Modeling.
   - **[Support for NuGet Central Package Management (CPM)](#support-for-nuget-central-package-management-cpm)** - Centralize `.csproj` NuGet package versions using a `Directory.Packages.props` file.
+
+- More updates
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[Domain Event Refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
@@ -27,6 +27,8 @@ The main new features are as follows:
 - Advanced Mapping System
 - Enhanced Diagram Capabilities
 - Error Management Enhancements
+
+![Sample Service Designer diagram](images/services-diagrams.png).
 
 For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1).
 or watch the webinar covering the [4.1].
