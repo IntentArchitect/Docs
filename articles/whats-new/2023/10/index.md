@@ -3,9 +3,10 @@
 Welcome to the October 2023 edition of highlights of What's New with Intent Architect.
 
 - Highlights
+  - **[Intent Architect 4.1 (Beta)](#binary-output-template-support)** - Intent Architect 4.1 is now available as a Beta version, with many new product features.
 
 - More updates
-  - **[Binary output template support](#binary-output-template-support)** - Intent Architect now support creating templates which produce binary files, as opposed to text based files.
+  - **[Binary output template support](#binary-output-template-support)** - Intent Architect now supports creating templates which produce binary files, as opposed to text based files.
   - **[Azure Table Storage Support](#azure-table-storage-support)** - Azure Table Storage is now available as a persistance option for Domain Modeling.
   - **[Support for NuGet Central Package Management (CPM)](#support-for-nuget-central-package-management-cpm)** - Centralize `.csproj` NuGet package versions using a `Directory.Packages.props` file.
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
@@ -15,6 +16,24 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
   - **[CRUD Scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
 
 ## Update details
+
+### Intent Architect 4.1 (Beta)
+
+This release of Intent Architect is fully backward compatible with V4.0.x. It does simultaneously come with functionality that is not available in V4.0.x that, if used, would require other team members working on that application to upgrade to V4.1.x or higher.
+
+The main new features are as follows:
+
+- Service Designer Diagrams
+- Advanced Mapping System
+- Enhanced Diagram Capabilities
+- Error Management Enhancements
+
+For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1).
+or watch the webinar covering the [4.1].
+
+Available from:
+
+- Intent Architect 4.1.*
 
 ### Azure Table Storage Support
 
@@ -35,6 +54,18 @@ Available from:
 
 ### Binary output template support
 
+If is now possible to create templates which output Binary files as opposed to only supporting text-based files. From within the Module Builder the following Templates support binary output options:
+
+- File Template
+- Static Content Template
+
+For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules/blob/release/4.1.x/Modules/Intent.Modules.ModuleBuilder/README.md).
+
+Available from:
+
+- Intent Architect 4.1.*
+- Intent.ModuleBuilder 3.7.0-beta.1
+- Intent.Common 3.5.0-beta.0
 
 ### Support for NuGet Central Package Management (CPM)
 
@@ -79,7 +110,7 @@ macOS releases are now published as "universal" packages which will run code nat
 
 Available from:
 
-- Intent Architect 4.1
+- Intent Architect 4.1.*
 
 ### CRUD Update Command consumption convenience
 

@@ -53,7 +53,7 @@ macOS releases are now published as "universal" packages which will run code nat
 #### Other quality-of-life enhancements
 - Navigating through the 'Go to Definition' context menu options (`F12` shortcut), will open the relevant designer and select they type.
 - Internals of reference packages can now be explored from within the designer.
-- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents erros caused by loading designers before the required modules have been restored.
+- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents errors caused by loading designers before the required modules have been restored.
 - Associations now only require their type-reference to be specified if the name is configured to be Hidden.
 - And a whole list of bug fixes :)
 
