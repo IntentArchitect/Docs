@@ -28,10 +28,10 @@ The main new features are as follows:
 - Enhanced Diagram Capabilities
 - Error Management Enhancements
 
-![Sample Service Designer diagram](images/services-diagrams.png).
+![Sample Service Designer diagram](images/services-diagrams.png)
 
 For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1).
-or watch the webinar covering the [4.1].
+and watch out for the webinar we did covering the 4.1 on [Youtube](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Webinars&additionalData=webinars-playlist-youtube).
 
 Available from:
 
@@ -45,6 +45,8 @@ This module brings in a new `Document Database Provider`, `Azure.TableStorage`, 
 - Table Storage repositories.
 - Table Storage unit of work.
 - Improve support for compositional key support in CRUD scripting.
+
+![Table Storage Modeling Example](images/table-storage-domain-model.png)
 
 For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Azure.TableStorage/README.md).
 
@@ -60,6 +62,14 @@ If is now possible to create templates which output Binary files as opposed to o
 
 - File Template
 - Static Content Template
+
+#### File Template Confiuration
+
+![File Template Example](images/binary-template-setup.png)
+
+#### Static Content Template Confiuration
+
+![Static Content Template Example](images/static-content-with-binary.png)
 
 For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules/blob/release/4.1.x/Modules/Intent.Modules.ModuleBuilder/README.md).
 
