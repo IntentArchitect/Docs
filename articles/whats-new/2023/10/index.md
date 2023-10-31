@@ -12,7 +12,7 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[Domain Event Refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
-  - **[CRUD Update Command consumption convenience](#crud-update-command-consumption-convenience)** - When Controller parameters match with Update Command fields, we've made consuming these endpoints easier.
+  - **[CRUD Command/Query consumption convenience](#crud-commandquery-consumption-convenience)** - When Controller parameters match with Command/Query fields, we've made consuming these endpoints easier.
   - **[CRUD Scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
 
 ## Update details
@@ -124,7 +124,7 @@ Available from:
 
 - Intent Architect 4.1.*
 
-### CRUD Update Command consumption convenience
+### CRUD Command/Query consumption convenience
 
 When API Controller parameters match with Command/Query fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command/Query objects that are already populated via a Route parameter.
 
