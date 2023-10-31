@@ -41,6 +41,9 @@ So any file content that features the following phrase `<#= Today #>` will be re
 
 ## Binary File Globbing Patterns
 
+>[!NOTE]
+>Binary File support was introduced Intent Architect v4.1,  `Intent.Common` v3.5.0 and `Intent.ModuleBuilder` v3.7.0  modules, ensure you have at least this versions installed for this to work.
+
 These patterns are used to identify binary or non text based files, so that they don't get processed as text based templates. This patterns are standard `File globbing` patterns,  for more information [see](https://learn.microsoft.com/en-us/dotnet/core/extensions/file-globbing).
 The standard exclusions are images (jpg, png, ico), excel files and pdfs. This list can be adapted to your specific requirements.
 
