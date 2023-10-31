@@ -126,9 +126,9 @@ Available from:
 
 ### CRUD Update Command consumption convenience
 
-When Controller parameters match with Update Command fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command that are already populated via a Route parameter.
+When API Controller parameters match with Command/Query fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command/Query objects that are already populated via a Route parameter.
 
-Previously you had to specify the Id for an Update Command via the Route parameter and the Command itself. Now if you have a parameter being specified elsewhere (e.g. Url Route) is found, it will prefer that as the source. Note the specifying the `Id` property in the Command will still be accepted so it needs to be the same as the Route Parameter value.
+Previously you had to specify the Id for an Update Command via the Route parameter and the Command itself. Now if you have a parameter being specified elsewhere (e.g. Url Route), it will prefer that as the source.
 
 ```csharp
 [HttpPut("api/person/{id}")]
@@ -150,6 +150,9 @@ public async Task<ActionResult> UpdatePerson(
     return NoContent();
 }
 ```
+
+> [!NOTE]
+> Note that specifying the `Id` property in the Command will still be accepted so a check is performed to see whether it is the same as the Route Parameter value.
 
 Available from:
 
