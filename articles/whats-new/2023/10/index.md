@@ -63,11 +63,11 @@ If is now possible to create templates which output Binary files as opposed to o
 - File Template
 - Static Content Template
 
-#### File Template Confiuration
+#### File Template Configuration
 
 ![File Template Example](images/binary-template-setup.png)
 
-#### Static Content Template Confiuration
+#### Static Content Template Configuration
 
 ![Static Content Template Example](images/static-content-with-binary.png)
 
