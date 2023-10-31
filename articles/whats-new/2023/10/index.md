@@ -10,10 +10,12 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
 
 - More updates
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
+  - **[OpenAPI specifications now have non-nullable fields marked as required](#openapi-specifications-now-have-non-nullable-fields-marked-as-required)** - In the Swagger UI, non-nullable fields on contracts will now show as required.
   - **[Domain Event Refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
   - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Command/Query consumption convenience](#crud-commandquery-consumption-convenience)** - When Controller parameters match with Command/Query fields, we've made consuming these endpoints easier.
   - **[CRUD Scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
+  - **[Combine query/command files and their respective handlers and validators](#optionally-have-querycommand-files-along-with-their-respective-handlers-and-validators-all-combined-into-a-single-file)** - Optionally have query/command files along with their respective handlers and validators all combined into a single file.
 
 ## Update details
 
@@ -105,6 +107,14 @@ Available from:
 - Intent.AspNetCore.Controllers 5.4.2
 - Intent.AzureFunctions.OpenApi 1.0.3
 
+### OpenAPI specifications now have non-nullable fields marked as required
+
+Swashbuckle has now been configured to automatically mark fields for non-nullable properties as required in the the generated `swagger.json` file.
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 4.0.9
+
 ### Domain Event Refinements
 
 Previously domain eventing infrastructure was added to all Aggregate roots with-in your domain model, we have now added a new application setting "Domain Settings -> Implement Domain Eventing on", which has the following option:
@@ -171,3 +181,11 @@ Looking at the above model, performing `Map to Domain Data` on the `CreateInvoic
 Available from:
 
 - Intent.Application.MediatR.CRUD 5.3.1
+
+### Optionally have query/command files along with their respective handlers and validators all combined into a single file
+
+Introduced new "Consolidate Command/Query associated files into single file" setting. When enabled, commands/queries are no longer generated into sub-folders and their respective handlers and validators (as applicable) are now embedded within them as opposed to being generated separately. See the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Application.MediatR/README.md#cqrs-settings) for more details.
+
+Available from:
+
+- Intent.Application.MediatR 4.1.4
