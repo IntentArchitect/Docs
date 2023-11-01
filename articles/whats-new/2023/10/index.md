@@ -33,7 +33,7 @@ The main new features are as follows:
 ![Sample Service Designer diagram](images/services-diagrams.png)
 
 For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1).
-and watch out for the webinar we did covering the 4.1 on [Youtube](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Webinars&additionalData=webinars-playlist-youtube).
+and watch out for our email with the link to the webinar covering the 4.1 changes.
 
 Available from:
 
