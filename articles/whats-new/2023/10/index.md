@@ -12,9 +12,8 @@ Welcome to the October 2023 edition of highlights of What's New with Intent Arch
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[OpenAPI specifications now have non-nullable fields marked as required](#openapi-specifications-now-have-non-nullable-fields-marked-as-required)** - In the Swagger UI, non-nullable fields on contracts will now show as required.
   - **[Domain Event refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
-  - **[Apple Silicon support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Command/Query consumption convenience](#crud-commandquery-consumption-convenience)** - When Controller parameters match with Command/Query fields, we've made consuming these endpoints easier.
-  - **[CRUD scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
+  - **[CRUD scripting improvements around "required"/"non-nullable" aggregational association foreign keys](#crud-scripting-improvements-around-requirednon-nullable-aggregational-association-foreign-keys)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
   - **[Combine query/command files and their respective handlers and validators](#optionally-have-querycommand-files-along-with-their-respective-handlers-and-validators-all-combined-into-a-single-file)** - Optionally have query/command files along with their respective handlers and validators all combined into a single file.
 
 ## Update details
@@ -30,9 +29,9 @@ The main new features are as follows:
 - Enhanced Diagram Capabilities
 - Error Management Enhancements
 
-![Sample Service Designer diagram](images/services-diagrams.png)
+![Sample Service Designer diagram](images/new-diagram-capabilities.png)
 
-For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1) and watch out for our email with the link to the webinar covering the 4.1 changes.
+For more detail, refer to the [product release notes](xref:release-notes.intent-architect-v4.1) and watch our [webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4.1) covering the 4.1 changes.
 
 Available from:
 
@@ -59,7 +58,6 @@ Available from:
 
 - Intent Architect 4.1.*
 - Intent.ModuleBuilder 3.7.0-beta.1
-- Intent.Common 3.5.0-beta.0
 
 ### Azure Table Storage support
 
@@ -78,7 +76,6 @@ Available from:
 
 - Intent Architect 4.1.*
 - Intent.Azure.TableStorage 1.0.0-beta.*
-- Intent.Application.MediatR.CRUD 6.0.0-beta.0
 
 ### Support for NuGet Central Package Management (CPM)
 
@@ -125,14 +122,6 @@ Available from:
 
 - Intent.DomainEvents 4.1.2
 
-### Apple Silicon support
-
-macOS releases are now published as "universal" packages which will run code natively for both Intel and Apple Silicon based Macs.
-
-Available from:
-
-- Intent Architect 4.1.*
-
 ### CRUD Command/Query consumption convenience
 
 When API Controller parameters match with Command/Query fields, we've made consuming these endpoints easier. Now, you don't need to populate the fields on the Command/Query objects that are already populated via a Route parameter.
@@ -169,7 +158,7 @@ Available from:
 - Intent.Application.MediatR 4.1.4
 - Intent.AspNetCore.Controllers.Dispatch.MediatR 5.4.0
 
-### CRUD Scripting improvements
+### CRUD scripting improvements around "required"/"non-nullable" aggregational association foreign keys
 
 In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys in the RDBMS paradigm.
 
