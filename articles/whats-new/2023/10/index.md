@@ -3,18 +3,18 @@
 Welcome to the October 2023 edition of highlights of What's New with Intent Architect.
 
 - Highlights
-  - **[Intent Architect 4.1 (Beta)](#binary-output-template-support)** - Intent Architect 4.1 is now available as a Beta version, with many new product features.
-  - **[Binary output template support](#binary-output-template-support)** - Intent Architect now supports creating templates which produce binary files, as opposed to text based files.
-  - **[Azure Table Storage Support](#azure-table-storage-support)** - Azure Table Storage is now available as a persistance option for Domain Modeling.
+  - **[Intent Architect 4.1 (Beta)](#intent-architect-41-beta)** - Intent Architect 4.1 is now available as a Beta version, with many new product features.
+  - **[Binary Output Template support](#binary-output-template-support)** - Intent Architect now supports creating templates which produce binary files, as opposed to text based files.
+  - **[Azure Table Storage support](#azure-table-storage-support)** - Azure Table Storage is now available as a persistence option for Domain Modeling.
   - **[Support for NuGet Central Package Management (CPM)](#support-for-nuget-central-package-management-cpm)** - Centralize `.csproj` NuGet package versions using a `Directory.Packages.props` file.
 
 - More updates
   - **[Specify OpenAPI `operationId` values for endpoints](#specify-openapi-operationid-values-for-endpoints)** - Control the OpenAPI `operationId` which is generated into service definitions.
   - **[OpenAPI specifications now have non-nullable fields marked as required](#openapi-specifications-now-have-non-nullable-fields-marked-as-required)** - In the Swagger UI, non-nullable fields on contracts will now show as required.
-  - **[Domain Event Refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
-  - **[Apple Silicon Support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
+  - **[Domain Event refinements](#domain-event-refinements)** - Domain eventing implementation can be aligned with domain event modeling.
+  - **[Apple Silicon support](#apple-silicon-support)** - Intent Architect now runs code natively for Apple Silicon based Macs.
   - **[CRUD Command/Query consumption convenience](#crud-commandquery-consumption-convenience)** - When Controller parameters match with Command/Query fields, we've made consuming these endpoints easier.
-  - **[CRUD Scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
+  - **[CRUD scripting improvements](#crud-scripting-improvements)** - In the Services Designer, `Map to Domain Data` now automatically adds aggregational association foreign keys for RDBMS domain packages.
   - **[Combine query/command files and their respective handlers and validators](#optionally-have-querycommand-files-along-with-their-respective-handlers-and-validators-all-combined-into-a-single-file)** - Optionally have query/command files along with their respective handlers and validators all combined into a single file.
 
 ## Update details
@@ -39,26 +39,7 @@ Available from:
 
 - Intent Architect 4.1.*
 
-### Azure Table Storage Support
-
-This module brings in a new `Document Database Provider`, `Azure.TableStorage`, allowing you realize your DocumentDB paradigm Domain Models with an Azure Table Storage persistance layer. This module includes
-
-- Modeler customizations.
-- Table Storage repositories.
-- Table Storage unit of work.
-- Improve support for compositional key support in CRUD scripting.
-
-![Table Storage Modeling Example](images/table-storage-domain-model.png)
-
-For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Azure.TableStorage/README.md).
-
-Available from:
-
-- Intent Architect 4.1.*
-- Intent.Azure.TableStorage 1.0.0-beta.*
-- Intent.Application.MediatR.CRUD 6.0.0-beta.0
-
-### Binary output template support
+### Binary Output Template support
 
 If is now possible to create templates which output Binary files as opposed to only supporting text-based files. From within the Module Builder the following Templates support binary output options:
 
@@ -80,6 +61,25 @@ Available from:
 - Intent Architect 4.1.*
 - Intent.ModuleBuilder 3.7.0-beta.1
 - Intent.Common 3.5.0-beta.0
+
+### Azure Table Storage support
+
+This module brings in a new `Document Database Provider`, `Azure.TableStorage`, allowing you realize your DocumentDB paradigm Domain Models with an Azure Table Storage persistence layer. This module includes
+
+- Modeler customizations.
+- Table Storage repositories.
+- Table Storage unit of work.
+- Improve support for compositional key support in CRUD scripting.
+
+![Table Storage Modeling Example](images/table-storage-domain-model.png)
+
+For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Azure.TableStorage/README.md).
+
+Available from:
+
+- Intent Architect 4.1.*
+- Intent.Azure.TableStorage 1.0.0-beta.*
+- Intent.Application.MediatR.CRUD 6.0.0-beta.0
 
 ### Support for NuGet Central Package Management (CPM)
 
@@ -115,7 +115,7 @@ Available from:
 
 - Intent.AspNetCore.Swashbuckle 4.0.9
 
-### Domain Event Refinements
+### Domain Event refinements
 
 Previously domain eventing infrastructure was added to all Aggregate roots with-in your domain model, we have now added a new application setting "Domain Settings -> Implement Domain Eventing on", which has the following option:
 
@@ -126,7 +126,7 @@ Available from:
 
 - Intent.DomainEvents 4.1.2
 
-### Apple Silicon Support
+### Apple Silicon support
 
 macOS releases are now published as "universal" packages which will run code natively for both Intel and Apple Silicon based Macs.
 
