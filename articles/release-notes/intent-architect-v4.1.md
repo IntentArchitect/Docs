@@ -46,6 +46,8 @@ As part of V4.1, the Intent Architect team has rearchtiected the way that errors
 
 ![Advanced Mapping System Example](images/4.1.0/element-exception-example.png)
 
+In addition, clicking on error symbols within the designer tree-views (or pressing the `return` shortcut key) will also jump to location where the error could be fixed, if an obvious location exists.
+
 #### Apple Silicon support
 
 macOS releases are now published as "universal" packages which will run code natively for both Intel and Apple Silicon based Macs.
@@ -55,6 +57,9 @@ macOS releases are now published as "universal" packages which will run code nat
 - Internals of reference packages can now be explored from within the designer.
 - Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents errors caused by loading designers before the required modules have been restored.
 - Associations now only require their type-reference to be specified if the name is configured to be Hidden.
+- Designer add a context menu to Properties for each element to access the underlying file or copy the element's Id (>= `4.1.0-beta.4`).
+- Tree-view selection highlighting indicates focus (>= `4.1.0-beta.5`).
+- Noticeable performance enhancements to designer loading and mapping dialog loading (>= `4.1.0-beta.7`). 
 - And a whole list of bug fixes :)
 
 
