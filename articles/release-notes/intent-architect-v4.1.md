@@ -8,8 +8,11 @@ Intent Architect V4.1 is promising to be a pivotal release for the platform, wit
 
 ### Watch the webinar
 
-> [!NOTE]
-> The webinar recording will be posted here soon in case you missed it.
+[![Incompatible module warning](images/4.1.0/intent-architect-v4-1-webinar-cover-page.png)](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4.1)
+
+To watch the webinar, `middle-click` on the image above or use the following link: [What's new in V4.1](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4.1)
+
+Please share your feedback on this version (and the webinar) by filling in this 1 min survey: [Share your feedback](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Webinar-Feedback-Survey)
 
 ### Backward Compatibility
 
@@ -42,7 +45,7 @@ In our continous effort to support explicit "living" blueprints of our community
 - Drag & drop functionality includes all child elements when holding down `ctrl`. This can be very useful to quickly visualize associated elements, and all types in folders or packages.
 
 #### Error Management Enhancements
-As part of V4.1, the Intent Architect team has rearchtiected the way that errors work within the designers. This brings better robustness, predictability as well as performance improvements. As part of this initiative, `Intent.Exceptions.ElementException` errors produced by modules during the Software Factory Execution are able to provide a link to the metadata element that backs the failing logic. Users can click this link which will navigate them to the element in it's owning designer.
+As part of V4.1, the Intent Architect team has rearchitected the way that errors work within the designers. This brings better robustness, predictability as well as performance improvements. As part of this initiative, `Intent.Exceptions.ElementException` errors produced by modules during the Software Factory Execution are able to provide a link to the metadata element that backs the failing logic. Users can click this link which will navigate them to the element in it's owning designer.
 
 ![Advanced Mapping System Example](images/4.1.0/element-exception-example.png)
 
@@ -55,11 +58,11 @@ macOS releases are now published as "universal" packages which will run code nat
 #### Other quality-of-life enhancements
 - Navigating through the 'Go to Definition' context menu options (`F12` shortcut), will open the relevant designer and select they type.
 - Internals of reference packages can now be explored from within the designer.
-- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents errors caused by loading designers before the required modules have been restored.
+- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents erros caused by loading designers before the required modules have been restored.
 - Associations now only require their type-reference to be specified if the name is configured to be Hidden.
 - Designer add a context menu to Properties for each element to access the underlying file or copy the element's Id (>= `4.1.0-beta.4`).
 - Tree-view selection highlighting indicates focus (>= `4.1.0-beta.5`).
-- Noticeable performance enhancements to designer loading and mapping dialog loading (>= `4.1.0-beta.7`). 
+- Noticeable performance enhancements to designer loading and mapping dialog loading. Improveds the UI responsiveness too. (>= `4.1.0-beta.7`). 
 - And a whole list of bug fixes :)
 
 

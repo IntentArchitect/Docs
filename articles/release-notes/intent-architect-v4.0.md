@@ -97,7 +97,7 @@ Below is a link to a webinar that covers the major enhancements that are part of
 
 To watch the webinar, `middle-click` on the image above or use the following link: [Introduction to Intent Architect V4](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4)
 
-Please share your feedback on this version (and the webinar) by filling in this 1 min survey: [Share your feedback](https://intentarchitect.com/#/redirect/?category=resources&subCategory=webinar-introduction-to-intent-architect-v4-feedback-survey)
+Please share your feedback on this version (and the webinar) by filling in this 1 min survey: [Share your feedback](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Webinar-Feedback-Survey)
 
 ### Backward Compatibility
 
