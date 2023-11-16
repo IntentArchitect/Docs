@@ -47,3 +47,6 @@ items:
 
 - name: Module Distribution
   href: module-distribution/module-distribution.md
+
+- name: Scripting
+  topicUid: module-building.scripting
