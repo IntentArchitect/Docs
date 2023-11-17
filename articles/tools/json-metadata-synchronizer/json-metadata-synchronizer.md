@@ -41,6 +41,7 @@ Tool 'intent.metadatasynchronizer.json.cli' (version 'x.x.x') was successfully i
 |`--application-name <application-name>`  |The name of the Intent Architect Application (as per the Application Settings view) containing the Intent Architect Package into which to synchronize the metadata.|
 |`--package-id <package-id>`              |The id of the Intent Architect Package containing the Intent Architect Package into which to synchronize the metadata.|
 |`--target-folder-id <target-folder-id>`  |The target folder within the Intent Architect package into which to synchronize the metadata. If unspecified then the metadata will be synchronized into the root of the Intent Architect package.|
+|`--casing-convention <AsIs|PascalCase>`  |Casing convention to be applied on imported elements. Options are PascalCase or AsIs.|
 |`--version`                              |Show version information|
 |`-?`, `-h`, `--help`                     |Show help and usage information|
 
@@ -54,6 +55,7 @@ The `--config-file` option expects the name of a file containing configuration o
   "IslnFile": null,
   "ApplicationName": null,
   "PackageId": null,
-  "TargetFolderId": null
+  "TargetFolderId": null,
+  "CasingConvention": "AsIs"
 }
 ```
