@@ -1,12 +1,14 @@
 ---
-uid: module-building.scripting
+uid: module-building.designer-scripting
 ---
 
-# Scripting
+# Designer Scripting
 
-In the coding editor, documentation for code constructs is readily available, along with powerful scripting capabilities that allow developers to automate certain front-end related concerns. To access the documentation, simply click on the small arrow beside each code construct to expand the respective documentation and learn more about the available functions for automation.
+In the coding editor, documentation for code constructs is readily available, along with powerful scripting capabilities that allow developers to automate certain front-end related concerns.
 
 ![Code Docs in Code Completion Screenshot](images/code-complete-code-docs.png)
+
+You can access the documentation by simply clicking on the small arrow beside each code construct to expand the respective documentation and learn more about the available functions for automation.
 
 ## Execute Script Dialog
 
@@ -134,9 +136,12 @@ interface IDiagramApi {
 
 ## Event Triggered Scripts for Elements
 
-Event Triggered Scripts in a module building environment enable developers to execute custom logic when specified events occur for elements. Below is an example of an event triggered script and an overview of the available APIs to interact with elements in an event-driven manner.
+Event Triggered Scripts in a module building environment enable developers to execute custom logic when specified events occur for elements.
 
 ![Event Triggered Script for Elements Screenshot](images/event-triggered-script-element.png)
+
+Inside the Module Builder designer you can add Element Event Handlers for an Element you've created or to an Element you want to extend from an existing Designer.
+
 
 ```typescript
 const stereotypeId = "65860af3-8805-4a63-9fb9-3884b80f4380";
@@ -409,6 +414,8 @@ interface IElementApi {
 Event Triggered Scripts in a module building environment enable developers to execute custom logic when specified events occur for associations. Below is an example of an event triggered script and an overview of the available APIs to interact with elements in an event-driven manner.
 
 ![Event Triggered Script for Associations Screenshot](images/event-triggered-script-association.png)
+
+Inside the Module Builder designer you can add Association Event Handlers for an Association you've created or to an Association you want to extend from an existing Designer.
 
 ```typescript
 if (!association) {
