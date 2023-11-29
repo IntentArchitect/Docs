@@ -326,7 +326,7 @@ public void Method()
 
 ##### Updating other kinds statements
 
-For other kinds of statements that you would like to update, you can use an `// [IntentMatch("…")]` comment to specify how Intent Architect should know which statement to replace:
+For other kinds of statements that you would like to update, you can use the `// [IntentFully(Match = "…")]` or `// [IntentIgnore(Match = "…")]` comments to specify how Intent Architect should know which statement to replace:
 
 ```csharp
 // Template generated content:
@@ -340,14 +340,14 @@ public void Method()
 [IntentManaged(Mode.Merge)]
 public void Method()
 {
-    // [IntentMatch("SomeOtherMethod")]
+    // [IntentIgnore(Match = "SomeOtherMethod")]
     SomeOtherMethod(argument, additionalArgument);
 }
 ```
 
 In the above example, the `SomeOtherMethod` value for the commented out attribute lets Intent know to correlate this statement in your existing file with the first statement in the template output starting with that string.
 
-Template authors can also add this line to their templates which lets Intent know how to try correlate the template expression with that in the existing file. When the `// [IntentMatch("…")]` only exists on the template, it is not included in the template output.
+Template authors can also add this line to their templates which lets Intent know how to try correlate the template expression with that in the existing file. When `// [IntentFully(Match = "…")]` only exists on the template, it is not included in the template output.
 
 ##### Nested block statements
 
