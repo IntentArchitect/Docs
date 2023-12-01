@@ -13,6 +13,8 @@ Welcome to the November 2023 edition of highlights of What's New with Intent Arc
   - **[AutoMapper version upgrade](#automapper-version-upgrade)** - Upgraded various AutoMapper dependencies to the latest version.
   - **[Synchronous method support on EF repositories ](#synchronous-method-support-on-ef-repositories)** - You can optionally add synchronous repository method overloads through an application setting.
   - **[Email Address Validation](#email-address-validation)** - "Email Address" checkbox property added to the "Validation" stereotype.
+  - **[Documentation on Designer Scripting with Javascript](#documentation-on-designer-scripting-with-javascript)** We've brought out an article that introduces and explains the designer scripting capabilities of Intent Architect.
+  - **[RabbitMQ Trigger for Azure Functions added](#rabbitmq-trigger-for-azure-functions-added)** - We have made an improvement on the Azure Functions module, which now includes the ability to select RabbitMQ Triggers for queue integration.
 
 ## Update details
 
@@ -121,3 +123,20 @@ Available from:
 - Intent.Blazor.HttpClients.Dtos.DataAnnotations 1.0.1
 - Intent.Blazor.HttpClients.Dtos.FluentValidation 1.0.1
 
+### Documentation on Designer Scripting with Javascript
+
+We've brought out an article that introduces and explains the designer scripting capabilities of Intent Architect. It provides a scripting editor for automating various operations, such as creating elements and associations, and offers TypeScript declarations for understanding the available functions.
+
+The article also explains how to use event-triggered scripts for associations and elements, enabling developers to execute custom logic when specified events occur.
+
+The new article is now available for you to read and please share with us whether you found this article helpful. [Click here to read it](https://docs.intentarchitect.com/articles/module-building/designer-scripting/designer-scripting.html).
+
+### RabbitMQ Trigger for Azure Functions added
+
+We have made an improvement on the Azure Functions module, which now includes the ability to select RabbitMQ Triggers for queue integration. This feature allows developers to create functions that are triggered by messages in a RabbitMQ queue, providing a seamless integration between Azure Functions and RabbitMQ.
+
+![Azure Functions - RabbitMQ Trigger](images/rabbitmq-trigger-az-func.png)
+
+Available from:
+
+- Intent.AzureFunctions 4.0.13-pre.4
