@@ -4,10 +4,10 @@ Welcome to the November 2023 edition of highlights of What's New with Intent Arc
 
 - Highlights
   - **[.NET 8 support](#net-8-support)** - All modules have been updated to support .NET 8.
-  - **[OData Query support](#odata-query-support)** - Leverage OData query functionality on your ASP.Net Core controllers .
+  - **[OData Query support](#odata-query-support)** - Leverage OData query functionality on your ASP.Net Core controllers.
   - **[AutoMapper Projection support on EF repositories](#automapper-projection-support-on-ef-repositories)** - Added support to for AutoMapper Projections on the EF repository pattern.
   - **[Improvements to C# statement merging](#c-code-management-statement-block-merging-improvements)** - Improvements to heuristics and instructions for controlling statement merging behaviour within method bodies.
-  - **[EF repository enhancements](#ef-repository-enhancements)** - Added several overloads to EF repositories to make LINQ features more available. 
+  - **[EF repository enhancements](#ef-repository-enhancements)** - Added several overloads to EF repositories to make LINQ features more available.
 - More updates
   - **["Indented" and "data" template file builders](#indented-and-data-file-builders-for-templates)** - More quickly author templates for files such as JSON and YAML and in a way that can be easily extended by other modules.
   - **[Documentation on Designer Scripting with Javascript](#documentation-on-designer-scripting-with-javascript)** - New article that introduces and explains the designer scripting capabilities of Intent Architect.
