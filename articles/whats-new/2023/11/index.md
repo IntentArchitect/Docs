@@ -96,7 +96,7 @@ Added several overloads to EF repositories to make generic LINQ features easier 
 
 Available from:
 
-- Intent.EntityFrameworkCore.Repositories 4.3.0
+- Intent.EntityFrameworkCore.Repositories 4.4.0
 
 ### Indented and Data File builders for templates
 
@@ -198,7 +198,7 @@ The Account Controller's refresh token endpoint has been improved in the followi
 
 Available from:
 
-- Intent.AspNetCore.Identity.AccountController 3.0.0
+- Intent.AspNetCore.Identity.AccountController 3.0.1
 
 ### Removed dependency on `git` executable for Software Factory statistics
 
@@ -246,11 +246,11 @@ An "Email Address" checkbox property has been added to the "Validation" stereoty
 
 Available from:
 
-- Intent.Application.FluentValidation 3.8.3
-- Intent.Application.FluentValidation.Dtos 3.7.1
-- Intent.Application.MediatR.FluentValidation 4.4.2
+- Intent.Application.FluentValidation 3.8.7
+- Intent.Application.FluentValidation.Dtos 3.7.3
+- Intent.Application.MediatR.FluentValidation 4.5.0
 - Intent.Blazor.HttpClients.Dtos.DataAnnotations 1.0.1
-- Intent.Blazor.HttpClients.Dtos.FluentValidation 1.0.1
+- Intent.Blazor.HttpClients.Dtos.FluentValidation 1.0.3
 
 ### Synchronous method support on EF repositories
 
@@ -258,7 +258,7 @@ Added support for Synchronous versions of EF repository methods. This option is 
 
 Available from:
 
-- Intent.EntityFrameworkCore.Repositories 4.3.0
+- Intent.EntityFrameworkCore.Repositories 4.4.0
 
 ### Prevent Basic Auditing's "created" column values from being updated later
 
@@ -274,7 +274,7 @@ It is now possible to enable generation of an `IApplicationDbContext` interface 
 
 Available from:
 
-- Intent.EntityFrameworkCore 4.4.15
+- Intent.EntityFrameworkCore 4.5.0
 
 ### Enable Entity Framework split queries
 
@@ -282,7 +282,7 @@ It is now possible to [enable split queries globally](https://learn.microsoft.co
 
 Available from:
 
-- Intent.EntityFrameworkCore 4.4.15
+- Intent.EntityFrameworkCore 4.5.0
 
 ### AutoMapper version upgrade
 
