@@ -220,7 +220,7 @@ We have made an improvement on the Azure Functions module, which now includes th
 
 Available from:
 
-- Intent.AzureFunctions 4.0.13-pre.4
+- Intent.AzureFunctions 4.0.13
 
 ### EF Bulk Operations module
 
