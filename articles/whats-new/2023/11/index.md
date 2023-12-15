@@ -28,28 +28,13 @@ Welcome to the 2023 Christmas edition of highlights of What's New with Intent Ar
 
 ### .NET 8 support
 
-Final support for Intent Architect's modules for .NET 8 has been added, this includes auto upgrading of NuGet packages to their .NET 8 versions.
+All applicable modules have been updated to support .NET 8, in particular:
 
-> [!NOTE]
-> Intent Architect will need to be upgraded to the 4.1.0 beta or greater before the following modules will be visible.
+- The Visual Studio Designer now allows selecting .NET 8 as the SDK version.
+- Many and all applicable modules have been updated so that when .NET 8 is used in the Visual Studio designer, generated `.csproj` files will reference .NET 8 versions of Microsoft NuGet packages.
 
 Available from:
 
-- Intent.Application.DependencyInjection 4.0.7
-- Intent.Application.MediatR.Behaviours 4.2.7
-- Intent.Modules.AspNetCore.Docker 3.3.9
-- Intent.AspNetCore.HealthChecks 2.0.0
-- Intent.AspNetCore.Identity.AccountController 3.0.1
-- Intent.AspNetCore.Identity 4.0.8
-- Intent.Modules.AspNetCore.MultiTenancy 5.1.0
-- Intent.AspNetCore.Versioning 1.0.4
-- Intent.EntityFrameworkCore.DesignTimeDbContextFactory 4.0.7
-- Intent.EntityFrameworkCore 4.4.16
-- Intent.Eventing.GoogleCloud.PubSub 1.0.6
-- Intent.IdentityServer4.Identity.EFCore 4.0.6
-- Intent.Infrastructure.DependencyInjection 4.0.8
-- Intent.Security.JWT 4.1.7
-- Intent.Security.MSAL 4.1.7
 - Intent.VisualStudio.Projects 3.5.0
 
 ### OData Query support
