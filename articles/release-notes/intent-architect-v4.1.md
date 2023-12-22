@@ -2,6 +2,17 @@
 uid: release-notes.intent-architect-v4.1
 ---
 
+## Version 4.1.1
+
+### Improvements in 4.1.1
+
+- Improved designer performance through the caching paradigm of "JavaScript function" based configurations.
+
+### Issues fixed in 4.1.1
+
+- Fixed: Advanced mappings failing to be added in certain circumstances.
+- Fixed: Changes to the type-references of elements involved in advanced mappings causes incorrectly validation errors.
+
 ## Version 4.1.0
 
 Intent Architect V4.1 is promising to be a pivotal release for the platform, with a set of incredibly versatile and powerful new features and capabilities. The Intent Architect team is very  proud to finally make this release available to our community after the many months of effort. We are looking forward to getting your feedback.
