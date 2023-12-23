@@ -2,6 +2,8 @@
 uid: release-notes.intent-architect-v4.1
 ---
 
+# Release notes: Intent Architect version 4.1
+
 ## Version 4.1.1
 
 ### Improvements in 4.1.1
@@ -29,7 +31,7 @@ Please share your feedback on this version (and the webinar) by filling in this 
 
 This release of Intent Architect is fully backward compatible with V4.0.x. It does simultaneously come with functionality that is not available in V4.0.x that, if used, would require other team members working on that application to upgrade to V4.1.x or higher.
 
-The installation of this version will replace V4.0.x. If you need to downgrade back to V4.0.x, simply redownload the installer from our website [downloads page](https://intentarchitect.com/#/downloads) and install.
+The installation of this version will replace V4.0.x. If you need to downgrade back to V4.0.x, simply re-download the installer from our website [downloads page](https://intentarchitect.com/#/downloads) and install.
 
 ### Highlights in 4.1.0
 
@@ -42,13 +44,13 @@ Above: Example mapping between a Command and an Entity constructor.
 
 #### Enhanced Diagram Capabilities
 
-In our continous effort to support explicit "living" blueprints of our community's software systems, several new features have been added to the diagram capabilities in V4.1. In conjunction with the new Advanced Mapping System, these features allow developers to accurately visualize the flow of data through their system in a way that was previously not possible. These new features and improvements are listed below.
+In our continuous effort to support explicit "living" blueprints of our community's software systems, several new features have been added to the diagram capabilities in V4.1. In conjunction with the new Advanced Mapping System, these features allow developers to accurately visualize the flow of data through their system in a way that was previously not possible. These new features and improvements are listed below.
 
 ![Advanced Mapping System Example](images/4.1.0/new-diagram-capabilities.png)
 
 - New diagram toolbar, which includes:
-    - Buttons for creating new roots element types on the diagram.
-    - A dropdown to quickly switch between diagrams within the designer.
+  - Buttons for creating new roots element types on the diagram.
+  - A dropdown to quickly switch between diagrams within the designer.
 - Diagrams can now visualize elements from referenced packages.
 - Curved Association lines, which help make connecting elements together simpler, more efficient, and neat.
 - Anchor points on visual elements which associations "snap to". This improvement is limited to curved association lines at the moment.
@@ -56,7 +58,8 @@ In our continous effort to support explicit "living" blueprints of our community
 - Drag & drop functionality includes all child elements when holding down `ctrl`. This can be very useful to quickly visualize associated elements, and all types in folders or packages.
 
 #### Error Management Enhancements
-As part of V4.1, the Intent Architect team has rearchitected the way that errors work within the designers. This brings better robustness, predictability as well as performance improvements. As part of this initiative, `Intent.Exceptions.ElementException` errors produced by modules during the Software Factory Execution are able to provide a link to the metadata element that backs the failing logic. Users can click this link which will navigate them to the element in it's owning designer.
+
+As part of V4.1, the Intent Architect team has re-architected the way that errors work within the designers. This brings better robustness, predictability as well as performance improvements. As part of this initiative, `Intent.Exceptions.ElementException` errors produced by modules during the Software Factory Execution are able to provide a link to the metadata element that backs the failing logic. Users can click this link which will navigate them to the element in it's owning designer.
 
 ![Advanced Mapping System Example](images/4.1.0/element-exception-example.png)
 
@@ -66,14 +69,21 @@ In addition, clicking on error symbols within the designer tree-views (or pressi
 
 macOS releases are now published as "universal" packages which will run code natively for both Intel and Apple Silicon based Macs.
 
+### Removed dependency on `git` executable for Software Factory statistics
+
+During Software Factory execution, statistics of how many lines are managed and have been added or removed by the Software Factory are calculated and are visible on the "Changes" view.
+
+Previously this was achieved using the Git executable, however, if Git was not available in a computer's path during Software Factory execution this would cause warnings and prevent statistics from being calculated. Furthermore, as calculating diffs for many files considerably increased the Software Factory execution time, it would be skipped if there were more than 50 files requiring changes.
+
+In the latest version of Intent Architect, an in process diff algorithm is now used which removes the need for Git to be available and it also makes the diff calculations practically instant allowing statistics to always be calculated regardless of the number of changes.
+
 #### Other quality-of-life enhancements
+
 - Navigating through the 'Go to Definition' context menu options (`F12` shortcut), will open the relevant designer and select they type.
 - Internals of reference packages can now be explored from within the designer.
-- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents erros caused by loading designers before the required modules have been restored.
+- Diagrams will delay loading while a module restoration is in progress. Afterward, it will automatically load. This enhancement prevents errors caused by loading designers before the required modules have been restored.
 - Associations now only require their type-reference to be specified if the name is configured to be Hidden.
 - Designer add a context menu to Properties for each element to access the underlying file or copy the element's Id (>= `4.1.0-beta.4`).
 - Tree-view selection highlighting indicates focus (>= `4.1.0-beta.5`).
-- Noticeable performance enhancements to designer loading and mapping dialog loading. Improveds the UI responsiveness too. (>= `4.1.0-beta.7`). 
+- Noticeable performance enhancements to designer loading and mapping dialog loading. Improved the UI responsiveness too. (>= `4.1.0-beta.7`).
 - And a whole list of bug fixes :)
-
-
