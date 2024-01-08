@@ -4,6 +4,23 @@ uid: release-notes.intent-architect-v4.1
 
 # Release notes: Intent Architect version 4.1
 
+## Version 4.1.2
+
+### Improvements in 4.1.2
+
+- Advanced Mapping support for Drag and Drop onto background to trigger auto-mapping of selected elements.
+- Basic Mapping now loads options from its package and package references.
+- Loading performance of both Advanced and Basic Mapping dialogs noticeably improved.
+- Implemented Package Reference caching to improve Designer loading time performance.
+- Improved responsiveness of element renaming.
+
+### Issues fixed in 4.1.2
+
+- Fixed: Services designer hangs after saving in the Domain Designer.
+- Fixed: `Auto-sync Type` on mapped elements (Basic Mapping) prevents user from changing the type reference in any way.
+- Fixed: Error refreshing not working in certain scenarios.
+- Fixed: Tree View forgetting which elements were expened after reloading from an underlying metadata change.
+
 ## Version 4.1.1
 
 ### Improvements in 4.1.1
