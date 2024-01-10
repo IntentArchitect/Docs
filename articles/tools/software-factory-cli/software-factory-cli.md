@@ -87,8 +87,9 @@ intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [opti
 
 ### ensure-no-outstanding-changes options
 
-|Option|Description|
-|------|-----------|
+|Option                                                |Description|
+|------------------------------------------------------|-----------|
+|`--check-deviations`                                  |Whether to also check for unapproved deviations.|
 |`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
 |`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
 |`-?, -h, --help`                                      |Show help and usage information|
