@@ -4,6 +4,19 @@ uid: release-notes.intent-architect-v4.1
 
 # Release notes: Intent Architect version 4.1
 
+## Version 4.1.3
+
+### Improvements in 4.1.3
+
+- Designer jumps to loaded package after loading a package reference into the designer.
+
+### Issues fixed in 4.1.3
+
+- Fixed: Software Factory Executions failing when unable to access a Stereotype Property when the Stereotype Definition isn't available in a Package Reference. This is fixed in conjuction with the `Intent.Common 3.5.1` module, which requires this version of Intent Architect.
+- Fixed: errors lingering on elements without being refreshed in certain circumstances.
+- Fixed: Element annotation text is cut off at the bottom.
+- Fixed: Packages not loading when its application identifier can't be found. Now will warn if that is the case, and allow the package to load.
+
 ## Version 4.1.2
 
 ### Improvements in 4.1.2
