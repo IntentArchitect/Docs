@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.1
 
 # Release notes: Intent Architect version 4.1
 
+## Version 4.1.4
+
+### Issues fixed in 4.1.4
+
+- Fixed: Service proxies fail to map to services when creating a Service Proxies Package from scratch
+
 ## Version 4.1.3
 
 ### Improvements in 4.1.3
