@@ -4,6 +4,19 @@ uid: release-notes.intent-architect-v4.1
 
 # Release notes: Intent Architect version 4.1
 
+## Version 4.1.5
+
+### Improvements in 4.1.5
+
+- Renaming of applications allows user to synchronize underlying files and references throughout the solution.
+
+### Issues fixed in 4.1.5
+
+- Fixed: Clicking save in a designer not working in certain rare circumstances.
+- Fixed: Renaming of packages leading to errors where that package was referenced by other packages.
+- Fixed: Application home screen and tabs hanging on loading.
+
+
 ## Version 4.1.4
 
 ### Issues fixed in 4.1.4
