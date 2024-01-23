@@ -15,7 +15,9 @@ uid: release-notes.intent-architect-v4.1
 - Fixed: Clicking save in a designer not working in certain rare circumstances.
 - Fixed: Renaming of packages leading to errors where that package was referenced by other packages.
 - Fixed: Application home screen and tabs hanging on loading.
-
+- Fixed: Task Console not loading in time for Module restoration events.
+- Fixed: Basic Mappings loading incorrectly when mapping to an element in a package that hasn't been saved in 4.1.x and doesn't have an application Id specified.
+- Fixed: Associations in Services diagrams being incorrectly selected on creation.
 
 ## Version 4.1.4
 
