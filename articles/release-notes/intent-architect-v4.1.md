@@ -33,7 +33,7 @@ uid: release-notes.intent-architect-v4.1
 
 ### Issues fixed in 4.1.3
 
-- Fixed: Software Factory Executions failing when unable to access a Stereotype Property when the Stereotype Definition isn't available in a Package Reference. This is fixed in conjuction with the `Intent.Common 3.5.1` module, which requires this version of Intent Architect.
+- Fixed: Software Factory Executions failing when unable to access a Stereotype Property when the Stereotype Definition isn't available in a Package Reference. This is fixed in conjunction with the `Intent.Common 3.5.1` module, which requires this version of Intent Architect.
 - Fixed: errors lingering on elements without being refreshed in certain circumstances.
 - Fixed: Element annotation text is cut off at the bottom.
 - Fixed: Packages not loading when its application identifier can't be found. Now will warn if that is the case, and allow the package to load.
@@ -53,7 +53,7 @@ uid: release-notes.intent-architect-v4.1
 - Fixed: Services designer hangs after saving in the Domain Designer.
 - Fixed: `Auto-sync Type` on mapped elements (Basic Mapping) prevents user from changing the type reference in any way.
 - Fixed: Error refreshing not working in certain scenarios.
-- Fixed: Tree View forgetting which elements were expened after reloading from an underlying metadata change.
+- Fixed: Tree View forgetting which elements were expanded after reloading from an underlying metadata change.
 
 ## Version 4.1.1
 
