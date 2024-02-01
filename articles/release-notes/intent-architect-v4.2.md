@@ -48,7 +48,9 @@ When looking at a diff a staged file change, it is now possible to edit and save
 
 - [C# code management instruction deviation tracking](#c-code-management-instruction-deviation-tracking)
 - Intent Architect will now give the option to save any unsaved Designer changes when trying to close it or return to the home screen from a Solution.
+- Intent Architect upgraded to internally run using .NET 8. This allows the Software Factory to now support modules which are compiled to target any framework supported by .NET 8.
+- The module installation and upgrade system will now only check the dependency graph for modules or dependencies of modules being installed, whereas before it would also check the dependency graph of all already installed modules.
 
-### Issues fixed in 4.1.1
+### Issues fixed in 4.2.0
 
 - Tab order would be reversed when re-opening a solution which had open tabs when it was closed.
