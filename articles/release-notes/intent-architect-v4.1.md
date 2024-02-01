@@ -4,6 +4,57 @@ uid: release-notes.intent-architect-v4.1
 
 # Release notes: Intent Architect version 4.1
 
+## Version 4.1.5
+
+### Improvements in 4.1.5
+
+- Renaming of applications allows user to synchronize underlying files and references throughout the solution.
+
+### Issues fixed in 4.1.5
+
+- Fixed: Clicking save in a designer not working in certain rare circumstances.
+- Fixed: Renaming of packages leading to errors where that package was referenced by other packages.
+- Fixed: Application home screen and tabs hanging on loading.
+- Fixed: Task Console not loading in time for Module restoration events.
+- Fixed: Basic Mappings loading incorrectly when mapping to an element in a package that hasn't been saved in 4.1.x and doesn't have an application Id specified.
+- Fixed: Associations in Services diagrams being incorrectly selected on creation.
+
+## Version 4.1.4
+
+### Issues fixed in 4.1.4
+
+- Fixed: Service proxies fail to map to services when creating a Service Proxies Package from scratch
+
+## Version 4.1.3
+
+### Improvements in 4.1.3
+
+- Designer jumps to loaded package after loading a package reference into the designer.
+
+### Issues fixed in 4.1.3
+
+- Fixed: Software Factory Executions failing when unable to access a Stereotype Property when the Stereotype Definition isn't available in a Package Reference. This is fixed in conjunction with the `Intent.Common 3.5.1` module, which requires this version of Intent Architect.
+- Fixed: errors lingering on elements without being refreshed in certain circumstances.
+- Fixed: Element annotation text is cut off at the bottom.
+- Fixed: Packages not loading when its application identifier can't be found. Now will warn if that is the case, and allow the package to load.
+
+## Version 4.1.2
+
+### Improvements in 4.1.2
+
+- Advanced Mapping support for Drag and Drop onto background to trigger auto-mapping of selected elements.
+- Basic Mapping now loads options from its package and package references.
+- Loading performance of both Advanced and Basic Mapping dialogs noticeably improved.
+- Implemented Package Reference caching to improve Designer loading time performance.
+- Improved responsiveness of element renaming.
+
+### Issues fixed in 4.1.2
+
+- Fixed: Services designer hangs after saving in the Domain Designer.
+- Fixed: `Auto-sync Type` on mapped elements (Basic Mapping) prevents user from changing the type reference in any way.
+- Fixed: Error refreshing not working in certain scenarios.
+- Fixed: Tree View forgetting which elements were expanded after reloading from an underlying metadata change.
+
 ## Version 4.1.1
 
 ### Improvements in 4.1.1
