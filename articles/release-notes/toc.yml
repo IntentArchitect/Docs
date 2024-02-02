@@ -1,21 +1,19 @@
 items:
+- name: 'Version 4.2'
+  href: intent-architect-v4.1.md
 - name: 'Version 4.1'
   href: intent-architect-v4.1.md
-
 - name: 'Version 4.0'
   href: intent-architect-v4.0.md
-
-- name: 'Version 3.4'
-  href: intent-architect-v3.4.md
-
-- name: 'Version 3.3'
-  href: intent-architect-v3.3.md
-
-- name: 'Version 3.2'
-  href: intent-architect-v3.2.md
-
-- name: 'Version 3.1'
-  href: intent-architect-v3.1.md
-
-- name: 'Version 3.0'
-  href: intent-architect-v3.0.md
+- name: 'Version 3.x'
+  items:
+  - name: 'Version 3.4'
+    href: intent-architect-v3.4.md
+  - name: 'Version 3.3'
+    href: intent-architect-v3.3.md
+  - name: 'Version 3.2'
+    href: intent-architect-v3.2.md
+  - name: 'Version 3.1'
+    href: intent-architect-v3.1.md
+  - name: 'Version 3.0'
+    href: intent-architect-v3.0.md
