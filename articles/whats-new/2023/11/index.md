@@ -15,7 +15,7 @@ Welcome to the 2023 Christmas edition of highlights of What's New with Intent Ar
   - **[Account Controller improvements](#account-controller-improvements)** - Multiple improvements to the the refresh token endpoint.
   - **[RabbitMQ Trigger for Azure Functions added](#rabbitmq-trigger-for-azure-functions-added)** - RabbitMQ Triggers for queue integration now available on the Azure Functions module.
   - **[EF Bulk Operations module](#ef-bulk-operations-module)** - Extends EF repositories to support Bulk Operations.
-  - **[Documentation on Designer Scripting with Javascript](#documentation-on-designer-scripting-with-javascript)** - New article that provides and introduction to and explains the designer scripting capabilities of Intent Architect.
+  - **[Documentation on Designer Scripting with JavaScript](#documentation-on-designer-scripting-with-javascript)** - New article that provides and introduction to and explains the designer scripting capabilities of Intent Architect.
   - **[Synchronous method support on EF repositories](#synchronous-method-support-on-ef-repositories)** - Optionally add synchronous repository method overloads through an application setting.
   - **[Email Address Validation](#email-address-validation)** - "Email Address" checkbox property added to the "Validation" stereotype.
   - **[Prevent updates to Basic Auditing "created" values](#prevent-basic-auditings-created-column-values-from-being-updated-later)** - Possible updates to `CreatedBy` and `CreatedDate` values are now blocked.

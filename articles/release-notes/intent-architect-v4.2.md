@@ -50,6 +50,7 @@ When looking at a diff a staged file change, it is now possible to edit and save
 - Intent Architect will now give the option to save any unsaved Designer changes when trying to close it or return to the home screen from a Solution.
 - Intent Architect upgraded to internally run using .NET 8. This allows the Software Factory to now support modules which are compiled to target any framework supported by .NET 8.
 - The module installation and upgrade system will now only check the dependency graph for modules or dependencies of modules being installed, whereas before it would also check the dependency graph of all already installed modules.
+- On create Application screens you can now click anywhere on a component "tile" to check/uncheck it whereas before you would have have to click on the checkbox itself.
 
 ### Issues fixed in 4.2.0
 
