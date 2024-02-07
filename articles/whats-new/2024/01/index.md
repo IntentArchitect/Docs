@@ -5,7 +5,7 @@ Welcome to the January 2024 edition of highlights of What's New with Intent Arch
 We hope you also had a great break at the end of the year at which time at Intent Architect we also generally wind down a bit meaning we don't have as much to show as usual, but we nevertheless managed to get some great things done.
 
 - Highlights
-  - **[Intent 4.2 alpha now available](xref:release-notes.intent-architect-v4.2)** - Of particular note, version 4.2 introduces tracking of code management instruction deviations allowing you to see in the Software Factory execution window all files which have deviations like `Mode.Ignore` added to them.
+  - **[Intent 4.2 beta now available](xref:release-notes.intent-architect-v4.2)** - Of particular note, version 4.2 introduces tracking of code management instruction deviations allowing you to see in the Software Factory execution window all files which have deviations like `Mode.Ignore` added to them.
 - More updates
   - **[Support for Visual Studio JavaScript/TypeScript (`.esproj`) projects](#support-for-visual-studio-javascripttypescript-esproj-projects-and-other-visual-studio-designer-updates)** - Create [JavaScript/TypeScript (`.esproj`)](https://learn.microsoft.com/visualstudio/javascript/javascript-in-visual-studio#project-templates) projects and other quality of life improvements.
   - **[Significant improvements to Software Factory speed](#significant-improvements-to-software-factory-speed)** - We've made improvements to Modules and Intent itself to make the Software Factory run faster. 
