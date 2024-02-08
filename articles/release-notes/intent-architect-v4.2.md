@@ -53,21 +53,23 @@ As part of our strategy to continuously enhance the designers into highly effici
 ![Example Syntax Highlighting](images/4.2/intent-architect-syntax-highlighting.png)
 Above: Example syntax highlighting in dark mode.
 
-For those who are interested in the configurability of the syntax highlighting as part of Module Building, the `Display Text Function` of Element Settings now also allows the return of an object array with the display parts and their configuration. It's also worth noting that there is a default mode which will highlight type-reference in cases where the `Display Text Function` has not been set.
+For those who are interested in the configurability of the syntax highlighting as part of Module Building, the [Display Text Function](xref:module-building.designers.designer-modelling) of Element Settings now also allows the return of an object array with the display parts and their configuration. It's also worth noting that there is a default mode which will highlight type-reference in cases where the [Display Text Function](xref:module-building.designers.designer-modelling) has not been set.
 
 ```javascript
-const result = [{ text: `${ name }${ genericTypes }`, cssClass: "muted" } ];
-result.push({ text: ': ', cssClass: "annotation" });
-result.push({ text: typeReference.display, cssClass: "typeref", targetId: typeReference.typeId }); // navigable through Ctrl + Click
+const result = [
+        { text: `${ name }${ genericTypes }`, cssClass: "muted" },
+        { text: ': ', cssClass: "annotation" },
+        { text: typeReference.display, cssClass: "typeref", targetId: typeReference.typeId }; // navigate to type-reference through Ctrl + Click
+    ];
 return result;
 ```
-Above: An example `Display Text Function` implementation.
+Above: An example [Display Text Function](xref:module-building.designers.designer-modelling) implementation.
 
 The currently available `cssClass` options are `keyword`, `typeref`, `muted` and `annotation`. Users can also simply set a `color` field if they wish to customize the color completely.
 
 #### Triggerable Module Tasks
 
-The Module Tasks feature aims to lay the groundwork for a whole avenue of powerful new features and capabilities in the platform. Simply put, Module Tasks are discoverable execution points that can be created inside of the .NET DLL of a Module. These executables can then be triggered via JavaScript in the Designer Scripting. For example, the following Module Task class can be created in a Module. 
+The Module Tasks feature aims to lay the groundwork for a whole avenue of powerful new features and capabilities in the platform. Simply put, Module Tasks are discoverable execution points that can be created inside of the .NET DLL of a Module. These executables can then be triggered via JavaScript in the [Designer Scripting](xref:module-building.designers.designer-scripting). For example, the following Module Task class can be created in a Module. 
 
 To give a simple example:
 
@@ -104,8 +106,49 @@ When called, this will lead to the following output in the Task Output Console:
 ![Module Task Output Example](images/4.2/module-task-output-example.png)
 Above: The script causes the _Module Task Agent_ to initialize and then execute the `Example Task Id` Module Task inside the module, returning our response from above and logging it to the console as a warning.
 
-Where can this be used? Module Tasks allow developers to plugin all forms of functionality with the ability to leverage the full power of .NET. Example Module Tasks that are being planned range from Domain imports from databases, Service imports from Open API documents, and integration with AI services.
+Where can this be used? Module Tasks allow developers to plug additional functionality into the platform and leverage the full power of .NET in doing so. This versatile option promises to enable developers to extend designers in a way that was previously impossible. Example Module Tasks that are being planned by the Intent Architect team range from Domain imports from databases, Service imports from Open API documents, and integration with AI services.
 
+#### Configurable Dynamic Forms for [Designer Scripting](xref:module-building.designers.designer-scripting)
+
+When executing Designer Scripts it's often a requirement to prompt the user to provide some additional information, which can then be used to determine the precise behaviour of the script in execution. The Dynamic Forms feature, now available in 4.2.0, offers this functionality in a simple, configurable format.
+
+As a simple example, the following script can be executed from any manual or automatic trigger within the designer:
+```javascript
+let result = await dialogService.openForm({
+    title: "Example Form",
+    fields: [{
+        id: "text",
+        label: "Text",
+        fieldType:"text",
+        placeholder: "Enter your text",
+        hint: "This is an example hint for this text"
+    },
+    {
+        id: "checkbox",
+        label: "Checkbox",
+        fieldType:"checkbox",
+        value: "true", // sets the default
+        hint: "This is an example hint for this checkbox"
+    },
+    {
+        id: "select",
+        label: "Select Option",
+        fieldType:"select",
+        selectOptions: [{ id: "1", description: "Test 1" }, { id: "2", description: "Test 2" }],
+        value: "1",
+        hint: "This is an example hint for this selection"
+    }]
+});
+
+console.warn(result);
+```
+
+The result is a form in a dialog, which would appear as follows:
+![configurable-dynamic-form-example](images/4.2/configurable-dynamic-form-example.png)
+
+If the user then click's `Done`, the output console will log the result as a warning:
+
+![configurable-dynamic-form-console-output-example](images/4.2/configurable-dynamic-form-console-output-example.png)
 ### Improvements in 4.2.0
 
 - [C# code management instruction deviation tracking](#c-code-management-instruction-deviation-tracking)
