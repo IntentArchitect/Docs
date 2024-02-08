@@ -90,7 +90,7 @@ console.warn(result);
 When called, this will lead to the following output in the Task Output Console:
 
 ![Module Task Output Example](images/4.2/module-task-output-example.png)
-_The script causes the _Module Task Agent_ to initialize and then execute the `Example Task Id` Module Task inside the module, returning our response from above and logging it to the console as a warning._
+_The script causes the_ Module Task Agent _to initialize and then execute the `Example Task Id` Module Task inside the module, returning our response from above and logging it to the console as a warning._
 
 Where can this be used? Module Tasks allow developers to plug additional functionality into the platform and leverage the full power of .NET in doing so. This versatile option promises to enable developers to extend designers in a way that was previously impossible. Example Module Tasks that are being planned by the Intent Architect team range from Domain imports from databases, Service imports from Open API documents, and integration with AI services.
 
