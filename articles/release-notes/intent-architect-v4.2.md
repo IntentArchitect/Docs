@@ -53,7 +53,7 @@ As part of our strategy to continuously enhance the designers into highly effici
 ![Example Syntax Highlighting](images/4.2/intent-architect-syntax-highlighting.png)
 Above: Example syntax highlighting in dark mode.
 
-For those who are interested in the configurability of the syntax highlighting as part of Module Building, the [Display Text Function](xref:module-building.designers.designer-modelling) of Element Settings now also allows the return of an object array with the display parts and their configuration. It's also worth noting that there is a default mode which will highlight type-reference in cases where the [Display Text Function](xref:module-building.designers.designer-modelling) has not been set.
+For those users who are interested in the configurability of the syntax highlighting as part of Module Building, the `Display Text Function` of [Element Settings](xref:module-building.designers.designer-modelling#the-element-settings-element) now also allows the return of an object array with the display parts and their configuration. It's also worth noting that there is a default mode which will highlight type-reference in cases where the `Display Text Function` has not been set.
 
 ```javascript
 const result = [
@@ -63,7 +63,7 @@ const result = [
     ];
 return result;
 ```
-Above: An example [Display Text Function](xref:module-building.designers.designer-modelling) implementation.
+Above: An example `Display Text Function`implementation.
 
 The currently available `cssClass` options are `keyword`, `typeref`, `muted` and `annotation`. Users can also simply set a `color` field if they wish to customize the color completely.
 
@@ -71,7 +71,7 @@ The currently available `cssClass` options are `keyword`, `typeref`, `muted` and
 
 The Module Tasks feature aims to lay the groundwork for a whole avenue of powerful new features and capabilities in the platform. Simply put, Module Tasks are discoverable execution points that can be created inside of the .NET DLL of a Module. These executables can then be triggered via JavaScript in the [Designer Scripting](xref:module-building.designers.designer-scripting). For example, the following Module Task class can be created in a Module. 
 
-To give a simple example:
+To give a simple example, the following class can be added anywhere inside of an installed Module:
 
 ```csharp
 public class ExampleModuleTask : IModuleTask
@@ -149,16 +149,37 @@ The result is a form in a dialog, which would appear as follows:
 If the user then click's `Done`, the output console will log the result as a warning:
 
 ![configurable-dynamic-form-console-output-example](images/4.2/configurable-dynamic-form-console-output-example.png)
-### Improvements in 4.2.0
 
-- [C# code management instruction deviation tracking](#c-code-management-instruction-deviation-tracking)
+#### Contextual Popovers in Designer Diagrams
+
+Creating an information rich diagram that is also not overwhelming requires that information be hidden but easily visible if needed. This is the rationale behind the Contextual Popovers in the designers, which is an "experimental" feature, subject to feedback from users.
+
+In this release we've included the source package that owns the element in the diagram. This allows the user to easily understand the source of the element, especially in cases where metadata is shared between applications. To view this information, the user simply needs to hove over the element with their mouse curser while holding down the `Alt` key.
+
+![diagram-contextual-popover-example](images/4.2/diagram-contextual-popover-example.png)
+
+The other "experimental" aspect of this feature is the inline popover of stereotype settings. This is triggered by clicking on the icon in the diagram, which loads the popover to the right of the stereotype.
+
+![diagram-stereotype-popover-example](images/4.2/diagram-stereotype-popover-example.png)
+
+### Other Improvements in 4.2.0
+
 - Intent Architect will now give the option to save any unsaved Designer changes when trying to close it or return to the home screen from a Solution.
 - Intent Architect upgraded to internally run using .NET 8. This allows the Software Factory to now support modules which are compiled to target any framework supported by .NET 8.
-- The module installation and upgrade system will now only check the dependency graph for modules or dependencies of modules being installed, whereas before it would also check the dependency graph of all already installed modules.
+- The module installation and upgrade system will now only check the dependency graph for modules or dependencies of modules being installed, whereas before it would also check the dependency graph of all already installed modules. This substantially improves the performance and robustness of the module installation processes.
 - On create Application screens you can now click anywhere on a component "tile" to check/uncheck it whereas before you would have have to click on the checkbox itself.
 - Added Cut / Copy / Paste shortcuts to element context menus. The shortcuts `Ctrl + X`, `Ctrl + C` and `Ctrl + V` also apply.
 - Added a `Ctrl + H` shortcut to hide elements and associations from within the diagrams.
+- Improved error visibility for the Advanced Mapping dialog.
+- Allow filtering of [Application Templates](xref:application-templates.overview) when creating a new application to include Prerelease and/or Incompatible Application Templates.
 
 ### Issues fixed in 4.2.0
 
-- Tab order would be reversed when re-opening a solution which had open tabs when it was closed.
+- Fixed: Tab order would be reversed when re-opening a solution which had open tabs when it was closed.
+- Fixed: Unable to drag-drop package reference elements into diagrams when the diagram itself doesn't have visual settings for that element type.
+- Fixed: Error on home screen when clicking on Create new application quickly after app has opened.
+- Fixed: drag-drop reordering of elements not working in certain circumstances.
+- Fixed: Clicking on tree-view caret in short succession doesn't expand and collapse node as expected.
+- Fixed: Package Reference Manager filter including file path in search, leading to unexpected results.
+- Fixed: application file sync prompt showing even when not renaming the application.
+
