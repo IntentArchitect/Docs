@@ -18,9 +18,11 @@
     "resource": [
       {
         "files": [
+          "favicon.ico",
+          "logo.svg",
           "images/**",
-          "**/images/**",
           "videos/**",
+          "**/images/**",
           "**/videos/**"
         ],
         "exclude": [
@@ -47,9 +49,9 @@
     "globalMetadata": {
       "_appTitle": "Intent Architect",
       "_enableSearch": true,
-      "_appLogoPath": "./images/logo.png",
-      "_appLogoPathDark": "./images/logo-white.png",
-      "_appFaviconPath": "/images/favicon.ico",
+      "_appLogoPath": "images/logo.png",
+      "_appLogoPathDark": "images/logo-dark.png",
+      "_appFaviconPath": "favicon.ico",
       "_appFooter": "<span>Copyright © 2017-<script type=\"text/javascript\">document.write((new Date()).getFullYear());</script>, Intent Software Pte Ltd.</span>\n<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-GWP11LTGRN\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-GWP11LTGRN');\n</script>"
     }, 
     "globalMetadataFiles": [],
