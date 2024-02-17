@@ -1,4 +1,4 @@
-# November / December 2023
+# What's new with Intent Architect (November / December 2023)
 
 Welcome to the 2023 Christmas edition of highlights of What's New with Intent Architect.
 

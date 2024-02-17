@@ -1,4 +1,4 @@
-# October 2023
+# What's new with Intent Architect (October 2023)
 
 Welcome to the October 2023 edition of highlights of What's New with Intent Architect.
 
