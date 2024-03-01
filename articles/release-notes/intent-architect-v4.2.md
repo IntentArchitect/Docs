@@ -6,13 +6,19 @@ uid: release-notes.intent-architect-v4.2
 
 ## Version 4.2.0
 
-Intent Architect V4.2 comes with several highly anticipated features, many of which are direct requests from yourselves, the users. This release also comes with several "groundwork" features that we've added to support future enhancements and capabilities. Please share your thoughts and feedback on this release with our team.
+Intent Architect V4.2.0 comes with several highly anticipated features, many of which are direct requests from yourselves, the users. This release also comes with several "groundwork" features that we've added to support future enhancements and capabilities. Please share your thoughts and feedback on this release with our team.
+
+> [!NOTE]
+> Version 4.2.0 is backward compatible with 4.1.x of Intent Architect. However, upgrading to the latest modules that require 4.2.0 may cause issues if the solution is then opened again in 4.1.x or earlier. We therefore recommend that teams officially upgrade their modules once all members are using 4.2.0.
 
 ### Highlights in 4.2.0
 
 #### C# code management instruction deviation tracking
 
 It can be useful to know which files may not be following the architecture which your installed Modules normally generates. Intent Architect can now track these "Deviations" and shows them on a new screen during [Software Factory execution](xref:application-development.software-factory.about-software-factory-execution#the-deviations-screen):
+
+> [!NOTE]
+> At this time deviation tracking is only supported for C# files and requires the `Intent.OutputManager.RoslynWeaver` module, at version `4.6.0` or later, to be installed.
 
 ![The deviations screen on the Software Factory](images/4.2/deviations.png)
 
@@ -24,9 +30,6 @@ It is possible to immediately remove deviations by updating content in the right
 
 Otherwise, deviations can be approved and have notes added to them, for more information refer to the [](xref:application-development.software-factory.about-software-factory-execution#the-deviations-screen) article.
 
-> [!NOTE]
-> At this time deviation tracking is only supported for C# files and requires at least version `4.6.0` of the `Intent.OutputManager.RoslynWeaver` module to be installed.
-
 #### Edits to staged changes will now be applied
 
 When looking at a diff of a staged file change, it is now possible to edit and save the right-pane. When any edit is saved, the Software Factory will re-apply code merging and save the updated staged changes when the pending Software Factory changes are applied with the "Apply" button.
@@ -34,6 +37,9 @@ When looking at a diff of a staged file change, it is now possible to edit and s
 #### Syntax Highlighting and `Ctrl + Click` Navigation
 
 As part of our strategy to continuously enhance the designers into highly efficient and productive modeling systems, we've enabled syntax highlighting of the display text for each element in the tree-view designers. Users can navigate to types directly by using the `Ctrl + Click` shortcut.
+
+> [!NOTE]
+> This feature has base implementations build into 4.2.0, but will require the latest designer modules (e.g. `Intent.Modelers.Domain` version `3.7.0`, and `Intent.Modelers.Services` version `3.6.0`) to be fully utilized.
 
 ![Example Syntax Highlighting](images/4.2/intent-architect-syntax-highlighting.png)
 _Example syntax highlighting in dark mode._
@@ -159,6 +165,9 @@ The other "experimental" aspect of this feature is the inline popover of stereot
 - Added a `Ctrl + H` shortcut to hide elements and associations from within the diagrams.
 - Improved error visibility for the Advanced Mapping dialog.
 - Allow filtering of [Application Templates](xref:application-templates.overview) when creating a new application to include Prerelease and/or Incompatible Application Templates.
+- Stereotypes display their target types inline.
+- Minimum Client Verion stored in `.application.config` files and will trigger compatibility warnings on opening a solution. This Minimum Client Version is determined by the lowest supported client versions from the installed modules.
+- Collapse button in tree views will now, instead of collapsing the entire tree, incrementally collapse nodes and only hides leaf nodes on each click.
 
 ### Issues fixed in 4.2.0
 
@@ -169,3 +178,10 @@ The other "experimental" aspect of this feature is the inline popover of stereot
 - Fixed: Clicking on tree-view caret in quick succession would not expand and collapse nodes as expected.
 - Fixed: The Package Reference Manager search filter would also match against file paths, leading to unexpected results.
 - Fixed: The application file sync prompt would show even when not renaming the application.
+- Fixed: `Ctrl + Enter` shortcut not working for Stereotype Definitions and Stereotype Property Definitions.
+- Fixed: Type reference updated by synchronized basic mapping not updating text display.
+- Fixed: Basic mapping not able to traverse into external package references (e.g. AspNetCore.Identity.Domain).
+- Fixed: Ctrl click to select elements in diagram can lead to accidental duplication of selected items
+- Fixed: Association default names sometimes not being set, causing renames in the underlying files and incorrectly indicating dirty changes.
+- Fixed: Association names not updating in the diagrams on undo.
+
