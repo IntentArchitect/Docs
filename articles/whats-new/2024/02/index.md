@@ -15,7 +15,7 @@ Welcome to the February 2024 edition of highlights of What's New with Intent Arc
   - **[HTTP file upload / download support](#http-file-upload--download-support)** - Model ASP.NET Core file uploads / downloads in the `Services Designer`.
   - **[Windows Service Hosting](#windows-service-hosting)** - Application Template and patterns for modelling Windows Service applications.
   - **[Cosmos DB optimistic concurrency](#cosmos-db-optimistic-concurrency-through-etags)** - Our Cosmos DB patterns now implement optimistic concurrency through eTags.
-  - **[DocumentDB Domain Designer key automation enhancement](#documentdb-domain-designer-key-automation-enhancement)** - A new option to configure how the DocumentDB designer manages keys.
+  - **[DocumentDB Domain Designer key automation enhancement](#document-db-domain-designer-key-automation-enhancements)** - A new option to configure how the DocumentDB designer manages keys.
   - **[Oracle Database provider support for Entity Framework Core](#support-for-oracle-database-provider-for-entity-framework-core)** - Use Oracle Database with Entity Framework Core.
   - **[Visual Studio Solution Folder creation for static content template files](#visual-studio-solution-folder-creation-for-static-content-templates)** - Solution sub-folders will now be created for static content template files.
 
@@ -230,7 +230,7 @@ When a static content template's output is set to a solution folder, it will now
 
 Additionally, it is now possible to set an output folder prefix for the file system output path of the static content files.
 
-For more information refer to the [xref:module-building.templates-general.how-to-generate-static-files]() article.
+For more information refer to the [](xref:module-building.templates-general.how-to-generate-static-files) article.
 
 Available from:
 
