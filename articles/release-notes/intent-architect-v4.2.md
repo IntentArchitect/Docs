@@ -184,4 +184,4 @@ The other "experimental" aspect of this feature is the inline popover of stereot
 - Fixed: Ctrl click to select elements in diagram can lead to accidental duplication of selected items
 - Fixed: Association default names sometimes not being set, causing renames in the underlying files and incorrectly indicating dirty changes.
 - Fixed: Association names not updating in the diagrams on undo.
-
+- Fixed: Issues with updating Modules where the new version is identifiable but the installed version is not, preventing update failures.
