@@ -342,10 +342,9 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 * You can uncheck `BasketId`.
 * Expand the `Product` node and check `Name`.
 * Click `Done`.
-* Expand the `BasketBasketItemDto` node.
-* Find the `Name` field
-  * Select this field.
-  * Press `F2`and change its name to `ProductName`.
+
+> [!NOTE]
+> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like `Command`s and `Query`s. Left facing arrows are typically used for outbound contracts, which `DTO`s typically are.
 
 ![Model Basket DTO](images/create-basket-dto.png)
 
@@ -371,22 +370,28 @@ Next you are going to model the `AddToBasketCommand` command:
 
 * Right-click on the `Baskets` folder and select `New Command`.
 * Name the command `AddToBasketCommand` and return a `Guid` which will be the `Id` of the newly added `BasketItem`.
-* Right-click on `AddToBasketCommand` and select `Map to Domain Data`.
-* A dialog will open with an expanded dropdown menu, select `BasketItem`.
-* Check the following:
-  * `BasketId`
-  * `ProductId`
-  * `Quantity`
-  * `UnitPrice`
+* Right-click on `AddToBasketCommand` and select `Create Entity`.
+  * configure type to create to be `BasketItem`
+
+![Configure Create Entity](images/configure-create-entity.png)
+
+* A Mapping dialog will open up as follows:
+
+![Mapping Screen](images/mapping-screen-from-basket-item.png)
+
+* Double-click on the `BasketItem`
+  * You will see a yellow arrow linking the Dto and the Entity
+* Double-click on the `BasketItem` again
+  * This add all the entity data fields to the Dto contract and map them.
+
+![Mapping Screen](images/basket-item-mapped.png)
+
 * Click `Done`.
 * Right-click on `AddToBasketCommand`, and select `Expose as Http Endpoint`.
 * In the `Properties` pane, in the `Http Settings` section:
-  * Change the `Route` to `api/baskets/{id}/add`.
+  * Change the `Route` to `api/baskets/{basketId}/add`.
 
 ![Add Basket Item Modeled](images/model-add-item-to-basket-command.png)
-
-> [!NOTE]
-> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like `Command`s and `Query`s. Left facing arrows are typically used for outbound contracts, which `DTO`s typically are.
 
 Again, let's look at the results of your modeling:
 
@@ -410,9 +415,8 @@ To finish up the `Basket` service, you are going to create the `CheckoutCommand`
 
 * Right-click on the `Baskets` folder and select `New Command`.
 * Name the command `CheckoutCommand` and return a `guid` which will be the identifier of the newly added `Order`.
-* Right-click on `CheckoutCommand` and select `Map to Domain Data`
-* A dialog will open with an expanded dropdown menu, select `Basket`.
-* Check the box next to `Id`.
+* Right-click on `CheckoutCommand` and select `Add Property`
+  * Name the property `Id` of type `guid`
 * Click `Done`.
 * Right-click on `CheckoutCommand` and select `Expose as Http Endpoint`
 * In the `Properties` pane, in the `Http Settings` section:
@@ -462,8 +466,6 @@ You will need to model the `DTO` that this `Query` returns:
 * Click `Done`.
 * Right-click on the `OrderItemDto` and select `Map from Domain`.
 * Expand the `Product` node, check `Name`.
-* Click `Done`.
-* Rename `Name` to `ProductName`.
 
 ![OrderDto Modeled](images/orderdto-modelled.png)
 
@@ -547,9 +549,9 @@ Next let's create the customer's shopping cart:
 
 Let's add an item to the basket:
 
-* Click on the `POST /api/baskets/{id}/add` row in the Baskets section.
+* Click on the `POST /api/baskets/{basketId}/add` row in the Baskets section.
 * Click the `Try it out` button on the right hand side.
-* Fill in your `BasketId` in the `Id` field.
+* Fill in your `BasketId` in the `BasketId` field.
 * In the `Request Body` JSON fill in (replacing the relevant Ids):
 
 ```json
