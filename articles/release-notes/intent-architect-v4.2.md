@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.1
+
+### Issues fixed in 4.2.1
+
+- Fixed: An exception would occur in the Software Factory CLI when using "legacy" command line arguments, i.e. if not explicitly using the newer 'ensure-no-outstanding-changes' command. It's advised to upgrade any scripts you have to rather use the ['ensure-no-outstanding-changes' command](xref:tools.software-factory-cli#ensure-no-outstanding-changes-command).
+
 ## Version 4.2.0
 
 Intent Architect V4.2.0 comes with several highly anticipated features, many of which are direct requests from yourselves, the users. This release also comes with several "groundwork" features that we've added to support future enhancements and capabilities. Please share your thoughts and feedback on this release with our team.
