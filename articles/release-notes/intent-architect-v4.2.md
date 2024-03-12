@@ -14,7 +14,7 @@ uid: release-notes.intent-architect-v4.2
 
 ### Issues fixed in 4.2.1
 
-- Fixed: An exception would occur in the Software Factory CLI when using "legacy" command line arguments, i.e. if not explicitly using the newer 'ensure-no-outstanding-changes' command. It's advised to upgrade any scripts you have to rather use the ['ensure-no-outstanding-changes' command](xref:tools.software-factory-cli#ensure-no-outstanding-changes-command).
+- Fixed: An exception would occur in the Software Factory CLI when using "legacy" command line arguments, i.e. if not explicitly using the newer `ensure-no-outstanding-changes` command. It's advised to upgrade any scripts you have to rather use the [`ensure-no-outstanding-changes` command](xref:tools.software-factory-cli#ensure-no-outstanding-changes-command).
 
 ## Version 4.2.0
 
