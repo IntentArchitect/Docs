@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.2
+
+### Issues fixed in 4.2.2
+
+- Fixed: The Software Factory CLI would update files in the `.intent` folder which could break CI builds if they were configured in a particular way.
+
 ## Version 4.2.1
 
 ### Issues fixed in 4.2.1
