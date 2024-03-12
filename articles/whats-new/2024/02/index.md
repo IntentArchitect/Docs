@@ -1,4 +1,4 @@
-# What's new with Intent Architect (February 2024)
+# What's new in Intent Architect (February 2024)
 
 Welcome to the February 2024 edition of highlights of What's New with Intent Architect.
 
