@@ -4,6 +4,13 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.3
+
+### Issues fixed in 4.2.3
+
+- Fixed: Icons on the Settings screen had incorrect vertical alignment with headings.
+- Fixed: If the casing of module's identifier had changed between versions, an error would sometimes occur when trying to reinstall or update the module.
+
 ## Version 4.2.2
 
 ### Issues fixed in 4.2.2
