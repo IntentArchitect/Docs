@@ -6,6 +6,10 @@ uid: release-notes.intent-architect-v4.2
 
 ## Version 4.2.3
 
+### Improvements in 4.2.3
+
+- Improvement: Hints on the application settings screen will now render "minimal markdown" (Bold, italics, inline code and URLs) for hints.
+
 ### Issues fixed in 4.2.3
 
 - Fixed: Icons on the Settings screen had incorrect vertical alignment with headings.
