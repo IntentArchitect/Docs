@@ -5,12 +5,16 @@ Welcome to the March 2024 edition of highlights of What's New with Intent Archit
 - Highlights
 
 - More updates
+  - **[Open Telemetry Protocol for generic exports](#open-telemetry-module-now-has-open-telemetry-protocol-for-generic-exports)** - Enables generic export capabilities for systems like Jaeger and Elastic Search.
+  - **[Serilog module enhancements](#serilog-module-has-extensible-sink-options-with-newly-added-file-and-graylog-sinks)** - Introduces File and Graylog sink options, enhancing logging capabilities.
+  - **[New Bugsnag module for error monitoring](#new-bugsnag-module-for-error-monitoring-and-reporting)** - Offers cloud-based error monitoring and reporting for web and mobile apps.
+  - **[Java weaver update](#java-weaver-updated-to-java-17-grammar)** - Supports Java 17 grammar, including text block quotes.
 
 ## Update details
 
-### Open Telemetry module now has `Open Telemetry Protocol` for generic exports
+### Open Telemetry Module now has Open Telemetry Protocol for generic exports
 
-Added `OpenTelemetry Protocol` which acts as a generic exporter for most systems including [Jaeger](https://www.jaegertracing.io/docs/1.48/apis/#opentelemetry-protocol-stable) and [Elastic Search](https://www.elastic.co/guide/en/observability/current/open-telemetry.html).
+The OpenTelemetry module has been enhanced with the `OpenTelemetry Protocol`, which serves as a universal exporter for various systems including Jaeger and Elastic Search.
 
 ![Open Telemetry Options](images/open-telemetry-options.png)
 
@@ -18,11 +22,9 @@ Available from:
 
 - Intent.OpenTelemetry 2.0.3
 
-### Serilog module has extensible sink options with newly added File and Graylog sinks
+### Serilog Module has Extensible Sink Options with newly added File and Graylog sinks
 
-The configuration for the Serilog sink has been relocated from the Program.cs file to the `appsettings.json` file. This change gives developers the flexibility to include custom sinks in their projects, even if they are not directly supported by Intent Architect.
-
-Support for [Graylog](https://github.com/serilog-contrib/serilog-sinks-graylog) and File sink options has been introduced, expanding the logging capabilities.
+We've relocated the Serilog sink configuration from the `Program.cs` file to the `appsettings.json` file, offering more flexibility in including custom sinks. New support for Graylog and File sinks has been added, broadening the logging functionality.
 
 ![Serilog sink options](images/serilog-graylog.png)
 
@@ -30,9 +32,9 @@ Available from:
 
 - Intent.Modules.AspNetCore.Logging.Serilog 5.1.0
 
-### New Bugsnag module for error monitoring and reporting
+### New Bugsnag Module for Error Monitoring and Reporting
 
-Integrate with [Bugsnag](https://www.bugsnag.com/) which is a cloud-based error monitoring and reporting tool for web and mobile apps.
+Integrate with Bugsnag for advanced, cloud-based error monitoring and reporting across web and mobile applications.
 
 ![Bugsnag UI Sample](images/bugsnag-ui-sample.png)
 
@@ -40,9 +42,9 @@ Available from:
 
 - Intent.Bugsnag 1.0.0
 
-### Java weaver updated to Java 17 grammar
+### Java Weaver Updated to Java 17 Grammar
 
-Java Weaver updated to support Java 17 grammar (includes support now for `"""` text block quotes).
+The Java Weaver now accommodates Java 17 grammar, enhancing support for modern Java features including the use of text block quotes.
 
 Available from:
 
