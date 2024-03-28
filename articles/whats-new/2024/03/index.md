@@ -5,12 +5,26 @@ Welcome to the March 2024 edition of highlights of What's New with Intent Archit
 - Highlights
 
 - More updates
+  - **[SqlServerImporter module](#sqlserverimporter-module)** - Reverse engineer your domain model from an existing SQL Server database.
   - **[Open Telemetry Protocol for generic exports](#open-telemetry-module-now-has-open-telemetry-protocol-for-generic-exports)** - Enables generic export capabilities for systems like Jaeger and Elastic Search.
   - **[Serilog module enhancements](#serilog-module-has-extensible-sink-options-with-newly-added-file-and-graylog-sinks)** - Introduces File and Graylog sink options, enhancing logging capabilities.
   - **[New Bugsnag module for error monitoring](#new-bugsnag-module-for-error-monitoring-and-reporting)** - Offers cloud-based error monitoring and reporting for web and mobile apps.
   - **[Java weaver update](#java-weaver-updated-to-java-17-grammar)** - Supports Java 17 grammar, including text block quotes.
+  - **[Improved Time/TimeSpan support](#improved-timetimespan-support)** - Sql Server Importer and Swagger UI not have better for Time / TimeSpan.
 
 ## Update details
+
+### SqlServerImporter module
+
+The `SqlServerImporter` module will import / reverse engineer a Domain Model from a SQL Server Database. Simply right click on your `Domain Package` and select `Database Import`.
+
+![Import database](images/database-import.png)
+
+For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.SqlServerImporter/README.md).
+
+Available from:
+
+- Intent.SqlServerImporter 1.0.1
 
 ### Open Telemetry Module now has Open Telemetry Protocol for generic exports
 
@@ -50,3 +64,12 @@ Available from:
 
 - Intent.Code.Weaving.Java 1.0.0
 - Intent.Common.Java 4.0.0
+
+### Improved Time/TimeSpan support
+
+The Swagger UI is now configured, by default, to support string based `TimeSpan` representations e.g. "00:00:00".
+The `Intent.SQLSchemaExtractor` tool and `Intent.SqlServerImporter` module now support Sql `Time` type.
+
+Available from:
+
+- Intent.AspNetCore.Controllers 6.0.4
