@@ -10,7 +10,7 @@ Intent Architect needs to be installed on your local machine. You need to have a
 
 ## 1. Create an account
 
-If you haven't yet done so, [create an account](https://intentarchitect.com/#/user-access/register).
+If you haven't yet done so, [create an account](https://intentarchitect.com/#/register){target="_blank"}.
 
 ## 2. Confirm your email address
 
