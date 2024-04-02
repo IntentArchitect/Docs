@@ -3,6 +3,8 @@
 Welcome to the March 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
+  - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
+  - **[Entity Framework Core second level caching (beta)](#entity-framework-core-second-level-caching-beta)** - Cache the results of EF queries.
 
 - More updates
   - **[SqlServerImporter module](#sqlserverimporter-module)** - Reverse engineer your domain model from an existing SQL Server database.
@@ -11,6 +13,7 @@ Welcome to the March 2024 edition of highlights of What's New in Intent Architec
   - **[New Bugsnag module for error monitoring](#new-bugsnag-module-for-error-monitoring-and-reporting)** - Offers cloud-based error monitoring and reporting for web and mobile apps.
   - **[Java weaver update](#java-weaver-updated-to-java-17-grammar)** - Supports Java 17 grammar, including text block quotes.
   - **[Improved Time/TimeSpan support](#improved-timetimespan-support)** - Sql Server Importer and Swagger UI not have better for Time / TimeSpan.
+  - **[Basic markdown support for Application Settings' hints](#basic-markdown-support-for-application-settings-hints)** - Module authors can add links and basic formatting to application setting hints.
 
 ## Update details
 
@@ -73,3 +76,49 @@ The `Intent.SQLSchemaExtractor` tool and `Intent.SqlServerImporter` module now s
 Available from:
 
 - Intent.AspNetCore.Controllers 6.0.4
+
+### Entity Framework Core support for Keyless Entity Types and basic TimescaleDB usage
+
+The Entity Framework Core module now supports [Keyless Entity Types](https://learn.microsoft.com/ef/core/modeling/keyless-entity-types) which (amongst other use cases) is necessary to be able to use [TimescaleDB](https://www.timescale.com/) with Entity Framework Core.
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.0
+
+### `IDistributedCache` support (beta)
+
+Support is now available for [distributed caching](https://learn.microsoft.com/aspnet/core/performance/caching/distributed) for an application through the [`IDistributedCache`](https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache) and [`IDistributedCacheWithUnitOfWork`](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.DistributedCaching/README.md#the-idistributedcachewithunitofwork-interface) interfaces. A distributed cache is a cache shared by multiple app servers, typically maintained as an external service to the app servers that access it.
+
+Support for the following the `IDistributedCache` implementations are immediately available:
+
+- [Memory](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache)
+- [Stack Exchange Redis](https://learn.microsoft.com/aspnet/core/performance/caching/distributed#distributed-redis-cache)
+
+Available from:
+
+- Intent.AspNetCore.DistributedCaching 1.0.0-beta.0
+
+### Entity Framework Core second level caching (beta)
+
+It is now possible to enable second level caching for Entity Framework Core through use of the [EFCoreSecondLevelCacheInterceptor](http://www.nuget.org/packages/EFCoreSecondLevelCacheInterceptor/) NuGet package.
+
+Second level caching is a query cache. The results of EF commands will be stored in the cache, so that the same EF commands will retrieve their data from the cache rather than executing them against the database again.
+
+Caching can be opted into on by using the [`.Cacheable(...)` IQueryable extension method](https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor/blob/master/src/EFCoreSecondLevelCacheInterceptor/EFCachedQueryExtensions.cs) or enabled globally.
+
+For further details on using second level caching, refer to the [library's README](https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor).
+
+Available from:
+
+- Intent.EntityFrameworkCore.SecondLevelCaching 1.0.0-beta.0
+
+### Basic markdown support for Application Settings' hints
+
+Module authors can now use the following markdown in hints for application settings and have it rendered by Intent Architect:
+
+![Basic markdown support for hints on the Application Settings](images/basic-markdown-support-for-application-setting-hints.png)
+
+- Links - `[Intent Architect website](http://intentarchitect.com/)` renders as: [Intent Architect website](http://intentarchitect.com/)
+- Italics - `*italicized text*` renders as: *italicized text*
+- Bold - `**bolded text**` renders as: **bolded text**
+- Inline code - `` `inline code` `` renders as: `inline code`
