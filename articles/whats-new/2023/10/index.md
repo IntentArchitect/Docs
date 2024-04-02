@@ -1,6 +1,6 @@
-# What's new with Intent Architect (October 2023)
+# What's new in Intent Architect (October 2023)
 
-Welcome to the October 2023 edition of highlights of What's New with Intent Architect.
+Welcome to the October 2023 edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[Intent Architect 4.1 (Beta)](#intent-architect-41-beta)** - Intent Architect 4.1 is now available as a Beta version, with many new product features.

@@ -1,6 +1,6 @@
-# What's new with Intent Architect (November / December 2023)
+# What's new in Intent Architect (November / December 2023)
 
-Welcome to the 2023 Christmas edition of highlights of What's New with Intent Architect.
+Welcome to the 2023 Christmas edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[.NET 8 support](#net-8-support)** - All modules have been updated to support .NET 8.

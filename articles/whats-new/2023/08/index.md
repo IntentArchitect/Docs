@@ -1,6 +1,6 @@
-# What's new with Intent Architect (August 2023)
+# What's new in Intent Architect (August 2023)
 
-Welcome to the August 2023 edition of highlights of What's New with Intent Architect.
+Welcome to the August 2023 edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[Import OpenApi / Swagger documents into the Services Designer](#import-openapi--swagger-documents-into-the-services-designer)** - Created a new import tool for populating service package metadata from OpenApi / Swagger contracts.

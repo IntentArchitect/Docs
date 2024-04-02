@@ -1,6 +1,6 @@
-# What's new with Intent Architect (September 2023)
+# What's new in Intent Architect (September 2023)
 
-Welcome to the September 2023 edition of highlights of What's New with Intent Architect.
+Welcome to the September 2023 edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[Blazor WebAssembly bootstrap module](#blazor-webassembly-bootstrap-module)** - Bootstraps a Blazor WebAssembly project.

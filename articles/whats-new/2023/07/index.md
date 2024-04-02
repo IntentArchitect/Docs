@@ -1,6 +1,6 @@
-# What's new with Intent Architect (July 2023)
+# What's new in Intent Architect (July 2023)
 
-Welcome to the July 2023 edition of highlights of What's New with Intent Architect.
+Welcome to the July 2023 edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[Module based documentation](#module-based-documentation)** - We are adding module orientated documentation which can be accessed through the modules `ProjectUrl`.

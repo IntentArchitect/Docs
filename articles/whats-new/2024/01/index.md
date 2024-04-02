@@ -1,6 +1,6 @@
 # What's new in Intent Architect (January 2024)
 
-Welcome to the January 2024 edition of highlights of What's New with Intent Architect.
+Welcome to the January 2024 edition of highlights of What's New in Intent Architect.
 
 We hope you also had a great break at the end of the year at which time at Intent Architect we also generally wind down a bit meaning we don't have as much to show as usual, but we nevertheless managed to get some great things done.
 

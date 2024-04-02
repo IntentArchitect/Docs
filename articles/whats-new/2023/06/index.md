@@ -1,6 +1,6 @@
-# What's new with Intent Architect (June 2023)
+# What's new in Intent Architect (June 2023)
 
-Welcome to the June 2023 edition of highlights of What's New with Intent Architect.
+Welcome to the June 2023 edition of highlights of What's New in Intent Architect.
 
 - Product updates
   - **[JSON document database domain importer tool now available](#json-document-database-domain-importer-tool-now-available)** - A [CLI tool](https://docs.intentarchitect.com/articles/cli-tools/json-metadata-synchronizer/json-metadata-synchronizer.html) is now available for importing object graphs from JSON files into the Domain Designer for document databases (Cosmos DB, MongoDB, etc).
