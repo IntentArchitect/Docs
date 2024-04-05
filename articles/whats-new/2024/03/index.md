@@ -7,9 +7,9 @@ Welcome to the March 2024 edition of highlights of What's New in Intent Architec
   - **[Open Telemetry Protocol for generic exports](#open-telemetry-module-now-has-open-telemetry-protocol-for-generic-exports)** - Enables generic export capabilities for systems like Jaeger and Elastic Search.
   - **[Serilog module enhancements](#serilog-module-has-extensible-sink-options-with-newly-added-file-and-graylog-sinks)** - Introduces File and Graylog sink options, enhancing logging capabilities.
   - **[New Bugsnag module for error monitoring](#new-bugsnag-module-for-error-monitoring-and-reporting)** - Offers cloud-based error monitoring and reporting for web and mobile apps.
+  - **[Java weaver update](#java-weaver-updated-to-java-17-grammar)** - Supports Java 17 grammar, including text block quotes.
 
 - More updates
-  - **[Java weaver update](#java-weaver-updated-to-java-17-grammar)** - Supports Java 17 grammar, including text block quotes.
   - **[Improved Time/TimeSpan support](#improved-timetimespan-support)** - Sql Server Importer and Swagger UI not have better for Time / TimeSpan.
   - **[Basic markdown support for Application Settings' hints](#basic-markdown-support-for-application-settings-hints)** - Module authors can add links and basic formatting to application setting hints.
 
