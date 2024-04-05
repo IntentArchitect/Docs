@@ -4,6 +4,18 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.4
+
+### Improvements in 4.2.4
+
+- Improvement: Installation of multiple modules is now significantly faster, this is especially noticeable when creating new applications.
+- Improvement: Application templates can now specify minimum versions of module dependencies and interoperabilities making it possible for new applications to have all modules at the latest version.
+
+### Issues fixed in 4.2.4
+
+- Fixed: Windows: The installer was not DPI aware and would look blurry if Windows scaling was set to anything other than 100%.
+- Fixed: Metadata installation would occur for module updates (it should only occur for module installations) when triggered by the "Update" button on the "Updates" tab.
+
 ## Version 4.2.3
 
 ### Improvements in 4.2.3
