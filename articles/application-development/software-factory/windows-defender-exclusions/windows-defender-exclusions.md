@@ -5,10 +5,9 @@ uid: application-development.software-factory.windows-defender-exclusions
 
 ## Overview
 
-Windows Defender is a built-in antivirus and anti-malware component of Windows 10 and Windows 11. It provides real-time protection against a wide range of threats, including viruses, malware, and spyware. However, in some cases, Windows Defender might interfere with Intent Architect leading to slow Software Factory startup times.
-This article will guide you through the process of adding file and directory exclusions to Windows Defender which will instruct it not to scan those files or folders when they are being executed or accessed.
+Intent Architect's Software Factory is fast however, it's not uncommon to experience slow startup times, especially during the initial run. This performance hit is often attributed to the antivirus (A/V) software scanning the assemblies, which can significantly delay the startup process. This article aims to address this issue by guiding you through adding necessary exclusions in order to significantly improve the Software Factory's startup times.
 
-## Adding Exclusions in Windows 11
+## Adding Exclusions to Windows Defender
 
 * Open Windows Security by clicking on the Start menu and selecting the shield icon to open Windows Security. Alternatively, you can search for "Windows Security" in the search bar.
   ![Search Windows Security](images/search-windows-secutiry.png)
@@ -28,3 +27,7 @@ By following these steps, you can effectively manage Windows Defender's behavior
 
 > [!NOTE]
 > You may need to consult your IT department in providing access in order to perform these exclusions. You are also opening up areas of vulnerability so caution should be exercised.
+
+## Using the Dev Drive with Windows 11
+
+For further optimization, consider using a dedicated [Dev drive with Windows 11](https://learn.microsoft.com/en-us/windows/dev-drive/). This approach not only helps in protecting against antivirus scans but also enhances the overall performance of your development environment.
