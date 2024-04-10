@@ -5,5 +5,5 @@ items:
   - name: About Template Output Targeting
     href: about-template-output-targeting/about-template-output-targeting.md
 
-  - name: Windows Defender Exclusions
-    href: windows-defender-exclusions/windows-defender-exclusions.md
+  - name: Dealing with slow Software Factory startup times
+    href: dealing-with-slow-software-factory-startup-times/dealing-with-slow-software-factory-startup-times.md

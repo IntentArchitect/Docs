@@ -1,7 +1,7 @@
 ---
-uid: application-development.software-factory.windows-defender-exclusions
+uid: application-development.software-factory.dealing-with-slow-software-factory-startup-times
 ---
-# Windows Defender Exclusions
+# Dealing with slow Software Factory startup times
 
 ## Overview
 
