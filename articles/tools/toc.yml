@@ -19,3 +19,6 @@ items:
 
   - name: Software Factory CLI
     href: software-factory-cli/software-factory-cli.md
+
+  - name: CSharp Metadata Synchronizer
+    href: csharp-metadata-synchronizer/csharp-metadata-synchronizer.md
