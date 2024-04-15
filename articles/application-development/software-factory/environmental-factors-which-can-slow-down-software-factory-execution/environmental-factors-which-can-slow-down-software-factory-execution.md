@@ -1,17 +1,19 @@
 ---
-uid: application-development.software-factory.improving-the-speed-of-the-software-factory
+uid: application-development.software-factory.environmental-factors-which-can-slow-down-software-factory-execution
 ---
-# Improving the speed of the Software Factory
+# Environmental factors which can slow down Software Factory execution
 
-So as to avoid negatively affecting developer productivity, we take the performance of the Software Factory very seriously. Over time we have applied many optimizations to the Software Factory and continue to do as we find areas where it's possible.
+So as to avoid negatively affecting developer productivity, we take the performance of the Software Factory very seriously. Over time we have applied many optimizations to the Software Factory and continue to do so as we find areas where it's possible.
 
-To ensure you're getting the best and shortest possible execution times, please ensure you're running the latest version of Intent Architect as well as the latest versions of the modules.
+However, we have found that on some developer machines, environmental factors / configurations can negatively impact the Software Factory execution speed.
 
-## Advice for optimizing Software Factory Execution speed
+Firstly, to ensure you're getting the best and shortest possible execution times, please ensure you're running the latest version of Intent Architect as well as the latest versions of modules. Otherwise, continue reading for additional advice.
 
-Windows 11 users are able to use Microsoft's [Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/) feature which is intended to improve the performance of many developer related tasks by using a different file system type and adjusting the way that Windows Defender works.
+## Windows' Dev Drive
 
-## Common causes of slowness
+Windows 11 users are able to use Microsoft's [Dev Drive](https://learn.microsoft.com/en-us/windows/dev-drive/) feature which is intended to improve the performance of many developer related tasks and tools by using a different file system type and adjusting the way that Windows Defender works. Intent Architect's Software Factory has been found to run faster when solutions are running off of a Dev Drive.
+
+## Other common causes of slowness
 
 ### "Initializing Software Factory Execution" step is slow
 
@@ -19,7 +21,7 @@ A common area of slowness in the Software Execution is the very first step, "Ini
 
 The identified cause of this slowness is the interference of computer anti-virus software in the loading process of Module DLLs from the disk drive.
 
-Consider adding some or all of the following exclusions to your anti-virus software to prevent this slowness:
+To avoid this interference, consider adding some or all of the following exclusions to your anti-virus software:
 
 - The folder in which Intent Architect is installed (e.g. `C:\Program Files\Intent Architect v4`).
 - The folder containing your Intent Architect Solution and Applications, essentially the folder into which the "source code" for your project is checked out.

@@ -2,8 +2,8 @@ items:
   - name: About Software Factory Execution
     href: about-software-factory-execution/about-software-factory-execution.md
     items:
-    - name: Improving the speed of the Software Factory
-      href: improving-the-speed-of-the-software-factory/improving-the-speed-of-the-software-factory.md
+    - name: Environmental factors which can slow down Software Factory execution
+      href: environmental-factors-which-can-slow-down-software-factory-execution/environmental-factors-which-can-slow-down-software-factory-execution.md
 
   - name: About Template Output Targeting
     href: about-template-output-targeting/about-template-output-targeting.md
