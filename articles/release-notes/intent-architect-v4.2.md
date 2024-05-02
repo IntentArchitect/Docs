@@ -4,6 +4,13 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.5
+
+### Issues fixed in 4.2.5
+
+- Fixed: The incorrect script option would sometimes be executed when multiple script options with the same name existed on an element.
+- Fixed: The Packager CLI tool would generate an invalid `.imod` when multiple packages had the same name.
+
 ## Version 4.2.4
 
 ### Improvements in 4.2.4
