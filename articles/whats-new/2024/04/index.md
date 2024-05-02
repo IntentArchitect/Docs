@@ -7,6 +7,8 @@ Welcome to the April 2024 edition of highlights of What's New in Intent Architec
 - More updates
   - **[CosmosDB multi-tenancy now supports database isolation](#cosmosdb-multi-tenancy-now-supports-database-isolation)** - Have you CosmosDB tenants data stored in tenant specific databases.
   - **[OpenApi.Importer Module](#openapiimporter-module)** - Import Services from OpenAPI/Swagger documents.
+  - **[Amazon S3 Object Storage Module](#amazon-s3-object-storage-module)** - New support for S3 integration in .NET applications.
+  - **[Type `date` in C# will become `DateOnly`](#type-date-in-c-will-become-dateonly)** - The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type.
 
 ## Update details
 
@@ -41,3 +43,34 @@ For more detail, refer to the [module documentation](https://github.com/IntentAr
 Available from:
 
 - Intent.OpenApi.Importer 1.0.0
+
+### Amazon S3 Object Storage Module
+
+The `Amazon S3 Object Storage` module for .NET provides an easier-to-use API via the `IObjectStorage` interface. This release simplifies interactions such as uploading, downloading, listing, and deleting objects with Amazon S3, enabling developers to focus more on business logic and less on backend infrastructure.
+
+For more details, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AmazonS3.ObjectStorage/README.md).
+
+Available from:
+
+- Intent.AmazonS3.ObjectStorage 1.0.0-pre.0
+
+### Type `date` in C# will become `DateOnly`
+
+The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type. Some enhancements have been made to accommodate this `DateOnly` type in other modules such as Entity Framework where using `DateOnly` on EF 6 & 7 will make use of the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package for compatibility with SQL Server.
+
+> [!NOTE]
+>
+> Prior to this version of the module, any data in Intent Architect designers referencing the date
+> type would generate `System.DateTime` in C# code, but going forward they will instead generate
+> `System.DateOnly`. To avoid causing code compilation issues and possible bugs, on upgrading
+> the `Intent.Common.CSharp` module will change all designer references using `date` to instead use `datetime`.
+> Should you wish to maintain date uses in your designers, you can simply roll-back the changes that
+> get made to the `.xml` files in your source code management software (e.g. Git). Please don't
+> hesitate to reach out to our [Support](https://github.com/IntentArchitect/Support) should you
+> have any comments or questions.
+
+Available from:
+
+- Intent.Common.CSharp 3.6.0
+- Intent.EntityFrameworkCore 5.0.2 (if applicable)
+- Intent.AspNetCore.Controllers 6.0.5 (if applicable)
