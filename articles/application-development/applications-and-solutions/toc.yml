@@ -20,5 +20,5 @@ items:
   - name: How to manage Repositories
     href: how-to-manage-repositories/how-to-manage-repositories.md
 
-  - name: SCM ignore files
-    href: scm-ignore-files/scm-ignore-files.md
+  - name: SCM Integration with Intent Architect
+    href: scm-integration-with-intent-architect/scm-integration-with-intent-architect.md

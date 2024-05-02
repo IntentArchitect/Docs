@@ -28,13 +28,14 @@ uid: release-notes.version-3-1
 ### New features added in 3.1.8
 
 - When ignoring/un-ignoring files in the Software Factory Execution changes dialogue, the preference is now saved immediately whereas before it was saved only on acceptance of changes.
-- When creating an application or solution, there is now an option to create/update `.gitignore` files to ignore [relevant files](xref:application-development.applications-and-solutions.scm-ignore-files).
+- When creating an application or solution, there is now an option to create/update `.gitignore` files to ignore [relevant files](xref:application-development.applications-and-solutions.scm-integration-with-intent-architect).
 - Extended JavaScript API for Designer Macros.
 - SDK now exposes visual metadata for diagrams.
 - Expand/Collapse node functions extended to when more than one tree node is selected. Shortcuts (left arrow & right arrow) apply as before.
 - Stereotypes can now be visualized as annotations:
 
 ![Picture of stereotypes visualized as annotations](images/3.1.0/stereotypes-annotation-visualization.png)
+
 - Additional triggers for scripts (e.g. on-name-changed and on-mapped for elements).
 
 ### Issues fixed in 3.1.8
