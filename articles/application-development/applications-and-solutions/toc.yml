@@ -20,5 +20,5 @@ items:
   - name: How to manage Repositories
     href: how-to-manage-repositories/how-to-manage-repositories.md
 
-  - name: SCM Integration with Intent Architect
-    href: scm-integration-with-intent-architect/scm-integration-with-intent-architect.md
+  - name: Git and SCM Guidance
+    href: git-and-scm-guidance/git-and-scm-guidance.md
