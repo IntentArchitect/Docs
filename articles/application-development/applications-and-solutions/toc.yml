@@ -20,5 +20,5 @@ items:
   - name: How to manage Repositories
     href: how-to-manage-repositories/how-to-manage-repositories.md
 
-  - name: Git and SCM Guidance
+  - name: Git and SCM guidance
     href: git-and-scm-guidance/git-and-scm-guidance.md
