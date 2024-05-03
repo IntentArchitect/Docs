@@ -32,20 +32,20 @@ Tool 'intent.metadatasynchronizer.csharp.cli' (version 'x.x.x') was successfully
 
 ### Options
 
-| Option                                  | Description                                                                                                                                                                                                                                                                     |
-|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--config-file <config-file>`           | Path to a [JSON formatted file](#configuration-file) containing options to use for execution of this tool as an alternative to using command line options. The `--generate-config-file` option can be used to generate a file with all the possible fields populated with null. |
-| `--generate-config-file`                | Scaffolds into the current working directory a "config.json" for use with the `--config-file` option.                                                                                                                                                                           |
-| `--isln-file <isln-file>`               | The Intent Architect solution (.isln) file containing the Intent Architect Application into which to synchronize the metadata.                                                                                                                                                  |
-| `--domain-entities-folder`              | This folder location will be used to sync the C# Classes contained within it as Domain Entities.                                                                                                                                                                                |
-| `--enums-folder`                        | This folder location will be used to sync the C# Enums contained within it as Domain Enums.                                                                                                                                                                                     |
-| `--domain-services-folder`              | This folder location will be used to sync the C# Classes contained within it as Domain Services.                                                                                                                                                                                |
-| `--application-name <application-name>` | The name of the Intent Architect Application (as per the Application Settings view) containing the Intent Architect Package into which to synchronize the metadata.                                                                                                             |
-| `--package-id <package-id>`             | The id of the Intent Architect Package containing the Intent Architect Package into which to synchronize the metadata.                                                                                                                                                          |
-| `--target-folder-id <target-folder-id>` | The target folder within the Intent Architect package into which to synchronize the metadata. If unspecified then the metadata will be synchronized into the root of the Intent Architect package.                                                                              |
-| `--allow-removal <bool>`                | Remove previously imported data which is no longer being imported?                                                                                                                                                                                                              |
-| `--version`                             | Show version information                                                                                                                                                                                                                                                        |
-| `-?`, `-h`, `--help`                    | Show help and usage information                                                                                                                                                                                                                                                 |
+|Option                                  |Description|
+|----------------------------------------|-----------|
+|`--config-file <config-file>`           |Path to a [JSON formatted file](#configuration-file) containing options to use for execution of this tool as an alternative to using command line options. The `--generate-config-file` option can be used to generate a file with all the possible fields populated with null.|
+|`--generate-config-file`                |Scaffolds into the current working directory a "config.json" for use with the `--config-file` option. |
+|`--isln-file <isln-file>`               |The Intent Architect solution (.isln) file containing the Intent Architect Application into which to synchronize the metadata.|
+|`--domain-entities-folder`              |This folder location will be used to sync the C# Classes contained within it as Domain Entities.|
+|`--enums-folder`                        |This folder location will be used to sync the C# Enums contained within it as Domain Enums.|
+|`--domain-services-folder`              |This folder location will be used to sync the C# Classes contained within it as Domain Services.|
+|`--application-name <application-name>` |The name of the Intent Architect Application (as per the Application Settings view) containing the Intent Architect Package into which to synchronize the metadata.|
+|`--package-id <package-id>`             |The id of the Intent Architect Package containing the Intent Architect Package into which to synchronize the metadata.|
+|`--target-folder-id <target-folder-id>` |The target folder within the Intent Architect package into which to synchronize the metadata. If unspecified then the metadata will be synchronized into the root of the Intent Architect package.|
+|`--allow-removal <bool>`                |Remove previously imported data which is no longer being imported?|
+|`--version`                             |Show version information|
+|`-?`, `-h`, `--help`                    |Show help and usage information|
 
 ### Configuration file
 
