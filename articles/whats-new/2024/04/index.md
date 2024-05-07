@@ -9,6 +9,7 @@ Welcome to the April 2024 edition of highlights of What's New in Intent Architec
   - **[OpenApi.Importer Module](#openapiimporter-module)** - Import Services from OpenAPI/Swagger documents.
   - **[Amazon S3 Object Storage Module](#amazon-s3-object-storage-module)** - New support for S3 integration in .NET applications.
   - **[Type `date` in C# will become `DateOnly`](#type-date-in-c-will-become-dateonly)** - The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type.
+  - **[EF Multiple Database Support](#ef-multiple-database-support)** - connect to multiple databases within the same application.
 
 ## Update details
 
@@ -74,3 +75,15 @@ Available from:
 - Intent.Common.CSharp 3.6.0
 - Intent.EntityFrameworkCore 5.0.2 (if applicable)
 - Intent.AspNetCore.Controllers 6.0.5 (if applicable)
+
+### EF Multiple Database Support
+
+This feature allows you to specify different database connections and providers for each Domain package, enabling the creation of specialized DbContexts tailored to each connection string. It simplifies the management of multiple databases by automatically generating DbContext types based on the selected database provider and connection string, enhancing flexibility and ease of use in database operations.
+
+> [!NOTE]
+>
+> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.4

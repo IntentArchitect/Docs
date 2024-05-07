@@ -7,7 +7,6 @@ Welcome to the May 2024 edition of highlights of What's New in Intent Architect.
 - More updates
   - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
   - **[Entity Framework Core second level caching (beta)](#entity-framework-core-second-level-caching-beta)** - Cache the results of EF queries.
-  - **[EF Multiple Database Support](#ef-multiple-database-support)** - connect to multiple databases within the same application.
 
 ## Update details
 
@@ -47,15 +46,3 @@ Intent Architect's installer will now allow you to change the installation path 
 Available from:
 
 - Intent Architect 4.2.5-pre.0
-
-### EF Multiple Database Support
-
-This feature allows you to specify different database connections and providers for each Domain package, enabling the creation of specialized DbContexts tailored to each connection string. It simplifies the management of multiple databases by automatically generating DbContext types based on the selected database provider and connection string, enhancing flexibility and ease of use in database operations.
-
-> [!NOTE]
->
-> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
-
-Available from:
-
-- Intent.EntityFrameworkCore 5.0.4-pre.0
