@@ -3,13 +3,12 @@
 Welcome to the April 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-
-- More updates
   - **[CosmosDB multi-tenancy now supports database isolation](#cosmosdb-multi-tenancy-now-supports-database-isolation)** - Have you CosmosDB tenants data stored in tenant specific databases.
   - **[OpenApi.Importer Module](#openapiimporter-module)** - Import Services from OpenAPI/Swagger documents.
   - **[Amazon S3 Object Storage Module](#amazon-s3-object-storage-module)** - New support for S3 integration in .NET applications.
-  - **[Type `date` in C# will become `DateOnly`](#type-date-in-c-will-become-dateonly)** - The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type.
   - **[EF Multiple Database Support](#ef-multiple-database-support)** - connect to multiple databases within the same application.
+  - **[ASP.NET Core output caching with Redis](#aspnet-core-output-caching-with-redis)** - A new module which allows you to model service output caching and realize it using Redis.
+  - **[Type `date` in C# will become `DateOnly`](#type-date-in-c-will-become-dateonly)** - The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type.
 
 ## Update details
 
@@ -55,6 +54,38 @@ Available from:
 
 - Intent.AmazonS3.ObjectStorage 1.0.0
 
+### EF Multiple Database Support
+
+This feature allows you to specify different database connections and providers for each Domain package, enabling the creation of specialized DbContexts tailored to each connection string. It simplifies the management of multiple databases by automatically generating DbContext types based on the selected database provider and connection string, enhancing flexibility and ease of use in database operations.
+
+> [!NOTE]
+>
+> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.4
+
+### ASP.NET Core output caching with Redis
+
+Create caching polices and apply this to your services, allowing you to model your service output caching.
+
+To create Policies simply add them to you service designer as follows:
+
+![Creating Policies](./images/caching-policy.png)
+
+On the policy you can configure all the various caching options, which output caching supports.
+
+To apply caching to you end-points, simply apply the `Caching` stereotype, and select the appropriate `Caching Policy`.
+
+![Applying Policies](./images/apply-policy.png)
+
+For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.OutputCaching.Redis/README.md).
+
+Available from:
+
+- Intent.AspNetCore.OutputCaching.Redis 1.0.0
+
 ### Type `date` in C# will become `DateOnly`
 
 The Intent Architect type `date` used to generate `DateTime` in C# but will now generate the new `DateOnly` type. Some enhancements have been made to accommodate this `DateOnly` type in other modules such as Entity Framework where using `DateOnly` on EF 6 & 7 will make use of the `ErikEJ.EntityFrameworkCore.SqlServer.DateOnlyTimeOnly` nuget package for compatibility with SQL Server.
@@ -75,15 +106,3 @@ Available from:
 - Intent.Common.CSharp 3.6.0
 - Intent.EntityFrameworkCore 5.0.2 (if applicable)
 - Intent.AspNetCore.Controllers 6.0.5 (if applicable)
-
-### EF Multiple Database Support
-
-This feature allows you to specify different database connections and providers for each Domain package, enabling the creation of specialized DbContexts tailored to each connection string. It simplifies the management of multiple databases by automatically generating DbContext types based on the selected database provider and connection string, enhancing flexibility and ease of use in database operations.
-
-> [!NOTE]
->
-> For this release, the unit of work pattern still only applies to the main `ApplicationDbContext`, for the additional `DbContext`s the `SaveChanges` methods will need to be called manually. Should you have a project which requires the unit of work pattern to apply to additional `DbContext`s, please each out to us at [Intent Architect Support](https://github.com/IntentArchitect/Support).
-
-Available from:
-
-- Intent.EntityFrameworkCore 5.0.4
