@@ -53,7 +53,7 @@ For more details, refer to the [module documentation](https://github.com/IntentA
 
 Available from:
 
-- Intent.AmazonS3.ObjectStorage 1.0.0-pre.0
+- Intent.AmazonS3.ObjectStorage 1.0.0
 
 ### Type `date` in C# will become `DateOnly`
 
