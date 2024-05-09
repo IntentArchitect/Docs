@@ -3,7 +3,7 @@
 Welcome to the April 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-  - **[CosmosDB multi-tenancy now supports database isolation](#cosmosdb-multi-tenancy-now-supports-database-isolation)** - Have you CosmosDB tenants data stored in tenant specific databases.
+  - **[CosmosDB multi-tenancy now supports database isolation](#cosmosdb-multi-tenancy-now-supports-database-isolation)** - Store CosmosDB tenant's data in tenant specific databases.
   - **[OpenApi.Importer Module](#openapiimporter-module)** - Import Services from OpenAPI/Swagger documents.
   - **[Amazon S3 Object Storage Module](#amazon-s3-object-storage-module)** - New support for S3 integration in .NET applications.
   - **[EF Multiple Database Support](#ef-multiple-database-support)** - connect to multiple databases within the same application.
@@ -14,11 +14,11 @@ Welcome to the April 2024 edition of highlights of What's New in Intent Architec
 
 ### CosmosDB multi-tenancy now supports database isolation
 
-If you are using the `Intent.Modules.AspNetCore.MultiTenancy` module, our `Intent.CosmosDB` module now supported the `Data Isolation` - `Separate Database option`.
+If you are using the `Intent.Modules.AspNetCore.MultiTenancy` module, our `Intent.CosmosDB` module now supports the `Data Isolation` - `Separate Database` option.
 
 ![OpeConfiguration](./images/cosmos-multi-db-setting.png)
 
-You can configure then configure each tenant to have their own connection string.
+You can configure each tenant to have their own database connection string.
 
 For more detail, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.CosmosDB/README.md).
 
