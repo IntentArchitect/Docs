@@ -10,6 +10,8 @@ uid: release-notes.intent-architect-v4.2
 
 - Fixed: The incorrect script option would sometimes be executed when multiple script options with the same name existed on an element.
 - Fixed: The Packager CLI tool would generate an invalid `.imod` when multiple packages had the same name.
+- Fixed: `Failed to evaluate 'Icon Function'` warnings would appear on elements if they used stereotypes in their logic and multiple packages were loaded in the designer.
+- Fixed: Template Outputs would not be placed at their target roles when the role was not in the first package of a designer.
 
 ## Version 4.2.4
 
