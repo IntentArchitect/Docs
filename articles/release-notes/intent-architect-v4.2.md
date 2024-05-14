@@ -6,6 +6,10 @@ uid: release-notes.intent-architect-v4.2
 
 ## Version 4.2.5
 
+### Improvements in 4.2.5
+
+- Improvement: The `<application>.output.log` file can now also track template versions.
+
 ### Issues fixed in 4.2.5
 
 - Fixed: The incorrect script option would sometimes be executed when multiple script options with the same name existed on an element.
