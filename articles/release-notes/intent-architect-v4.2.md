@@ -4,6 +4,14 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.6
+
+### Issues fixed in 4.2.6
+
+- Fixed: Creating new Applications would show an error in the log window and designer metadata would not be installed.
+- Fixed: macOS: Under certain circumstances using "Quit Intent Architect v4 (⌘ Q)" from the menu bar would cause an exception to occur.
+- Fixed: The "Unsaved Changes" dialog would not show when restarting the application to apply an update.
+
 ## Version 4.2.5
 
 ### Improvements in 4.2.5
