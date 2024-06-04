@@ -8,7 +8,8 @@ Welcome to the May 2024 edition of highlights of What's New in Intent Architect.
   - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
   - **[Entity Framework Core second level caching (beta)](#entity-framework-core-second-level-caching-beta)** - Cache the results of EF queries.
   - **[Improvements to Service model modelling with the advanced mapping system](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
-  - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
+  - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm.
+  - **[Change the installation path of Intent Architect](#change-the-installation-path-of-intent-architect)** - On Windows it is now possible to install Intent Architect to a location other than `Program Files.`
 
 ## Update details
 
@@ -71,7 +72,7 @@ Available from:
 
 ### Change the installation path of Intent Architect
 
-Intent Architect's installer will now allow you to change the installation path of Intent Architect during initial installation.
+Intent Architect's Windows installer will now allow you to change the installation path of Intent Architect during initial installation.
 
 ![Intent Architect Setup: Choose Install Location](images/choose-install-location.png)
 
