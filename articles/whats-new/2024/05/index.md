@@ -7,6 +7,8 @@ Welcome to the May 2024 edition of highlights of What's New in Intent Architect.
 - More updates
   - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
   - **[Entity Framework Core second level caching (beta)](#entity-framework-core-second-level-caching-beta)** - Cache the results of EF queries.
+  - **[Improvements to Service model modelling with the advanced mapping system](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
+  - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
 
 ## Update details
 
@@ -36,6 +38,36 @@ For further details on using second level caching, refer to the [library's READM
 Available from:
 
 - Intent.EntityFrameworkCore.SecondLevelCaching 1.0.0-beta.0
+
+### Improvements to Service Model modelling with the advanced mapping system
+
+Service Operations can now be mapped onto domain entity `Constructors` and `Operations`.
+
+For example given this domain:
+
+![Sample Domain](images/domain-operations.png)
+
+You can now map service end points as follows:
+
+![Service Mappings](images/opertation-mapping.png)
+
+Available from:
+
+- Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.7
+
+### CRUD support for mapping literals
+
+When mapping CRUD implementation you can now specify literals, as opposed to mappings, for example:
+
+![Literal Mapping](images/literal-filter.png)
+
+Will now produce the following code:
+
+![Implementation](images/literal-filter-code.png)
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 6.0.10
 
 ### Change the installation path of Intent Architect
 
