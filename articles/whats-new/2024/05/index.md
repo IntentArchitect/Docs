@@ -12,6 +12,8 @@ We value your input and feedback, and we invite you to try it out. If you're int
   - **[Improvements to Service model modelling with the advanced mapping system](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
   - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm.
   - **[Change the installation path of Intent Architect](#change-the-installation-path-of-intent-architect)** - On Windows it is now possible to install Intent Architect to a location other than `Program Files.`
+  - **[Explicitly specify Default Schema name for Entity Framework](#explicitly-specify-default-schema-name-for-entity-framework)** - Specify a default schema name for Entity Framework within your Intent Architect application.
+  - **[Value Objects can now be represented as `Records` in code](#value-objects-can-now-be-represented-as-records-in-code)** - This update allows you to have Value Objects be generated into C# as `record` types.
 
 - More updates
 
@@ -83,3 +85,64 @@ Intent Architect's Windows installer will now allow you to change the installati
 Available from:
 
 - Intent Architect 4.2.5-pre.0
+
+### Explicitly specify Default Schema name for Entity Framework
+
+Specify a default schema name for Entity Framework within your Intent Architect application.
+
+You can locate this setting on the Settings page under the `Database Settings` section:
+![Default Schema Name](images/default-schema-name.png)
+
+It will set the default schema for all entities defined in the `ApplicationDbContext`:
+
+```c#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    base.OnModelCreating(modelBuilder);
+    modelBuilder.HasDefaultSchema("accounts");
+
+    ConfigureModel(modelBuilder);
+}
+```
+
+And it will configure the `ApplicationDbContext`'s History Table accordingly too.
+
+```c#
+services.AddDbContext<ApplicationDbContext>((sp, options) =>
+{
+    options.UseSqlServer(
+        configuration.GetConnectionString("DefaultConnection"),
+        b =>
+        {
+            b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName);
+            b.MigrationsHistoryTable(HistoryRepository.DefaultTableName, "accounts");
+        });
+    options.UseLazyLoadingProxies();
+});
+```
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.6
+
+### Value Objects can now be represented as `Records` in code
+
+This update allows you to have Value Objects be generated into C# as `record` types.
+
+![Value Object as Record setting](images/value-object-record-setting.png)
+
+Example:
+
+Value Objects in the Domain designer:
+
+![Value Objects in Domain Designer](images/value-objects-domain-designer.png)
+
+```c#
+public record Money(decimal Amount, string Currency);
+
+public record Address(string Line1, string Line2, string City, string Country, AddressType AddressType);
+```
+
+Available from:
+
+- Intent.ValueObjects 4.2.0.
