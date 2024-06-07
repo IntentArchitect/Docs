@@ -7,18 +7,26 @@ We’re thrilled to announce that our team has been working diligently on our up
 We value your input and feedback, and we invite you to try it out. If you're interested in participating in the trial, please reach out to us at <sarah@intentarchitect.com>.
 
 - Highlights
+  - **[Kafka Publish/Subscribe (beta)](#kafka-publishsubscribe-beta)** - A new module which allows you to use Kafka publishing and subscription of integration messages.
   - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
   - **[Entity Framework Core second level caching (beta)](#entity-framework-core-second-level-caching-beta)** - Cache the results of EF queries.
   - **[Improvements to Service model modelling with the advanced mapping system](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm .
-  - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm.
-  - **[Change the installation path of Intent Architect](#change-the-installation-path-of-intent-architect)** - On Windows it is now possible to install Intent Architect to a location other than `Program Files.`
   - **[Explicitly specify Default Schema name for Entity Framework](#explicitly-specify-default-schema-name-for-entity-framework)** - Specify a default schema name for Entity Framework within your Intent Architect application.
-  - **[Value Objects can now be represented as `Records` in code](#value-objects-can-now-be-represented-as-records-in-code)** - This update allows you to have Value Objects be generated into C# as `record` types.
-  - **[Kafka Publish/Subscribe (beta)](#kafka-publishsubscribe-beta)** - A new module which allows you to use Kafka publishing and subscription of integration messages.
 
 - More updates
+  - **[CRUD support for mapping literals](#improvements-to-service-model-modelling-with-the-advanced-mapping-system)** - This paradigm now has more parity with the CQRS paradigm.
+  - **[Value Objects can now be represented as `Records` in code](#value-objects-can-now-be-represented-as-records-in-code)** - This update allows you to have Value Objects be generated into C# as `record` types.
+  - **[Change the installation path of Intent Architect](#change-the-installation-path-of-intent-architect)** - On Windows it is now possible to install Intent Architect to a location other than `Program Files.`
 
 ## Update details
+
+### Kafka Publish/Subscribe (beta)
+
+You can now use Kafka to realize your inter-application eventing design from Intent Architect. [Model your message publishing and subscriptions as you normally would using the Eventing Modeler](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) and the new `Intent.Eventing.Kakfka` module will automatically generate Kafka Producers, Consumers and handlers for you allowing you interact with it using the same IEventBus interface in the same way as our other eventing technologies. You can also read more about the module [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.Kafka/README.md).
+
+Available from:
+
+- Intent.Eventing.Kakfka 1.0.0-beta.2
 
 ### `IDistributedCache` support (beta)
 
@@ -63,30 +71,6 @@ Available from:
 
 - Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.7
 
-### CRUD support for mapping literals
-
-When mapping CRUD implementation you can now specify literals, as opposed to mappings, for example:
-
-![Literal Mapping](images/literal-filter.png)
-
-Will now produce the following code:
-
-![Implementation](images/literal-filter-code.png)
-
-Available from:
-
-- Intent.Application.MediatR.CRUD 6.0.10
-
-### Change the installation path of Intent Architect
-
-Intent Architect's Windows installer will now allow you to change the installation path of Intent Architect during initial installation.
-
-![Intent Architect Setup: Choose Install Location](images/choose-install-location.png)
-
-Available from:
-
-- Intent Architect 4.2.5
-
 ### Explicitly specify Default Schema name for Entity Framework
 
 Specify a default schema name for Entity Framework within your Intent Architect application.
@@ -126,6 +110,20 @@ Available from:
 
 - Intent.EntityFrameworkCore 5.0.6
 
+### CRUD support for mapping literals
+
+When mapping CRUD implementation you can now specify literals, as opposed to mappings, for example:
+
+![Literal Mapping](images/literal-filter.png)
+
+Will now produce the following code:
+
+![Implementation](images/literal-filter-code.png)
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 6.0.10
+
 ### Value Objects can now be represented as `Records` in code
 
 This update allows you to have Value Objects be generated into C# as `record` types.
@@ -148,10 +146,12 @@ Available from:
 
 - Intent.ValueObjects 4.2.0
 
-### Kafka Publish/Subscribe (beta)
+### Change the installation path of Intent Architect
 
-You can now use Kafka to realize your inter-application eventing design from Intent Architect. [Model your message publishing and subscriptions as you normally would using the Eventing Modeler](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) and the new `Intent.Eventing.Kakfka` module will automatically generate Kafka Producers, Consumers and handlers for you allowing you interact with it using the same IEventBus interface in the same way as our other eventing technologies. You can also read more about the module [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.Kafka/README.md).
+Intent Architect's Windows installer will now allow you to change the installation path of Intent Architect during initial installation.
+
+![Intent Architect Setup: Choose Install Location](images/choose-install-location.png)
 
 Available from:
 
-- Intent.Eventing.Kakfka 1.0.0-beta.2
+- Intent Architect 4.2.5
