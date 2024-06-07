@@ -4,7 +4,7 @@ Welcome to the May 2024 edition of highlights of What's New in Intent Architect.
 
 We’re thrilled to announce that our team has been working diligently on our upcoming 4.3 release, focused on front end automation—a long-term goal we are excited to achieve. Our initial release will feature a Blazor implementation, and we aim to have an alpha release available by the end of June.
 
-We value your input and feedback, and we invite you to try it out. If you're interested in participating in the trial, please reach out to us at sarah@intentarchitect.com.
+We value your input and feedback, and we invite you to try it out. If you're interested in participating in the trial, please reach out to us at <sarah@intentarchitect.com>.
 
 - Highlights
   - **[`IDistributedCache` support (beta)](#idistributedcache-support-beta)** - Use Redis or memory to cache application data.
@@ -14,6 +14,7 @@ We value your input and feedback, and we invite you to try it out. If you're int
   - **[Change the installation path of Intent Architect](#change-the-installation-path-of-intent-architect)** - On Windows it is now possible to install Intent Architect to a location other than `Program Files.`
   - **[Explicitly specify Default Schema name for Entity Framework](#explicitly-specify-default-schema-name-for-entity-framework)** - Specify a default schema name for Entity Framework within your Intent Architect application.
   - **[Value Objects can now be represented as `Records` in code](#value-objects-can-now-be-represented-as-records-in-code)** - This update allows you to have Value Objects be generated into C# as `record` types.
+  - **[Kafka Publish/Subscribe (beta)](#kafka-publishsubscribe-beta)** - A new module which allows you to use Kafka publishing and subscription of integration messages.
 
 - More updates
 
@@ -84,7 +85,7 @@ Intent Architect's Windows installer will now allow you to change the installati
 
 Available from:
 
-- Intent Architect 4.2.5-pre.0
+- Intent Architect 4.2.5
 
 ### Explicitly specify Default Schema name for Entity Framework
 
@@ -145,4 +146,12 @@ public record Address(string Line1, string Line2, string City, string Country, A
 
 Available from:
 
-- Intent.ValueObjects 4.2.0.
+- Intent.ValueObjects 4.2.0
+
+### Kafka Publish/Subscribe (beta)
+
+You can now use Kafka to realize your inter-application eventing design from Intent Architect. [Model your message publishing and subscriptions as you normally would using the Eventing Modeler](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Eventing/README.md) and the new `Intent.Eventing.Kakfka` module will automatically generate Kafka Producers, Consumers and handlers for you allowing you interact with it using the same IEventBus interface in the same way as our other eventing technologies. You can also read more about the module [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.Kafka/README.md).
+
+Available from:
+
+- Intent.Eventing.Kakfka 1.0.0-beta.2
