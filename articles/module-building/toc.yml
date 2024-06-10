@@ -15,6 +15,9 @@ items:
 - name: Module Manifest
   href: module-manifest/module-manifest.md
 
+- name: Module Installation
+  href: module-installation/module-installation.md
+
 - name: Designers
   href: designers/toc.yml
 
