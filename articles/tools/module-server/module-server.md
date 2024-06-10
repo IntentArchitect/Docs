@@ -90,13 +90,13 @@ Here is a simple guide on creating an Azure App Service which runs the Module Se
 1. In the left pane, click on *Configuration*.
   ![web app configuration pane](images/web-app-configuration.png)
 1. For each of the following press the **+ New application setting**, capture the **Name**, **Value** fields, leave the *Deployment slow setting* checkbox unchecked and press the **OK** button:
-   - [Microsoft SQL Server connection string](#connectionstrings__defaultconnection):
+   - [Microsoft SQL Server connection string](#connectionstringsdefaultconnection):
      - **Name:** `ConnectionStrings__DefaultConnection`
      - **Value:** (A valid SQL Server connection string)
    - [API keys](#apikeys):
      - **Name:** `ApiKeys`
      - **Value:** (Semi-colon separated list of randomly generated API keys)
-   - [Azure Application Insights connection string](#applicationinsights_connection_string) (optional):
+   - [Azure Application Insights connection string](#applicationinsightsconnectionstring) (optional):
      - **Name:** `APPLICATIONINSIGHTS_CONNECTION_STRING`
      - **Value:** (A valid Azure Application Insights connection string)
   ![web app configuration pane (save)](images/web-app-configuration-save.png)
