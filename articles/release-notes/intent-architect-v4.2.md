@@ -9,6 +9,7 @@ uid: release-notes.intent-architect-v4.2
 ### Issues fixed in 4.2.7
 
 - Fixed: SVG icons from web servers would not be able to change their colour for dark mode.
+- Fixed: Implementations of `ITransformOutput` would not be executed for certain kinds of files (such as `.sln`s).
 
 ## Version 4.2.6
 
