@@ -1,3 +1,6 @@
+---
+uid: module-building.module-installation
+---
 # Module Installation
 
 ## Introduction

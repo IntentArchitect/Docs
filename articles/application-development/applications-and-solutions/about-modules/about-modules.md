@@ -18,3 +18,17 @@ _An example showing the list of Installed Modules in a sample application. The `
 
 > [!NOTE]
 > When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions it is made up of).
+
+## Options
+
+When (re)installing a module you can expand the "Options" drop down.
+
+![The options dropdown](images/options-drop-down.png)
+
+![The options dropdown expanded](images/options-drop-down-expanded.png)
+
+### Install metadata only
+
+This option is generally only applicable when [building modules](xref:module-building.module-installation).
+
+When selected, none of the module's Intent Architect extensibility will be enabled, this includes designers or software factory extensions (such as templates) will not be enabled or run during the software factory. However, the metadata from the module (i.e. modeled data such as elements or stereotypes) can be used from designers which are referencing them.
