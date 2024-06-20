@@ -18,5 +18,5 @@ items:
   - name: User Interface
     href: user-interface/toc.yml
 
-  - name: Standard Patterns and Architectures
-    topicUid: application-development.intent-architect-standard-patterns-and-architectures.overview
+  - name: Practicing DDD with Intent
+    topicUid: application-development.practicing-ddd-with-intent-architect
