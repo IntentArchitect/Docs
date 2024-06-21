@@ -451,7 +451,7 @@ When you do not specify the `Body` mode specifically for an `IntentManaged` attr
 - **Merge:** Any members from the template output which are missing from the existing file will be added, additional members which were previously added by Intent will be removed and any additional members which where manually user added will not be removed.
 - **Ignore:** No members will be added to or removed from the existing file.
 
-### How does Intent know what was previously generated and is now no longer being generated:
+### How does Intent know what was previously generated and is now no longer being generated?
 
 After pressing Apply in the software factory, for all files managed by the software factory (except for files which are unchecked in the Changes view), the Software Factory will save the template output (i.e. the "pre-merge" output) for each file in the `.intent/previous_output` of the current Intent Architect application.
 
