@@ -4,6 +4,16 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.8
+
+### Improvements in 4.2.8
+
+- Improvement: `.deviations.log` files are now renamed to `.deviations.xml`, preventing them from being ignored by most `.gitignore` files.
+
+### Issues fixed in 4.2.8
+
+- Fixed: The computed hash for file deviations would differ between Windows and Linux/macOS, resulting in approved deviations becoming unapproved on the other operating system(s). After this fix, any deviations approved under Windows will remain approved, deviations under Linux/macOS will regrettably need to be re-approved. We apologize for any inconvenience this may cause.
+
 ## Version 4.2.7
 
 ### Issues fixed in 4.2.7
