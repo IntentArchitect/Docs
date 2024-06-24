@@ -9,6 +9,7 @@ uid: release-notes.intent-architect-v4.2
 ### Improvements in 4.2.8
 
 - Improvement: `.deviations.log` files are now renamed to `.deviations.xml`, preventing them from being ignored by most `.gitignore` files.
+- Improvement: More details will be showed if an error occurs when starting Intent Architect.
 
 ### Issues fixed in 4.2.8
 
