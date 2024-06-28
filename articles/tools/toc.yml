@@ -14,6 +14,9 @@ items:
   - name: Packager CLI
     href: packager-cli/packager-cli.md
 
+  - name: RoslynWeaver Sanitizer
+    href: roslyn-weaver-sanitizer/roslyn-weaver-sanitizer.md
+
   - name: Software Factory CLI
     href: software-factory-cli/software-factory-cli.md
 
