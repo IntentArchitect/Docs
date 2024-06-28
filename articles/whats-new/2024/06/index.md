@@ -2,11 +2,13 @@
 
 Welcome to the June 2024 edition of highlights of What's New in Intent Architect.
 
-
 - Highlights
-  - **[Solace Module](#solace-module)** - A new module which allows you to use Solce publish/subscribe message system for integration messaging.
 
 - More updates
+  - **[Solace Module](#solace-module)** - A new module which allows you to use Solce publish/subscribe message system for integration messaging.
+  - **[EF Core column ordering](#ef-core-column-ordering)** - A new database setting which preserves Domain Model attribute ordering at a SQL Colum level.
+  - **[`// TODO : Implement` comments](#-todo--implement-comments)** - Have upgrades our patterns which produce `throw new NotImplementedException` to also include the `TODO comment`.
+  - **[EF Repository Dapper Hybrid Module](#ef-core-column-ordering)** - This module extends the standard EF repository pattern to make Dapper usage simple.
 
 ## Update details
 
@@ -17,3 +19,38 @@ You can now use Solace to realize your inter-application eventing design from In
 Available from:
 
 - Intent.Eventing.Solace 1.0.2
+
+### EF Core column ordering
+
+Added a new `Database Setting` to the `Intent.EntityFrameworkCore` module, when enabled Intent Architect will populated the relevant `ColumnOrdering` in the Entity configurations resulting in you SQL Tables having the same column ordering as your Intent Architect domain model.
+
+![Setting](images/maintain-column-ordering.png)
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.8
+
+### `// TODO : Implement` comments
+
+There are many places where Intent Architect would generate `throw new NotImplementedException` for developers to implement, we have updated this paradigm to include the `// TODO : Implement..` comments. This allows for better visibility on these though IDE Todo lists and can also be easily picked up in CI/CD pipelines.
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 6.0.12
+
+### EF Repository Dapper Hybrid Module
+
+This module extends the `Intent.EntityFrameworkCore.Repositories` module adding the following method:
+
+```csharp
+    protected IDbConnection GetConnection()
+    {
+        return _dbContext.Database.GetDbConnection();
+    }
+```
+
+Making it easy to add repository methods which can be implemented using Dapper.
+
+Available from:
+
+- Intent.EntityFrameworkCore.Repositories.DapperHybrid 1.0.0
