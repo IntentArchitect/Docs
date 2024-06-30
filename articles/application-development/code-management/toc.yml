@@ -2,11 +2,14 @@ items:
   - name: About Code management
     href: about-code-management/about-code-management.md
 
-  - name: C# Code-Management
+  - name: C# Code Management
     href: code-management-csharp/code-management-csharp.md
 
-  - name: TypeScript Code-Management
-    href: code-management-typescript/code-management-typescript.md
-
-  - name: Java Code-Management
+  - name: Java Code Management
     href: code-management-java/code-management-java.md
+
+  # - name: Razor Code Management
+  #   href: code-management-razor/code-management-razor.md
+
+  - name: TypeScript Code Management
+    href: code-management-typescript/code-management-typescript.md

@@ -7,7 +7,7 @@ items:
     href: software-factory/toc.yml
     topicUid: application-development.software-factory.about-software-factory-execution
 
-  - name: Code-Management
+  - name: Code Management
     href: code-management/toc.yml
     topicUid: application-development.code-management.about-code-management
 
