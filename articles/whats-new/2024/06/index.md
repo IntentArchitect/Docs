@@ -9,6 +9,7 @@ Welcome to the June 2024 edition of highlights of What's New in Intent Architect
   - **[EF Core column ordering](#ef-core-column-ordering)** - A new database setting which preserves Domain Model attribute ordering at a SQL Colum level.
   - **[`// TODO : Implement` comments](#-todo--implement-comments)** - Have upgrades our patterns which produce `throw new NotImplementedException` to also include the `TODO comment`.
   - **[EF Repository Dapper Hybrid Module](#ef-core-column-ordering)** - This module extends the standard EF repository pattern to make Dapper usage simple.
+  - **[Create CQRS Operations and Services from Service Proxies](#create-cqrs-operations-and-services-from-service-proxies)** - Similar to how you can create CRUD Operations from a Domain Entity, you can now create CQRS / Application Service operations from Service Proxies.
 
 ## Update details
 
@@ -54,3 +55,23 @@ Making it easy to add repository methods which can be implemented using Dapper.
 Available from:
 
 - Intent.EntityFrameworkCore.Repositories.DapperHybrid 1.0.0
+
+### Create CQRS Operations and Services from Service Proxies
+
+Similar to how you can create CRUD Operations from a Domain Entity, you can now create CQRS / Application Service operations from Service Proxies.
+
+For more information, read the [module documentation](https://github.com/IntentArchitect/Intent.Modules/blob/master/Modules/Intent.Modules.Modelers.Services.ProxyInteractions/README.md).
+
+![Context Menu](images/service-proxies-creation-menu.png)
+
+![Created Services](images/service-proxies-created-diagram.png)
+
+Available from:
+
+- Intent.Modelers.Services.ProxyInteractions 1.0.1
+
+Ensure you are using at least the versions of the following modules (if you have them installed):
+
+- Intent.Integration.HttpClients 5.1.5
+- Intent.Application.MediatR.CRUD 6.0.12
+- Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.9
