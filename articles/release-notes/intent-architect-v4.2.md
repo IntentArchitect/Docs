@@ -4,6 +4,12 @@ uid: release-notes.intent-architect-v4.2
 
 # Release notes: Intent Architect version 4.2
 
+## Version 4.2.9
+
+### Issues fixed in 4.2.9
+
+- Fixed: Under certain circumstances, deleting an association between elements would not cause validation functions to run again until re-opening the designer.
+
 ## Version 4.2.8
 
 ### Improvements in 4.2.8
