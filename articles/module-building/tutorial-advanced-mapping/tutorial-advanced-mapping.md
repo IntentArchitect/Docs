@@ -178,7 +178,118 @@ Create a new template in the `ElementMappingModule` for mapping commands to doma
 
 Ensure the following properties are set:
 
+- Name `ElementMappingTemplate`.
 - Type `Single File`.
 - Templating Method `C# File Builder`.
 - Designer `Services`.
 - Model Type `Command`.
+
+## Implement ElementMappingTemplate
+
+Run the Software Factory and open the solution in Visual Studio.
+
+Open the `ElementMappingTemplatePartial` class. Implement the constructor like this:
+
+```cs
+public ElementMappingTemplate(IOutputTarget outputTarget, IList<CommandModel> model) : base(TemplateId, outputTarget, model)
+{
+    CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+        .AddClass($"ElementMapping", @class =>
+        {
+            @class.Static();
+            foreach (var commandModel in model)
+            {
+                var commandTypeName = GetTypeName("Application.Command", commandModel);
+                foreach (var target in commandModel.MapToElementTargets())
+                {
+                    var entityTypeName = GetTypeName("Domain.Entity", target.Association.TargetEnd.Element);
+                    var entityName = target.Association.TargetEnd.Element.Name;
+                    @class.AddMethod(entityTypeName, $"MapTo{entityName.ToPascalCase()}", method =>
+                    {
+                        method.Static();
+                        method.AddParameter(commandTypeName, "source", param => param.WithThisModifier());
+                        
+                        var manager = new CSharpClassMappingManager(this);
+                        
+                        manager.SetFromReplacement(commandModel, "source");
+                        
+                        var resultStatement = new CSharpAssignmentStatement(
+                            "var result",
+                            manager.GenerateCreationStatement(target.Mappings.First())).WithSemicolon();
+                        method.AddStatement(resultStatement);
+                        method.AddStatement("return result;");
+                    });
+                }
+            }
+        });
+}
+```
+
+Create a new class `ElementMappingTypeResolver` and implement it as follows:
+
+```cs
+public class ElementMappingTypeResolver : IMappingTypeResolver
+{
+    private readonly ICSharpFileBuilderTemplate _template;
+
+    public ElementMappingTypeResolver(ICSharpFileBuilderTemplate template)
+    {
+        _template = template;
+    }
+
+    public ICSharpMapping ResolveMappings(MappingModel mappingModel)
+    {
+        if (mappingModel.MappingTypeId != "ENTER ID HERE")
+        {
+            return null;
+        }
+        
+        var model = mappingModel.Model;
+
+        if (model.SpecializationType is "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
+        {
+            return new ObjectInitializationMapping(mappingModel, _template);
+        }
+        
+        if (model.SpecializationType == "Association Target End" && model.TypeReference?.IsCollection == true)
+        {
+            return new SelectToListMapping(mappingModel, _template);
+        }
+
+        return null;
+    }
+}
+```
+
+In Intent Architect, go to your `Element Mapping` elemen, left click on it and locate the 3 dots on the right hand side. Click on it and select `Copy Id to clipboard`.
+
+![Copy Id to clipboard](images/copy-id-clipboard.png)
+
+Go back to the `ElementMappingTypeResolver` and locate the `ENTER ID HERE` string. Replace it with the Id you copied in Intent Architect.
+
+```cs 
+if (mappingModel.MappingTypeId != "eba4de6c-8b26-4a4e-ab7d-48e327495227")
+{
+    return null;
+}
+```
+
+In the `ElementMappingTemplatePartial` constructor, you need to add this resolver like this:
+
+```cs
+var manager = new CSharpClassMappingManager(this);
+manager.AddMappingResolver(new ElementMappingTypeResolver(this));
+```
+
+## Build and install the Module
+
+Compile the ElementMappingModule project in Visual Studio.
+
+Note the location of the created module in the `Build` log.
+
+`Successfully created package C:\Code\MyModules\Intent.Modules\ElementMappingModule.1.0.0.imod`
+
+Create a Clean Architecture application in Intent Architect for testing this newly created module. Call it `TestApp`.
+
+To set it up to install the custom module in the `TestApp`, follow the `Install the Module` instructions [here](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module).
+
