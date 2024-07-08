@@ -6,7 +6,7 @@ Welcome to the June 2024 edition of highlights of What's New in Intent Architect
   - **[Create CQRS Operations and Services from Service Proxies](#create-cqrs-operations-and-services-from-service-proxies)** - Similar to how you can create CRUD Operations from a Domain Entity, you can now create CQRS / Application Service operations from Service Proxies.
   - **[Solace Module](#solace-module)** - A new module which allows you to use Solace publish/subscribe message system for integration messaging.
   - **[EF Core column ordering](#ef-core-column-ordering)** - A new database setting which preserves Domain Model attribute ordering at a SQL Colum level.
-  - **[`// TODO : Implement` comments](#-todo--implement-comments)** - Have upgrades our patterns which produce `throw new NotImplementedException` to also include the `TODO comment`.
+  - **[TODO comments added to `NotImplementedException`](#todo-comments-added-to-notimplementedexception)** - Have upgraded our patterns which produce `throw new NotImplementedException` to also include the `TODO comment`.
   - **[EF Repository Dapper Hybrid Module](#ef-core-column-ordering)** - This module extends the standard EF repository pattern to make Dapper usage simple.
 
 ## Update details
@@ -49,7 +49,7 @@ Available from:
 
 - Intent.EntityFrameworkCore 5.0.8
 
-### `// TODO : Implement` comments
+### TODO comments added to `NotImplementedException`
 
 There are many places where Intent Architect would generate `throw new NotImplementedException` for developers to implement, we have updated this paradigm to include the `// TODO : Implement..` comments. This allows for better visibility on these though IDE Todo lists and can also be easily picked up in CI/CD pipelines.
 
