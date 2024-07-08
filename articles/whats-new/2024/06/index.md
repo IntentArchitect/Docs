@@ -4,7 +4,7 @@ Welcome to the June 2024 edition of highlights of What's New in Intent Architect
 
 - Highlights
   - **[Create CQRS Operations and Services from Service Proxies](#create-cqrs-operations-and-services-from-service-proxies)** - Similar to how you can create CRUD Operations from a Domain Entity, you can now create CQRS / Application Service operations from Service Proxies.
-  - **[Solace Module](#solace-module)** - A new module which allows you to use Solce publish/subscribe message system for integration messaging.
+  - **[Solace Module](#solace-module)** - A new module which allows you to use Solace publish/subscribe message system for integration messaging.
   - **[EF Core column ordering](#ef-core-column-ordering)** - A new database setting which preserves Domain Model attribute ordering at a SQL Colum level.
   - **[`// TODO : Implement` comments](#-todo--implement-comments)** - Have upgrades our patterns which produce `throw new NotImplementedException` to also include the `TODO comment`.
   - **[EF Repository Dapper Hybrid Module](#ef-core-column-ordering)** - This module extends the standard EF repository pattern to make Dapper usage simple.
