@@ -170,6 +170,20 @@ Add the following Mapping Types to the `Element Mapping` by right clicking and s
   - Target Types `Set Attribute: Attribute`, `Set Association Target End: Association Target End`.
   - Represents `Data`.
 
+## Create Context menus
+
+To create the `Map To Element` association and perform the `Element Mapping` mapping we need to setup their context menu options.
+
+On the `Command Extension` ensure that the `[context menu]` element exists by right clicking on it and selecting `Add Menu Options`.
+
+On the `[context menu]` element right click and select `Add Association Creation`. Give it the name of `Add element mapping` and set the type to `Map To Element`.
+
+Next, go to the `Map To Element` association and locate the `Map To Element Target End` destination end. Ensure it too has the `[context menu]` created by selecting `Add Menu Options` when right clicking on the element.
+
+On the `[context menu]` proceed to right click and select `Add Mapping Option` and give it the name `Map to Element` with the type being `Element Mapping`.
+
+![Context menus](images/context-menus.png)
+
 ## Create Template for Mapping code
 
 ![Template for Mapping code](images/template-mapping-code.png)
@@ -190,7 +204,7 @@ Run the Software Factory and open the solution in Visual Studio.
 
 Open the `ElementMappingTemplatePartial` class. Implement the constructor like this:
 
-```cs
+```csharp
 public ElementMappingTemplate(IOutputTarget outputTarget, IList<CommandModel> model) : base(TemplateId, outputTarget, model)
 {
     CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -227,7 +241,7 @@ public ElementMappingTemplate(IOutputTarget outputTarget, IList<CommandModel> mo
 
 Create a new class `ElementMappingTypeResolver` and implement it as follows:
 
-```cs
+```csharp
 public class ElementMappingTypeResolver : IMappingTypeResolver
 {
     private readonly ICSharpFileBuilderTemplate _template;
@@ -267,7 +281,7 @@ In Intent Architect, go to your `Element Mapping` elemen, left click on it and l
 
 Go back to the `ElementMappingTypeResolver` and locate the `ENTER ID HERE` string. Replace it with the Id you copied in Intent Architect.
 
-```cs 
+```csharp
 if (mappingModel.MappingTypeId != "eba4de6c-8b26-4a4e-ab7d-48e327495227")
 {
     return null;
@@ -276,7 +290,7 @@ if (mappingModel.MappingTypeId != "eba4de6c-8b26-4a4e-ab7d-48e327495227")
 
 In the `ElementMappingTemplatePartial` constructor, you need to add this resolver like this:
 
-```cs
+```csharp
 var manager = new CSharpClassMappingManager(this);
 manager.AddMappingResolver(new ElementMappingTypeResolver(this));
 ```
@@ -293,3 +307,55 @@ Create a Clean Architecture application in Intent Architect for testing this new
 
 To set it up to install the custom module in the `TestApp`, follow the `Install the Module` instructions [here](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module).
 
+## Testing out the Module
+
+Navigate to the Domain Designer for `TestApp`. Create two Classes defined like this:
+
+- Order
+  - RefNo as `string`.
+  - CreatedDate as `datetime`.
+- OrderLine
+  - Description as `string`.
+  - Amount as `decimal`.
+  - Quantity as `int`.
+
+Create an association from `Order` to `OrderLine` as a `1 -> *` relationship.
+
+![Domain Model](images/domain-model.png)
+
+Now navigate to the Services Designer and create a Command called `CreateOrderCommand`. Provide it with a `RefNo` as `string` and `CreatedDate` as `datetime` fields. Last, right click on the Command and select `Add element mapping`. Skip the name for the association by pressing tab to jump right into the type dropdown and select `Order`.
+
+Right click on the `[map] : Order(...): void` element and select `Map To Element`. This will present a advanced mapping screen where you can map the two Mapping Types: `Invocation Mapping` and `Data Mapping` like this:
+
+- Double click on the `Order` class on the right hand side to setup the `Invocation Mapping` represented as a dotted purple line.
+- Double click on the `RefNo` and `CreatedDate` fields on the right hand side to setup the `Data Mappings` represented as solid blue lines.
+- Click on DONE.
+
+Run the Software Factory and open the `ElementMapping` class located in the Application project. It should look like this:
+
+```csharp
+namespace TestApp.Application
+{
+    public static class ElementMapping
+    {
+        public static Order MapToOrder(this CreateOrderCommand source)
+        {
+            var result = new Order
+            {
+                RefNo = source.RefNo,
+                CreatedDate = source.CreatedDate
+            };
+            return result;
+        }
+    }
+}
+```
+
+This will allow you to write the following code inside the `CreateOrderCommandHandler` class:
+
+```csharp
+public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+{
+    var order = request.MapToOrder();
+}
+```
