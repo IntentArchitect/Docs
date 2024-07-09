@@ -5,22 +5,22 @@ uid: module-building.tutorial-advanced-mapping
 
 ## Overview
 
-This tutorial will guide you through the process of setting up an advanced mapping between a CQRS Command and a Domain Entity Class using Intent Architect. This allows for the automatic generation of code that maps the properties from a command (or DTO) to the associated properties or fields of a domain entity. 
+This tutorial will guide you through setting up advanced mapping between a CQRS Command and a Domain Entity Class using Intent Architect. This allows for automatic code generation that maps properties from a command (or DTO) to associated properties or fields of a domain entity. 
 
 ## Create a New Module Builder Application
 
 - Open Intent Architect and create a new Module Builder application named `ElementMappingModule`.
-- Ensure you include the necessary components: `Module Builder C#`, `Domain` and `Services`.
-- Once the `ElementMappingModule` is created, right-click on the newly created application and select `Manage Modules`.
+- Ensure you include the necessary components: `Module Builder C#`, `Domain`, and `Services`.
+- Once the `ElementMappingModule` is created, right-click on the new application and select `Manage Modules`.
 - Search for `cqrs`.
-- Install the  `Intent.Modelers.Services.CQRS` module. Expand the `Options` section on the right hand side and check `Install metadata only`.
+- Install the `Intent.Modelers.Services.CQRS` module. Expand the `Options` section on the right-hand side and check `Install metadata only`.
 
-## Setup designer settings
+## Setup Designer Settings
 
 ![Designer settings](images/designer-settings.png)
 
 - In the `Module Builder`, create a `Designer Settings` named `Explicit Mapper Settings`.
-- Within this folder, create a `Designer Settings` item and name it `Command Extension`.
+- Within this folder, create a `Designer Settings` item named `Command Extension`.
 - Set the `Extended Designers` property to reference the `Services` designer.
 - Add an `Element Extension` with the name `Command Extension` and target the `Command` type from the CQRS module.
 
@@ -30,7 +30,7 @@ This tutorial will guide you through the process of setting up an advanced mappi
 
 - Create a new `Association Type` named `Map to Element`.
 - Set the `Source End` to `Command`.
-  - Set the Display Text Function to
+  - Set the Display Text Function to:
 
     ```javascript
     return `mapped by : ${typeReference.getType().getParent().getName()}.${typeReference.display}`;
@@ -38,7 +38,7 @@ This tutorial will guide you through the process of setting up an advanced mappi
 
   - Set the Name Accessibility to `Hidden`.
 - Set the `Target End` to `Class`.
-  - Set the Display Text Function to
+  - Set the Display Text Function to:
 
     ```javascript
     const returnType = typeReference.getType()?.typeReference?.display ?? "void";
@@ -46,23 +46,22 @@ This tutorial will guide you through the process of setting up an advanced mappi
     ```
 
   - Set the Name Accessibility to `Optional`.
-- Right click on `Map to Element` and select `Add Visual Settings`, ensure the Type is `void`.
+- Right-click on `Map to Element` and select `Add Visual Settings`, ensure the Type is `void`.
 - Set its properties:
   - Line Type `Curved`.
   - Line Dash Array `return "3, 7";`.
-- Right click on the `[visual]` and add a `Source` visual.
+- Right-click on the `[visual]` and add a `Source` visual.
 - Set its properties on Point Settings:
-  - Path
+  - Path:
 
     ```js
-    return `a 4,4 0 1,0 4,4 
-        a 4,4 0 1,0 -4,4`;
+    return `a 4,4 0 1,0 4,4 a 4,4 0 1,0 -4,4`;
     ```
 
   - Line Width `return 3;`.
-- Right click on the `[visual]` and add a `Destination` visual.
+- Right-click on the `[visual]` and add a `Destination` visual.
 - Set its properties on Point Settings:
-  - Path
+  - Path:
 
     ```js
     return `l 4 8 l -8 0 l 4 -8 Z`;
@@ -74,35 +73,35 @@ This tutorial will guide you through the process of setting up an advanced mappi
 
 Create a new `Mapping Settings` in the `Explicit Mapper Settings` Designer Settings and name it `Element Mapping`.
 
-Create the following `Mappable Element Settings` inside the `Source` element (with its own Target Type) by right clicking on `Source` and selecting `Add Mappable Element`:
+Create the following `Mappable Element Settings` inside the `Source` element (with its own Target Type) by right-clicking on `Source` and selecting `Add Mappable Element`:
 
-- Command (`Command`)
-- DTO (`DTO`)
-  - Field (`DTO-Field`)
-  - Collection Field (`DTO-Field`)
+- **Command** (`Command`)
+- **DTO** (`DTO`)
+  - **Field** (`DTO-Field`)
+  - **Collection Field** (`DTO-Field`)
 
 Set the properties for the following source elements:
 
-- Command
+- **Command**
   - Represents `Data`.
   - Is Mappable Function `return true;`.
   - Allow Multiple Mappings `checked`.
   - Can Be Modified `checked`.
   - Use Child Mappings From `DTO: DTO`.
-- DTO
+- **DTO**
   - Represents `Data`.
   - Is Mappable Function `return false;`.
   - Allow Multiple Mappings `checked`.
   - Can Be Modified `checked`.
-  - Create Name Function
+  - Create Name Function:
 
     ```js
     return element.getParent('Command').getName() + element.getName() + 'Dto';
     ```
 
-- Field
+- **Field**
   - Represents `Data`.
-  - Filter Function
+  - Filter Function:
 
     ```js
     return !element.typeReference.getIsCollection();
@@ -113,44 +112,44 @@ Set the properties for the following source elements:
   - Traversable Mode `Traverse Specific Types`.
   - Traversable Types `DTO: DTO`.
   - Can Be Modified `checked`.
-- Collection Field
+- **Collection Field**
   - Represents `Data`.
-  - Filter Function
+  - Filter Function:
 
-      ```js
-      return element.typeReference.getIsCollection();
-      ```
+    ```js
+    return element.typeReference.getIsCollection();
+    ```
 
   - Is Mappable Function `return true;`.
   - Allow Multiple Mappings `checked`.
   - Traversable Types `DTO: DTO`.
   - Can Be Modified `checked`.
 
-Create the following `Mappable Element Settings` inside the `Target` element (with its own Target Type) by right clicking on `Target` and selecting `Add Mappable Element`:
+Create the following `Mappable Element Settings` inside the `Target` element (with its own Target Type) by right-clicking on `Target` and selecting `Add Mappable Element`:
 
-- Create Class (`Class`)
-  - Set Attribute (`Attribute`)
-  - Set Association Target End (`Association Target End`)
-  - Set Association Source End (`Association Source End`)
+- **Create Class** (`Class`)
+  - **Set Attribute** (`Attribute`)
+  - **Set Association Target End** (`Association Target End`)
+  - **Set Association Source End** (`Association Source End`)
 
 Set the properties for the following target elements:
 
-- Create Class
+- **Create Class**
   - Represents `Invokable`.
   - Is Mappable Function `return true;`.
   - Allow Multiple Mappings `checked`.
-- Set Attribute
+- **Set Attribute**
   - Represents `Data`.
   - Is Mappable Function `return true;`.
   - Allow Multiple Mappings `checked`.
-- Set Association Target End
+- **Set Association Target End**
   - Represents `Data`.
   - Is Mappable Function `return true;`.
   - Allow Multiple Mappings `checked`.
   - Traversable Mode `Traverse Specific Types`.
   - Traversable Types `Create Class: Class`.
   - Use Child Mappings From `Create Class: Class`.
-- Set Association Source End
+- **Set Association Source End**
   - Represents `Data`.
   - Is Required Function `return false;`.
   - Is Mappable Function `return true;`.
@@ -159,36 +158,36 @@ Set the properties for the following target elements:
   - Traversable Types `Create Class: Class`.
   - Use Child Mappings From `Create Class: Class`.
 
-Add the following Mapping Types to the `Element Mapping` by right clicking and selecting `Add Mapping Type` and set their properties accordingly:
+Add the following Mapping Types to the `Element Mapping` by right-clicking and selecting `Add Mapping Type` and set their properties accordingly:
 
-- Invocation Mapping
+- **Invocation Mapping**
   - Source Types `Command: Command`.
   - Target Types `Create Class: Class`.
   - Represents `Invokable`.
-- Data Mapping
+- **Data Mapping**
   - Source Types `Field: DTO-Field`, `Collection Field: DTO-Field`.
   - Target Types `Set Attribute: Attribute`, `Set Association Target End: Association Target End`.
   - Represents `Data`.
 
-## Create Context menus
+## Create Context Menus
 
-To create the `Map To Element` association and perform the `Element Mapping` mapping we need to setup their context menu options.
+To create the `Map To Element` association and perform the `Element Mapping` mapping, we need to set up their context menu options.
 
-On the `Command Extension` ensure that the `[context menu]` element exists by right clicking on it and selecting `Add Menu Options`.
+On the `Command Extension`, ensure that the `[context menu]` element exists by right-clicking on it and selecting `Add Menu Options`.
 
-On the `[context menu]` element right click and select `Add Association Creation`. Give it the name of `Add element mapping` and set the type to `Map To Element`.
+On the `[context menu]` element, right-click and select `Add Association Creation`. Name it `Add element mapping` and set the type to `Map To Element`.
 
-Next, go to the `Map To Element` association and locate the `Map To Element Target End` destination end. Ensure it too has the `[context menu]` created by selecting `Add Menu Options` when right clicking on the element.
+Next, go to the `Map To Element` association and locate the `Map To Element Target End` destination end. Ensure it too has the `[context menu]` created by selecting `Add Menu Options` when right-clicking on the element.
 
-On the `[context menu]` proceed to right click and select `Add Mapping Option` and give it the name `Map to Element` with the type being `Element Mapping`.
+On the `[context menu]`, right-click and select `Add Mapping Option` and name it `Map to Element` with the type being `Element Mapping`.
 
 ![Context menus](images/context-menus.png)
 
-## Create Template for Mapping code
+## Create Template for Mapping Code
 
 ![Template for Mapping code](images/template-mapping-code.png)
 
-Create a new template in the `ElementMappingModule` for mapping commands to domain entities by right clicking on the `ElementMappingModule` package and selecting `New C# Template`.
+Create a new template in the `ElementMappingModule` for mapping commands to domain entities by right-clicking on the `ElementMappingModule` package and selecting `New C# Template`.
 
 Ensure the following properties are set:
 
@@ -222,11 +221,11 @@ public ElementMappingTemplate(IOutputTarget outputTarget, IList<CommandModel> mo
                     {
                         method.Static();
                         method.AddParameter(commandTypeName, "source", param => param.WithThisModifier());
-                        
+
                         var manager = new CSharpClassMappingManager(this);
-                        
+
                         manager.SetFromReplacement(commandModel, "source");
-                        
+
                         var resultStatement = new CSharpAssignmentStatement(
                             "var result",
                             manager.GenerateCreationStatement(target.Mappings.First())).WithSemicolon();
@@ -257,14 +256,14 @@ public class ElementMappingTypeResolver : IMappingTypeResolver
         {
             return null;
         }
-        
+
         var model = mappingModel.Model;
 
         if (model.SpecializationType is "Class" || model.TypeReference?.Element?.SpecializationType == "Class")
         {
             return new ObjectInitializationMapping(mappingModel, _template);
         }
-        
+
         if (model.SpecializationType == "Association Target End" && model.TypeReference?.IsCollection == true)
         {
             return new SelectToListMapping(mappingModel, _template);
@@ -275,7 +274,7 @@ public class ElementMappingTypeResolver : IMappingTypeResolver
 }
 ```
 
-In Intent Architect, go to your `Element Mapping` elemen, left click on it and locate the 3 dots on the right hand side. Click on it and select `Copy Id to clipboard`.
+In Intent Architect, go to your `Element Mapping` element, left-click on it and locate the 3 dots on the right-hand side. Click on it and select `Copy Id to clipboard`.
 
 ![Copy Id to clipboard](images/copy-id-clipboard.png)
 
@@ -288,48 +287,48 @@ if (mappingModel.MappingTypeId != "eba4de6c-8b26-4a4e-ab7d-48e327495227")
 }
 ```
 
-In the `ElementMappingTemplatePartial` constructor, you need to add this resolver like this:
+In the `ElementMappingTemplatePartial` constructor, add this resolver like this:
 
 ```csharp
 var manager = new CSharpClassMappingManager(this);
 manager.AddMappingResolver(new ElementMappingTypeResolver(this));
 ```
 
-## Build and install the Module
+## Build and Install the Module
 
-Compile the ElementMappingModule project in Visual Studio.
+Compile the `ElementMappingModule` project in Visual Studio.
 
-Note the location of the created module in the `Build` log.
+Note the location of the created module in the `Build` log:
 
 `Successfully created package C:\Code\MyModules\Intent.Modules\ElementMappingModule.1.0.0.imod`
 
 Create a Clean Architecture application in Intent Architect for testing this newly created module. Call it `TestApp`.
 
-To set it up to install the custom module in the `TestApp`, follow the `Install the Module` instructions [here](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module).
+To set it up to install the custom module in the `TestApp`, follow the `Install the Module` instructions here: [Install and Run the Module](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module).
 
-## Testing out the Module
+## Testing the Module
 
 Navigate to the Domain Designer for `TestApp`. Create two Classes defined like this:
 
-- Order
-  - RefNo as `string`.
-  - CreatedDate as `datetime`.
-- OrderLine
-  - Description as `string`.
-  - Amount as `decimal`.
-  - Quantity as `int`.
+- **Order**
+  - `RefNo` as `string`
+  - `CreatedDate` as `datetime`
+- **OrderLine**
+  - `Description` as `string`
+  - `Amount` as `decimal`
+  - `Quantity` as `int`
 
 Create an association from `Order` to `OrderLine` as a `1 -> *` relationship.
 
 ![Domain Model](images/domain-model.png)
 
-Now navigate to the Services Designer and create a Command called `CreateOrderCommand`. Provide it with a `RefNo` as `string` and `CreatedDate` as `datetime` fields. Last, right click on the Command and select `Add element mapping`. Skip the name for the association by pressing tab to jump right into the type dropdown and select `Order`.
+Next, navigate to the Services Designer and create a Command called `CreateOrderCommand`. Provide it with a `RefNo` as `string` and `CreatedDate` as `datetime` fields. Last, right-click on the Command and select `Add element mapping`. Skip the name for the association by pressing tab to jump right into the type dropdown and select `Order`.
 
-Right click on the `[map] : Order(...): void` element and select `Map To Element`. This will present a advanced mapping screen where you can map the two Mapping Types: `Invocation Mapping` and `Data Mapping` like this:
+Right-click on the `[map] : Order(...): void` element and select `Map To Element`. This presents an advanced mapping screen where you can map the two Mapping Types: `Invocation Mapping` and `Data Mapping`.
 
-- Double click on the `Order` class on the right hand side to setup the `Invocation Mapping` represented as a dotted purple line.
-- Double click on the `RefNo` and `CreatedDate` fields on the right hand side to setup the `Data Mappings` represented as solid blue lines.
-- Click on DONE.
+- Double-click on the `Order` class on the right-hand side to set up the `Invocation Mapping` represented as a dotted purple line.
+- Double-click on the `RefNo` and `CreatedDate` fields on the right-hand side to set up the `Data Mappings` represented as solid blue lines.
+- Click DONE.
 
 Run the Software Factory and open the `ElementMapping` class located in the Application project. It should look like this:
 
@@ -351,7 +350,7 @@ namespace TestApp.Application
 }
 ```
 
-This will allow you to write the following code inside the `CreateOrderCommandHandler` class:
+This allows you to write the following code inside the `CreateOrderCommandHandler` class:
 
 ```csharp
 public async Task Handle(CreateOrderCommand request, CancellationToken cancellationToken)
