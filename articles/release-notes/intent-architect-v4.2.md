@@ -9,12 +9,13 @@ uid: release-notes.intent-architect-v4.2
 ### Issues fixed in 4.2.9
 
 - Fixed: Under certain circumstances, deleting an association between elements would not cause validation functions to run again until re-opening the designer.
+- Fixed: When both a `.deviations.log` files and `.deviations.log.xml` existed, an error would occur during Software Factory execution.
 
 ## Version 4.2.8
 
 ### Improvements in 4.2.8
 
-- Improvement: `.deviations.log` files are now renamed to `.deviations.xml`, preventing them from being ignored by most `.gitignore` files.
+- Improvement: `.deviations.log` files are now renamed to `.deviations.log.xml`, preventing them from being ignored by most `.gitignore` files.
 - Improvement: More details will be showed if an error occurs when starting Intent Architect.
 
 ### Issues fixed in 4.2.8
