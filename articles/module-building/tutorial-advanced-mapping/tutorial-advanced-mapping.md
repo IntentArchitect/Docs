@@ -324,11 +324,18 @@ Create an association from `Order` to `OrderLine` as a `1 -> *` relationship.
 
 Next, navigate to the Services Designer and create a Command called `CreateOrderCommand`. Provide it with a `RefNo` as `string` and `CreatedDate` as `datetime` fields. Last, right-click on the Command and select `Add element mapping`. Skip the name for the association by pressing tab to jump right into the type dropdown and select `Order`.
 
+![Service Model](images/service-model.png)
+
+![Diagram on Service designer](images/service-designer-diagram.png)
+
 Right-click on the `[map] : Order(...): void` element and select `Map To Element`. This presents an advanced mapping screen where you can map the two Mapping Types: `Invocation Mapping` and `Data Mapping`.
 
 - Double-click on the `Order` class on the right-hand side to set up the `Invocation Mapping` represented as a dotted purple line.
 - Double-click on the `RefNo` and `CreatedDate` fields on the right-hand side to set up the `Data Mappings` represented as solid blue lines.
+- Double-click on the `OrderLines` field twice to set up the `Data Mappings` represented as solid blue lines.
 - Click DONE.
+
+![Advanced mapping](images/advanced-mapping.png)
 
 Run the Software Factory and open the `ElementMapping` class located in the Application project. It should look like this:
 
@@ -342,7 +349,17 @@ namespace TestApp.Application
             var result = new Order
             {
                 RefNo = source.RefNo,
-                CreatedDate = source.CreatedDate
+                CreatedDate = source.CreatedDate,
+                OrderLines = source.OrderLines
+                    .Select(ol => new OrderLine
+                    {
+                        Id = ol.Id,
+                        Description = ol.Description,
+                        Amount = ol.Amount,
+                        Quantity = ol.Quantity,
+                        OrderId = ol.OrderId
+                    })
+                    .ToList()
             };
             return result;
         }
