@@ -2,6 +2,8 @@
 
 Welcome to the June 2024 edition of highlights of What's New in Intent Architect.
 
+We are excited to share that we are now focusing on stabilization of the newest version of Intent Architect - version 4.3 - and plan to release a beta at the end of July. This version includes several new features and improvements with support for **front-end design capabilities**. We plan to release this with an initial set modules to automate Blazor front-end development using [MudBlazor](https://mudblazor.com/).
+
 - Highlights
   - **[Create CQRS Operations and Services from Service Proxies](#create-cqrs-operations-and-services-from-service-proxies)** - Similar to how you can create CRUD Operations from a Domain Entity, you can now create CQRS / Application Service operations from Service Proxies.
   - **[Solace Module](#solace-module)** - A new module which allows you to use Solace publish/subscribe message system for integration messaging.
