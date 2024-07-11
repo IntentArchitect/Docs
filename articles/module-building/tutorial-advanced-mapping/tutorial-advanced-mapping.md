@@ -5,7 +5,9 @@ uid: module-building.tutorial-advanced-mapping
 
 ## Overview
 
-This tutorial will guide you through setting up advanced mapping between a CQRS Command and a Domain Entity Class using Intent Architect. This allows for automatic code generation that maps properties from a command (or DTO) to associated properties or fields of a domain entity. 
+This tutorial will guide you through setting up advanced mapping between a CQRS Command and a Domain Entity Class using Intent Architect. This allows for automatic code generation that maps properties from a command (or DTO) to associated properties or fields of a domain entity.
+
+![Advanced mapping](images/advanced-mapping.png)
 
 ## Create a New Module Builder Application
 
@@ -17,6 +19,8 @@ This tutorial will guide you through setting up advanced mapping between a CQRS 
 
 ## Setup Designer Settings
 
+With designer settings, you can introduce new elements such as extensions, associations, and mapping configurations to the designers. This enhances the visual modeling capabilities of Intent Architect, making it easier to create more sophisticated and detailed models that are tailored to the application's needs.
+
 ![Designer settings](images/designer-settings.png)
 
 - In the `Module Builder`, create a `Designer Settings` named `Explicit Mapper Settings`.
@@ -26,10 +30,13 @@ This tutorial will guide you through setting up advanced mapping between a CQRS 
 
 ## Define the Mapping Associations
 
+Defining mapping associations allows users to establish explicit relationships between commands and domain classes. This facilitates the automatic generation of mapping code based on these defined relationships.
+
 ![Designer Associations](images/designer-associations.png)
 
 - Create a new `Association Type` named `Map to Element`.
 - Set the `Source End` to `Command`.
+  - The next steps involve setting `Display Text Functions` that control the text that gets displayed when referencing the Source or Target end of the association. The functions are written in JavaScript.
   - Set the Display Text Function to:
 
     ```javascript
@@ -51,6 +58,7 @@ This tutorial will guide you through setting up advanced mapping between a CQRS 
   - Line Type `Curved`.
   - Line Dash Array `return "3, 7";`.
 - Right-click on the `[visual]` and add a `Source` visual.
+- The next steps involve `Point Settings` which are [SVG Paths](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths) used to draw an image resembling an arrow-line that represents the element mapping.
 - Set its properties on Point Settings:
   - Path:
 
@@ -59,6 +67,7 @@ This tutorial will guide you through setting up advanced mapping between a CQRS 
     ```
 
   - Line Width `return 3;`.
+  - This will draw the solid circle on the Source end.
 - Right-click on the `[visual]` and add a `Destination` visual.
 - Set its properties on Point Settings:
   - Path:
@@ -67,9 +76,15 @@ This tutorial will guide you through setting up advanced mapping between a CQRS 
     return `l 4 8 l -8 0 l 4 -8 Z`;
     ```
 
+  - This will draw the triangle pointer on the Target end.
+
 ## Define the Element Mapping
 
+Element mappings specify how different elements within the source (like DTOs and Commands) should map to the target (like Domain Classes and Associations). This allows for the detailed configuration of how data should be transferred and transformed between different parts of the application.
+
 ![Element Mapping](images/element-mapping.png)
+
+The `Source` elements within the settings (such as Command, DTO with nested Fields) indicate the elements from which you can map. On the other hand, the `Target` elements (such as Class, Attribute, and Associations) indicate where you can map to. This setup ensures there's a clear and traversable path for data or actions between various parts of your model.
 
 Create a new `Mapping Settings` in the `Explicit Mapper Settings` Designer Settings and name it `Element Mapping`.
 
@@ -79,6 +94,15 @@ Create the following `Mappable Element Settings` inside the `Source` element (wi
 - **DTO** (`DTO`)
   - **Field** (`DTO-Field`)
   - **Collection Field** (`DTO-Field`)
+
+The next steps will be addressing the following property types:
+
+- **Represents**: . This will be further addressed in the [Invocation Mapping](#invocation-mapping) and [Data Mapping](#data-mapping).
+- **Is Mappable Function**: If it returns `true` the element is allowed to be mapped from/to. This is useful in cases where elements may be greyed out since they are read-only for instance on the target end.
+- **Allow Multiple Mappings**: Allow for element to be mapped from/to multiple times.
+- **Can Be Modified**: Should it be permissible to generate and automatically link these fields if they do not already exist at the other end upon a double-click action (as an example)?
+- **Traversable Mode**: This mode enables elements that link to other types of elements to be expanded, making their child elements accessible for mapping. By choosing this mode, you can specify which types of elements are permitted to enter the traversal. For instance, consider a Class `Order` that contains a collection of `OrderLines` as an association; using this mode, you can navigate through the collection to map to its constituent elements.
+- **Use Child Mappings From**: Rather than replicating mappings for child elements along with their associated property values, you have the option to "borrow" the child-element structure from another element type. For instance, Command could adopt the child mappings from DTO, given their structural similarity despite serving different purposes.
 
 Set the properties for the following source elements:
 
@@ -125,7 +149,7 @@ Set the properties for the following source elements:
   - Traversable Types `DTO: DTO`.
   - Can Be Modified `checked`.
 
-Create the following `Mappable Element Settings` inside the `Target` element (with its own Target Type) by right-clicking on `Target` and selecting `Add Mappable Element`:
+Create the following `Mappable Element Settings` inside the `Target` (or Destination) element (with its own Target Type) by right-clicking on `Target` and selecting `Add Mappable Element`:
 
 - **Create Class** (`Class`)
   - **Set Attribute** (`Attribute`)
@@ -160,16 +184,33 @@ Set the properties for the following target elements:
 
 Add the following Mapping Types to the `Element Mapping` by right-clicking and selecting `Add Mapping Type` and set their properties accordingly:
 
-- **Invocation Mapping**
-  - Source Types `Command: Command`.
-  - Target Types `Create Class: Class`.
-  - Represents `Invokable`.
-- **Data Mapping**
-  - Source Types `Field: DTO-Field`, `Collection Field: DTO-Field`.
-  - Target Types `Set Attribute: Attribute`, `Set Association Target End: Association Target End`.
-  - Represents `Data`.
+### Invocation Mapping
+
+- Source Types `Command: Command`.
+- Target Types `Create Class: Class`.
+- Represents `Invokable`.
+
+Example of an Invocation mapping:
+![Invocation mapping](images/invocation-mapping.png)
+
+This mapping method facilitates the creation of an instance or execution of an operation on a target Entity. This can be done by directly calling the Entity's constructor, either explicitly or implicitly, or by solely executing the Entity's operation. To illustrate, a `CreateOrderCommand` could correspond to the constructor of an `Order` class, initializing necessary fields directly. This approach guarantees a consistent and foreseeable setup of the target entity.
+
+### Data Mapping
+
+- Source Types `Field: DTO-Field`, `Collection Field: DTO-Field`.
+- Target Types `Set Attribute: Attribute`, `Set Association Target End: Association Target End`.
+- Represents `Data`.
+
+Example of a Data mapping:
+![Data Mapping](images/data-mapping.png)
+
+This type of mapping is intended for direct assignment of values from fields in the source object to attributes or relationships in the target object. It handles both s
+ingle-value fields and collections. By defining these mappings, fields from a command or DTO can be accurately transferred and mapped to corresponding properties of a domain entity, ensuring
+ data integrity and consistency. For example, the `RefNo` and `CreatedDate` attributes of an `Order` entity can be directly mapped from fields in a command or DTO, ensuring each attribute is correctly populated.
 
 ## Create Context Menus
+
+To provide a way for users to create these Element Mappings between Commands and Domain Classes and to map the data flow between them, context menus will be added to enable the user to perform those functions.
 
 To create the `Map To Element` association and perform the `Element Mapping` mapping, we need to set up their context menu options.
 
@@ -185,6 +226,8 @@ On the `[context menu]`, right-click and select `Add Mapping Option` and name it
 
 ## Create Template for Mapping Code
 
+Creating a template for mapping code involves defining a custom template that generate the necessary code to perform the mappings. This step ensures that the mappings defined in the designer are translated into executable code.
+
 ![Template for Mapping code](images/template-mapping-code.png)
 
 Create a new template in the `ElementMappingModule` for mapping commands to domain entities by right-clicking on the `ElementMappingModule` package and selecting `New C# Template`.
@@ -198,6 +241,8 @@ Ensure the following properties are set:
 - Model Type `Command`.
 
 ## Implement ElementMappingTemplate
+
+The implementation of the `ElementMappingTemplate` and `ElementMappingTypeResolver` provides the logic for how the mappings should be executed and ensures that the correct methods and logic are generated based on the defined mappings.
 
 Run the Software Factory and open the solution in Visual Studio.
 
@@ -296,6 +341,8 @@ manager.AddMappingResolver(new ElementMappingTypeResolver(this));
 
 ## Build and Install the Module
 
+Once the custom module is set up and implemented, we'll cover the process of installing the module into your application. This step makes the new mapping capabilities available for use in the application.
+
 Compile the `ElementMappingModule` project in Visual Studio.
 
 Note the location of the created module in the `Build` log:
@@ -307,6 +354,8 @@ Create a Clean Architecture application in Intent Architect for testing this new
 To set it up to install the custom module in the `TestApp`, follow the `Install the Module` instructions here: [Install and Run the Module](xref:module-building.tutorial-create-a-template.install-and-run-the-module#install-the-module).
 
 ## Testing the Module
+
+Testing the module involves creating domain models and commands within the application and applying the mappings to ensure that the generated code correctly maps between commands and domain entities, confirming the intended functionality.
 
 Navigate to the Domain Designer for `TestApp`. Create two Classes defined like this:
 
