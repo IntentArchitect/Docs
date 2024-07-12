@@ -7,3 +7,6 @@ items:
 
   - name: About Template Output Targeting
     href: about-template-output-targeting/about-template-output-targeting.md
+
+  - name: Troubleshooting element errors
+    href: troubleshooting-element-errors/troubleshooting-element-errors.md
