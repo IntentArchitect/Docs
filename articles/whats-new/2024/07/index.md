@@ -26,17 +26,17 @@ Add Operations on Repositories in the Domain designer and invoke them from Servi
 
 Example Repository with Operation:
 
-![alt text](images/repository-operation-mapping-domain.png)
+![Example Domain](images/repository-operation-mapping-domain.png)
 
 Example Command:
 
-![alt text](images/repository-operation-mapping-command-menu.png)
+![Example Command](images/repository-operation-mapping-command-menu.png)
 
 Example invocation from Command to Repository Operation:
 
-![alt text](images/repository-operation-mapping-service-invocation.png)
+![Mapping between Command and Repository](images/repository-operation-mapping-service-invocation.png)
 
-![alt text](images/repository-operation-mapping-invocaiton-mapping.png)
+![Data Mapping](images/repository-operation-mapping-invocaiton-mapping.png)
 
 Available from:
 
