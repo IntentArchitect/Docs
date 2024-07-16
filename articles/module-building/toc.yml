@@ -6,6 +6,9 @@ items:
   topicUid: module-building.tutorial-create-a-template.create-a-template-introduction
   href: tutorial-create-a-template/toc.yml
 
+- name: 'Tutorial: Advanced Mapping'
+  topicUid: module-building.tutorial-advanced-mapping
+
 - name: Application Settings
   href: application-settings/application-settings.md
 
