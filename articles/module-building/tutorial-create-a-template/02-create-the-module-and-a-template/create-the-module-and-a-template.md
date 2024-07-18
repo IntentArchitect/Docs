@@ -140,7 +140,7 @@ Let's change this sample implementation to something more relevant for a `Entity
 
 [!code-csharp[](code/entity-base-completed.cs?highlight=14,17-20)]
 
-As you can intuition, the template will now output a file like this:
+The template will now output a file like this:
 
 [!code-csharp[](code/entity-based-change-visualize.cs?highlight=1,7-10)]
 
