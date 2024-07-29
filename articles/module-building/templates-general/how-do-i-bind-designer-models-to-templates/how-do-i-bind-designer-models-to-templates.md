@@ -4,29 +4,29 @@ uid: module-building.templates-general.how-do-i-bind-designer-models-to-template
 
 # Data-binding Designer Models to templates
 
-When adding `Template`s to your own module there are several template types which support data-binding to designer models.
+When adding `Template`s to your own module, there are several template types which support data-binding to designer models.
 
 Commonly used template's which support this feature:
 
 - C# Template
 - File Template
 
-These templates allow you to select the nature of how the data Models affects the Template, by specifying a `Type`:
+These templates allow you to select the nature of how the data models affects the template, by specifying a `Type`:
 
-- **Single File**, the template will generate a single file regardless of how many models bound.
-- **File Per Model**, the template will generate a multiple files, one for each Model bound.
+- **Single File**, the template will generate a single file regardless of how many models are bound.
+- **File Per Model**, the template will generate a multiple files, one for each model bound.
 - **Custom**, This option allows you to completely customize this process and is beyond the scope of this article.
 
 ![Select Template Type](./images/template-type.png)
 
-Now in the `Template Settings` you can specify which `Designer` and which `Model` within that designer would would like to data-bind your template to.
+Next, in the `Template Settings` you can specify which `Designer` and which `Model` within that designer you would like to data-bind your template to.
 
 ![Bind the Model Type](./images/data-bind-template.png)
 
 > [!NOTE]
-> If the Designer you are looking for is not in the drop down make sure you have added the Designer Module. [](xref:module-building.templates-general.how-do-i-access-designer-models)
+> If the Designer you are looking for is not in the drop down make sure you have added the Designer module as a reference. [](xref:module-building.templates-general.how-do-i-access-designer-models)
 
-Looking at the above example we are binding our Template to the `Domain Designer` `Class` model, this will set up your template such that the Designer model(s) are injected into you template, as per your selections. Here are examples of what the code would look like:
+Looking at the above example, we are binding our template to the `Domain Designer`'s `Class` model, this will set up your template such that the Designer model(s) are injected into your template's constructor, as per your selections. Here are examples of what the code would look like:
 
 `Single File` Template Example
 
@@ -62,11 +62,11 @@ public partial class MyFilePerModelTemplate : CSharpTemplateBase<IList<ClassMode
 ```
 
 > [!NOTE]
-> `File Per Model` templates always require a data-binding, with the `Single File` templates it is optional. If you do not bind a model the constructor model parameter will be of type object and have a value of `null`.
+> `File Per Model` templates always require a data-binding, with `Single File` templates data-binding is optional. If you do not bind a model the constructor model parameter will be of type `object` and have a value of `null`.
 
 ## How can I filter which designer models are bound to my template?
 
-Templates are instantiated through a factory, and this factory is responsible for binding the data. These factories are commonly referred to a template registrations. When you look at the source code for a template you will notice is has a corresponding template  registration file.
+Templates are instantiated through a factory, and this factory is responsible for binding the data. These factories are commonly referred to a template registrations. When you look at the source code for a template you will notice is has a corresponding template registration file.
 
 Here are examples of the registrations for the above files.
 
