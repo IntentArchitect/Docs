@@ -1,5 +1,8 @@
 ---
 uid: module-building.templates-general.how-to-filter-templates
+tags:
+    - Metadata
+    - Binding
 ---
 # How to filter Template Instances
 
