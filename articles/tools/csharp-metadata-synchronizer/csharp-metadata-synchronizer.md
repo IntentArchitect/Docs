@@ -57,11 +57,14 @@ The `--config-file` option expects the name of a file containing configuration o
 ```json
 {
   "DomainEntitiesFolder": null,
-  "EnumsFolder": null,
+  "DomainEnumsFolder": null,
   "DomainServicesFolder": null,
+  "ServiceEnumsFolder": null,
+  "ServiceDtosFolder": null,
   "IslnFile": null,
   "ApplicationName": null,
   "PackageId": null,
+  "DesignerName": null,
   "TargetFolderId": null,
   "AllowRemoval": true
 }
