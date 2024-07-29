@@ -3,11 +3,11 @@ uid: module-building.templates-general.how-do-i-access-designer-models
 ---
 # How to access designer models in templates?
 
-When building module using Intent Architect, it is a very common to want to use the metadata you have modeled in the designers as part of the code generation. As an example lets say you've build out a Domain model you would want to generate a set of C# classes which is the code realization of that domain model. 
+When building modules using Intent Architect, it is a very common to want to use the metadata you have modeled in the designers as part of the code generation. As an example lets say you've built out a Domain model you would want to generate a set of C# classes which is the code realization of that domain model. This article covers how to achieve this.
 
 ## Overview of Designer Models and their usage within templates
 
-When using Intent Architect you build up metadata models in the various designers, as an example In the Domain Designer you create a domain model. This designer would describe concepts like `Class`es, `Attribute`s, `Associations` etc. All of these concepts are models in their own right, and holistically make up your domain model.
+When using Intent Architect you build up metadata models in the various designers, as an example In the `Domain Designer` you create a domain model which reflects your business domain. This designer would describe concepts like `Class`es, `Attribute`s, `Associations` etc. All of these concepts are models in their own right, and holistically make up your domain model.
 
 ![Domain Model Example](./images/domain-model-example.png)
 
@@ -68,8 +68,8 @@ public class ClassModel : ...
 
 There are two common scenarios of how this data would be accessed
 
-- Binding Models to the Template within `Module Designer`.
-- Fetching the Models using `MetadataManager` from within a template.
+- Binding Models to the template within `Module Designer`.
+- Fetching the models using `MetadataManager` from within a template.
 
 > [!NOTE]
 > `ClassModel` and the `Domain` extension method off of `ExecutionContext` will not be present in your own module by default. As Intent Architect is a modular extensible platform, these concepts are bundled and packaged with the `Domain Designer`. The next section covers how to set this up.
