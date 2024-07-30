@@ -7,32 +7,34 @@ Welcome to the July 2024 edition of highlights of What's New in Intent Architect
   - **[HttpClient authorization provider security option](#httpclient-authorization-provider-security-option)** - Integration HttpClients now has a new security pattern for injecting access tokens.
   - **[Ordered pagination for CRUD patterns](#ordered-pagination-for-crud-patterns)** - Our CRUD pagination patterns now support ordering.
   - **[MongoDb Integration Testing support](#mongodb-integration-testing-support)** - Added support for MongoDb Integration testing.
-  - **[CosmosDB repository query improvements](#cosmosdb-repository-query-improvements)** - Improved QOL features on the CosmosDB Repository query pattern.
+  - **[CosmosDB repository query improvements](#cosmos-db-repository-query-improvements)** - Improved QOL features on the CosmosDB Repository query pattern.
 
 - More updates
   - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvement on the OpenAPI importer module.
   - **[HttpClient grouped configuration](#httpclient-grouped-configuration)** - Shared service proxy configuration.
   - **[MongoDb repository query improvements](#mongodb-repository-query-improvements)** - Improved QOL features on the MongoDb Repository pattern.
-  - **[CosmosDB explicit optimistic concurrency](#cosmosdb-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
+  - **[Cosmos DB explicit optimistic concurrency](#cosmos-db-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
   - **[Domain Service support for Generic types](#domain-service-support-for-generic-types)** - `DomainService`s now support modeling Generic operations.
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
-
+  - **[Ignore endpoints for OpenAPI](#ignore-endpoints-for-openapi)** - Prevent endpoints from being generated for OpenAPI specifications and Swagger UI.
+  - **[Advanced Mapping system documentation for module builders](#advanced-mapping-system-tutorial-for-module-builders)** - Tutorial now available for module builders wanting to leverage the advanced mapping system.
 
 ## Update details
 
 ### Service security modeling
 
-We have added a new feature for the Service Designer letting you model you service endpoint `Role`s and `Policy`s. You can now add these to our service design as follows:
+We have added a new feature for the Service Designer letting you model service endpoint `Role`s and `Policy`s. You can now add these to our service design as follows:
 
-![Roles/Policies modelled](./images/configured-security.png)
+![Roles/Policies modelled](images/configured-security.png)
 
 And then use these modeled concepts on your `Authorize` / `Secured` stereotypes, as follows
 
-![Roles/Policies modelled](./images/configure-roles-policies.png)
+![Roles/Policies modelled](images/configure-roles-policies.png)
 
 There is also an option to migrate your existing security configuration to this new system.
 
-For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
+For more detailed information see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
+
 Available from:
 
 - Intent.AspNetCore.Controllers 6.0.9
@@ -67,9 +69,9 @@ Available from:
 
 ### MongoDb Integration Testing support
 
-The `Intent.AspNetCore.IntegrationTesting` now has support for our Mongo Modules. The module will provision and wire-up a MongoDb container, using `Testcontainers.MongoDb`, for the integration tests to run against.
+The `Intent.AspNetCore.IntegrationTesting` now has support for our MongoDb Modules. The module will provision and wire-up a MongoDb container, using `Testcontainers.MongoDb`, for the integration tests to run against.
 
-For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
+For more detailed information see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
 
 Available from:
 
@@ -79,7 +81,7 @@ Available from:
 
 Improved the MongoDb repository pattern to have better LINQ Support.
 
-Added LINQ methods
+The following LINQ methods have been added:
 
 ```csharp
 
@@ -111,14 +113,14 @@ Available from:
 
 - Intent.MongoDb.Repositories 1.2.0
 
-### CosmosDB repository query improvements
+### Cosmos DB repository query improvements
 
-Our cosmos repository pattern has been improve in two ways:
+Our Cosmos DB repository pattern has been improved in the following ways:
 
-- New methods providing LINQ access
-- Protected methods making SQL more accessible for inherited repositories
+- New methods providing LINQ access.
+- Protected methods making SQL more accessible for inherited repositories.
 
-Added LINQ methods
+The following LINQ methods have been added:
 
 ```csharp
 
@@ -146,7 +148,7 @@ Task<bool> AnyAsync(
 
 ```
 
-Added SQL methods
+The following SQL methods have been added:
 
 ```csharp
 
@@ -201,7 +203,7 @@ Available from:
 
 - Intent.Integration.HttpClients 5.1.9
 
-### CosmosDB explicit optimistic concurrency
+### Cosmos DB explicit optimistic concurrency
 
 The repository already had support for implicit optimistic concurrency, ensuring documents written to Cosmos had not changed since they were read within the same service call.
 You can now leverage the `ETag` directly for more more scenario's include cross service calls.
@@ -231,3 +233,22 @@ For more information, refer to [this](xref:application-development.code-weaving-
 Available from:
 
 - Intent.Code.Weaving.Razor 1.0.0-beta.0
+
+### Ignore endpoints for OpenAPI
+
+It is now possible to prevent endpoints from being generated in OpenAPI specifications, and by implication making it ignored to other tools using the OpenAPI specification, such as Swagger UI.
+
+To ignore an endpoint, apply the _OpenAPI Settings_ stereotype to a Command, Query, Service Operation or Azure Function and select the _Ignore_ checkbox:
+
+![OpenAPI Settings stereotype](images/open-api-settings-stereotype.png)
+
+When applied, it will add an `[ApiExplorerSettings(IgnoreApi = true)]` attribute to controllers and/or methods for ASP.NET Core WebAPI or the `[OpenApiIgnore]` attribute to Azure Functions.
+
+Available from:
+
+- Intent.AspNetCore.Controllers 6.0.9
+- Intent.AzureFunctions 4.1.1
+
+### Advanced Mapping system tutorial for module builders
+
+Module builders wishing to leverage Intent Architect's advanced mapping system can now refer to our [](xref:module-building.tutorial-advanced-mapping) article for a guide on how to do so.
