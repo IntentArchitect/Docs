@@ -1,16 +1,16 @@
 # What's new in Intent Architect (August 2024)
 
-Welcome to the July 2024 edition of highlights of What's New in Intent Architect.
+Welcome to the August 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-  - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s  and `Policy`s in the Service Designer.
+  - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s and `Policy`s in the Service Designer.
   - **[HttpClient authorization provider security option](#httpclient-authorization-provider-security-option)** - Integration HttpClients now has a new security pattern for injecting access tokens.
   - **[Ordered pagination for CRUD patterns](#ordered-pagination-for-crud-patterns)** - Our CRUD pagination patterns now support ordering.
   - **[MongoDb Integration Testing support](#mongodb-integration-testing-support)** - Added support for MongoDb Integration testing.
   - **[CosmosDB repository query improvements](#cosmos-db-repository-query-improvements)** - Improved QOL features on the CosmosDB Repository query pattern.
 
 - More updates
-  - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvement on the OpenAPI importer module.
+  - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvements on the OpenAPI importer module.
   - **[HttpClient grouped configuration](#httpclient-grouped-configuration)** - Shared service proxy configuration.
   - **[MongoDb repository query improvements](#mongodb-repository-query-improvements)** - Improved QOL features on the MongoDb Repository pattern.
   - **[Cosmos DB explicit optimistic concurrency](#cosmos-db-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
@@ -24,15 +24,15 @@ Welcome to the July 2024 edition of highlights of What's New in Intent Architect
 
 We have added a new feature for the Service Designer letting you model service endpoint `Role`s and `Policy`s. You can now add these to our service design as follows:
 
-![Roles/Policies modelled](images/configured-security.png)
+![Roles and Policies modeled in the service designer](images/configured-security.png)
 
-And then use these modeled concepts on your `Authorize` / `Secured` stereotypes, as follows
+And then use these modeled concepts on your `Authorize` / `Secured` stereotypes, as follows:
 
-![Roles/Policies modelled](images/configure-roles-policies.png)
+![Configure roles/policies in stereotypes](images/configure-roles-policies.png)
 
 There is also an option to migrate your existing security configuration to this new system.
 
-For more detailed information see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
+For more detailed information, see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
 
 Available from:
 
@@ -42,9 +42,9 @@ Available from:
 
 Our `Intent.Integration.HttpClients` module now has a new `Authorization Setup` option in the `Integration Http Client Settings` section of application settings.
 
-The option is `Authorization Header Provider`, this option allows you inject in a scoped service which can resolve the proxy service calls `Authorization` header. This mechanism is very flexible and can be extended for a variety of security scenarios.
+The option is `Authorization Header Provider`, which allows you to inject a scoped service that can resolve the proxy service call's `Authorization` header. This mechanism is very flexible and can be extended for a variety of security scenarios.
 
-For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#authorization-header-provider).
+For more detailed information, see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#authorization-header-provider).
 
 Available from:
 
@@ -52,14 +52,13 @@ Available from:
 
 ### Ordered pagination for CRUD patterns
 
-Our CRUD pagination patterns now supports an `OrderBy` parameter, which allows you to specify the ordering for the pagination.
+Our CRUD pagination patterns now support an `OrderBy` parameter, which allows you to specify the ordering for the pagination.
 
 ![Sample Query](./images/sample-query.png)
 
-The order by is specified using dynamic Linq, for example `Surname desc, Name asc`.
+The order by is specified using dynamic LINQ, for example `Surname desc, Name asc`.
 
-For more detailed information see [Module Documentation](For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
-).
+For more detailed information, see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
 
 Available from:
 
@@ -70,7 +69,7 @@ Available from:
 
 The `Intent.AspNetCore.IntegrationTesting` now has support for our MongoDb Modules. The module will provision and wire-up a MongoDb container, using `Testcontainers.MongoDb`, for the integration tests to run against.
 
-For more detailed information see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
+For more detailed information, see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
 
 Available from:
 
@@ -78,12 +77,11 @@ Available from:
 
 ### MongoDb repository query improvements
 
-Improved the MongoDb repository pattern to have better LINQ Support.
+Improved the MongoDb repository pattern to have better LINQ support.
 
 The following LINQ methods have been added:
 
 ```csharp
-
 Task<IPagedList<TDomain>> FindAllAsync(
     int pageNo, 
     int pageSize,
@@ -105,7 +103,6 @@ Task<int> CountAsync(
 Task<bool> AnyAsync(
     Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default, 
     CancellationToken cancellationToken = default);
-
 ```
 
 Available from:
@@ -122,7 +119,6 @@ Our Cosmos DB repository pattern has been improved in the following ways:
 The following LINQ methods have been added:
 
 ```csharp
-
 Task<IPagedList<TDomain>> FindAllAsync(
     int pageNo, 
     int pageSize,
@@ -144,13 +140,11 @@ Task<int> CountAsync(
 Task<bool> AnyAsync(
     Func<IQueryable<TDocumentInterface>, IQueryable<TDocumentInterface>>? queryOptions = default, 
     CancellationToken cancellationToken = default);
-
 ```
 
 The following SQL methods have been added:
 
 ```csharp
-
 protected async Task<List<TDomain>> FindAllAsync(
     QueryDefinition queryDefinition,
     CancellationToken cancellationToken = default);
@@ -166,15 +160,14 @@ Available from:
 
 ### OpenAPI Importer improvements
 
-The importer now respects the following OpenApi concepts when importing service definitions.
+The importer now respects the following OpenAPI concepts when importing service definitions:
 
 - `secured`
 - `required`
 - `allOf`
 - `x-enumNames`
 
-The importer now respects  concepts when importing service definition
-There has also been various smaller improvements which make the tool better at interpreting OpenAPI documents.
+There have also been various smaller improvements which make the tool better at interpreting OpenAPI documents.
 
 Available from:
 
@@ -182,8 +175,7 @@ Available from:
 
 ### HttpClient grouped configuration
 
-You can now have a single configuration for all service proxies from a single package, instead of having to configure each one individually.
-You can still configure them individually if you require variation.
+You can now have a single configuration for all service proxies from a single package, instead of having to configure each one individually. You can still configure them individually if you require variation.
 
 ```json
 {
@@ -196,7 +188,7 @@ You can still configure them individually if you require variation.
 }
 ```
 
-For more information check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#configuring-your-service-proxies-in-your-appsettingsjson).
+For more information, check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#configuring-your-service-proxies-in-your-appsettingsjson).
 
 Available from:
 
@@ -204,10 +196,9 @@ Available from:
 
 ### Cosmos DB explicit optimistic concurrency
 
-The repository already had support for implicit optimistic concurrency, ensuring documents written to Cosmos had not changed since they were read within the same service call.
-You can now leverage the `ETag` directly for more more scenario's include cross service calls.
+The repository already had support for implicit optimistic concurrency, ensuring documents written to Cosmos had not changed since they were read within the same service call. You can now leverage the `ETag` directly for more scenarios including cross service calls.
 
-For more information check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.CosmosDB/README.md#explicit-optimistic-concurrency).
+For more information, check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.CosmosDB/README.md#explicit-optimistic-concurrency).
 
 Available from:
 
@@ -215,7 +206,7 @@ Available from:
 
 ### Domain Service support for Generic types
 
-You can now model Domain Service with Generic type operations.
+You can now model Domain Services with Generic type operations.
 
 ![Generic Type Operation](./images/domain-services.png)
 
@@ -225,9 +216,9 @@ Available from:
 
 ### Ignore endpoints for OpenAPI
 
-It is now possible to prevent endpoints from being generated in OpenAPI specifications, and by implication making it ignored to other tools using the OpenAPI specification, such as Swagger UI.
+It is now possible to prevent endpoints from being generated in OpenAPI specifications, and by implication making them ignored by other tools using the OpenAPI specification, such as Swagger UI.
 
-To ignore an endpoint, apply the _OpenAPI Settings_ stereotype to a Command, Query, Service Operation or Azure Function and select the _Ignore_ checkbox:
+To ignore an endpoint, apply the _OpenAPI Settings_ stereotype to a Command, Query, Service Operation, or Azure Function and select the _Ignore_ checkbox:
 
 ![OpenAPI Settings stereotype](images/open-api-settings-stereotype.png)
 
@@ -240,4 +231,4 @@ Available from:
 
 ### Advanced Mapping system tutorial for module builders
 
-Module builders wishing to leverage Intent Architect's advanced mapping system can now refer to our [](xref:module-building.tutorial-advanced-mapping) article for a guide on how to do so.
+Module builders wishing to leverage Intent Architect's advanced mapping system can now refer to our [](xref:module-building.tutorial-advanced-mapping) for a guide on how to do so.
