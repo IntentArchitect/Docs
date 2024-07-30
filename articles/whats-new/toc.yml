@@ -1,4 +1,6 @@
 items:
+- name: 'August 2024'
+  href: '2024/08/index.md'
 - name: 'June 2024'
   href: '2024/06/index.md'
 - name: 'May 2024'

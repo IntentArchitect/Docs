@@ -1,4 +1,4 @@
-# What's new in Intent Architect (July 2024)
+# What's new in Intent Architect (August 2024)
 
 Welcome to the July 2024 edition of highlights of What's New in Intent Architect.
 
@@ -15,7 +15,6 @@ Welcome to the July 2024 edition of highlights of What's New in Intent Architect
   - **[MongoDb repository query improvements](#mongodb-repository-query-improvements)** - Improved QOL features on the MongoDb Repository pattern.
   - **[Cosmos DB explicit optimistic concurrency](#cosmos-db-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
   - **[Domain Service support for Generic types](#domain-service-support-for-generic-types)** - `DomainService`s now support modeling Generic operations.
-  - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[Ignore endpoints for OpenAPI](#ignore-endpoints-for-openapi)** - Prevent endpoints from being generated for OpenAPI specifications and Swagger UI.
   - **[Advanced Mapping system documentation for module builders](#advanced-mapping-system-tutorial-for-module-builders)** - Tutorial now available for module builders wanting to leverage the advanced mapping system.
 
@@ -223,16 +222,6 @@ You can now model Domain Service with Generic type operations.
 Available from:
 
 - Intent.DomainServices 1.1.5
-
-### Razor Code Management
-
-[Code Management / Merging](xref:application-development.code-management.about-code-management) capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
-
-For more information, refer to [this](xref:application-development.code-weaving-and-generation.about-code-management-razor) Docs article.
-
-Available from:
-
-- Intent.Code.Weaving.Razor 1.0.0-beta.0
 
 ### Ignore endpoints for OpenAPI
 
