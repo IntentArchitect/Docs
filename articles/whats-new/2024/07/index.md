@@ -3,14 +3,19 @@
 Welcome to the July 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-  - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s  and `Policys` in the Service Designer.
+  - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s  and `Policy`s in the Service Designer.
+  - **[HttpClient authorization provider security option](#httpclient-authorization-provider-security-option)** - Integration HttpClients now has a new security pattern for injecting access tokens.
+  - **[Ordered pagination for CRUD patterns](#ordered-pagination-for-crud-patterns)** - Our CRUD pagination patterns now support ordering.
   - **[MongoDb Integration Testing support](#mongodb-integration-testing-support)** - Added support for MongoDb Integration testing.
-  - **[MongoDb repository improvements](#mongodb-repository-improvements)** - Improved QOL features on the MongoDb Repository pattern.
-  - **[CosmosDB repository improvements](#cosmosdb-repository-improvements)** - Improved QOL features on the CosmosDB Repository pattern.
-  - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvement on the OpenAPI importer module.
+  - **[CosmosDB repository query improvements](#cosmosdb-repository-query-improvements)** - Improved QOL features on the CosmosDB Repository query pattern.
 
 - More updates
+  - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvement on the OpenAPI importer module.
+  - **[HttpClient grouped configuration](#httpclient-grouped-configuration)** - Shared service proxy configuration.
+  - **[MongoDb repository query improvements](#mongodb-repository-query-improvements)** - Improved QOL features on the MongoDb Repository pattern.
+  - **[CosmosDB explicit optimistic concurrency](#cosmosdb-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
   - **[Domain Service support for Generic types](#domain-service-support-for-generic-types)** - `DomainService`s now support modeling Generic operations.
+
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
 
@@ -31,7 +36,35 @@ There is also an option to migrate your existing security configuration to this 
 For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
 Available from:
 
-- Intent.AspNetCore.Controllers 6.0.9-pre.0
+- Intent.AspNetCore.Controllers 6.0.9
+
+### HttpClient authorization provider security option
+
+Our `Intent.Integration.HttpClients` module now has a new `Authorization Setup` option in the `Integration Http Client Settings` section of application settings.
+
+The option is `Authorization Header Provider`, this option allows you inject in a scoped service which can resolve the proxy service calls `Authorization` header. This mechanism is very flexible and can be extended for a variety of security scenarios.
+
+For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#authorization-header-provider).
+
+Available from:
+
+- Intent.Integration.HttpClients 5.1.9
+
+### Ordered pagination for CRUD patterns
+
+Our CRUD pagination patterns now supports an `OrderBy` parameter, which allows you to specify the ordering for the pagination.
+
+![Sample Query](./images/sample-query.png)
+
+The order by is specified using dynamic Linq, for example `Surname desc, Name asc`.
+
+For more detailed information see [Module Documentation](For more detailed information see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
+).
+
+Available from:
+
+- Intent.Application.MediatR.CRUD 6.0.14
+- Intent.Application.Dtos.Pagination 4.0.10
 
 ### MongoDb Integration Testing support
 
@@ -43,7 +76,7 @@ Available from:
 
 - Intent.AspNetCore.IntegrationTesting 1.0.5
 
-### MongoDb repository improvements
+### MongoDb repository query improvements
 
 Improved the MongoDb repository pattern to have better LINQ Support.
 
@@ -79,7 +112,7 @@ Available from:
 
 - Intent.MongoDb.Repositories 1.2.0
 
-### CosmosDB repository improvements
+### CosmosDB repository query improvements
 
 Our cosmos repository pattern has been improve in two ways:
 
@@ -133,12 +166,52 @@ Available from:
 
 ### OpenAPI Importer improvements
 
-The Importer now respects the OpenApi `Required` property when importing service definition. adjusting definitions accordingly.
+The importer now respects the following OpenApi concepts when importing service definitions.
+
+- `secured`
+- `required`
+- `allOf`
+- `x-enumNames`
+
+The importer now respects  concepts when importing service definition
 There has also been various smaller improvements which make the tool better at interpreting OpenAPI documents.
 
 Available from:
 
 - Intent.OpenApi.Importer 1.1.0
+
+### HttpClient grouped configuration
+
+You can now have a single configuration for all service proxies from a single package, instead of having to configure each one individually.
+You can still configure them individually if you require variation.
+
+```json
+{
+  "HttpClients": {
+    "SomeApplication.Services": {
+      "Uri": "https://localhost:44350/",
+      "Timeout": "00:01:00"
+    }
+  }
+}
+```
+
+For more information check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#configuring-your-service-proxies-in-your-appsettingsjson).
+
+Available from:
+
+- Intent.Integration.HttpClients 5.1.9
+
+### CosmosDB explicit optimistic concurrency
+
+The repository already had support for implicit optimistic concurrency, ensuring documents written to Cosmos had not changed since they were read within the same service call.
+You can now leverage the `ETag` directly for more more scenario's include cross service calls.
+
+For more information check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.CosmosDB/README.md#explicit-optimistic-concurrency).
+
+Available from:
+
+- Intent.CosmosDB 1.2.1
 
 ### Domain Service support for Generic types
 
