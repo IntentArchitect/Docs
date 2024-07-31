@@ -1,23 +1,23 @@
 ---
-uid: module-building.templates-general.templates-with-module-dependencies
+uid: module-building.templates-general.templates-with-external-module-dependencies
 ---
 
-# Creating Templates which have have module dependencies
+# Creating Templates with External Module Dependencies
 
-When creating your own modules, your module may be dependent on another module or have interplay with another module. This articale covers various topics around this theme.
+When creating your own modules, your module may be dependent on another module or have interplay with another module. This article covers various topics around this theme.
 
-## Automating the Installation of Dependany Modules
+## Automating the Installation of Dependent Modules
 
-When taking about module dependencies this are one of the following forms:
+When talking about module dependencies, they come in one of the following forms:
 
-- **Hard**: this is a required dependency, your module will not work without the dependant module being installed.
-- **Soft**: this is an optional dependency, your module will will run without the dependency, but will have additional or different functionality if the dependant module is installed.
+- **Hard**: This is a required dependency; your module will not work without the dependent module being installed.
+- **Soft**: This is an optional dependency; your module will run without the dependency but will have additional or different functionality if the dependent module is installed.
 
 ### Automatically Installing Hard Dependency Modules
 
-Assuming you have a `RepositoryModule` module and you want to write a new module `RepositoryExtensionsModule`, which extends the functionality of the `RepositoryModule`, in this case the `RepositoryExtensionsModule` has a hard dependency on the `RepositoryModule`, as it's functionality relies on the presence of the `RepositoryModule`.
+Assume you have a `RepositoryModule` module and you want to write a new module `RepositoryExtensionsModule`, which extends the functionality of the `RepositoryModule`. In this case, the `RepositoryExtensionsModule` has a hard dependency on the `RepositoryModule`, as its functionality relies on the presence of the `RepositoryModule`.
 
-if this scenario you can simply add a `dependency` configutation in your `RepositoryExtensionsModule`'s [](xref:module-building.module-installation) file.
+In this scenario, you can simply add a `dependency` configuration in your `RepositoryExtensionsModule`'s [](xref:module-building.module-installation) file.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -31,16 +31,15 @@ if this scenario you can simply add a `dependency` configutation in your `Reposi
   </dependencies>
   ...
 </package>
-
 ```
 
-This will ensure that when your module `RepositoryExtensionsModule` is installed, that the `RepositoryModule` module is installed and is at least version `2.0.0`. ([](xref:module-building.module-installation))
+This will ensure that when your module `RepositoryExtensionsModule` is installed, the `RepositoryModule` is installed and is at least version `2.0.0`. ([](xref:module-building.module-installation))
 
-### Ensuring Minimum Module Dependency Versions for Soft Dependancies
+### Ensuring Minimum Module Dependency Versions for Soft Dependencies
 
-Assuming you have a `RepositoryModule` module and you have a soft dependency on our CosmosDB module namely `Intent.CosmosDB`. So if the `Intent.CosmosDB` module is installed your `RepositoryModule` will have additional functionality. In this case your module is build against a specific version of the `Intent.CosmosDB` module and you would want to ensure that the module is installed with at least that minimum version.
+Assume you have a `RepositoryModule` module and you have a soft dependency on our CosmosDB module, namely `Intent.CosmosDB`. If the `Intent.CosmosDB` module is installed, your `RepositoryModule` will have additional functionality. In this case, your module is built against a specific version of the `Intent.CosmosDB` module, and you would want to ensure that the module is installed with at least that minimum version.
 
-In this scenario you can modify your `RepositoryModule`'s [](xref:module-building.module-installation) file as follows:
+In this scenario, you can modify your `RepositoryModule`'s [](xref:module-building.module-installation) file as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -58,16 +57,15 @@ In this scenario you can modify your `RepositoryModule`'s [](xref:module-buildin
   </interoperability>
   ...
 </package>
-
 ```
 
-The above configuration reads as follows, if the `Intent.CosmosDB` module is installed ensure it is at least version `1.2.1`.
+The above configuration reads as follows: if the `Intent.CosmosDB` module is installed, ensure it is at least version `1.2.1`.
 
 ### Configuring Conditionally Dependent Modules
 
-Assuming you have a `RepositoryModule` you may also have a `AspNetCore.RepositoryModule` module which you would like to conditionally install, if the application has the `Intent.AspNetCore` module installed .
+Assume you have a `RepositoryModule`, and you may also have an `AspNetCore.RepositoryModule` module that you would like to conditionally install if the application has the `Intent.AspNetCore` module installed.
 
-In this scenario you can modify your `RepositoryModule`'s [](xref:module-building.module-installation) file as follows:
+In this scenario, you can modify your `RepositoryModule`'s [](xref:module-building.module-installation) file as follows:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -85,18 +83,17 @@ In this scenario you can modify your `RepositoryModule`'s [](xref:module-buildin
   </interoperability>
   ...
 </package>
-
 ```
 
-The above configuration reads as follows, if the `Intent.AspNetCore` module is installed ensure the `AspNetCore.RepositoryModule` module is installed, and at least version `1.0.0`.
+The above configuration reads as follows: if the `Intent.AspNetCore` module is installed, ensure the `AspNetCore.RepositoryModule` module is installed, and at least version `1.0.0`.
 
-## Conditionally Running a Template based on the Presence of a Module
+## Conditionally Running a Template Based on the Presence of a Module
 
-If your module has a soft dependency on another module, you may have templates which you want to conditionally run if the dependant module is installed.
+If your module has a soft dependency on another module, you may have templates that you want to conditionally run if the dependent module is installed.
 
 For example:
 
-Lets say we have a template in our `RepositoryModule` which has a `CosmosInterfaceTemplate`. Now we only want to generate the CosmosInterface if the `Intent.CosmosDB` module is installed.
+Let's say we have a template in our `RepositoryModule` which has a `CosmosInterfaceTemplate`. Now we only want to generate the CosmosInterface if the `Intent.CosmosDB` module is installed.
 
 We can achieve this scenario by overriding the template's `CanRunTemplate` method.
 
@@ -113,7 +110,7 @@ public partial class CosmosInterfaceTemplate : CSharpTemplateBase<object>, ICSha
 }
 ```
 
-In this above code you can see that the `CanRunTemplate` method will return `false` if the `Intent.CosmosDB` module is not installed causing the template not to execute, i.e. not generating any output.
+In this code, you can see that the `CanRunTemplate` method will return `false` if the `Intent.CosmosDB` module is not installed, causing the template not to execute, i.e., not generating any output.
 
 Another common scenario may be to test for the presence of a file being generated by another module, commonly referred to as a template instance.
 
@@ -130,97 +127,95 @@ public partial class MyInterfaceImplementationTemplate : CSharpTemplateBase<obje
 }
 ```
 
-In this above code you can see that the `CanRunTemplate` method will return `false` if there are not template instances of the template with the TemplateId `MyInterfaceModule.MyInterface`. Put more simply Intent will not generate a `MyInterfaceImplementation` file if it is not generating a `MyInterface` file.
+In this code, you can see that the `CanRunTemplate` method will return `false` if there are no template instances of the template with the TemplateId `MyInterfaceModule.MyInterface`. Put more simply, Intent will not generate a `MyInterfaceImplementation` file if it is not generating a `MyInterface` file.
 
-Here are several other common examples of CanRunTemplate implementations
+Here are several other common examples of `CanRunTemplate` implementations:
 
 ```csharp
-//If we are generating any files for `MyInterface.TemplateId`
+// If we are generating any files for `MyInterface.TemplateId`
 return ExecutionContext.FindTemplateInstances(MyInterface.TemplateId).Any();
 
-//If we are generating any files for `MyInterface.TemplateId`
+// If we are generating any files for `MyInterface.TemplateId`
 return TryGetTypeName(MyInterface.TemplateId, out var interfaceTypeName);
 
-//If we are generating any files for `MyInterface.TemplateId`
+// If we are generating any files for `MyInterface.TemplateId`
 return ExecutionContext.FindTemplateInstance<IClassProvider>("MyInterfaceModule.MyInterface") != null;
 
-//Based on a Module setting
+// Based on a Module setting
 return ExecutionContext.Settings.GetDatabaseSettings().DatabaseProvider().AsEnum() == DatabaseSettingsExtensions.DatabaseProviderOptionsEnum.Cosmos;
 
-//Based on the existence of Designer elements
+// Based on the existence of Designer elements
 return ExecutionContext.MetadataManager.Services(ExecutionContext.GetApplicationConfig().Id).GetElementsOfType("Command");
 
-//If we are generating a file for `Domain.Entity` for a specific designer model, passing in the `Model` parameter.
-// e.g. If we have modelled a `Customer` class in the domain designer, this is checking are we generating a `Customer.cs` file specifically
+// If we are generating a file for `Domain.Entity` for a specific designer model, passing in the `Model` parameter.
+// e.g. If we have modeled a `Customer` class in the domain designer, this is checking are we generating a `Customer.cs` file specifically
 return ExecutionContext.FindTemplateInstance<IClassProvider>("Domain.Entity", Model) != null;
 
-//If we are generating a file for `Domain.Entity` for a specific designer Model.
+// If we are generating a file for `Domain.Entity` for a specific designer Model
 return TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", Model, out var entityTemplate);
 ```
 
-## Referencing / Working wth Template Instances from other Modules
+## Referencing / Working with Template Instances from Other Modules
 
-When building your own modules which have dependencies on other module's it is often useful to be able ask questions about that module and the code it is generating, here are some common scenarios module builders run into.
+When building your own modules which have dependencies on other modules, it is often useful to be able to ask questions about that module and the code it is generating. Here are some common scenarios module builders run into.
 
 > [!NOTE]
-> Most of these scenarios center around the ability to lookup / discover other template instancing during template execution. When searching for a template instance it can be done by the `TemplateId` or the `Templates Role`. `TemplateId`s should generally be unique and hence very specific. It is also possible to use `Template Roles` which means different templates, from potentially different modules, could produce the generated file. This is a way to decouple implementation dependencies, or have different modules which could fulfill the `Template Role`. For example you could have a generic `Repository` template role which could be fulfilled by `CosmosDB.Repository.TemplateId` or `EntityFrameworkCode.Repository.TemplateId`.
+> Most of these scenarios center around the ability to look up/discover other template instances during template execution. When searching for a template instance, it can be done by the `TemplateId` or the `Template's Role`. `TemplateId`s should generally be unique and hence very specific. It is also possible to use `Template Roles`, which means different templates, from potentially different modules, could produce the generated file. This is a way to decouple implementation dependencies or have different modules which could fulfill the `Template Role`. For example, you could have a generic `Repository` template role which could be fulfilled by `CosmosDB.Repository.TemplateId` or `EntityFrameworkCode.Repository.TemplateId`.
 
-### Is the following file being generated?
+### Is the Following File Being Generated?
 
-Sometime the code you wish to generate may be conditional on what other modules are installed and/or what they are doing. A fairly typically way to do this is to query and see if there is a template instance, of a template generating a specific file.
+Sometimes the code you wish to generate may be conditional on what other modules are installed and/or what they are doing. A fairly typical way to do this is to query and see if there is a template instance of a template generating a specific file.
 
 ```csharp
-//Get the `Domain.Entity` template instance for a specific ClassModel (this would be a `File Per Model` output template)
+// Get the `Domain.Entity` template instance for a specific ClassModel (this would be a `File Per Model` output template)
 if (TryGetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", Model, out var entityTemplate))
 {
 }
 
-//Get the `MyInterfaceModule.MyInterface` template instance (this would be a `Single File` output template)
+// Get the `MyInterfaceModule.MyInterface` template instance (this would be a `Single File` output template)
 if (TryGetTemplate<ICSharpFileBuilderTemplate>("MyInterfaceModule.MyInterface", out var myInterfaceTemplate))
 {
 }
 
-//Get all the `Domain.Entity` template instances for all the ClassModels.
+// Get all the `Domain.Entity` template instances for all the ClassModels
 var templateInstances = ExecutionContext.FindTemplateInstances("Domain.Entity");
 ```
 
 The above are examples for discovering other template instances from within your own template.
 
 > [!NOTE]
-> It is often fine to simply check for the presence of a template instance to know if a file is being generated, however if the template you are looking up implements the `CanRunTemplate` method, you should also check that this method returns `true`.
+> It is often fine to simply check for the presence of a template instance to know if a file is being generated. However, if the template you are looking up implements the `CanRunTemplate` method, you should also check that this method returns `true`.
 
-### What is the type information of a class generated by a template
+### What is the Type Information of a Class Generated by a Template?
 
-If you have a template generating a file, you may need to know the Type information of that type during the execution of your template.
+If you have a template generating a file, you may need to know the type information of that type during the execution of your template.
 For example:
-A template with Id of `Domain.Entity` may take a `Customer` ClassModel and and output the following type `MyApplication.Domain.Entity.Customer`;
+A template with Id `Domain.Entity`, may have a template instance for the `Customer` ClassModel which outputs the following type `MyApplication.Domain.Entity.Customer`;
 
 ```csharp
-    var typeName = GetTypeName("Domain.Entity", Model);
+var typeName = GetTypeName("Domain.Entity", Model);
 
-    if (TryGetTypeName("Domain.Entity", Model, out var typeName))
-    {
-    }
+if (TryGetTypeName("Domain.Entity", Model, out var typeName))
+{
+}
 ```
 
-If the above example, assuming the `Model` passed in was the `Customer` one, `typeName` would be set to `MyApplication.Domain.Entity.Customer`;
+In the above example, assuming the `Model` passed in was the `Customer` one, `typeName` would be set to `MyApplication.Domain.Entity.Customer`.
 
-### Interrogate the code that is actually being generated
+### Interrogate the Code That Is Actually Being Generated
 
-It can be useful to have access to what code is being produced by another template, to make decisions about what your template needs to do.
+It can be useful to have access to what code is being produced by another template to make decisions about what your template needs to do.
 
 ```csharp
-
 var template = GetTemplate<ICSharpFileBuilderTemplate>("Domain.Entity", Model);
-//Access the to be generated code constructs through the builder pattern
+// Access the to-be-generated code constructs through the builder pattern
 var @class = entityTemplate.CSharpFile.Classes.First();
 foreach (var property in @class.Properties)
 {
 }
-
 ```
 
-If the above example you are able to access and traverse the source being generate by the template, through the builder. In this case we are simply finding the first `class` in the file and iterating over it's properties. 
+In the above example, you are able to access and traverse the source being generated by the template through the builder. In this case, we are simply finding the first `class` in the file and iterating over its properties.
 
 > [!NOTE]
-> This example will only work for templates which implement a `Builder` pattern which all for the interrogation of the generated code.
+> This example will only work for templates that implement a `Builder` pattern, which allows for the interrogation of the generated code.
