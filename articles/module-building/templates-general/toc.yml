@@ -16,3 +16,12 @@ items:
 
 - name: How to query models from different designers
   href: how-to-query-models-from-different-designers/how-to-query-models-from-different-designers.md
+
+- name: How do I access Designer models 
+  href: how-do-i-access-designer-models/how-do-i-access-designer-models.md
+
+- name: How do I data bind Designer models to templates
+  href: how-do-i-bind-designer-models-to-templates/how-do-i-bind-designer-models-to-templates.md
+
+- name: Creating templates with external module dependencies
+  href: templates-with-module-dependencies/templates-with-module-dependencies.md
