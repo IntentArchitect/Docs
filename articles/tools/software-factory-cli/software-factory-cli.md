@@ -48,6 +48,12 @@ You can invoke the tool using the following command: intent-cli
 Tool 'intent.softwarefactory.cli' (version 'x.x.x') was successfully installed.
 ```
 
+## Updating
+
+A new version of the Software Factory CLI tool is also built and published as part of the automated build process which builds and publishes the Intent Architect desktop application. The version of the tool will always correspond with the version of the desktop application.
+
+The same command for installation (`dotnet tool install Intent.SoftwareFactory.CLI --global`) will update the tool if an update is available and if none is available it reinstalls it making it safe to run the command as often as desired to ensure the tool is up to date.
+
 ## Usage
 
 `intent-cli [command] [options]`
