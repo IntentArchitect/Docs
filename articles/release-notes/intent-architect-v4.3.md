@@ -7,7 +7,7 @@ uid: release-notes.intent-architect-v4.3
 
 Intent Architect V4.3.0 primarily brings features and functionality to support the designing and automating of front-end user interfaces. This is new territory for our team and we're very excited to get your thoughts and feedback. In addition to back-end, our vision is to fully support the design and development of user interfaces in the various modern technologies (e.g. Blazor, Angular, etc.). This release is our first focused step along this journey, and one of many more to come. We'd like to thank all of our users for their support in helping us evolve Intent Architect to this point.
 
-In conjuction with this release, our team has developed a set of UI Modules that focuses on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
+In conjunction with this release, our team has developed a set of UI Modules that focuses on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
 
 ### Highlights in 4.3.0
 
@@ -17,7 +17,7 @@ A key aspect of designing UI pages and components is the ability to bind the vie
 
 ##### Static Mappable Child Elements
 
-This feature give the ability to configure "static" mappable elements that will appear as children of actual elements. In other words, these mappable elements don't exist outside of the Advanced Mapping dialog, but play a crucial role in capturing all of the different bindings that are required by various UI components. 
+This feature give the ability to configure "static" mappable elements that will appear as children of actual elements. In other words, these mappable elements don't exist outside of the Advanced Mapping dialog, but play a crucial role in capturing all of the different bindings that are required by various UI components.
 
 ![Advanced Mapping Static Elements](images/4.3/advanced-mapping-static-elements.png)
 _The screenshot above illustrates this with several examples such as the `On Click` mappable elements on the `Save` and `Cancel` buttons._
@@ -29,16 +29,15 @@ A key paradigm in designing front-end components with Intent Architect in V4.3.0
 ![Advanced Mapping Scripting Options Example](images/4.3/advanced-mapping-scripting-options.png)
 _An example of two scripting options available for the `Model: PageResult<CustomerDto>?` property. These scripts are configured in the relevant Modules._
 
-
 ##### Other enhancements
 
-- Access to underlying elements' creation and scriptiong context-menu options, allowing the user to add elements and associations on the fly directly inside of the Advanced Mapping dialog.
-- Hiding of unusable mapping elements by default (hold down `alt` key to view all elements. Debug information is also made available). This helps declutter the Advanced Mapping dialog tree-views.
+- Access to underlying elements' creation and scripting context-menu options, allowing the user to add elements and associations on the fly directly inside of the Advanced Mapping dialog.
+- Hiding of unusable mapping elements by default (hold down `alt` key to view all elements. Debug information is also made available). This helps de-clutter the Advanced Mapping dialog tree-views.
 - `Ctrl + Enter` shortcut working inside of Advanced Mapping dialog.
 
-#### Tiles control type in Dynamice Forms
+#### Tiles control type in Dynamic Forms
 
-Front-end views are made up of many different types of UI components, often including custom components. To ficilitate an easy way to visually find the appropriate UI component, a `Tiles` control type has been added to the Dynamic Forms feature. This feature allows Module Builders to configure any array of options to be displayed as tiles with icons for the user to select. It supports filtering and the `tab` and `enter` keyboard shortcuts.
+Front-end views are made up of many different types of UI components, often including custom components. To facilitate an easy way to visually find the appropriate UI component, a `Tiles` control type has been added to the Dynamic Forms feature. This feature allows Module Builders to configure any array of options to be displayed as tiles with icons for the user to select. It supports filtering and the `tab` and `enter` keyboard shortcuts.
 
 ![Dynamic Form Tiles Control Type Example](images/4.3/dynamic-form-tiles-control-type-example.png)
 
@@ -62,4 +61,4 @@ This feature ensures that names of adjacent elements are unique (where configure
 
 - Fixed: Undo/redo when creating and altering associations would not work correctly in certain circumstances.
 - Fixed: Different package types could not be reordered within the designers.
-- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios. 
+- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios.
