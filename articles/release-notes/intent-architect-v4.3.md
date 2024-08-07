@@ -47,6 +47,21 @@ This feature ensures that names of adjacent elements are unique (where configure
 
 #### Traits System
 
+#### Task Output Console
+
+Various improvements have been made the Task Output Console:
+
+- The Task Output Console can be shown and hidden using the tilde (`~`) / back quote (`` ` ``) key (often below `Esc` on keyboards).
+- Messages can now be filtered by text and source:
+
+  ![Updated Task Output Console](images/4.3/task-output-console.png)
+
+  "Source" refers to the designer tab from which the message originated:
+
+  - **(all sources)** - No filtering by source occurs, all messages will be show.
+  - **(no source)** - Only messages which do not originate from a particular designer tab will be shown.
+  - **\<tab name\>** - When a designer tab is selected here (e.g. "Domain - MudBlazor.ExampleApp from above), then only messages originating from that tab will be shown.
+
 ### Other Improvements in 4.3.0
 
 - Added better handling of unreachable HTTP(S) module server(s) when searching/restoring/installing/updating Modules and Application Templates. Previously, any request would take 60 seconds to timeout which could result in very slow restorations if a single custom HTTP(S) module repository was inaccessible for any reason. Now the timeout is just 3 seconds and if a failure occurs it will be instantly presumed to still be offline for at least 30 seconds making checks against other servers faster.
@@ -56,9 +71,16 @@ This feature ensures that names of adjacent elements are unique (where configure
 - Designers will now display warnings, in addition to errors, in the toolbar and on-click navigates to elements that have the warnings.
 - Dynamic Form supports `minWidth`, `maxWidth` and `height` configurations.
 - Package Reference now exclude module packages by default. This should help simplify the process of adding package references.
+- For Solutions with many applications, Intent Architect can now better handle running many Software Factories at once without any getting stuck.
+- Pressing ALT-F4 on modal windows will no longer cause Intent Architect to get into an unrecoverable broken state of showing errors.
+- The help icon now shows a menu with options to request help or open our Docs website:
+
+  ![Updated Help Menu](images/4.3/updated-help-icon.png)
 
 ### Issues fixed in 4.3.0
 
+- Fixed: Sometimes when minimizing the Software Factory Execution window, Windows would jump to a different application.
 - Fixed: Undo/redo when creating and altering associations would not work correctly in certain circumstances.
 - Fixed: Different package types could not be reordered within the designers.
 - Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios.
+- Fixed: If an existing installed version of a module could not be restored, it was not possible to upgrade it.
