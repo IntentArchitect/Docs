@@ -7,13 +7,13 @@ uid: release-notes.intent-architect-v4.3
 
 Intent Architect V4.3.0 primarily brings features and functionality to support the designing and automating of front-end user interfaces. This is new territory for our team and we're very excited to get your thoughts and feedback. In addition to back-end, our vision is to fully support the design and development of user interfaces in the various modern technologies (e.g. Blazor, Angular, etc.). This release is our first focused step along this journey, and one of many more to come. We'd like to thank all of our users for their support in helping us evolve Intent Architect to this point.
 
-In conjuction with this release, our team has developed a set of UI Modules that focus on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
+In conjunction with this release, our team has developed a set of UI Modules that focus on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
 
 > [!NOTE]
 > The `4.3.0-beta.x` release has been configured to run side-by-side with the stable version of Intent Architect. This makes it easy to try out the new release without having to downgrade afterwards.
 
 > [!WARNING]
-> It worth keeping in mind that using this release on existing projects may make that project incompatible with the previous versions. We would therefore recommend that teams wait until the stable release before committing to using V4.3.0 on their existing "production" projects.
+> It is worth keeping in mind that using this release on existing projects may make that project incompatible with the previous versions. We would therefore recommend that teams wait until the stable release before committing to using V4.3.0 on their existing "production" projects.
 
 ### Download Intent Architect 4.3.0-beta
 The `4.3.0-beta.x` is available as a side-by-side install, so you can keep your current version of Intent Architect running along side. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
@@ -26,7 +26,7 @@ A key aspect of designing UI pages and components is the ability to bind the vie
 
 ##### Static Mappable Child Elements
 
-This feature give the ability to configure "static" mappable elements that will appear as children of actual elements. In other words, these mappable elements don't exist outside of the Advanced Mapping dialog, but play a crucial role in capturing all of the different bindings that are required by various UI components.
+This feature gives the ability to configure "static" mappable elements that will appear as children of actual elements. In other words, these mappable elements don't exist outside of the Advanced Mapping dialog, but play a crucial role in capturing all of the different bindings that are required by various UI components.
 
 ![Advanced Mapping Static Elements](images/4.3/advanced-mapping-static-elements.png)
 _The screenshot above illustrates this with several examples such as the `On Click` mappable elements on the `Save` and `Cancel` buttons._
@@ -56,10 +56,9 @@ This feature ensures that names of adjacent elements are unique (where configure
 
 #### Traits System
 
-
 This feature is "under the hood" of Intent Architect and perhaps interesting to developers that are configuring Designers through the Module Building ecosystem. The Traits system allows Elements and Associations can now be configured to implement Traits, which can be used to generically configure the constraints of other Elements and Associations.
 
-A simple of example of how this is being used with the new front-end features, is in all the different Element types that represent standard UI components (e.g. Text Input, Button, Form, Table, etc.). All of these Element types implement the same Trait (`[Component]`) which can be accepted as children under the `Component View` Element type. This is key to the extensibility of the systems, and ensure that Designer configuration stays simple and manageable.
+A simple of example of how this is being used with the new front-end features, is in all the different Element types that represent standard UI components (e.g. Text Input, Button, Form, Table, etc.). All of these Element types implement the same Trait (`[Component]`) which can be accepted as children under the `Component View` Element type. This is key to the extensibility of the systems, and ensures that Designer configuration stays simple and manageable.
 
 #### Task Output Console
 
