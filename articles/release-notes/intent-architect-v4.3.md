@@ -7,7 +7,16 @@ uid: release-notes.intent-architect-v4.3
 
 Intent Architect V4.3.0 primarily brings features and functionality to support the designing and automating of front-end user interfaces. This is new territory for our team and we're very excited to get your thoughts and feedback. In addition to back-end, our vision is to fully support the design and development of user interfaces in the various modern technologies (e.g. Blazor, Angular, etc.). This release is our first focused step along this journey, and one of many more to come. We'd like to thank all of our users for their support in helping us evolve Intent Architect to this point.
 
-In conjunction with this release, our team has developed a set of UI Modules that focuses on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
+In conjuction with this release, our team has developed a set of UI Modules that focus on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
+
+> [!NOTE]
+> The `4.3.0-beta.x` release has been configured to run side-by-side with the stable version of Intent Architect. This makes it easy to try out the new release without having to downgrade afterwards.
+
+> [!WARNING]
+> It worth keeping in mind that using this release on existing projects may make that project incompatible with the previous versions. We would therefore recommend that teams wait until the stable release before committing to using V4.3.0 on their existing "production" projects.
+
+### Download Intent Architect 4.3.0-beta
+The `4.3.0-beta.x` is available as a side-by-side install, so you can keep your current version of Intent Architect running along side. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
 ### Highlights in 4.3.0
 
@@ -47,6 +56,11 @@ This feature ensures that names of adjacent elements are unique (where configure
 
 #### Traits System
 
+
+This feature is "under the hood" of Intent Architect and perhaps interesting to developers that are configuring Designers through the Module Building ecosystem. The Traits system allows Elements and Associations can now be configured to implement Traits, which can be used to generically configure the constraints of other Elements and Associations.
+
+A simple of example of how this is being used with the new front-end features, is in all the different Element types that represent standard UI components (e.g. Text Input, Button, Form, Table, etc.). All of these Element types implement the same Trait (`[Component]`) which can be accepted as children under the `Component View` Element type. This is key to the extensibility of the systems, and ensure that Designer configuration stays simple and manageable.
+
 #### Task Output Console
 
 Various improvements have been made the Task Output Console:
@@ -60,9 +74,7 @@ Various improvements have been made the Task Output Console:
 
   - **(all sources)** - No filtering by source occurs, all messages will be show.
   - **(no source)** - Only messages which do not originate from a particular designer tab will be shown.
-  - **\<tab name\>** - When a designer tab is selected here (e.g. "Domain - MudBlazor.ExampleApp from above), then only messages originating from that tab will be shown.
-
-### Other Improvements in 4.3.0
+  - **\<tab name\>** - When a designer tab is selected here (e.g. "Domain - MudBlazor.ExampleApp from above), then only messages originating from that tab will be shown.### Other Improvements in 4.3.0
 
 - Added better handling of unreachable HTTP(S) module server(s) when searching/restoring/installing/updating Modules and Application Templates. Previously, any request would take 60 seconds to timeout which could result in very slow restorations if a single custom HTTP(S) module repository was inaccessible for any reason. Now the timeout is just 3 seconds and if a failure occurs it will be instantly presumed to still be offline for at least 30 seconds making checks against other servers faster.
 - Added `On Applied`, `On Changed` and `On Removed` scripting hook points to stereotypes.
@@ -74,6 +86,7 @@ Various improvements have been made the Task Output Console:
 - For Solutions with many applications, Intent Architect can now better handle running many Software Factories at once without any getting stuck.
 - Pressing ALT-F4 on modal windows will no longer cause Intent Architect to get into an unrecoverable broken state of showing errors.
 - The help icon now shows a menu with options to request help or open our Docs website:
+- Warnings shown on Advanced Mappings that have unmapped required fields.
 
   ![Updated Help Menu](images/4.3/updated-help-icon.png)
 
@@ -82,5 +95,6 @@ Various improvements have been made the Task Output Console:
 - Fixed: Sometimes when minimizing the Software Factory Execution window, Windows would jump to a different application.
 - Fixed: Undo/redo when creating and altering associations would not work correctly in certain circumstances.
 - Fixed: Different package types could not be reordered within the designers.
-- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios.
-- Fixed: If an existing installed version of a module could not be restored, it was not possible to upgrade it.
+- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios. 
+- Fixed: HTML flicker on editing elements.
+- Fixed: Unexpected errors on elements with Advanced Mappings after altering connected elements.
