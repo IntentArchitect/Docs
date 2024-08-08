@@ -7,13 +7,13 @@ Welcome to the August 2024 edition of highlights of What's New in Intent Archite
   - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s and `Policy`s in the Service Designer.
   - **[HttpClient authorization provider security option](#httpclient-authorization-provider-security-option)** - Integration HttpClients now has a new security pattern for injecting access tokens.
   - **[Ordered pagination for CRUD patterns](#ordered-pagination-for-crud-patterns)** - Our CRUD pagination patterns now support ordering.
-  - **[MongoDb Integration Testing support](#mongodb-integration-testing-support)** - Added support for MongoDb Integration testing.
-  - **[CosmosDB repository query improvements](#cosmos-db-repository-query-improvements)** - Improved QOL features on the CosmosDB Repository query pattern.
+  - **[MongoDB Integration Testing support](#mongodb-integration-testing-support)** - Added support for MongoDB Integration testing.
+  - **[Cosmos DB repository query improvements](#cosmos-db-repository-query-improvements)** - Improved quality-of-life features on the Cosmos DB Repository query pattern.
 
 - More updates
   - **[OpenAPI Importer improvements](#openapi-importer-improvements)** - General improvements on the OpenAPI importer module.
   - **[HttpClient grouped configuration](#httpclient-grouped-configuration)** - Shared service proxy configuration.
-  - **[MongoDb repository query improvements](#mongodb-repository-query-improvements)** - Improved QOL features on the MongoDb Repository pattern.
+  - **[MongoDB repository query improvements](#mongodb-repository-query-improvements)** - Improved quality-of-life features on the MongoDB Repository pattern.
   - **[Cosmos DB explicit optimistic concurrency](#cosmos-db-explicit-optimistic-concurrency)** - Ability to model and use optimistic concurrency outside of the repository.
   - **[Domain Service support for Generic types](#domain-service-support-for-generic-types)** - `DomainService`s now support modeling Generic operations.
   - **[Ignore endpoints for OpenAPI](#ignore-endpoints-for-openapi)** - Prevent endpoints from being generated for OpenAPI specifications and Swagger UI.
@@ -23,7 +23,7 @@ Welcome to the August 2024 edition of highlights of What's New in Intent Archite
 
 ### Intent Architect v4.3 beta release
 
-The 4.3 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running along side the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
+The 4.3 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
 ![Preview 4.3](./images/preview-4.3.png)
 
@@ -33,7 +33,7 @@ For full details on what's in this release, check out the [4.3 release notes](xr
 
 ### Service security modeling
 
-We have added a new feature for the Service Designer letting you model service endpoint `Role`s and `Policy`s. You can now add these to our service design as follows:
+We have added a new feature for the Service Designer letting you model service endpoint `Role`s and `Policy`s. You can now add these as follows:
 
 ![Roles and Policies modeled in the service designer](images/configured-security.png)
 
@@ -43,7 +43,7 @@ And then use these modeled concepts on your `Authorize` / `Secured` stereotypes,
 
 There is also an option to migrate your existing security configuration to this new system.
 
-For more detailed information, see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.AspNetCore.Controllers/README.md).
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AspNetCore.Controllers/README.md).
 
 Available from:
 
@@ -55,7 +55,7 @@ Our `Intent.Integration.HttpClients` module now has a new `Authorization Setup` 
 
 The option is `Authorization Header Provider`, which allows you to inject a scoped service that can resolve the proxy service call's `Authorization` header. This mechanism is very flexible and can be extended for a variety of security scenarios.
 
-For more detailed information, see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#authorization-header-provider).
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#authorization-header-provider).
 
 Available from:
 
@@ -69,26 +69,24 @@ Our CRUD pagination patterns now support an `OrderBy` parameter, which allows yo
 
 The order by is specified using dynamic LINQ, for example `Surname desc, Name asc`.
 
-For more detailed information, see [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
-
 Available from:
 
 - Intent.Application.MediatR.CRUD 6.0.14
 - Intent.Application.Dtos.Pagination 4.0.10
 
-### MongoDb Integration Testing support
+### MongoDB Integration Testing support
 
-The `Intent.AspNetCore.IntegrationTesting` now has support for our MongoDb Modules. The module will provision and wire-up a MongoDb container, using `Testcontainers.MongoDb`, for the integration tests to run against.
+The `Intent.AspNetCore.IntegrationTesting` module now has support for our MongoDB modules. The module will provision and wire-up a MongoDB container, using `Testcontainers.MongoDb`, for the integration tests to run against.
 
-For more detailed information, see the [Module Documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.AspNetCore.IntegrationTesting/README.md).
 
 Available from:
 
 - Intent.AspNetCore.IntegrationTesting 1.0.5
 
-### MongoDb repository query improvements
+### MongoDB repository query improvements
 
-Improved the MongoDb repository pattern to have better LINQ support.
+We've improved the MongoDB repository pattern to have better LINQ support.
 
 The following LINQ methods have been added:
 
@@ -199,7 +197,7 @@ You can now have a single configuration for all service proxies from a single pa
 }
 ```
 
-For more information, check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#configuring-your-service-proxies-in-your-appsettingsjson).
+For more information, check out the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/README.md#configuring-your-service-proxies-in-your-appsettingsjson).
 
 Available from:
 
@@ -209,7 +207,7 @@ Available from:
 
 The repository already had support for implicit optimistic concurrency, ensuring documents written to Cosmos had not changed since they were read within the same service call. You can now leverage the `ETag` directly for more scenarios including cross service calls.
 
-For more information, check out the module [documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.CosmosDB/README.md#explicit-optimistic-concurrency).
+For more information, check out the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.CosmosDB/README.md#explicit-optimistic-concurrency).
 
 Available from:
 
