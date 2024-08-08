@@ -11,11 +11,12 @@ In conjunction with this release, our team has developed a set of UI Modules tha
 
 > [!NOTE]
 > The `4.3.0-beta.x` release has been configured to run side-by-side with the stable version of Intent Architect. This makes it easy to try out the new release without having to downgrade afterwards.
-
+>
 > [!WARNING]
 > It is worth keeping in mind that using this release on existing projects may make that project incompatible with the previous versions. We would therefore recommend that teams wait until the stable release before committing to using V4.3.0 on their existing "production" projects.
 
 ### Download Intent Architect 4.3.0-beta
+
 The `4.3.0-beta.x` is available as a side-by-side install, so you can keep your current version of Intent Architect running along side. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
 ### Highlights in 4.3.0
@@ -96,6 +97,6 @@ Various improvements have been made the Task Output Console:
 - Fixed: Sometimes when minimizing the Software Factory Execution window, Windows would jump to a different application.
 - Fixed: Undo/redo when creating and altering associations would not work correctly in certain circumstances.
 - Fixed: Different package types could not be reordered within the designers.
-- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios. 
+- Fixed: Drag and drop of mapped elements in the Advanced Mapping dialog leads to mapping errors in many scenarios.
 - Fixed: HTML flicker on editing elements.
 - Fixed: Unexpected errors on elements with Advanced Mappings after altering connected elements.
