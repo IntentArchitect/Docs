@@ -3,6 +3,7 @@
 Welcome to the August 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
+  - **[Intent Architect v4.3 beta release](#intent-architect-v43-beta-release)** - This version includes several new features and improvements with support for **front-end design capabilities**.
   - **[Service security modeling](#service-security-modeling)** - Add the ability to model `Role`s and `Policy`s in the Service Designer.
   - **[HttpClient authorization provider security option](#httpclient-authorization-provider-security-option)** - Integration HttpClients now has a new security pattern for injecting access tokens.
   - **[Ordered pagination for CRUD patterns](#ordered-pagination-for-crud-patterns)** - Our CRUD pagination patterns now support ordering.
@@ -19,6 +20,14 @@ Welcome to the August 2024 edition of highlights of What's New in Intent Archite
   - **[Advanced Mapping system documentation for module builders](#advanced-mapping-system-tutorial-for-module-builders)** - Tutorial now available for module builders wanting to leverage the advanced mapping system.
 
 ## Update details
+
+### Intent Architect v4.3 beta release
+
+The 4.3 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running along side the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
+
+If you would like to experience the front-end design capabilities visit our [MudBlazor sample repository on GitHub](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
+
+For full details on what's in this release, check out the [4.3 release notes](xref:release-notes.intent-architect-v4.3).
 
 ### Service security modeling
 
