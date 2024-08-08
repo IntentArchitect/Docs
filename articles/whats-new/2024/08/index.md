@@ -25,6 +25,8 @@ Welcome to the August 2024 edition of highlights of What's New in Intent Archite
 
 The 4.3 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running along side the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
+![Preview 4.3](./images/preview-4.3.png)
+
 If you would like to experience the front-end design capabilities visit our [MudBlazor sample repository on GitHub](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
 
 For full details on what's in this release, check out the [4.3 release notes](xref:release-notes.intent-architect-v4.3).
