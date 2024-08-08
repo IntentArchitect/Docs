@@ -69,6 +69,8 @@ Our CRUD pagination patterns now support an `OrderBy` parameter, which allows yo
 
 The order by is specified using dynamic LINQ, for example `Surname desc, Name asc`.
 
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.Modelers.Services.DomainInteractions/README.md#pagination)
+
 Available from:
 
 - Intent.Application.MediatR.CRUD 6.0.14
