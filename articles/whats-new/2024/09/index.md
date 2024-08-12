@@ -7,6 +7,7 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
 - More updates
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
+  - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
 
 ## Update details
 
@@ -46,3 +47,23 @@ For more information, refer to [this](xref:application-development.code-weaving-
 Available from:
 
 - Intent.Code.Weaving.Razor 1.0.0-beta.0
+
+### NetTopologySuite for GIS capabilities
+
+The [NetTopologySuite](https://nettopologysuite.github.io/NetTopologySuite/) library is introduced for Geographic Information System (GIS) capabilities allowing you to incorporate geospatial data in your applications using Intent Architect with Entity Framework for SQL Server, MySQL, and PostgreSQL.
+
+Specify `Point` in your Domain.
+
+![Example in Domain](images/gis-point-domain.png)
+
+Have your Services also contain this `Point` as part of request and response messages.
+
+![Example in Services](images/gis-point-services.png)
+
+Schema as represented in Swagger.
+
+![Example in Swagger](images/gis-point-swagger.png)
+
+Available from:
+
+- Intent.NetTopologySuite 1.0.0
