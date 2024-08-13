@@ -9,6 +9,7 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
   - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
+  - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
 
 ## Update details
 
@@ -105,3 +106,13 @@ Available from:
 
 - Intent.Java.SpringBoot 4.0.1
 - Intent.Java.Services.CRUD 4.0.1
+
+### Use comments to the Services Designer
+
+It is now possible to use comments in the Services Designer in the the same way that that comments could already already be used in the to Domain Designer.
+
+![Example of a comment in the services designer](images/example-of-a-comment-in-the-services-designer.png)
+
+Available from:
+
+- Intent.Modelers.Services 3.7.5
