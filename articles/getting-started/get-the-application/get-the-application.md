@@ -38,6 +38,16 @@ Although not essential, the easiest way to use AppImages is to first install [Ap
 
 If you just want to run Intent Architect without "installing" it, you can just set the downloaded file to be executable by running `chmod a+x intent-architect*.AppImage` after which you can then run it.
 
+## Troubleshooting
+
+### [](xref:application-development.getting-started.long-path-support-windows)
+
+Before proceeding, Windows users should ensure that long path support is enabled to avoid any path-related issues.
+
+### [](xref:application-development.software-factory.environmental-factors-which-can-slow-down-software-factory-execution)
+
+If you notice slow execution times for the Software Factory refer to this detailed guide to address any environmental factors or configurations that may be causing delays.
+
 ## What's Next
 
 ### [Take a tour of Intent Architect](xref:getting-started.take-a-tour)
