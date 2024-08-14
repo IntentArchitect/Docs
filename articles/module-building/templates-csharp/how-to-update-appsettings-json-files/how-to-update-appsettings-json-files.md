@@ -25,10 +25,12 @@ public override void BeforeTemplateExecution()
 ```
 
 > [!NOTE]
-> This extension method requires `Intent.Modules.Common.CSharp` nuget package to be installed in your module project.
+> This extension method requires `Intent.Modules.Common.CSharp` NuGet package to be installed in your module project.
 >
 > [!IMPORTANT]
-> This should only be invoked from `BeforeTemplateExecution` inside your template.
+> This can only be invoked after construction of the template, otherwise the template which responds to this event might not yet have been constructed.
+> 
+> Placing this method in the override of either the `AfterTemplateRegistration` or `BeforeTemplateExecution` methods will ensure it is called only after all other templates have been constructed.
 
 In the example above, your `appsettings.json` file will receive the following:
 
