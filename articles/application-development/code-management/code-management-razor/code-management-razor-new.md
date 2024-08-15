@@ -36,7 +36,7 @@ There are two ways of applying management modes:
 
 ### Attribute syntax
 
-You add an attribute in the format of `intent-<mode>[-(Body|Signature)]`, for example:
+You add an attribute in the format of `intent-<mode>[-(body|signature)]`, for example:
 
 ```html
 <div intent-ignore class="content-block">
@@ -58,7 +58,7 @@ Complete list:
 
 ### Expression syntax
 
-In some cases you may get a compilation or runtime error in your Razor file when applying unknown attributes to a Razor Component, in such cases you can apply an `@Intent.<Body>[Body|Signature]` expression above the syntax, for example:
+In some cases you may get a compilation or runtime error in your Razor file when applying unknown attributes to a Razor Component, in such cases you can apply an `@Intent.<Mode>[Body|Signature]` expression above the syntax, for example:
 
 ```html
 @Intent.Fully
