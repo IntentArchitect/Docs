@@ -27,10 +27,10 @@ In this example, we will model our module to have a dependency on the `Microsoft
 
 This will retrieve the latest version information and configure the latest versions to be installed per .NET Framework version. This process is additive and will update existing entries (it will not remove any existing entries).
 
+![Update version info from NuGet](./images/get-latest-versions.png)
+
 > [!NOTE]
 > You can get the latest for all packages by performing `Get latest from NuGet.org` on the `NuGet Packages` element.
-
-![Update version info from NuGet](./images/get-latest-versions.png)
 
 You will see the relevant versioning information under the package.
 
