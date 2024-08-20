@@ -3,8 +3,8 @@ items:
 - name: About C# Templates
   href: about-csharp-templates/about-csharp-templates.md
 
-- name: How to add NuGet dependencies
-  href: how-to-add-nuget-dependencies-csharp/how-to-add-nuget-dependencies-csharp.md
+- name: How to model NuGet dependencies
+  href: how-to-model-nuget-dependencies-csharp/how-to-model-nuget-dependencies-csharp.md
 
 - name: How to add project dependencies
   href: how-to-add-project-dependencies-csharp/how-to-add-project-dependencies-csharp.md
