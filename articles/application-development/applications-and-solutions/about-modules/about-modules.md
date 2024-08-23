@@ -31,4 +31,4 @@ When (re)installing a module you can expand the "Options" drop down.
 
 This option is generally only applicable when [building modules](xref:module-building.module-installation).
 
-When selected, none of the module's Intent Architect extensibility will be enabled, this includes designers or software factory extensions (such as templates) will not be enabled or run during the software factory. However, the metadata from the module (i.e. modeled data such as elements or stereotypes) can be used from designers which are referencing them.
+When selected, none of the module's Intent Architect extensibility will be enabled, this includes designers or software factory extensions (such as templates) will not be enabled or run during the software factory. However, the metadata from the module (i.e. modeled data such as elements or stereotypes) can be used from designers which are referencing them. Any dependent module will also only install their metadata if its not already installed.
