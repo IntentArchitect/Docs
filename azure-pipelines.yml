@@ -12,9 +12,13 @@ steps:
   - checkout: self
     persistCredentials: 'true'
     fetchDepth: '1'
+    
+  - pwsh: |
+      dotnet tool install docfx
+    displayName: 'dotnet tool install docfx'
 
   - pwsh: |
-      $(Build.SourcesDirectory)\_tools\DocFX\docfx.exe $(Build.SourcesDirectory)\docfx.json
+      dotnet docfx $(Build.SourcesDirectory)\docfx.json
     displayName: 'run docfx'
 
   - pwsh: |

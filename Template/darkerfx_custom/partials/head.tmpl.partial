@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{_rel}}styles/featherlight.min.css" />
   <!-- CUSTOM END -->
   <link rel="shortcut icon" href="{{_rel}}{{{_appFaviconPath}}}{{^_appFaviconPath}}favicon.ico{{/_appFaviconPath}}">
-  <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.css">
+  <link rel="stylesheet" href="{{_rel}}styles/docfx.vendor.min.css">
   <link rel="stylesheet" href="{{_rel}}styles/docfx.css">
   <link rel="stylesheet" href="{{_rel}}styles/main.css">
   <!-- CUSTOM BEGIN -->
