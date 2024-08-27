@@ -101,3 +101,4 @@ Various improvements have been made the Task Output Console:
 - Fixed: Unexpected errors on elements with Advanced Mappings after altering connected elements.
 - Fixed: For Solutions with many applications, running many Software Factories at the same time would sometimes result in some of them getting stuck.
 - Fixed: Pressing ALT-F4 on modal windows would cause Intent Architect to get into an unrecoverable broken state of showing errors.
+- Fixed: Proportionally-sized modal dialogs now maintain a consistent aspect ratio across various screen sizes, including ultra-wide displays, ensuring proper visibility and layout regardless of screen dimensions.
