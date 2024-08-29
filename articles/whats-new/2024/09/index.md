@@ -10,6 +10,8 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
   - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
   - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
   - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
+  - **[NuGet modeling for module builders](#nuget-modeling-for-module-builders)** - The ability to model NuGet package dependencies for modules.
+  - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
 
 ## Update details
 
@@ -116,3 +118,31 @@ It is now possible to use comments in the Services Designer in the the same way 
 Available from:
 
 - Intent.Modelers.Services 3.7.5
+
+### NuGet modeling for module builders
+
+For Module builders, we have introduced the ability to model NuGet package dependencies for your modules.
+
+![NuGet model](images/nuget-versions.png)
+
+Modelling you NuGet packages the following benefits:
+
+- Modules can "vote" on which versions of a NuGet package they want to install, if multiple modules are trying to install the same package.
+- NuGet integration for fetching latest versions of Packages.
+- Support for Package versioning per .Net Framework
+
+For more detailed information, see this [article](https://docs.intentarchitect.com/articles/module-building/templates-csharp/how-to-model-nuget-dependencies-csharp/how-to-model-nuget-dependencies-csharp.html).
+
+Available from:
+
+- Intent.ModuleBuilder.CSharp 3.6.1-pre.0
+
+### Enforce Enums using SQL constraints with EF Core
+
+We have introduce a new setting `Enum check constraints` for the `Intent.EntityFrameworkCore` module. When this is on, any `enum` based attributes in the domain will have SQL `check constraints` configured so that only valid values can be saved in the column.
+
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---enum-check-constraints).
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.9
