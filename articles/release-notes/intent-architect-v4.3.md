@@ -76,6 +76,10 @@ Various improvements have been made the Task Output Console:
   - **(no source)** - Only messages which do not originate from a particular designer tab will be shown.
   - **\<tab name\>** - When a designer tab is selected here (e.g. "Domain - MudBlazor.ExampleApp from above), then only messages originating from that tab will be shown.
 
+#### Software Factory CLI - `apply-pending-changes` command
+
+The Software Factory CLI now has a new option `apply-pending-changes`, which will run Software Factories and apply pending changes from the command line.
+
 ### Other Improvements in 4.3.0
 
 - Added better handling of unreachable HTTP(S) module server(s) when searching/restoring/installing/updating Modules and Application Templates. Previously, any request would take 60 seconds to timeout which could result in very slow restorations if a single custom HTTP(S) module repository was inaccessible for any reason. Now the timeout is just 3 seconds and if a failure occurs it will be instantly presumed to still be offline for at least 30 seconds making checks against other servers faster.
