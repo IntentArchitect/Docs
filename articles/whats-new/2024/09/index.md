@@ -7,10 +7,10 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
 - More updates
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
-  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
   - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
   - **[NuGet modeling for module builders](#nuget-modeling-for-module-builders)** - The ability to model NuGet package dependencies for modules.
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
+  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
 
 ## Update details
 
@@ -43,43 +43,6 @@ Schema as represented in Swagger.
 Available from:
 
 - Intent.NetTopologySuite 1.0.0
-
-### Service Pagination introduced for Java SpringBoot module
-
-Paginate services in Java SpringBoot with Intent Architect.
-
-Right click on a service returning a collection of a DTO.
-
-![Example pagination](images/java-springboot-pagination.png)
-
-It will now be decorated with the appropriate paginated types.
-
-![Paginated service](images/java-springboot-paginated-service.png)
-
-Controller action code sample.
-
-```java
-@GetMapping(path = "/paginated")
-@Operation(summary = "FindAllPaginated")
-@ApiResponses(value = {
-    @ApiResponse(responseCode = "200", description = "Returns the specified Page<UserDto>."),
-    @ApiResponse(responseCode = "400", description = "One or more validation errors have occurred."),
-    @ApiResponse(responseCode = "404", description = "Can\'t find an Page<UserDto> with the parameters provided.") })
-public ResponseEntity<Page<UserDto>> FindAllPaginated(@Parameter(required = true)  Pageable pageable) {
-    if (pageable.isUnpaged()) {
-        pageable = PageRequest.of(0, 150);
-    }
-
-    final Page<UserDto> result = usersService.FindAllPaginated(pageable);
-
-    return new ResponseEntity<>(result, HttpStatus.OK);
-}
-```
-
-Available from:
-
-- Intent.Java.SpringBoot 4.0.1
-- Intent.Java.Services.CRUD 4.0.1
 
 ### Use comments to the Services Designer
 
@@ -118,3 +81,40 @@ For more detailed information, see the [module documentation](https://github.com
 Available from:
 
 - Intent.EntityFrameworkCore 5.0.9
+
+### Service Pagination introduced for Java SpringBoot module
+
+Paginate services in Java SpringBoot with Intent Architect.
+
+Right click on a service returning a collection of a DTO.
+
+![Example pagination](images/java-springboot-pagination.png)
+
+It will now be decorated with the appropriate paginated types.
+
+![Paginated service](images/java-springboot-paginated-service.png)
+
+Controller action code sample.
+
+```java
+@GetMapping(path = "/paginated")
+@Operation(summary = "FindAllPaginated")
+@ApiResponses(value = {
+    @ApiResponse(responseCode = "200", description = "Returns the specified Page<UserDto>."),
+    @ApiResponse(responseCode = "400", description = "One or more validation errors have occurred."),
+    @ApiResponse(responseCode = "404", description = "Can\'t find an Page<UserDto> with the parameters provided.") })
+public ResponseEntity<Page<UserDto>> FindAllPaginated(@Parameter(required = true)  Pageable pageable) {
+    if (pageable.isUnpaged()) {
+        pageable = PageRequest.of(0, 150);
+    }
+
+    final Page<UserDto> result = usersService.FindAllPaginated(pageable);
+
+    return new ResponseEntity<>(result, HttpStatus.OK);
+}
+```
+
+Available from:
+
+- Intent.Java.SpringBoot 4.0.1
+- Intent.Java.Services.CRUD 4.0.1
