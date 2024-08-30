@@ -5,7 +5,6 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
 - Highlights
 
 - More updates
-  - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
   - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
@@ -14,33 +13,6 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
 
 ## Update details
-
-### Map CQRS Operations and Application Services to Repository Operations
-
-Add Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
-
-Example Repository with Operation:
-
-![Example Domain](images/repository-operation-mapping-domain.png)
-
-Example Command:
-
-![Example Command](images/repository-operation-mapping-command-menu.png)
-
-Example invocation from Command to Repository Operation:
-
-![Mapping between Command and Repository](images/repository-operation-mapping-service-invocation.png)
-
-![Data Mapping](images/repository-operation-mapping-invocaiton-mapping.png)
-
-Available from:
-
-- Intent.Modelers.Services.DomainInteractions 1.1.4
-
-Ensure you are using at least the versions of the following modules (if you have them installed):
-
-- Intent.Application.MediatR.CRUD 6.0.12
-- Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.9
 
 ### Razor Code Management
 
