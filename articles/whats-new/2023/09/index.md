@@ -23,7 +23,7 @@ Welcome to the September 2023 edition of highlights of What's New in Intent Arch
 
 - Java updates
   - **[Updated modules to support Spring Boot v3](#updated-modules-to-support-spring-boot-v3)** - The Spring Boot module now supports a version selection setting to upgrade from v2 to v3.
-  - **[Domain entities moved away from using the @Data annotation](#domain-entities-moved-away-from-using-the-data-annotation)** - Following best practices, the Java Spring Boot community suggests avoiding the @Data annotation from Lombok on domain entities.
+  - **[Domain entities moved away from using the Data annotation](#domain-entities-moved-away-from-using-the-data-annotation)** - Following best practices, the Java Spring Boot community suggests avoiding the @Data annotation from Lombok on domain entities.
 
 ## Update details
 
@@ -330,7 +330,7 @@ Other Java modules that will require updates:
 - Intent.Java.SpringBoot.Validation 3.4.0
 - Intent.Java.Domain 4.2.0
 
-### Domain entities moved away from using the @Data annotation
+### Domain entities moved away from using the Data annotation
 
 Following best practices, the Java Spring Boot community suggests avoiding the `@Data` annotation from Lombok on domain entities. More details can be found in this [article](https://thorben-janssen.com/lombok-hibernate-how-to-avoid-common-pitfalls/) and [this blog post](https://jpa-buddy.com/blog/lombok-and-jpa-what-may-go-wrong/).
 
