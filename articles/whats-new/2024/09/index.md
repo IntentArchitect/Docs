@@ -10,6 +10,7 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
   - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
   - **[NuGet modeling for module builders](#nuget-modeling-for-module-builders)** - The ability to model NuGet package dependencies for modules.
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
+  - **[Swagger UI defaults ModelRendering to Example](#swagger-ui-defaults-modelrendering-to-example)** - Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
   - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
 
 ## Update details
@@ -81,6 +82,22 @@ For more detailed information, see the [module documentation](https://github.com
 Available from:
 
 - Intent.EntityFrameworkCore 5.0.9
+
+### Swagger UI defaults ModelRendering to Example
+
+Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
+
+It will present the payload structure like this on Swagger UI.
+
+![Example sample](images/swagger-ui-example.png)
+
+Instead of this like it did before:
+
+![Schema sample](images/swagger-ui-schema.png)
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 5.1.0
 
 ### Service Pagination introduced for Java SpringBoot module
 
