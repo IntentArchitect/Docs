@@ -11,6 +11,7 @@ Welcome to the September 2024 edition of highlights of What's New in Intent Arch
   - **[NuGet modeling for module builders](#nuget-modeling-for-module-builders)** - The ability to model NuGet package dependencies for modules.
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
   - **[Swagger UI defaults ModelRendering to Example](#swagger-ui-defaults-modelrendering-to-example)** - Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
+  - **[HashiCorp Vault secrets integration with .NET configuration](#hashicorp-vault-secrets-integration-with-net-configuration)** - Access secrets from a HashiCorp Vault for configuration in .NET.
   - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
 
 ## Update details
@@ -98,6 +99,27 @@ Instead of this like it did before:
 Available from:
 
 - Intent.AspNetCore.Swashbuckle 5.1.0
+
+### HashiCorp Vault secrets integration with .NET configuration
+
+HashiCorp Vault provides organizations with identity-based security to automatically authenticate and authorize access to secrets and other sensitive data. Access secrets from a HashiCorp Vault for configuration in .NET.
+
+Learn more by visiting the module documentation [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.HashiCorp.Vault/README.md).
+
+If you have `MySecret` stored in the Vault, you can access it using `IConfiguration`.
+
+```csharp
+public static void Configuration(IConfiguration configuration) 
+{
+    var superSecret = configuration["MySecret"];
+}
+```
+
+![HashiCorp Vault UI](images/hashicorp-vault-ui.png)
+
+Available from:
+
+- Intent.HashiCorp.Vault 1.0.0
 
 ### Service Pagination introduced for Java SpringBoot module
 
