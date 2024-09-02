@@ -17,6 +17,8 @@ In conjunction with this release, our team has developed a set of UI Modules tha
 
 ### Download Intent Architect 4.3.0-beta
 
+The `4.3.0-beta.x` version of Intent Architect is available as a side-by-side install, so you can keep your current version running alongside it. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) under the `Pre-Release(s)` section.
+
 ### Want to check out the new front-end capabilities?
 
 As part of this release, our team has also created a set of Modules to support the creation of a Blazor front-end using [MudBlazor](https://mudblazor.com/). If you would like to experience the front-end design capabilities first-hand visit our [MudBlazor sample repository on GitHub](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
