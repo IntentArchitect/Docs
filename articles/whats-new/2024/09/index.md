@@ -3,16 +3,16 @@
 Welcome to the September 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-
-- More updates
   - **[Razor Code Management](#razor-code-management)** - "Code Management" capabilities for `.razor` files for intelligent and powerful code merging between existing and generated content.
   - **[NetTopologySuite for GIS capabilities](#nettopologysuite-for-gis-capabilities)** - Geospatial integration with Entity Framework ORM for SQL Server, MySQL, and PostgreSQL.
-  - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
   - **[NuGet modeling for module builders](#nuget-modeling-for-module-builders)** - The ability to model NuGet package dependencies for modules.
+  - **[HashiCorp Vault secrets integration with .NET configuration](#hashicorp-vault-secrets-integration-with-net-configuration)** - Access secrets from a HashiCorp Vault for configuration in .
+  - **[Use comments in the Services Designer](#use-comments-to-the-services-designer)** - Comments can now be used in the Services Designer in the the same way that that they can be used in the to Domain Designer.
+- More updates
+  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
   - **[Swagger UI defaults ModelRendering to Example](#swagger-ui-defaults-modelrendering-to-example)** - Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
-  - **[HashiCorp Vault secrets integration with .NET configuration](#hashicorp-vault-secrets-integration-with-net-configuration)** - Access secrets from a HashiCorp Vault for configuration in .NET.
-  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
+NET.
 
 ## Update details
 
@@ -46,16 +46,6 @@ Available from:
 
 - Intent.NetTopologySuite 1.0.0
 
-### Use comments to the Services Designer
-
-It is now possible to use comments in the Services Designer in the the same way that that comments could already already be used in the to Domain Designer.
-
-![Example of a comment in the services designer](images/example-of-a-comment-in-the-services-designer.png)
-
-Available from:
-
-- Intent.Modelers.Services 3.7.5
-
 ### NuGet modeling for module builders
 
 For Module builders, we have introduced the ability to model NuGet package dependencies for your modules.
@@ -73,32 +63,6 @@ For more detailed information, see this [article](https://docs.intentarchitect.c
 Available from:
 
 - Intent.ModuleBuilder.CSharp 3.6.1-pre.0
-
-### Enforce Enums using SQL constraints with EF Core
-
-We have introduce a new setting `Enum check constraints` for the `Intent.EntityFrameworkCore` module. When this is on, any `enum` based attributes in the domain will have SQL `check constraints` configured so that only valid values can be saved in the column.
-
-For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---enum-check-constraints).
-
-Available from:
-
-- Intent.EntityFrameworkCore 5.0.9
-
-### Swagger UI defaults ModelRendering to Example
-
-Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
-
-It will present the payload structure like this on Swagger UI.
-
-![Example sample](images/swagger-ui-example.png)
-
-Instead of this like it did before:
-
-![Schema sample](images/swagger-ui-schema.png)
-
-Available from:
-
-- Intent.AspNetCore.Swashbuckle 5.1.0
 
 ### HashiCorp Vault secrets integration with .NET configuration
 
@@ -120,6 +84,16 @@ public static void Configuration(IConfiguration configuration)
 Available from:
 
 - Intent.HashiCorp.Vault 1.0.0
+
+### Use comments to the Services Designer
+
+It is now possible to use comments in the Services Designer in the the same way that that comments could already already be used in the to Domain Designer.
+
+![Example of a comment in the services designer](images/example-of-a-comment-in-the-services-designer.png)
+
+Available from:
+
+- Intent.Modelers.Services 3.7.5
 
 ### Service Pagination introduced for Java SpringBoot module
 
@@ -157,3 +131,29 @@ Available from:
 
 - Intent.Java.SpringBoot 4.0.1
 - Intent.Java.Services.CRUD 4.0.1
+
+### Enforce Enums using SQL constraints with EF Core
+
+We have introduce a new setting `Enum check constraints` for the `Intent.EntityFrameworkCore` module. When this is on, any `enum` based attributes in the domain will have SQL `check constraints` configured so that only valid values can be saved in the column.
+
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---enum-check-constraints).
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.9
+
+### Swagger UI defaults ModelRendering to Example
+
+Preview of request payloads in the Swagger UI now defaults to `Example` instead of `Model` (schema).
+
+It will present the payload structure like this on Swagger UI.
+
+![Example sample](images/swagger-ui-example.png)
+
+Instead of this like it did before:
+
+![Schema sample](images/swagger-ui-schema.png)
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 5.1.0
