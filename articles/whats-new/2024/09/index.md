@@ -10,9 +10,9 @@ Welcome to the September 2024 edition of What's New in Intent Architect.
   - **[Use comments in the Services Designer](#use-comments-in-the-services-designer)** - Comments can now be used in the Services Designer in the same way they can be used in the Domain Designer.
 
 - More updates
-  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
   - **[Enforce Enums using SQL constraints with EF Core](#enforce-enums-using-sql-constraints-with-ef-core)** - Automatically set up SQL constraints to enforce data integrity on enums.
   - **[Swagger UI defaults ModelRendering to Example](#swagger-ui-defaults-modelrendering-to-example)** - The default view of request payloads in Swagger UI is now set to `Example` instead of `Model` (schema).
+  - **[Service Pagination introduced for Java SpringBoot module](#service-pagination-introduced-for-java-springboot-module)** - Paginate services in Java SpringBoot with Intent Architect.
 
 ## Update details
 
@@ -95,6 +95,32 @@ Available from:
 
 - Intent.Modelers.Services 3.7.5
 
+### Enforce Enums using SQL constraints with EF Core
+
+We have introduced a new setting, `Enum check constraints`, for the `Intent.EntityFrameworkCore` module. When this is enabled, any `enum`-based attributes in the domain will have SQL `check constraints` configured so that only valid values can be saved in the column.
+
+For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---enum-check-constraints).
+
+Available from:
+
+- Intent.EntityFrameworkCore 5.0.9
+
+### Swagger UI defaults ModelRendering to Example
+
+The default view of request payloads in Swagger UI now defaults to `Example` instead of `Model` (schema).
+
+It will present the payload structure like this in Swagger UI:
+
+![Example sample](images/swagger-ui-example.png)
+
+Instead of this, as it did before:
+
+![Schema sample](images/swagger-ui-schema.png)
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 5.1.0
+
 ### Service Pagination introduced for Java SpringBoot module
 
 Paginate services in Java SpringBoot with Intent Architect.
@@ -131,30 +157,3 @@ Available from:
 
 - Intent.Java.SpringBoot 4.0.1
 - Intent.Java.Services.CRUD 4.0.1
-
-### Enforce Enums using SQL constraints with EF Core
-
-We have introduced a new setting, `Enum check constraints`, for the `Intent.EntityFrameworkCore` module. When this is enabled, any `enum`-based attributes in the domain will have SQL `check constraints` configured so that only valid values can be saved in the column.
-
-For more detailed information, see the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.EntityFrameworkCore/README.md#database-settings---enum-check-constraints).
-
-Available from:
-
-- Intent.EntityFrameworkCore 5.0.9
-
-### Swagger UI defaults ModelRendering to Example
-
-The default view of request payloads in Swagger UI now defaults to `Example` instead of `Model` (schema).
-
-It will present the payload structure like this in Swagger UI:
-
-![Example sample](images/swagger-ui-example.png)
-
-Instead of this, as it did before:
-
-![Schema sample](images/swagger-ui-schema.png)
-
-Available from:
-
-- Intent.AspNetCore.Swashbuckle 5.1.0
-- 
