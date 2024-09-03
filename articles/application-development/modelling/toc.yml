@@ -10,3 +10,6 @@ items:
 
   - name: Domain Designer
     href: domain-designer/toc.yml
+
+  - name: Open in IDE
+    href: open-in-ide/open-in-ide.md

@@ -25,3 +25,7 @@ This is the default location that Intent Architect will use when creating a new 
 ## Diff Tools
 
 Intent Architect supports the use of any Diff tool that can be executed from the CLI. By default (if blank), Intent Architect will use Visual Studio Code if it has been installed. It will fall back to using Visual Studio, and finally, if neither can be found, a Diff tool will need to be specified manually here.
+
+## Preferred IDE
+
+The IDE to use when using the [Open in IDE](xref:application-development.modelling.open-in-ide) context menu option from within designers.

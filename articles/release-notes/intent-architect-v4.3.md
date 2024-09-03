@@ -55,13 +55,16 @@ This simple new feature is one which our team is very excited to release. That's
 
 On all top-level metadata elements, there now exists an option to `Open in IDE` which, if hovered over, will show the list of files connected to that element. By clicking on any of the files, Intent Architect will open the file in your IDE (e.g. Visual Studio). If you click directly on the `Open in IDE` options, Intent Architect will open all associated files.
 
-![Open in IDE Option](images/4.3/open-in-ide-option.png)
+![Open in IDE Option](images/4.3/open-in-ide-context-menu-option.png)
+
+For more information refer to [](xref:application-development.modelling.open-in-ide) article.
 
 #### Tiles control type in Dynamic Forms
 
 Front-end views are made up of many different types of UI components, often including custom components. To facilitate an easy way to visually find the appropriate UI component, a `Tiles` control type has been added to the Dynamic Forms feature. This feature allows Module Builders to configure any array of options to be displayed as tiles with icons for the user to select. It supports filtering and the `tab` and `enter` keyboard shortcuts.
 
 ![Dynamic Form Tiles Control Type Example](images/4.3/dynamic-form-tiles-control-type-example.png)
+
 #### Unique Name Validations and Auto-Naming
 
 This feature ensures that names of adjacent elements are unique (where configured to be in the Designer Settings) by showing errors on adjacent elements that share the same name. In addition to this, Intent Architect will also append an auto-incrementing number to elements that are created or pasted that would otherwise end up with the same name as an existing adjacent element.
@@ -90,7 +93,6 @@ Various improvements have been made the Task Output Console:
 #### Software Factory CLI - `apply-pending-changes` command
 
 The Software Factory CLI now has a new option `apply-pending-changes`, which will run Software Factories and apply pending changes from the command line.
-
 
 ### Module Building Enhancements and Features
 
