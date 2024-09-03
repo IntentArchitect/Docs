@@ -1,5 +1,5 @@
 ---
-uid: application-development.code-weaving-and-generation.about-code-management-razor
+uid: application-development.code-weaving-and-generation.about-code-management-razor.new
 ---
 # Razor Code Management
 
