@@ -11,9 +11,9 @@ In the screenshot above there are 4 files which Intent Architect determined are 
 
 > [!NOTE]
 >
-> Intent Architect will not show or update the list of files associated with an element until [Software Factory](cref:application-development.software-factory.about-software-factory-execution) changes have been applied.
+> Intent Architect will not show or update the list of files associated with an element until [Software Factory](xref:application-development.software-factory.about-software-factory-execution) changes have been applied.
 >
-> The list of associated files is stored in an application's `.intent` folder which is not committed into source control management, so if you've just checked out a repository or recently pulled changes into your branch, re-run the Software Factory and apply changes to ensure your local list is fully up to date.  
+> The list of associated files is stored in an application's `.intent` folder which [should not be committed into source control management systems (such as Git)](xref:application-development.applications-and-solutions.git-and-scm-guidance#folders-which-should-always-be-ignored), so if you've just checked out a repository or recently pulled changes into your branch, re-run the Software Factory and apply changes to ensure your local list is fully up to date.
 
 ## How does Intent Architect choose which IDE to use to open the file?
 
