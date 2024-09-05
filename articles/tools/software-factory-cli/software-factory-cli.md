@@ -12,7 +12,7 @@ table th:first-of-type {
 
 A CLI (command line interface) version of the Intent Architect Software Factory.
 
-## Why use this tool ?
+## Why use this tool?
 
 This tool can easily be configured as part of your CI/CD pipeline to ensure your Intent Architect design and actual solution codebase are in sync.  This is  analogous to ensuring your codebase compiles and all tests pass when committing code, and is one of the major benefits of a CI/CD pipeline. The intention is to extend the CI/CD pipeline checks and balances to include that all Intent Architect designs are in sync with the underlying codebase. This tool allows developers to apply the same rigor to Intent Architect changes as they do to codebase changes, ensuring a more consistent and reliable codebase. This practice is particularly important when you have a team of developers collaborating on a shared repository.
 
@@ -72,6 +72,7 @@ The same command for installation (`dotnet tool install Intent.SoftwareFactory.C
 |Command|Description|
 |-------|-----------|
 |`ensure-no-outstanding-changes <username> <password> <isln-path>` |Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.|
+|`apply-pending-changes <username> <password> <isln-path>` |Runs the Software Factory and applies any outstanding changes.|
 
 ## ensure-no-outstanding-changes command
 
@@ -93,9 +94,37 @@ intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [opti
 
 ### ensure-no-outstanding-changes options
 
-|Option                                                |Description|
+|Option|Description|
 |------------------------------------------------------|-----------|
 |`--check-deviations`                                  |Whether to also check for unapproved deviations.|
+|`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
+|`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
+|`-?, -h, --help`                                      |Show help and usage information|
+|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: [https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate](https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate)|
+|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: [https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate](https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate)|
+
+## apply-pending-changes command
+
+Runs the Software Factory and applies any outstanding changes.
+
+### apply-pending-changes usage
+
+```bash
+intent-cli apply-pending-changes <username> <password> <isln-path> [options]
+```
+
+### apply-pending-changes arguments
+
+|Argument|Description|
+|--------|-----------|
+|`<username>`  |Username for an active Intent Architect account.|
+|`<password>`  |Password for the Intent Architect account.|
+|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
+
+### apply-pending-changes options
+
+|Option|Description|
+|------|-----------|
 |`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
 |`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
 |`-?, -h, --help`                                      |Show help and usage information|
