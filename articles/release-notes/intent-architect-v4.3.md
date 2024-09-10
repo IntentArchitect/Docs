@@ -125,6 +125,10 @@ These are features that are available for configuration in the Module Building e
 
   ![Create solution dialogue with new option to create a solution folder](images/4.3/create-solution-folder.png)
 
+- There is now a "Browse" button on the Application Settings screen for selecting its _Relative Output Location_:
+
+  ![Application settings screen with browse button next to relative output location](images/4.3/browse-for-relative-output-location.png)
+
 ### Issues fixed in 4.3.0
 
 - Fixed: Sometimes when minimizing the Software Factory Execution window, Windows would jump to a different open application.
