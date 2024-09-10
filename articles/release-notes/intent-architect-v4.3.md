@@ -116,12 +116,14 @@ These are features that are available for configuration in the Module Building e
 - Package Reference now exclude module packages by default. This should help simplify the process of adding package references.
 - For Solutions with many applications, Intent Architect can now better handle running many Software Factories at once without any getting stuck.
 - The help icon now shows a menu with options to request help or open our Docs website:
-applied.
-- Converted font-awesome icon selector to use tiles, instead of a list.
 
   ![Updated Help Menu](images/4.3/updated-help-icon.png)
 
+- Converted font-awesome icon selector to use tiles, instead of a list.
 - Warnings are now shown on Advanced Mappings that have unmapped required fields.
+- When creating a solution, creating a folder for the solution is now optional:
+
+  ![Create solution dialogue with new option to create a solution folder](images/4.3/create-solution-folder.png)
 
 ### Issues fixed in 4.3.0
 
