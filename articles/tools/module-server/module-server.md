@@ -525,4 +525,55 @@ GO
 
 COMMIT;
 GO
+
+BEGIN TRANSACTION;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240910134034_AddCreateFolderForSolution'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [Defaults_CreateFolderForSolution] bit NULL;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240910134034_AddCreateFolderForSolution'
+)
+BEGIN
+    EXECUTE('
+    UPDATE [dbo].[ApplicationTemplates]
+    SET Defaults_CreateFolderForSolution = 1')
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240910134034_AddCreateFolderForSolution'
+)
+BEGIN
+    DECLARE @var1 sysname;
+    SELECT @var1 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_CreateFolderForSolution');
+    IF @var1 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var1 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_CreateFolderForSolution] bit NOT NULL;
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20240910134034_AddCreateFolderForSolution'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20240910134034_AddCreateFolderForSolution', N'8.0.6');
+END;
+GO
+
+COMMIT;
+GO
 ```
