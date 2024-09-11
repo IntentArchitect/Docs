@@ -18,9 +18,9 @@ steps:
     displayName: 'dotnet tool install docfx'
 
   - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)\docfx.json
+      dotnet docfx $(Build.SourcesDirectory)/docfx.json
     displayName: 'run docfx'
 
   - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)\_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+      az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
     displayName: 'az storage blob sync'
