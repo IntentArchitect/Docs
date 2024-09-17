@@ -35,3 +35,5 @@ Ensure you are using at least the versions of the following modules (if you have
 
 - Intent.Application.MediatR.CRUD 6.0.12
 - Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.9
+
+### Open Telemetry updates - TODO
