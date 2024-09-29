@@ -6,6 +6,7 @@ Welcome to the October 2024 edition of highlights of What's New in Intent Archit
 
 - More updates
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
+  - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
 
 ## Update details
 
@@ -36,4 +37,24 @@ Ensure you are using at least the versions of the following modules (if you have
 - Intent.Application.MediatR.CRUD 6.0.12
 - Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.9
 
-### Open Telemetry updates - TODO
+### CosmosDB Module Enums stored as String
+
+CosmosDB module now allows Enums to be stored as strings in your documents.
+
+You can switch this on with the "Store enums as string" setting.
+
+![Store Enums As String Setting](images/store-enum-as-string-setting.png)
+
+The Document's that represent Entities in the Infrastructure layer will then decorate the Enum Properties with a `JsonConverter` attribute when the setting is switched on.
+
+```c#
+[JsonConverter(typeof(EnumJsonConverter))]
+public EnumExample EnumExample { get; set; }
+```
+
+This will allow Enums to be persisted in CosmosDB as `strings` however it is also durable in that it can also parse Enums in their `int` representations allowing for backward compatibility.
+
+Available from:
+
+- Intent.CosmosDB 1.2.4
+
