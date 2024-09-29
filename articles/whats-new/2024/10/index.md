@@ -7,6 +7,7 @@ Welcome to the October 2024 edition of highlights of What's New in Intent Archit
 - More updates
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
+  - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
 
 ## Update details
 
@@ -58,3 +59,25 @@ Available from:
 
 - Intent.CosmosDB 1.2.4
 
+### OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options
+
+The OpenTelemetry module now features expanded configuration options, allowing users to enable metrics alongside the previously available traces and logs. Additional instrumentation has been introduced with Trace or Metric indicators, providing greater flexibility in monitoring applications.
+
+![Full Module Settings](images/opentelemtry-full-module-settings.png)
+
+Moreover, a new export option, "Azure Monitor OpenTelemetry Distro," has been added, which offers hybrid capabilities that blend OpenTelemetry and Azure Application Insights' proprietary features, such as "Live Metrics."
+
+![Azure Monitor Open Telemetry Distro](images/opentelemetry-az-ot-distro.png)
+
+Users can also configure the application instance name in conjunction with the application service name for better identification.
+
+```json
+"OpenTelemetry": {
+    "ServiceName": "My Sample Service",
+    "ServiceInstanceId": "Development"
+}
+```
+
+Available from:
+
+- Intent.OpenTelemetry 2.2.0
