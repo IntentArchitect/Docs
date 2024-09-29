@@ -9,15 +9,13 @@ Intent Architect v4.3.0 primarily brings features and functionality to support t
 
 In conjunction with this release, our team has developed a set of UI Modules that focus on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
 
-> [!NOTE]
-> The `4.3.0-beta.x` release has been configured to run side-by-side with the stable version of Intent Architect. This makes it easy to try out the new release without having to downgrade afterwards.
+## Upgrading from 4.2 to 4.3
+
+If upgrading from Intent Architect 4.2.x you should be able to run your existing Intent Architect applications as is on Intent Architect 4.3.x with no changes or module upgrades being required.
+
+> [!IMPORTANT]
 >
-> [!WARNING]
-> It is worth keeping in mind that using this release on existing projects may make that project incompatible with previous versions of Intent Architect. We would therefore recommend that teams wait for the stable release before committing to using v4.3.0 on their existing "production" projects.
-
-### Download Intent Architect 4.3.0-beta
-
-The `4.3.0-beta.x` version of Intent Architect is available as a side-by-side install, so you can keep your current version running alongside it. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) under the `Pre-Release(s)` section.
+> Once any changes made using Intent Architect 4.3.x have been saved, the Intent Architect applications can no longer be opened and used with earlier versions of Intent Architect.
 
 ### Want to check out the new front-end capabilities?
 
