@@ -9,7 +9,7 @@ Intent Architect v4.3.0 primarily brings features and functionality to support t
 
 In conjunction with this release, our team has developed a set of UI Modules that focus on automating a Blazor UI using MudBlazor components. As of this writing, these modules are still in `alpha` release stages, but can be used to explore the new capabilities that 4.3.0 has to offer.
 
-## Upgrading from 4.2 to 4.3
+### Upgrading from 4.2 to 4.3
 
 If upgrading from Intent Architect 4.2.x you should be able to run your existing Intent Architect applications as is on Intent Architect 4.3.x with no changes or module upgrades being required.
 
