@@ -8,6 +8,7 @@ Welcome to the October 2024 edition of highlights of What's New in Intent Archit
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
   - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
+  - **[Import Stored Procedures for Repositories](#import-stored-procedures-for-repositories)** - Import definitions of Stored Procedures from SQL Server into your Domain Repository.
 
 ## Update details
 
@@ -81,3 +82,27 @@ Users can also configure the application instance name in conjunction with the a
 Available from:
 
 - Intent.OpenTelemetry 2.2.0
+
+### Import Stored Procedures for Repositories
+
+Import definitions of Stored Procedures from SQL Server into your Domain Repository.
+
+You can right click on a Repository and select `Stored Procedure Import`.
+
+![Stored Procedure Import Operations](images/sp-import-operations.png)
+
+Specify names of stored procedures as a comma separated list.
+
+![Import prompt](images/sp-import-prompt.png)
+
+Import Stored Procedures either as Operations or Specialized elements.
+
+![Stored Proc Types](images/sp-stored-proc-types.png)
+
+> [!NOTE]
+>
+> Stored Procedure elements will be phased out in favor of using Operations once the Operations variant has reached parity with the specialized elements.
+
+Available from:
+
+- Intent.SqlServerImporter 1.0.6
