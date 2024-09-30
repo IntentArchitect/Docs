@@ -9,6 +9,7 @@ Welcome to the October 2024 edition of highlights of What's New in Intent Archit
   - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
   - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
   - **[Import Stored Procedures for Repositories](#import-stored-procedures-for-repositories)** - Import definitions of Stored Procedures from SQL Server into your Domain Repository.
+  - **[C# code management: Overriding return statements is now easier](#c-code-management-overriding-return-statements-is-now-easier)** - Return statements can now be ignored more simply.
 
 ## Update details
 
@@ -106,3 +107,36 @@ Import Stored Procedures either as Operations or Specialized elements.
 Available from:
 
 - Intent.SqlServerImporter 1.0.6
+
+### C# code management: Overriding return statements is now easier
+
+Previously when wanting to "override" a generated return statement in a fully managed method you would need to qualify the `// IntentIgnore` with a `(Match = "return")`, now only a simple `// IntentIgnore` is required:
+
+```csharp
+// Generated:
+[IntentFully]
+public int Method()
+{
+    return 0;
+}
+
+// What was previously required to override the return statement:
+[IntentFully]
+public int Method()
+{
+    // IntentIgnore(Match = "return")
+    return 1;
+}
+
+// What is now required to override the return statement:
+[IntentFully]
+public int Method()
+{
+    // IntentIgnore
+    return 1;
+}
+```
+
+Available from:
+
+- Intent.OutputManager.RoslynWeaver 4.7.7
