@@ -2,9 +2,11 @@
 
 Welcome to the October 2024 edition of highlights of What's New in Intent Architect.
 
-- Highlights
+We are thrilled to announce the official release of Intent Architect version 4.3! This update brings a range of exciting new features and enhancements, including powerful front-end design capabilities and much more. You can find the full release details [here](xref:release-notes.intent-architect-v4.3).
 
-- More updates
+To explore the new front-end capabilities in action, don't miss our [Front-end automation with Blazor webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=front-end-automation-webinar). Plus, get hands-on experience by checking out our sample implementation [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
+
+- Highlights
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
   - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
