@@ -8,8 +8,8 @@ items:
   - name: Java Code Management
     href: code-management-java/code-management-java.md
 
-  # - name: Razor Code Management
-  #   href: code-management-razor/code-management-razor.md
+  - name: Razor Code Management
+    href: code-management-razor/code-management-razor.md
 
   - name: TypeScript Code Management
     href: code-management-typescript/code-management-typescript.md
