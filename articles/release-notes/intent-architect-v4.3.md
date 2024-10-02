@@ -3,6 +3,13 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.1
+
+### Issues fixed in 4.3.1
+
+- Fixed: Advanced mappings would show errors when encountering a hidden element with same name but with no settings.
+- Fixed: Some designer extension scripts could cause designers to hang indefinitely on load.
+
 ## Version 4.3.0
 
 Intent Architect v4.3.0 primarily brings features and functionality to support the designing and automating of front-end user interfaces. This is new territory for our team and we're very excited to get your thoughts and feedback. In addition to back-end, our vision is to fully support the design and development of user interfaces in the various modern technologies (e.g. Blazor, Angular, etc.). This release is our first focused step along this journey, and one of many more to come. We'd like to thank all of our users for their support in helping us evolve Intent Architect to this point.
