@@ -22,7 +22,7 @@ We have a new Blazor application template to quickly setup and model your front 
 
 ![New Blazor Application Template](images/blazor-application-template.png)
 
-This will setup you Intent Architect application for modeling Blazor applications.
+This will create an Intent Architect application for modeling Blazor applications.
 
 For a comprehensive overview, check out our [Front-end automation with Blazor webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=front-end-automation-webinar). Plus, get hands-on experience by checking out our sample implementation [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
 
