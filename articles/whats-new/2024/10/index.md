@@ -7,7 +7,7 @@ We are thrilled to announce the official release of Intent Architect version 4.3
 To explore the new front-end capabilities in action, don't miss our [Front-end automation with Blazor webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=front-end-automation-webinar). Plus, get hands-on experience by checking out our sample implementation [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
 
 - Highlights
-  - **[Blazor application template and associated modules for building Blazor front ends](#map-cqrs-operations-and-application-services-to-repository-operations)** - New Blazor application template, UI Designers and Blazor modules to design Blazor front ends.
+  - **[Build Blazor front ends](#build-blazor-front-ends)** - A new Blazor application template, UI Designers and Blazor modules to modeling Blazor front ends.
   - **[Map CQRS Operations and Application Services to Repository Operations](#map-cqrs-operations-and-application-services-to-repository-operations)** - Add bespoke Operations on Repositories in the Domain designer and invoke them from Services using mappings in the Services designer.
   - **[CosmosDB Module Enums stored as String](#cosmosdb-module-enums-stored-as-string)** - CosmosDB module now allows Enums to be stored as strings in your documents.
   - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
@@ -16,13 +16,15 @@ To explore the new front-end capabilities in action, don't miss our [Front-end a
 
 ## Update details
 
-### Blazor application template and modules for front end modeling
+### Build Blazor front ends
 
 We have a new Blazor application template to quickly setup and model your front end Blazor applications.
 
 ![New Blazor Application Template](images/blazor-application-template.png)
 
-For all the details check out our [Front-end automation with Blazor webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=front-end-automation-webinar). Plus, get hands-on experience by checking out our sample implementation [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
+This will setup you Intent Architect application for modeling Blazor applications.
+
+For a comprehensive overview, check out our [Front-end automation with Blazor webinar](https://intentarchitect.com/#/redirect/?category=resources&subCategory=front-end-automation-webinar). Plus, get hands-on experience by checking out our sample implementation [here](https://github.com/IntentArchitect/Intent.Samples.MudBlazor).
 
 Available from:
 
