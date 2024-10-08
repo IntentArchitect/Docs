@@ -13,6 +13,8 @@ To explore the new front-end capabilities in action, don't miss our [Front-end a
   - **[OpenTelemetry Module Enhanced with Expanded Configurations and New Export Options](#opentelemetry-module-enhanced-with-expanded-configurations-and-new-export-options)** - The OpenTelemetry module now supports expanded configuration options and introduces a new export option.
   - **[Import Stored Procedures for Repositories](#import-stored-procedures-for-repositories)** - Import definitions of Stored Procedures from SQL Server into your Domain Repository.
   - **[C# code management: Overriding return statements is now easier](#c-code-management-overriding-return-statements-is-now-easier)** - Return statements can now be ignored more simply.
+  - **[Specify implicit (global) usings for .csproj files](#specify-implicit-global-usings-for-csproj-files)** - Add custom global usings to projects from the Visual Studio designer.
+  - **[XML doc comment generation for repositories](#xml-doc-comment-generation-for-repositories)** - Comments are now generated as XML doc comments.
 
 ## Update details
 
@@ -158,3 +160,25 @@ public int Method()
 Available from:
 
 - Intent.OutputManager.RoslynWeaver 4.7.7
+
+### Specify implicit (global) usings for .csproj files
+
+It is now possible to specify [implicit usings](https://learn.microsoft.com/dotnet/core/project-sdk/overview#implicit-using-directives) (global usings) to add to `.csproj` files:
+
+![Example of using custom implicit usings in the Visual Studio designer](images/vs-designer-implicit-usings.png)
+
+The above will then add the following to the `.csproj` file:
+
+```xml
+<ItemGroup>
+  <Using Include="System.Transactions" />
+</ItemGroup>
+```
+
+Available from:
+
+- Intent.VisualStudio.Projects 3.8.1
+
+### XML doc comment generation for repositories
+
+- Comments captured on repositories and their operations in the Domain designer will now cause corresponding [XML doc comments](https://learn.microsoft.com/dotnet/csharp/language-reference/xmldoc/) to also be generated in the output files.
