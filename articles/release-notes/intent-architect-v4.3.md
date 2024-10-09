@@ -3,6 +3,19 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.2
+
+### Improvements in 4.3.2
+
+- Improvement: Syntax highlighting support added to the designer diagrams. This should reduce cognitive load and make the designers easier on the eye.
+
+### Issues fixed in 4.3.2
+
+- Fixed: Unique name validation not taking generic parameters into consideration.
+- Fixed: Advanced Mapping errors showing in the models under certain circumstances.
+- Fixed: Javascript API function `.getAssociations()` on elements not returning non-navigable associations.
+- Fixed: Designer not reliably prompting to reload when changes to the underlying settings are detected.
+
 ## Version 4.3.1
 
 ### Issues fixed in 4.3.1
@@ -121,6 +134,7 @@ These are features that are available for configuration in the Module Building e
 - Package Reference now exclude module packages by default. This should help simplify the process of adding package references.
 - For Solutions with many applications, Intent Architect can now better handle running many Software Factories at once without any getting stuck.
 - The help icon now shows a menu with options to request help or open our Docs website:
+- Advanced Mapping validation performance improved substantially, while simultaneously increasing the max traversal depth from 4 to 10.
 
   ![Updated Help Menu](images/4.3/updated-help-icon.png)
 
