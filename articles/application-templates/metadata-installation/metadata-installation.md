@@ -112,11 +112,11 @@ The software factory has been executed before for these Applications with a work
 > [!NOTE]
 > This tutorial assumes you have already run the software factory for the other Modules and that the `.sln` file and its projects would already have been generated.
 
-- Inside the `MyOrganisation.ApplicationTemplates` project, expand the folder containing your Application Template's `metadata.iatspec` file (for example `MyOrganisation.ApplicationTemplate`) and inside it create a `content` folder.
-- Inside the `content` folder create a file called `visual-studio.installation.config`.
+- Inside the `MyOrganisation.ApplicationTemplates` project, expand the folder containing your Application Template's `metadata.iatspec` file (for example `MyOrganisation.ApplicationTemplate`) and inside it create a `resources` folder.
+- Inside the `resources` folder create a file called `visual-studio.installation.config`.
 - Paste the contents from your clipboard into the file.
 - Build the project.
-- Note the line with `1>Added content/visual-studio.installation.config.` in the build log which confirms that the file was included in the packaged `.iat` file.
+- Note the line with `1>Added resources/visual-studio.installation.config.` in the build log which confirms that the file was included in the packaged `.iat` file.
 
 ![Built in Visual Studio](images/application-template-metadata-vs-ide.png)
 
