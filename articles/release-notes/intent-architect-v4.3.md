@@ -3,6 +3,14 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.3
+
+### Issues fixed in 4.3.3
+
+- Fixed: Opening of `.isln` files directly from the File Explorer intermittently causes designers to hang.
+- Fixed: Renaming Command or Query elements causes error in Advanced Mappings to Domain Classes.
+- Fixed: Comments in designers showing ellipsis and no longer wrapping text - introduced in previous release.
+
 ## Version 4.3.2
 
 ### Improvements in 4.3.2
