@@ -4,8 +4,13 @@ trigger:
     include:
     - 'master'
 
+variables:
+- group: 'Pipeline Agent Pool Names'
+
 pool:
-  vmImage: 'ubuntu-latest'
+  name: $(BuildPool.Linux.General)
+  demands:
+  - 'ImageOverride -equals ubuntu-latest'
 
 steps:
 
