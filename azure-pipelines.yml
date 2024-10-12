@@ -8,7 +8,7 @@ variables:
 - group: 'Pipeline Agent Pool Names'
 
 pool:
-  name: $(BuildPool.Linux.General)
+  name: $(BuildPool.AzureManaged)
   demands:
   - 'ImageOverride -equals ubuntu-latest'
 
