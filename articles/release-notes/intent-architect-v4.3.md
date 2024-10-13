@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.4
+
+### Issues fixed in 4.3.4
+
+- Fixed: The value of the "Value" field on associations would not be visible during Software Factory execution and would disappear when reloading the designer.
+
 ## Version 4.3.3
 
 ### Issues fixed in 4.3.3
