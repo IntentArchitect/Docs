@@ -8,6 +8,7 @@ uid: release-notes.intent-architect-v4.3
 ### Issues fixed in 4.3.4
 
 - Fixed: The value of the "Value" field on associations would not be visible during Software Factory execution and would disappear when reloading the designer.
+- Fixed: In the event of a [Semantic Conflict](https://martinfowler.com/bliki/SemanticConflict.html) in an application's `<application>.application.deviations.log.xml` file, the Software Factory would crash with an `An item with the same key has already been added.` exception. It will now instead choose the most recently approved deviation entry or otherwise the most recently updated.
 
 ## Version 4.3.3
 
