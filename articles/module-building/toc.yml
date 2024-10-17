@@ -46,7 +46,7 @@ items:
   href: software-factory-events/software-factory-events.md
 
 - name: Software Factory Extensions
-  href: software-factory-extensions/toc.yml
+  href: software-factory-extensions/software-factory-extensions.md
 
 - name: Debugging Modules
   href: debugging-modules/debugging-modules.md

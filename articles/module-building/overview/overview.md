@@ -91,7 +91,7 @@ For example a template may need a registration to be performed with a system's d
 
 #### Factory Extensions
 
-[Factory Extensions](xref:module-building.additional-tools.software-factory-extensions.how-to-create-a-factory-extension) are used to hook into and extend any of the pre-defined phases of the the Software Factory process, use cases where this is useful include:
+[Factory Extensions](xref:module-building.additional-tools.software-factory-extensions) are used to hook into and extend any of the pre-defined phases of the the Software Factory process, use cases where this is useful include:
 
 - Loading Metadata from outside Intent Architect.
 - Alter the output produced from Templates.

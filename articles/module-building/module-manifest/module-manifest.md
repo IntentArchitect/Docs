@@ -25,7 +25,7 @@ The following table provides high level information on each of the tags in the `
 | releaseNotes             | The inline release-notes or  relative path to a file (e.g. `release-notes.md`). Markdown is supported. The release notes can be viewed within Intent Architect in the Module details panel in the Modules manager. |
 | templates                | The manifest of [Templates](xref:module-building.templates-csharp.about-csharp-templates) contained in this module. |
 | decorators               | The manifest of [Decorators](xref:module-building.decorators.about-decorators) contained in this module. |
-| factoryExtensions        | The manifest of [Software Factory Extensions](xref:module-building.additional-tools.software-factory-extensions.how-to-create-a-factory-extension) contained in this module. |
+| factoryExtensions        | The manifest of [Software Factory Extensions](xref:module-building.additional-tools.software-factory-extensions) contained in this module. |
 | dependencies             | The module dependencies and their minimum versions. The Module Builder will ignore any added dependencies or version updates that are higher than what the Module Builder is applying. A `metadataOnly` attribute with a value of `true` can be added to have the referenced module and its dependencies installed with the `Install metadata only` option set, dependencies which were already installed without the option set will not have the option changed. |
 | files                    | The executable `.dll` files that must be included in this module. If using an external library of framework, those executables will need to be registered here. |
 | metadata                 | Metadata (e.g. packages and designer settings) that must be included in this module. |
