@@ -54,5 +54,5 @@ The value will now pull through and be used on the Command constructor:
 
 Available from:
 
-- Intent.VisualStudio.Projects 3.8.2
+- Intent.Application.MediatR 4.2.9
 - Intent.Modelers.Services.CQRS 5.0.1
