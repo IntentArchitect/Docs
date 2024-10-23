@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.5
+
+### Issues fixed in 4.3.5
+
+- Fixed: User added references to packages inside modules would be removed when the module was upgraded.
+
 ## Version 4.3.4
 
 ### Issues fixed in 4.3.4
