@@ -7,7 +7,7 @@ uid: release-notes.intent-architect-v4.3
 
 ### Issues fixed in 4.3.5
 
-- Fixed: User added references to packages inside modules would be removed when the module was upgraded.
+- Fixed: User added references to packages inside modules would be removed when the module was upgraded. Note that any references to packages inside modules that were manually added before this change will need to be removed and re-added for a flag to be added to the reference so that Intent Architect can then identify that the reference was manually added.
 
 ## Version 4.3.4
 
