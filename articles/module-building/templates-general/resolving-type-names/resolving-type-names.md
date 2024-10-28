@@ -147,10 +147,10 @@ return GetTypeName(field, "System.Collections.ObjectModel.Collection<{0}>");
 
 ### Forcing `GetTypeName` to resolve the non-collection version of a type
 
-Instead of using `field` as the argument, instead use `field.InternalElement` and use `null` for the `collectionFormat` parameter, for example:
+Simply use `"{0}"` for the `collectionFormat` parameter, for example:
 
 ```csharp
-return GetTypeName(field.InternalElement, null);
+return GetTypeName(field, "{0}");
 ```
 
 ### Forcing `GetTypeName` to resolve the collection version of a type
@@ -158,7 +158,7 @@ return GetTypeName(field.InternalElement, null);
 `GetTypeName` doesn't have an overload for doing this directly, but you can just manually output the collection type inline with the [non-collection version of the type](#forcing-gettypename-to-resolve-the-non-collection-version-of-a-type), for example:
 
 ```csharp
-return $"List<{GetTypeName(field.InternalElement, null)}>";
+return $"List<{GetTypeName(field, "{0}")}>";
 ```
 
 ## Module Builder generated `Get<Template>Name` methods
