@@ -9,6 +9,7 @@ Welcome to the November 2024 edition of highlights of What's New in Intent Archi
   - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application
   - **[Command field default values](#command-field-default-values)** - Default values configured on CQRS Command fields are now used in the Command's constructor.
   - **[Specify default values for associations](#specify-default-values-for-associations)** - Specify default values for properties generated for associations.
+  - **[FastEndpoints an alternative to ASP.NET Core Controllers](#fastendpoints-an-alternative-to-aspnet-core-controllers)** - FastEndpoints is a developer friendly alternative to Minimal APIs & MVC.
 
 ## Update details
 
@@ -112,3 +113,66 @@ public class Invoice
 Available from:
 
 - Intent.Modelers.Domain 3.11.0
+
+### FastEndpoints an alternative to ASP.NET Core Controllers
+
+FastEndpoints is a developer friendly alternative to Minimal APIs & MVC. Its performance is on par with Minimal APIs. Use Intent Architect to perform a drop-in replacement of ASP.NET Controllers by uninstalling the following modules before installing FastEndpoints.
+
+Uninstall the following:
+
+- Intent.AspNetCore.Versioning (if present)
+- Intent.AspNetCore.Controllers.Dispatch.MediatR (if present)
+- Intent.AspNetCore.Controllers.Dispatch.ServiceContract (if present)
+- Intent.AspNetCore.Controllers
+
+Instead of the `Controllers` folder you will see a `FastEndpoints` folder in your `API` project. Instead of a Controller class filled with Action methods, and instead of having a file containing many Minimal API routes, you have a class per endpoint.
+
+![FastEndpoints Folder](images/fastendpoints-folder.png)
+
+An example of a FastEndpoint class:
+
+```csharp
+public class CreateClientCommandEndpoint : Endpoint<CreateClientCommand, JsonResponse<Guid>>
+{
+    private readonly ISender _mediator;
+
+    public CreateClientCommandEndpoint(ISender mediator)
+    {
+        _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
+    }
+
+    public override void Configure()
+    {
+        Post("api/clients");
+        Description(b =>
+        {
+            b.WithTags("Clients");
+            b.Accepts<CreateClientCommand>(MediaTypeNames.Application.Json);
+            b.Produces<JsonResponse<Guid>>(StatusCodes.Status201Created, contentType: MediaTypeNames.Application.Json);
+            b.ProducesProblemDetails();
+            b.ProducesProblemDetails(StatusCodes.Status500InternalServerError);
+        });
+        AllowAnonymous();
+        Options(x => x.WithVersionSet(">>Api Version<<").MapToApiVersion(new ApiVersion(1.0)));
+    }
+
+    public override async Task HandleAsync(CreateClientCommand req, CancellationToken ct)
+    {
+        var result = default(Guid);
+        result = await _mediator.Send(req, ct);
+        await SendCreatedAtAsync<GetClientByIdQueryEndpoint>(new { id = result }, new JsonResponse<Guid>(result), cancellation: ct);
+    }
+}
+```
+
+This will respect your selected dispatch pattern whether it is CQRS with MediatR or the Traditional Services dispatch pattern.
+
+Read more about FastEndpoints [here](https://fast-endpoints.com/).
+
+> [!NOTE]
+>
+> FastEndpoints itself may not support every capability like ASP.NET Core Controllers does and similarly the Module for Intent Architect is in beta so it may not be on par. If you find that it is missing a capability you're looking for, please reach out to us on [github](https://github.com/IntentArchitect/Support) and log a feature request.
+
+Available from:
+
+- Intent.FastEndpoints 1.0.0-beta.8
