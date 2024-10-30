@@ -4,8 +4,8 @@ Welcome to the November 2024 edition of highlights of What's New in Intent Archi
 
 - Highlights
   - **[Hangfire Scheduler](#hangfire-scheduler-module)** - Model scheduled jobs in the Services Designer, and have them realized using [Hangfire](http://www.hangfire.io)
-  - **[Google Cloud Storage Module](#google-cloud-storage-module)** - New support for Google Cloud Storage integration in .NET applications.
   - **[FastEndpoints an alternative to ASP.NET Core Controllers](#fastendpoints-an-alternative-to-aspnet-core-controllers)** - FastEndpoints is a developer friendly alternative to Minimal APIs & MVC.
+  - **[Google Cloud Storage Module](#google-cloud-storage-module)** - New support for Google Cloud Storage integration in .NET applications.
   - **[Specify custom implicit usings](#specify-custom-implicit-global-usings-for-projects)** - Specify custom implicit usings from inside the Visual Studio designer.
   - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application
   - **[Command field default values](#command-field-default-values)** - Default values configured on CQRS Command fields are now used in the Command's constructor.
@@ -24,16 +24,6 @@ See the [module documentation](https://github.com/IntentArchitect/Intent.Modules
 Available from:
 
 - Intent.Hangfire 1.0.0-beta.3
-
-### Google Cloud Storage Module
-
-The `Google Cloud Storage` module for .NET provides an easier-to-use API via the `ICloudStorage` interface. This release simplifies interactions such as uploading, downloading, listing, and deleting objects with Google Cloud Storage, enabling developers to focus more on business logic and less on backend infrastructure.
-
-For more details, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Google.CloudStorage/README.md).
-
-Available from:
-
-- Intent.Google.CloudStorage 1.0.0-beta.1
 
 ### FastEndpoints an alternative to ASP.NET Core Controllers
 
@@ -98,6 +88,15 @@ Available from:
 
 - Intent.FastEndpoints 1.0.0-beta.8
 
+### Google Cloud Storage Module
+
+The `Google Cloud Storage` module for .NET provides an easier-to-use API via the `ICloudStorage` interface. This release simplifies interactions such as uploading, downloading, listing, and deleting objects with Google Cloud Storage, enabling developers to focus more on business logic and less on backend infrastructure.
+
+For more details, refer to the [module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Google.CloudStorage/README.md).
+
+Available from:
+
+- Intent.Google.CloudStorage 1.0.0-beta.1
 
 ### Specify custom implicit (global) usings for projects
 
