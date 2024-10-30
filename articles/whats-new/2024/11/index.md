@@ -3,12 +3,12 @@
 Welcome to the November 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-  - **[Hangfire Scheduler](#hangfire-scheduler-module)** - This module allows you to model scheduled jobs in the Services Designer. These scheduled job are then realized using [Hangfire](http://www.hangfire.io)
+  - **[Hangfire Scheduler](#hangfire-scheduler-module)** - Model scheduled jobs in the Services Designer, and have them realized using [Hangfire](http://www.hangfire.io)
   - **[Google Cloud Storage Module](#google-cloud-storage-module)** - New support for Google Cloud Storage integration in .NET applications.
-  - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application
-  - **[Command field default values](#command-field-default-values)** - Default values configured on Command fields are now used in the Command constructor
-  - **[Specify default values for associations](#specify-default-values-for-associations)** - Specify default values for properties generated for associations.
   - **[Specify custom implicit usings](#specify-custom-implicit-global-usings-for-projects)** - Specify custom implicit usings from inside the Visual Studio designer.
+  - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application
+  - **[Command field default values](#command-field-default-values)** - Default values configured on CQRS Command fields are now used in the Command's constructor.
+  - **[Specify default values for associations](#specify-default-values-for-associations)** - Specify default values for properties generated for associations.
 
 ## Update details
 
@@ -22,7 +22,7 @@ See the [module documentation](https://github.com/IntentArchitect/Intent.Modules
 
 Available from:
 
-- Intent.Hangfire 1.0.0
+- Intent.Hangfire 1.0.0-beta.3
 
 ### Google Cloud Storage Module
 
@@ -32,7 +32,36 @@ For more details, refer to the [module documentation](https://github.com/IntentA
 
 Available from:
 
-- Intent.Google.CloudStorage 1.0.0
+- Intent.Google.CloudStorage 1.0.0-beta.1
+
+### Specify custom implicit (global) usings for projects
+
+You can now generate custom [implicit using directives](https://learn.microsoft.com/dotnet/core/project-sdk/overview#implicit-using-directives) inside the Visual Studio designer:
+
+![Custom implicit using](images/custom-implicit-using.png)
+
+Which will cause `<Using Include="..." />` elements to be generated in the `.csproj`:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="Shouldly" />
+  </ItemGroup>
+
+</Project>
+```
+
+Available from:
+
+- Intent.VisualStudio.Projects 3.8.1
 
 ### .gitignore file generation
 
@@ -83,32 +112,3 @@ public class Invoice
 Available from:
 
 - Intent.Modelers.Domain 3.11.0
-
-### Specify custom implicit (global) usings for projects
-
-You can now generate custom [implicit using directives](https://learn.microsoft.com/dotnet/core/project-sdk/overview#implicit-using-directives) inside the Visual Studio designer:
-
-![Custom implicit using](images/custom-implicit-using.png)
-
-Which will cause `<Using Include="..." />` elements to be generated in the `.csproj`:
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>$(NoWarn);1591</NoWarn>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Using Include="Shouldly" />
-  </ItemGroup>
-
-</Project>
-```
-
-Available from:
-
-- Intent.VisualStudio.Projects 3.8.1
