@@ -3,11 +3,11 @@
 Welcome to the November 2024 edition of highlights of What's New in Intent Architect.
 
 - Highlights
-  - **[Hangfire Scheduler](#hangfire-scheduler-module)** - Model scheduled jobs in the Services Designer, and have them realized using [Hangfire](http://www.hangfire.io)
+  - **[Hangfire Scheduler](#hangfire-scheduler-module)** - Model scheduled jobs in the Services Designer, and have them realized using [Hangfire](http://www.hangfire.io).
   - **[FastEndpoints an alternative to ASP.NET Core Controllers](#fastendpoints-an-alternative-to-aspnet-core-controllers)** - FastEndpoints is a developer friendly alternative to Minimal APIs & MVC.
   - **[Google Cloud Storage Module](#google-cloud-storage-module)** - New support for Google Cloud Storage integration in .NET applications.
   - **[Specify custom implicit usings](#specify-custom-implicit-global-usings-for-projects)** - Specify custom implicit usings from inside the Visual Studio designer.
-  - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application
+  - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application.
   - **[Command field default values](#command-field-default-values)** - Default values configured on CQRS Command fields are now used in the Command's constructor.
   - **[Specify default values for associations](#specify-default-values-for-associations)** - Specify default values for properties generated for associations.
 
