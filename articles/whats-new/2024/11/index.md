@@ -10,6 +10,7 @@ Welcome to the November 2024 edition of highlights of What's New in Intent Archi
   - **[Generate a .gitignore file](#gitignore-file-generation)** - Automatically generate a .NET .gitignore file for your application.
   - **[Command field default values](#command-field-default-values)** - Default values configured on CQRS Command fields are now used in the Command's constructor.
   - **[Specify default values for associations](#specify-default-values-for-associations)** - Specify default values for properties generated for associations.
+  - **[Primitive collection modeling](#primitive-collection-modeling)** - Attributes modeled as primitive collections now persisted using Entity Framework.
 
 ## Update details
 
@@ -176,3 +177,11 @@ public class Invoice
 Available from:
 
 - Intent.Modelers.Domain 3.11.0
+
+### Primitive collection modeling
+
+Primitive data types (examples include `string`, `int`, `bool` etc) can now be modelled as collections in the `Domain Designer` and will leverage Entity Framework's [Primitive collection properties](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#primitive-collection-properties) functionality to persist the data as a JSON column in the database.
+
+![Primitive Collection](images/primitive-collection.png)
+
+For additional details, see the [Intent Architect Entity Framework Module documentation](https://github.com/IntentArchitect/Intent.Modules.NET/tree/development/Modules/Intent.Modules.EntityFrameworkCore#primitive-collection-modelling)
