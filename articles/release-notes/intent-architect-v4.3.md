@@ -3,6 +3,10 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.6
+
+- Fixed: Even when "Install metadata only" was selected for a module, Template Outputs would still be installed.
+
 ## Version 4.3.5
 
 ### Issues fixed in 4.3.5
