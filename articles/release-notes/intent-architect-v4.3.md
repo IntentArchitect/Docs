@@ -5,7 +5,15 @@ uid: release-notes.intent-architect-v4.3
 
 ## Version 4.3.6
 
+### Improvements in 4.3.6
+
+- Improvement: Checks for unsaved tabs and prompts the user before installing, updating or uninstalling modules. This will help prevent issues from changes not being saved when the designer requires a reload.
+- Improvement: Inactive tabs will now flash if a reload of the designer is required.
+
+### Issues fixed in 4.3.6
+
 - Fixed: Even when "Install metadata only" was selected for a module, Template Outputs would still be installed.
+- Fixed: Unsaved changes detected on tabs (designers) that are requiring a reload.
 
 ## Version 4.3.5
 
