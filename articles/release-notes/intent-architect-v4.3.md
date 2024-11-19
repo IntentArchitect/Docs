@@ -8,7 +8,7 @@ uid: release-notes.intent-architect-v4.3
 ### Improvements in 4.3.7
 
 - Improvement: Visual Studio designer will indicate an error if there are unassigned Template Outputs added after module installation / update.
-- Improvement: Now shows rrrors and resolutions for missing packages on Advanced Mappings.
+- Improvement: Now shows errors and resolutions for missing packages on Advanced Mappings.
 
 ### Issues fixed in 4.3.7
 
