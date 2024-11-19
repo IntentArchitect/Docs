@@ -3,6 +3,18 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.7
+
+### Improvements in 4.3.7
+
+- Improvement: Visual Studio designer will indicate an error if there are unassigned Template Outputs added after module installation / update.
+- Improvement: Now shows rrrors and resolutions for missing packages on Advanced Mappings.
+
+### Issues fixed in 4.3.7
+
+- Fixed: Unassigned Template Outputs getting recreated with different file names and identifiers each time the module is installed or updated.
+- Fixed: In the Module Repositories, adding Solution and Application scoped Repositories causes errors and unexpected behaviour.
+
 ## Version 4.3.6
 
 ### Improvements in 4.3.6
