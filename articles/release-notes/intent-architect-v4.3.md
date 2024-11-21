@@ -3,6 +3,17 @@ uid: release-notes.intent-architect-v4.3
 ---
 # Release notes: Intent Architect version 4.3
 
+## Version 4.3.8
+
+### Improvements in 4.3.8
+
+- Improvement: Dynamic Form and Lookup Type dialogs now support `additionalInfo` field for dropdowns.
+- Improvement: Dynamic Form now supports `multi-select` field types.
+
+### Issues fixed in 4.3.8
+
+- Fixed: Possible to unselect a "required" app template component by clicking on the general component box (as opposed to the checkbox)
+
 ## Version 4.3.7
 
 ### Improvements in 4.3.7
