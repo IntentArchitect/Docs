@@ -13,6 +13,7 @@ uid: release-notes.intent-architect-v4.3
 ### Issues fixed in 4.3.8
 
 - Fixed: Possible to unselect a "required" app template component by clicking on the general component box (as opposed to the checkbox)
+- Fixed: Module installations and upgrades could be very slow under certain circumstances.
 
 ## Version 4.3.7
 
