@@ -11,6 +11,8 @@ Application Services act as the contract for how client applications interact wi
 
 ## Creating a Service with Operations
 
+![Service with operations](images/service-with-operations.png)
+
 To create a service with operations:
 
 1. Right-click on the diagram and select `New Service` then provide it a unique Name.
@@ -20,6 +22,8 @@ To create a service with operations:
 
 ## Creating a DTO
 
+![Normal DTOs](images/normal-dtos.png)
+
 To create a DTO:
 
 1. Right click on the Service Package or a containing Folder within and select `New DTO` then provide it a unique Name.
@@ -27,15 +31,19 @@ To create a DTO:
 
 ## Inheriting from a DTO for a DTO
 
+![Inheritance DTO](images/inheritance-dto.png)
+
 Given that you have a DTO and a specific DTO you want to inherit from:
 
-1. **Derived DTO**: Right click on the DTO that will inherit from another DTO and select `New Inheritance`.
-2. **Base DTO**: Select the DTO from which you would like to inherit from.
+1. Right click on the DTO that will inherit from another DTO and select `New Inheritance`.
+2. Select the DTO from which you would like to inherit from.
 
 ## Mapping an Outbound DTO
 
+![Outbound mapping DTO](images/outbound-mapping-dto.png)
+
 Mapping outbound DTOs allows you to transform data from Domain entities to Data Transfer Objects.
 
-1. **Outbound DTO**: Right click on the DTO that will receive mapped information from a Domain Entity and select `Map From Domain`.
-2. **Domain Entity**: A dialog will open allowing you to specify the Domain entity and select the attributes you wish to include in the outbound DTO.
-3. **Complete the Mapping**: Check the boxes next to the attributes you would like to map and click `Done`. This establishes a clear link between your Domain data and the external interface represented by the DTO.
+1. Right click on the DTO that will receive mapped information from a Domain Entity and select `Map From Domain`.
+2. A dialog will open allowing you to specify the Domain entity and select the attributes you wish to include in the outbound DTO.
+3. Check the boxes next to the attributes you would like to map and click `Done`. This establishes a clear link between your Domain data and the external interface represented by the DTO.
