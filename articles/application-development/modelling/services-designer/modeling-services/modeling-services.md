@@ -47,3 +47,15 @@ Mapping outbound DTOs allows you to transform data from Domain entities to Data 
 1. Right click on the DTO that will receive mapped information from a Domain Entity and select `Map From Domain`.
 2. A dialog will open allowing you to specify the Domain entity and select the attributes you wish to include in the outbound DTO.
 3. Check the boxes next to the attributes you would like to map and click `Done`. This establishes a clear link between your Domain data and the external interface represented by the DTO.
+
+## Adding a Diagram to a Services Designer
+
+![Diagram view](images/diagram-view.png)
+
+Enhance the visual organization of your Services by incorporating diagrams. Follow these steps to add a diagram:
+
+1. Right-click on the Services package and select `New Diagram`.
+2. If your Services designer initially displayed a Tree-view, it will now switch to a diagram view based on the newly added diagram.
+3. Rename the diagram by right clicking on it in the Tree-view and selecting `Rename` and specifying a more appropriate name.
+4. Drag and drop Services from the Tree-view onto the diagram to create tailored visual representations. While other elements can also be dragged onto the diagram, not all elements will support visual rendering.
+5. Optionally, you can create multiple diagrams to depict different perspectives of your application. However, remember that the Tree-view will always serve as the accurate source of truth.
