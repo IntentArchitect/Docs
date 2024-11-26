@@ -59,3 +59,6 @@ Enhance the visual organization of your Services by incorporating diagrams. Foll
 3. Rename the diagram by right clicking on it in the Tree-view and selecting `Rename` and specifying a more appropriate name.
 4. Drag and drop Services from the Tree-view onto the diagram to create tailored visual representations. While other elements can also be dragged onto the diagram, not all elements will support visual rendering.
 5. Optionally, you can create multiple diagrams to depict different perspectives of your application. However, remember that the Tree-view will always serve as the accurate source of truth.
+
+> [!TIP]
+> Hold down CTRL while dragging an element from the Tree-view onto the designer to include any directly associated elements with it.
