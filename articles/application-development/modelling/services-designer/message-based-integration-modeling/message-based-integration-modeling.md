@@ -82,7 +82,7 @@ You can now use these integration messages in the diagrams of the subscribing ap
 3. Right-click the `Publish Integration Event` association and select **Map to Message**.
 4. Map the relevant data between the service `Command` and the `Message`.
 
- [!TIP]
+> [!TIP]
 > If the `Message` you want to use isn’t available in the **Add to Diagram** dialog, ensure the package containing the `Message` is referenced in the `Services Package`.
 
 ## Publishing an Integration Message from a Domain Event Handler
