@@ -134,8 +134,6 @@ To subscribe to a published `Message`:
 > [!TIP]
 > If the `Message` you want to subscribe to doesn’t exist in the `Eventing Package` (e.g., it’s from outside the Intent Architect ecosystem), model the `Message` as described in [Create an Integration Message](#create-an-integration-message).
 
-![Message subscribed](./images/subscribe-integration-message.png)
-
 ## Subscribing to an Integration Message with an Existing Integration Event Handler
 
 1. On a diagram, select **Add to Diagram** and choose the `Message` you want to subscribe to.
@@ -214,10 +212,10 @@ If your application (`SubApp`) wants to subscribe to a message published by anot
 2. On a diagram, select **Add to Diagram** and choose the existing `Integration Command` you want to subscribe to.
 3. Hover over the `Integration Command`, click the `Suggestion` icon (:bulb:), and select **Create Integration Event Handler**.
 
+![Integration Command subscribed](./images/subscribe-integration-command.png)
+
 > [!TIP]
 > If the `Integration Command` you want to subscribe to does not exist in an `Eventing Package` (e.g., it is outside the Intent Architect ecosystem), you can model it manually as [described here](#create-an-integration-command).
-
-![Integration Command subscribed](./images/subscribe-integration-command.png)
 
 ## Subscribing to an Integration Command with an Existing Integration Event Handler
 
