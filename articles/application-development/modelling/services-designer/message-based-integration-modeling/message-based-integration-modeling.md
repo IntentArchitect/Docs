@@ -29,21 +29,24 @@ You can model this design in the Services Designer with these simple steps:
 2. **Model where these messages are published**: Specify which parts of the application send integration messages to other systems.
 3. **Model who subscribes to the messages**: Configure which integration messages your application wants to process.
 
-## Integration Messages vs Integration Commands
+> [!NOTE]
+> Integration message are typically categorized as either an `Integration Event` or an `Integration Command`. Within Intent Architect the model type which represents a Integration Event is a `Message`.
 
-When modeling integration messages, you can use either `Message` or `Integration Command`. `Message`s can be thought of as integration events. While similar from a modeling perspective, `Message`s and `Integration Command`s have distinct characteristics.
+## Integration Events vs Integration Commands
+
+When modeling integration messages, you can use either model Integration Events (`Message`) or `Integration Command`s. While similar from a modeling perspective, they have distinct characteristics.
 
 The table below summarizes their differences:
 
-| Aspect                  | Message                           | Command                        |
-|-------------------------|-----------------------------------|--------------------------------|
-| **Technical realization** | Topic                             | Queue                          |
-| **Purpose**              | Notifies about an occurrence      | Instructs an action            |
-| **Recipients**           | Multiple subscribers (potentially)| Single recipient               |
-| **Expectations**         | No action mandated; subscribers decide how to react | Sender expects the action to be performed |
-| **Ordering of messages** | Unordered                        | Naturally ordered (queued)     |
+| Aspect                    | Integration Event                 | Integration Command         |
+|---------------------------|-----------------------------------|-----------------------------|
+| **Technical realization** | Topic                             | Queue                       |
+| **Purpose**               | Notifies about an occurrence      | Instructs an action         |
+| **Recipients**            | Multiple subscribers (potentially)| Single recipient            |
+| **Expectations**          | No action mandated; subscribers decide how to react | Sender expects the action to be performed |
+| **Ordering of messages**  | Unordered                         | Naturally ordered (queued)  |
 
-In general, `Message`s are more commonly used, and many systems adopt a purely event-driven (`Message`) paradigm.
+In general, Integration Events are more commonly used, and many systems adopt a purely event-driven paradigm.
 
 ## Integration Message Naming Conventions
 
@@ -64,15 +67,15 @@ To use these messages in a subscribing application:
 
 You can now use these integration messages in the diagrams of the subscribing application.
 
-## Publishing an Integration Message
+## Publishing an Integration Event
 
-You can publish an integration `Message` from any of the following elements:
+You can publish an Integration Event from any of the following elements:
 
 - Service `Command`
 - Service `Operation`
 - `Domain Event Handler`
 
-### Creating and Publishing a New Integration `Message`
+### Creating and Publishing a New Integration Event
 
 1. On a diagram, hover over the element and click the `Suggestion` icon :bulb:.
 2. Select **Publish Integration Event**.
@@ -83,7 +86,7 @@ You can publish an integration `Message` from any of the following elements:
 
 ![Publishing a Message from a Service Command](./images/publish-event-from-command.png)
 
-### Publishing an Existing Integration `Message`
+### Publishing an Existing Integration Event
 
 1. Add the existing `Message` to the diagram using **Add to Diagram**.
 2. Right-click on the service `Command` and select **Publish Integration Event**. Link it to the `Message`.
@@ -93,9 +96,9 @@ You can publish an integration `Message` from any of the following elements:
 > [!TIP]
 > If the `Message` you want to use isn’t available in the **Add to Diagram** dialog, ensure the package containing the `Message` is referenced in the `Services Package`.
 
-## Create an Integration Message
+## Create an Integration Event
 
-To create a new integration `Message`:
+To create a new Integration Event (`Message`):
 
 1. Add a `Message` to any diagram in the `Services Designer`. This typically represents an integration message your application will publish.
 2. Right-click the `Message` and select **Add Property** to define its data.
@@ -108,9 +111,9 @@ To create a new integration `Message`:
 > [!NOTE]
 > `Message`s are modeled in an `Eventing Package` to facilitate sharing between applications.
 > [!TIP]
-> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-message) can speed up message structure definition.
+> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-event) can speed up message structure definition.
 
-## Subscribing to an Integration Message
+## Subscribing to an Integration Event
 
 If your application (`SubApp`) wants to subscribe to a `Message` published by another application (`PubApp`):
 
@@ -137,7 +140,7 @@ If your application (`SubApp`) wants to subscribe to a `Message` published by an
 
 ## Publishing an Integration Command
 
-You can publish an integration `Message` from any of the following elements:
+You can publish an 'Integration Command` from any of the following elements:
 
 - Service `Command`
 - Service `Operation`
