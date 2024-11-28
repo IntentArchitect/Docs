@@ -211,6 +211,24 @@ If your application (`SubApp`) wants to subscribe to an `Integration Command` pu
 
 ![Integration Command subscribed existing handler](./images/subscribe-integration-command-existing-handler.png)
 
+## Delegating Integration Event Handlers to Service Endpoints
+
+When subscribing in an integration message, you may want to delegate the handling of that message to an existing Service Endpoint.
+
+## Delegating Integration Event Handlers to an existing Service Command
+
+1. On a diagram, select **Add to Diagram** and choose the `Command` you want to delegate to.
+2. Right-click on the `Integration Event Handler` and select **Send Command**.
+3. Left-click on the `Command` you want the `Integration Event Handler` to delegate to.
+4. Right-click on the linking `Association` and select **Map to Command**.
+
+## Delegating Integration Event Handlers to an existing Service Operation
+
+1. On a diagram, select **Add to Diagram** and choose the `Service` you want to delegate to.
+2. Right-click on the `Integration Event Handler` and select **Call Service Operation**.
+3. Left-click on the service `Operation` you want the `Integration Event Handler` to delegate to.
+4. Right-click on the linking `Association` and select **Map to Service Operation**.
+
 ## Realizing Your Message-Based Integration in Technologies
 
 Your message-based integration can be realized in a specific technology depending on the installed modules. Options include:
