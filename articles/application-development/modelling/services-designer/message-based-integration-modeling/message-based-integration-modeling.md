@@ -64,27 +64,29 @@ To use these messages in a subscribing application:
 
 You can now use these integration messages in the diagrams of the subscribing application.
 
-## Publishing an Integration Message from a Service Command
+## Publishing an Integration Message
 
-You can publish an integration `Message` from any of the following elements
+You can publish an integration `Message` from any of the following elements:
 
 - Service `Command`
 - Service `Operation`
 - `Domain Event Handler`
 
+### Creating and Publishing a New Integration `Message`
+
 1. On a diagram, hover over the element and click the `Suggestion` icon :bulb:.
 2. Select **Publish Integration Event**.
-   - This adds a new `Message` and associates it with the command.
-3. Enter a name for the `Message` and press Enter.
-4. Use the **Advanced Mapping Dialog** to map the structure of the message.
-   - Double-click elements on the left to add and map them to your `Message`.
+   - This adds a new `Message` and associates it with the selected element.
+3. Enter a name for the `Message` and press **Enter**.
+4. Use the **Advanced Mapping Dialog** to map the structure of the `Message`:
+   - Double-click elements on the left-hand side to add and map them to your `Message`.
 
 ![Publishing a Message from a Service Command](./images/publish-event-from-command.png)
 
-To publish an existing integration `Message`,
+### Publishing an Existing Integration `Message`
 
 1. Add the existing `Message` to the diagram using **Add to Diagram**.
-2. Right-click the service `Command` and select **Publish Integration Event**. Link it to the `Message`.
+2. Right-click on the service `Command` and select **Publish Integration Event**. Link it to the `Message`.
 3. Right-click the `Publish Integration Event` association and select **Map to Message**.
 4. Map the relevant data between the service `Command` and the `Message`.
 
@@ -106,22 +108,26 @@ To create a new integration `Message`:
 > [!NOTE]
 > `Message`s are modeled in an `Eventing Package` to facilitate sharing between applications.
 > [!TIP]
-> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-message-from-a-service-command) can speed up message structure definition.
+> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-message) can speed up message structure definition.
 
 ## Subscribing to an Integration Message
 
-To subscribe to a published `Message`:
+If your application (`SubApp`) wants to subscribe to a `Message` published by another application (`PubApp`):
 
-1. [Add a package reference to the publishing application’s integration messages](#making-integration-messages-available-in-other-applications).
-2. On a diagram, select **Add to Diagram** and choose the `Message` to subscribe to.
-3. Hover over the `Message`, click the `Suggestion` icon :bulb:, and select **Create Integration Event Handler**.
+> [!NOTE]
+> These steps assume you already have a package reference to the publishing application's messages. If you don't, [add a package reference to the publishing application's integration messages](#making-integration-messages-available-in-other-applications).
+
+### Subscribing with a new `Integration Event Handler`
+
+1. On a diagram, select **Add to Diagram** and choose the `Message` to subscribe to.
+2. Hover over the `Message`, click the `Suggestion` icon :bulb:, and select **Create Integration Event Handler**.
 
 ![Message Subscribed](./images/subscribe-integration-message.png)
 
 > [!TIP]
 > If the `Message` you want to subscribe to doesn’t exist in the `Eventing Package` (e.g., it’s from outside the Intent Architect ecosystem), model the `Message` as described in [Create an Integration Message](#create-an-integration-message).
 
-## Subscribing to an Integration Message with an Existing Integration Event Handler
+### Subscribing with an existing `Integration Event Handler`
 
 1. On a diagram, select **Add to Diagram** and choose the `Message` you want to subscribe to.
 2. Right-click on the `Integration Event Handler` and select **Subscribe to Integration Event**.
@@ -129,12 +135,17 @@ To subscribe to a published `Message`:
 
 ![Message subscribed existing handler](./images/subscribe-existing-handler.png)
 
-> [!NOTE]
-> These steps assume you already have a package reference to the publishing application's messages. If you don't, [add a package reference to the publishing application's integration messages](#making-integration-messages-available-in-other-applications).
+## Publishing an Integration Command
 
-## Publishing an Integration Command from a Service Command
+You can publish an integration `Message` from any of the following elements:
 
-1. On the diagram, hover over the service `Command` and click the `Suggestion` icon :bulb:.
+- Service `Command`
+- Service `Operation`
+- `Domain Event Handler`
+
+### Creating and Publishing a New Integration `Integration Command`
+
+1. On the diagram, hover over the element and click the `Suggestion` icon :bulb:.
 2. Select **Publish Integration Command**.
    - This adds a new `Integration Command` and associates it with your `Command`.
 3. Enter the name of your `Integration Command` and press Enter.
@@ -143,9 +154,7 @@ To subscribe to a published `Message`:
 
 ![Publishing an Integration Command from a Service Command](./images/publish-integration-command-from-command.png)
 
-## Publishing an Existing Integration Command from a Service Command
-
-If you want to publish an existing `Integration Command` from a service `Command`:
+### Publishing an Existing `Integration Command`
 
 1. On the diagram, select **Add to Diagram**, and choose the existing `Integration Command` you want to send.
 2. Right-click on the service `Command`, select **Publish Integration Command**, and left-click the `Integration Command` to link them.
@@ -154,25 +163,6 @@ If you want to publish an existing `Integration Command` from a service `Command
 
 > [!TIP]
 > If the `Integration Command` you are looking for is not available in the **Add to Diagram** dialog, ensure you have added the `Package` containing the `Integration Command` as a reference to the `Services Package`.
-
-## Publishing an Integration Command from a Domain Event Handler
-
-**To Do**
-
-## Publishing an Existing Integration Command from a Domain Event Handler
-
-**To Do**
-
-## Publishing an Integration Command from a Service
-
-1. On the diagram, hover over the `Service`'s `Operation` and click the `Suggestion` icon :bulb:.
-2. Select **Publish Integration Command**.
-   - This adds a new `Integration Command` and associates it with your `Operation`.
-3. Enter the name of your `Integration Command` and press Enter.
-4. Use the **Advanced Mapping Dialog** to project the structure of your message:
-   - Double-click elements on the left-hand side to add and map them to the `Integration Command`.
-
-![Modeled Integration Command](./images/publish-integation-command-from-service.png)
 
 ## Create an Integration Command
 
@@ -189,31 +179,32 @@ To create an `Integration Command`:
 > [!NOTE]
 > `Integration Command`s are modeled in an `Eventing Package` to facilitate sharing between applications.
 > [!TIP]
-> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-command-from-a-service-command) can speed up message structure definition.
+> Using the **Advanced Mapping Dialog** while [publishing the integration message](#publishing-an-integration-command) can speed up message structure definition.
 
 ## Subscribing to an Integration Command
 
-If your application (`SubApp`) wants to subscribe to a message published by another application (`PubApp`):
+If your application (`SubApp`) wants to subscribe to an `Integration Command` published by another application (`PubApp`):
 
-1. [Add a package reference to the publishing application's integration messages](#making-integration-messages-available-in-other-applications).
-2. On a diagram, select **Add to Diagram** and choose the existing `Integration Command` you want to subscribe to.
-3. Hover over the `Integration Command`, click the `Suggestion` icon :bulb:, and select **Create Integration Event Handler**.
+> [!NOTE]
+> These steps assume you already have a package reference to the publishing application's messages. If you don't, [add a package reference to the publishing application's integration messages](#making-integration-messages-available-in-other-applications).
+
+### Subscribing with a new `Integration Event Handler`
+
+1. On a diagram, select **Add to Diagram** and choose the existing `Integration Command` you want to subscribe to.
+2. Hover over the `Integration Command`, click the `Suggestion` icon :bulb:, and select **Create Integration Event Handler**.
 
 ![Integration Command subscribed](./images/subscribe-integration-command.png)
 
 > [!TIP]
 > If the `Integration Command` you want to subscribe to does not exist in an `Eventing Package` (e.g., it is outside the Intent Architect ecosystem), you can model it manually as [described here](#create-an-integration-command).
 
-## Subscribing to an Integration Command with an Existing Integration Event Handler
+### Subscribing with an existing `Integration Event Handler`
 
 1. On a diagram, select **Add to Diagram** and choose the `Integration Command` you want to subscribe to.
 2. Right-click on the `Integration Event Handler` and select **Subscribe to Integration Command**.
 3. Left-click on the `Message` you want the `Integration Event Handler` to handle.
 
 ![Integration Command subscribed existing handler](./images/subscribe-integration-command-existing-handler.png)
-
-> [!NOTE]
-> These steps assume you already have a package reference to the publishing application's messages. If you don't, [add a package reference to the publishing application's integration messages](#making-integration-messages-available-in-other-applications).
 
 ## Realizing Your Message-Based Integration in Technologies
 
