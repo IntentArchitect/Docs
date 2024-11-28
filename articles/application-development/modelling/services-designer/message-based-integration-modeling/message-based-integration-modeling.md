@@ -74,6 +74,7 @@ You can publish an Integration Event from any of the following elements:
 - Service `Command`
 - Service `Operation`
 - `Domain Event Handler`
+- `Integration Event Handler`
 
 ### Creating and Publishing a New Integration Event
 
@@ -128,7 +129,7 @@ If your application (`SubApp`) wants to subscribe to a `Message` published by an
 ![Message Subscribed](./images/subscribe-integration-message.png)
 
 > [!TIP]
-> If the `Message` you want to subscribe to doesn’t exist in the `Eventing Package` (e.g., it’s from outside the Intent Architect ecosystem), model the `Message` as described in [Create an Integration Message](#create-an-integration-message).
+> If the `Message` you want to subscribe to doesn’t exist in the `Eventing Package` (e.g., it’s from outside the Intent Architect ecosystem), model the `Message` as described in [Create an Integration Message](#create-an-integration-event).
 
 ### Subscribing with an existing `Integration Event Handler`
 
@@ -145,6 +146,7 @@ You can publish an 'Integration Command` from any of the following elements:
 - Service `Command`
 - Service `Operation`
 - `Domain Event Handler`
+- `Integration Event Handler`
 
 ### Creating and Publishing a New Integration `Integration Command`
 
