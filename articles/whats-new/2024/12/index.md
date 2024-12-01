@@ -7,6 +7,7 @@ Welcome to the December 2024 edition of highlights of What's New in Intent Archi
   - **[Multi-tenancy Route Strategy](#multi-tenancy-route-strategy)** - In a multi-tenancy application, determine the tenant from a route parameter.
   - **[Service Designer authorization improvements](#service-designer-authorization-improvements)** - New Security module, consolidation of security stereotypes and additional authorization requirements can now be represented.
   - **[ASP.NET Core MVC Module](#aspnet-core-mvc-module)** - View stubs and basic MVC controllers can now be generated for, and which dispatch to, Services in the Service designer.
+  - **[Azure Functions upgradeable to Isolated Processes for .NET 8](#azure-functions-upgradeable-to-isolated-processes-for-net-8)** - Azure Functions for Isolated Processes are now accessible in Intent Architect.
 
 ## Update details
 
@@ -80,3 +81,13 @@ See the [README](https://github.com/IntentArchitect/Intent.Modules.NET/blob/deve
 Available from:
 
 - Intent.AspNetCore.Mvc 1.0.0-beta.2
+
+### Azure Functions upgradeable to Isolated Processes for .NET 8
+
+Azure Functions for Isolated Processes are now accessible by configuring your API project to target .NET 8 and setting the Output Type to `Console` in the Visual Studio designer.
+
+To learn about migrating existing Azure Functions from .NET 6 In-Process to .NET 8 Isolated Processes, [click here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.AzureFunctions/README.md#migrating-from-in-process-functions).
+
+Available from:
+
+- Intent.AzureFunctions 5.0.1-pre.2
