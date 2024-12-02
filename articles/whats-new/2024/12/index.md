@@ -90,4 +90,4 @@ To learn about migrating existing Azure Functions from .NET 6 In-Process to .NET
 
 Available from:
 
-- Intent.AzureFunctions 5.0.1-pre.2
+- Intent.AzureFunctions 5.0.1
