@@ -8,6 +8,7 @@ Welcome to the December 2024 edition of highlights of What's New in Intent Archi
   - **[Service Designer authorization improvements](#service-designer-authorization-improvements)** - New Security module, consolidation of security stereotypes and additional authorization requirements can now be represented.
   - **[ASP.NET Core MVC Module](#aspnet-core-mvc-module)** - View stubs and basic MVC controllers can now be generated for, and which dispatch to, Services in the Service designer.
   - **[Azure Functions upgradeable to Isolated Processes for .NET 8](#azure-functions-upgradeable-to-isolated-processes-for-net-8)** - Azure Functions for Isolated Processes are now accessible in Intent Architect.
+  - **[Custom Swagger examples](#custom-swagger-examples)** - Custom examples can now be captured in Intent Architect, to reflect in the OpenAPI specification and Swagger UI.
 
 ## Update details
 
@@ -19,6 +20,10 @@ An example of some warnings raised by SonarQube (as well as other analysis tools
 
 ![SonarQube warning](images/sonarqube-warnings.png)
 
+Available from:
+
+- Intent.SonarQube 1.0.0
+
 ### Multi-tenancy Route Strategy
 
 When configuring multi-tenancy settings, `Route` is now as strategy option, as well as the `parameter` name to use as the tenant:
@@ -29,6 +34,10 @@ When configuring multi-tenancy settings, `Route` is now as strategy option, as w
 The `route parameter` specified can then be used as a valid placeholder when defining an HTTP route:
 
 ![Route parameter](images/route-placeholder.png)
+
+Available from:
+
+- Intent.Modules.AspNetCore.MultiTenancy 5.1.5
 
 ### Service Designer authorization improvements
 
@@ -91,3 +100,19 @@ To learn about migrating existing Azure Functions from .NET 6 In-Process to .NET
 Available from:
 
 - Intent.AzureFunctions 5.0.1
+
+### Custom Swagger Examples
+
+An `OpenAPI Settings` stereotype is now available to manually be applied to `DTO Field`s and `parameters`. 
+
+The value entered for `Example Value` will reflect in the OpenAPI specification and on the Swagger UI.
+
+![Example value](images/swagger-example-value.png)
+
+Available from:
+
+- Intent.Modules.Metadata.WebApi - 4.6.4
+- Intent.Application.Dtos - 4.4.3
+- Intent.Application.MediatR - 4.3.0
+- Intent.AspNetCore.Controllers - 7.0.0
+- Intent.AspNetCore.Controllers.Dispatch.MediatR - 6.0.0
