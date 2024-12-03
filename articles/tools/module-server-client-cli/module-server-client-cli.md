@@ -40,17 +40,19 @@ Tool 'intent.moduleserver.client.cli' (version 'x.x.x') was successfully install
 
 ## Options
 
-|Option|Description|
-|------|-----------|
+|Option           |Description|
+|-----------------|-----------|
 |`--version`      |Show version information|
 |`-?, -h, --help` |Show help and usage information|
 
 ## Commands
 
-|Command|Description|
-|-------|-----------|
-|`upload-module <serverUrl> <apiKey> <path>`               |Upload a module .imod file.|
-|`upload-application-template <serverUrl> <apiKey> <path>` |Upload an application template .iat file.|
+|Command                                                                 |Description|
+|------------------------------------------------------------------------|-----------|
+|`upload-module <serverUrl> <apiKey> <path>`                             |Upload a module .imod file.|
+|`upload-application-template <serverUrl> <apiKey> <path>`               |Upload an application template .iat file.|
+|`list-module-version <serverUrl> <apiKey> <moduleId> <moduleVersion>`   |Updates a module to be listed (not hidden from searches). |
+|`unlist-module-version <serverUrl> <apiKey> <moduleId> <moduleVersion>` |Updates a module version to be unlisted (hidden from searches).|
 
 ## upload-module command
 
@@ -75,6 +77,7 @@ module-server-client-cli upload-module [<serverUrl> [<apiKey> [<path>]]] [option
 |Option           |Description|
 |-----------------|-----------|
 |`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`--unlisted`     |The module version should be unlisted (hidden from searches).|
 |`-?, -h, --help` |Show help and usage information|
 
 ## upload-application-template command
@@ -100,4 +103,54 @@ module-server-client-cli upload-application-template [<serverUrl> [<apiKey> [<pa
 |Option           |Description|
 |-----------------|-----------|
 |`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`-?, -h, --help` |Show help and usage information|
+
+## list-module-version
+
+Updates a module to be listed (not hidden from searches).
+
+### list-module-version usage
+
+```bash
+module-server-client-cli list-module-version [<serverUrl> [<apiKey> [<moduleId> [<moduleVersion>]]]] [options]
+```
+
+### list-module-version arguments
+
+|Argument        |Description|
+|----------------|-----------|
+|`serverUrl`     |The module server's https address.|
+|`apiKey`        |The API key to use to authenticate the request.|
+|`moduleId`      |The identifier or full name of the module.|
+|`moduleVersion` |The version of the module.|
+
+### list-module-version options
+
+|Option           |Description|
+|-----------------|-----------|
+|`-?, -h, --help` |Show help and usage information|
+
+## unlist-module-version
+
+Updates a module version to be unlisted (hidden from searches).
+
+### unlist-module-version usage
+
+```bash
+module-server-client-cli unlist-module-version [<serverUrl> [<apiKey> [<moduleId> [<moduleVersion>]]]] [options]
+```
+
+### unlist-module-version arguments
+
+|Argument        |Description|
+|----------------|-----------|
+|`serverUrl`     |The module server's https address.|
+|`apiKey`        |The API key to use to authenticate the request.|
+|`moduleId`      |The identifier or full name of the module.|
+|`moduleVersion` |The version of the module.|
+
+### unlist-module-version options
+
+|Option           |Description|
+|-----------------|-----------|
 |`-?, -h, --help` |Show help and usage information|
