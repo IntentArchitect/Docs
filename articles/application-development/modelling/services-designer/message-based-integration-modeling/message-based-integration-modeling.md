@@ -148,7 +148,7 @@ You can publish an 'Integration Command` from any of the following elements:
 - `Domain Event Handler`
 - `Integration Event Handler`
 
-### Creating and Publishing a New Integration `Integration Command`
+### Creating and Publishing a New `Integration Command`
 
 1. On the diagram, hover over the element and click the `Suggestion` icon :bulb:.
 2. Select **Publish Integration Command**.
@@ -211,18 +211,18 @@ If your application (`SubApp`) wants to subscribe to an `Integration Command` pu
 
 ![Integration Command subscribed existing handler](./images/subscribe-integration-command-existing-handler.png)
 
-## Delegating Integration Event Handlers to Service Endpoints
+## Invoking Application Services from Integration Event Handlers
 
 When subscribing in an integration message, you may want to delegate the handling of that message to an existing Service Endpoint.
 
-## Delegating Integration Event Handlers to an existing Service Command
+## Invoking CQRS Commands from Integration Event Handlers
 
 1. On a diagram, select **Add to Diagram** and choose the `Command` you want to delegate to.
 2. Right-click on the `Integration Event Handler` and select **Send Command**.
 3. Left-click on the `Command` you want the `Integration Event Handler` to delegate to.
 4. Right-click on the linking `Association` and select **Map to Command**.
 
-## Delegating Integration Event Handlers to an existing Service Operation
+## Invoking Traditional Service operations from Integration Event Handlers
 
 1. On a diagram, select **Add to Diagram** and choose the `Service` you want to delegate to.
 2. Right-click on the `Integration Event Handler` and select **Call Service Operation**.
