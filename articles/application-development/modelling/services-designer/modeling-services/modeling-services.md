@@ -230,6 +230,8 @@ This accelerator will automatically perform the following actions:
 > - `created, name`
 > - `created desc, name asc`
 
+![Pagination](./images/paginate.png)
+
 ## Modeled Service Implementations
 
 ### Create Entity Action
