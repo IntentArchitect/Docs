@@ -200,6 +200,34 @@ This accelerator will model a Traditional Service with a CRUD implementations. T
 
 ![Generated CRUD CQRS Service Example](./images/accelerator-crud-traditional.png)
 
+### Paginate Accelerator
+
+`Pagination` on an operation allows large datasets to be returned in smaller, more manageable chunks. The `Paginate` accelerator is available any `Operation` or `Query` that returns a **collection**.
+
+1. Right-click on the qualifying `Operation` or `Query`, select `Paginate`.
+2. Select the domain `Entity` to would like to model the service around.
+
+This accelerator will automatically perform the following actions:
+
+- The return type of the `Operation` or `Query` will be changed from the configured return type `TReturnType` to `PagedResult<TReturnType>`.
+- Three `parameters`/`attributes` will be added to the `Query`/`Operation` respectively:
+
+  - **PageNo**: Specifies the page number of the data to retrieved, based on the *PageSize*
+  - **PageSize**: Specifies how many records should be included in a single page
+  - **OrderBy**: Specifies how data should be sorted before pagination is applied
+
+> [!NOTE]
+> If using the default CRUD implementation, the `PageNo` parameter is *1 based*. That is, the first page has a page number of 1. Changing the name of the `parameter`/`attribute` to `PageIndex` will change the pagination to be *0 based*, with the first page having a page number of 0.
+
+> [!TIP]
+> The `OrderBy` parameter can be supplied with a *single* property entity, or multiple entities. Additionally These are all valid `OrderBy` formats:
+>
+> - `name`
+> - `name asc`
+> - `name desc`
+> - `created, name`
+> - `created desc, name asc`
+
 ## Modeled Service Implementations
 
 ### Create Entity Action
