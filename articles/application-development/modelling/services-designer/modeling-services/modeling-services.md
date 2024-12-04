@@ -99,7 +99,7 @@ Once applied to your codebase, implement your business logic as follows:
 > [!TIP]
 > Quickly model or bootstrap your services using the [Traditional Service CRUD Accelerator](#create-crud-traditional-service-accelerator).
 
-## Creating a Traditional Service
+## Creating a Traditional Application Service
 
 To create a service with operations:
 
