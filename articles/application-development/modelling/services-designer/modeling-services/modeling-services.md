@@ -206,8 +206,8 @@ This accelerator will model a Traditional Service with a CRUD implementations, i
 
 `Pagination` on an operation allows large datasets to be returned in smaller, more manageable chunks. The `Paginate` accelerator is available for any `Operation` or `Query` that returns a **collection**.
 
-1. Right-click on the qualifying `Operation` or `Query`, and select `Paginate`.
-2. Select the domain `Entity` that you would like to model the service around.
+1. Right-click on the qualifying `Operation` or `Query`.
+2. Select the `Paginate` menu item.
 
 This accelerator will automatically perform the following actions:
 
@@ -222,7 +222,7 @@ This accelerator will automatically perform the following actions:
 > If using the default CRUD implementation, the `PageNo` parameter is *1-based*. That is, the first page of the dataset has a page number of 1. Changing the name of the `parameter`/`attribute` to `PageIndex` will change the pagination to be *0-based*, with the first page of the dataset having a page number of 0.
 
 > [!TIP]  
-> The `OrderBy` parameter can be supplied with a *single* entity property, or multiple properties. Additionally, sorting can be applied to each property. These are all valid `OrderBy` formats:
+> The `OrderBy` parameter can be supplied with a *single* entity property, or *multiple* entity properties. Additionally, sorting can be applied to each property. These are all valid `OrderBy` formats:
 >
 > - `name`
 > - `name asc`
