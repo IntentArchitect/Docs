@@ -5,24 +5,22 @@ uid: application-development.modelling.services-designer.modeling-services
 
 The Services Designer in Intent Architect is a powerful tool that allows developers to model "Application Services" for their applications. This module's primary focus is to define how your application can be interacted with at the service level, effectively allowing for the creation of internal services and publicly exposed endpoints.
 
-## What is an Application Services
+## What is an Application Service?
 
 An application service is a layer in the architecture of an application that serves as the intermediary between the domain layer (or business logic) and the presentation layer (such as a user interface or API). It typically contains high-level orchestration logic for use cases or business processes, delegating detailed domain logic to the domain layer.
 
 ### Key Characteristics of an Application Service
 
-- **Coordinates Use Cases**, it encapsulates a specific use case or application workflow, such as "Register a user" or "Place an order."
-- **Delegates Domain Logic**, it delegates core business logic to domain entities or domain services rather than implementing it directly.
-- **Handles Input/Output**, It processes input from the presentation layer (e.g., HTTP requests) and returns output to it (e.g., HTTP responses or data transfer objects).
-- **Transaction Management**, It often controls transaction boundaries (e.g., starting, committing, or rolling back database transactions).
-- **Keeps Layers Separate**, It ensures that the presentation layer doesn't interact directly with the domain layer, maintaining separation of concerns.
-- **Interaction with Infrastructure**,  It can use repositories, mappers, or other infrastructure components to fetch or persist data.
+- **Coordinates Use Cases**: Encapsulates a specific use case or application workflow, such as "Register a user" or "Place an order."
+- **Delegates Domain Logic**: Delegates core business logic to domain entities or domain services rather than implementing it directly.
+- **Handles Input/Output**: Processes input from the presentation layer (e.g., HTTP requests) and returns output to it (e.g., HTTP responses or data transfer objects).
+- **Transaction Management**: Controls transaction boundaries (e.g., starting, committing, or rolling back database transactions).
+- **Keeps Layers Separate**: Ensures that the presentation layer doesn't interact directly with the domain layer, maintaining separation of concerns.
+- **Interacts with Infrastructure**: Uses repositories, mappers, or other infrastructure components to fetch or persist data.
 
 ## Different Service Modeling Paradigms
 
-Intent Architect empowers you to model your application services using two distinct paradigms: CQRS (Command Query Responsibility Segregation) and Traditional Services. This flexibility allows you to tailor your service design to match your system's architectural requirements. Whether you need the separation of read and write logic for scalability and clarity, or prefer a unified traditional approach, Intent Architect helps you efficiently structure your services, ensuring maintainable and scalable solutions.
-
-High-Level Overview of the Two Paradigms:
+Intent Architect empowers you to model your application services using two distinct paradigms: CQRS (Command Query Responsibility Segregation) and Traditional Services. This flexibility allows you to tailor your service design to match your system's architectural requirements. Whether you need the separation of read and write logic for scalability and clarity or prefer a unified traditional approach, Intent Architect helps you efficiently structure your services, ensuring maintainable and scalable solutions.
 
 ### CQRS Paradigm
 
@@ -30,7 +28,7 @@ High-Level Overview of the Two Paradigms:
 - Commands handle state-changing operations, focusing on business logic and domain consistency.
 - Queries handle data retrieval, often accessing read-optimized data stores or projections.
 - Ideal for systems with complex requirements or high scalability demands.
-- Use case centric
+- Use case-centric.
 
 ![CQRS Paradigm](./images/cqrs-paradigm.png)
 
@@ -44,141 +42,174 @@ High-Level Overview of the Two Paradigms:
 
 Both paradigms have their strengths, and Intent Architect provides the tools to model your services effectively within either approach.
 
+## Exposing an Application Service
+
+When modeling Application Services, by default, these application services are only available internally within the application.
+It is very common to want to expose these so that external applications can consume them, this is an explicit action the modeler must take as there are several decisions which need to be made:
+
+- Which Service end points are exposed ?
+- What technology are they exposed over?
+- Any technology specific configurations, for example security or addressing.
+
+The various ways in which your Application Services can be exposed will depend on which modules you have installed, as an example if you have the `Intent.Metadata.WebApi` module installed you can `Expose as Http Endpoint` which will expose your service over Http using REST conventions.
+
 ## Creating a CQRS Command
 
 1. Add a `Command` to any diagram in the `Services Designer`.
-2. Capture the name of your `Command`, typically suffixed with `Command`, e.g. `CreateCustomerCommand`.
+2. Name your `Command`, typically suffixed with `Command`, e.g., `CreateCustomerCommand`.
 3. Right-click the `Command` and select **Add Property** to define its data.
 4. Add complex data types as needed:
    - *DTO* for modeling nested structures.
    - *Enum* for modeling enumerations.
-5. *Optional* - Capture the return type of your `Command`, in the property pane or by pressing F2 on the `Command`.
+5. *Optional*: Define the return type of your `Command` in the property pane or by pressing F2 on the `Command`.
 
 ![Modeled CQRS Command](./images/create-cqrs-command.png)
 
-Here we have modeled a service contract, i.e. what data flows into and out of the service end point. Once you applied this design to your code-base, you can implement your business logic as follows.
+Here we have modeled a service contract, defining the data flow into and out of the service endpoint. Once applied to your codebase, implement your business logic as follows:
 
-1. Right-click on the `Command` and select **Open in IDE -> ...CommandHandler.cs**
+1. Right-click on the `Command` and select **Open in IDE -> ...{CreateCustomer}CommandHandler.cs**.
 2. Implement your business logic in the `Handle` method.
 
 > [!NOTE]
-> There are many service implementations which are predictable and repetitive, Intent Architect can generate these implementation for you, [domain interactions](#domain-interactions--processing-actions-actions--implmentations).
+> Many service implementations are predictable and repetitive. Intent Architect can generate these implementations for you: [Modeled Service Implementations](#modeled-service-implementations).
 > [!TIP]
-> You can quickly model or bootstrap your services using the [CQRS CRUD Accelerator](#create-crud-cqrs-operations-accelerator).
+> Quickly model or bootstrap your services using the [CQRS CRUD Accelerator](#create-crud-cqrs-operations-accelerator).
 
 ## Creating a CQRS Query
 
 1. Add a `Query` to any diagram in the `Services Designer`.
-2. Capture the name of your `Query`, typically suffixed with `Query`, e.g. `GetCustomerByIdQuery`.
+2. Name your `Query`, typically suffixed with `Query`, e.g., `GetCustomerByIdQuery`.
 3. Right-click the `Query` and select **Add Property** to define its data.
 4. Add complex data types as needed:
    - *DTO* for modeling nested structures.
    - *Enum* for modeling enumerations.
-5. Capture the return type of your `Query`, in the property pane or by pressing F2 on the `Query`.
+5. Define the return type of your `Query` in the property pane or by pressing F2 on the `Query`.
 
 ![Modeled CQRS Query](./images/create-cqrs-query.png)
 
-Here we have modeled a service contract, i.e. what data flows into and out of the service end point. Once you applied this design to your code-base, you can implement your business logic as follows.
+Once applied to your codebase, implement your business logic as follows:
 
-1. Right-click on the `Query` and select **Open in IDE -> ...CommandHandler.cs**
+1. Right-click on the `Query` and select **Open in IDE -> ...QueryHandler.cs**.
 2. Implement your business logic in the `Handle` method.
 
 > [!NOTE]
-> There are many service implementations which are predictable and repetitive, Intent Architect can generate these implementation for you, [domain interactions](#domain-interactions--processing-actions-actions--implmentations).
+> Many service implementations are predictable and repetitive. Intent Architect can generate these implementations for you: [Modeled Service Implementations](#modeled-service-implementations).
 > [!TIP]
-> You can quickly model or bootstrap your services using the [Traditional Service CRUD Accelerator](#create-crud-traditional-service-accelerator).
+> Quickly model or bootstrap your services using the [Traditional Service CRUD Accelerator](#create-crud-traditional-service-accelerator).
 
 ## Creating a Traditional Service
 
 To create a service with operations:
 
-1. Right-click on the diagram and select `New Service` then provide it a unique Name.
-2. Right click on the Service and select `Add Operation` and then provide it a with a Name.
-3. Right click on the Operation and select `Add Parameter`. Provide it with a Name and a Type. If the type is meant to represent an inbound payload, select the corresponding DTO.
-4. If the Operation is not meant to return anything, leave the Type as `void`. Alternatively, select the appropriate Type from the Type dropdown to represent the return type.
+1. Right-click on the diagram and select `New Service`, then provide it with a unique name.
+2. Right-click on the Service and select `Add Operation`, then provide it with a name.
+3. Right-click on the Operation and select `Add Parameter`. Provide it with a name and a type. If the type represents an inbound payload, select the corresponding DTO.
+4. If the Operation does not return anything, leave the Type as `void`. Otherwise, select the appropriate return type.
 
-Here we have modeled a service contract, i.e. what data flows into and out of the service end point. Once you applied this design to your code-base, you can implement your business logic as follows.
+![Modeled Traditional Service](./images/service-with-operations.png)
 
-![Modeled Traditional Service](images/service-with-operations.png)
+Once applied to your codebase, implement your business logic as follows:
 
-1. Right-click on the `Service` and select **Open in IDE -> {OrganizationsService}.cs**
-2. Implement your business logic in the method which is for your modeled `Operation` e.g. `CreateOrganization`.
+1. Right-click on the `Service` and select **Open in IDE -> {OrganizationsService}.cs**.
+2. Implement your business logic in the method corresponding to your modeled `Operation`, e.g., `CreateOrganization`.
 
 > [!NOTE]
-> There are many service implementations which are predictable and repetitive, Intent Architect can generate these implementation for you, [domain interactions](#domain-interactions--processing-actions-actions--implmentations).
+> Many service implementations are predictable and repetitive. Intent Architect can generate these implementations for you: [Modeled Service Implementations](#modeled-service-implementations).
 > [!TIP]
-> You can quickly model or bootstrap your services using the [Traditional Service CRUD Accelerator](#create-crud-traditional-service-accelerator).
+> Quickly model or bootstrap your services using the [Traditional Service CRUD Accelerator](#create-crud-traditional-service-accelerator).
 
 ## Creating a DTO
 
-![Normal DTOs](images/normal-dtos.png)
+![Normal DTOs](./images/normal-dtos.png)
 
 To create a DTO:
 
-1. Right click on the Service Package or a containing Folder within and select `New DTO` then provide it a unique Name.
-2. Right click on the DTO and select `Add Field`. Provide it with a Name and Type.
+1. Right-click on the Service Package or a containing Folder within and select `New DTO`, then provide it with a unique name.
+2. Right-click on the DTO and select **Add Field**. Provide it with a name and type.
 
-## Inheriting from a DTO for a DTO
+## Inheriting from a DTO
 
-![Inheritance DTO](images/inheritance-dto.png)
+![Inheritance DTO](./images/inheritance-dto.png)
 
-Given that you have a DTO and a specific DTO you want to inherit from:
+To inherit one DTO from another:
 
-1. Right click on the DTO that will inherit from another DTO and select `New Inheritance`.
-2. Select the DTO from which you would like to inherit from.
+1. Right-click on the DTO that will inherit and select `New Inheritance`.
+2. Select the DTO to inherit from.
 
 ## Mapping an Outbound DTO
 
-![Outbound mapping DTO](images/outbound-mapping-dto.png)
+![Outbound Mapping DTO](./images/outbound-mapping-dto.png)
 
-Mapping outbound DTOs allows you to transform data from Domain entities to Data Transfer Objects.
+To map outbound DTOs:
 
-1. Right click on the DTO that will receive mapped information from a Domain Entity and select `Map From Domain`.
-2. A dialog will open allowing you to specify the Domain entity and select the attributes you wish to include in the outbound DTO.
-3. Check the boxes next to the attributes you would like to map and click `Done`. This establishes a clear link between your Domain data and the external interface represented by the DTO.
+1. Right-click on the DTO that will receive mapped information and select `Map From Domain`.
+2. In the dialog, specify the Domain entity and select the attributes to include in the outbound DTO.
+3. Check the desired attributes and click `Done`. This links your Domain data to the DTO.
 
-## Adding a Diagram to a Services Designer
+## Adding a Diagram to the Services Designer
 
-![Diagram view](images/diagram-view.png)
+![Diagram View](./images/diagram-view.png)
 
-Enhance the visual organization of your Services by incorporating diagrams. Follow these steps to add a diagram:
+To enhance visual organization:
 
 1. Right-click on the Services package and select `New Diagram`.
-2. If your Services designer initially displayed a Tree-view, it will now switch to a diagram view based on the newly added diagram.
-3. Rename the diagram by right clicking on it in the Tree-view and selecting `Rename` and specifying a more appropriate name.
-4. Drag and drop Services from the Tree-view onto the diagram to create tailored visual representations. While other elements can also be dragged onto the diagram, not all elements will support visual rendering.
-5. Optionally, you can create multiple diagrams to depict different perspectives of your application. However, remember that the Tree-view will always serve as the accurate source of truth.
+2. If the designer was in Tree-view, it switches to a diagram view.
+3. Rename the diagram by right-clicking it in the Tree-view and selecting `Rename`.
+4. Drag Services from the Tree-view onto the diagram to create visual representations.
+5. Optionally, create multiple diagrams for different perspectives, though the Tree-view remains the source of truth.
 
 > [!TIP]
-> Hold down CTRL while dragging an element from the Tree-view onto the designer to include any directly associated elements with it.
+> Hold down CTRL while dragging elements from the Tree-view to include directly associated elements.
 
 ## Using Accelerators to Rapidly Model Services
 
-Accelerators are marcos or scripts which can automate modeling tasks. The Services Designer has several such macros.
+Accelerators are marcos or scripts which can automate modeling tasks.
 
 ### Create CRUD CQRS Operations Accelerator
 
-### Create CRUD Traditional Service Accelerator
+This accelerator will model a CQRS paradigm service with a CRUD implementation for all the `Command`s and `Query`s. This implementation contains the following:
 
-### Paginate Accelerator
+- Create Entity Command
+- Update Entity Command
+- Delete Entity Command
+- Get Entity by Id Query
+- Get All Entities Query
+- `Command`s based on the `Entity`'s operations.
 
-## Modeling Service Implementations *New*
+1. Right-click on the `Services Package`, select the `Create CRUD CQRS Operations`.
+2. Select the domain `Entity` to would like to model the service around.
 
-CRUD implementations
-Processing Actions
-Call Service Operation
-
-TODO
+![Generated CRUD CQRS Service Example](./images/accelerator-crud-cqrs.png)
 
 > [!NOTE]
-> Modeling Service implementations is optional, many service implementations would be bespoke.
+> You can also run this accelerator on a `Folder` in the `Services Designer`.
 
-## Domain Interactions  (Processing Actions, Actions , Implmentations)
+### Create CRUD Traditional Service Accelerator
 
-### Create Entity
-...
+This accelerator will model a Traditional Service with a CRUD implementations. This implementation contains the following operations:
 
-## Domain Event Handler Implementations
+- Create Entity
+- Update Entity
+- Delete Entity
+- Get Entity by Id
+- Get All Entities
+- `Operations`'s based on the `Entity`'s operations.
 
+1. Right-click on the `Services Package`, select the `Create CRUD Traditional Service`.
+2. Select the domain `Entity` to would like to model the service around.
 
-## Advanced Mapping Screen *New*
+![Generated CRUD CQRS Service Example](./images/accelerator-crud-traditional.png)
+
+## Modeled Service Implementations
+
+### Create Entity Action
+
+### Update Entity Action
+
+### Delete Entity Action
+
+### Query Entity Action
+
+### Call Service Operation Action
+
+### Processing Actions
