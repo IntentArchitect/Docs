@@ -212,7 +212,7 @@ This accelerator will model a Traditional Service with a CRUD implementations, i
 This accelerator will automatically perform the following actions:
 
 - The return type of the `Operation` or `Query` will be changed from the configured return type `TReturnType` to `PagedResult<TReturnType>`.
-- Three `parameters`/`attributes` will be added to the `Query`/`Operation` respectively:
+- Three `parameters`/`properties` will be added to the `Operation`/`Query` respectively:
 
   - **PageNo**: Specifies the page number of the data to retrieve, based on the *PageSize*.
   - **PageSize**: Specifies how many records should be included in a single page.
