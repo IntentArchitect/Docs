@@ -53,7 +53,7 @@ It is very common to want to expose these so that external applications can cons
 - What technology are they exposed over?
 - Any technology specific configurations, for example security or addressing.
 
-The various ways in which your Application Services can be exposed will depend on which modules you have installed, as an example if you have the `Intent.Metadata.WebApi` module installed you can `Expose as Http Endpoint` which will expose your service over Http using REST conventions.
+The various ways in which your Application Services can be exposed will depend on which modules you have installed, as an example if you have the `Intent.Metadata.WebApi` module installed you can `Expose as HTTP Endpoint` which will expose your service over HTTP using REST conventions.
 
 ## Creating a CQRS Command
 
