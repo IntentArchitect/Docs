@@ -13,14 +13,16 @@ An application service is a layer in the architecture of an application that ser
 
 - **Coordinates Use Cases**: Encapsulates a specific use case or application workflow, such as "Register a user" or "Place an order."
 - **Delegates Domain Logic**: Delegates core business logic to domain entities or domain services rather than implementing it directly.
-- **Handles Input/Output**: Processes input from the presentation layer (e.g., HTTP requests) and returns output to it (e.g., HTTP responses or data transfer objects).
-- **Transaction Management**: Controls transaction boundaries (e.g., starting, committing, or rolling back database transactions).
+- **Handles Input/Output**: Processes input from the presentation layer (e.g. HTTP requests) and returns output to it (e.g. HTTP responses or data transfer objects).
+- **Transaction Management**: Controls transaction boundaries (e.g. starting, committing, or rolling back database transactions).
 - **Keeps Layers Separate**: Ensures that the presentation layer doesn't interact directly with the domain layer, maintaining separation of concerns.
 - **Interacts with Infrastructure**: Uses repositories, mappers, or other infrastructure components to fetch or persist data.
 
 ## Different Service Modeling Paradigms
 
 Intent Architect empowers you to model your application services using two distinct paradigms: CQRS (Command Query Responsibility Segregation) and Traditional Services. This flexibility allows you to tailor your service design to match your system's architectural requirements. Whether you need the separation of read and write logic for scalability and clarity or prefer a unified traditional approach, Intent Architect helps you efficiently structure your services, ensuring maintainable and scalable solutions.
+
+Here you are modeling the flow of data in and out of your service and / or application, i.e. the data contracts of your service. You can also, optionally, model implementations for your service.
 
 ### CQRS Paradigm
 
@@ -56,7 +58,7 @@ The various ways in which your Application Services can be exposed will depend o
 ## Creating a CQRS Command
 
 1. Add a `Command` to any diagram in the `Services Designer`.
-2. Name your `Command`, typically suffixed with `Command`, e.g., `CreateCustomerCommand`.
+2. Name your `Command`, typically suffixed with `Command`, e.g. `CreateCustomerCommand`.
 3. Right-click the `Command` and select **Add Property** to define its data.
 4. Add complex data types as needed:
    - *DTO* for modeling nested structures.
@@ -65,7 +67,7 @@ The various ways in which your Application Services can be exposed will depend o
 
 ![Modeled CQRS Command](./images/create-cqrs-command.png)
 
-Here we have modeled a service contract, defining the data flow into and out of the service endpoint. Once applied to your codebase, implement your business logic as follows:
+Once applied to your codebase, implement your business logic as follows:
 
 1. Right-click on the `Command` and select **Open in IDE -> ...{CreateCustomer}CommandHandler.cs**.
 2. Implement your business logic in the `Handle` method.
@@ -78,7 +80,7 @@ Here we have modeled a service contract, defining the data flow into and out of 
 ## Creating a CQRS Query
 
 1. Add a `Query` to any diagram in the `Services Designer`.
-2. Name your `Query`, typically suffixed with `Query`, e.g., `GetCustomerByIdQuery`.
+2. Name your `Query`, typically suffixed with `Query`, e.g. `GetCustomerByIdQuery`.
 3. Right-click the `Query` and select **Add Property** to define its data.
 4. Add complex data types as needed:
    - *DTO* for modeling nested structures.
@@ -111,7 +113,7 @@ To create a service with operations:
 Once applied to your codebase, implement your business logic as follows:
 
 1. Right-click on the `Service` and select **Open in IDE -> {OrganizationsService}.cs**.
-2. Implement your business logic in the method corresponding to your modeled `Operation`, e.g., `CreateOrganization`.
+2. Implement your business logic in the method corresponding to your modeled `Operation`, e.g. `CreateOrganization`.
 
 > [!NOTE]
 > Many service implementations are predictable and repetitive. Intent Architect can generate these implementations for you: [Modeled Service Implementations](#modeled-service-implementations).
@@ -167,7 +169,7 @@ Accelerators are marcos or scripts which can automate modeling tasks.
 
 ### Create CRUD CQRS Operations Accelerator
 
-This accelerator will model a CQRS paradigm service with a CRUD implementation for all the `Command`s and `Query`s. This implementation contains the following:
+This accelerator will model a CQRS paradigm service with a CRUD implementation, including the following:
 
 - Create Entity Command
 - Update Entity Command
@@ -186,7 +188,7 @@ This accelerator will model a CQRS paradigm service with a CRUD implementation f
 
 ### Create CRUD Traditional Service Accelerator
 
-This accelerator will model a Traditional Service with a CRUD implementations. This implementation contains the following operations:
+This accelerator will model a Traditional Service with a CRUD implementations, including the following operations:
 
 - Create Entity
 - Update Entity
