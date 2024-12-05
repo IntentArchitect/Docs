@@ -347,3 +347,72 @@ This opens the `Update Entity Mapping` dialog, where you can:
 
 > [!TIP]  
 > Revisit the mapping screen by right-clicking the `Update Entity Action` or the association and selecting **Map Entity Update**.
+
+### Delete Entity Action
+
+This action allows you to model the deletion of a domain `Entity` (`Class`).  
+It can be applied to a `Command`, a service `Operation`, or a `Domain Event Handler Association` (referred to as the `Element` below).
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to delete.
+2. Right-click on the `Element` and select **Delete Entity**.
+3. Connect the `Element` to the `Entity` by left-clicking the `Entity`.
+
+![Delete Entity Action](./images/delete-entity-action.png)
+
+> [!NOTE]  
+> For `Domain Event Handler` you will need to configure how the Domain Entity is queries, simply right-click on the `Delete Entity Action` (Connecting Association) and select **Map Entity Filter** and map the domain `Entity`s primary key.
+
+### Query Entity Action
+
+This action allows you to model the querying of a domain `Entity` (`Class`).  
+It can be applied to a `Query`, `Command`, service `Operation`, or `Domain Event Handler Association` (referred to as the `Element` below).
+
+### How to Query a single Entity
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to query.
+2. Right-click on the `Element` and select **Query Entity**.
+3. Connect the `Element` to the `Entity` by left-clicking the `Entity`.
+4. Select the `Association` you just created (`Query Entity Action`).
+5. Right-click and select **Map Entity Query**.
+This opens the `Query Entity Mapping` dialog, where you model the criteria for Entity Select:
+6. Map the filter criteria for querying your Entity, here are a few ways you could do this
+   - Double-click the primary key of the `Entity`.
+   - Map the primary key of the `Entity` to corresponding `Element` properties.
+   - Map one or more `Entity` attributes, which uniquely identify the `Entity`, to corresponding `Element` properties.
+
+![Query Entity Action](./images/query-entity-action-single.png)
+
+### How to Query a Collection Entities
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to query.
+2. Right-click on the `Element` and select **Query Entity**.
+3. Connect the `Element` to the `Entity` by left-clicking the `Entity`.
+4. Select the `Association` you just created (`Query Entity Action`).
+5. In the **Properties** pane, check **Is Collection** (shortcut: `Alt + C`).
+You can also rename the Name **entity** to "entities" or similar (this will be the name of the variable the query results are assigned to).
+6. Right-click the association and select **Map Entity Query**.
+This opens the `Query Entity Mapping` dialog, where you model the criteria for Entity Select:
+7. *Optionally* Map Filter criteria for the `Entity` selection.
+8. Click **Done** to complete the mapping (even if no filter criteria are applied).
+
+![Query Entity Action Collection](./images/query-entity-action-collection.png)
+
+> [!NOTE]  
+> Currently, filter criteria mapping only supports "==" conditions. More complex filters must be implemented in code.
+
+### Service Returns and Query Entity Actions
+
+`Query Entity Action` is designed specifically for modeling the querying of data and is not directly tied to the **Return Type** of the `Element` it is modeled on.
+
+Suppose you are modeling a `Query` named `GetCustomersQuery`. This query would likely return a collection of `CustomerDto`s. The implementation of the `GetCustomersQueryHandler` would involve the following steps:
+
+1. Query the database to get a list of `Customer`s.
+2. Transform the `Customer`s to `CustomerDto`s and return the `DTO`s.
+
+The `Query Entity Action` focuses solely on step 1 — querying the database. It is unrelated to step 2, which involves transforming the data into a different return type.
+
+When using `Query Entity Action` alongside our **CRUD** modules, these modules employ heuristic algorithms to handle the wiring for step 2 automatically.
+
+This mapping can be established using the **Map From Domain** context menu option on the `DTO`. This ensures that the transformation from the queried type (`Customer`) to the return type (`CustomerDto`) is recognized and automated.
+The return type and query type must also share the same value for **Is Collection**. If the query retrieves a collection of entities, the return type should also be a collection. Similarly, if the query retrieves a single entity, the return type should not be a collection.
+
