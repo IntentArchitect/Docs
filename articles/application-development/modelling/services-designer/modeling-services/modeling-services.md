@@ -222,7 +222,7 @@ This accelerator will automatically perform the following actions:
 > If using the default CRUD implementation, the `PageNo` parameter is *1-based*. That is, the first page of the dataset has a page number of 1. Changing the name of the `parameter`/`attribute` to `PageIndex` will change the pagination to be *0-based*, with the first page of the dataset having a page number of 0.
 
 > [!TIP]  
-> The `OrderBy` parameter can be supplied with a *single* entity property, or *multiple* entity properties. Additionally, sorting can be applied to each property. These are all valid `OrderBy` formats:
+> Our CRUD modules treats the `OrderBy` as a dynamic Linq statement. The `OrderBy` parameter can be supplied with a *single* entity property, or *multiple* entity properties. Additionally, sorting can be applied to each property. These are all valid `OrderBy` formats:
 >
 > - `name`
 > - `name asc`
@@ -232,11 +232,133 @@ This accelerator will automatically perform the following actions:
 
 ![Pagination](./images/paginate.png)
 
-## Modeled Service Implementations
+## Modeled Implementations
 
 ### Create Entity Action
 
+This action allows you to model the creation of a domain `Entity`(`Class`), using either an `Object Initializer` or a `Constructor`.
+This action can be modeled against a `Command`, a service `Operation` or a `Domain Event Handler Association`, referred to as the `Element` below.
+
+#### Creating a Domain Entity using Object Initialization
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to create.
+2. Right-click on the `Element` and select **Create Entity**.
+3. Connect the `Element` to the `Entity` by left-clicking it.
+
+This will open the `Create Entity Mapping` Dialog, this dialog helps you map data from the `Element` to the `Entity`.
+
+1. Double-Click the `Entity` in right hand panel.
+This will add purple line between the `Element` and the `Entity`, this represents how the `Entity` will be created i.e. `Object Initialization`.
+2. Map how the data from the `Element` to the `Entity`,  this can be done in several ways:
+
+    - **Double-click the `Entity` again**, this map all the `Entity` attributes to the corresponding `Element` properties, adding missing ones where required.
+    - **Double-click individual `Entity` attributes**, this map the `Entity` attribute to the corresponding `Element` property, adding it if required.
+    - **Double-click individual `Element` property**, this will map the `Element` property to the `Entity` property, if there is an attribute with the same name.
+    - **Drag an individual `Element` property onto a `Entity` attribute**, this will map the two elements.
+    - **Drag multiple mappable items from either side to the other side's background**, this will batch map the items, adding items if applicable.
+
+![Create Entity Action Mapping](./images/create-entity-action-object-mapping.png)
+
+> [!TIP]  
+> If there is no mappable concept in the `Element` for the `Entity` attribute, you are able to capture an expression in the text box to the right of the attribute e.g. `true`, `0`, `""`, etc.
+
+![Create Entity Action ](./images/create-entity-action-object-initializer.png)
+
+> [!TIP]  
+> To get back to the mapping screen right click on the `Create Entity Action`, under the `Entity`, or on the Association linking the `Element` and `Entity` and select **Map Entity Creation**.
+
+#### Creating a Domain Entity using a Constructor
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to create.
+2. Right-click on the `Element` and select **Create Entity**.
+3. Connect `Element` to a `Constructor` on the `Entity` Left-click on the `Constructor`.
+
+This will open the `Create Entity Mapping` Dialog, this dialog helps you map data from the `Element` to the `Entity`.
+
+1. Double-Click the `Constructor` in right hand panel.
+This will add purple line between the `Element` and the `Constructor`, this represents how the `Entity` will be created i.e. using this `Constructor`.
+2. Map how the data from the `Element` to the `Constructor`,  this can be done in several ways:
+
+    - **Double-click the `Constructor` again**, this map all the `Constructor` parameters to the corresponding `Element` properties, adding missing ones where required.
+    - **Double-click individual `Constructor` parameter**, this map the `Constructor` parameter to the corresponding `Element` property, adding it if required.
+    - **Double-click individual `Element` property**, this will map the `Element` property to the `Constructor` parameter, if there is an parameter with the same name.
+    - **Drag an individual `Element` property onto a `Constructor` parameter**, this will map the two elements.
+    - **Drag multiple mappable items from either side to the other side's background**, this will batch map the items, adding items if applicable.
+
+![Create Entity Action Mapping](./images/create-entity-action-constructor-mapping.png)
+
+> [!TIP]  
+> If there is no mappable concept in the `Element` for the `Constructor` parameter, you are able to capture an expression in the text box to the right of the attribute e.g. `true`, `0`, `""`, etc.
+
+![Create Entity Action ](./images/create-entity-action-constructor.png)
+
+> [!TIP]  
+> To get back to the mapping screen right click on the `Create Entity Action`, under the `Entity`, or on the Association linking the `Element` and `Constructor` and select **Map Entity Creation**.
+
 ### Update Entity Action
+
+This action allows you to model the update of a domain `Entity`(`Class`), using either an `Attribute`s or a domain entity `Operation`.
+This action can be modeled against a `Command`, a service `Operation` or a `Domain Event Handler Association`, referred to as the `Element` below.
+
+#### Updating a Domain Entity using its properties
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to create.
+2. Right-click on the `Element` and select **Update Entity**.
+3. Connect the `Element` to the `Entity` by left-clicking the `Entity`.
+
+This will open the `Update Entity Mapping` Dialog, this dialog maps the data flow from from the `Element` to the `Entity`.
+
+1. Double-Click the `Entity` in right hand panel.
+This will add purple line between the `Element` and the `Entity`, this represents how the `Entity` will be created i.e. `Object Initialization`.
+2. Map how the data from the `Element` to the `Entity`,  this can be done in several ways:
+
+    - **Select `Entity` attributes, drag them to the background of the left hand side**, this map the `Entity` attributes to the corresponding `Element` properties, adding them if required.
+    - **Double-click individual `Entity` attributes**, this map the `Entity` attribute to the corresponding `Element` property, adding it if required.
+    - **Double-click individual `Element` property**, this will map the `Element` property to the `Entity` property, if there is an attribute with the same name.
+    - **Drag an individual `Element` property onto a `Entity` attribute**, this will map the two elements.
+    - **Drag multiple mappable items from either side to the other side's background**, this will batch map the items, adding items if applicable.
+    ![Update Entity Action Mapping](./images/update-entity-action-mapping.png)
+3. Click the **Map Entity Query** button.
+This will change the dialog to the `Query Entity Mapping` view, which maps how the entity should be retrieved.
+4. Map the data from the `Element` which should be used to query the `Entity` to be updated, typically the `Entity`'s primary key.
+
+    - **Double-click the `Entity` primary key attribute(s)**, this map the `Entity` attribute to the corresponding `Element` property, adding it if required.
+    - **Drag an individual `Element` properties onto a `Entity` attributes**, this will map the two elements.
+
+![Update Entity Action ](./images/update-entity-action-properties.png)
+
+> [!TIP]  
+> To get back to the mapping screen right click on the `Update Entity Action`, under the `Entity`, or on the Association linking the `Element` and `Entity` and select **Map Entity Update**.
+
+#### Updating a Domain Entity using a Domain Entity Operation
+
+1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to create.
+2. Right-click on the `Element` and select **Update Entity**.
+3. Connect `Element` to an `Operation` on the `Entity` by left-clicking the `Operation`.
+
+This will open the `Update Entity Mapping` dialog, this dialog maps data flow from the `Element` to the invoked `Operation`.
+
+1. Double-click the `Operation` in right hand panel.
+This will add purple line between the `Element` and the `Operation`, this represents the invocation of the `Operation`.
+2. Map how the data from the `Element` flows to the `Operation`,  this can be done in several ways:
+
+    - **Double-click the `Operation` again**, this map all the `Operation` parameters to the corresponding `Element` properties, adding missing ones where required.
+    - **Double-click individual `Operation` parameter**, this map the `Operation` parameter to the corresponding `Element` property, adding it if required.
+    - **Double-click individual `Element` property**, this will map the `Element` property to the `Operation` parameter, if there is an parameter with the same name.
+    - **Drag an individual `Element` property onto a `Operation` parameter**, this will map the two elements.
+    - **Drag multiple mappable items from either side to the other side's background**, this will batch map the items, adding items if applicable.
+    ![Update Entity Action Operation Mapping](./images/update-entity-action-operation-mapping.png)
+3. Click the **Map Entity Query** button.
+This will change the dialog to the `Query Entity Mapping` view, which maps how the entity should be retrieved.
+4. Map the data from the `Element` which should be used to query the `Entity` to be updated, typically the `Entity`'s primary key.
+
+    - **Double-click the `Entity` primary key attribute(s)**, this map the `Entity` attribute to the corresponding `Element` property, adding it if required.
+    - **Drag an individual `Element` properties onto a `Entity` attributes**, this will map the two elements.
+
+![Update Entity Action using an Operation](./images/update-entity-action-operation.png)
+
+> [!TIP]  
+> To get back to the mapping screen right click on the `Update Entity Action`, under the `Entity`, or on the Association linking the `Element` and `Entity` and select **Map Entity Update**.
 
 ### Delete Entity Action
 
