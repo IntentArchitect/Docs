@@ -418,8 +418,8 @@ The return type and query type must also share the same value for **Is Collectio
 
 ### Call Service Operation Action
 
-This action allows you to model the invoking of `Service`s and `Domain Service`s.  
-It can be applied to a `Query`, `Command`, service `Operation`, or `Domain Event Handler Association` (referred to as the `Element` below).
+The **Call Service Operation Action** allows you to model the invocation of `Service` or `Domain Service` operations.  
+It can be applied to a `Command`, `Query`, service `Operation`, or `Domain Event Handler Association` (collectively referred to as the `Element` below).
 
 1. On a diagram, select **Add to Diagram** and choose a `Service` or `Domain Service` you want to invoke.
 2. Right-click on the `Element` and select **Call Service Operation**.
@@ -430,7 +430,19 @@ This opens the `Service Operation Mapping` dialog, where you can:
 1. Map data from the `Element` to the `Operation` invocation:
     - **Double-click the `Operation` again**, this map all the `Operation` parameters to the corresponding `Element` properties, adding missing ones where required.
     - **Double-click an `Operation` attribute or `Element` property** to automatically map (or create and map) them.
-    - **Drag an an `Operation` attribute or `Element` property to it's counter part***, to map them.
+    - **Drag an an `Operation` attribute or `Element` property to it's counter part**, to map them.
     ![Service Operation Call Mapping](./images/service-operation-call-mapping.png)
 
 ![Service Operation Call](./images/service-operation-call.png)
+
+### Processing Actions
+
+> [!WARNING]  
+> This is an experimental feature and likely to change in the future
+
+**Add Processing Action** allows you configure additional implementation details through additional mappings. These mappings are able to link any existing **actions** together.
+
+Here are a few examples of what is possible.
+
+- Invoke an Operation on a Domain Entity you are updating.
+- Map data from the result of a **Service Operation Call** onto an entity.
