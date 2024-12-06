@@ -86,7 +86,7 @@ Once applied to your codebase:
 4. Add complex data types as needed:
    - **DTO** for nested structures.
    - **Enum** for enumerations.
-5. Define the return type of the `Query` in the property pane or by pressing **F2**.
+5. Select return type of the `Query` in the property pane or by pressing **F2** (typically a `DTO`).
 
 ![Modeled CQRS Query](./images/create-cqrs-query.png)
 
@@ -416,3 +416,21 @@ When using `Query Entity Action` alongside our **CRUD** modules, these modules e
 This mapping can be established using the **Map From Domain** context menu option on the `DTO`. This ensures that the transformation from the queried type (`Customer`) to the return type (`CustomerDto`) is recognized and automated.
 The return type and query type must also share the same value for **Is Collection**. If the query retrieves a collection of entities, the return type should also be a collection. Similarly, if the query retrieves a single entity, the return type should not be a collection.
 
+### Call Service Operation Action
+
+This action allows you to model the invoking of `Service`s and `Domain Service`s.  
+It can be applied to a `Query`, `Command`, service `Operation`, or `Domain Event Handler Association` (referred to as the `Element` below).
+
+1. On a diagram, select **Add to Diagram** and choose a `Service` or `Domain Service` you want to invoke.
+2. Right-click on the `Element` and select **Call Service Operation**.
+3. Connect the `Element` to the `Operation` you want to invoke, by left-clicking the `Operation`.
+
+This opens the `Service Operation Mapping` dialog, where you can:
+
+1. Map data from the `Element` to the `Operation` invocation:
+    - **Double-click the `Operation` again**, this map all the `Operation` parameters to the corresponding `Element` properties, adding missing ones where required.
+    - **Double-click an `Operation` attribute or `Element` property** to automatically map (or create and map) them.
+    - **Drag an an `Operation` attribute or `Element` property to it's counter part***, to map them.
+    ![Service Operation Call Mapping](./images/service-operation-call-mapping.png)
+
+![Service Operation Call](./images/service-operation-call.png)
