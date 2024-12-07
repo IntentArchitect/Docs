@@ -2,7 +2,7 @@ trigger:
   batch: 'true'
   branches:
     include:
-    - 'master'
+    - 'development-4.4x'
 
 variables:
 - group: 'Pipeline Agent Pool Names'
@@ -12,20 +12,18 @@ pool:
   demands:
   - 'ImageOverride -equals ubuntu-latest'
 
+resources:
+  repositories:
+    - repository: modules-dotnet
+      type: git
+      name: IntentArchitect/Intent.Modules.NET
+      ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
+
 steps:
 
   - checkout: self
     persistCredentials: 'true'
     fetchDepth: '1'
-    
-  - pwsh: |
-      dotnet tool install docfx
-    displayName: 'dotnet tool install docfx'
 
-  - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)/docfx.json
-    displayName: 'run docfx'
+  - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
-  - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
-    displayName: 'az storage blob sync'
