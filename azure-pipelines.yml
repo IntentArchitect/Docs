@@ -12,13 +12,13 @@ pool:
   demands:
   - 'ImageOverride -equals ubuntu-latest'
 
-resources:
-  repositories:
-    - repository: modules-dotnet
-      type: github
-      name: IntentArchitect/Intent.Modules.NET
-      ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
-      token: $(GITHUB_READONLY)  
+# resources:
+#   repositories:
+#     - repository: modules-dotnet
+#       type: github
+#       name: IntentArchitect/Intent.Modules.NET
+#       ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
+#       token: $(GITHUB_READONLY)  
 
 steps:
 
