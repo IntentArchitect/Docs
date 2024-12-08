@@ -26,8 +26,8 @@ steps:
     persistCredentials: 'true'
     fetchDepth: '1'
 
-  # - pwsh: |
-  #     git clone https://$(GitHubToken)@github.com/jp-seini/Intent.Modules.NET.git
+  - pwsh: |
+      git clone https://$(GITHUB_READONLY)@github.com/jp-seini/Intent.Modules.NET.git
     
-  - checkout: modules-dotnet  # Checkout the branch from the second repo  
+  # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
