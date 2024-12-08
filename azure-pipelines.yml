@@ -30,7 +30,7 @@ steps:
 
   - script: |
     git clone https://$(GitHubToken)@github.com/jp-seini/Intent.Modules.NET.git
-  displayName: 'Clone GitHub Repository using PAT'
+    
 
   #- checkout: modules-dotnet  # Checkout the branch from the second repo  
 
