@@ -5,7 +5,7 @@ trigger:
     - 'development-4.4x'
 
 variables:
-  - group: 'Pipeline Agent Pool Names'  
+  - githubToken: $(GITHUB_READONLY)
 
 pool:
   name: $(BuildPool.AzureManaged)
@@ -27,7 +27,7 @@ steps:
     fetchDepth: '1'
 
   - pwsh: |
-      git clone https://$(GITHUB_READONLY)@github.com/jp-seini/Intent.Modules.NET.git
+      git clone https://$(githubToken)@github.com/jp-seini/Intent.Modules.NET.git
     
   # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
