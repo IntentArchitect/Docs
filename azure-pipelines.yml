@@ -29,7 +29,8 @@ steps:
     fetchDepth: '1'
 
   - pwsh: |
-      git clone https://$(GITHUB_PAT)@github.com/jp-seini/Intent.Modules.NET.git
+      $GitUrl = "https://$(GITHUB_PAT)@github.com/jp-seini/Intent.Modules.NET.git"
+      git clone 
     
   # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
