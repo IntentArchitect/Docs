@@ -15,10 +15,9 @@ pool:
 resources:
   repositories:
     - repository: modules-dotnet
-      type: git
+      type: github
       name: IntentArchitect/Intent.Modules.NET
       ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
-      type: github
 
 steps:
 
