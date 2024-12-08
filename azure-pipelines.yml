@@ -5,8 +5,9 @@ trigger:
     - 'development-4.4x'
 
 variables:
-  githubToken: $(GITHUB_READONLY) 
 - group: 'Pipeline Agent Pool Names'
+  githubToken: $(GITHUB_READONLY) 
+
 
 
 pool:
