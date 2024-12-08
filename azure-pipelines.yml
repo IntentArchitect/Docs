@@ -5,19 +5,21 @@ trigger:
     - 'development-4.4x'
 
 variables:
+  githubToken: $(GITHUB_READONLY) 
 - group: 'Pipeline Agent Pool Names'
+
 
 pool:
   name: $(BuildPool.AzureManaged)
   demands:
   - 'ImageOverride -equals ubuntu-latest'
 
-resources:
-  repositories:
-    - repository: modules-dotnet
-      type: github
-      name: IntentArchitect/Intent.Modules.NET
-      ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
+# resources:
+#   repositories:
+#     - repository: modules-dotnet
+#       type: github
+#       name: IntentArchitect/Intent.Modules.NET
+#       ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
 
 steps:
 
@@ -25,5 +27,9 @@ steps:
     persistCredentials: 'true'
     fetchDepth: '1'
 
-  - checkout: modules-dotnet  # Checkout the branch from the second repo  
+  - script: |
+    git clone https://$(GitHubToken)@github.com/jp-seini/Intent.Modules.NET.git
+  displayName: 'Clone GitHub Repository using PAT'
+
+  #- checkout: modules-dotnet  # Checkout the branch from the second repo  
 
