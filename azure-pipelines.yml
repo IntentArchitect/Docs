@@ -55,9 +55,9 @@ steps:
           ls
           
           # get all "README.md" files in a docs folder under the module folder name
-          Write-Host "Get-ChildItem -Path ""${{ module.folderName }}"" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like ""*\docs"" }"
+          Write-Host "Get-ChildItem -Path ""${{ module.folderName }}"" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like ""*/docs"" }"
 
-          $files = Get-ChildItem -Path "${{ module.folderName }}" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
+          $files = Get-ChildItem -Path "${{ module.folderName }}" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*/docs" }
 
           $numberOfFiles = $files.Count
           Write-Host "Number of files found: $numberOfFiles"
