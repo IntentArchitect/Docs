@@ -6,7 +6,7 @@ trigger:
 
 variables:
   - group: 'Pipeline Agent Pool Names'
-  - name : githubToken
+  - name : GITHUB_READONLY
     value: $(GITHUB_READONLY)
 
 parameters:
