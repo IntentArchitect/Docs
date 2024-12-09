@@ -92,10 +92,10 @@ steps:
                     Write-Host "Folder structure already exists: $fullDestinationFolder"
                 }
 
-                # $destinationFullPath = Join-Path -Path $fullDestinationFolder" -ChildPath $destinationModuleFileName
+                $destinationFullPath = Join-Path -Path $fullDestinationFolder -ChildPath $destinationModuleFileName
 
-                # Write-Host "Copy '$($file.FullName)' to '$destinationFullPath'"
-                # Copy-Item -Path $($file.FullName) -Destination $destinationFullPath
+                Write-Host "Copying '$($file.FullName)' to '$destinationFullPath'"
+                Copy-Item -Path $($file.FullName) -Destination $destinationFullPath
 
             } else {
                 Write-Host "No header found - skipping file"
