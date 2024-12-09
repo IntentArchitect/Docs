@@ -44,7 +44,7 @@ steps:
           } else {
               Write-Host "Branch does not exist"
           }
-      displayName: 'Checkout branch from another repo' 
+        displayName: 'Checkout branch from another repo' 
       
       - pwsh: |
           ls
