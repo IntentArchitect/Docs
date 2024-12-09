@@ -16,8 +16,8 @@ We are proud to announce the release of Intent Architect 4.4 beta. This release 
   - **[Add to Diagram](#add-to-diagram)** - Easily locate and add elements to your diagrams.
   - **[Solution folders](#solution-folders)** - Organize applications using solution folders.
   - **[Filtered searching](#filtered-searching)** - Filtered searches in Solution Explorer and tree views.
-  - **[AutoMapper `ProjectTo` option for CRUD Patterns](#automapper-projectto-option-for-crud-patterns)** - Configure CRUD patterns to use AutoMapper's `ProjectTo` functionality.
   - **[.NET 9 support](#net-9-support)** - Added support for .NET 9.
+  - **[AutoMapper `ProjectTo` option for CRUD Patterns](#automapper-projectto-option-for-crud-patterns)** - Configure CRUD patterns to use AutoMapper's `ProjectTo` functionality.
   - **[Finbuckle multi-tenancy support for MongoDB](#finbuckle-multi-tenancy-support-for-mongodb)** - Multi-tenancy with separate databases for MongoDB.
   - **[Finbuckle multi-tenancy support for Google Cloud Storage](#finbuckle-multi-tenancy-support-for-google-cloud-storage)** - Multi-tenancy with separate storage accounts for Google Cloud Storage.
   - **[Service Designer Authorization improvements](#service-designer-authorization-improvements)** - New security module and enhanced authorization capabilities.
@@ -158,6 +158,12 @@ Available from:
 
 - Intent Architect 4.4.0
 
+### .NET 9 support
+
+We have added full support for .NET 9. When creating applications you can configure to target .NET 9 and all of our modules have been updated to resolve the latest NuGet packages for your targeted .NET Framework.
+
+The current default for new applications is .NET 8 as it is the latest LTS.
+
 ### AutoMapper `ProjectTo` option for CRUD patterns
 
 There is now an option to have your CRUD data queries realized using `AutoMapper`'s `ProjectTo` feature. There is a new application setting under "Domain Interaction Settings" called "Default Query Implementation" which has the following options:
@@ -181,12 +187,6 @@ Available from:
 - Intent.Modelers.Services.DomainInteractions 2.0.3
 - Intent.Application.MediatR.CRUD 6.0.22
 - Intent.Application.ServiceImplementations.Conventions.CRUD 5.0.19
-
-### .NET 9 support
-
-We have added full support for .NET 9. When creating applications you can configure to target .NET 9 and all of our modules have been updated to resolve the latest NuGet packages for your targeted .NET Framework.
-
-The current default for new applications is .NET 8 as it is the latest LTS.
 
 ### Finbuckle multi-tenancy support for MongoDB
 
