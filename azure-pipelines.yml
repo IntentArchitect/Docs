@@ -52,6 +52,8 @@ steps:
         displayName: '${{ module.repositoryName }} checkout'
       
       - pwsh: |
+          ls
+          
           # get all "README.md" files in a docs folder under the module folder name
           Write-Host "Get-ChildItem -Path ""${{ module.folderName }}"" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like ""*\docs"" }"
 
