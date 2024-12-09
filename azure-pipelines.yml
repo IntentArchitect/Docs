@@ -10,8 +10,8 @@ parameters:
   default:
     - repositoryName: 'modules-dotnet'
       repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.NET.git"
-    - repositoryName: 'modules-common'
-      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
+    # - repositoryName: 'modules-common'
+    #   repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -20,14 +20,6 @@ pool:
   name: $(BuildPool.AzureManaged)
   demands:
   - 'ImageOverride -equals ubuntu-latest'
-
-# resources:
-#   repositories:
-#     - repository: modules-dotnet
-#       type: github
-#       name: IntentArchitect/Intent.Modules.NET
-#       ref: refs/heads/$(Build.SourceBranchName)  # Using the same branch name as the pipeline's branch
-#       token: $(GITHUB_READONLY)  
 
 steps:
 
@@ -41,6 +33,7 @@ steps:
   - ${{ each module in parameters.modules }} :
       - pwsh: |
           git clone ${{ module.repositoryUrl }} 
+          git checkout ${{ Build.SourceBranchName}} 
       
       - pwsh: |
           ls
