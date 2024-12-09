@@ -24,23 +24,45 @@ pool:
 
 steps:
 
+  # checkout the branch docs repo
   - checkout: self
     persistCredentials: 'true'
     fetchDepth: '1'
     displayName: 'Checkout Docs branch'
 
+  # for each of the above configured modules (under parameters)
   - ${{ each module in parameters.modules }} :
+    displayName: '${{ module.repositoryName }} iteration'
+
+      # clone and checkout the correct branch
+      # this checks if a branch exists in the module repo, with the same name as the current branch
+      # if so, use that, or default to development
       - pwsh: |
           git clone ${{ module.repositoryUrl }}
           cd  ${{ module.folderName }}
           $branchExists = git ls-remote --heads origin $(Build.SourceBranchName) | Select-String -Pattern $(Build.SourceBranchName)
-
           if ($branchExists) {
+              Write-Host "Checkout $(Build.SourceBranchName)"
               git checkout $(Build.SourceBranchName)
           } else {
+              Write-Host "Checkout development"
               git checkout development
           }
-        displayName: 'Checkout branch for ${{ module.repositoryName }}' 
-    
-  # - checkout: modules-dotnet  # Checkout the branch from the second repo  
+        displayName: '${{ module.repositoryName }} checkout'
+      
+      - pwsh: |
+          $files = Get-ChildItem -Path . -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
+          foreach ($file in $files) {
+            Write-Host "Found matching file: $($file.FullName)"
+
+            $firstHeader = Get-Content $filePath | Where-Object { $_ -match '^#' } | Select-Object -First 1
+            if ($firstHeader) {
+                $cleanHeader = $firstHeader -replace '^#\s*', ''  
+                Write-Host "First header (without #): $cleanHeader"
+            } else {
+                Write-Host "No header found - skipping file"
+            }
+          }
+        displayName: '${{ module.repositoryName }} readme scan'
+
 
