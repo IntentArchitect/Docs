@@ -14,7 +14,7 @@ parameters:
   type: object
   default:
     - repositoryName: 'modules-dotnet'
-      repositoryUrl: "https://${ variables.githubToken }@github.com/IntentArchitect/Intent.Modules.NET.git"
+      repositoryUrl: "https://$(GITHUB_READONLY)@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 pool:
   name: $(BuildPool.AzureManaged)
