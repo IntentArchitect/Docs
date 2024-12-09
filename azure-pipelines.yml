@@ -4,19 +4,17 @@ trigger:
     include:
     - 'development-4.4x'
 
-variables:
-  - group: 'Pipeline Agent Pool Names'
-  - name: GITHUB_READONLY
-    value: $(GITHUB_READONLY)
-  - name : DOTNET_REPO_URL
-    value: "https://$(GITHUB_READONLY)@github.com/IntentArchitect/Intent.Modules.NET.git"
-
 parameters:
 - name: modules
   type: object
   default:
     - repositoryName: 'modules-dotnet'
       repositoryUrl: $(DOTNET_REPO_URL) # this has to be set in the variables section due to the way in which variables are resolved
+
+variables:
+  - group: 'Pipeline Agent Pool Names'
+  - name : DOTNET_REPO_URL
+    value: "https://$env:GITHUB_READONLY@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 pool:
   name: $(BuildPool.AzureManaged)
@@ -43,10 +41,14 @@ steps:
   - ${{ each module in parameters.modules }} :
       - pwsh: |
           echo ${{ module.repositoryUrl }}
+        env:
+          GITHUB_READONLY: $(GITHUB_READONLY)
 
       - pwsh: |
           $GitUrl = ${{ module.repositoryUrl }}
           git clone $GitUrl 
+        env:
+          GITHUB_READONLY: $(GITHUB_READONLY)
 
   - pwsh: |
       ls
