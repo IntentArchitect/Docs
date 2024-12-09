@@ -41,8 +41,7 @@ steps:
           echo ${{ module.repositoryUrl }}
       
       - pwsh: |
-          $GitUrl = ${{ module.repositoryUrl }}
-          git clone $GitUrl 
+          git clone ${{ module.repositoryUrl }} 
   #  - pwsh: |
   #      ls
     
