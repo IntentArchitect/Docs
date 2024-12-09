@@ -43,9 +43,8 @@ steps:
       - pwsh: |
           $GitUrl = ${{ module.repositoryUrl }}
           git clone $GitUrl 
-
-   - pwsh: |
-       ls
+  #  - pwsh: |
+  #      ls
     
   # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
