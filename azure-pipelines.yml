@@ -40,8 +40,7 @@ steps:
 
   - ${{ each module in parameters.modules }} :
       - pwsh: |
-          $GitUrl = {{ module.repositoryUrl }}
-          git clone $GitUrl
+          echo ${{ module.repositoryUrl }}
 
   # - pwsh: |
   #     $GitUrl = "https://${GITHUB_READONLY}@github.com/IntentArchitect/Intent.Modules.NET.git"
