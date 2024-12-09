@@ -33,7 +33,7 @@ steps:
   - ${{ each module in parameters.modules }} :
       - pwsh: |
           git clone ${{ module.repositoryUrl }} 
-          git checkout ${{ Build.SourceBranchName}} 
+          git checkout $(Build.SourceBranchName) 
       
       - pwsh: |
           ls
