@@ -10,6 +10,8 @@ parameters:
   default:
     - repositoryName: 'modules-dotnet'
       repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.NET.git"
+    - repositoryName: 'modules-common'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -38,12 +40,10 @@ steps:
 
   - ${{ each module in parameters.modules }} :
       - pwsh: |
-          echo ${{ module.repositoryUrl }}
+          git clone ${{ module.repositoryUrl }} 
       
       - pwsh: |
-          git clone ${{ module.repositoryUrl }} 
-  #  - pwsh: |
-  #      ls
+          ls
     
   # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
