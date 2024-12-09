@@ -43,7 +43,7 @@ steps:
           echo ${{ module.repositoryUrl }}
 
       - pwsh: |
-          $GitUrl = "https://${ variables.githubToken }@github.com/IntentArchitect/Intent.Modules.NET.git"
+          $GitUrl = ${{ module.repositoryUrl }}
           git clone $GitUrl 
 
   - pwsh: |
