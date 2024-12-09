@@ -32,8 +32,6 @@ steps:
 
   # for each of the above configured modules (under parameters)
   - ${{ each module in parameters.modules }} :
-    displayName: '${{ module.repositoryName }} iteration'
-
       # clone and checkout the correct branch
       # this checks if a branch exists in the module repo, with the same name as the current branch
       # if so, use that, or default to development
