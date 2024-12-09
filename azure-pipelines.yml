@@ -34,11 +34,14 @@ steps:
   - ${{ each module in parameters.modules }} :
       # clone and checkout the correct branch
       # this checks if a branch exists in the module repo, with the same name as the current branch
-      # if so, use that, or default to development
       - pwsh: |
           git clone ${{ module.repositoryUrl }}
           cd  ${{ module.folderName }}
+          
+          # Check the remote to see if a branch exists which matches the source branch
           $branchExists = git ls-remote --heads origin $(Build.SourceBranchName) | Select-String -Pattern $(Build.SourceBranchName)
+
+          # either use the SourceBranchName if it exists, or default to "development"
           if ($branchExists) {
               Write-Host "Checkout $(Build.SourceBranchName)"
               git checkout $(Build.SourceBranchName)
@@ -49,13 +52,15 @@ steps:
         displayName: '${{ module.repositoryName }} checkout'
       
       - pwsh: |
-          ls
-          $files = Get-ChildItem -Path . -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
+          # get all "README.md" files in a docs folder under the module folder name
+          $files = Get-ChildItem -Path "${{ module.folderName }}" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
+
           foreach ($file in $files) {
             Write-Host "Found matching file: $($file.FullName)"
-
+            # Scan the file contents for the markdown header (starts with #)
             $firstHeader = Get-Content $filePath | Where-Object { $_ -match '^#' } | Select-Object -First 1
             if ($firstHeader) {
+                # strip out the # from the header, to be left with the module name
                 $cleanHeader = $firstHeader -replace '^#\s*', ''  
                 Write-Host "First header (without #): $cleanHeader"
             } else {
