@@ -6,15 +6,15 @@ trigger:
 
 variables:
   - group: 'Pipeline Agent Pool Names'
-  - name : GITHUB_READONLY
-    value: $(GITHUB_READONLY)
+  - name : DOTNET_REPO_URL
+    value: "https://$(GITHUB_READONLY)@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 parameters:
 - name: modules
   type: object
   default:
     - repositoryName: 'modules-dotnet'
-      repositoryUrl: "https://$(GITHUB_READONLY)@github.com/IntentArchitect/Intent.Modules.NET.git"
+      repositoryUrl: $(DOTNET_REPO_URL) # this has to be set in the variables section due to the way in which variables are resolved
 
 pool:
   name: $(BuildPool.AzureManaged)
