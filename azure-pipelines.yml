@@ -14,7 +14,7 @@ parameters:
 variables:
   - group: 'Pipeline Agent Pool Names'
   - name : DOTNET_REPO_URL
-    value: "https://$env:GITHUB_READONLY@github.com/IntentArchitect/Intent.Modules.NET.git"
+    value: "https://${env:GITHUB_READONLY}@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 pool:
   name: $(BuildPool.AzureManaged)
