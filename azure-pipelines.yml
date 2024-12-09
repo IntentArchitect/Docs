@@ -53,7 +53,9 @@ steps:
       
       - pwsh: |
           # get all "README.md" files in a docs folder under the module folder name
+          Write-Host "Get-ChildItem -Path ""${{ module.folderName }}"" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like ""*\docs"" }"
           $files = Get-ChildItem -Path "${{ module.folderName }}" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
+          Write-Host "Number of files found: $files.Count"
 
           foreach ($file in $files) {
             Write-Host "Found matching file: $($file.FullName)"
