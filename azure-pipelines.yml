@@ -9,7 +9,7 @@ parameters:
   type: object
   default:
     - repositoryName: 'modules-dotnet'
-      repositoryUrl: "https:github.com/IntentArchitect/Intent.Modules.NET.git"
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.NET.git"
 
 variables:
   - group: 'Pipeline Agent Pool Names'
