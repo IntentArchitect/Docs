@@ -72,12 +72,12 @@ steps:
                 $destinationFileName = $moduleName.ToLower() -replace '\.', '-'
 
                 # Check if the folder structure exists; if not, create it
-                # if (-not (Test-Path -Path $fullDestinationFolder)) {
-                #     New-Item -Path $fullDestinationFolder -ItemType Directory -Force
-                #     Write-Host "Folder structure created: $fullDestinationFolder"
-                # } else {
-                #     Write-Host "Folder structure already exists: $fullDestinationFolder"
-                # }
+                if (-not (Test-Path -Path $fullDestinationFolder)) {
+                    New-Item -Path $fullDestinationFolder -ItemType Directory -Force
+                    Write-Host "Folder structure created: $fullDestinationFolder"
+                } else {
+                    Write-Host "Folder structure already exists: $fullDestinationFolder"
+                }
 
                 #$destinationFullPath = Join-Path -Path ${{ module.destinationFolder }} -ChildPath $destinationFileName
 
