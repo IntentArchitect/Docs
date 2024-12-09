@@ -79,7 +79,7 @@ steps:
                     Write-Host "Folder structure already exists: $fullDestinationFolder"
                 }
 
-                $destinationFullPath = Join-Path -Path $destinationFolder -ChildPath $destinationFileName
+                $destinationFullPath = Join-Path -Path ${{ module.destinationFolder }} -ChildPath $destinationFileName
 
                 Write-Host "Copy '$(file.FullName)' to '$destinationFullPath'"
                 #Copy-Item -Path $(file.FullName) -Destination $destinationFullPath
