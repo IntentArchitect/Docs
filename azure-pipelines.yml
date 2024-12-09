@@ -65,7 +65,7 @@ steps:
           foreach ($file in $files) {
             Write-Host "Found matching file: $($file.FullName)"
             # Scan the file contents for the markdown header (starts with #)
-            $firstHeader = Get-Content $filePath | Where-Object { $_ -match '^#' } | Select-Object -First 1
+            $firstHeader = Get-Content $($file.FullName) | Where-Object { $_ -match '^#' } | Select-Object -First 1
             if ($firstHeader) {
                 # strip out the # from the header, to be left with the module name
                 $cleanHeader = $firstHeader -replace '^#\s*', ''  
