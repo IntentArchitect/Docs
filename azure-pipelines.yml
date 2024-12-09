@@ -9,12 +9,10 @@ parameters:
   type: object
   default:
     - repositoryName: 'modules-dotnet'
-      repositoryUrl: $(DOTNET_REPO_URL) # this has to be set in the variables section due to the way in which variables are resolved
+      repositoryUrl: "https:github.com/IntentArchitect/Intent.Modules.NET.git"
 
 variables:
   - group: 'Pipeline Agent Pool Names'
-  - name : DOTNET_REPO_URL
-    value: "https://${env:GITHUB_READONLY}@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 pool:
   name: $(BuildPool.AzureManaged)
@@ -41,17 +39,13 @@ steps:
   - ${{ each module in parameters.modules }} :
       - pwsh: |
           echo ${{ module.repositoryUrl }}
-        env:
-          GITHUB_READONLY: $(GITHUB_READONLY)
-
+      
       - pwsh: |
           $GitUrl = ${{ module.repositoryUrl }}
           git clone $GitUrl 
-        env:
-          GITHUB_READONLY: $(GITHUB_READONLY)
 
-  - pwsh: |
-      ls
+   - pwsh: |
+       ls
     
   # - checkout: modules-dotnet  # Checkout the branch from the second repo  
 
