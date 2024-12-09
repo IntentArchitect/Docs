@@ -27,6 +27,7 @@ steps:
   - checkout: self
     persistCredentials: 'true'
     fetchDepth: '1'
+    displayName: 'Checkout Docs branch'
 
   - pwsh: |
       ls
@@ -35,7 +36,15 @@ steps:
       - pwsh: |
           git clone ${{ module.repositoryUrl }}
           cd  ${{ module.folderName }}
-          git checkout $(Build.SourceBranchName) 
+          #git checkout $(Build.SourceBranchName)
+          $branchExists = git ls-remote --heads origin $(Build.SourceBranchName) | Select-String -Pattern $(Build.SourceBranchName)
+
+          if ($branchExists) {
+              Write-Host "Branch exists"
+          } else {
+              Write-Host "Branch does not exist"
+          }
+      displayName: 'Checkout branch from another repo' 
       
       - pwsh: |
           ls
