@@ -144,6 +144,8 @@ Common use cases for this feature:
 Available from:
 
 - Intent Architect 4.4.0
+- Intent.Modelers.Domain 3.12.0-beta.*
+- Intent.Modelers.Services 3.9.0-beta.*
 
 ### Solution folders
 
