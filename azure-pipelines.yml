@@ -79,7 +79,7 @@ steps:
                 
                 # To lower the module name and replace the "." with "-"
                 $destinationModuleFolderName = $moduleName.ToLower() -replace '\.', '-'
-                $destinationModuleFileName = $destinationFolderName.md
+                $destinationModuleFileName = "$destinationModuleFolderName.md"
 
                 # the full output path
                 $fullDestinationFolder = Join-Path -Path $destinationRepoFolder -ChildPath $destinationModuleFolderName
