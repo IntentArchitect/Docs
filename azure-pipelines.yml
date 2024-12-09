@@ -59,6 +59,8 @@ steps:
           $numberOfFiles = $files.Count
           Write-Host "Number of files found: $numberOfFiles"
 
+          cd "articles"
+
           foreach ($file in $files) {
             Write-Host "Found matching file: $($file.FullName)"
 
@@ -67,9 +69,7 @@ steps:
             if ($firstHeader) {
                 # strip out the # from the header, to be left with the module name
                 $moduleName = $firstHeader -replace '^#\s*', ''  
-
-                cd "articles"
-
+                
                 $fullDestinationFolder = Join-Path -Path (Get-Location) -ChildPath "${{ module.destinationFolder }}"
                 $destinationFileName = $moduleName.ToLower() -replace '\.', '-'
 
@@ -81,10 +81,10 @@ steps:
                     Write-Host "Folder structure already exists: $fullDestinationFolder"
                 }
 
-                #$destinationFullPath = Join-Path -Path ${{ module.destinationFolder }} -ChildPath $destinationFileName
+                $destinationFullPath = Join-Path -Path ${{ module.destinationFolder }} -ChildPath $destinationFileName
 
-                #Write-Host "Copy '$(file.FullName)' to '$destinationFullPath'"
-                #Copy-Item -Path $(file.FullName) -Destination $destinationFullPath
+                Write-Host "Copy '$(file.FullName)' to '$destinationFullPath'"
+                Copy-Item -Path $(file.FullName) -Destination $destinationFullPath
 
             } else {
                 Write-Host "No header found - skipping file"
