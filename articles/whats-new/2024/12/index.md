@@ -5,36 +5,38 @@ Welcome to the 2024 Christmas edition of highlights of What's New in Intent Arch
 We are proud to announce the release of Intent Architect 4.4 beta. This release has been largely focused on improving product usability and feature discoverability. This version is fully backwards compatible.
 
 - Highlights
-  - **[Context Aware Help Topics](#context-aware-help-topics)** - In product, context aware help topics available on F1.
-  - **[Suggestions](#suggestions)** - New hint system, to accelerate your modeling and help discover options with Intent Architect.
-  - **[Search Everywhere](#search-everywhere)** - Ability to search everywhere, including across applications.
-  - **[SonarQube Analysis](#sonarqube-module)** - Provides real-time code quality analysis and feedback on the quality, readability and complexity of the code using [SonarQube](https://www.sonarsource.com/products/sonarlint/)
-  - **[Azure Functions upgradeable to Isolated Processes for .NET 8](#azure-functions-upgradeable-to-isolated-processes-for-net-8)** - Azure Functions for Isolated Processes are now accessible in Intent Architect.
+  - **[Help Topics, in product](#help-topics-in-product)** - Context-aware help topics available in-product by pressing F1.
+  - **[Suggestions](#suggestions)** - A new hint system to accelerate modeling and help discover modeling options.
+  - **[Search Everywhere](#search-everywhere)** - Search across all applications with a unified search experience.
+  - **[SonarQube analysis](#sonarqube-module)** - Real-time code quality analysis using [SonarQube](https://www.sonarsource.com/products/sonarlint/).
+  - **[Azure Functions upgradeable to Isolated Processes for .NET 8](#azure-functions-upgradeable-to-isolated-processes-for-net-8)** - Support for Azure Functions in Isolated Processes targeting .NET 8.
 
 - More updates
-  - **[Find Usages](#find-usages)** - Improved find usages functionality.
-  - **[Add to Diagram](#add-to-diagram)** - Easily find and add elements to your diagrams.
-  - **[Solution folders](#solution-folders)** - Add folders to group your applications.
-  - **[Filtered searching](#filtered-searching)** - Solution Explorer and designer tree-view model now filter their contents on searching.
-  - **[AutoMapper `ProjectTo` option for CRUD patterns](#automapper-projectto-option-for-crud-patterns)** - Configure your CRUD implementations to use AutoMapper's `ProjectTo` pattern.
+  - **[Find Usages](#find-usages)** - Rework "Find Usages" functionality.
+  - **[Add to Diagram](#add-to-diagram)** - Easily locate and add elements to your diagrams.
+  - **[Solution folders](#solution-folders)** - Organize applications using solution folders.
+  - **[Filtered searching](#filtered-searching)** - Filtered searches in Solution Explorer and tree views.
+  - **[AutoMapper `ProjectTo` option for CRUD Patterns](#automapper-projectto-option-for-crud-patterns)** - Configure CRUD patterns to use AutoMapper's `ProjectTo` functionality.
   - **[.NET 9 support](#net-9-support)** - Added support for .NET 9.
-  - **[Finbuckle Multi-tenancy support for MongoDB](#finbuckle-multi-tenancy-support-for-mongodb)** - Configure `Separate Database` multi-tenancy support for MongoDB using Finbuckle.
-  - **[Finbuckle Multi-tenancy support for Google Cloud Storage](#finbuckle-multi-tenancy-support-for-google-cloud-storage)** - Configure `Separate Database` multi-tenancy support for Google Cloud Storage using Finbuckle.
-  - **[Service Designer authorization improvements](#service-designer-authorization-improvements)** - New Security module, consolidation of security stereotypes and additional authorization requirements can now be represented.
-  - **[ASP.NET Core MVC Module](#aspnet-core-mvc-module)** - View stubs and basic MVC controllers can now be generated for, and which dispatch to, Services in the Service designer.
-  - **[Multi-tenancy Route Strategy](#multi-tenancy-route-strategy)** - In a multi-tenancy application, determine the tenant from a route parameter.
-  - **[Custom Swagger examples](#custom-swagger-examples)** - Custom examples can now be captured in Intent Architect, to reflect in the OpenAPI specification and Swagger UI.
+  - **[Finbuckle multi-tenancy support for MongoDB](#finbuckle-multi-tenancy-support-for-mongodb)** - Multi-tenancy with separate databases for MongoDB.
+  - **[Finbuckle multi-tenancy support for Google Cloud Storage](#finbuckle-multi-tenancy-support-for-google-cloud-storage)** - Multi-tenancy with separate storage accounts for Google Cloud Storage.
+  - **[Service Designer Authorization improvements](#service-designer-authorization-improvements)** - New security module and enhanced authorization capabilities.
+  - **[ASP.NET Core MVC module](#aspnet-core-mvc-module)** - Generate basic MVC controllers and views from services in the Service Designer.
+  - **[Multi-tenancy route strategy](#multi-tenancy-route-strategy)** - Identify tenants using route parameters in multi-tenant applications.
+  - **[Custom Swagger examples](#custom-swagger-examples)** - Add custom examples for DTO fields and parameters in Swagger UI.
 
 ## Update details
 
-### Context Aware Help Topics
+### Help Topics, in product
 
-Intent Architect now has built in `Help`. Pressing `F1`, within the context of a designer, will bring up the `Help` dialog
-The Help dialog will provide help topics which can further be filtered using the search bar.
+Intent Architect now includes built-in `Help`. Pressing `F1` within the context of a designer opens the `Help` dialog. The dialog provides help topics that can be further filtered using the search bar.
 
 ![Help Topics Sample](images/help-dialog.png)
 
-The Help dialog is context aware, so when you press F1 in a designer, you will get all the help topics for the designer specifically. If you select an `Element` in the the designer, for example, a domain `Class` or a CQRS `Command`, you will get help topics relevant to the selected `Element`.
+The `Help` dialog is context-aware. For example:
+
+- Pressing F1 in a designer displays help topics specific to that designer.
+- Selecting an `Element` such as a domain `Class` or CQRS `Command` filters help topics relevant to the selected element.
 
 Available from:
 
@@ -42,18 +44,18 @@ Available from:
 
 ### Suggestions
 
-`Suggestion`s are a new feature intended to give context specific assistance to modelers. When hovering your mouse over an `Element` which has suggestions you will see and Light Bulb icon, indicating there are suggestions available.
+`Suggestion`s are a new feature intended to give context-specific assistance to modelers. When hovering your mouse over an `Element` that has suggestions, you will see a Light Bulb icon, indicating that suggestions are available.
 
 ![Suggestions Sample](images/suggestions-command.png)
 
 Suggestions aim to assist with the following:
 
-- Quickly model common scenarios, for example
-  - Publishing an `Integration Event` from a CQRS Command
-  - Subscribing to an `Integration Event`
-  - Publishing a `Domain Event` from a domain behaviour.
-- Add related Elements / Associations for existing Diagram Elements
-- Discover modeling options
+- Quickly model common scenarios, for example:
+  - Publishing an `Integration Event` from a CQRS Command.
+  - Subscribing to an `Integration Event`.
+  - Publishing a `Domain Event` from a domain behavior.
+- Add related Elements/Associations for existing Diagram Elements.
+- Discover modeling options.
 
 Available from:
 
@@ -61,20 +63,20 @@ Available from:
 
 ### Search Everywhere
 
-The Search Everywhere dialog, allows you to quickly find aspects of your design using a unified, incremental search box which also supports abbreviation matching.
-The Search is performed across applications, and the search results give full context on the search results to make easy to quickly identify the search result you are looking for.
+The Search Everywhere dialog allows you to quickly find aspects of your design using a unified, incremental search box that also supports abbreviation matching.  
+The search is performed across applications, and the search results provide full context to make it easy to identify the desired result.
 
 ![Search Everywhere Sample](images/search-everywhere.png)
 
-You can access the Search Everywhere dialog using it's shortcut (Ctrl+T).
+You can access the Search Everywhere dialog using its shortcut (Ctrl+T).
 
 Available from:
 
 - Intent Architect 4.4.0
 
-### SonarQube Module
+### SonarQube module
 
-This module installs the SonarQube IDE linter into your application, providing real-time code quality analysis and feedback on the quality, readability and complexity of the code.
+This module installs the SonarQube IDE linter into your application, providing real-time code quality analysis and feedback on the quality, readability, and complexity of the code.
 
 An example of some warnings raised by SonarQube (as well as other analysis tools):
 
@@ -113,7 +115,7 @@ Available from:
 
 ### Filtered searching
 
-When searching in the `Solution Explorer` and `designer tree-view`, this trees now filter to only show matching search results.
+When searching in the `Solution Explorer` and `designer tree-view`, these trees now filter to only show matching search results.
 
 ![Filtered Search Sample](images/filter-search.png)
 
@@ -127,17 +129,17 @@ Diagrams in the `Service Designer` and `Domain Designer` have a new feature, `Ad
 
 ![Add to Diagram Sample](images/add-to-diagram.png)
 
-The dialog will show you all elements, which arn't currently on your diagram, which you can add to it. This list included elements in the current package as well as referenced packages.
+The dialog will show you all elements, which aren't currently on your diagram, which you can add to it. This list includes elements in the current package as well as referenced packages.
 
 Common use cases for this feature:
 
-- Adding elements want to model against like:
-  - Integration Messages, for Integration Subscriptions
-  - Entities, for CRUD implementations
+- Adding elements to model against like:
+  - Integration Messages, for Integration Subscriptions.
+  - Entities, for CRUD implementations.
   - Domain Services, for modeling Service Operation Calls.
-  - Domain Events, for Domain Event subscriptions
-- Adding Custom Commands / Queries to an existing Diagram.
-- Creating custom Diagrams
+  - Domain Events, for Domain Event subscriptions.
+- Adding Custom Commands/Queries to an existing Diagram.
+- Creating custom Diagrams.
 
 Available from:
 
@@ -145,10 +147,10 @@ Available from:
 
 ### Solution folders
 
-You can now group applications together by adding folders to the solution explorer.This is particularly useful is you have:
+You can now group applications together by adding folders to the solution explorer. This is particularly useful if you have:
 
-- Many Microservices
-- Logically similar applications, you'd like to group together
+- Many Microservices.
+- Logically similar applications you'd like to group together.
 
 ![Solution explorer folders](images/solution-explorer-folders.png)
 
@@ -186,7 +188,7 @@ We have added full support for .NET 9. When creating applications you can config
 
 The current default for new applications is .NET 8 as it is the latest LTS.
 
-### Finbuckle Multi-tenancy support for MongoDB
+### Finbuckle multi-tenancy support for MongoDB
 
 If you install the `Intent.Modules.AspNetCore.MultiTenancy` module with the MongoDB module, you can  now configure what type of Multi-tenancy you want to use. You can set the MongoDB Data Isolation to the following options:
 
@@ -200,7 +202,7 @@ Available from:
 - Intent.MongoDb 1.0.18
 - Intent.Modules.AspNetCore.MultiTenancy 5.1.5
 
-### Finbuckle Multi-tenancy support for Google Cloud Storage
+### Finbuckle multi-tenancy support for Google Cloud Storage
 
 If you install the `Intent.Modules.AspNetCore.MultiTenancy` module with the Google Cloud Storage module, you can  now configure what type of Multi-tenancy you want to use. You can set the Google Cloud Storage Data Isolation to the following options:
 
@@ -246,7 +248,7 @@ Available from:
 - Intent.Metadata.WebApi 4.6.4
 - Intent.Metadata.Security Intent.Metadata.Security 1.0.0
 
-### ASP.NET Core MVC Module
+### ASP.NET Core MVC module
 
 View stubs and basic MVC controllers can now be generated for, and which dispatch to, Services in the Service designer.
 
@@ -281,7 +283,7 @@ Available from:
 
 - Intent.Modules.AspNetCore.MultiTenancy 5.1.5
 
-### Custom Swagger Examples
+### Custom Swagger examples
 
 An `OpenAPI Settings` stereotype is now available to manually be applied to `DTO Field`s and `parameters`.
 
