@@ -68,7 +68,7 @@ steps:
                 # strip out the # from the header, to be left with the module name
                 $moduleName = $firstHeader -replace '^#\s*', ''  
 
-                $fullDestinationFolder = Join-Path -Path "/articles"" -ChildPath "${{ module.destinationFolder }}"
+                $fullDestinationFolder = Join-Path -Path "/articles" -ChildPath "${{ module.destinationFolder }}"
                 $destinationFileName = $moduleName.ToLower() -replace '\.', '-'
 
                 # Check if the folder structure exists; if not, create it
