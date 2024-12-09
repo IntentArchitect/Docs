@@ -60,7 +60,7 @@ steps:
           Write-Host "Number of files found: $numberOfFiles"
 
           foreach ($file in $files) {
-            Write-Host "Found matching file: $(file.FullName)"
+            Write-Host "Found matching file: ${file.FullName}"
 
             # Scan the file contents for the markdown header (starts with #)
             $firstHeader = Get-Content $($file.FullName) | Where-Object { $_ -match '^#' } | Select-Object -First 1
