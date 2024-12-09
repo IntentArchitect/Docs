@@ -49,6 +49,7 @@ steps:
         displayName: '${{ module.repositoryName }} checkout'
       
       - pwsh: |
+          ls
           $files = Get-ChildItem -Path . -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*\docs" }
           foreach ($file in $files) {
             Write-Host "Found matching file: $($file.FullName)"
