@@ -6,8 +6,10 @@ trigger:
 
 variables:
   - group: 'Pipeline Agent Pool Names'
+  - name: GITHUB_READONLY
+  - value: $(GITHUB_READONLY)
   - name : DOTNET_REPO_URL
-    value: "https://${GITHUB_READONLY}@github.com/IntentArchitect/Intent.Modules.NET.git"
+    value: "https://$(GITHUB_READONLY)@github.com/IntentArchitect/Intent.Modules.NET.git"
 
 parameters:
 - name: modules
