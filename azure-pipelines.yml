@@ -81,21 +81,21 @@ steps:
                 $destinationModuleFolderName = $moduleName.ToLower() -replace '\.', '-'
                 $destinationModuleFileName = "$destinationModuleFolderName.md"
 
-                # the full output path
-                $fullDestinationFolder = Join-Path -Path $destinationRepoFolder -ChildPath $destinationModuleFolderName
+                # # the full output path
+                # $fullDestinationFolder = Join-Path -Path $destinationRepoFolder -ChildPath $destinationModuleFolderName
 
-                # Check if the folder structure exists; if not, create it
-                if (-not (Test-Path -Path $fullDestinationFolder)) {
-                    New-Item -Path $fullDestinationFolder -ItemType Directory -Force
-                    Write-Host "Folder structure created: $fullDestinationFolder"
-                } else {
-                    Write-Host "Folder structure already exists: $fullDestinationFolder"
-                }
+                # # Check if the folder structure exists; if not, create it
+                # if (-not (Test-Path -Path $fullDestinationFolder)) {
+                #     New-Item -Path $fullDestinationFolder -ItemType Directory -Force
+                #     Write-Host "Folder structure created: $fullDestinationFolder"
+                # } else {
+                #     Write-Host "Folder structure already exists: $fullDestinationFolder"
+                # }
 
-                $destinationFullPath = Join-Path -Path $fullDestinationFolder" -ChildPath $destinationModuleFileName
+                # $destinationFullPath = Join-Path -Path $fullDestinationFolder" -ChildPath $destinationModuleFileName
 
-                Write-Host "Copy '$($file.FullName)' to '$destinationFullPath'"
-                Copy-Item -Path $($file.FullName) -Destination $destinationFullPath
+                # Write-Host "Copy '$($file.FullName)' to '$destinationFullPath'"
+                # Copy-Item -Path $($file.FullName) -Destination $destinationFullPath
 
             } else {
                 Write-Host "No header found - skipping file"
