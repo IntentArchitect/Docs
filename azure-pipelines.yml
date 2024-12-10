@@ -56,7 +56,7 @@ steps:
     displayName: 'run docfx'
 
   - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(Build.SourceBranchName)' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(Build.SourceBranchName)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
     displayName: 'az storage blob sync'
 
 
