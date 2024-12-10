@@ -8,7 +8,7 @@ param(
     [string]$moduleRepositoryUrl,
     # The default folder in which the module will be cloned into
     [string]$moduleFolderName,
-    # The The name of the folder in docs where this files should go
+    # The  name of the folder in docs where the the files from the modules repo should be placed
     [string]$moduleOutputFolder,
     # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services
     [bool]$isOnBuildAgent = $($env:TF_BUILD -eq "True")
@@ -53,15 +53,21 @@ if (Test-Path -Path .git) {
 $fullModulePath = (Get-Location).Path
 cd ..
 
-# get all "README.md" files in a docs folder under the module folder name
-Write-Host "Get-ChildItem -Path ""$fullModulePath"" -Recurse -Filter ""README.md"" | Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' }"
-$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" | Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' }
+# get all "README.md" files in a docs folder under the module folder name and order them by the fullname
+$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" | 
+    Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' } |
+    Sort-Object FullName
 
 $numberOfFiles = $files.Count
 Write-Host "Number of files found: $numberOfFiles"
 
-# switch to this folder as makes easier to build up destination folder paths later
+# switch to the articles folder
 cd "articles"
+
+# create the toc file for the module folder
+New-Item -Path $moduleOutputFolder -ItemType Directory -Force
+$tocPath = Join-Path -Path $moduleOutputFolder -ChildPath "toc.yml"
+Set-Content -Path $tocPath -Value "items:"
 
 foreach ($file in $files) {
     Write-Host "Found matching file: $($file.FullName)"
@@ -74,13 +80,21 @@ foreach ($file in $files) {
         $moduleName = $firstHeader -replace '^#\s*', ''  
         
         # here we are in the "articles" folder of "Docs". Append the module destination folder
+        # example, c:\temp\docs\articles\modules-dotnet
         $destinationRepoFolder = Join-Path -Path (Get-Location) -ChildPath $moduleFolderName
         
         # To lower the module name and replace the "." with "-"
         $destinationModuleFolderName = $moduleName.ToLower() -replace '\.', '-'
         $destinationModuleFileName = "$destinationModuleFolderName.md"
+        $relativeModuleFolder = Join-Path -Path $destinationModuleFolderName -ChildPath "$destinationModuleFolderName.md"
+
+        # update the toc
+        Add-Content -Path $tocPath -Value "  - name: $moduleName"
+        Add-Content -Path $tocPath -Value "  - href: $relativeModuleFolder"
+        Add-Content -Path $tocPath -Value ""
 
         # the full output path
+        # example, modules-dotnet\intent-application-mediatr-fluentvalidation
         $fullDestinationFolder = Join-Path -Path $moduleOutputFolder -ChildPath $destinationModuleFolderName
 
         # Check if the folder structure exists; if not, create it
@@ -92,6 +106,7 @@ foreach ($file in $files) {
         }
 
         # final output with the folder + filename
+        # example, modules-dotnet\intent-application-mediatr-fluentvalidation\intent-application-mediatr-fluentvalidation.md
         $destinationFullPath = Join-Path -Path $fullDestinationFolder -ChildPath $destinationModuleFileName
 
         Write-Host "Copying '$($file.FullName)' to '$destinationFullPath'"
