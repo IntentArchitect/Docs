@@ -46,76 +46,16 @@ steps:
         pwsh: true
         script: ./PipelineScripts/merge-repo-docs.ps1 "$(Build.SourceBranchName)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
 
-  # for each of the above configured modules (under parameters)
-  # - ${{ each module in parameters.modules }} :
-  #     # clone and checkout the correct branch
-  #     # this checks if a branch exists in the module repo, with the same name as the current branch
-  #     - pwsh: |
-  #         git clone ${{ module.repositoryUrl }}
-  #         cd  ${{ module.folderName }}
-          
-  #         # Check the remote to see if a branch exists which matches the source branch
-  #         $branchExists = git ls-remote --heads origin $(Build.SourceBranchName) | Select-String -Pattern $(Build.SourceBranchName)
+  - pwsh: |
+      dotnet tool install docfx
+    displayName: 'dotnet tool install docfx'
 
-  #         # either use the SourceBranchName if it exists, or default to "development"
-  #         if ($branchExists) {
-  #             Write-Host "Checkout $(Build.SourceBranchName)"
-  #             git checkout $(Build.SourceBranchName)
-  #             git pull
-  #         } else {
-  #             Write-Host "Checkout development"
-  #             git checkout development
-  #             git pull
-  #         }
-  #       displayName: '${{ module.repositoryName }} checkout'
-      
-  #     - pwsh: |
-  #         # get all "README.md" files in a docs folder under the module folder name
-  #         $files = Get-ChildItem -Path "${{ module.folderName }}" -Recurse -Filter README.md | Where-Object { $_.DirectoryName -like "*/docs" }
+  - pwsh: |
+      dotnet docfx $(Build.SourcesDirectory)/docfx.json
+    displayName: 'run docfx'
 
-  #         $numberOfFiles = $files.Count
-  #         Write-Host "Number of files found: $numberOfFiles"
+  - publish: $(Build.SourcesDirectory)/_site
+    artifact: Site
 
-  #         # switch to this folder as makes easier to build up destination folder paths later
-  #         cd "articles"
-
-  #         foreach ($file in $files) {
-  #           Write-Host "Found matching file: $($file.FullName)"
-
-  #           # Scan the file contents for the markdown header (starts with #)
-  #           $firstHeader = Get-Content $($file.FullName) | Where-Object { $_ -match '^#' } | Select-Object -First 1
-  #           if ($firstHeader) {
-
-  #               # strip out the # from the header, to be left with the module name
-  #               $moduleName = $firstHeader -replace '^#\s*', ''  
-                
-  #               # here we are in the "articles" folder of "Docs". Append the module destination folder
-  #               $destinationRepoFolder = Join-Path -Path (Get-Location) -ChildPath "${{ module.destinationFolder }}"
-                
-  #               # To lower the module name and replace the "." with "-"
-  #               $destinationModuleFolderName = $moduleName.ToLower() -replace '\.', '-'
-  #               $destinationModuleFileName = "$destinationModuleFolderName.md"
-
-  #               # the full output path
-  #               $fullDestinationFolder = Join-Path -Path $destinationRepoFolder -ChildPath $destinationModuleFolderName
-
-  #               # Check if the folder structure exists; if not, create it
-  #               if (-not (Test-Path -Path $fullDestinationFolder)) {
-  #                   New-Item -Path $fullDestinationFolder -ItemType Directory -Force
-  #                   Write-Host "Folder structure created: $fullDestinationFolder"
-  #               } else {
-  #                   Write-Host "Folder structure already exists: $fullDestinationFolder"
-  #               }
-
-  #               $destinationFullPath = Join-Path -Path $fullDestinationFolder -ChildPath $destinationModuleFileName
-
-  #               Write-Host "Copying '$($file.FullName)' to '$destinationFullPath'"
-  #               Copy-Item -Path $($file.FullName) -Destination $destinationFullPath
-
-  #           } else {
-  #               Write-Host "No header found - skipping file"
-  #           }
-  #         }
-  #       displayName: '${{ module.repositoryName }} readme scan'
 
 
