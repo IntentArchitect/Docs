@@ -54,8 +54,8 @@ $fullModulePath = (Get-Location).Path
 cd ..
 
 # get all "README.md" files in a docs folder under the module folder name
-Write-Host "Get-ChildItem -Path ""$fullModulePath"" -Recurse -Filter ""README.md"" | Where-Object { $_.DirectoryName -match '\\docs$' }"
-$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" | Where-Object { $_.DirectoryName -match '\\docs$' }
+Write-Host "Get-ChildItem -Path ""$fullModulePath"" -Recurse -Filter ""README.md"" | Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' }"
+$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" | Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' }
 
 $numberOfFiles = $files.Count
 Write-Host "Number of files found: $numberOfFiles"

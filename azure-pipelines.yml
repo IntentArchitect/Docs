@@ -40,7 +40,7 @@ steps:
     # for each of the above configured modules (under parameters)
   - ${{ each module in parameters.modules }} :
     - task: PowerShell@2
-      displayName: "$(repositoryName) Module Merge"
+      displayName: "${{ module.repositoryName }} Module Merge"
       inputs:
         targetType: 'inline'
         pwsh: true
