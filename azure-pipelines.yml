@@ -12,10 +12,10 @@ parameters:
       repositoryUrl: https://github.com/IntentArchitect/Intent.Modules.NET.git
       folderName: Intent.Modules.NET
       destinationFolder: modules-dotnet
-    # - repositoryName: 'modules-common'
-    #   repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
-    #   folderName: Intent.Modules
-    #   destinationFolder: modules-common
+    - repositoryName: 'modules-common'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
+      folderName: Intent.Modules
+      destinationFolder: modules-common
 
 variables:
   - group: 'Pipeline Agent Pool Names'
