@@ -113,3 +113,8 @@ foreach ($file in $files) {
 }    
 
 cd..
+
+if (Test-Path -Path $moduleFolderName) {
+    Write-Host "Removing '$moduleFolderName'"
+    Remove-Item -Path "$moduleFolderName" -Recurse -Force
+}

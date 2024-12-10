@@ -33,6 +33,7 @@ steps:
     fetchDepth: '1'
     displayName: 'Checkout Docs branch'
   
+  # first clean just to make sure all fresh incase
   - pwsh: |
       git clean -fdx
     displayName: '$git clean'
@@ -56,6 +57,7 @@ steps:
 
   - publish: $(Build.SourcesDirectory)/_site
     artifact: Site
+
 
 
 
