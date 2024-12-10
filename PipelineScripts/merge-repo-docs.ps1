@@ -90,7 +90,7 @@ foreach ($file in $files) {
 
         # update the toc
         Add-Content -Path $tocPath -Value "  - name: $moduleName"
-        Add-Content -Path $tocPath -Value "  - href: $relativeModuleFolder"
+        Add-Content -Path $tocPath -Value "    href: $relativeModuleFolder"
         Add-Content -Path $tocPath -Value ""
 
         # the full output path
