@@ -20,11 +20,8 @@ Write-Host "`$moduleFolderName=$moduleFolderName"
 Write-Host "`$moduleOutputFolder=$moduleOutputFolder"
 Write-Host "`$isOnBuildAgent=$isOnBuildAgent"
 
-# clean the folder incase it wasn't before
-git clean -fdx
-
 # clone only if the destination folder doesn't already exist
-# destination folder should never exist as the git clean above should have removed it
+# Before this script is executed a `git clean -fdx` should be run to make sure the module is fresh
 # but if it does exists for whatever reason, a git pull is done later to get the latest
 if (-not (Test-Path -Path $moduleFolderName)) {
     Write-Host "Cloning module repo"
@@ -103,11 +100,10 @@ foreach ($file in $files) {
         # copy images folder if it exists
         $sourceFolder = [System.IO.Path]::GetDirectoryName($file.FullName)
         $sourceFolder = Join-Path -Path $sourceFolder -ChildPath "images"
-        $imagesFolder = Join-Path -Path $fullDestinationFolder -ChildPath "images"
 
         if (Test-Path -Path $sourceFolder) {
             Write-Host "Copying images folder: '$sourceFolder'"
-            Copy-Item -Path $sourceFolder -Destination $imagesFolder -Force -Recurse
+            Copy-Item -Path $sourceFolder -Destination $fullDestinationFolder -Force -Recurse
         } else {
             Write-Host "No images folder to copy: '$sourceFolder'"
         }

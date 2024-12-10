@@ -32,6 +32,10 @@ steps:
     persistCredentials: 'true'
     fetchDepth: '1'
     displayName: 'Checkout Docs branch'
+  
+  - pwsh: |
+      git clean -fdx
+    displayName: '$git clean'
 
     # for each of the above configured modules (under parameters)
   - ${{ each module in parameters.modules }} :
