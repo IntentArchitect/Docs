@@ -101,9 +101,10 @@ You can publish an Integration Event from any of the following elements:
 
 To create a new Integration Event (`Message`):
 
-1. Add a `Message` to any diagram in the `Services Designer`. This typically represents an integration message your application will publish.
-2. Right-click the `Message` and select **Add Property** to define its data.
-3. Add complex data types as needed:
+1. Add a `Integration Event` to any diagram in the `Services Designer`. This typically represents an integration message your application will publish.
+2. Name your `Integration Event`.
+3. Right-click the `Integration Event` and select **Add Property** to define its data.
+4. Add complex data types as needed:
    - *Eventing DTO* for modeling nested structures.
    - *Enum* for modeling enumerations.
 
@@ -174,8 +175,9 @@ You can publish an 'Integration Command` from any of the following elements:
 To create an `Integration Command`:
 
 1. Add a new `Integration Command` to any diagram in the `Services Designer`. This typically represents an integration message your application will send.
-2. Right-click on the `Integration Command` and select **Add Property** to start modeling the data structure of the message.
-3. Add additional data types as needed:
+2. Name your `Integration Command`.
+3. Right-click on the `Integration Command` and select **Add Property** to start modeling the data structure of the message.
+4. Add additional data types as needed:
    - **Eventing DTO** - for modeling complex child objects.
    - **Enum** - for modeling enumerations.
 
