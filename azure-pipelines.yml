@@ -67,31 +67,36 @@ steps:
       Write-Host "Triggered By Branch: $(triggeredByBranch)"
     displayName: 'Output pipeline variables'
   
-  # # first clean just to make sure all fresh incase
+  # first clean just to make sure all fresh incase
+  - pwsh: |
+      git clean -fdx
+    displayName: '$git clean'
+
+    # for each of the above configured modules (under parameters)
+  - ${{ each module in parameters.modules }} :
+    - task: PowerShell@2
+      displayName: "${{ module.repositoryName }} Module Merge"
+      inputs:
+        targetType: 'inline'
+        pwsh: true
+        script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranch)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+
+  - pwsh: |
+      dotnet tool install docfx
+    displayName: 'dotnet tool install docfx'
+
+  - pwsh: |
+      dotnet docfx $(Build.SourcesDirectory)/docfx.json
+    displayName: 'run docfx'
+
+  - pwsh: |
+      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranch)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+    displayName: 'Preprod storage sync'
+    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master')
+
   # - pwsh: |
-  #     git clean -fdx
-  #   displayName: '$git clean'
-
-  #   # for each of the above configured modules (under parameters)
-  # - ${{ each module in parameters.modules }} :
-  #   - task: PowerShell@2
-  #     displayName: "${{ module.repositoryName }} Module Merge"
-  #     inputs:
-  #       targetType: 'inline'
-  #       pwsh: true
-  #       script: ./PipelineScripts/merge-repo-docs.ps1 "$(Build.SourceBranchName)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
-
-  # - pwsh: |
-  #     dotnet tool install docfx
-  #   displayName: 'dotnet tool install docfx'
-
-  # - pwsh: |
-  #     dotnet docfx $(Build.SourcesDirectory)/docfx.json
-  #   displayName: 'run docfx'
-
-  # - pwsh: |
-  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(Build.SourceBranchName)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
-  #   displayName: 'az storage blob sync'
-
+  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+  #   displayName: 'Production storage sync'
+  #   condition: and(succeeded(), eq(variables['triggeredByBranch'], 'master')
 
 
