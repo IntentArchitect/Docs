@@ -7,13 +7,13 @@ trigger:
 resources:
   pipelines:
   - pipeline: 'ModulesDotNetPipeline'
-    source: 'IntentSoftware.Intent.Modules.NET'
+    source: 'Intent.Modules.NET'
     trigger: 
       branches:
         include:
         - '*'
   - pipeline: 'ModulesCommonPipeline'
-    source: 'IntentSoftware.Intent.Modules'
+    source: 'Intent.Modules'
     trigger: 
       branches:
         include:
