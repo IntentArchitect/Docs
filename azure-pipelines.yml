@@ -4,6 +4,21 @@ trigger:
     include:
     - 'development-4.4x'
 
+resources:
+  pipelines:
+  - pipeline: 'ModulesDotNetPipeline'
+    source: 'IntentSoftware.Intent.Modules.NET'
+    trigger: 
+      branches:
+        include:
+        - '*'
+  - pipeline: 'ModulesCommonPipeline'
+    source: 'IntentSoftware.Intent.Modules'
+    trigger: 
+      branches:
+        include:
+        - '*'
+
 parameters:
 - name: modules
   type: object
@@ -32,32 +47,51 @@ steps:
     persistCredentials: 'true'
     fetchDepth: '1'
     displayName: 'Checkout Docs branch'
+
+  - script: |
+      # Check which pipeline triggered the pipeline and set a variable accordingly
+      if [ "$(resources.pipelines.ModulesNetPipeline.sourceBranch)" != "" ]; then
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipelines.ModulesNetPipeline.sourceBranch)"
+      elif [ "$(resources.pipelines.ModulesPipeline.sourceBranch)" != "" ]; then
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipelines.ModulesPipeline.sourceBranch)"
+      else
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
+      fi
+    displayName: 'Determine and Set Variables for Triggered Pipeline'
+
+  - pwsh: |
+      Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
+      Write-Host "Triggered By Branch: $(triggeredByBranch)"
+    displayName: 'Output pipeline variables'
   
-  # first clean just to make sure all fresh incase
-  - pwsh: |
-      git clean -fdx
-    displayName: '$git clean'
+  # # first clean just to make sure all fresh incase
+  # - pwsh: |
+  #     git clean -fdx
+  #   displayName: '$git clean'
 
-    # for each of the above configured modules (under parameters)
-  - ${{ each module in parameters.modules }} :
-    - task: PowerShell@2
-      displayName: "${{ module.repositoryName }} Module Merge"
-      inputs:
-        targetType: 'inline'
-        pwsh: true
-        script: ./PipelineScripts/merge-repo-docs.ps1 "$(Build.SourceBranchName)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+  #   # for each of the above configured modules (under parameters)
+  # - ${{ each module in parameters.modules }} :
+  #   - task: PowerShell@2
+  #     displayName: "${{ module.repositoryName }} Module Merge"
+  #     inputs:
+  #       targetType: 'inline'
+  #       pwsh: true
+  #       script: ./PipelineScripts/merge-repo-docs.ps1 "$(Build.SourceBranchName)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
 
-  - pwsh: |
-      dotnet tool install docfx
-    displayName: 'dotnet tool install docfx'
+  # - pwsh: |
+  #     dotnet tool install docfx
+  #   displayName: 'dotnet tool install docfx'
 
-  - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)/docfx.json
-    displayName: 'run docfx'
+  # - pwsh: |
+  #     dotnet docfx $(Build.SourcesDirectory)/docfx.json
+  #   displayName: 'run docfx'
 
-  - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(Build.SourceBranchName)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
-    displayName: 'az storage blob sync'
+  # - pwsh: |
+  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(Build.SourceBranchName)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+  #   displayName: 'az storage blob sync'
 
 
 
