@@ -11,13 +11,13 @@ resources:
     trigger: 
       branches:
         include:
-        - 'refs/heads/*'
+        - '*'
   - pipeline: 'ModulesCommonPipeline'
     source: 'IntentSoftware.Intent.Modules'
     trigger: 
       branches:
         include:
-        - 'refs/heads/*'
+        - '*'
 
 parameters:
 - name: modules
