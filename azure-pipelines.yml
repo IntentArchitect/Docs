@@ -11,7 +11,10 @@ resources:
     trigger: true
   - pipeline: 'ModulesCommonPipeline'
     source: 'IntentSoftware.Intent.Modules'
-    trigger: true
+    trigger: 
+      branches:
+        include: 
+        - '*'
 
 parameters:
 - name: modules
