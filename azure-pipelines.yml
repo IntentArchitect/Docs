@@ -11,13 +11,13 @@ resources:
     trigger: 
       branches:
         include:
-        - 'refs/tags/*'
+        - 'refs/heads/*'
   - pipeline: 'ModulesCommonPipeline'
     source: 'IntentSoftware.Intent.Modules'
     trigger: 
       branches:
         include:
-        - 'refs/tags/*'
+        - 'refs/heads/*'
 
 parameters:
 - name: modules
@@ -91,7 +91,7 @@ steps:
 
   - pwsh: |
       az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranch)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
-    displayName: 'Preprod storage sync'
+    displayName: 'Pre-production storage sync'
     condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'))
 
   # - pwsh: |
