@@ -57,23 +57,29 @@ steps:
   - script: |
       if [ "$(Resources.TriggeringAlias)" == "ModulesDotNetPipeline" ]; then
         echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-        echo "##vso[task.setvariable variable=triggeredById]$(resources.pipeline.ModulesDotNetPipeline.runID)"
-        echo "##vso[task.setvariable variable=triggeredByBranch] "
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+        
+        branchName=$(echo "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" | sed 's#refs/heads/##')
+        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
       elif [ "$(Resources.TriggeringAlias)" == "ModulesCommonPipeline" ]; then
         echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
-        echo "##vso[task.setvariable variable=triggeredById]$(resources.pipeline.ModulesCommonPipeline.runID)"
-        echo "##vso[task.setvariable variable=triggeredByBranch] "
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+
+        branchName=$(echo "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" | sed 's#refs/heads/##')
+        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
       else
         echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
-        echo "##vso[task.setvariable variable=triggeredById]0"
         echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
+
+        branchName=$(echo "$(Build.SourceBranchName)" | sed 's#refs/heads/##')
+        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
       fi
     displayName: 'Determine and Set Variables for Triggered Pipeline'
 
   - pwsh: |
       Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
       Write-Host "Triggered By Branch: $(triggeredByBranch)"
-      Write-Host "Triggered By Id: $(triggeredById)"
+      Write-Host "Triggered By BranchNameOnly: $(triggeredByBranchNameOnly)"
     displayName: 'Output pipeline variables'
 
   # - script: |
