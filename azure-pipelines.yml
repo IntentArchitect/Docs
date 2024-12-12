@@ -42,6 +42,7 @@ steps:
       Write-Host "Dotnet Runid: $(resources.pipeline.ModulesDotNetPipeline.runID)"
       Write-Host "Common RunId: $(resources.pipeline.ModulesCommonPipeline.runID)"
       Write-Host "Build.SourceBranchName: $(Build.SourceBranchName)"
+      Write-Host "Resources.TriggeringAlias: $(Resources.TriggeringAlias)"
     displayName: 'Output pipeline variables'
 
   # checkout the branch docs repo
