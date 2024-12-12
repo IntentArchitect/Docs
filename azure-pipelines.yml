@@ -45,6 +45,8 @@ steps:
       Write-Host "Resources.TriggeringAlias: $(Resources.TriggeringAlias)"
     displayName: 'Output pipeline variables'
 
+  - bash: printenv | sort  
+
   # checkout the branch docs repo
   # - checkout: self
   #   persistCredentials: 'true'
@@ -52,29 +54,27 @@ steps:
   #   displayName: 'Checkout Docs branch'
 
   # calculate the repo and branch which triggered this pipeline
-  # - script: |
-  #     # Check which pipeline triggered the pipeline and set a variable accordingly
-  #     echo "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-  #     echo "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-  #     echo "Triggered By: $(System.TriggeringPipeline)"
-  #     echo "Source Branch: $(Build.SourceBranch)"
-  #     echo "TriggeringPipelineRun: $(Build.TriggeringPipelineRun)"
-  #     if [ "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" != "" ]; then
-  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-  #     elif [ "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" != "" ]; then
-  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
-  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-  #     else
-  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
-  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
-  #     fi
-  #   displayName: 'Determine and Set Variables for Triggered Pipeline'
+  - script: |
+      if [ "$(Resources.TriggeringAlias)" == "ModulesDotNetPipeline" ]; then
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
+        echo "##vso[task.setvariable variable=triggeredById]$(resources.pipeline.ModulesDotNetPipeline.runID)"
+        echo "##vso[task.setvariable variable=triggeredByBranch] "
+      elif [ "$(Resources.TriggeringAlias)" == "ModulesCommonPipeline" ]; then
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+        echo "##vso[task.setvariable variable=triggeredById]$(resources.pipeline.ModulesCommonPipeline.runID)"
+        echo "##vso[task.setvariable variable=triggeredByBranch] "
+      else
+        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+        echo "##vso[task.setvariable variable=triggeredById]0"
+        echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
+      fi
+    displayName: 'Determine and Set Variables for Triggered Pipeline'
 
-  # - pwsh: |
-  #     Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
-  #     Write-Host "Triggered By Branch: $(triggeredByBranch)"
-  #   displayName: 'Output pipeline variables'
+  - pwsh: |
+      Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
+      Write-Host "Triggered By Branch: $(triggeredByBranch)"
+      Write-Host "Triggered By Id: $(triggeredById)"
+    displayName: 'Output pipeline variables'
 
   # - script: |
   #     # Define variables
