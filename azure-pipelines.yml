@@ -38,7 +38,7 @@ steps:
 
   - pwsh: |
       Write-Host "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-      Write-Host"Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+      Write-Host "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
       Write-Host "Build.SourcePipeline: $(Build.SourcePipeline)"
       Write-Host "Build.SourceBranchName: $(Build.SourceBranchName)"
     displayName: 'Output pipeline variables'
