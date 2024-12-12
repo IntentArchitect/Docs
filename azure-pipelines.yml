@@ -47,6 +47,8 @@ steps:
       # Check which pipeline triggered the pipeline and set a variable accordingly
       echo "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
       echo "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+      echo "Common source branch: $(Build.TriggeredBy)"
+      echo "Common source branch: $(Build.SourceBranch)"
       if [ "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" != "" ]; then
         echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
         echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
