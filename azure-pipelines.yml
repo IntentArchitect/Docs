@@ -45,8 +45,8 @@ steps:
   # calculate the repo and branch which triggered this pipeline
   - script: |
       # Check which pipeline triggered the pipeline and set a variable accordingly
-      Write-Host "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-      Write-Host "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+      echo "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+      echo "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
       if [ "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" != "" ]; then
         echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
         echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
