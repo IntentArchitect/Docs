@@ -238,3 +238,64 @@ Your message-based integration can be realized in a specific technology dependin
 - [MassTransit](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.MassTransit/README.md) (supports RabbitMQ, Azure Service Bus, Amazon SQS)
 - [Kafka](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.Kafka/README.md)
 - [Solace](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Eventing.Solace/README.md)
+
+[mi](#migrating-from-the-eventing-designer)
+
+## Migrating from the Eventing Designer
+
+As of version `6.0.0` of the `Intent.Modelers.Eventing` module, the Eventing Designer is no longer available and all message based integration modelling will need to be performed in the Services designer going forward.
+
+If you were modelling message based integration using the Eventing Designer then a straight forward manual migration will need to be performed or you will otherwise get an error when running the software factory directing you to this page.
+
+You should perform the migration before upgrading to `6.0.0` or newer of the `Intent.Modelers.Eventing` module.
+
+- Open the Eventing Designer and make a note of the following:
+  - The name of each message to which the current application is a subscriber.
+
+    For example, in the following image, the `EventingMigration` is an "Application" element and it has one subscriber, `SubscribedEvent`, indicated by the `subscribe:` prefix:
+
+    ![Tree view of the eventing designer](images/migrating-from-the-eventing-designer/eventing-designer-tree-view.png)
+
+  - Select the Eventing package (the root most node) for the current application and in the properties pane select the context menu button and click the `Copy file path to clipboard option`:
+
+    ![The Eventing Package's copy file path to clipboard option](images/migrating-from-the-eventing-designer/copy-file-to-clipboard-option.png)
+
+- Open the Services Designer
+- Click the `Add Existing Package` button on the toolbar:
+
+  ![Add Existing Package toolbar button](images/migrating-from-the-eventing-designer/add-existing-package-toolbar-button.png)
+
+- You can paste the complete path from your clipboard into the "File name" field and simply press "Open":
+
+  ![Open package dialogue](images/migrating-from-the-eventing-designer/open-package-dialogue.png)
+
+- You will see the following warning on which you can press OK to proceed:
+
+  ![Warning dialogue](images/migrating-from-the-eventing-designer/warning-dialogue.png)
+
+- Delete any "Application" elements which are distinguishable by having a grey box icon and when selected they have `Application (not found)` in the properties pane:
+
+  ![Application elements to delete](images/migrating-from-the-eventing-designer/application-elements-to-delete.png)
+
+- Click the package and uncheck the `Is External` option:
+
+  ![Is External option](images/migrating-from-the-eventing-designer/is-external-option.png)
+
+- You can now save the designer and on the Confirmation dialogue warning of undetected errors click the "YES" button.
+- There should no longer be errors in the designer:
+
+  ![No more warnings in the designer](images/migrating-from-the-eventing-designer/warnings-now-gone-from-designer.png)
+
+- Right-click on `References` under the `Services` package and select the `Add Package Reference...` option:
+
+  ![Add Package Reference... option](images/migrating-from-the-eventing-designer/add-package-reference-option.png)
+
+- Ensure you have the opened package selected in the list:
+
+  ![Package Reference Manager](images/migrating-from-the-eventing-designer/package-reference-manager.png)
+
+- You can now model Integration Message Handlers as per the [Subscribing to an Integration Event](#subscribing-to-an-integration-event) section of this article.
+
+> [!NOTE]
+>
+> The generated files for the Integration Message Handlers may not align with the existing handler implementations and you may need to either try change the names to align or alternatively manually copy the implementations from the old to the new files manually in your IDE.
