@@ -36,89 +36,96 @@ pool:
 
 steps:
 
-  # checkout the branch docs repo
-  - checkout: self
-    persistCredentials: 'true'
-    fetchDepth: '1'
-    displayName: 'Checkout Docs branch'
-
-  # calculate the repo and branch which triggered this pipeline
-  - script: |
-      # Check which pipeline triggered the pipeline and set a variable accordingly
-      echo "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-      echo "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-      echo "Triggered By: $(System.TriggeringPipeline)"
-      echo "Source Branch: $(Build.SourceBranch)"
-      echo "TriggeringPipelineRun: $(Build.TriggeringPipelineRun)"
-      if [ "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" != "" ]; then
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-      elif [ "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" != "" ]; then
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-      else
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
-      fi
-    displayName: 'Determine and Set Variables for Triggered Pipeline'
-
   - pwsh: |
-      Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
-      Write-Host "Triggered By Branch: $(triggeredByBranch)"
+      Write-Host "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+      Write-Host"Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+      Write-Host "Build.SourcePipeline: $(Build.SourcePipeline)"
+      Write-Host "Build.SourceBranchName: $(Build.SourceBranchName)"
     displayName: 'Output pipeline variables'
 
-  - script: |
-      # Define variables
-      $organization = "intentarchitect"
-      $project = "Intent Architect"
-      $triggeringPipelineRunId = "$(Build.TriggeringPipelineRun)"  # Get the triggering pipeline run ID
-      $token = "$(System.AccessToken)"  # Azure DevOps System Access Token for authentication
-      $uri = "https://dev.azure.com/$organization/$project/_apis/pipelines/runs/$triggeringPipelineRunId?api-version=7.1-preview.1"
+  # checkout the branch docs repo
+  # - checkout: self
+  #   persistCredentials: 'true'
+  #   fetchDepth: '1'
+  #   displayName: 'Checkout Docs branch'
 
-      # Setup authorization header
-      $headers = @{
-          Authorization = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$token"))
-      }
+  # calculate the repo and branch which triggered this pipeline
+  # - script: |
+  #     # Check which pipeline triggered the pipeline and set a variable accordingly
+  #     echo "Dotnet source branch: $(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+  #     echo "Common source branch: $(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+  #     echo "Triggered By: $(System.TriggeringPipeline)"
+  #     echo "Source Branch: $(Build.SourceBranch)"
+  #     echo "TriggeringPipelineRun: $(Build.TriggeringPipelineRun)"
+  #     if [ "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" != "" ]; then
+  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
+  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+  #     elif [ "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" != "" ]; then
+  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+  #     else
+  #       echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+  #       echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
+  #     fi
+  #   displayName: 'Determine and Set Variables for Triggered Pipeline'
 
-      # Call the Azure DevOps REST API to get pipeline run details
-      $response = Invoke-RestMethod -Uri $uri -Headers $headers -Method Get
+  # - pwsh: |
+  #     Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
+  #     Write-Host "Triggered By Branch: $(triggeredByBranch)"
+  #   displayName: 'Output pipeline variables'
 
-      # Output the branch that triggered the pipeline
-      Write-Host "Triggered Pipeline Run Information: $($response)"
-      Write-Host "Triggered by branch: $($response.sourceBranch)"
-    displayName: 'Get Triggering Pipeline Run Details'
-    env:
-      SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+  # - script: |
+  #     # Define variables
+  #     $organization = "intentarchitect"
+  #     $project = "Intent Architect"
+  #     $triggeringPipelineRunId = "$(Build.TriggeringPipelineRun)"  # Get the triggering pipeline run ID
+  #     $token = "$(System.AccessToken)"  # Azure DevOps System Access Token for authentication
+  #     $uri = "https://dev.azure.com/$organization/$project/_apis/pipelines/runs/$triggeringPipelineRunId?api-version=7.1-preview.1"
+
+  #     # Setup authorization header
+  #     $headers = @{
+  #         Authorization = "Basic " + [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(":$token"))
+  #     }
+
+  #     # Call the Azure DevOps REST API to get pipeline run details
+  #     $response = Invoke-RestMethod -Uri $uri -Headers $headers -Method Get
+
+  #     # Output the branch that triggered the pipeline
+  #     Write-Host "Triggered Pipeline Run Information: $($response)"
+  #     Write-Host "Triggered by branch: $($response.sourceBranch)"
+  #   displayName: 'Get Triggering Pipeline Run Details'
+  #   env:
+  #     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
   
-  # first clean just to make sure all fresh incase
-  - pwsh: |
-      git clean -fdx
-    displayName: '$git clean'
+  # # first clean just to make sure all fresh incase
+  # - pwsh: |
+  #     git clean -fdx
+  #   displayName: '$git clean'
 
-    # for each of the above configured modules (under parameters)
-  - ${{ each module in parameters.modules }} :
-    - task: PowerShell@2
-      displayName: "${{ module.repositoryName }} Module Merge"
-      inputs:
-        targetType: 'inline'
-        pwsh: true
-        script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranch)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+  #   # for each of the above configured modules (under parameters)
+  # - ${{ each module in parameters.modules }} :
+  #   - task: PowerShell@2
+  #     displayName: "${{ module.repositoryName }} Module Merge"
+  #     inputs:
+  #       targetType: 'inline'
+  #       pwsh: true
+  #       script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranch)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
 
-  - pwsh: |
-      dotnet tool install docfx
-    displayName: 'dotnet tool install docfx'
+  # - pwsh: |
+  #     dotnet tool install docfx
+  #   displayName: 'dotnet tool install docfx'
 
-  - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)/docfx.json
-    displayName: 'run docfx'
+  # - pwsh: |
+  #     dotnet docfx $(Build.SourcesDirectory)/docfx.json
+  #   displayName: 'run docfx'
 
-  - pwsh: |
-      $triggeredByBranch = "$(triggeredByBranch)"
-      $branchOnlyName = ($triggeredByBranch -split '/')[-1]
-      Write-Host "BranchOnly: $branchOnlyName"
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$branchOnlyName/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
-    displayName: 'Pre-production storage sync'
-    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'))
+  # - pwsh: |
+  #     $triggeredByBranch = "$(triggeredByBranch)"
+  #     $branchOnlyName = ($triggeredByBranch -split '/')[-1]
+  #     Write-Host "BranchOnly: $branchOnlyName"
+  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$branchOnlyName/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+  #   displayName: 'Pre-production storage sync'
+  #   condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'))
 
   # - pwsh: |
   #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
