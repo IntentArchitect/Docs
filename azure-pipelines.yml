@@ -43,7 +43,7 @@ steps:
     displayName: 'Checkout Docs branch'
 
   # calculate the repo and branch which triggered this pipeline
-    - powershell: |
+  - powershell: |
       if ($Env:Resources_TriggeringAlias -eq "ModulesDotNetPipeline") {
           Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$($Env:resources_pipeline_ModulesDotNetPipeline_sourceBranch)"
