@@ -43,26 +43,28 @@ steps:
     displayName: 'Checkout Docs branch'
 
   # calculate the repo and branch which triggered this pipeline
-  - script: |
-      if [ "$(Resources.TriggeringAlias)" == "ModulesDotNetPipeline" ]; then
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-        
-        branchName=$(echo "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" | sed 's#refs/heads/##')
-        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      elif [ "$(Resources.TriggeringAlias)" == "ModulesCommonPipeline" ]; then
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-
-        branchName=$(echo "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" | sed 's#refs/heads/##')
-        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      else
-        echo "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
-        echo "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
-
-        branchName=$(echo "$(Build.SourceBranchName)" | sed 's#refs/heads/##')
-        echo "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      fi
+    - powershell: |
+      if ($Env:Resources_TriggeringAlias -eq "ModulesDotNetPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$($Env:resources_pipeline_ModulesDotNetPipeline_sourceBranch)"
+          
+          $branchName = $($Env:resources_pipeline_ModulesDotNetPipeline_sourceBranch) -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      } 
+      elseif ($Env:Resources_TriggeringAlias -eq "ModulesCommonPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$($Env:resources_pipeline_ModulesCommonPipeline_sourceBranch)"
+          
+          $branchName = $($Env:resources_pipeline_ModulesCommonPipeline_sourceBranch) -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      } 
+      else {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$($Env:Build_SourceBranchName)"
+          
+          $branchName = $($Env:Build_SourceBranchName) -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
     displayName: 'Determine and Set Variables for Triggered Pipeline'
 
   - pwsh: |
