@@ -48,7 +48,7 @@ steps:
           Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
           
-          $branchName = $(resources.pipeline.ModulesDotNetPipeline.sourceBranch) -replace '^refs/heads/', ''
+          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
           Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
       } 
       elseif ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
