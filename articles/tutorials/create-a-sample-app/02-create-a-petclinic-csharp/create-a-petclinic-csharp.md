@@ -28,7 +28,7 @@ Leave the selected application components as is and click `CREATE`.
 
 ## Create the Domain Entities
 
-Click on `Domain` on the left of the window to enter the [designer](xref:application-development.modelling.domain-designer.how-to-use-the-domain-designer).
+Click on `Domain` on the left of the window to enter the [designer](xref:application-development.modelling.domain-designer.modeling-the-domain).
 
 Out the box, the designer will add, and open, a `Default Diagram` to start visual modelling on.
 
@@ -74,7 +74,7 @@ The `Owner` entity should appear as follows:
 Specifying [relationships](https://en.wikipedia.org/wiki/Class_diagram#Instance-level_relationships) between entities in the Intent Architect designers can be initiated by right-clicking on an entity in the visual diagram, then selecting the `New Association` option and the creation is completed by clicking on the other class which you want to be the target of the relationship.
 
 > [!NOTE]
-> Refer to [this article](xref:application-development.modelling.domain-designer.about-associations) if you wish to learn more about Associations.
+> Refer to [this article](xref:application-development.modelling.domain-designer.modeling-the-domain#modeling-entity-associations) if you wish to learn more about Associations.
 
 Create an association between `Owner` and `Pet`:
 

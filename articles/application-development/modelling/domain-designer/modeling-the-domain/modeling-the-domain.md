@@ -1,3 +1,6 @@
+---
+uid: application-development.modelling.domain-designer.modeling-the-domain
+---
 # Modeling the Domain
 
 ## Adding a Diagram
@@ -54,6 +57,35 @@ To model the data of an `Entity`:
 > Pressing F2 on an attribute allows you to rename and change its type.  
 > [!TIP]
 > If you have an `Attribute` selected, pressing **CTRL+ENTER** will add a new `Attribute` to the class and begin editing it. This is very useful for rapidly capturing attributes.
+
+### Capturing Constructors
+
+To model constructors of an `Entity`:
+
+1. `Add Constructor` (Ctrl + Shift + U) on a class.
+2. [Capture any parameters](#capturing-parameters-for-constructors-and-operations) as required.
+
+### Capturing Operations
+
+To model operations (mnethods) of an `Entity`:
+
+1. `Add Operation` (Ctrl + Shift + O) on a class.
+2. Enter the name of the `Operation`.
+3. Press **Tab** and select the `Return Type` for the operation.
+4. [Capture any parameters](#capturing-parameters-for-constructors-and-operations) as required.
+
+### Capturing parameters for constructors and operations
+
+To model parameters for a [constructor](#capturing-constructors) or an [operation](#capturing-operations) on a class:
+
+1. `Add Parameter` (Ctrl + Shift + A) on a class.
+2. Enter the name of the `Parameter`.
+3. Press **Tab** and select the `Type` for the parameter.
+
+> [!TIP]
+> Pressing F2 on an parameter allows you to rename and change its type.
+> [!TIP]
+> If you have an `Parameter` selected, pressing **CTRL+ENTER** will add a new `Parameter` and begin editing it. This is very useful for rapidly capturing parameters.
 
 ### Adding Entity Associations
 
