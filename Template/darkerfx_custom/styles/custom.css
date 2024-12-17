@@ -218,6 +218,12 @@ div.sideaffix {
     }
 }
 
+@media (max-width: 1500px) {
+    .col-md-10 {
+        padding-left: 100px;
+    }
+}
+
 /* 
 CODE COPY LINK
 https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100 
