@@ -7,6 +7,8 @@ uid: release-notes.intent-architect-v4.4
 
 Intent Architect v4.4.0 primarily brings features and functionality to improve product usability and feature discoverability. Some examples of this would include new Help system, and a new suggestion system. This version is fully backwards compatible.
 
+The 4.4 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
+
 ### Highlights in 4.4.0
 
 #### Help Topics, in product
