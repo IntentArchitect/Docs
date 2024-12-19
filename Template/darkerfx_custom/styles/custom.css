@@ -158,19 +158,29 @@ div.sideaffix {
 }
 
 .article.grid-right {
-    margin-left: 315px;
+    margin-left: 400px;
 }
 
 .sidefilter {
     top: 113px;
-    width: 315px;
+    width: 400px;
     margin-left: -15px;
 }
   
 .sidetoc {
     top: 173px;
-    width: 315px;
+    width: 400px;
     margin-left: -15px;
+}
+
+.sidetoc a {
+    white-space: nowrap;          
+    overflow: hidden;             
+    text-overflow: ellipsis;
+}
+
+.sidetoc .nav.level2 li a wbr {
+    display: none;
 }
 
 .sidetoc.shiftup {
@@ -202,13 +212,6 @@ div.sideaffix {
 @media only screen and (max-width: 768px){
     .article.grid-right {
         margin-left: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .article.grid-right {
-        margin-left: 26%;
-        margin-right: 8.3%
     }
 }
 

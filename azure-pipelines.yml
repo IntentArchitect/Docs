@@ -2,10 +2,32 @@ trigger:
   batch: 'true'
   branches:
     include:
-    - 'master'
+    - 'development-4.4x'
+
+resources:
+  pipelines:
+  - pipeline: 'ModulesDotNetPipeline'
+    source: 'IntentSoftware.Intent.Modules.NET'
+    trigger: true
+  - pipeline: 'ModulesCommonPipeline'
+    source: 'IntentSoftware.Intent.Modules'
+    trigger: true
+
+parameters:
+- name: modules
+  type: object
+  default:
+    - repositoryName: modules-dotnet
+      repositoryUrl: https://github.com/IntentArchitect/Intent.Modules.NET.git
+      folderName: Intent.Modules.NET
+      destinationFolder: modules-dotnet
+    - repositoryName: 'modules-common'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
+      folderName: Intent.Modules
+      destinationFolder: modules-common
 
 variables:
-- group: 'Pipeline Agent Pool Names'
+  - group: 'Pipeline Agent Pool Names'
 
 pool:
   name: $(BuildPool.AzureManaged)
@@ -14,10 +36,57 @@ pool:
 
 steps:
 
+  # checkout the branch docs repo
   - checkout: self
     persistCredentials: 'true'
     fetchDepth: '1'
-    
+    displayName: 'Checkout Docs branch'
+
+  # calculate the repo and branch which triggered this pipeline
+  - powershell: |
+      if ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      } 
+      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      } 
+      else {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
+          
+          $branchName = "$(Build.SourceBranchName)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
+    displayName: 'Determine and Set Variables for Triggered Pipeline'
+
+  - pwsh: |
+      Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
+      Write-Host "Triggered By Branch: $(triggeredByBranch)"
+      Write-Host "Triggered By BranchNameOnly: $(triggeredByBranchNameOnly)"
+    displayName: 'Output pipeline variables'
+
+  # first clean just to make sure all fresh incase
+  - pwsh: |
+      git clean -fdx
+    displayName: '$git clean'
+
+    # for each of the above configured modules (under parameters)
+  - ${{ each module in parameters.modules }} :
+    - task: PowerShell@2
+      displayName: "${{ module.repositoryName }} Module Merge"
+      inputs:
+        targetType: 'inline'
+        pwsh: true
+        script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranchNameOnly)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+
   - pwsh: |
       dotnet tool install docfx
     displayName: 'dotnet tool install docfx'
@@ -27,5 +96,13 @@ steps:
     displayName: 'run docfx'
 
   - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
-    displayName: 'az storage blob sync'
+      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranchNameOnly)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+    displayName: 'Pre-production storage sync'
+    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'))
+
+  # - pwsh: |
+  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+  #   displayName: 'Production storage sync'
+  #   condition: and(succeeded(), or( eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master') )
+
+
