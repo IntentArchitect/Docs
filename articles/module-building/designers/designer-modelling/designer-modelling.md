@@ -150,7 +150,7 @@ With the Type set to an instance of an Element outside of the current designer (
 
 ![Association Types](images/association-types.png)
 
-Associations bring a relationship aspect to Elements which can be used by end-users to model how Elements are related or bound to one another. Examples would be having an [aggregate relationship between two Class Elements](xref:application-development.modelling.domain-designer.about-associations#aggregation-association).
+Associations bring a relationship aspect to Elements which can be used by end-users to model how Elements are related or bound to one another. Examples would be having an [aggregate relationship between two Class Elements](xref:application-development.modelling.domain-designer.modeling-the-domain#modeling-entity-associations).
 
 Each Association have a Source end and a Target end. The Source end is where the end-user started creating the association and the Target end is where the end-user finished creating the association.
 

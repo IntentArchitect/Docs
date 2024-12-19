@@ -127,25 +127,23 @@ Once applied to your codebase:
 
 ## Creating a DTO
 
-![Normal DTOs](./images/normal-dtos.png)
-
 To create a DTO:
 
 1. Right-click on the **Service Package** or a containing folder and select **New DTO**, then provide a unique name.
 2. Right-click the DTO and select **Add Field**. Specify the name and type.
 
-## Inheriting from a DTO
+![Normal DTOs](./images/normal-dtos.png)
 
-![Inheritance DTO](./images/inheritance-dto.png)
+## Inheriting from a DTO
 
 To inherit one DTO from another:
 
 1. Right-click on the DTO that will inherit and select **New Inheritance**.
 2. Select the parent DTO.
 
-## Mapping an Outbound DTO
+![Inheritance DTO](./images/inheritance-dto.png)
 
-![Outbound Mapping DTO](./images/outbound-mapping-dto.png)
+## Mapping an Outbound DTO
 
 To map outbound DTOs:
 
@@ -153,9 +151,9 @@ To map outbound DTOs:
 2. In the dialog, specify the domain entity and select the attributes to include in the outbound DTO.
 3. Check the desired attributes and click **Done**. This links your domain data to the DTO.
 
-## Adding a Diagram to the Services Designer
+![Outbound Mapping DTO](./images/outbound-mapping-dto.png)
 
-![Diagram View](./images/diagram-view.png)
+## Adding a Diagram to the Services Designer
 
 To enhance visual organization:
 
@@ -164,6 +162,8 @@ To enhance visual organization:
 3. Rename the diagram by right-clicking it in the Tree-view and selecting **Rename**.
 4. Drag services from the Tree-view onto the diagram to create visual representations.
 5. Optionally, create multiple diagrams for different perspectives. The Tree-view remains the source of truth.
+
+![Diagram View](./images/diagram-view.png)
 
 > [!TIP]
 > Hold down **CTRL** while dragging elements from the Tree-view to include directly associated elements.
