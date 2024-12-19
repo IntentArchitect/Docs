@@ -158,7 +158,7 @@ div.sideaffix {
 }
 
 .article.grid-right {
-    margin-left: 315px;
+    margin-left: 400px;
 }
 
 .sidefilter {
@@ -176,7 +176,7 @@ div.sideaffix {
 .sidetoc a {
     white-space: nowrap;          
     overflow: hidden;             
-    text-overflow: ellipsis;      
+    text-overflow: ellipsis;
 }
 
 .sidetoc.shiftup {
@@ -208,19 +208,6 @@ div.sideaffix {
 @media only screen and (max-width: 768px){
     .article.grid-right {
         margin-left: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .article.grid-right {
-        margin-left: 26%;
-        margin-right: 8.3%
-    }
-}
-
-@media (max-width: 1500px) {
-    .col-md-10 {
-        padding-left: 100px;
     }
 }
 
