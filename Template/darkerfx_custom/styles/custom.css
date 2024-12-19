@@ -179,6 +179,10 @@ div.sideaffix {
     text-overflow: ellipsis;
 }
 
+.sidetoc .nav.level2 li a wbr {
+    display: none;
+}
+
 .sidetoc.shiftup {
     bottom: 61px;
 }
