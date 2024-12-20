@@ -2,7 +2,9 @@ trigger:
   batch: 'true'
   branches:
     include:
-    - 'development-4.4x'
+    - master
+    - development
+    - development-*
 
 resources:
   pipelines:
