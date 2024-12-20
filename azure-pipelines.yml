@@ -100,9 +100,7 @@ steps:
     displayName: 'Pre-production storage sync'
     condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'))
 
-  # - pwsh: |
-  #     az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
-  #   displayName: 'Production storage sync'
-  #   condition: and(succeeded(), or( eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master') )
-
-
+  - pwsh: |
+      az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+    displayName: 'Production storage sync'
+    condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'))
