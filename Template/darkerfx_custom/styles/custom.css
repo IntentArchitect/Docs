@@ -94,9 +94,9 @@ div.sideaffix {
     width: auto;
 }
 
-    .sideaffix.shiftup {
-        bottom: 61px !important;
-    }
+.sideaffix.shiftup {
+    bottom: 61px !important;
+}
 
 .bs-docs-sidenav {
     width: 100%;
@@ -153,13 +153,12 @@ div.sideaffix {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    max-width: 100%;
+    max-width: 2000px;
     width: 100%;
 }
 
-.container {
-    margin-left: 15px;
-    width: 85%;
+div#breadcrumb {
+    max-width: 2000px;
 }
 
 .article.grid-right {
@@ -196,9 +195,9 @@ div.sideaffix {
     margin-left: 20px;
 }
 
-.col-md-10 {
+/*.col-md-10 {
     padding-right:30px;
-}
+}*/
 
 @media screen and (max-width: 992px) {
     .col-md-10 {
@@ -214,19 +213,22 @@ div.sideaffix {
 
 @media (min-width: 768px) {
     .container {
-        max-width: 85%;
+        width: 100%;
+        max-width:2000px;
     }
 }
 
 @media (min-width: 992px) {
     .container {
-        max-width: 85%;
+        width: 100%;
+        max-width: 2000px;
     }
 }
 
 @media (min-width: 1200px) {
     .container {
-        max-width: 85%;
+        width: 100%;
+        max-width: 2000px;
     }
 }
 
