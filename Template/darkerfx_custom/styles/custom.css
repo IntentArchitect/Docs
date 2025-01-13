@@ -14,7 +14,7 @@ body.theme-dark {
     --theme-code-header-forecolor: #e3e3e3;
     --theme-code-header-border: #404040;
     --theme-code-header-highlight: #6a360b;
-    --theme-code-highlight-color:#514e0f;
+    --theme-code-highlight-color: #514e0f;
 }
 
 body.theme-light {
@@ -26,7 +26,7 @@ body.theme-light {
     --theme-code-header-forecolor: #171717;
     --theme-code-header-border: #e3e3e3;
     --theme-code-header-highlight: #fafafa;
-    --theme-code-highlight-color:#efefdc;
+    --theme-code-highlight-color: #efefdc;
 }
 
 article h4 {
@@ -50,9 +50,9 @@ pre {
     border-radius: 0;
 }
 
-pre code {
-    color: var(--theme-code-block-default);
-}
+    pre code {
+        color: var(--theme-code-block-default);
+    }
 
 article p img {
     display: block;
@@ -72,9 +72,9 @@ div.alert pre {
     text-decoration: underline;
 }
 
-.content p a.featherlight-image {
-    text-decoration: none;
-}
+    .content p a.featherlight-image {
+        text-decoration: none;
+    }
 
 .content a code {
     background-color: var(--theme-inline-code-background);
@@ -102,9 +102,9 @@ div.sideaffix {
     width: 100%;
 }
 
-.affix ul>li.active>ul,
-.affix ul>li.active>a:before,
-.affix ul>li>a:hover:before {
+.affix ul > li.active > ul,
+.affix ul > li.active > a:before,
+.affix ul > li > a:hover:before {
     white-space: normal;
 }
 
@@ -125,10 +125,10 @@ div.sideaffix {
     height: auto;
 }
 
-.navbar-brand img {
-    width: 300px;
-    height: auto;
-}
+    .navbar-brand img {
+        width: 300px;
+        height: auto;
+    }
 
 .navbar-inverse {
     padding-top: 20px;
@@ -153,8 +153,12 @@ div.sideaffix {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    max-width: 100%;
+    max-width: 2000px;
     width: 100%;
+}
+
+div#breadcrumb {
+    max-width: 2000px;
 }
 
 .article.grid-right {
@@ -166,30 +170,34 @@ div.sideaffix {
     width: 400px;
     margin-left: -15px;
 }
-  
+
 .sidetoc {
     top: 173px;
     width: 400px;
     margin-left: -15px;
 }
 
-.sidetoc a {
-    white-space: nowrap;          
-    overflow: hidden;             
-    text-overflow: ellipsis;
-}
+    .sidetoc a {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
-.sidetoc .nav.level2 li a wbr {
-    display: none;
-}
+    .sidetoc .nav.level2 li a wbr {
+        display: none;
+    }
 
-.sidetoc.shiftup {
-    bottom: 61px;
-}
+    .sidetoc.shiftup {
+        bottom: 61px;
+    }
 
 .toc {
     margin-left: 20px;
 }
+
+/*.col-md-10 {
+    padding-right:30px;
+}*/
 
 @media screen and (max-width: 992px) {
     .col-md-10 {
@@ -203,18 +211,32 @@ div.sideaffix {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
     .container {
-        max-width: 1140px;
+        width: 100%;
+        max-width:2000px;
     }
 }
 
-@media only screen and (max-width: 768px){
+@media (min-width: 992px) {
+    .container {
+        width: 100%;
+        max-width: 2000px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+        max-width: 2000px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
     .article.grid-right {
         margin-left: 0;
     }
 }
-
 /* 
 CODE COPY LINK
 https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100 
@@ -231,15 +253,15 @@ https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100
     margin-top: 16px;
     min-height: 30px;
 }
-  
+
 .tabGroup section[role="tabpanel"] .code-header {
     margin-left: -16px;
     margin-right: -16px;
 }
 
-.tabGroup section[role="tabpanel"] .code-header:first-child {
-    margin-top: -16px;
-}
+    .tabGroup section[role="tabpanel"] .code-header:first-child {
+        margin-top: -16px;
+    }
 
 .code-header > .language {
     padding: 2px 16px;
@@ -288,11 +310,11 @@ https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100
     color: #fff;
 }
 
-.code-header > .action .successful-copy-alert.is-transparent {
-    opacity: 0;
-    transition: 500ms opacity ease-in-out;
-}
+    .code-header > .action .successful-copy-alert.is-transparent {
+        opacity: 0;
+        transition: 500ms opacity ease-in-out;
+    }
 
-pre > code .line-highlight{
+pre > code .line-highlight {
     background-color: var(--theme-code-highlight-color);
 }

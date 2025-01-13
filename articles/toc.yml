@@ -24,10 +24,10 @@ items:
   - name: Tools
     href: tools/toc.yml
 
-  - name: Modules - Common
+  - name: Modules (Common)
     href: modules-common/toc.yml
 
-  - name: Modules - .NET
+  - name: Modules (.NET)
     href: modules-dotnet/toc.yml
 
   - name: Release notes
