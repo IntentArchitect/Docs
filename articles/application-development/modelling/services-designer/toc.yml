@@ -3,5 +3,8 @@ items:
 - name: Modeling Services
   href: modeling-services/modeling-services.md
 
+- name: Securing Services
+  href: securing-services/securing-services.md
+
 - name: Message-Based Integration Modeling
   href: message-based-integration-modeling/message-based-integration-modeling.md
