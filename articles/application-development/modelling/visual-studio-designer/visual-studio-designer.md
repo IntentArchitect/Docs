@@ -35,7 +35,7 @@ We can also see `Template Output`s, such as `Intent.Entities.Entity`, which indi
 
 For example, if you have a domain-oriented module, it will generate code that should be installed into the C# project responsible for domain concepts. This project is identified by having a "Domain" `Role`.
 
-When a module is installed, it looks for `Role`s to determine where its generated code files should go in the **Visual Studio Designer**. These `Role`s serve as guidance for the module to determine where to insert its `Template Output`s—the actual artifacts that define "This is where this code will go."
+When a module is installed, it looks for `Role`s to determine where its generated code files should go in the **Visual Studio Designer**. These `Role`s serve as guidance for the module to determine where to insert its `Template Output`s, the actual artifacts that define "where code files go".
 
 > [!NOTE]
 > `Role`s assist modules in determining where they should place their `Template Output`s within the designer. That is their sole function. Ultimately, the `Template Output` determines where the code is placed, and these can be adjusted post-installation if needed.
