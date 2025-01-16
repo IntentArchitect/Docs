@@ -8,9 +8,6 @@ items:
   - name: About Solutions
     href: about-solutions/about-solutions.md
 
-  - name: About Visual Studio Designer
-    href: about-the-visual-studio-designer/about-the-visual-studio-designer.md
-
   - name: Intent Architect in the development environment
     href: ../development-environment/intent-in-the-development-environment.md
 
