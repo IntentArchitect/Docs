@@ -73,3 +73,7 @@ You can now group applications together by adding folders to the solution explor
 - Logically similar applications you'd like to group together.
 
 ![Solution explorer folders](images/4.4/solution-explorer-folders.png)
+
+### Improvements in 4.4.0
+
+- "Options" on the details pane of "Module Management" screen has been replaced with ["Installation Settings"](xref:application-development.applications-and-solutions.about-modules#installation-settings) which allows more granular control of which features of a module are installed.
