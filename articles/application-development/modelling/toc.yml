@@ -14,5 +14,8 @@ items:
   - name: Services Designer
     href: services-designer/toc.yml
 
+  - name: Visual Studio Designer
+    href: visual-studio-designer/visual-studio-designer.md
+
   - name: Open in IDE
     href: open-in-ide/open-in-ide.md
