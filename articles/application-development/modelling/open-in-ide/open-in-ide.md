@@ -14,6 +14,12 @@ In the screenshot above there are 4 files which Intent Architect determined are 
 > Intent Architect will not show or update the list of files associated with an element until [Software Factory](xref:application-development.software-factory.about-software-factory-execution) changes have been applied.
 >
 > The list of associated files is stored in an application's `.intent` folder which [should not be committed into source control management systems (such as Git)](xref:application-development.applications-and-solutions.git-and-scm-guidance#folders-which-should-always-be-ignored), so if you've just checked out a repository or recently pulled changes into your branch, re-run the Software Factory and apply changes to ensure your local list is fully up to date.
+> [!NOTE]
+>
+> If you already have the Visual Studio Solution open in your IDE, "Open In IDE" will open the file in that IDE instance.
+> [!NOTE]
+>
+> If your IDE is running as Administrator your Intent Architect will also need to be running as Administrator for it to discover the running instance.
 
 ## How does Intent Architect choose which IDE to use to open the file?
 
