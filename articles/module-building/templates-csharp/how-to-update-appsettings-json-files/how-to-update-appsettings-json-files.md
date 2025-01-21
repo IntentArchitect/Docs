@@ -1,13 +1,13 @@
 ---
 uid: module-building.templates-csharp.how-to-update-appsettings-json-files
 ---
-# How to update `appsettings.json` files
+# How to Update `appsettings.json` Files
 
-The `Intent.VisualStudio.Projects` module automatically generates the `appsettings.json` file for relevant .NET project types.
+The `Intent.VisualStudio.Projects` module automatically generates the `appsettings.json` file for supported .NET project types.
 
-## How to update from a Template
+## How to Update from a Template
 
-To have additional configuration applied to an `appsettings.json` file, use the `ApplyAppSetting` extension method in your Template, for example:
+To apply additional configuration to an `appsettings.json` file, use the `ApplyAppSetting` extension method within your Template. For example:
 
 ```csharp
 public override void BeforeTemplateExecution()
@@ -34,7 +34,7 @@ public override void BeforeTemplateExecution()
 > 
 > Placing this method in the override of either the `AfterTemplateRegistration` or `BeforeTemplateExecution` methods will ensure it is called only after all other templates have been constructed.
 
-In the example above, your `appsettings.json` file will receive the following:
+In the example above, the `appsettings.json` file will include the following:
 
 ```json
 {
@@ -52,7 +52,7 @@ In the example above, your `appsettings.json` file will receive the following:
 
 ## How to update from a Factory Extension
 
-It is also possible to have additional configuration applied to an appsettings.json file from a `Factory Extension`, using the `EventDispatcher`.
+It is also possible to apply additional configuration to an `appsettings.json` file using a `Factory Extension` with the `EventDispatcher`. For example:
 
 ``` csharp
 protected override void OnAfterTemplateRegistrations(IApplication application)
@@ -73,7 +73,7 @@ protected override void OnAfterTemplateRegistrations(IApplication application)
 }
 ```
 
-In the example above, your `appsettings.json` file will receive the following, the same as in the above `Template` example:
+The resulting `appsettings.json` file will be the same as in the previous `Template` example:
 
 ```json
 {
@@ -91,7 +91,7 @@ In the example above, your `appsettings.json` file will receive the following, t
 
 ## Variable field names
 
-To create appsettings.json entries which have variable field names, or to update an already existing appsettings.json section, the following syntax can be used.
+To create `appsettings.json` entries with variable field names, or to update an existing section, you can use the following syntax:
 
 ``` csharp
 this.ApplyAppSetting(
@@ -99,7 +99,7 @@ this.ApplyAppSetting(
    value: "AdditionalStrValue");
 ```
 
-Executing the above after the above examples, will result in your `appsettings.json` file receiving the following:
+Executing this method after the previous above example, your `appsettings.json` file will look like the following:
 
 ```json
 {
@@ -118,7 +118,7 @@ Executing the above after the above examples, will result in your `appsettings.j
 
 ## Environment specific appsettings.json files
 
-To enable Intent Architect to generate separate appsettings.json files for each environment, you must configure the `runtime environments` in the *Visual Studio Designer*.
+To enable Intent Architect to generate separate `appsettings.json` files for each environment, you must configure the `runtime environments` in the *Visual Studio Designer*.
 
 ![Runtime environments](images/runtime-environments.png)
 
