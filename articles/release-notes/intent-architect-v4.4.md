@@ -77,3 +77,7 @@ You can now group applications together by adding folders to the solution explor
 ### Improvements in 4.4.0
 
 - "Options" on the details pane of "Module Management" screen has been replaced with ["Installation Settings"](xref:application-development.applications-and-solutions.about-modules#installation-settings) which allows more granular control of which features of a module are installed.
+
+### Issues fixed in 4.4.0
+
+- "Too many changes at once in directory" errors which might occur during Software Factory execution when running multiple Software Factories at once will now show an informative warning instead.
