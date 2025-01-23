@@ -28,7 +28,7 @@ The Module Server is otherwise self-contained.
 
 **Description:** The Microsoft SQL Server connection string.
 
-**Default value:** `Server=host.docker.internal;Initial Catalog=Intent;MultipleActiveResultSets=True;Encrypt=False;User ID=module-server;Password=password;`
+**Default value:** `Server=host.docker.internal;Initial Catalog=ModuleServer;MultipleActiveResultSets=True;Encrypt=False;User ID=module-server;Password=password;`
 
 ### `ApiKeys`
 
@@ -52,7 +52,7 @@ Authenticate against the Intent Architect container registry:
 docker login -u anonymous -p 1Ww/o4nfLPIKdComVBukyVGlmtWVgYm7MgfVPwwnfO+ACRAX3G9B crintentarchitectprodzanorth.azurecr.io
 ```
 
-In the following command replace `<sql-server-connection-string>` with a valid SQL Server connection string (e.g. `Server=host.docker.internal;Initial Catalog=Intent;MultipleActiveResultSets=True;Encrypt=False;User ID=module-server;Password=password;` will connect to a SQL Server on the Docker host machine, to the `Intent` database using the SQL username of `module-server` and password `password`) and then run it.
+In the following command replace `<sql-server-connection-string>` with a valid SQL Server connection string (e.g. `Server=host.docker.internal;Initial Catalog=ModuleServer;MultipleActiveResultSets=True;Encrypt=False;User ID=module-server;Password=password;` will connect to a SQL Server on the Docker host machine, to the `ModuleServer` database using the SQL username of `module-server` and password `password`) and then run it.
 
 ```bash
 docker run --publish 33800:80 --name module-server -e "ConnectionStrings__DefaultConnection=<sql-server-connection-string>" crintentarchitectprodzanorth.azurecr.io/intent-architect/module-server:latest
@@ -113,6 +113,11 @@ The value to enter **Address** is "base" URL for the website. For example if you
 ## SQL Server schema migration script
 
 The following SQL Server script can be used to idempotently make sure that the database schema is at the latest version:
+
+> [!NOTE]
+>
+> Check your connection string as to which Database this script should be executed against. Default: ModuleServer.
+> It will create a \[ModuleServer\] schema to ensure clean separation.
 
 ```sql
 IF OBJECT_ID(N'[ModuleServer].[__EFMigrationsHistory]') IS NULL
