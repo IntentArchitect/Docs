@@ -24,11 +24,11 @@ Available from:
 
 ### Temporal Table Module
 
-`Classes` can now be marked as `Temporal Tables`, which will automatically keep track of all data ever stored in the table, even after the data has been updated or deleted.
+`Classes` can now be marked as `Temporal Tables`, allowing SQL Server/Azure SQL to automatically track historical data changes, even after updates or deletions.
 
-The module will configure Entity Framework Core, as well as update the relevant `repositories` allowing for the retrieval of the historical data.
+The module configures Entity Framework Core and updates relevant `repositories` for easy retrieval of historical data.
 
-![Data Masking Properties](images/temporal-tables.png)
+![Temporal Tables](images/temporal-tables.png)
 
 Available from:
 
