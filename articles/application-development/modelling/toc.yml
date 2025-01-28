@@ -19,3 +19,6 @@ items:
 
   - name: Open in IDE
     href: open-in-ide/open-in-ide.md
+
+  - name: Type Definitions
+    href: type-definitions/type-definitions.md
