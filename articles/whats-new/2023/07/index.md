@@ -12,7 +12,7 @@ Welcome to the July 2023 edition of highlights of What's New in Intent Architect
 module.
 
 - More updates
-  - **[Entity Framework Core - Module documentation](#entity-framework-core---module-documentation)** - Added module readme with documentation on working with the Entity Framework Core 
+  - **[Entity Framework Core - Module documentation](#entity-framework-core---module-documentation)** - Added module readme with documentation on working with the Entity Framework Core.
   - **[Services `Paginate` feature](#services-paginate-feature)** - Service's now have a `Paginate` context menu, simplifying configuring pagination in the Services Designer.
   - **[Swagger - OAuth 2.0 Implicit Flows](#swagger---oauth-20-implicit-flows)** - Added support for configuring OAuth 2.0 Implicit flows for Swagger Authentication.
   - **[RDBMS Improved Schema modeling](#rdbms-improved-schema-modeling)** - Improved support for modelling DB schema through a `Schema` stereotype.
