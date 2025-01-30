@@ -28,6 +28,24 @@ Each of the above can be suffixed with the following:
 - **`Body`** - Override only the body mode behaviour of the syntax node, generally body refers to inner syntax nodes or the content of a syntax node.
 - **`Signature`** - Override only the signature mode behaviour of the syntax node, generally this refers to aspects like HTML element / Directive attributes of a syntax node.
 
+If you want to manage specific attributes:
+
+- **`@Intent.FullyAttributes("attribute1", "attribute2", ...)`** - Fully manages the specified attributes.
+- **`@Intent.MergeAttributes("attribute1", "attribute2", ...)`** - Separates the value of the attribute by space and will merge them. By default `class` attributes are in merge mode.
+- **`@Intent.IgnoreAttributes("attribute1", "attribute2", ...)`** - Ignores the specified attributes.
+
+For example:
+
+```razor
+@Intent.Fully
+@Intent.IgnoreAttributes("class")
+<div class="content-block">
+    content
+</div>
+```
+
+In the above the `class` attribute will be ignored, but not the content.
+
 Management modes and their suffixes can be combined, for example:
 
 ```razor
