@@ -2,8 +2,6 @@
 
 Welcome to the February 2025  edition of highlights of What's New in Intent Architect.
 
-Been a short month for us...
-
 - Updates
   - **[Module-based Contextual Help](#module-based-contextual-help)** - Pressing F1 in the Designers will now bring contextual help topics (4.4 Feature).
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
