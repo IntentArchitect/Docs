@@ -9,7 +9,7 @@ remarks: |
 
 The Software Factory Execution is the process that executes the installed [Modules](xref:application-development.applications-and-solutions.about-modules) with the metadata from the [Designers](xref:application-development.modelling.about-designers) within an [Application](xref:application-development.applications-and-solutions.about-applications). The result is changes to the codebase which are **staged** before being accepted or rejected.
 
-[!Video-Loop videos/software-factory-execution.mp4]
+![Software Factory Changes View](images/software-factory-changes-view.png)
 
 Intent Architect will not make changes to your codebase without your consent. The changes will be listed and can be clicked on which launches a Diff tool for you to view the changes between the files - like a _pull request_ from your robot developer friend.
 

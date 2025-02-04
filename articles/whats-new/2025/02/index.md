@@ -7,8 +7,22 @@ Welcome to the February 2025  edition of highlights of What's New in Intent Arch
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
   - **[Temporal Table Support](#temporal-table-module)** - SQL Server/Azure SQL Temporal table support is now available, enabling tracking of historical data changes.
   - **[Custom Validation Messages](#custom-validation-messages)** - Add custom validation messages for `Regular Expression` and `Must` validations.
+  - **[Destructive Changes Detection](#destructive-changes-detection)** - Be warned of changes from the Software Factory which are overwriting manually written code.
 
 ## Update details
+
+### Destructive changes detection
+
+The Software Factory changes view will now bring attention to changes which are known to be "destructive" of user written code:
+
+![Destructive change example](images/destructive-change-example.png)
+
+A pending change is deemed as having destructive changes when it is removing or replacing code from a file which is known to have been added manually.
+
+Available from:
+
+- Intent Architect 4.4.0
+- Intent.OutputManager.RoslynWeaver 4.9.0
 
 ### Module-based Contextual Help
 
