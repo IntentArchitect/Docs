@@ -91,7 +91,7 @@ steps:
 
   - pwsh: |
       dotnet tool install docfx
-    displayName: 'dotnet tool install docfx'
+    displayName: 'dotnet tool install docfx --version 2.77.0'
 
   - pwsh: |
       dotnet docfx $(Build.SourcesDirectory)/docfx.json
