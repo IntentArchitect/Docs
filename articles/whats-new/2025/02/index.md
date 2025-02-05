@@ -3,11 +3,11 @@
 Welcome to the February 2025  edition of highlights of What's New in Intent Architect.
 
 - Updates
+  - **[Destructive Changes Detection](#destructive-changes-detection)** - Be warned of changes from the Software Factory which are overwriting manually written code.
   - **[Module-based Contextual Help](#module-based-contextual-help)** - Pressing F1 in the Designers will now bring contextual help topics (4.4 Feature).
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
   - **[Temporal Table Support](#temporal-table-module)** - SQL Server/Azure SQL Temporal table support is now available, enabling tracking of historical data changes.
   - **[Custom Validation Messages](#custom-validation-messages)** - Add custom validation messages for `Regular Expression` and `Must` validations.
-  - **[Destructive Changes Detection](#destructive-changes-detection)** - Be warned of changes from the Software Factory which are overwriting manually written code.
 
 ## Update details
 
