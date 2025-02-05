@@ -90,8 +90,8 @@ steps:
         script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranchNameOnly)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
 
   - pwsh: |
-      dotnet tool install docfx
-    displayName: 'dotnet tool install docfx --version 2.77.0'
+      dotnet tool install docfx --version 2.77.0
+    displayName: 'dotnet tool install docfx'
 
   - pwsh: |
       dotnet docfx $(Build.SourcesDirectory)/docfx.json
