@@ -3,7 +3,7 @@
 Welcome to the February 2025  edition of highlights of What's New in Intent Architect.
 
 - Updates
-  - **[Destructive Changes Detection](#destructive-changes-detection)** - Be warned of changes from the Software Factory which are overwriting manually written code.
+  - **[Destructive Changes Detection](#destructive-changes-detection)** - Easily spot changes to manually written code in the Software Factory changes view.
   - **[Module-based Contextual Help](#module-based-contextual-help)** - Pressing F1 in the Designers will now bring contextual help topics (4.4 Feature).
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
   - **[Temporal Table Support](#temporal-table-module)** - SQL Server/Azure SQL Temporal table support is now available, enabling tracking of historical data changes.
@@ -13,11 +13,13 @@ Welcome to the February 2025  edition of highlights of What's New in Intent Arch
 
 ### Destructive changes detection
 
+Sometimes the Software Factory wants to make changes to code which was manually written and should be reviewed to avoid possible loss of custom code, however, these changes may be easily missed if they are interspersed between other file changes which are benign as they are for code which was not manually written.
+
 The Software Factory changes view will now bring attention to changes which are known to be "destructive" of user written code:
 
 ![Destructive change example](images/destructive-change-example.png)
 
-A pending change is deemed as having destructive changes when it is removing or replacing code from a file which is known to have been added manually.
+A pending change is deemed as having destructive changes when it is removing or replacing code which is known to have been added manually.
 
 Available from:
 
