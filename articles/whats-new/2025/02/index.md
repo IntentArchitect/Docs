@@ -4,7 +4,7 @@ Welcome to the February 2025  edition of highlights of What's New in Intent Arch
 
 - Updates
   - **[Destructive Changes Detection](#destructive-changes-detection)** - Easily spot changes to manually written code in the Software Factory changes view.
-  - **[Module-based Contextual Help](#module-based-contextual-help)** - Pressing F1 in the Designers will now bring contextual help topics (4.4 Feature).
+  - **[Module-based Contextual Help](#module-based-contextual-help)** - New help topics have been added to many of our existing modules (4.4 Feature).
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
   - **[Temporal Table Support](#temporal-table-module)** - SQL Server/Azure SQL Temporal table support is now available, enabling tracking of historical data changes.
   - **[Custom Validation Messages](#custom-validation-messages)** - Add custom validation messages for `Regular Expression` and `Must` validations.
