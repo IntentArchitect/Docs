@@ -3,7 +3,7 @@
 Welcome to the February 2025  edition of highlights of What's New in Intent Architect.
 
 - Updates
-  - **[Destructive Changes Detection](#destructive-changes-detection)** - Easily spot changes to manually written code in the Software Factory changes view.
+  - **[Destructive Changes Detection](#destructive-changes-detection)** - Easily spot changes to manually written code in the Software Factory changes view (4.4 Feature).
   - **[Module-based Contextual Help](#module-based-contextual-help)** - New help topics have been added to many of our existing modules (4.4 Feature).
   - **[Data Masking Support](#data-masking-module)** - Mask sensitive data from unauthorized users when using Entity Framework Core.
   - **[Temporal Table Support](#temporal-table-module)** - SQL Server/Azure SQL Temporal table support is now available, enabling tracking of historical data changes.
