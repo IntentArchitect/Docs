@@ -44,6 +44,37 @@ Although not essential, the easiest way to use AppImages is to first install [Ap
 
 If you just want to run Intent Architect without "installing" it, you can just set the downloaded file to be executable by running `chmod a+x intent-architect*.AppImage` after which you can then run it.
 
+#### I'm getting an "The configured user limit (128) on the number of inotify instances has been reached" error
+
+On some Linux distributions, the Software Factory may show the the following error:
+
+```text
+System.IO.IOException: The configured user limit (128) on the number of inotify instances has been reached, or the per-process limit on the number of open file descriptors has been reached.
+   at System.IO.FileSystemWatcher.StartRaisingEvents()
+```
+
+You can get your current inotify file watch limit by executing:
+
+```bash
+$ cat /proc/sys/fs/inotify/max_user_watches
+```
+
+You can set a temporary new limit with:
+
+```bash
+$ sudo sysctl -w fs.inotify.max_user_watches=16384
+```
+
+To make your limit permanent use:
+
+```bash
+$ echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
+$ sudo sysctl -p
+```
+
+
+[(Source)](https://github.com/dotnet/aspnetcore/issues/7531#issuecomment-484364033)
+
 ## What's Next
 
 ### [Take a tour of Intent Architect](xref:getting-started.take-a-tour)
