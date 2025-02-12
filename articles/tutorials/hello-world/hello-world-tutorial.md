@@ -82,7 +82,7 @@ Lets create a service for your `Planet` entity.
 
 * Right-click on `HelloWorldTutorial.Services` and select `Create CQRS CRUD Operations`.
 * In the dialog window
-  * Select `Planet` from the dropdown.
+  * Select `Planet` from the `Entity for CRUD operations` dropdown.
   * Click `Done`.
 
 ![CRUD a service](images/crud-service.png)
@@ -141,7 +141,7 @@ Now you can open up the solution in your C# IDE.
 ![The generated solution](images/vs-solution.png)
 
 > [!TIP]
-> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
+> If you are curious about the architecture of this solution, check out our [Intent Architect Webinar on Clean Architecture in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
 
 ## Run the application
 
@@ -188,7 +188,7 @@ You should get a response similar to this:
 
 ![Get the Planet](images/fetch-planet.png)
 
-Congratulations, you have successfully built your first application using Intent Architect.
+**Congratulations!** You have successfully built your first application using Intent Architect.
 
 At this point you should have some sense of what Intent Architect can do:
 
@@ -205,6 +205,6 @@ The next tutorial will take you step by step through building a simplified versi
 
 ## Additional related resources
 
-[Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
+[Intent Architect Webinar on Clean Architecture in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
 
 [Intent Architect Webinar on Domain Modeling in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Domain-Modeling-Webinar)
