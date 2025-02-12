@@ -97,13 +97,19 @@ Adding more `Entity`s:
 
 Now you will model the relationships between these entities:
 
-* Right-click on the `Basket` class, and select `New Association`.
-* Click on `BasketItem` .
-* In the `Properties` pane, on the lower right,
-  * Check `Is Collection` in the `Target End` section.
-  * Uncheck `Is Collection` in the `Source End` section.
+* Right-click on the `Basket` class, and hover over `New Association` and select `One to Many`.
+* Click on `BasketItem`.
 
-![Model First Association](images/association-basket-item.png)
+> [!NOTE]
+>
+> In the older versions of Intent Architect you will need to configure the association manually.
+> When you right click on the `Basket` class, and select `New Association`:
+>
+> * In the `Properties` pane, on the lower right,
+> * Check `Is Collection` in the `Target End` section.
+> * Uncheck `Is Collection` in the `Source End` section.
+>
+> ![Model First Association](images/association-basket-item.png)
 
 You have configured a *one-to-many* relationship, i.e. a `Basket` has many `BasketItem`s and a `BasketItem` belongs to one `Basket`.
 
@@ -211,9 +217,12 @@ Let's start by changing your `Database Provider`:
 * Open the application setting tab by right-clicking on the Application in the `Solution Explorer` and selecting `Settings`.
 * Scroll down to the `Database Settings` section.
 * Change `Database Provider` to `SQL Server`.
-* Click `Save Changes` (directly under the `Database Setting` section).
 
 ![Configure the Database Provider](images/configure-database-provider.png)
+
+* Click `Save Changes` (directly under the `Database Setting` section).
+
+![Save Database Settings](images/configure-database-provider-2.png)
 
 Run the Software Factory to apply these changes:
 
@@ -281,7 +290,7 @@ Next up you are going to want to model the services of your application. Looking
 
 * Open the `Services` Designer.
 * In the tree-view in the center pane, right-click on the root node of the tree (`SimplifiedEShopTutorial.Services`) and click `Create CQRS CRUD Operations`.
-* In the dialog box select `Customer`.
+* In the `CRUD Creation Options` dialog, in the `Entity for CRUD operations` drop down, select `Customer`.
 * Click `Done`.
 
 ![Customer Service Added](images/crud-customer-service.png)
@@ -343,12 +352,13 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 * Expand the `Product` node and check `Name`.
 * Click `Done`.
 
-> [!NOTE]
-> In the `Services` Designer we have used both `Map from Domain` and `Map to Domain Data`, both mechanisms create design time links between the Domain and Services allowing modules to be aware of these relationships. These mappings are visualized by left and right facing arrows respectively. Right facing arrows are typically used for inbound contracts like `Command`s and `Query`s. Left facing arrows are typically used for outbound contracts, which `DTO`s typically are.
-
 ![Model Basket DTO](images/create-basket-dto.png)
 
-Now you can model the commands. Most of the the current `Command`s meet your requirements and you can use them as is. The customizations to the service will be as follows:
+> [!TIP]
+>
+> By clicking on the `Toggle between diagram and tree views` button [featherlight images/toggle-diagram-treeviews-button.png] you can change between having the diagram or tree-view in the middle of the screen.
+
+Proceed to model the Commands. Most of the the current `Command`s meet your requirements and you can use them as is. We will be customizing the service as follows:
 
 * Get rid of `GetBasketsQuery` as you don't need it.
 * Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
@@ -479,7 +489,7 @@ You will need to model the `DTO` that this `Query` returns:
 * In the `Properties` pane, in the `Http Settings` section:
   * Change the `Route` to `api/orders/my-orders/{customerId}`.
 
-![OrderDto Modeled](images/get-my-orders-command.png)
+![OrderDto Modeled](images/get-my-orders-query.png)
 
 Run the Software Factory:
 
@@ -603,7 +613,7 @@ From inside of Intent Architect:
 * Open up the `Services Designer` and expand the `Products` folder.
 * Select all the `Command`s and `Query`s (`CreateProductCommand`, `DeleteProductCommand`, etc.).
 * Right-click and select `Apply Stereotype` (`F3`).
-* In the dialog window, choose the `Authorize` Stereotype.
+* In the dialog window, choose the `Secured` Stereotype.
 
 Note the Visual indicators in the `Service Designer` indicating which service endpoints are secured.
 
@@ -612,7 +622,7 @@ Note the Visual indicators in the `Service Designer` indicating which service en
 These services will be created as secured endpoints, that is to say they can only be accessed with a valid [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token). We can also apply more fine grained security or authorization through the use of roles. Let's lock down the `Command`s so that only product administrators can access these endpoints:
 
 * Select all the product `Command`s (`CreateProductCommand`, `DeleteProductCommand` and `UpdateProductCommand`).
-* In the `Properties` pane on the right hand side, in the `Authorize` section, set Roles to `ProductAdministrator`.
+* In the `Properties` pane on the right hand side, in the `Secured` section, set Roles to `ProductAdministrator`.
 * Save (`ctrl`+`s`).
 
 ![Command new require `ProductAdministrator` role to access them](images/authorization-products.png)
@@ -632,7 +642,7 @@ Let's take a closer look at the `ProductsController` changes:
 
 * Double-click on the `ProductsController`.
 
-Here you can see the standard `ASP.NET Core` controller `Authorize` attributes being applied to the controller operations as per your modelled design. Also note that the controllers are now being decorated with the appropriate attributes to indicate that they can now return 401 and 403 HTTP error codes.
+Here you can see the standard `ASP.NET Core` `Authorize` attributes being applied to the controller actions as per your modelled design. Also note that the controller actions are now being decorated with the appropriate attributes to indicate that they can now return 401 and 403 HTTP error codes.
 
 ![Products Controller changes](images/security-controller-changes.png)
 
