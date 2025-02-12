@@ -29,7 +29,7 @@ On the first screen of the wizard you can select your desired architecture. For 
 
 > [!NOTE]
 > In this tutorial we will be using a .NET implementation of the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as explained by Robert C. Martin (aka "Uncle Bob"). This popular architecture promotes separation of concerns and the dependency rule to create systems that are modular, maintainable, and testable.
-> If you are curious about the architecture of this solution, check out our [Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
+> If you are curious about the architecture of this solution, check out our [Webinar on Clean Architecture in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
 
 ![Select your architecture](images/choose-your-architecture.png)
 
@@ -655,5 +655,5 @@ We also have a series of [webinars](https://www.youtube.com/@IntentArchitect) co
 
 ## Additional related resources
 
-* [Intent Architect Webinar on Clean Architecture in .NET 7](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
+* [Intent Architect Webinar on Clean Architecture in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar)
 * [Intent Architect Webinar on Domain Modeling in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=Domain-Modeling-Webinar)
