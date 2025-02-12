@@ -81,3 +81,4 @@ You can now group applications together by adding folders to the solution explor
 ### Issues fixed in 4.4.0
 
 - "Too many changes at once in directory" errors which might occur during Software Factory execution when running multiple Software Factories at once will now show an informative warning instead.
+- Made Module Tasks more robust by ensuring processes complete properly after each execution under Linux.
