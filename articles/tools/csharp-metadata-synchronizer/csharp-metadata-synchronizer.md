@@ -68,6 +68,7 @@ The `--config-file` option expects the name of a file containing configuration o
   "ServiceEnumsFolder": null,
   "ServiceDtosFolder": null,
   "ValueObjectsFolder": null,
+  "EventMessagesFolder" : null,
   "IslnFile": null,
   "ApplicationName": null,
   "PackageId": null,
