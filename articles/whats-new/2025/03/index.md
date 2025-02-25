@@ -7,13 +7,13 @@ Welcome to the March 2025  edition of highlights of What's New in Intent Archite
   - **[Improved HTTP Route Heuristics](#improved-http-route-heuristics)** - Enhanced heuristics to generate better HTTP routes, reducing conflicts.
   - **[Map Stored Procedure Invocations](#map-stored-procedure-invocations)** - Map stored procedure invocations for automated generation of CQRS and Service Operation implementations.
   - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies to improve maintainability.
-  - **[Manage particular attributes in Razor files](#manage-particular-attributes-in-razor-files)** - Control merge behaviour on an attribute-by-attribute basis for components / HTML Elements in `.razor` files.
+  - **[Manage Particular Attributes in Razor Files](#manage-particular-attributes-in-razor-files)** - Control merge behaviour on an attribute-by-attribute basis for components / HTML Elements in `.razor` files.
 
 - More updates
   - **[Improved SQL Server Importer Filter File](#improved-sql-server-importer-filter-file)** - Added a filter to control which SQL schema elements are imported.
   - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** -  Enhancements to field mapping from domain entities to DTOs.
   - **[Domain Services Registration Options](#domain-service-registration-options)** -  Greater flexibility in configuring `Domain Service`s registration with dependency injection.
-  - **[204 response codes for nullable returning operations now on Swagger UI](#204-no-content-now-automatically-added-as-appropriate-to-controller-operations-for-openapi--swagger-ui)** - Automatic addition of 204 No Content responses for nullable-returning operations.
+  - **[204 response codes for nullable endpoints](#204-response-codes-for-nullable-endpoints)** - Automatic addition of 204 No Content responses for nullable-returning operations.
 
 ## Update details
 
@@ -88,19 +88,38 @@ Available from:
 - Intent.EntityFrameworkCore.DataMasking 1.0.0-beta.5
 - Intent.FastEndpoints 1.0.1
 
-### Domain Service Registration Options
+### Manage Particular Attributes in Razor Files
 
-The global default scope for how `Domain Services` are registered can now be controlled under the `Domain Settings` settings section:
+It is now possible to specify on an attribute-by-attribute basis the merge behaviour on a component or HTML element, for example you can fully manage an element except for the `class` attribute as follows:
 
-![Global scope](images/global-scope.png)
+```razor
+@Intent.Fully
+@Intent.IgnoreAttributes("class")
+<div class="content-block">
+    content
+</div>
+```
 
-Changing the registration scope of an individual service can be done via the `Service Registration Scope` setting on the Domain Service itself:
-
-![Service scope](images/service-scope.png)
+For more information refer to [the documentation](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-razor/code-management-razor.html#management-modes).
 
 Available from:
 
-- Intent.DomainServices 1.1.8
+- Intent.Code.Weaving.Razor 1.0.4
+
+### Improved SQL Server Importer Filter File
+
+Specify which Tables to include and which Columns to exclude using the SQL Server Importer.
+
+The improvements include:
+
+- Richer definition experience using a JSON file with a structure you can learn about [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html#import-filter-file).
+- When you import you can now specify a relative file path to the file used for filtering based on the package you are importing into.
+- You can specify which SQL Tables to import, which Columns to exclude.
+- Specifying the Schemes to filter on has moved to this filter file.
+
+Available from:
+
+- Intent.SqlServerImporter 1.1.0
 
 ### Improved Domain-to-DTO Field Mapping in Services Designer
 
@@ -122,43 +141,24 @@ Available from:
 
 - Intent.Modelers.Services 3.9.2
 
-### Improved SQL Server Importer Filter File
+### Domain Service Registration Options
 
-Specify which Tables to include and which Columns to exclude using the SQL Server Importer.
+The global default scope for how `Domain Services` are registered can now be controlled under the `Domain Settings` settings section:
 
-The improvements include:
+![Global scope](images/global-scope.png)
 
-- Richer definition experience using a JSON file with a structure you can learn about [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html#import-filter-file).
-- When you import you can now specify a relative file path to the file used for filtering based on the package you are importing into.
-- You can specify which SQL Tables to import, which Columns to exclude.
-- Specifying the Schemes to filter on has moved to this filter file.
+Changing the registration scope of an individual service can be done via the `Service Registration Scope` setting on the Domain Service itself:
+
+![Service scope](images/service-scope.png)
 
 Available from:
 
-- Intent.SqlServerImporter 1.1.0
+- Intent.DomainServices 1.1.8
 
-### `204 No Content` now automatically added as appropriate to controller operations for OpenAPI / Swagger UI
+### 204 response codes for nullable endpoints
 
 If a controller method is known to be able to return a nullable result a `[ProducesResponseType(StatusCodes.Status204NoContent)]` is now automatically added to it.
 
 Available from:
 
 - Intent.AspNetCore.Controllers 7.1.1
-
-### Manage particular attributes in Razor files
-
-It is now possible to specify on an attribute-by-attribute basis the merge behaviour on a component or HTML element, for example you can fully manage an element except for the `class` attribute as follows:
-
-```razor
-@Intent.Fully
-@Intent.IgnoreAttributes("class")
-<div class="content-block">
-    content
-</div>
-```
-
-For more information refer to [the documentation](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-razor/code-management-razor.html#management-modes).
-
-Available from:
-
-- Intent.Code.Weaving.Razor 1.0.4
