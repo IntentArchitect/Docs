@@ -9,6 +9,7 @@ Welcome to the March 2025  edition of highlights of What's New in Intent Archite
   - **[Domain Services Registration Options](#domain-service-registration-options)** - Easily control and configure how `Domain Services` are registered with the dependency injection container.
   - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies.
   - **[Soft Delete pattern added to Cosmos DB](#soft-delete-pattern-added-to-cosmos-db)** - The Soft Delete functionality is now available for the CosmosDB module.
+  - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** - When mapping from the Domain Entity to a DTO, mapping fields will first try to match with existing fields before creating new ones.
 
 ## Update details
 
@@ -81,3 +82,23 @@ The `CosmosDBRepositoryBase` is also updated to detect those Entities for settin
 Available from:
 
 - Intent.Entities.SoftDelete 1.0.0
+
+### Improved Domain-to-DTO Field Mapping in Services Designer
+
+When mapping from the Domain Entity to a DTO, mapping fields will first try to match with existing fields before creating new ones.
+
+As an example, you have a predefined DTO.
+
+![Predefined DTO](images/domain-to-dto-mapping-predefined-dto.png)
+
+When you `Map from Domain` you can them select the Domain Entity to map from and select the Attributes you wish to map onto the DTO.
+
+![Select attributes to map](images/domain-to-dto-mapping-map-from-domain.png)
+
+The mapped DTO will now have the existing fields mapped because they matched by name.
+
+![Mapped DTO](images/domain-to-dto-mapping-mapped-dto.png)
+
+Available from:
+
+- Intent.Modelers.Services 3.9.2
