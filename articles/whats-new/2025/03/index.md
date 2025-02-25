@@ -4,15 +4,16 @@ Welcome to the March 2025  edition of highlights of What's New in Intent Archite
 
 - Highlights
   - **[Improved HTTP Route Heuristics](#improved-http-route-heuristics)** - An update to the heuristic used to generate HTTP routes to better avoid route conflicts.
+  - **[Soft Delete pattern added to Cosmos DB](#soft-delete-pattern-added-to-cosmos-db)** - The Soft Delete functionality is now available for the CosmosDB module.
   - **[Map stored procedure invocations](#map-repository-operations-to-stored-procedures)** - Map stored procedure invocations for automated generation of CQRS and Service Operation implementations.
+  - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies.
+  - **[Manage particular attributes in Razor files](#manage-particular-attributes-in-razor-files)** - Control merge behaviour on an attribute-by-attribute basis for components / HTML Elements in `.razor` files.
 
 - More updates
-  - **[Domain Services Registration Options](#domain-service-registration-options)** - Easily control and configure how `Domain Services` are registered with the dependency injection container.
-  - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies.
-  - **[Soft Delete pattern added to Cosmos DB](#soft-delete-pattern-added-to-cosmos-db)** - The Soft Delete functionality is now available for the CosmosDB module.
+  - **[Improved SQL Server Importer Filter File](#improved-sql-server-importer-filter-file)** - We have added an import filter allowing my control of what aspects of your SQL Schema get imported.
   - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** - When mapping from the Domain Entity to a DTO, mapping fields will first try to match with existing fields before creating new ones.
+  - **[Domain Services Registration Options](#domain-service-registration-options)** - Easily control and configure how `Domain Services` are registered with the dependency injection container.
   - **[204 response codes for nullable returning operations now on Swagger UI](#204-no-content-now-automatically-added-as-appropriate-to-controller-operations-for-openapi--swagger-ui)** - Generated OpenAPI specs for the Swagger UI will now automatically have `204` responses added as appropriate.
-  - **[Manage particular attributes in Razor files](#manage-particular-attributes-in-razor-files)** - Control merge behaviour on an attribute-by-attribute basis for components / HTML Elements in `.razor` files.
 
 ## Update details
 
