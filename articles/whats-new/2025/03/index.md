@@ -1,81 +1,23 @@
 # What's new in Intent Architect (March 2025)
 
-Welcome to the March 2025  edition of highlights of What's New in Intent Architect.
+Welcome to the March 2025  edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 - Highlights
-  - **[Improved HTTP Route Heuristics](#improved-http-route-heuristics)** - An update to the heuristic used to generate HTTP routes to better avoid route conflicts.
-  - **[Soft Delete pattern added to Cosmos DB](#soft-delete-pattern-added-to-cosmos-db)** - The Soft Delete functionality is now available for the CosmosDB module.
-  - **[Map stored procedure invocations](#map-repository-operations-to-stored-procedures)** - Map stored procedure invocations for automated generation of CQRS and Service Operation implementations.
-  - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies.
+  - **[Soft Delete Pattern for Cosmos DB](#soft-delete-pattern-for-cosmos-db)** - Soft Delete functionality is now available for the CosmosDB module.
+  - **[Improved HTTP Route Heuristics](#improved-http-route-heuristics)** - Enhanced heuristics to generate better HTTP routes, reducing conflicts.
+  - **[Map Stored Procedure Invocations](#map-stored-procedure-invocations)** - Map stored procedure invocations for automated generation of CQRS and Service Operation implementations.
+  - **[Permission constants](#permission-constants)** - Constants are now generated and reused for modeled roles and policies to improve maintainability.
   - **[Manage particular attributes in Razor files](#manage-particular-attributes-in-razor-files)** - Control merge behaviour on an attribute-by-attribute basis for components / HTML Elements in `.razor` files.
 
 - More updates
-  - **[Improved SQL Server Importer Filter File](#improved-sql-server-importer-filter-file)** - We have added an import filter allowing my control of what aspects of your SQL Schema get imported.
-  - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** - When mapping from the Domain Entity to a DTO, mapping fields will first try to match with existing fields before creating new ones.
-  - **[Domain Services Registration Options](#domain-service-registration-options)** - Easily control and configure how `Domain Services` are registered with the dependency injection container.
-  - **[204 response codes for nullable returning operations now on Swagger UI](#204-no-content-now-automatically-added-as-appropriate-to-controller-operations-for-openapi--swagger-ui)** - Generated OpenAPI specs for the Swagger UI will now automatically have `204` responses added as appropriate.
+  - **[Improved SQL Server Importer Filter File](#improved-sql-server-importer-filter-file)** - Added a filter to control which SQL schema elements are imported.
+  - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** -  Enhancements to field mapping from domain entities to DTOs.
+  - **[Domain Services Registration Options](#domain-service-registration-options)** -  Greater flexibility in configuring `Domain Service`s registration with dependency injection.
+  - **[204 response codes for nullable returning operations now on Swagger UI](#204-no-content-now-automatically-added-as-appropriate-to-controller-operations-for-openapi--swagger-ui)** - Automatic addition of 204 No Content responses for nullable-returning operations.
 
 ## Update details
 
-### Improved HTTP Route Heuristics
-
-The process of auto-generating HTTP routes has been enhanced to ensure greater relevance and reduce the likelihood of conflicts. Additionally, the handling of acronyms and initialisms has been improved for better accuracy and consistency.
-
-An example of the previous route generation:
-
-![Previous Generation](images/old-route.png)
-
-Compared with the updated route generation:
-
-![Updated Generation](images/new-route.png)
-
-Available from:
-
-- Intent.Metadata.WebApi 4.7.3
-
-### Map Repository Operations to Stored Procedures
-
-It is now possible to map repository operations to stored procedures enabling scenarios of being able to fully generate CQRS / Service Operation implementations which invoke and return results for Stored Procedure with output parameters.
-
-![Stored Procedure Invocation Mapping](images/stored-procedure-invocation-mapping.png)
-
-![Stored Procedure Result Mapping](images/stored-procedure-result-mapping.png)
-
-For more information and examples refer to the [module documentation](https://docs.intentarchitect.com/articles/modules-common/intent-modules-modelers-domain-storedprocedures/intent-modules-modelers-domain-storedprocedures.html).
-
-Available from:
-
-- Intent.Modules.Modelers.Domain.StoredProcedures 1.1.4
-- Intent.EntityFrameworkCore.Repositories 4.7.5
-
-### Domain Service Registration Options
-
-The global default scope for how `Domain Services` are registered can now be controlled under the `Domain Settings` settings section:
-
-![Global scope](images/global-scope.png)
-
-Changing the registration scope of an individual service can be done via the `Service Registration Scope` setting on the Domain Service itself:
-
-![Service scope](images/service-scope.png)
-
-Available from:
-
-- Intent.DomainServices 1.1.8
-
-### Permission Constants
-
-Instead of using a `string literal` to define a `role` or `permission`, a constant is now automatically generated and used. This enhances code maintainability, reduces the risk of errors from typos and provides a centralized place for the permissions.
-
-Available from:
-
-- Intent.AspNetCore 6.0.8
-- Intent.Application.MediatR 4.3.2
-- Intent.AspNetCore.Controllers 7.1.1
-- Intent.AspNetCore.Mvc 1.0.0-beta.4
-- Intent.EntityFrameworkCore.DataMasking 1.0.0-beta.5
-- Intent.FastEndpoints 1.0.1
-
-### Soft Delete pattern added to Cosmos DB
+### Soft Delete Pattern for Cosmos DB
 
 The Soft Delete functionality that was originally on the Entity Framework Core module has been extended so that it also now is available for the CosmosDB module. Thus in the same module you have Soft Delete functionality for both Entity Framework Core and CosmosDB.
 
@@ -101,6 +43,64 @@ The `CosmosDBRepositoryBase` is also updated to detect those Entities for settin
 Available from:
 
 - Intent.Entities.SoftDelete 1.0.0
+
+### Improved HTTP Route Heuristics
+
+The heuristic algorithm for generating HTTP REST routes has been improved for better relevance and reduced conflict likelihood. Additionally, handling of acronyms and initialisms has been refined for increased accuracy.
+
+An example of the previous route generation:
+
+![Previous Generation](images/old-route.png)
+
+Compared with the updated route generation:
+
+![Updated Generation](images/new-route.png)
+
+Available from:
+
+- Intent.Metadata.WebApi 4.7.3
+
+### Map Stored Procedure Invocations
+
+It is now possible to map repository operations to stored procedures enabling scenarios of being able to fully generate CQRS / Service Operation implementations which invoke and return results for Stored Procedure with output parameters.
+
+![Stored Procedure Invocation Mapping](images/stored-procedure-invocation-mapping.png)
+
+![Stored Procedure Result Mapping](images/stored-procedure-result-mapping.png)
+
+For more information and examples refer to the [module documentation](https://docs.intentarchitect.com/articles/modules-common/intent-modules-modelers-domain-storedprocedures/intent-modules-modelers-domain-storedprocedures.html).
+
+Available from:
+
+- Intent.Modules.Modelers.Domain.StoredProcedures 1.1.4
+- Intent.EntityFrameworkCore.Repositories 4.7.5
+
+### Permission Constants
+
+Instead of using a `string literal` to define a `role` or `permission`, a constant is now automatically generated and used. This enhances code maintainability, reduces the risk of errors from typos and provides a centralized place for the permissions.
+
+Available from:
+
+- Intent.AspNetCore 6.0.8
+- Intent.Application.MediatR 4.3.2
+- Intent.AspNetCore.Controllers 7.1.1
+- Intent.AspNetCore.Mvc 1.0.0-beta.4
+- Intent.EntityFrameworkCore.DataMasking 1.0.0-beta.5
+- Intent.FastEndpoints 1.0.1
+
+### Domain Service Registration Options
+
+The global default scope for how `Domain Services` are registered can now be controlled under the `Domain Settings` settings section:
+
+![Global scope](images/global-scope.png)
+
+Changing the registration scope of an individual service can be done via the `Service Registration Scope` setting on the Domain Service itself:
+
+![Service scope](images/service-scope.png)
+
+Available from:
+
+- Intent.DomainServices 1.1.8
 
 ### Improved Domain-to-DTO Field Mapping in Services Designer
 
