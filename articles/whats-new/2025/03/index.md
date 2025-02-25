@@ -102,3 +102,18 @@ The mapped DTO will now have the existing fields mapped because they matched by 
 Available from:
 
 - Intent.Modelers.Services 3.9.2
+
+### Improved SQL Server Importer Filter File
+
+Specify which Tables to include and which Columns to exclude using the SQL Server Importer.
+
+The improvements include:
+
+- Richer definition experience using a JSON file with a structure you can learn about [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html#import-filter-file).
+- When you import you can now specify a relative file path to the file used for filtering based on the package you are importing into.
+- You can specify which SQL Tables to import, which Columns to exclude.
+- Specifying the Schemes to filter on has moved to this filter file.
+
+Available from:
+
+- Intent.SqlServerImporter 1.1.0
