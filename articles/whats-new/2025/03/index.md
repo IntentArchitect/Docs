@@ -79,6 +79,38 @@ Available from:
 
 Instead of using a `string literal` to define a `role` or `permission`, a constant is now automatically generated and used. This enhances code maintainability, reduces the risk of errors from typos and provides a centralized place for the permissions.
 
+An example of the static `Permissions` class:
+
+``` csharp
+public static class Permissions
+{
+    public const string RoleCreate = "role:create";
+    public const string RoleRead = "role.read";
+    public const string PolicyUpdate = "policy.update";
+
+    public static IEnumerable<string> All()
+    {
+        yield return RoleCreate;
+        yield return RoleRead;
+        yield return PolicyUpdate;
+    }
+}
+```
+
+An example of a controller action that uses the `constant` instead of the string literal:
+
+``` csharp
+[HttpPost("api/products")]
+[Authorize(Roles = Permissions.RoleCreate)]
+public async Task<ActionResult<JsonResponse<Guid>>> CreateProduct(
+    [FromBody] CreateProductCommand command,
+    CancellationToken cancellationToken = default)
+{
+    var result = await _mediator.Send(command, cancellationToken);
+    return CreatedAtAction(nameof(GetProductById), new { id = result }, new JsonResponse<Guid>(result));
+}
+```
+
 Available from:
 
 - Intent.AspNetCore 6.0.8
