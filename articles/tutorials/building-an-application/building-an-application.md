@@ -431,6 +431,7 @@ To finish up the `Basket` service, you are going to create the `CheckoutCommand`
 * Right-click on `CheckoutCommand` and select `Expose as Http Endpoint`
 * In the `Properties` pane, in the `Http Settings` section:
   * Change the `Verb` to `POST`.
+  * Change the route to be `api/baskets/{id}/checkout`.
 
 ![Model CheckoutCommand](images/model-checkout-command.png)
 
