@@ -5,8 +5,11 @@ items:
   - name: How to use the Change Icon Dialogue
     href: how-to-use-the-change-icon-dialogue/how-to-use-the-change-icon-dialogue.md
 
-  - name: Keyboard Shortcuts
+  - name: Keyboard shortcuts
     href: keyboard-shortcuts/keyboard-shortcuts.md
+
+  - name: Telemetry collection
+    href: telemetry-collection/telemetry-collection.md
 
   - name: The About Dialog
     href: the-about-dialog/the-about-dialog.md

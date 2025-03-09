@@ -3,6 +3,23 @@ uid: release-notes.intent-architect-v4.4
 ---
 # Release notes: Intent Architect version 4.4
 
+## Version 4.4.1
+
+### Improvements in 4.4.1
+
+- Improvement: It is now possible to search by guid (id) in the fast search and tree view filters.
+- Improvement: `copyToClipboard` added to JavaScript Macro API.
+- Improvement: Improved errors are now shown when designer configuration issues are detected.
+- Improvement: Stereotypes in lookup dropdowns now also show which elements they apply to allowing disambiguation when they have the same names.
+- Improvement: Improved telemetry collection of [certain metrics of usage](xref:application-development.user-interface.telemetry-collection).
+
+### Issues fixed in 4.4.1
+
+- Fixed: Clicking on a task in the taskbar would minimize and then immediately reopen its window.
+- Fixed: On every save of a designer the mapping Target TypeReference's id was being overwritten and causing unnecessary noise in the SCM commit change logs. The id is no longer persisted.
+- Fixed: Deleting a mapping in the Advanced Mapping dialog would sometimes just recreate it.
+- Fixed: Advanced Mappings would show errors when moving components around in the tree view.
+
 ## Version 4.4.0
 
 Intent Architect v4.4.0 primarily brings features and functionality to improve product usability and feature discoverability. Some examples of this would include new Help system, and a new suggestion system. This version is fully backwards compatible.
