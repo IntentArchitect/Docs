@@ -57,9 +57,9 @@ The `Domain` Designer is where you model your business/problem domain (the conce
 
 ![Open Domain Designer](images/open-domain-designer.png)
 
-* Right-click anywhere on the grid, and select `New Class`.
+* Right-click anywhere on the grid, and select `New Entity`.
 * Change the name to `Planet`.
-* Right-click on the `Planet` class, and select `Add Attribute`.
+* Right-click on the `Planet` entity, and select `Add Attribute`.
 * Name the attribute `Name` of type `string`.
 * Save the domain (`ctrl`+`s`).
 

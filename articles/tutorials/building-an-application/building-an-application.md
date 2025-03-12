@@ -69,7 +69,7 @@ The Microsoft `eShopOnContainers` is an e-commerce web site where customers can 
 Let's start modeling out the domain:
 
 * Open the `Domain` Designer.
-* Right-click on the grid and select `New Class`.
+* Right-click on the grid and select `New Entity`.
 * Type in the name, `Basket`.
 
 ![Basket modeled](images/modelling-start.png)
@@ -77,19 +77,19 @@ Let's start modeling out the domain:
 > [!TIP]
 > You can dramatically speed up your modeling through the use of keyboard shortcuts:
 >
-> * `Ctrl` + `Shift` + `C` - Create a new class (focus must be on the Diagram).
-> * `Ctrl` + `Shift` + `A` - Add a new attribute (focus must be on the Class).
+> * `Ctrl` + `Shift` + `C` - Create a new entity (focus must be on the Diagram).
+> * `Ctrl` + `Shift` + `A` - Add a new attribute (focus must be on the Entity).
 > * `Ctrl` + `Enter` - Create a new "whatever I have selected".
-> * `Esc` - Shift focus up a level (Attribute -> Class -> Diagram).
+> * `Esc` - Shift focus up a level (Attribute -> Entity -> Diagram).
 > * `Ctrl` + `.` - Full list of shortcuts currently available (these are context specific).
 
 Adding more `Entity`s:
 
 * With `Basket` selected press `Ctrl` + `Enter`.
-* Type `BasketItem` as your new class's name.
+* Type `BasketItem` as your new entity's name.
 * Press `Ctrl` + `Enter`.
-* Type `Product` as your new class's name.
-* Click and drag your classes to lay them out.
+* Type `Product` as your new entity's name.
+* Click and drag your entities to lay them out.
 
 ![Basket Item / Product Modeled](images/modeling-entities.png)
 
@@ -97,13 +97,13 @@ Adding more `Entity`s:
 
 Now you will model the relationships between these entities:
 
-* Right-click on the `Basket` class, and hover over `New Association` and select `One to Many`.
+* Right-click on the `Basket` entity, and hover over `New Association` and select `One to Many`.
 * Click on `BasketItem`.
 
 > [!NOTE]
 >
 > In the older versions of Intent Architect you will need to configure the association manually.
-> When you right click on the `Basket` class, and select `New Association`:
+> When you right click on the `Basket` entity, and select `New Association`:
 >
 > * In the `Properties` pane, on the lower right,
 > * Check `Is Collection` in the `Target End` section.
@@ -115,7 +115,7 @@ You have configured a *one-to-many* relationship, i.e. a `Basket` has many `Bask
 
 Next let's map the association between `BasketItem` and `Product`:
 
-* Right-click on the `BasketItem` class, and select `New Association`.
+* Right-click on the `BasketItem` entity, and select `New Association`.
 * Click on `Product`.
 
 You have configured a *many-to-one* relationship, i.e. a `BasketItem` has one `Product` and a `Product` can be associated with many `BasketItem`s.
