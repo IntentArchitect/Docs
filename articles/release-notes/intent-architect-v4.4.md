@@ -3,6 +3,13 @@ uid: release-notes.intent-architect-v4.4
 ---
 # Release notes: Intent Architect version 4.4
 
+## Version 4.4.2
+
+### Issues fixed in 4.4.2
+
+- Fixed: Module interop dependencies could cause those dependencies to have their module installation settings changed to enable module options when installing seemingly unrelated modules.
+- Fixed: It was not possible to update `.application.config` files as part of a module migration as Intent Architect wouldn't save files them before migrations or re-read them afterwards.
+
 ## Version 4.4.1
 
 ### Improvements in 4.4.1
