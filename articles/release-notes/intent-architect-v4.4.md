@@ -11,6 +11,7 @@ uid: release-notes.intent-architect-v4.4
 - Fixed: It was not possible to update `.application.config` files as part of a module migration as Intent Architect wouldn't save files them before migrations or re-read them afterwards.
 - Fixed: On macOS dialogs could be become uncloseable under certain circumstances (such as minimizing Intent Architect while the dialog was open).
 - Fixed: Casing functions (toPascalCase, toCamelCase, etc.) in macro scripts did not correctly format strings like "MyObject_IdentifierInputType".
+- Fixed: Filenames containing invalid characters are consistently sanitized when files are created for both Windows and Unix environments.
 
 ## Version 4.4.1
 
