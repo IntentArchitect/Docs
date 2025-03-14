@@ -9,6 +9,9 @@ items:
 - name: 'Tutorial: Advanced Mapping'
   topicUid: module-building.tutorial-advanced-mapping
 
+- name: APIs
+  href: apis/toc.yml
+
 - name: Application Settings
   href: application-settings/application-settings.md
 
