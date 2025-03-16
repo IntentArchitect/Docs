@@ -100,9 +100,9 @@ steps:
   - pwsh: |
       az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranchNameOnly)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
     displayName: 'Pre-production storage sync'
-    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'))
+    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'), ne(variables['triggeredByBranch'], 'development'), ne(variables['triggeredByBranch'], 'refs/heads/development'))
 
   - pwsh: |
       az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
     displayName: 'Production storage sync'
-    condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master')))
+    condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'), eq(variables['triggeredByBranch'], 'development'), eq(variables['triggeredByBranch'], 'refs/heads/development')))
