@@ -3,6 +3,8 @@ uid: module-building.overview
 ---
 # Overview
 
+For an introduction to module building watch the recording of our [Introduction to Module Building Webinar](https://intentarchitect.com/#/insights-intro-module-building).
+
 ## The Two Development Roles
 
 In the same way that traditional software development teams have members who fulfil different roles (such as developing infrastructure, architecture, backends, front-end applications, API integration and consumer services, etc.) Intent Architect is no different in that developers who design and implement Applications may be different to the developers who supply the [Modules](xref:application-development.applications-and-solutions.about-modules) that support the ability for the Application developers to function (more efficiently) and deliver value.
