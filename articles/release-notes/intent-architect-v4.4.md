@@ -3,15 +3,25 @@ uid: release-notes.intent-architect-v4.4
 ---
 # Release notes: Intent Architect version 4.4
 
+## Version 4.4.3
+
+### Improvements in 4.4.3
+
+- Improvement: All files in the `.intent/previous_output` folder will now have an extension of `.previous` added to their name, this will stop other tools which may scan for known file types from incorrectly thinking these files are relevant (this folder is used by our code merging algorithms and contains the previously output versions of files).
+
+### Issues fixed in 4.4.3
+
+- Fixed: Filenames containing invalid characters are consistently sanitized when files are created for both Windows and Unix environments.
+- Fixed: When files would be generated to a path not within the Intent Architect Application output path, their "previous" versions could "escape" the `.intent/previous_output` folder, they will now be placed in folders named `__parent` instead.
+
 ## Version 4.4.2
 
 ### Issues fixed in 4.4.2
 
 - Fixed: Module interop dependencies could cause those dependencies to have their module installation settings changed to enable module options when installing seemingly unrelated modules.
 - Fixed: It was not possible to update `.application.config` files as part of a module migration as Intent Architect wouldn't save files them before migrations or re-read them afterwards.
-- Fixed: On macOS dialogs could be become uncloseable under certain circumstances (such as minimizing Intent Architect while the dialog was open).
+- Fixed: On macOS dialogs could be become un-closeable under certain circumstances (such as minimizing Intent Architect while the dialog was open).
 - Fixed: Casing functions (toPascalCase, toCamelCase, etc.) in macro scripts did not correctly format strings like "MyObject_IdentifierInputType".
-- Fixed: Filenames containing invalid characters are consistently sanitized when files are created for both Windows and Unix environments.
 
 ## Version 4.4.1
 
