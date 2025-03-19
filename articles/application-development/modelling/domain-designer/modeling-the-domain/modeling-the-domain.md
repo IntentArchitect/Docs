@@ -192,3 +192,33 @@ There are two types of ownership which can be modeled and this ownership is infe
 By default `Navigability` is configured to be from `Owner` to target Entity. If you want bi-directional navigation, simply check **Navigable** on the `Source End` of the association in the `Properties pane`.
 
 Modeling `Entity` associations can be a bit of an art who "owns" a relationship can be subjective and should be driven by your use cases.
+
+## Modeling multiple domains
+
+You can model and connect your application to multiple domains by adding additional **Domain Packages** in the *Domain Designer*.
+
+To create multiple domains:
+
+1. **Create a New Domain Package**  
+   - In the *Domain Designer*, right-click in the **tree view** and select **New Package**.  
+   - Alternatively, use the **Create New Package** button in the toolbar.  
+
+    ![New Domain Package](./images/new-package.png)  
+
+2. **Name the Domain Package**  
+   - Provide a meaningful name for the Domain Package.  
+
+    ![New Domain Package Name](./images/new-package-name.png)
+
+3. **Define the Database Type**  
+   - Apply the appropriate **stereotype** to specify the type of database the domain will use.  
+   - Available options depend on the installed modules.  
+
+    ![Domain Type](./images/package-stereotype.png)
+
+4. **Configure Database Settings**  
+   - Set any required settings for the selected database type.  
+
+    ![Database Provider](./images/provider-settings.png)  
+
+Each domain can now be modeled separately in their own respective package as per the instructions detailed in this page.
