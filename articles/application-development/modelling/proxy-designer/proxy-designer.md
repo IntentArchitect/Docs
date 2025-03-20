@@ -15,17 +15,17 @@ Before creating a `Service Proxy`, the service to be proxied must be added as a 
 
 In the example below, we have an **Order Service** and a **Product Service**, where we will generate a **Product Service Proxy** inside the **Order Service**.
 
-![Application setup](images/1-application-setup.png)
+![Application setup](images/application-setup.png)
 
 The **Product Service** has services modeled and exposed:
 
-![Services exposed](images/2-services-exposed.png)
+![Services exposed](images/services-exposed.png)
 
 In the `Services Designer` of the **Order Service** (the consuming service), a reference must be added to the **Product Service Services Package** (the consumed service):
 
-![Service reference](images/3-service-reference.png)
+![Service reference](images/service-reference.png)
 
-![Designer reference](images/4-designer-reference.png)
+![Designer reference](images/designer-reference.png)
 
 Once this reference is established, a `Service Proxy` can be created for the **referenced service** (Product Service in this case).
 
@@ -40,11 +40,11 @@ Once the the consuming service (the Order service in this example) has a referen
 
 2. Select the Service for which you are creating the proxy:
 
-    ![Service selection](images/5-service-select.png)
+    ![Service selection](images/service-select.png)
 
 3. Choose the operations to include in the service proxy, then click **DONE**:
 
-    ![Operation selection](images/6-operation-select.png)
+    ![Operation selection](images/operation-select.png)
 
     > [!TIP]
     > If a `Service Operation` or `Command/Query` is greyed out and unable to be selected, check the following:
@@ -69,23 +69,23 @@ The `Advanced Mapping` feature in the _Services Designer_ allows for easy invoca
 
 To manually configure a call to a `Service Proxy` operation, use `Call Service Operation`.
 
-![Call Service Operation](images/7-call-service-operation.png)
+![Call Service Operation](images/call-service-operation.png)
 
 Select the `Proxy Operation` to invoke:
 
-![Select Service Operation](images/8-select-operation.png)
+![Select Service Operation](images/select-operation.png)
 
 Next, map the input parameters for the selected operation:
 
-![Select Service Operation](images/9-proxy-mapping.png)
+![Select Service Operation](images/proxy-mapping.png)
 
 Then, adjust the execution order if needed. In the example below, the call to the service proxy operation has been moved up to occur **before** persisting the entity to the domain.
 
-![Action order](images/10-adjust-order.png)
+![Action order](images/adjust-order.png)
 
 The return values from the service call can now be mapped for subsequent operations, such as persisting the entity:
 
-![Result Mapping](images/11-proxy-result-mapping.png)
+![Result Mapping](images/proxy-result-mapping.png)
 
 ### Auto Mapping from CQRS Operations
 
@@ -95,7 +95,7 @@ Right-click on the `Service Proxy` or specific `Service Proxy Operation(s)`, the
 
 This generates CQRS operations that call the `Proxy Service`, with parameters and return types matching those of the proxy service.
 
-![CQRS Operations](images/12-cqrs-proxy.png)
+![CQRS Operations](images/cqrs-proxy.png)
 
 > [!NOTE]
 > The `Create CQRS Operations` and `Create Service` options are available at a **Proxy Service** level. These options will accelerate the creation of the `commands/queries/operations` that don't already exist. Selecting them again will have no effect if all `commands/queries/operations` have already been created.
@@ -111,7 +111,7 @@ Right-click on the `Service Proxy` or specific `Service Proxy Operation(s)`, the
 
 This generates service operations that call the `Proxy Service`, with parameters and return types matching those of the proxy service.
 
-![Service Operations](images/13-service-proxy.png)
+![Service Operations](images/service-proxy.png)
 
 > [!NOTE]
 > The `Create CQRS Operations` and `Create Service` options are available at a **Proxy Service** level. These options will accelerate the creation of the `commands/queries/operations` that don't already exist. Selecting them again will have no effect if all `commands/queries/operations` have already been created.
