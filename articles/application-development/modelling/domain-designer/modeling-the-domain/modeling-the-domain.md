@@ -216,13 +216,13 @@ To create multiple domains:
 
     ![Domain Type](./images/package-stereotype.png)
 
-   [!TIP] The available **database type** options are determined by the installed modules. For example, to use the `Document Database` stereotype, a corresponding implementation modules like `Intent.MongoDb` or `Intent.CosmosDB` must be installed. Similarly, for the `Relational Database` stereotype, a module such as `Intent.EntityFrameworkCore` must be installed.
+   > [!TIP] The available **database type** options are determined by the installed modules. For example, to use the `Document Database` stereotype, a corresponding implementation modules like `Intent.MongoDb` or `Intent.CosmosDB` must be installed. Similarly, for the `Relational Database` stereotype, a module such as `Intent.EntityFrameworkCore` must be installed.
 
 4. **Configure Database Settings**  
    - Set any required settings for the selected database type.  
 
     ![Database Provider](./images/provider-settings.png)  
 
-   [!TIP] If a single implementation module (e.g. `Intent.MongoDb` or `Intent.CosmosDB` for example) is installed, it will automatically be used as the default provider, eliminating the need to set it explicitly.
+   > [!TIP] If a single implementation module (e.g. `Intent.MongoDb` or `Intent.CosmosDB` for example) is installed, it will automatically be used as the default provider, eliminating the need to set it explicitly.
 
 Each domain can now be modeled separately in their own respective package as per the instructions detailed in this page.
