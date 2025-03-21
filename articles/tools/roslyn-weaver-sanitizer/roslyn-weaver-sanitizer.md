@@ -19,7 +19,7 @@ Removing code management attributes and NuGet references may be needed for situa
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
 
 ## Installation
 

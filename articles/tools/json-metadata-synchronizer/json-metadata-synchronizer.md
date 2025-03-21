@@ -6,7 +6,7 @@ This can be useful for doing most, if not all, the work of capturing a pre-exist
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
 
 ## Installation
 

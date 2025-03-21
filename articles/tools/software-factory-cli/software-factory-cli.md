@@ -18,7 +18,10 @@ This tool can easily be configured as part of your CI/CD pipeline to ensure your
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
+
+> [!NOTE]
+> To take advantage of the latest performance improvements available in .NET, newer versions Intent Architect (and subsequently its Software Factory) are upgraded as soon as possible to the latest release of .NET regardless of whether it is an STS or LTS version. While Intent Architect itself ships with the runtime it requires, as the Software Factory CLI is a .NET tool, it will require that you have the latest .NET version installed.
 
 ### Additional considerations when running custom modules
 

@@ -14,7 +14,7 @@ The packager CLI tool can be used for packaging Intent Architect artifacts.
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
 
 ## Installation
 

@@ -14,7 +14,7 @@ The Module Server Client CLI tool can be used for interacting with an Intent Arc
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
 
 ## Installation
 

@@ -6,7 +6,7 @@ This tool can be useful for creating Intent Architect Domain Packages based on y
 
 ## Pre-requisites
 
-Latest Long Term Support (LTS) version of [.NET](https://dotnet.microsoft.com/download).
+Latest release version of [.NET](https://dotnet.microsoft.com/download).
 
 ## Installation
 
