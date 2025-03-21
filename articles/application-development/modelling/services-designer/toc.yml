@@ -6,5 +6,8 @@ items:
 - name: Securing Services
   href: securing-services/securing-services.md
 
+- name: Service Proxy Modeling
+  href: ../proxy-designer/proxy-designer.md
+
 - name: Message-Based Integration Modeling
   href: message-based-integration-modeling/message-based-integration-modeling.md
