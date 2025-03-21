@@ -119,7 +119,7 @@ This generates service operations that call the `Proxy Service`, with parameters
 > [!NOTE]
 > The `Create CQRS Operation` and `Create Service Operations` options are available at the **Proxy Operation** level. These options will accelerate the **creation or updating** of the selected `command/query/operation`. If selected for a proxy operation which is already linked to a proxy `command/query/operation`, the proxy `command/query/operation` synced with the source `command/query/operation`. Attributes, attribute types, and default values will be updated to match the source as closely as possible. Be aware this could result in a loss of manual changes which have been made to linked proxy `command/query/operation`.
 
-## Service Proxy for a 3rd party services
+## Service Proxy for a 3rd party service
 
 A `Service Proxy` can also be created for third-party services, provided the service definition is modeled in Intent Architect.
 
