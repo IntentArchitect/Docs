@@ -8,6 +8,8 @@ uid: release-notes.intent-architect-v4.4
 ### Improvements in 4.4.3
 
 - Improvement: All files in the `.intent/previous_output` folder will now have an extension of `.previous` added to their name, this will stop other tools which may scan for known file types from incorrectly thinking these files are relevant (this folder is used by our code merging algorithms and contains the previously output versions of files).
+- Improvement: The Software Factory will now respect end of line ending settings as specified in `.gitattributes` if specified, otherwise falling back to `.editorconfig` settings if available and if neither is specified it will use the default line ending of the operating system (CRLF on Windows, LF on Linux and macOS).
+- Improvement: The Software Factory will now ignore whitespace (including line endings) when detecting whether or not a file should show in the Changes view.
 
 ### Issues fixed in 4.4.3
 
