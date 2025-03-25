@@ -1,6 +1,6 @@
 # What's new in Intent Architect (March 2025)
 
-Welcome to the March 2025  edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
+Welcome to the March 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 - Highlights
   - **[Soft Delete Pattern for Cosmos DB](#soft-delete-pattern-for-cosmos-db)** - Soft Delete functionality is now available for the CosmosDB module.
@@ -12,7 +12,7 @@ Welcome to the March 2025  edition of highlights of What's New in Intent Archite
 - More updates
   - **[Improved SQL Server Importer Filter File](#improved-sql-server-importer-filter-file)** - Added a filter to control which SQL schema elements are imported.
   - **[Improved Domain-to-DTO Field Mapping in Services Designer](#improved-domain-to-dto-field-mapping-in-services-designer)** -  Enhancements to field mapping from domain entities to DTOs.
-  - **[Domain Services Registration Options](#domain-service-registration-options)** -  Greater flexibility in configuring `Domain Service`s registration with dependency injection.
+  - **[Domain Services Registration Options](#domain-service-registration-options)** - Greater flexibility in configuring `Domain Service`s registration with dependency injection.
   - **[204 response codes for nullable endpoints](#204-response-codes-for-nullable-endpoints)** - Automatic addition of 204 No Content responses for nullable-returning operations.
 
 ## Update details
