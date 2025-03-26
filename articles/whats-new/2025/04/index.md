@@ -5,6 +5,7 @@ Welcome to the April 2025 edition of highlights of What's New in Intent Architec
 - Highlights
   - **[Ocelot API Gateway Modeling](#ocelot-api-gateway-modeling)** - Model your API Gateways for routing requests or setting up a lightweight BFF using Ocelot.
   - **[Central Package Management Enhancements](central-package-management-enhancements)** - The output location `Directory.Packages.props` file can now be controlled through a variety of options.
+  - **[Expose Commands/Queries/Services as gRPC Endpoints](#expose-commandsqueriesservices-as-grpc-endpoints)** - You can now expose services over gRPC which will generate all the necessary `.proto` files and gRPC service implementations.
 
 - More updates
   - **[SQL Importer Trigger Awareness](#sql-importer-trigger-awareness)** - When using the [SQL Server Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) triggers are now detected and modeled in the Domain Designer.
@@ -20,11 +21,27 @@ Model your API Gateways for routing requests or setting up a lightweight BFF usi
 
 Reference your Intent Architect application which holds the API endpoints you wish to cover with an API Gateway then create the API Gateway Routes that holds Route Associations to those endpoints.
 
-Click [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-apigateway-ocelot/intent-apigateway-ocelot.html) to learn more.
+Additional information available [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-apigateway-ocelot/intent-apigateway-ocelot.html).
 
 Available from:
 
 - Intent.ApiGateway.Ocelot 1.0.0-beta.2
+
+### Expose Commands/Queries/Services as gRPC Endpoints
+
+Our new module allows exposing Services Operations, Commands and Queries over [gRPC](https://grpc.io/) using the [Grpc.AspNetCore NuGet package](https://www.nuget.org/packages/Grpc.AspNetCore).
+
+In the same way you would expose an HTTP Endpoint for WebApi, simply use the context menu option to expose a Command, Query, Service or Operation as a gRPC endpoint:
+
+![Expose as gRPC Endpoint context menu option](images/expose-as-grpc-endpoint-context-menu-option.png)
+
+The module will generate `.proto` files, service implementations to dispatch the endpoint and all relevant mapping logic to convert incoming and outgoing protocol buffers to and from DTOs/Commands/Queries.
+
+Additional information available [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-grpc/intent-aspnetcore-grpc.html).
+
+Available from:
+
+- Intent.AspNetCore.Grpc 1.0.0-beta.0
 
 ### SQL Importer Trigger Awareness
 
@@ -32,7 +49,7 @@ When using the [SQL Server Importer](https://docs.intentarchitect.com/articles/m
 
 ![Trigger Import](images/trigger-import.png)
 
-Additional information available [here.](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html#trigger-imports)
+Additional information available [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html#trigger-imports).
 
 Available from:
 
@@ -54,7 +71,7 @@ When `Central Package Management` is enabled in a solution, the output location 
 
 ![Central Package Management Enhancements](images/cpm-updates.png)
 
-Additional information available [here.](https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html#central-package-management)
+Additional information available [here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html#central-package-management).
 
 Available from:
 
