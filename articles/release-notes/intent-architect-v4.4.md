@@ -17,6 +17,7 @@ uid: release-notes.intent-architect-v4.4
 - Fixed: When files would be generated to a path not within the Intent Architect Application output path, their "previous" versions could "escape" the `.intent/previous_output` folder, they will now be placed in folders named `__parent` instead.
 - Fixed: (Linux) When closing the application window the parent process for it would not also close requiring it be manually terminated.
 - Fixed: Application setting of type `numeric` not populating configured value.
+- Fixed: (MacOS) EACCESS error raised when attempting to open Rider IDE from Intent Architect when Rider is set as preferred IDE.
 
 ## Version 4.4.2
 
