@@ -41,15 +41,33 @@ This CLI tool is available as a [.NET Tool](https://docs.microsoft.com/dotnet/co
 dotnet tool install Intent.SoftwareFactory.CLI --global
 ```
 
-> [!NOTE]
-> If `dotnet tool install` fails with an error to the effect of `The required NuGet feed can't be accessed, perhaps because of an Internet connection problem.` and it shows a private NuGet feed URL, you can try add the `--ignore-failed-sources` command line option ([source](https://learn.microsoft.com/dotnet/core/tools/troubleshoot-usage-issues#nuget-feed-cant-be-accessed)).
-
 You should see output to the effect of:
 
 ```text
 You can invoke the tool using the following command: intent-cli
 Tool 'intent.softwarefactory.cli' (version 'x.x.x') was successfully installed.
 ```
+
+### Common installation errors
+
+#### The required NuGet feed can't be accessed, perhaps because of an Internet connection problem
+
+If `dotnet tool install` fails with an error to the effect of `The required NuGet feed can't be accessed, perhaps because of an Internet connection problem` and it shows a private NuGet feed URL, you can try add the `--ignore-failed-sources` command line option ([source](https://learn.microsoft.com/dotnet/core/tools/troubleshoot-usage-issues#nuget-feed-cant-be-accessed)).
+
+#### The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSetting.xml' was not found in the package
+
+If `dotnet tool install` fails with an error to the effect of `The settings file in the tool's NuGet package is invalid: Settings file 'DotnetToolSetting.xml' was not found in the package`, this is a [known misleading error by dotnet when you don't have the tool's target framework installed](https://github.com/dotnet/sdk/issues/38172).
+
+If you're seeing this error on a build server you will need to ensure it has the latest .NET SDK installed, for example on Azure Pipelines you can add the following task to the `.yml` file to install a version of .NET, replacing `<major-version>` with the major version of .NET which should be installed:
+
+```yaml
+- task: UseDotNet@2
+  displayName: 'Install latest .NET <major-version> SDK'
+  inputs:
+    version: '<major-version>.x'
+```
+
+This task can be used multiple times in the same Pipeline if you need to have multiple .NET SDK versions available.
 
 ## Updating
 
