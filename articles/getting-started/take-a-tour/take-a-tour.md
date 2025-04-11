@@ -76,7 +76,7 @@ Modules have similarities with package systems such as NuGet, NPM, and Maven. Ho
 
 Modules have versions and dependencies and don't directly introduce any runtime dependencies. They can, however, be configured to introduce package dependencies if the designer of the Module so chooses.
 
-To see your applications installed modules right-click on the application and select the the `Manage Modules` menu option.
+To see your applications installed modules right-click on the application and select the `Manage Modules` menu option.
 
 ![Application Context Menu](images/application-context-menu.png)
 

@@ -46,7 +46,7 @@ If you just want to run Intent Architect without "installing" it, you can just s
 
 #### I'm getting an "The configured user limit (128) on the number of inotify instances has been reached" error
 
-On some Linux distributions, the Software Factory may show the the following error:
+On some Linux distributions, the Software Factory may show the following error:
 
 ```text
 System.IO.IOException: The configured user limit (128) on the number of inotify instances has been reached, or the per-process limit on the number of open file descriptors has been reached.

@@ -31,7 +31,7 @@ Once this reference is established, a `Service Proxy` can be created for the **r
 
 ## Creating a Service Proxy
 
-Once the the consuming service (the Order service in this example) has a reference to the service to be consume (Product Service), a `service proxy` can be created in the `Services Designer` of the **consuming service**.
+Once the consuming service (the Order service in this example) has a reference to the service to be consume (Product Service), a `service proxy` can be created in the `Services Designer` of the **consuming service**.
 
 1. Right-click on the `Service Package` (the root) or on a `folder`, and select `New Service Proxy`
 

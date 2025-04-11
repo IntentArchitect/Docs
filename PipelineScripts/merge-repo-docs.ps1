@@ -8,7 +8,7 @@ param(
     [string]$moduleRepositoryUrl,
     # The default folder in which the module will be cloned into
     [string]$moduleFolderName,
-    # The  name of the folder in docs where the the files from the modules repo should be placed
+    # The  name of the folder in docs where the files from the modules repo should be placed
     [string]$moduleOutputFolder,
     # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services
     [bool]$isOnBuildAgent = $($env:TF_BUILD -eq "True")

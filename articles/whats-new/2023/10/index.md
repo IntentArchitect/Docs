@@ -105,7 +105,7 @@ Available from:
 
 ### OpenAPI specifications now have non-nullable fields marked as required
 
-Swashbuckle has now been configured to automatically mark fields for non-nullable properties as required in the the generated `swagger.json` file.
+Swashbuckle has now been configured to automatically mark fields for non-nullable properties as required in the generated `swagger.json` file.
 
 Available from:
 

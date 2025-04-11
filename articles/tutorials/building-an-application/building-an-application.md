@@ -358,7 +358,7 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 >
 > By clicking on the `Toggle between diagram and tree views` button [featherlight images/toggle-diagram-treeviews-button.png] you can change between having the diagram or tree-view in the middle of the screen.
 
-Proceed to model the Commands. Most of the the current `Command`s meet your requirements and you can use them as is. We will be customizing the service as follows:
+Proceed to model the Commands. Most of the current `Command`s meet your requirements and you can use them as is. We will be customizing the service as follows:
 
 * Get rid of `GetBasketsQuery` as you don't need it.
 * Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.

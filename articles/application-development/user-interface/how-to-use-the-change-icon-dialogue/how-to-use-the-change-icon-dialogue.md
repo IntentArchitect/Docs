@@ -3,7 +3,7 @@ uid: application-development.user-interface.how-to-use-the-change-icon-dialogue
 ---
 # How to use the Change Icon Dialogue
 
-Intent Architect allows specifying an icon in many different places and this is always done using the the Change Icon Dialogue, this how-to will guide you on how to use it.
+Intent Architect allows specifying an icon in many different places and this is always done using the Change Icon Dialogue, this how-to will guide you on how to use it.
 
 ## Opening the Dialogue
 

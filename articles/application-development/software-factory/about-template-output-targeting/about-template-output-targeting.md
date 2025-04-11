@@ -22,7 +22,7 @@ Some designers (such as the Visual Studio designer) will show unassigned Templat
 
 ![Unassigned Template in Output Configuration Designer](images/output-config-vs-unassigned-template.png)
 
-Running the the Software Factory while these template are unassigned will result in errors during the execution about there being unassigned templates.
+Running the Software Factory while these template are unassigned will result in errors during the execution about there being unassigned templates.
 
 Module authors can control where their "Template Output"s should be placed by default during module installation so that things work automatically, this is covered in this [article](xref:module-building.templates-general.configuring-a-templates-default-output-location).
 

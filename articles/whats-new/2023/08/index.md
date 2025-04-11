@@ -41,7 +41,7 @@ For more information on accessing and using the tool, check out the [documentati
 
 ### Modeling different Document DB technologies with-in one application
 
-When creating a Domain Modelling package and marking it as a Document DB backed model, through the use of the the `Document Database` package stereotype,  you can now specify which Document DB technology you want this model to be realized as. This stereotype has a Provider property, to specify which specific type of Document Db technology the Domain Package should be realized in. This drop down has the following options.
+When creating a Domain Modelling package and marking it as a Document DB backed model, through the use of the `Document Database` package stereotype,  you can now specify which Document DB technology you want this model to be realized as. This stereotype has a Provider property, to specify which specific type of Document Db technology the Domain Package should be realized in. This drop down has the following options.
 
 - Default (None selected), if no provider is specified and you have a single Document DB Provider module installed (e.g. Intent.CosmosDB), that module will be used by default.
 - Custom, the backing implementation will need to be implemented through custom code.

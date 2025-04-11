@@ -149,7 +149,7 @@ Used to set the default value for the Field Configuration.
 
 Are presented as available options for `Select` and `Multi-Select` [Control Types](#control-type).
 
-A Field Option's `Name` controls the the display name of the Field Option in the UI and the Field Option's `Value` is used to to define the value that is ultimately consumed when a Field Option is selected.
+A Field Option's `Name` controls the display name of the Field Option in the UI and the Field Option's `Value` is used to to define the value that is ultimately consumed when a Field Option is selected.
 
 To create a Field Option, right-click a Field Configuration and use the `Add Option` option.
 

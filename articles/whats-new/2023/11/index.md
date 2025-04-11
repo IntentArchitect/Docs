@@ -12,7 +12,7 @@ Welcome to the 2023 Christmas edition of highlights of What's New in Intent Arch
   - **["Indented" and "data" template file builders](#indented-and-data-file-builders-for-templates)** - More quickly author templates for files such as JSON and YAML and in a way that can be easily extended by other modules.
   - **[HttpClient Proxy authorization propagation](#httpclient-proxy-authorization-propagation)** - Service proxies mapped to secured services will propagate the callers security context.
   - **[NET 6+ Simple Hosting Model](#net-6-simple-hosting-model)** - Support for `Use minimal hosting model` and `Use top-level statements` on `.NET Project`s.
-  - **[Account Controller improvements](#account-controller-improvements)** - Multiple improvements to the the refresh token endpoint.
+  - **[Account Controller improvements](#account-controller-improvements)** - Multiple improvements to the refresh token endpoint.
   - **[RabbitMQ Trigger for Azure Functions added](#rabbitmq-trigger-for-azure-functions-added)** - RabbitMQ Triggers for queue integration now available on the Azure Functions module.
   - **[EF Bulk Operations module](#ef-bulk-operations-module)** - Extends EF repositories to support Bulk Operations.
   - **[Documentation on Designer Scripting with JavaScript](#documentation-on-designer-scripting-with-javascript)** - New article that provides and introduction to and explains the designer scripting capabilities of Intent Architect.
