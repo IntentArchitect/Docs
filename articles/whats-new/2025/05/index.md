@@ -6,6 +6,7 @@ Welcome to the May 2025 edition of highlights of What's New in Intent Architect.
   - **[Primary Key Configuration Enhancements](#primary-key-configuration-enhancements)** - Improved primary key configuration with better control over identity generation and data source specification.
   - **[Model Event Integration using Azure Event Grid](#model-event-integration-using-azure-event-grid)** - This module enables you to use the Azure Event Grid as the medium to send and receive Integration Events for your application.
   - **[Model Integration Messages directly with Azure Service Bus](#model-integration-messages-directly-with-azure-service-bus)** - Direct implementation to use Azure Service Bus as the message broker of choice to send and receive Integration Events and Commands for your application.
+  - **[SQL Database Project Support](#sql-database-project-support)** - Generate SQL scripts based on your Domain design to produce DACPAC files for deploying SQL Schema changes.
 
 ## Update details
 
@@ -54,3 +55,21 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.Eventing.AzureServiceBus 1.0.2-pre.0
+
+### SQL Database Project Support
+
+Generate SQL scripts based on your Domain design to produce DACPAC files for deploying SQL Schema changes.
+
+This module consumes your `Domain Model`, which you build in the `Domain Designer` (and can import using the [Intent.SqlServerImporter](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html)) and generates a SQL Database Project.
+
+![SQL DB Project Domain Model](images/sql-db-project-domain-model.png)
+
+Once your domain model is properly configured, the module generates a complete SQL Database Project:
+
+![Generated SQL DB Project](images/sql-db-project-generated.png)
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqldatabaseproject/intent-sqldatabaseproject.html).
+
+Available from:
+
+- Intent.SqlDatabaseProject 1.0.1-pre.1
