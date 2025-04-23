@@ -5,6 +5,7 @@ Welcome to the May 2025 edition of highlights of What's New in Intent Architect.
 - Highlights
   - **[Primary Key Configuration Enhancements](#primary-key-configuration-enhancements)** - Improved primary key configuration with better control over identity generation and data source specification.
   - **[Model Event Integration using Azure Event Grid](#model-event-integration-using-azure-event-grid)** - This module enables you to use the Azure Event Grid as the medium to send and receive Integration Events for your application.
+  - **[Model Integration Messages directly with Azure Service Bus](#model-integration-messages-directly-with-azure-service-bus)** - Direct implementation to use Azure Service Bus as the message broker of choice to send and receive Integration Events and Commands for your application.
 
 ## Update details
 
@@ -39,3 +40,17 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.Eventing.AzureEventGrid 1.0.1-pre.0
+
+### Model Integration Messages directly with Azure Service Bus
+
+Direct implementation to use Azure Service Bus as the message broker of choice to send and receive Integration Events and Commands for your application.
+
+![Modeling Events and Commands](images/azure-service-bus-modeling-event-command.png)
+
+![Customize Topic Name](images/azure-service-bus-topic-name.png)
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azureservicebus.html).
+
+Available from:
+
+- Intent.Eventing.AzureServiceBus 1.0.2-pre.0
