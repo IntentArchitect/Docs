@@ -4,6 +4,7 @@ Welcome to the May 2025 edition of highlights of What's New in Intent Architect.
 
 - Highlights
   - **[Primary Key Configuration Enhancements](#primary-key-configuration-enhancements)** - Improved primary key configuration with better control over identity generation and data source specification.
+  - **[Model Event Integration using Azure Event Grid](#model-event-integration-using-azure-event-grid)** - This module enables you to use the Azure Event Grid as the medium to send and receive Integration Events for your application.
 
 ## Update details
 
@@ -23,4 +24,18 @@ More information can be found [here](https://docs.intentarchitect.com/articles/m
 Available from:
 
 - Intent.Java.Persistence.JPA 5.0.2
-- Intent.EntityFrameworkCore 5.0.20
+- Intent.EntityFrameworkCore 5.0.21-pre.1
+
+### Model Event Integration using Azure Event Grid
+
+This module enables you to use the Azure Event Grid as the medium to send and receive Integration Events for your application.
+
+![Azure Event Grid Modeling](images/azure-event-grid-modeling.png)
+
+![Azure Event Grid Topic](images/azure-event-grid-topic.png)
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureeventgrid/intent-eventing-azureeventgrid.html).
+
+Available from:
+
+- Intent.Eventing.AzureEventGrid 1.0.1-pre.0
