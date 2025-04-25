@@ -7,6 +7,9 @@ Welcome to the May 2025 edition of highlights of What's New in Intent Architect.
   - **[Model Event Integration using Azure Event Grid](#model-event-integration-using-azure-event-grid)** - This module enables you to use the Azure Event Grid as the medium to send and receive Integration Events for your application.
   - **[Model Integration Messages directly with Azure Service Bus](#model-integration-messages-directly-with-azure-service-bus)** - Direct implementation to use Azure Service Bus as the message broker of choice to send and receive Integration Events and Commands for your application.
   - **[SQL Database Project Support](#sql-database-project-support)** - Generate SQL scripts based on your Domain design to produce DACPAC files for deploying SQL Schema changes.
+  - **[Streamlined Entity Repository Extension](#extend-entity-repositories)** - A new accelerator makes it faster and easier to extend entity repositories with custom operations.
+  - **[Effortless Repository-to-Service Mapping](#repository-to-services-mapping)** - New suggestions to simplify exposing repository operations as services.
+  - **[SQL Importer Enhancements](#sql-importer-enhancements)** - The [SQL Server Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) now includes a powerful new option to to automatically include `dependant tables` during import.
 
 ## Update details
 
@@ -73,3 +76,62 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.SqlDatabaseProject 1.0.1-pre.1
+
+### Extend Entity Repositories
+
+Within the `Domain Designer`, the menu for an `Entity` now include a new `Model Repository` option. Selection this option will automatically add a corresponding `Repository` to the tree view, enabling you to define custom operations that extend default repository functionality generated based on the installed modules.
+
+Modeling a repository for an entity:
+
+![Model Repository](images/model-repo.png)
+
+Extending the repository with custom operations:
+
+![Extend Repository](images/extend-repo.png)
+
+Available from:
+
+- Intent.Modelers.Domain.Repositories 3.5.1-pre.0
+
+### Repository to Services Mapping
+
+In the `Services Designer`, when a `Repository` is added to the diagram, new `Suggestions` will now appear to help quickly expose repository operation as services:
+
+Repository suggestions for service exposure:
+
+![Repository Suggestions](images/repo-suggestions.png)
+
+Generated CQRS or Service with automatically generated mappings:
+
+![Repository Service](images/repo-services.png)
+
+Available from:
+
+- Intent.Modelers.Services.DomainInteractions 2.1.5-pre.0
+
+### SQL Importer Enhancements
+
+The [SQL Server Importer.](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) now supports a ew option in the *filter file* called `include_dependant_tables`.
+
+When this option is enabled, all qualifying tables specified in the filter — along with their dependent tables (e.g., those with foreign key relationships) — will be automatically imported. 
+
+An example filter file snippet with dependent table import enabled:
+
+``` json
+{
+  "include_dependant_tables" : true,
+  "include_tables": [
+    {
+      "name": "Order"
+    }
+  ]
+}
+```
+
+In the example above, specifying only the `Order` table will also include its related `OrderItem` table due to the new `include_dependant_tables` setting:
+
+![Dependant table import](images/sql-dependant-import.png)
+
+Available from:
+
+- Intent.SqlServerImporter 1.1.3
