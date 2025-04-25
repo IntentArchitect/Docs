@@ -106,8 +106,6 @@ If a syntax node doesn't have an identifier, a match is performed in order by th
 - `@bind`
 - `Value`
 
-[asd](#component-specific-attribute-matching-configuration)
-
 ### Component specific attribute matching configuration
 
 Module authors can configure matching behaviour for particular element/component tag names by using the `ConfigureRazor` extension method on any instance of `ISoftwareFactoryExecutionContext`.

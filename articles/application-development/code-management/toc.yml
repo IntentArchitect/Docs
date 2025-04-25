@@ -8,6 +8,9 @@ items:
   - name: Java Code Management
     href: code-management-java/code-management-java.md
 
+  - name: JSON Code Management
+    href: code-management-json/code-management-json.md
+
   - name: Razor Code Management
     href: code-management-razor/code-management-razor.md
 
