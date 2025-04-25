@@ -1,7 +1,7 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-json
 ---
-# Json Code Management
+# JSON Code Management
 
 This article explains how to control [Code Management / Merging](xref:application-development.code-management.about-code-management) behaviour for `.json` files when using the `Intent.Code.Weaving.Json` module.
 
