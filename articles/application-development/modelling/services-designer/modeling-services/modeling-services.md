@@ -222,7 +222,7 @@ Pagination enables large datasets to be returned in smaller, more manageable chu
 - Adds three parameters/properties to the `Operation`/`Query`:
   - **PageNo**: Specifies the page number to retrieve, based on the *PageSize*.
   - **PageSize**: Specifies how many records should be included in a single page.
-  - **OrderBy**: Specifies how data should be sorted before pagination. This is optional, and defaults to database ordering if omitted.
+  - **OrderBy**: Specifies how data should be sorted before pagination. This is optional, and defaults to database ordering if omitted. It will order data in **ascending order** by default.
 
 > [!NOTE]  
 > If using the default CRUD implementation, the `PageNo` parameter is *1-based* by default (first page = 1), renaming the parameter to `PageIndex` will make it *0-based* (first page = 0).
@@ -379,10 +379,11 @@ This opens the `Query Entity Mapping` dialog, where you model the criteria for E
    - Double-click the primary key of the `Entity`.
    - Map the primary key of the `Entity` to corresponding `Element` properties.
    - Map one or more `Entity` attributes, which uniquely identify the `Entity`, to corresponding `Element` properties.
+7. Click **Done** to complete the mapping (even if no filter criteria are applied).
 
 ![Query Entity Action](./images/query-entity-action-single.png)
 
-### How to Query a Collection Entities
+### How to Query a Collection of Entities
 
 1. On a diagram, select **Add to Diagram** and choose the domain `Entity` you want to query.
 2. Right-click on the `Element` and select **Query Entity**.
@@ -392,10 +393,18 @@ This opens the `Query Entity Mapping` dialog, where you model the criteria for E
 You can also rename the Name **entity** to "entities" or similar (this will be the name of the variable the query results are assigned to).
 6. Right-click the association and select **Map Entity Query**.
 This opens the `Query Entity Mapping` dialog, where you model the criteria for Entity Select:
-7. *Optionally* Map Filter criteria for the `Entity` selection.
+7. *Optionally* [Map Filter criteria](#how-to-apply-mapped-filters-to-a-query) for the `Entity` selection.
 8. Click **Done** to complete the mapping (even if no filter criteria are applied).
 
 ![Query Entity Action Collection](./images/query-entity-action-collection.png)
+
+### How to apply mapped filters to a Query
+
+1. On a Query that has a field used for filtering, right click on the Query action and select **Map Entity Query**. This opens the `Query Entity Mapping` dialog.
+2. Map one or more `Entity` attributes, which uniquely identify the `Entity`, to corresponding `Query` properties. You can double-click on an `Entity` attribute to create a corresponding field on the `Query` element that is also mapped.
+3. Click **Done** to complete the mapping.
+
+![Mapping Field for Query](images/query-for-mapped-filters-mapping.png)
 
 > [!NOTE]  
 > Currently, filter criteria mapping only supports "==" conditions. More complex filters must be implemented in code.

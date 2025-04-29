@@ -5,7 +5,7 @@ Welcome to the April 2025 edition of highlights of What's New in Intent Architec
 - Highlights
   - **[Expose Commands/Queries/Services as gRPC Endpoints](#expose-commandsqueriesservices-as-grpc-endpoints)** - Easily expose services over gRPC which will generate all the necessary `.proto` files and gRPC service implementations.
   - **[Ocelot API Gateway Modeling](#ocelot-api-gateway-modeling)** - Model your API Gateways for routing requests or setting up a lightweight BFF using Ocelot.
-  - **[Central Package Management Enhancements](central-package-management-enhancements)** - Gain greater control over the output location of the `Directory.Packages.props` file.
+  - **[Central Package Management Enhancements](#central-package-management-enhancements)** - Gain greater control over the output location of the `Directory.Packages.props` file.
   - **[SQL Importer Trigger Awareness](#sql-importer-trigger-awareness)** - When using the [SQL Server Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) triggers are now detected and modeled in the Domain Designer.
   - **[Data Contract Attribute Naming Customization](#data-contract-attribute-customization)** - Data Contract attribute names can now be customized to align with the SQL column name.
 
