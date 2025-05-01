@@ -7,7 +7,7 @@ uid: application-development.applications-and-solutions.about-modules
 
 Modules are the _building blocks_ and artifacts of pattern reuse in Intent Architect.
 
-Typically, the purpose of a Module is to generate and manage a set of code files in a codebase, usually around a particula-r architectural pattern. This could for example be the entities in a domain, simple bootstrapping files, ORM mappings, controllers in an Api, etc.
+Typically, the purpose of a Module is to generate and manage a set of code files in a codebase, usually around a particular architectural pattern. This could for example be the entities in a domain, simple bootstrapping files, ORM mappings, controllers in an Api, etc.
 
 Modules have similarities with package systems such as NuGet, NPM, and Maven. However, where the primary objective of these system is to make code-reuse easier, the primary objective of Modules is _pattern-reuse_.
 
@@ -18,6 +18,36 @@ _An example showing the list of Installed Modules in a sample application. The `
 
 > [!NOTE]
 > When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions it is made up of).
+
+## Module Management
+
+Modules can be managed at a Solution (across all applications) or an Application level. To access the `Module Management` screen simply:
+
+1. Right-click on your application or solution, in the **Solution Explorer**.
+2. Select `Manage Modules...`
+
+The Module Management screen has 3 tabs
+
+- **Browse**, discover and install new module from this tab .
+- **Installed**, the list of modules you currently have installed.
+- **Updates**, installed modules which have updates available.
+
+> [!NOTE]
+> By Default this screen will only show official releases, if you want to access pre-releases or betas you can check the `Include Prereleases` option.
+
+Module documentation in available on our [website](https://docs.intentarchitect.com/articles/getting-started/welcome/welcome.html) in the various modules sections.
+
+### Updating Modules
+
+It is recommend to also be on a clean check out when updating modules. The nature of the update is indicated by the color of update indicator icon and aligns with schemantic versioning.
+
+- **Green**, patch update, should be a seamless upgrade, typically bug fixes or small enhancements to existing patterns.
+- **Blue**, minor update, should be a seamless upgrade, may have implications for unmanaged code e.g. upgrading a NuGet package to a new major version.
+- **Yellow**, major update, check the modules release notes for details on the changes.
+
+![Update Indicator Icon](images/update-indicator.png)
+
+The module pane has **release notes** on contain a complete list of what changes are in the versions, and upgrade notes if applicable, i.e. major releases.
 
 ## Installation Settings
 
