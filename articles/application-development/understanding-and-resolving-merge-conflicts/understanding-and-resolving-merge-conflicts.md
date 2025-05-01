@@ -1,98 +1,98 @@
 ---
 uid: application-development.understanding-and-resolving-merge-conflicts.understanding-and-resolving-merge-conflicts
 ---
-# Understanding and Resolving Merge Conflicts involving Intent Architect Metadata Files
+# Understanding and Resolving Merge Conflicts Involving Intent Architect Metadata Files
 
-Everything you design within Intent Architect is persisted as `xml` files in the **intent**. As with any files stored in a repository it is possible for the same file to be edited in different ways across branches or users, if which case you will end up with a **merge conflict** you will need to resolved. This is not unlike have to resolve merge conflicts in a **csproj** file, it can be intimidating merging a file you are nto familiar with, but once you understand the contents it's straight forward.
+Everything you design within Intent Architect is persisted as `xml` files inside the **intent** folder. As with any file stored in a repository, it's possible for the same file to be edited differently across branches or by multiple users. In that case, you'll end up with a **merge conflict** that needs to be resolved.  
 
-We do endeavour to make our metadata file human readable and appropriately sized to minimize conflicts.
+This is similar to resolving merge conflicts in a **.csproj** file. It can be intimidating to merge a file you're not familiar with, but once you understand its contents, it's straightforward.
 
-You can apply standard development practices to reduce the frequency and the complexity of merge conflicts, for example:
+We endeavour to make our metadata files human-readable and appropriately sized to minimize conflicts.
 
-- **Pull frequently**, regularly fetch and merge changes from the main branch to stay in sync.
-- **Keep branches short-lived**, work in small, focused branches and merge them quickly.
-- **Communicate with your team**,  coordinate when multiple people are working on related areas.
-- **Avoid large commits**,  make atomic commits that are easier to review and merge.
-- **Rebase instead of merging (when appropriate)**, Keeps history clean and conflicts easier to manage.
-- **Use tools for visual diffing**, tools like Beyond Compare, Meld, or built-in IDE tools help clarify changes
+You can apply standard development practices to reduce the frequency and complexity of merge conflicts. For example:
+
+- **Pull frequently** – Regularly fetch and merge changes from the main branch to stay in sync.
+- **Keep branches short-lived** – Work in small, focused branches and merge them quickly.
+- **Communicate with your team** – Coordinate when multiple people are working on related areas.
+- **Avoid large commits** – Make atomic commits that are easier to review and merge.
+- **Rebase instead of merging (when appropriate)** – Keeps history clean and makes conflicts easier to manage.
+- **Use tools for visual diffing** – Tools like Beyond Compare, Meld, or built-in IDE tools help clarify changes.
 
 ## Understanding a Merge Conflict by Example
 
-Assume you have a `Customer` entity, and this design is a already committed in the `development` branch.
+Assume you have a `Customer` entity, and this design has already been committed to the `development` branch.
 
 ![Modelled Customer](./images/customer-start.png)
 
-Now you want to make a change to the `Customer`, in this example the **IsActive** `Attribute` has been added.
+Now you want to make a change to the `Customer`. In this example, an **IsActive** `Attribute` has been added.
 
 ![Modelled Customer added IsActive](./images/added-is-active.png)
 
-Now lets assume another developer made the following change, they have added an `Email` attribute to and `Customer` and pushed it into the `development` branch.
+Now let’s assume another developer made a different change—adding an `Email` attribute to the `Customer`—and pushed it into the `development` branch.
 
 ![Modelled Customer added Email](./images/added-email.png)
 
-Now when want to get my changes into development I will get a merge conflict which would look something like this.
+When you try to merge your changes into `development`, you'll encounter a merge conflict that looks something like this:
 
 ![Merge Conflict Overview](./images/merge-conflict-overview.png)
 
-Looking at the files involved we can see there are 2 categories of conflict:
+Looking at the files involved, we can categorize the conflicts into two groups:
 
-- **Codebase files**,  **...Customer.cs** and **...CustomerConfiguration.cs**.
-- **Intent Architect Metadata files**, **Customer__cnjlkkwn.xml**.
+- **Codebase files** – `...Customer.cs` and `...CustomerConfiguration.cs`
+- **Intent Architect metadata files** – `Customer__cnjlkkwn.xml`
 
-### Merging Codebase files
+### Merging Codebase Files
 
-Lets look at the **Customers.cs** as an example.
+Let’s look at `Customer.cs` as an example.
 
 ![Customer Merge](./images/customer-file-merge.png)
 
-This is just a standard merge conflict developers would be accustomed to dealing with, here the resolution is simply to add both properties to the `Customer` class.
+This is a standard merge conflict that developers are accustomed to resolving. In this case, the resolution is simply to add both properties to the `Customer` class.
 
 > [!NOTE]
-> If these codebase changes are **fully automated** i.e. the code is fully generated with no deviations or customizations, it doesn't really matter how you resolve these files as they will re-generate them once you have resolved the Intent Architect metadata file conflicts.
+> If these codebase files are **fully automated**—i.e. the code is fully generated with no customizations—it doesn’t really matter how you resolve these conflicts, as the files will be regenerated once you’ve resolved the metadata conflicts.
 
-### Merging Intent Architect Metadata files
+### Merging Intent Architect Metadata Files
 
-Now lets look at merging the **Customer__cnjlkkwn.xml** file, before we look at the content, there is already a lot of context available to us in the file name.
-
-There is a lot of information in the file name which can assist with understanding what part of the design has a merge conflict.
+Now let’s look at merging the `Customer__cnjlkkwn.xml` file. Even before viewing its contents, there’s useful context available in the filename.
 
 ```text
 ...\intent\SampleApplication\Intent.Metadata\Domain\SampleApplication.Domain\Elements\Class\Customer__cnjlkkwn.xml
 ```
 
-Here is what the various folders represent:
+Here’s a breakdown of the folder and filename structure:
 
 ```text
 ...\intent\{Application Name}\Intent.Metadata\{Designer Name}\{Package Name}\Elements\{Element Type}\{Instance Name}__cnjlkkwn.xml
 ```
 
-Extracting the data
+Extracting the Data
 
-|No|Concept|Value|
-|--|----------------|--------------|
-|1 |Application Name|SampleApplication|
-|2 |Designer|Domain|
-|3 |Package Name|SampleApplication.Domain|
-|4 |Element Type|Class|
-|5 |Instance Name|Customer|
+| No | Concept          | Value                    |
+|----|------------------|--------------------------|
+| 1  | Application Name | SampleApplication        |
+| 2  | Designer         | Domain                   |
+| 3  | Package Name     | SampleApplication.Domain |
+| 4  | Element Type     | Class                    |
+| 5  | Instance Name    | Customer                 |
 
-And Visually we can locate this in Intent Architect as follows:
+Visually, we can locate this in Intent Architect as follows:
 
 ![Understanding the file name visually in Intent Architect](./images/understanding-filename-visually.png)
 
-In this example, you knew the nature of what the conflict was going to be because the entire scenario had been explain, but if you had no context on what other developer had done, at this point you could reason, based on the file name, that both you you have made changes to the `Customer` `Entity` in the `Domain` in the `SampleApplication` application.
+In this example, you already know the nature of the conflict because the scenario was explained. However, even without that context, you could reasonably infer—from the filename alone—that both you and another developer made changes to the `Customer` entity in the `Domain` designer of the `SampleApplication` application.
 
-Looking at the actual merge conflict we would see the following:
+Looking at the actual merge conflict, we would see the following:
 
 ![Customer Metadata Merge](./images/customer-metadata-merge.png)
 
-Before getting into the resolution, lets explore this file a little to understand what we are looking at:
+Before diving into the resolution, let's explore this file a bit to understand what we're looking at.
 
 This is what we have modelled:
 
 ![Customer Model Visual](./images/model-to-xml.png)
 
-And this is what the **Customer metadata file** looks like.
+And this is what the **Customer metadata file** looks like:
 
 ```xml
 
@@ -126,24 +126,25 @@ And this is what the **Customer metadata file** looks like.
     </childElement>
 ```
 
-Looking at the Xml Metadata file you can see how it structurally translates to the visuals you are seeing in the `Tree View` and if you select `Element`s like the `Entity` or an `Attribute` and look at the `Property Pane` you'll start seeing some of the elements from the Xml file.
+Looking at the XML metadata file, you can see how it structurally maps to the visuals you see in the **Tree View**. If you select elements like the `Entity` or an `Attribute` and inspect the **Property Pane**, you'll start to notice values that match those in the XML file.
 
 ![Visual Mapping of Xml to UI](./images/xml-to-model-mapping.png)
 
-Now that we understand what is going on in the file, lets revisit the merge conflict.
+Now that we understand what’s going on in the file, let’s revisit the merge conflict:
 
 ![Customer Metadata Merge](./images/customer-metadata-merge.png)
 
-Looking at the merge conflict with a better understanding of the file, you easily reason that 2 attributes have been added,  `IsActive` which you added and `Email` which another developer has added. And now you are well positioned to resolve the conflict. In this case you would choose to keep both attributes.
+With a better understanding of the file, it’s clear that two attributes were added: `IsActive` (added by you) and `Email` (added by another developer). Now you’re well positioned to resolve the conflict—by keeping both attributes.
 
-### After Resolution, run the Software Factory
+### After Resolution, Run the Software Factory
 
-Once you have resolved the conflicts, you should go back to Intent Architect and it will prompt you to reload the designers as teh underlying files have changed.
-Going to the Domain Designer you will see the update `Customer` in the domain model.
+Once the conflicts are resolved, go back to Intent Architect. It will prompt you to reload the designers since the underlying files have changed.
+
+In the Domain Designer, you’ll now see the updated `Customer` in the domain model:
 
 ![Resolved merge conflict](./images/resolved-model.png)
 
-NextRe-run the Software, to ensure the generated code base is correctly aligned with the design after merging.
+Re-run the Software Factory to ensure the generated codebase is correctly aligned with the design after merging.
 
 ## The Structure of the Intent Architect Metadata folder
 
