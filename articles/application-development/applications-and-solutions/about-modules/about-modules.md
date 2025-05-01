@@ -7,60 +7,59 @@ uid: application-development.applications-and-solutions.about-modules
 
 Modules are the _building blocks_ and artifacts of pattern reuse in Intent Architect.
 
-Typically, the purpose of a Module is to generate and manage a set of code files in a codebase, usually around a particular architectural pattern. This could for example be the entities in a domain, simple bootstrapping files, ORM mappings, controllers in an Api, etc.
+Typically, the purpose of a Module is to generate and manage a set of code files in a codebase, usually centered around a particular architectural pattern. This could include domain entities, bootstrapping files, ORM mappings, API controllers, etc.
 
-Modules have similarities with package systems such as NuGet, NPM, and Maven. However, where the primary objective of these system is to make code-reuse easier, the primary objective of Modules is _pattern-reuse_.
+Modules share similarities with package systems such as NuGet, NPM, and Maven. However, while those systems primarily focus on code reuse, the primary objective of Modules is _pattern reuse_.
 
-Modules have versions and dependencies, and don't directly introduce any runtime dependencies. They can, however, be configured to introduce package dependencies if the designer of the Module so chooses.
+Modules have versions and dependencies and do not directly introduce any runtime dependencies. However, they can be configured to introduce package dependencies if the Module designer chooses to do so.
 
-![Application Modules](images/application-modules-installed.png)
-_An example showing the list of Installed Modules in a sample application. The `Intent.Application.MediatR` module has been selected, with its details displayed in the pane on the right._
+![Application Modules](images/application-modules-installed.png)  
+_An example showing the list of installed Modules in a sample application. The `Intent.Application.MediatR` module is selected, with its details displayed in the pane on the right._
 
 > [!NOTE]
-> When you select an installed Module, Intent Architect gives a view into the internals of that module (i.e. the Templates, Decorators, and Factory Extensions it is made up of).
+> When you select an installed Module, Intent Architect provides a view into its internals (i.e., the Templates, Decorators, and Factory Extensions that comprise it).
 
 ## Module Management
 
-Modules can be managed at a Solution (across all applications) or an Application level. To access the `Module Management` screen simply:
+Modules can be managed at either the **Solution** level (affecting all applications) or the **Application** level. To access the **Module Management** screen:
 
-1. Right-click on your application or solution, in the **Solution Explorer**.
-2. Select `Manage Modules...`
+1. Right-click on your application or solution in the **Solution Explorer**.
+2. Select `Manage Modules...`.
 
-The Module Management screen has 3 tabs
+The Module Management screen includes three tabs:
 
-- **Browse**, discover and install new module from this tab .
-- **Installed**, the list of modules you currently have installed.
-- **Updates**, installed modules which have updates available.
+- **Browse** – Discover and install new modules from this tab.
+- **Installed** – View the list of currently installed modules.
+- **Updates** – See installed modules with updates available.
 
 > [!NOTE]
-> By Default this screen will only show official releases, if you want to access pre-releases or betas you can check the `Include Prereleases` option.
+> By default, this screen only displays official releases. To access pre-releases or betas, enable the `Include Prereleases` option.
 
-Module documentation in available on our [website](https://docs.intentarchitect.com/articles/getting-started/welcome/welcome.html) in the various modules sections.
+Documentation for modules is available on our [website](https://docs.intentarchitect.com/articles/getting-started/welcome/welcome.html) in the respective module sections.
 
 ### Updating Modules
 
-It is recommend to also be on a clean check out when updating modules. The nature of the update is indicated by the color of update indicator icon and aligns with schemantic versioning.
+It is recommended to be on a clean checkout when updating modules. The nature of the update is indicated by the color of the update indicator icon and aligns with [semantic versioning](https://semver.org/):
 
-- **Green**, patch update, should be a seamless upgrade, typically bug fixes or small enhancements to existing patterns.
-- **Blue**, minor update, should be a seamless upgrade, may have implications for unmanaged code e.g. upgrading a NuGet package to a new major version.
-- **Yellow**, major update, check the modules release notes for details on the changes.
+- **Green** – Patch update. Should be seamless; typically includes bug fixes or small enhancements.
+- **Blue** – Minor update. Should be seamless; may impact unmanaged code (e.g., upgrading a NuGet package to a new major version).
+- **Yellow** – Major update. Check the module's release notes for important information about the changes.
 
 ![Update Indicator Icon](images/update-indicator.png)
 
-The module pane has **release notes** on contain a complete list of what changes are in the versions, and upgrade notes if applicable, i.e. major releases.
+The module pane includes **release notes** containing a complete list of changes in each version, along with any upgrade notes (e.g., for major releases).
 
 ## Installation Settings
 
-When (re)installing a module you can expand the "Installation Settings" drop down.
+When (re)installing a module, you can expand the **Installation Settings** dropdown.
 
-![The installation settings dropdown](images/options-drop-down.png)
-
+![The installation settings dropdown](images/options-drop-down.png)  
 ![The installation settings dropdown expanded](images/options-drop-down-expanded.png)
 
-These settings are generally only of interest to those [building modules](xref:module-building.module-installation) who may want modules installed without all their capabilities enabled.
+These settings are generally only relevant to those [building modules](xref:module-building.module-installation) who may want modules installed with selective capabilities enabled:
 
-- **Enable Factory Extensions** - Controls whether the Software Factory will load any kind of extensions (templates, factory extensions, etc) from the module to execute.
-- **Install Application Settings** - Controls whether settings from the module should be added to the [](xref:module-building.application-settings) screen.
-- **Install Designer Metadata** - Controls whether [designer metadata embedded in the module](xref:module-building.application-templates.metadata-installation) is installed into designers on the initial installation of the module.
-- **Install Designers** - Controls whether [designers](xref:application-development.modelling.about-designers) are installed into the application.
-- **Install Template Outputs** - Controls whether [template outputs](xref:application-development.code-weaving-and-generation.about-template-output-targeting) are installed.
+- **Enable Factory Extensions** – Controls whether the Software Factory will load any kind of extensions (templates, factory extensions, etc.) from the module.
+- **Install Application Settings** – Controls whether settings from the module should be added to the [](xref:module-building.application-settings) screen.
+- **Install Designer Metadata** – Controls whether [designer metadata embedded in the module](xref:module-building.application-templates.metadata-installation) is installed into designers during initial installation.
+- **Install Designers** – Controls whether [designers](xref:application-development.modelling.about-designers) are installed into the application.
+- **Install Template Outputs** – Controls whether [template outputs](xref:application-development.code-weaving-and-generation.about-template-output-targeting) are installed.
