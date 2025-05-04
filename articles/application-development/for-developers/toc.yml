@@ -1,0 +1,15 @@
+items:
+  - name: Configuring your Development Environment
+    href: development-environment-setup/development-environment-setup.md
+
+  - name: Software Development Life Cycle (SDLC) Best Practices 
+    href: sdlc-best-practices/sdlc-best-practices.md
+
+  - name: How Intent Architect Solutions are structured on disk
+    href: how-intent-architect-solutions-are-structured-on-the-file-system/how-intent-architect-solutions-are-structured-on-the-file-system.md
+
+  - name: Resolving Merge Conflicts around Metadata
+    href: understanding-and-resolving-merge-conflicts/understanding-and-resolving-merge-conflicts.md
+
+  - name: Git and SCM guidance
+    href: ../applications-and-solutions/git-and-scm-guidance/git-and-scm-guidance.md

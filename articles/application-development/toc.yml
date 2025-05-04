@@ -1,4 +1,8 @@
 items:
+  - name: Development Practices and Guidance
+    href: for-developers/toc.yml
+    topicUid: application-development.development-environment-setup
+
   - name: Applications and Solutions
     href: applications-and-solutions/toc.yml
     topicUid: application-development.applications-and-solutions.about-applications

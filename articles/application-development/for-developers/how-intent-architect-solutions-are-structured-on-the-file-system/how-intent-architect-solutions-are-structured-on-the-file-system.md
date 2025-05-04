@@ -1,7 +1,7 @@
 ---
 uid: application-development.development-environment.how-intent-architect-solutions-are-structured-on-the-file-system
 ---
-# How Intent Architect Solutions are structured on the File System.
+# How Intent Architect Solutions are structured on the File System
 
 This article covers how Intent Architect solutions are structured on you local file system.
 
@@ -42,8 +42,6 @@ The Intent Architect solution file, `.isln` file extension, is the entry point f
 ```csharp
 {Location}\{Solution Name}\intent\{Solution Name}.isln
 ```
-
-For more detailed information on the file structure, read on [here](#code-structure-details).
 
 ### Solution folder structure
 
@@ -100,7 +98,7 @@ The `MyApplication` folder contains application specific data, looking into this
 
 * `MyApplication.application.config`, this file contains all the application specific configuration information.
 * `Intent.Metadata` folder, this folder contains all the Metadata described in the installed `Designer`s.
-* `modules.config` file, this file contains which modules , and a what specific version, are being referenced by the Application. 
+* `modules.config` file, this file contains which modules , and a what specific version, are being referenced by the Application.
 
 ### Application Metadata folder
 

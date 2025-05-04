@@ -1,9 +1,9 @@
 ---
-uid: application-development.understanding-and-resolving-merge-conflicts.understanding-and-resolving-merge-conflicts
+uid: application-development.understanding-and-resolving-merge-conflicts
 ---
 # Understanding and Resolving Merge Conflicts Involving Intent Architect Metadata Files
 
-Everything you design within Intent Architect is persisted as `xml` files inside the **intent** folder. As with any file stored in a repository, it's possible for the same file to be edited differently across branches or by multiple users. In that case, you'll end up with a **merge conflict** that needs to be resolved.  
+Everything you design within Intent Architect is persisted inside the **intent** folder, as `xml` files. As with any file stored in a repository, it's possible for the same file to be edited concurrently across branches or by multiple users. In that case, you'll end up with a **merge conflict** that needs to be resolved.  
 
 This is similar to resolving merge conflicts in a **.csproj** file. It can be intimidating to merge a file you're not familiar with, but once you understand its contents, it's straightforward.
 
@@ -50,7 +50,7 @@ Let’s look at `Customer.cs` as an example.
 This is a standard merge conflict that developers are accustomed to resolving. In this case, the resolution is simply to add both properties to the `Customer` class.
 
 > [!NOTE]
-> If these codebase files are **fully automated**—i.e. the code is fully generated with no customizations—it doesn’t really matter how you resolve these conflicts, as the files will be regenerated once you’ve resolved the metadata conflicts.
+> If these codebase files are **fully automated**—i.e. the code is fully generated with no customizations—it doesn’t really matter how you resolve these conflicts, as the files will be regenerated once you’ve resolved the metadata conflicts and re-run the Software Factory.
 
 ### Merging Intent Architect Metadata Files
 
