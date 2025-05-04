@@ -1,14 +1,9 @@
 ---
-uid: application-development.development-environment.intent-architect-in-the-development-environment
+uid: application-development.development-environment.how-intent-architect-solutions-are-structured-on-the-file-system
 ---
-# Intent Architect in the Development Environment
+# How Intent Architect Solutions are structured on the File System.
 
-This article covers various aspect's of working with Intent Architect within your Software Development Life Cycle.
-
-* How Intent Architect solutions are structured on the file system.
-* Using Intent Architect solutions with Version Control.
-* Integrating Intent Architect solutions with your CI/CD Pipelines.
-* Configuring module discovery.
+This article covers how Intent Architect solutions are structured on you local file system.
 
 ## How Intent Architect solutions are structured
 
@@ -49,43 +44,6 @@ The Intent Architect solution file, `.isln` file extension, is the entry point f
 ```
 
 For more detailed information on the file structure, read on [here](#code-structure-details).
-
-## Version Control
-
-It is considered a best practice to commit your Intent Architect solution to your Version Control System, along with the solution source code. The Intent Architect solution would cover everything inside of the "{Location}\\{Solution Name}\intent\" folder. Your Intent Architect solution is an extension of your application codebase and should be versioned accordingly, when you switch branches or look at different versions of the codebase you want your Intent Architect solution to reflect the relevant design for that version of the codebase.
-
-> [!TIP]
-> When upgrading your solutions modules, it is best to do this off of a clean check out. This way you can see and validate the module changes to your codebase in isolation. This also allows you to easily roll back the modules / changes, if for some reason you wanted to.
-
-## CI/CD Pipelines Extensions
-
-Most software projects are running, and should be running, a CI/CD pipeline. Intent Architect has a Software Factory CLI tool, which can be configured to run as part of your CI/CD process, which ensures that Intent Architect designs have been applied to the code base when committed, ensuring these two concepts are always in sync.
-
-More information on our Software Factory CLI tool, available [here](xref:tools.software-factory-cli).
-
-> [!TIP]
-> If you are setting up a new project or simply want assistance setting up an Azure Devops CI/CD Pipeline, check out the `Intent.ContinuousIntegration.AzurePipelines` module, documentation available [here](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.ContinuousIntegration.AzurePipelines/README.md) .
-
-## Module Repositories
-
-One of the key features of Intent Architect is it's Module system. Module discovery is done through a Repository configuration which can be setup per Intent Architect solutions. This can be particularly useful if you have custom modules which you want share / distribute either with-in your own development team or with external parties.
-
-These repositories can be either:
-
-* Url to a module server, by default solution's are configured to point to the Intent Architect official module server and you can also host your own.
-* UNC Path, e.g. a local file folder or a mapped drive.
-
-For more information on configuring Module Repositories, read further [here](xref:application-development.applications-and-solutions.how-to-manage-repositories).
-
-## Module Server
-
-If you have custom modules which you wish to distribute and don't want to go the UNC Path route, you can host your own Module Server to distribute your modules, this is very analogous to setting up a custom NuGet hosting solution for distributing your own NuGet packages.
-
-For more information on deploying a Module Server, read further [here](xref:tools.module-server).
-
-## Code Structure details
-
-This article did cover the basic highlights of the Intent Architect solution structure, this section covers this in greater detail. The high level overview is generally all you would need, but may be useful if you want a deeper understanding.
 
 ### Solution folder structure
 

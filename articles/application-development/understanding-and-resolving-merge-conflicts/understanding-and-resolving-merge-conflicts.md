@@ -145,7 +145,3 @@ In the Domain Designer, you’ll now see the updated `Customer` in the domain mo
 ![Resolved merge conflict](./images/resolved-model.png)
 
 Re-run the Software Factory to ensure the generated codebase is correctly aligned with the design after merging.
-
-## The Structure of the Intent Architect Metadata folder
-
-### Navigating from model to Metadata file

@@ -9,7 +9,7 @@ items:
     href: about-solutions/about-solutions.md
 
   - name: Intent Architect in the development environment
-    href: ../development-environment/intent-in-the-development-environment.md
+    href: ../how-intent-architect-solutions-are-structured-on-the-file-system/how-intent-architect-solutions-are-structured-on-the-file-system.md
 
   - name: How to change the output root
     href: how-to-change-the-output-root/how-to-change-the-output-root.md

@@ -40,11 +40,15 @@ To reduce the frequency and complexity of merge conflicts, apply standard develo
 
 For more details, read [Understanding and Resolving Merge Conflicts involving Intent Architect Metadata Files](xref:application-development.applications-and-solutions.understanding-and-resolving-merge-conflicts)
 
+### Working with Pull Requests
+
+To Do
+
 ## CI/CD Tooling
 
 ### Intent Architect design and codebase should be synchronized when committing to version control
 
-Since you commit your Intent Architect design to version control alongside your code, it's best practice to ensure that your design work has been applied to the codebase **before committing**. Ultimately, you want the design and codebase to reflect each other.
+Since you commit your Intent Architect design to version control alongside your codebase, it's best practice to ensure that your design work has been applied to the codebase **before committing**. Ultimately, you want the commited design and codebase to always be in sync.
 
 Failing to do so is analogous to committing code that doesn't compile — something CI/CD processes aim to prevent.
 
@@ -73,12 +77,8 @@ Upgrading and installing modules can result in changes to your codebase. It is b
 
 This is similar to manually upgrading NuGet packages — you'd typically do this from a clean state to ensure smooth upgrades.
 
-Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments. If issues arise, you can either:
-
-- Update your codebase as needed, or
-- Roll back the upgrade, either by:
-  - Reverting the changes via version control, or
-  - Using **Module Management** to uninstall or downgrade the module
+Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments.
+This allows you to easily roll back the modules / changes, if for some reason you wanted to.
 
 [Module Management documentation](xref:application-development.applications-and-solutions.about-modules)
 
@@ -88,4 +88,24 @@ We recommend that all team members use the same version of Intent Architect. Mos
 
 Teams should coordinate when upgrading product versions to avoid compatibility issues.
 
-## Working with Pull Requests
+## Custom Module deployment
+
+If you build your own Intent Architect modules, you will need to consider how you deploy these modules, so that your teams can discover and use your modules.
+Module discovery is done through a Repository configuration which can be setup globally per Intent Architect solution. This can be particularly useful if you have custom modules which you want share / distribute either with-in your own development team or with external parties.
+
+These repositories can be either:
+
+- Url to a module server, by default solution's are configured to point to the Intent Architect official module server and you can also host your own.
+- UNC Path, e.g. a local file folder or a mapped drive.
+
+For more information on configuring Module Repositories, read further [here](xref:application-development.applications-and-solutions.how-to-manage-repositories).
+
+### Module Server
+
+If you have custom modules which you wish to distribute and don't want to go the UNC Path route, you can host your own Module Server to distribute your modules, this is very analogous to setting up a custom NuGet hosting solution for distributing your own NuGet packages.
+
+For more information on deploying a Module Server, read further [here](xref:tools.module-server).
+
+## Configure your development Environment
+
+When working with Intent Architect there are some best practices we recommend for configuring your development environment, these are detailed [here](xref:application-development.development-environment-setup.development-environment-setup).
