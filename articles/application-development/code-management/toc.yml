@@ -16,3 +16,7 @@ items:
 
   - name: TypeScript Code Management
     href: code-management-typescript/code-management-typescript.md
+
+  - name: YAML Code Management
+    href: code-management-yaml/code-management-yaml.md
+
