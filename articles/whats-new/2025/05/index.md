@@ -10,6 +10,7 @@ Welcome to the May 2025 edition of highlights of What's New in Intent Architect.
   - **[Streamlined Entity Repository Extension](#extend-entity-repositories)** - A new accelerator makes it faster and easier to extend entity repositories with custom operations.
   - **[Effortless Repository-to-Service Mapping](#repository-to-services-mapping)** - New suggestions to simplify exposing repository operations as services.
   - **[SQL Importer Enhancements](#sql-importer-enhancements)** - The [SQL Server Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) now includes a powerful new option to to automatically include `dependant tables` during import.
+  - **[Code weaving capabilities for JSON and YAML files](#code-weaving-capabilities-for-json-and-yaml-files)** - Use code management instructions such as `IntentIgnore` in generated JSON and YAML files.
 
 ## Update details
 
@@ -135,3 +136,39 @@ In the example above, specifying only the `Order` table will also include its re
 Available from:
 
 - Intent.SqlServerImporter 1.1.3
+
+### Code weaving capabilities for JSON and YAML files
+
+JSON and YAML templates configured in the module builder to use the `Data File Builder` *Templating Method* now automatically have code management capabilities enabled, allowing parts to be ignored or merged as per code management instructions.
+
+![Module builder properties for Data File Builder templates](images/data-file-builder-template-property.png)
+
+An example of the instructions which can be applied in JSON:
+
+```json
+{
+  // IntentMatchBy("customerNumber")
+  "customers": [
+    {
+      "customerNumber": "00001",
+      // IntentIgnore
+      "name": "Modified name"
+    },
+    {
+      "customerNumber": "00002",
+      "name": "Generated Name 2"
+    }
+  ]
+}
+```
+
+More details on the available instructions:
+
+- [JSON](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-json/code-management-json.html)
+- [YAML](https://docs.intentarchitect.com/articles/application-development/code-management/code-management-yaml/code-management-yaml.html)
+
+Available from:
+
+- Intent.Code.Weaving.Json 1.0.1
+- Intent.Code.Weaving.Yaml 1.0.1
+- Intent.Common 3.7.7
