@@ -10,24 +10,41 @@ uid: application-development.sdlc-best-practices
 
 When using Intent Architect, you are modeling your system design and applying that design to your codebase. This design evolves naturally over time alongside your codebase. In the same way we commit and version our code, we should also commit and version our design to ensure they remain aligned. For example, if you switch to a different branch or roll back to a previous version of the codebase, you want to be able to work with the corresponding version of the design.
 
-The Intent Architect designs are stored in the **intent** folder.  
-It is best practice to commit this **intent** folder into version control alongside the codebase.
+The Intent Architect designs are stored in the **intent** folder. It is best practice to commit this **intent** folder into version control alongside the codebase.
 
-The image below shows a default solution structure with the various components:
+This is the default folder layout for an Intent Architect solution with multiple .NET applications:
 
-- **Intent Architect Solution Folder** — in this case, `C:\Docs\MySolution`
-- **Design Folder** — the `intent` folder inside the solution directory
-- **Application Codebase Folder** — the `MySolution.SampleApplication` folder, containing the application codebase
-
-![Folder Structure](./images/design-codebase-files.png)
+- 📁 `<root>` - The root folder which should be committed in your SCM (e.g. Git)
+  - 📁 `intent` folder
+    - 📁 `.intent` folder - Should not be committed and is added to `.gitignore` by default, contains cache of installed modules which Intent Architect will automatically download if it's missing.
+    - 📁 `Application1` folder - Intent Architect data for Application1
+      - 📁 `.intent` folder - Should not be committed and is added to `.gitignore` by default, contains cache of data from the last Software Factory execution to enable smarter code merging or knowing which files can have some of their processing skipped if they are unchanged since the previous execution.
+      - 📁 `Intent.Metadata` folder - Metadata for the application
+      - 📄 `Application1.application.config` file - Basic details of the Intent Architect application, such as its name, relative output location, etc.
+      - 📄 `Application1.application.deviations.log.xml` file - Used to track any [deviations](xref:application-development.software-factory.about-software-factory-execution#the-deviations-screen) for the application.
+      - 📄 `Application1.application.output.log` file - Used to track which file paths were output to during the last run Software Factory execution, used to determine possible file renames and deletions.
+      - 📄 `modules.config file`
+    - 📄 `.isln` file - The Intent Architect solution file containing basic data such as its name and the Intent Architect applications within it.
+    - 📁 `Application2` folder - Intent Architect data for Application2
+    - 📁 `[...]` folders - Intent Architect data for any additional applications
+  - 📁 `Application1` folder - Output for Application1
+    - 📁 `Project1` folder - For the `Project1` Visual Studio project
+      - 📁 `[...]` - Any folders within the project
+      - 📄 `Project1.csproj` file
+      - 📄 `[...]` - Any other files within the project root
+    - 📁 `Project2` folder - For the `Project2` Visual Studio project
+    - 📁 `[...]` - Folders for any additional Visual Studio projects
+    - 📄 `Application1.sln` file - Visual Studio solution file
+  - 📁 `Application2` folder - Output for Application2
+  - 📁 `[...]` - Output for any additional applications
 
 ### Merge Conflicts on Intent Architect Metadata Files
 
-Everything you design within Intent Architect is persisted inside the **intent** folder,  as `xml` files. As with any files stored in a repository, it's possible for the same file to be edited differently across branches or by multiple users. In that case, you'll encounter a **merge conflict** that must be resolved.
+Everything you design within Intent Architect is persisted inside the `intent` folder as `.xml` files. As with any files stored in a repository, it's possible for the same file to be edited differently across branches or by multiple users. In that case you may encounter a **merge conflict** that must be resolved.
 
-This is similar to resolving conflicts in a **.csproj** file. It can feel intimidating to merge a file you're unfamiliar with, but once you understand its structure, it's usually straightforward.
+This is similar to resolving conflicts in a `.csproj` file. Resolving the conflicts is generally very straightforward once you understand the largely self-evident cleartext file format.
 
-We strive to keep our metadata files human-readable and appropriately sized to minimize conflicts.
+We strive to keep our metadata files human-readable and appropriately sized to minimize conflicts, in particular different concepts (e.g. `Class`, `DTO`, `Service`) each have separate files meaning that unless multiple developers are working on the exact same concept, they shouldn't interfere with each other at all.
 
 To reduce the frequency and complexity of merge conflicts, apply standard development practices:
 
@@ -57,6 +74,7 @@ Intent Architect also offers a **Deviation Tracking** feature to support this pr
 
 > [!NOTE]  
 > To use the Deviation Tracking feature during PR reviews, you must have the PR checked out locally.
+>
 > ```cmd
 > git fetch origin pull/123/head:pr-123
 > git checkout pr-123
@@ -66,7 +84,7 @@ Intent Architect also offers a **Deviation Tracking** feature to support this pr
 
 ### Intent Architect design and codebase should be synchronized when committing to version control
 
-Since you commit your Intent Architect design to version control alongside your codebase, it's best practice to ensure that your design work has been applied to the codebase **before committing**. Ultimately, you want the commited design and codebase to always be in sync.
+Since you commit your Intent Architect design to version control alongside your codebase, it's best practice to ensure that your design work has been applied to the codebase **before committing**. Ultimately, you want the committed design and codebase to always be in sync.
 
 Failing to do so is analogous to committing code that doesn't compile — something CI/CD processes aim to prevent.
 
@@ -82,7 +100,7 @@ Run the `Software Factory CLI tool` with the `ensure-no-outstanding-changes` and
 
 [Software Factory CLI tool documentation](xref:tools.software-factory-cli)
 
-There are multiple ways to configure this. A recommended setup is:
+There are multiple ways to configure this, but a popular and effective setup is:
 
 - Allow deviations in a `development` branch.
 - Enforce approval checks in a `release` branch.
@@ -95,8 +113,13 @@ Upgrading and installing modules can result in changes to your codebase. It is b
 
 This is similar to manually upgrading NuGet packages — you'd typically do this from a clean state to ensure smooth upgrades.
 
+On occasion, a module upgrade may result in many files being changed by the Software Factory, but you as the change in almost all the files are the exact same change to the pattern, typically the changes are incredibly quick to review.
+
 Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments.
+
 This allows you to easily roll back the modules / changes, if for some reason you wanted to.
+
+If you use pull requests as part of your SDLC, ensure that you do module upgrades as their own PR so as to not mix "functional" changes with regular module upgrade changes, this ensures that the work for reviewers is as easy as possible.
 
 [Module Management documentation](xref:application-development.applications-and-solutions.about-modules)
 
@@ -108,13 +131,14 @@ Teams should coordinate when upgrading product versions to avoid compatibility i
 
 ## Custom Module deployment
 
-If you build your own Intent Architect modules, you will need to consider how you deploy these modules, so that your teams can discover and use your modules.
+If you build your own Intent Architect modules, you will need to consider how you deploy these modules so that your teams can discover and use your modules.
+
 Module discovery is done through a Repository configuration which can be setup globally per Intent Architect solution. This can be particularly useful if you have custom modules which you want share / distribute either with-in your own development team or with external parties.
 
 These repositories can be either:
 
-- Url to a module server, by default solution's are configured to point to the Intent Architect official module server and you can also host your own.
-- UNC Path, e.g. a local file folder or a mapped drive.
+- A URL to a module server, by default solution's are configured to point to the Intent Architect official module server and you can also host your own.
+- A UNC Path, e.g. a local file folder or a mapped drive.
 
 For more information on configuring Module Repositories, read further [here](xref:application-development.applications-and-solutions.how-to-manage-repositories).
 

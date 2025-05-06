@@ -1,24 +1,24 @@
 ---
 uid: application-development.understanding-and-resolving-merge-conflicts
 ---
-# Understanding and Resolving Merge Conflicts Involving Intent Architect Metadata Files
+# Understanding and resolving merge conflicts involving Intent Architect metadata files
 
-Everything you design within Intent Architect is persisted inside the **intent** folder, as `xml` files. As with any file stored in a repository, it's possible for the same file to be edited concurrently across branches or by multiple users. In that case, you'll end up with a **merge conflict** that needs to be resolved.  
+Everything you design within Intent Architect is persisted inside the `intent` folder as `.xml` files. As with any files stored in a repository, it's possible for the same file to be edited differently across branches or by multiple users. In that case you may encounter a **merge conflict** that must be resolved.
 
-This is similar to resolving merge conflicts in a **.csproj** file. It can be intimidating to merge a file you're not familiar with, but once you understand its contents, it's straightforward.
+This is similar to resolving conflicts in a `.csproj` file. Resolving the conflicts is generally very straightforward once you understand the largely self-evident cleartext file format.
 
-We endeavour to make our metadata files human-readable and appropriately sized to minimize conflicts.
+We strive to keep our metadata files human-readable and appropriately sized to minimize conflicts, in particular different concepts (e.g. `Class`, `DTO`, `Service`) each have separate files meaning that unless multiple developers are working on the exact same concept, they shouldn't interfere with each other at all.
 
-You can apply standard development practices to reduce the frequency and complexity of merge conflicts. For example:
+To reduce the frequency and complexity of merge conflicts, apply standard development practices:
 
 - **Pull frequently** – Regularly fetch and merge changes from the main branch to stay in sync.
 - **Keep branches short-lived** – Work in small, focused branches and merge them quickly.
 - **Communicate with your team** – Coordinate when multiple people are working on related areas.
 - **Avoid large commits** – Make atomic commits that are easier to review and merge.
 - **Rebase instead of merging (when appropriate)** – Keeps history clean and makes conflicts easier to manage.
-- **Use tools for visual diffing** – Tools like Beyond Compare, Meld, or built-in IDE tools help clarify changes.
+- **Use tools for visual diffing** – Tools like Beyond Compare, Meld, or IDE-integrated tools help clarify changes.
 
-## Understanding a Merge Conflict by Example
+## Understanding a merge conflict by example
 
 Assume you have a `Customer` entity, and this design has already been committed to the `development` branch.
 
@@ -95,7 +95,6 @@ This is what we have modelled:
 And this is what the **Customer metadata file** looks like:
 
 ```xml
-
 <?xml version="1.0" encoding="utf-8"?>
 <class id="83d5bea8-adae-43cf-8850-9b2cf3e89c3d" type="Class" typeId="04e12b51-ed12-42a3-9667-a6aa81bb6d10">
   <name>Customer</name>
@@ -128,13 +127,13 @@ And this is what the **Customer metadata file** looks like:
 
 Looking at the XML metadata file, you can see how it structurally maps to the visuals you see in the **Tree View**. If you select elements like the `Entity` or an `Attribute` and inspect the **Property Pane**, you'll start to notice values that match those in the XML file.
 
-![Visual Mapping of Xml to UI](./images/xml-to-model-mapping.png)
+![Visual Mapping of XML to UI](./images/xml-to-model-mapping.png)
 
 Now that we understand what’s going on in the file, let’s revisit the merge conflict:
 
 ![Customer Metadata Merge](./images/customer-metadata-merge.png)
 
-With a better understanding of the file, it’s clear that two attributes were added: `IsActive` (added by you) and `Email` (added by another developer). Now you’re well positioned to resolve the conflict—by keeping both attributes.
+With a better understanding of the file, it’s clear that two attributes were added: `IsActive` (added by you) and `Email` (added by another developer), each attribute is encapsulated in a `<childElement>...</childElement>` XML element so what we need is both versions of the `<childElement>`s and their nested elements. Now you’re well positioned to resolve the conflict—by keeping both attributes.
 
 ### After Resolution, Run the Software Factory
 
