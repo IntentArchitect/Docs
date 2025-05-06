@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.4
 ---
 # Release notes: Intent Architect version 4.4
 
+## Version 4.4.5
+
+### Improvements in 4.4.5
+
+Improvement: Support for overriding the automatically selected map-to parent when double clicking elements in the Advanced Mapping dialog. This improvement addresses the friction in mapping `Service Operation` elements to the domain.
+
 ## Version 4.4.4
 
 ### Issues fixed in 4.4.4
