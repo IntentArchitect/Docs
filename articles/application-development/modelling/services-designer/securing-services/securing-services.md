@@ -31,7 +31,15 @@ Depending on whether [common Roles and Policies are defined](#defining-common-ro
 
 ![The "Secured" stereotype showing an example of using pre-defined common names](images/secured-stereotype-common-names.png)
 
-If multiple Roles or Policies are specified on a Secured stereotype, only one of them need apply to the incoming user, essentially you are specifying that the user needs to be in _any_ of roles and meeting _any_ of the security policies in order to be considered authorized.
+#### Role and Policy Behavior
+
+When configuring the `Secured` stereotype:
+
+- **Multiple Roles**: If multiple roles are specified, the authorization check will succeed if the user belongs to any one of the listed roles. This defines a logical OR condition across the roles.
+
+- **Multiple Policies**: If multiple policies are required, the user must satisfy all specified policies for authorization to succeed. This defines a logical AND condition across the policies. To enforce multiple policies, apply the Secured stereotype multiple times—each instance specifying a different policy.
+
+#### Unsecured
 
 The Unsecured stereotype can be used to specify that a resource does not require a user to authenticated in order to be accessed. It is only necessary to apply this if you wish a particular resource to "opt-out" of being secure if a parent element/package or application setting would otherwise cause the resource to be secured implicitly.
 
