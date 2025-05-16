@@ -3,11 +3,21 @@ uid: release-notes.intent-architect-v4.4
 ---
 # Release notes: Intent Architect version 4.4
 
+## Version 4.4.6
+
+### Improvements in 4.4.6
+
+- Improvement: The Software Factory SDK now exposes Application References when requesting SolutionConfig, providing access to all Application IDs within an Intent Architect solution. This allows for more effective cross-application metadata access.
+
+### Issues fixed 4.4.6
+
+- Fixed: The `GetSolutionMetadata()` method previously had limitations when requesting designer metadata for designers not present in the current application scope. This has been resolved, and the method will now load metadata across application boundaries on demand, enabling more flexible and comprehensive metadata access.
+
 ## Version 4.4.5
 
 ### Improvements in 4.4.5
 
-Improvement: Support for overriding the automatically selected map-to parent when double clicking elements in the Advanced Mapping dialog. This improvement addresses the friction in mapping `Service Operation` elements to the domain.
+- Improvement: Support for overriding the automatically selected map-to parent when double clicking elements in the Advanced Mapping dialog. This improvement addresses the friction in mapping `Service Operation` elements to the domain.
 
 ## Version 4.4.4
 
