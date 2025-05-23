@@ -308,16 +308,16 @@ If using the `New Integration Event/Command` menu item or the `Publish Integrati
 
 To resolve this:
 
-1. Add a new `Eventing package` to your Services Designer:
+- Add a new `Eventing package` to your Services Designer:
 
-    ![Add package](images/add-package.png)
+  ![Add package](images/add-package.png)
 
-    ![New Eventing package](images/new-eventing-package.png)
+  ![New Eventing package](images/new-eventing-package.png)
 
-2. In your `Service Package`, right-click `References` and select **Add Package Reference**.
+- In your `Service Package`, right-click `References` and select **Add Package Reference**.
 
-    ![Add reference](images/new-service-reference.png)
-    
-    ![Add Eventing Package](images/eventing-package-selected.png)
+  ![Add reference](images/new-service-reference.png)
+
+  ![Add Eventing Package](images/eventing-package-selected.png)
 
 Once the reference is added, you will be able to successfully create and publish Integration Events and Integration Commands.
