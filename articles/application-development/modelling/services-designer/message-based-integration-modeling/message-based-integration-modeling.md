@@ -302,7 +302,7 @@ You should perform the migration before upgrading to `6.0.0` or newer of the `In
 
 ## Common Problems
 
-### New Integration Event or Command Doesn’t Appear
+### New Integration Event or Command not Generating
 
 If using the `New Integration Event/Command` menu item or the `Publish Integration Event/Command` suggestion does not result in a new element being added, the issue is most likely due to a missing `Eventing Package` in the Services Designer.
 
