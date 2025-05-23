@@ -312,11 +312,15 @@ To resolve this:
 
   ![Add package](images/add-package.png)
 
+- Give the package a relevant name:
+
   ![New Eventing package](images/new-eventing-package.png)
 
 - In your `Service Package`, right-click `References` and select **Add Package Reference**.
 
   ![Add reference](images/new-service-reference.png)
+
+- Select the previously created `Eventing Package`
 
   ![Add Eventing Package](images/eventing-package-selected.png)
 
