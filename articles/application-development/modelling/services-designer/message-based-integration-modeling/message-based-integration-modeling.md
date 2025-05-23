@@ -299,3 +299,25 @@ You should perform the migration before upgrading to `6.0.0` or newer of the `In
 > [!NOTE]
 >
 > The generated files for the Integration Message Handlers may not align with the existing handler implementations and you may need to either try change the names to align or alternatively manually copy the implementations from the old to the new files manually in your IDE.
+
+## Common Problems
+
+### New Integration Event or Command Doesn’t Appear
+
+If using the `New Integration Event/Command` menu item or the `Publish Integration Event/Command` suggestion does not result in a new element being added, the issue is most likely due to a missing `Eventing Package` in the Services Designer.
+
+To resolve this:
+
+1. Add a new `Eventing package` to your Services Designer:
+
+    ![Add package](images/add-package.png)
+
+    ![New Eventing package](images/new-eventing-package.png)
+
+2. In your `Service Package`, right-click `References` and select **Add Package Reference**.
+
+    ![Add reference](images/new-service-reference.png)
+    
+    ![Add Eventing Package](images/eventing-package-selected.png)
+
+Once the reference is added, you will be able to successfully create and publish Integration Events and Integration Commands.
