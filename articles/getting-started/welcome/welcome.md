@@ -6,17 +6,37 @@ uid: getting-started.welcome
 
 ## Overview
 
-Intent Architect is a practical and non-prescriptive, design and code-automation platform for developers.
+Intent Architect is a next-generation code-automation platform for professional software engineers.
 
-It helps development teams drastically accelerate their delivery, standardize their architecture, design their application's blueprint, and keep their technologies up to date.
+It helps development teams dramatically accelerate their delivery (up to 10x), while simultaneously standardizing their architecture, providing visbility on their application's design, and keeping their technologies and patterns up to date with industry best practices.
 
-Intent Architect can be thought of as a _robot developer_ whose sole purpose is to await instructions and do the bidding of the human developer.
+The platform is designed to be practical, non-prescriptive, and completely under the control of the developers and to never get in their way - bringing all the advantages of code-automation, without any of the drawbacks that have historically invalidated the approach.
 
-The platform is designed to be completely under the control of the developers and to never get in their way - bringing all the advantages of code-automation, without any of the drawbacks that have historically invalidated the approach.
+## Watch a demo
+
+If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webiar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+
+What's covered in this demo:
+
+* What is "Pattern Reuse" actually?
+* A comprehensive introduction & demo of the platform, Intent Architect
+* Building a working, high-quality .NET application in minutes following a Clean Architecture
+* A sneak peek at how Intent Architect can leverage generative-AI to push productivity even further.
+
+[![Demo Thumbnail](images/demo-thumbnail.png)](https://intentarchitect.com/#/redirect/?category=resources&subCategory=IntroductionAndDemo)]
 
 ## How it's achieved
 
-By combining visual modelling, code-management, and pattern reuse into a powerful and intuitive platform, Intent Architect offers the first truly practical approach to code-automation. These mechanisms are explained briefly below.
+Intent Architect combining visual modelling, code-management, pattern reuse into a powerful and intuitive platform, Intent Architect offers the first truly practical approach to code-automation. These mechanisms are explained briefly below.
+
+### Pattern Reuse
+
+Software systems are made up of patterns – each instance is different, but the patterns are the same. These patterns glue the technologies to the business logic and can easily account for over 80% of a codebase. Pattern reuse is the ability to turn these patterns into artifacts that can be reused within projects and across organizations. Intent Architect's _Modules_ serve as a collection of one or more of these artifacts and provide the mechanism to turn visual models and metadata into code.
+
+With Intent Architect, teams can choose to build and maintain their own Modules or simply reuse modules made by other developers.
+
+![Pattern Reuse Example](images/pattern-reuse-example-dark.png)
+_An example of an application template for a .NET Core web application that uses Robert Martin's clean architectural principles. Each component represents Modules that automate a specific aspect of the architecture._
 
 ### Visual Models
 
@@ -36,15 +56,6 @@ As an example, a developer may configure a C# or Java file such that they are ma
 ![Code-Management Example](images/code-management-example-dark.png)
 _An example of how Intent Architect would change a C# `Startup.cs` file that is partially managed by the developer and partially by Intent Architect. Changes are staged before being accepted by the developer, allowing them to diff the changes before accepting or rejecting them._
 
-### Pattern Reuse
-
-Software systems are made up of patterns – each instance is different, but the patterns are the same. These patterns glue the technologies to the business logic and can easily account for over 80% of a codebase. Pattern reuse is the ability to turn these patterns into artifacts that can be reused within projects and across organizations. Intent Architect's _Modules_ serve as a collection of one or more of these artifacts and provide the mechanism to turn visual models and metadata into code.
-
-With Intent Architect, teams can choose to build and maintain their own Modules or simply reuse modules made by other developers.
-
-![Pattern Reuse Example](images/pattern-reuse-example-dark.png)
-_An example of an application template for a .NET Core web application that uses Robert Martin's clean architectural principles. Each component represents Modules that automate a specific aspect of the architecture._
-
 ## Supported technologies
 
 Intent Architect **does not introduce any hard runtime dependencies** and is capable of generating and managing files for _any_ programming language or technology.
@@ -60,7 +71,7 @@ For the advanced [code-management](#code-management) capabilities described abov
 - SQL
 - Kotlin
 
-This list will continue to grow to include other popular programming languages such as Python and Go in the near future.
+This list will continue to grow to include other popular programming languages such as Python and Go in the future.
 
 ## Non-prescriptive
 
