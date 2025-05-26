@@ -9,7 +9,7 @@ Intent Architect offers a self-hostable "Module Server" in the form of a Docker 
 
 The Module Server uses Microsoft SQL Server for persistence, all editions of SQL Server 2019 and later should be compatible, including the free [SQL Server Express](https://www.microsoft.com/download/details.aspx?id=101064) edition.
 
-A SQL Server schema migration script will need to be manually run on the SQL Server before the Module Server to be able to start up. The migration script is [at the bottom of this article](#sql-server-schema-migration-script).
+Unless opted-out of, the module server will automatically run any necessary migrations against the database to ensure the schema is up to date. If you alternatively want to run the migration script manually, it is provided [at the bottom of this article](#sql-server-schema-migration-script).
 
 The Module Server is otherwise self-contained.
 
@@ -41,6 +41,12 @@ The Module Server is otherwise self-contained.
 **Description:** Optional. An [Azure Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview?tabs=net) connection string. Leave unset or use the default value to have Azure Application Insights be disabled for the Module Server.
 
 **Default value:** `InstrumentationKey=00000000-0000-0000-0000-000000000000;`
+
+### `EntityFramework__RunMigrations`
+
+**Description:** A boolean value indicating whether or not database schema migrations are automatically run on startup.
+
+**Default value:** `true`
 
 ## Running locally
 
@@ -1057,6 +1063,349 @@ IF NOT EXISTS (
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
     VALUES (N'20250521194724_BreakOutReleaseNotes', N'9.0.4');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ModuleVersion] ADD [IconFileId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [CoverImageFileId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [IconFileId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [Type] int NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    EXECUTE('UPDATE [ApplicationTemplates] SET [Type] = 1')
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    DECLARE @var16 sysname;
+    SELECT @var16 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Type');
+    IF @var16 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var16 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Type] int NOT NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE TABLE [DeduplicatedFiles] (
+        [Id] uniqueidentifier NOT NULL,
+        [Hash] nvarchar(64) NOT NULL,
+        [FileExtension] nvarchar(5) NOT NULL,
+        CONSTRAINT [PK_DeduplicatedFiles] PRIMARY KEY ([Id])
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE TABLE [ApplicationTemplateDeduplicatedFiles] (
+        [AdditionalImageFilesId] uniqueidentifier NOT NULL,
+        [ApplicationTemplatesId] uniqueidentifier NOT NULL,
+        CONSTRAINT [PK_ApplicationTemplateDeduplicatedFiles] PRIMARY KEY ([AdditionalImageFilesId], [ApplicationTemplatesId]),
+        CONSTRAINT [FK_ApplicationTemplateDeduplicatedFiles_ApplicationTemplates_ApplicationTemplatesId] FOREIGN KEY ([ApplicationTemplatesId]) REFERENCES [ApplicationTemplates] ([Id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_ApplicationTemplateDeduplicatedFiles_DeduplicatedFiles_AdditionalImageFilesId] FOREIGN KEY ([AdditionalImageFilesId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE CASCADE
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE TABLE [DeduplicatedFileData] (
+        [Id] uniqueidentifier NOT NULL,
+        [Content] varbinary(max) NOT NULL,
+        CONSTRAINT [PK_DeduplicatedFileData] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_DeduplicatedFileData_DeduplicatedFiles_Id] FOREIGN KEY ([Id]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE CASCADE
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE INDEX [IX_ModuleVersion_IconFileId] ON [ModuleVersion] ([IconFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE INDEX [IX_ApplicationTemplates_CoverImageFileId] ON [ApplicationTemplates] ([CoverImageFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE INDEX [IX_ApplicationTemplates_IconFileId] ON [ApplicationTemplates] ([IconFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE INDEX [IX_ApplicationTemplateDeduplicatedFiles_ApplicationTemplatesId] ON [ApplicationTemplateDeduplicatedFiles] ([ApplicationTemplatesId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    CREATE UNIQUE INDEX [IX_DeduplicatedFiles_FileExtension_Hash] ON [DeduplicatedFiles] ([FileExtension], [Hash]) INCLUDE ([Id]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD CONSTRAINT [FK_ApplicationTemplates_DeduplicatedFiles_CoverImageFileId] FOREIGN KEY ([CoverImageFileId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE NO ACTION;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD CONSTRAINT [FK_ApplicationTemplates_DeduplicatedFiles_IconFileId] FOREIGN KEY ([IconFileId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE NO ACTION;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    ALTER TABLE [ModuleVersion] ADD CONSTRAINT [FK_ModuleVersion_DeduplicatedFiles_IconFileId] FOREIGN KEY ([IconFileId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE NO ACTION;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250523130151_AddDepuplicatedFilesAndAppTemplateType'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250523130151_AddDepuplicatedFilesAndAppTemplateType', N'9.0.4');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250524150528_AddModuleVersionIndexes'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_FindVersions] ON [ModuleVersion] ([IsListed], [Identifier], [VersionIsPrerelease], [MinClientInclusive], [MaxClientInclusive], [VersionNormalized]) INCLUDE ([MinClientVersionNormalized], [MaxClientVersionNormalized], [Version]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250524150528_AddModuleVersionIndexes'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_Search] ON [ModuleVersion] ([IsListed], [VersionIsPrerelease]) INCLUDE ([Description], [Version], [Authors], [Tags], [SupportedClientVersions], [IconUrl], [Identifier], [MaxClientInclusive], [MaxClientVersionNormalized], [MinClientVersionNormalized], [MinClientInclusive], [VersionNormalized], [IconFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250524150528_AddModuleVersionIndexes'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250524150528_AddModuleVersionIndexes', N'9.0.4');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DROP TABLE [ApplicationTemplateDeduplicatedFiles];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var17 sysname;
+    SELECT @var17 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'FullDescription');
+    IF @var17 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var17 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [FullDescription];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var18 sysname;
+    SELECT @var18 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_SetGitIgnoreEntries');
+    IF @var18 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var18 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_SetGitIgnoreEntries] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var19 sysname;
+    SELECT @var19 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_SeparateIntentFiles');
+    IF @var19 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var19 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_SeparateIntentFiles] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var20 sysname;
+    SELECT @var20 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_RelativeOutputLocation');
+    IF @var20 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var20 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_RelativeOutputLocation] nvarchar(128) NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var21 sysname;
+    SELECT @var21 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_PlaceInSameDirectory');
+    IF @var21 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var21 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_PlaceInSameDirectory] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var22 sysname;
+    SELECT @var22 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_Name');
+    IF @var22 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var22 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_Name] nvarchar(128) NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    DECLARE @var23 sysname;
+    SELECT @var23 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Defaults_CreateFolderForSolution');
+    IF @var23 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var23 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Defaults_CreateFolderForSolution] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    CREATE TABLE [ApplicationTemplateAdditionalImage] (
+        [FileId] uniqueidentifier NOT NULL,
+        [ApplicationTemplatesId] uniqueidentifier NOT NULL,
+        [Order] int NOT NULL,
+        CONSTRAINT [PK_ApplicationTemplateAdditionalImage] PRIMARY KEY ([FileId], [ApplicationTemplatesId]),
+        CONSTRAINT [FK_ApplicationTemplateAdditionalImage_ApplicationTemplates_ApplicationTemplatesId] FOREIGN KEY ([ApplicationTemplatesId]) REFERENCES [ApplicationTemplates] ([Id]) ON DELETE CASCADE,
+        CONSTRAINT [FK_ApplicationTemplateAdditionalImage_DeduplicatedFiles_FileId] FOREIGN KEY ([FileId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE NO ACTION
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    CREATE TABLE [ApplicationTemplateLongDescriptions] (
+        [Id] uniqueidentifier NOT NULL,
+        [Content] nvarchar(max) NOT NULL,
+        CONSTRAINT [PK_ApplicationTemplateLongDescriptions] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_ApplicationTemplateLongDescriptions_ApplicationTemplates_Id] FOREIGN KEY ([Id]) REFERENCES [ApplicationTemplates] ([Id]) ON DELETE CASCADE
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    CREATE INDEX [IX_ApplicationTemplateAdditionalImage_ApplicationTemplatesId] ON [ApplicationTemplateAdditionalImage] ([ApplicationTemplatesId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250525193144_ApplicationTemplateUpdatesForSamples'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250525193144_ApplicationTemplateUpdatesForSamples', N'9.0.4');
 END;
 
 COMMIT;
