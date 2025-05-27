@@ -14,7 +14,7 @@ The platform is designed to be practical, non-prescriptive, and completely under
 
 ## Watch a demo
 
-If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webiar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
 
 What's covered in this demo:
 
@@ -29,7 +29,7 @@ To watch the webinar, `middle-click` on the image above or use the following lin
 
 ## How it's achieved
 
-Intent Architect combining visual modelling, code-management, pattern reuse into a powerful and intuitive platform, Intent Architect offers the first truly practical approach to code-automation. These mechanisms are explained briefly below.
+Intent Architect combines visual modelling, code-management, and pattern reuse into a powerful and intuitive platform to offer the first truly practical approach to code-automation. These mechanisms are explained briefly below.
 
 ### Pattern Reuse
 
