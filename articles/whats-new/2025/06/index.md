@@ -12,7 +12,7 @@ Welcome to the June 2025 edition of highlights of What's New in Intent Architect
   - **[Improved VS Solution modeling options](#improved-vs-solution-modeling-options)** - Improvements in the VS Designer.
   - **[Replaced IdentityModel and IdentityModel.AspNetCore NuGet packages](#updated-identitymodel-and-identitymodelaspnetcore-packages)** - Upgraded dependencies on `IdentityModel` and `Identity.AspNetCore` NuGet packages, to newer alternatives.
   - **[EntityFramework.Application.LinqExtensions module](#entityframeworkapplicationlinqextensions-module)** - This modules adds `AsTracking` and `AsNoTracking` Linq Extensions methods for convenience with out the direct dependency on EF Core.
-
+  - **[Infrastructure as Code with Terraform Module](#infrastructure-as-code-with-terraform-module)** - This module automatically generates Terraform configuration files for deploying applications to Azure.
 
 ## Update details
 
@@ -106,3 +106,51 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.EntityFramework.Application.LinqExtensions 1.0.0
+
+### Infrastructure as Code with Terraform Module
+
+This module automatically generates Infrastructure as Code (IaC) through Terraform `.tf` files for your Intent Architect applications.
+
+The module scans all applications in your Intent Architect Solution to identify Azure Function applications and generates the necessary Terraform configuration to deploy them to Azure, including integration with Azure Event Grid and Service Bus when the respective modules are installed.
+
+#### Example
+
+```json
+...
+
+resource "azurerm_windows_function_app" "azure_service_bus_app1_function_app" {
+  name                       = local.azure_service_bus_app1_app_name
+  location                   = azurerm_resource_group.main-rg.location
+  resource_group_name        = azurerm_resource_group.main-rg.name
+  service_plan_id            = azurerm_service_plan.azure_service_bus_app1_function_plan.id
+  storage_account_name       = azurerm_storage_account.azure_service_bus_app1_storage.name
+  storage_account_access_key = azurerm_storage_account.azure_service_bus_app1_storage.primary_access_key
+
+  site_config {
+    application_stack {
+      dotnet_version = "v8.0"
+    }
+    cors {
+      allowed_origins = [ "https://portal.azure.com" ]
+    }
+  }
+
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY"              = azurerm_application_insights.app_insights.instrumentation_key
+    "AzureWebJobsStorage"                         = "DefaultEndpointsProtocol=https;AccountName=${azurerm_storage_account.azure_service_bus_app1_storage.name};AccountKey=${azurerm_storage_account.azure_service_bus_app1_storage.primary_access_key};EndpointSuffix=core.windows.net"
+    "AzureServiceBus:ClientCreated"               = azurerm_servicebus_topic.client_created_topic.id
+    "AzureServiceBus:ClientProcessed"             = azurerm_servicebus_topic.client_processed_topic.id
+    "AzureServiceBus:ClientProcessedSubscription" = azurerm_servicebus_subscription.client_processed_subscription.id
+    "AzureServiceBus:ConnectionString"            = azurerm_servicebus_namespace.service_bus.default_primary_connection_string
+    "FUNCTIONS_WORKER_RUNTIME"                    = "dotnet-isolated"
+  }
+}
+
+...
+```
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-iac-terraform/intent-iac-terraform.html).
+
+Available from:
+
+- Intent.IaC.Terraform 1.0.0-beta.1
