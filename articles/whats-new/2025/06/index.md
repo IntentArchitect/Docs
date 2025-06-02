@@ -84,7 +84,7 @@ Available from:
 
 ### Updated IdentityModel and IdentityModel.AspNetCore Packages
 
-These unlisted NuGet packages have been updated with the relevant Duende equivalents. This does introduce a breaking change. If you are upgrading this module, please ensure to populate the `TokenEndpoint` with the same value as your `Address` within your 'appsettings.json' configuration files.
+These unlisted NuGet packages have been updated with the relevant Duende equivalents. This does introduce a breaking change. Please see the [release notes](https://github.com/IntentArchitect/Intent.Modules.NET/blob/development/Modules/Intent.Modules.Integration.HttpClients/release-notes.md) for migration steps.
 
 Available from:
 
