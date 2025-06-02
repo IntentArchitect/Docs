@@ -5,6 +5,7 @@ Welcome to the June 2025 edition of highlights of What's New in Intent Architect
 - Highlights
   - **[Entity Framework OData Module](#entity-framework-odata-module)** - This module enables you to expose `Entity`'s as OData endpoints.
   - **[Diff Audit Module](#diff-audit-module)** - This module adds functionality to model differential auditing on an `Entity`.
+  - **[Unit Testing Module](#unit-testing-module)** - Scaffolds the project structure, configurations, and NuGet packages required for unit testing - ready for test cases to be added.
 
 - More updates
   - **[AutoMapper option for separating Profiles from DTOs](#automapper-option-for-separating-profiles-from-dtos)** - As AutoMapper `Profile`s and DTO have very different dependencies it is often better to have these as seperate files.
@@ -154,3 +155,19 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.IaC.Terraform 1.0.0-beta.1
+
+### Unit Testing Module
+
+The **Unit Testing** module scaffolds a C# unit test project with all required configurations and NuGet packages. It can generate test scaffolding for **all** or **selected** `Commands` and `Queries`, using the `Unit Test` stereotype.
+
+![Unit Test Stereotype](images/unit-test-stereotype.png)
+
+The generated output includes fully scaffolded unit test classes, ready for implementation:
+
+![Sample Unit Test Output](images/sample-unit-test.png)
+
+The module currently supports the `xUnit` test framework, along with mocking via `Moq` and `NSubstitute`.
+
+Available from:
+
+- Intent.UnitTesting 1.0.0-beta.7 *(Requires Intent Architect 4.5 or later)*
