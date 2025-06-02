@@ -14,6 +14,7 @@ Welcome to the June 2025 edition of highlights of What's New in Intent Architect
   - **[Replaced IdentityModel and IdentityModel.AspNetCore NuGet packages](#updated-identitymodel-and-identitymodelaspnetcore-packages)** - Upgraded dependencies on `IdentityModel` and `Identity.AspNetCore` NuGet packages, to newer alternatives.
   - **[EntityFramework.Application.LinqExtensions module](#entityframeworkapplicationlinqextensions-module)** - This modules adds `AsTracking` and `AsNoTracking` Linq Extensions methods for convenience with out the direct dependency on EF Core.
   - **[Infrastructure as Code with Terraform Module](#infrastructure-as-code-with-terraform-module)** - This module automatically generates Terraform configuration files for deploying applications to Azure.
+  - **[Request payload logging improvements](#request-payload-logging-improvements)** - Added ability to control whether request payloads can be logged alongside the ability to prevent excessive logging.
 
 ## Update details
 
@@ -42,6 +43,22 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 Available from:
 
 - Intent.EntityFrameworkCore.DiffAudit 1.0.1
+
+### Unit Testing Module
+
+The **Unit Testing** module scaffolds a C# unit test project with all required configurations and NuGet packages. It can generate test scaffolding for **all** or **selected** `Commands` and `Queries`, using the `Unit Test` stereotype.
+
+![Unit Test Stereotype](images/unit-test-stereotype.png)
+
+The generated output includes fully scaffolded unit test classes, ready for implementation:
+
+![Sample Unit Test Output](images/sample-unit-test.png)
+
+The module currently supports the `xUnit` test framework, along with mocking via `Moq` and `NSubstitute`.
+
+Available from:
+
+- Intent.UnitTesting 1.0.0-beta.7 *(Requires Intent Architect 4.5 or later)*
 
 ### AutoMapper option for separating Profiles from DTOs
 
@@ -157,20 +174,22 @@ To learn more, read the [module documentation](https://docs.intentarchitect.com/
 
 Available from:
 
-- Intent.IaC.Terraform 1.0.0-beta.1
+- Intent.IaC.Terraform 1.0.0-beta.1 *(Requires Intent Architect 4.4.6 or later)*
 
-### Unit Testing Module
+### Request payload logging improvements
 
-The **Unit Testing** module scaffolds a C# unit test project with all required configurations and NuGet packages. It can generate test scaffolding for **all** or **selected** `Commands` and `Queries`, using the `Unit Test` stereotype.
+For MediatR pipeline behaviors you can control whether request payload logging occurs by configuring the `CqrsSettings:LogRequestPayload` setting.
 
-![Unit Test Stereotype](images/unit-test-stereotype.png)
+Additionally there is a `BoundedLoggingDestructuringPolicy` class introduced for Serilog to log any object without causing any excessive logging to take place. It does this by:
 
-The generated output includes fully scaffolded unit test classes, ready for implementation:
+1. Limiting collection sizes.
+2. Truncating objects with too many properties.
+3. Replacing problematic property types (like streams and byte arrays) with placeholders.
+4. Handling exceptions during property access to prevent logging failures.
 
-![Sample Unit Test Output](images/sample-unit-test.png)
-
-The module currently supports the `xUnit` test framework, along with mocking via `Moq` and `NSubstitute`.
+This policy helps maintain logging performance by controlling the size of log events and preventing runaway memory consumption from large object graphs.
 
 Available from:
 
-- Intent.UnitTesting 1.0.0-beta.7 *(Requires Intent Architect 4.5 or later)*
+- Intent.Application.MediatR.Behaviours 4.3.3
+- Intent.Modules.AspNetCore.Logging.Serilog 5.3.0
