@@ -8,7 +8,7 @@ Welcome to the June 2025 edition of highlights of What's New in Intent Architect
   - **[Unit Testing Module](#unit-testing-module)** - Scaffolds the project structure, configurations, and NuGet packages required for unit testing - ready for test cases to be added.
 
 - More updates
-  - **[AutoMapper option for separating Profiles from DTOs](#automapper-option-for-separating-profiles-from-dtos)** - As AutoMapper `Profile`s and DTO have very different dependencies it is often better to have these as seperate files.
+  - **[AutoMapper option for separating Profiles from DTOs](#automapper-option-for-separating-profiles-from-dtos)** - As AutoMapper `Profile`s and DTO have very different dependencies it is often better to have these as separate files.
   - **[PostgreSQL Stored Procedure Support](#postgresql-stored-procedure-support)** - Stored Procedure support has been added for PostgreSQL Entity Framework database provider type.
   - **[Improved VS Solution modeling options](#improved-vs-solution-modeling-options)** - Improvements in the VS Designer.
   - **[Replaced IdentityModel and IdentityModel.AspNetCore NuGet packages](#updated-identitymodel-and-identitymodelaspnetcore-packages)** - Upgraded dependencies on `IdentityModel` and `Identity.AspNetCore` NuGet packages, to newer alternatives.
@@ -33,7 +33,7 @@ Available from:
 
 This module adds functionality to allow you to audit an `Entity`.
 
-All state changes with be auditted on a property level. These audit entries will be stored in a audit table within your Entity Framework database provider.
+All state changes with be audited on a property level. These audit entries will be stored in a audit table within your Entity Framework database provider.
 
 ![Diff Audit](images/entityframework-diffaudit.png)
 
@@ -45,7 +45,7 @@ Available from:
 
 ### AutoMapper option for separating Profiles from DTOs
 
-There now a configuration application setting under `AutoMapper Settings` named **Proflie Location**, the options are as follows:
+There now a configuration application setting under `AutoMapper Settings` named **Profile Location**, the options are as follows:
 
 - Profile in Dto, the existing pattern where `Profile`'s existing in the corresponding **Dto** file.
 - Profile Separate from Dto, `Profile`s are no in their own files, in a `Mappings` folder by default. Profiles are still per Dto.
@@ -113,6 +113,9 @@ Available from:
 This module automatically generates Infrastructure as Code (IaC) through Terraform `.tf` files for your Intent Architect applications.
 
 The module scans all applications in your Intent Architect Solution to identify Azure Function applications and generates the necessary Terraform configuration to deploy them to Azure, including integration with Azure Event Grid and Service Bus when the respective modules are installed.
+
+> [!NOTE]
+> It is recommended to introduce Terraform as a new application in your solution through the `Terraform Infrastructure Provisioning` application template.
 
 #### Example
 
