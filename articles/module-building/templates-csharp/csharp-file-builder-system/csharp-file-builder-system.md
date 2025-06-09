@@ -9,7 +9,7 @@ The C# File Builder System is Intent Architect's primary method for generating a
 
 The C# File Builder System replaces traditional text-based templating approaches (like T4 templates) with a code-first builder pattern. Instead of writing string-based templates, you use strongly-typed C# code to construct your output files.
 
-This approach provides a more maintainable, type-safe way to generate C# code that integrates seamlessly with other Intent Architect components like Factory Extensions.
+This approach is similar to working with an [Abstract Syntax Tree (AST)](https://en.wikipedia.org/wiki/Abstract_syntax_tree), where you build up the structure of your code programmatically rather than manipulating text strings. This provides a more maintainable, type-safe way to generate C# code that integrates seamlessly with other Intent Architect components like Factory Extensions.
 
 ### Why Use the File Builder System?
 
@@ -23,14 +23,14 @@ This approach provides a more maintainable, type-safe way to generate C# code th
 
 ### The `ICSharpFileBuilderTemplate` Interface
 
-When creating a template that uses the File Builder System, you need to:
+When creating a C# Template, it is set to use the File Builder System by default. If not you would need to:
 
 1. Set the **Templating Method** to `C# File Builder` in the Module Builder Designer
 2. Your template class will automatically implement the `ICSharpFileBuilderTemplate` interface
 
 ![Template Method Selection](images/template-method-selection.png)
 
-Once configured, your template class will look like this:
+The initial output will be as follows:
 
 ```csharp
 public partial class MyTemplate : CSharpTemplateBase<MyModel>, ICSharpFileBuilderTemplate
@@ -63,9 +63,42 @@ public partial class MyTemplate : CSharpTemplateBase<MyModel>, ICSharpFileBuilde
 }
 ```
 
+Or for templates whose names are suffixed with `Interface` it will be as follows:
+
+```csharp
+public partial class MyTemplateInterface : CSharpTemplateBase<MyModel>, ICSharpFileBuilderTemplate
+{
+    public const string TemplateId = "MyModule.MyTemplateInterface";
+
+    public MyTemplateInterface(IOutputTarget outputTarget, MyModel model) : base(TemplateId, outputTarget, model)
+    {
+        CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
+            .AddInterface($"I{Model.Name}", @class =>
+            {
+                // Configure the interface using builder methods
+            });
+    }
+
+    [IntentManaged(Mode.Fully)]
+    public CSharpFile CSharpFile { get; }
+
+    [IntentManaged(Mode.Fully)]
+    protected override CSharpFileConfig DefineFileConfig()
+    {
+        return CSharpFile.GetConfig();
+    }
+
+    [IntentManaged(Mode.Fully)]
+    public override string TransformText()
+    {
+        return CSharpFile.ToString();
+    }
+}
+```
+
 ### The `CSharpFile` Object
 
-The `CSharpFile` object is the root of the builder hierarchy. It represents the entire C# source file and provides methods to add top-level constructs:
+The `CSharpFile` object is the root of the builder hierarchy. It represents an entire C# source file and provides methods to add top-level constructs:
 
 ```csharp
 CSharpFile = new CSharpFile(namespace: "MyApp.Domain", relativeLocation: "Entities")
@@ -87,6 +120,8 @@ Classes are the most common construct you'll build when using the File Builder S
 
 ### Basic Class Structure
 
+Sample Builder Code:
+
 ```csharp
 .AddClass("Customer", @class =>
 {
@@ -99,7 +134,20 @@ Classes are the most common construct you'll build when using the File Builder S
 })
 ```
 
+Example Output:
+
+```csharp
+public class Customer : EntityBase, ICustomer
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public DateTime CreatedDate { get; set; }
+}
+```
+
 ### Adding Constructors
+
+Sample Builder Code:
 
 ```csharp
 .AddClass("Customer", @class =>
@@ -112,13 +160,32 @@ Classes are the most common construct you'll build when using the File Builder S
         });
         ctor.AddParameter("string", "lastName", param =>
         {
-            param.IntroduceProperty("LastName"); // Creates property and assigns it
+            param.IntroduceProperty(); // Creates property and assigns it
         });
     });
 })
 ```
 
+Example Output:
+
+```csharp
+public class Customer
+{
+    private readonly string _firstName;
+
+    public Customer(string firstName, string lastName)
+    {
+        _firstName = firstName;
+        LastName = lastName;
+    }
+
+    public string LastName { get; set; }
+}
+```
+
 ### Adding Methods
+
+Sample Builder Code:
 
 ```csharp
 .AddClass("CustomerService", @class =>
@@ -133,7 +200,22 @@ Classes are the most common construct you'll build when using the File Builder S
 })
 ```
 
+Example Output:
+
+```csharp
+public class CustomerService
+{
+    public Customer GetCustomerById(int customerId)
+    {
+        var customer = _repository.FindById(customerId);
+        return customer ?? throw new CustomerNotFoundException(customerId);
+    }
+}
+```
+
 ### Adding Properties with Different Configurations
+
+Sample Builder Code:
 
 ```csharp
 .AddClass("Customer", @class =>
@@ -161,12 +243,28 @@ Classes are the most common construct you'll build when using the File Builder S
     });
 
     // Property with expression implementation
-    @class.AddProperty("string", "FullName", property =>
+    @class.AddProperty("string", "FullNameExpression", property =>
     {
         property.WithoutSetter();
-        property.Getter.WithExpressionImplementation($@"""{FirstName} {LastName}""");
+        property.Getter.WithExpressionImplementation(@"$""{FirstName} {LastName}""");
     });
 })
+```
+
+Example Output:
+
+```csharp
+public class Customer
+{
+    public string FirstName { get; set; }
+    public DateTime CreatedDate { get; private set; }
+    public bool IsActive { get; set; } = true;
+    public string FullName
+    {
+        get { return $"{FirstName} {LastName}"; }
+    }
+    public string FullNameExpression => $"{FirstName} {LastName}";
+}
 ```
 
 ### Controlling Accessibility and Modifiers
@@ -207,6 +305,31 @@ You can control the accessibility and modifiers of classes, methods, and propert
         method.AddReturn("new Customer()");
     });
 })
+```
+
+Example Output:
+
+```csharp
+public static class CustomerService
+{
+    private void ValidateCustomer(Customer customer)
+    {
+    }
+
+    protected virtual bool CanProcess()
+    {
+        return true;
+    }
+
+    /// <summary>
+    /// Creates a default customer instance.
+    /// </summary>
+    /// <returns>A new customer with default values.</returns>
+    public static Customer CreateDefault()
+    {
+        return new Customer();
+    }
+}
 ```
 
 ### Working with Async Methods
@@ -252,9 +375,38 @@ The File Builder System supports async methods with proper return type handling:
 })
 ```
 
-## Advanced Builder Patterns
+Example Output:
+
+```csharp
+public class CustomerService
+{
+    public async System.Threading.Tasks.Task<Customer> GetCustomerAsync(int customerId)
+    {
+        return await _repository.FindByIdAsync(customerId);
+    }
+
+    public async System.Threading.Tasks.ValueTask<bool> ExistsAsync(int customerId)
+    {
+        return await _repository.ExistsAsync(customerId);
+    }
+
+    public async System.Threading.Tasks.Task OnCustomerChanged(object sender, CustomerChangedEventArgs e)
+    {
+        await ProcessCustomerChangeAsync(e.Customer);
+    }
+
+    public Task CompletedAsync()
+    {
+        return Task.CompletedTask;
+    }
+}
+```
+
+## Common Builder Patterns
 
 ### Conditional Code Generation
+
+Sample Builder Code:
 
 ```csharp
 .AddClass($"{Model.Name}", @class =>
@@ -277,7 +429,32 @@ The File Builder System supports async methods with proper return type handling:
 })
 ```
 
-### Using Builder Extensions
+Example Output:
+
+```csharp
+public class Customer
+{
+    public string FirstName { get; set; }
+    
+    public bool IsValid()
+    {
+        // Validation logic here
+        return true;
+    }
+}
+
+public class Address
+{
+    public string Line1 { get; set; }
+    public string Line2 { get; set; }
+    public string City { get; set; }
+    public string PostalCode { get; set; }
+}
+```
+
+### C# Attributes
+
+Sample Builder Code:
 
 ```csharp
 .AddClass("ApiController", @class =>
@@ -285,7 +462,7 @@ The File Builder System supports async methods with proper return type handling:
     @class
         .WithBaseType("ControllerBase")
         .AddAttribute("[ApiController]") // C# Attribute with square brackets
-        .AddAttribute("Route", attr => attr.AddArgument(@""api/[controller]"")); // C# Attribute with mutable arguments
+        .AddAttribute("Route", attr => attr.AddArgument(@"""api/[controller]""")); // C# Attribute with mutable arguments
         
     foreach (var operation in Model.Operations)
     {
@@ -294,10 +471,27 @@ The File Builder System supports async methods with proper return type handling:
             method
                 .AddAttribute($"[Http{operation.Verb}]")
                 .AddParameter(GetTypeName(operation.RequestType), "request")
-                .AddReturn($"Ok(_{operation.Name.ToCamelCase()}Service.Execute(request))");
+                .AddStatement("// Do Processing Here...")
+                .AddReturn("Ok()");
         });
     }
 })
+```
+
+Example Output:
+
+```csharp
+[ApiController]
+[Route("api/[controller]")]
+public class ApiController : ControllerBase
+{
+    [HttpPost]
+    public IActionResult Post(RequestDto request)
+    {
+        // Do Processing Here...
+        return Ok();
+    }
+}
 ```
 
 ### Working with CSharp Statements
@@ -315,8 +509,7 @@ The File Builder System provides a rich set of statement types and control over 
         .AddStatement("// First validation step")
         .AddStatement("var basicValidation = customer.Name != null;")
         .AddStatement("var advancedValidation = customer.Email?.Contains(\"@\") == true;")
-        .SeparatedFromPrevious() // Adds extra spacing before this statement
-        .AddStatement("// Processing logic")
+        .AddStatement("// Processing logic", stmt => stmt.SeparatedFromPrevious()) // Adds extra spacing before this statement
         .AddIfStatement("isValid", ifStmt =>
         {
             ifStmt.AddStatement("ProcessValidCustomer(customer);");
@@ -325,9 +518,34 @@ The File Builder System provides a rich set of statement types and control over 
         .AddElseStatement(elseStmt =>
         {
             elseStmt.AddStatement("LogError($\"Invalid customer: {customer.Id}\");");
-            elseStmt.AddThrowStatement("new InvalidOperationException(\"Customer validation failed\")");
+            elseStmt.AddStatement("throw new InvalidOperationException(\"Customer validation failed\");");
         });
 })
+```
+
+Example Output:
+
+```csharp
+public void ProcessCustomer()
+{
+    var isValid = ValidateCustomer(customer);
+    // First validation step
+    var basicValidation = customer.Name != null;
+    var advancedValidation = customer.Email?.Contains("@") == true;
+
+    // Processing logic
+
+    if (isValid)
+    {
+        ProcessValidCustomer(customer);
+        LogSuccess(customer.Id);
+    }
+    else
+    {
+        LogError($"Invalid customer: {customer.Id}");
+        throw new InvalidOperationException("Customer validation failed");
+    }
+}
 ```
 
 ### Method Invocations with Lambda Expressions
@@ -350,7 +568,9 @@ You can create method calls that accept lambda expressions as arguments:
     // Multiple lambda arguments
     method.AddInvocationStatement("app.UseWhen", invocation =>
     {
-        invocation.AddArgument(new CSharpLambdaBlock("context"), lambda => lambda.WithExpressionBody(@"context.Request.Path.StartsWithSegments(""/api"")"));
+        invocation.AddArgument(new CSharpLambdaBlock("context"), lambda => 
+            lambda.WithExpressionBody(@"context.Request.Path.StartsWithSegments(""/api"")"));
+
         invocation.AddArgument(new CSharpLambdaBlock("appBuilder"), lambda =>
         {
             lambda.AddStatement("appBuilder.UseAuthentication();");
@@ -360,9 +580,32 @@ You can create method calls that accept lambda expressions as arguments:
 })
 ```
 
+Example Output:
+
+```csharp
+public class ApiController
+{
+    public void ConfigureServices()
+    {
+        services.Configure<AppSettings>(options =>
+        {
+            options.ConnectionString = configuration.GetConnectionString("Default");
+            options.EnableRetry = true;
+        });
+        app.UseWhen(context => context.Request.Path.StartsWithSegments("/api"), appBuilder =>
+        {
+            appBuilder.UseAuthentication();
+            appBuilder.UseAuthorization();
+        });
+    }
+}
+```
+
 ### OnBuild vs AfterBuild Callbacks
 
-The File Builder System provides two types of callbacks for modifying generated code:
+The File Builder System provides two types of callbacks for modifying generated code. These callbacks are essential because they execute at the correct time during the software factory execution process, allowing you to access existing template information that wouldn't be available under normal circumstances (since templates aren't ready yet).
+
+Both callbacks execute right before templates generate their final output.
 
 ```csharp
 // In your template constructor
@@ -374,16 +617,17 @@ CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
 
 // OnBuild: Executes during the file building process
 // Use this when you need to modify the structure before other templates can see it
+// Optional priority parameter for ordering (lower numbers execute first)
 CSharpFile.OnBuild(file =>
 {
     var customerClass = file.Classes.First(c => c.Name == "Customer");
     customerClass.AddProperty("DateTime", "CreatedAt");
     
     // This modification is visible to other templates and Factory Extensions
-});
+}, priority: 100);
 
 // AfterBuild: Executes after all OnBuild callbacks are complete
-// Use this for final modifications that shouldn't affect other templates
+// Generally discouraged - use priorities with OnBuild instead
 CSharpFile.AfterBuild(file =>
 {
     var customerClass = file.Classes.First(c => c.Name == "Customer");
@@ -393,15 +637,19 @@ CSharpFile.AfterBuild(file =>
     {
         customerClass.AddProperty("int", "Id", prop => prop.WithInitialValue("0"));
     }
-});
+}, priority: 200);
 ```
 
+> [!WARNING]
+>
+> Always use OnBuild or AfterBuild callbacks when interacting with a template instance's CSharpFile. Direct access outside these callbacks will fail because templates and their information aren't ready during normal template construction.
 > [!TIP]
-> Use `OnBuild` when other templates or Factory Extensions need to see your modifications. Use `AfterBuild` for final touches that don't need to be visible to other components.
+>
+> Use OnBuild with priority ordering instead of AfterBuild whenever possible. AfterBuild is rarely needed and should generally be avoided - priority-based OnBuild callbacks can handle most ordering requirements.
 
 ## Working with Using Directives
 
-You can manually manage using directives by explicitly adding them:
+You can manually add using directives by explicitly adding them:
 
 ```csharp
 CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
@@ -424,7 +672,7 @@ CSharpFile = new CSharpFile(this.GetNamespace(), this.GetFolderPath())
     });
 ```
 
-### Managing Type Names
+### Resolving Type Names
 
 Use the template's `GetTypeName()` methods to resolve types correctly:
 
@@ -525,7 +773,7 @@ var properties = CalculateRequiredProperties(Model);
 });
 ```
 
-## Integration with Factory Extensions
+## Manipulate Templates with the C# File Builder from Factory Extensions
 
 Factory Extensions can manipulate File Builder templates using the same `OnBuild` and `AfterBuild` callbacks, making them incredibly powerful for cross-cutting concerns:
 
@@ -583,8 +831,7 @@ You can control the visual organization of your generated code using spacing met
     
     // Add visual separation before processing
     method
-        .SeparatedFromPrevious()
-        .AddStatement("// Processing phase")
+        .AddStatement("// Processing phase", stmt => stmt.SeparatedFromPrevious())
         .AddStatement("var result = ProcessPayment(order);")
         .AddIfStatement("result.IsSuccess", ifStmt =>
         {
@@ -594,15 +841,39 @@ You can control the visual organization of your generated code using spacing met
         
     // Final cleanup section
     method
-        .SeparatedFromPrevious()
-        .AddStatement("// Cleanup")
+        .AddStatement("// Cleanup", stmt => stmt.SeparatedFromPrevious())
         .AddStatement("LogOrderProcessing(order.Id, result);");
 })
 ```
 
-## Common Patterns
+Example:
+
+```csharp
+public void ProcessOrder()
+{
+    // Validation phase
+    ValidateOrder(order);
+    CheckInventory(order);
+
+    // Processing phase
+    var result = ProcessPayment(order);
+
+    if (result.IsSuccess)
+    {
+        CompleteOrder(order);
+        SendConfirmation(order.CustomerEmail);
+    }
+
+    // Cleanup
+    LogOrderProcessing(order.Id, result);
+}
+```
+
+## Examples
 
 ### Repository Pattern Generation
+
+Sample Builder Code:
 
 ```csharp
 .AddClass($"{Model.Name}Repository", @class =>
@@ -628,7 +899,33 @@ You can control the visual organization of your generated code using spacing met
 })
 ```
 
+Example:
+
+```csharp
+public class CustomerRepository : ICustomerRepository
+{
+    private readonly DbContext _context;
+
+    public CustomerRepository(DbContext context)
+    {
+        _context = context;
+    }
+
+    public Customer GetById(int id)
+    {
+        return _context.Customers.FirstOrDefault(x => x.Id == id);
+    }
+
+    public void Add(Customer entity)
+    {
+        _context.Add(entity);
+    }
+}
+```
+
 ### DTO Generation
+
+Sample Builder Code:
 
 ```csharp
 .AddClass($"{Model.Name}Dto", @class =>
@@ -639,13 +936,12 @@ You can control the visual organization of your generated code using spacing met
     }
     
     // Add conversion methods
-    @class.AddMethod($"{Model.Name}Dto", "FromDomain", method =>
+    @class.AddMethod(@class.Name, "FromDomain", method =>
     {
         method
             .Static()
             .AddParameter(GetTypeName(Model), "entity")
-            .AddStatement("return new()")
-            .AddObjectInitializerBlock(block =>
+            .AddObjectInitializerBlock($"return new {@class.Name}", block =>
             {
                 foreach (var attr in Model.Attributes.Where(a => a.IsPublic))
                 {
@@ -654,6 +950,25 @@ You can control the visual organization of your generated code using spacing met
             });
     });
 })
+```
+
+Example:
+
+```csharp
+public class CustomerDto
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+
+    public static CustomerDto FromDomain(Customer entity)
+    {
+        return new CustomerDto
+        {
+            FirstName = entity.FirstName,
+            LastName = entity.LastName
+        };
+    }
+}
 ```
 
 ## Error Handling and Debugging
