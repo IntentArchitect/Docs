@@ -5,23 +5,57 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.0
 
-Intent Architect v4.5.0 is the latest release focused on making integrated AI capabilities accessible to developers and on improving usability and disoverability of the platform's capabilities.
+Intent Architect v4.5.0 is the latest release focused on making integrated AI capabilities accessible to developers and on improving usability and discoverability of the platform's capabilities.
 
 The 4.5 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
 ### Highlights in 4.5.0
 
-#### Revamped Getting Started
+#### Revamped Get Started
 
-_(documentation coming soon)_
+The **Get Started** process has been completely re-imagined to simplify the creation of new solutions. Users can now choose from one of the existing **Architecture Templates** or jump straight into one of the [Sample Application](#samples-and-sample-creation). The new experience includes clearer descriptions, rich visuals, and helpful materials such as screenshots and videos — all aimed at guiding you to select the right architecture for your needs quickly and confidently.
+
+The new **Architecture Template** selection screen - easily browse and compare available architecture options with a more visual, intuitive layout:
+
+![Architecture Template](images/4.5/templates-selection.png)
+
+The new **Template Details** screen - get in-depth information, visuals, and supporting content to help you choose the best starting point:
+
+![Template Details](images/4.5/template-details.png)
 
 #### Hosted Module Tasks (AI Tasks)
 
-_(documentation coming soon)_
+The new **Hosted Module Task** system introduces a powerful way to execute arbitrary tasks asynchronously in the background. This capability is used by Intent Architect’s AI modules to communicate with the selected LLM and carry out specific actions seamlessly.
+
+While designed with AI integration in mind, Hosted Module Tasks are fully extensible and can be leveraged by Module Builders for a wide range of scenarios, including (but not limited to):
+
+- Querying or updating data in a database
+- Calling external HTTP endpoints
+- Executing external applications or scripts
+
+This new system provides a flexible foundation for building richer, more dynamic module behavior.
 
 #### Samples and Sample Creation
 
-_(documentation coming soon)_
+The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications — complete with source code.
+
+Sample Selection:
+
+![Samples Selection](images/4.5/sample-selection.png)
+
+Sample Details:
+
+![Samples Details](images/4.5/sample-details.png)
+
+In addition to consuming existing samples, you can now package any solution you've built in Intent Architect as a sample.
+
+Creating a new sample from an existing solution:
+
+![Package menu](images/4.5/package-menu.png)
+
+Capture the details of the sample:
+
+![Package Details](images/4.5/package-details.png)
 
 ### Performance Enhancements for Module Manager
 
@@ -35,7 +69,11 @@ Furthermore, module downloads are now served directly from our CDN's infrastruct
 
 ### Custom User Settings
 
-_(documentation coming soon)_
+Modules can now define **User Settings** — configuration values that are specific to an individual user and excluded from source control. This allows sensitive information, such as API keys, to be safely configured within Intent Architect without the risk of being committed to a repository.
+
+This new capability is currently utilized by the Intent AI modules to securely store user-specific AI provider details, including API keys:
+
+![User Settings](images/4.5/user-settings.png)
 
 ### Improvements in 4.5.0
 
