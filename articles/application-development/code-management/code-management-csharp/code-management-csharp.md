@@ -381,6 +381,21 @@ Template authors can also add this line to their templates which lets Intent kno
 
 As with [fully mode](#fully-mode), if your statement was an if statement with a block statement, that would be retained too.
 
+#### Method chains
+
+In both fully and merge mode of a block statement, you can add to a chain to a method chain using `// IntentIgnore` above it, for example:
+
+```csharp
+void Method()
+{
+    Member
+      .GeneratedChain1()
+      // IntentIgnore
+      .ManuallyAddedChain()
+      .GeneratedChain2();
+}
+```
+
 ## Module Settings
 
 ![RoslynWeaver Settings](images/roslynweaver-settings.png)
