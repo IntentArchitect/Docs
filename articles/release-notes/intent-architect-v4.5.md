@@ -25,15 +25,16 @@ The new **Template Details** screen - get in-depth information, visuals, and sup
 
 #### Hosted Module Tasks (AI Tasks)
 
-The new **Hosted Module Task** system introduces a powerful way to execute arbitrary tasks asynchronously in the background. This capability is used by Intent Architect’s AI modules to communicate with the selected LLM and carry out specific actions seamlessly.
+The new **Hosted Module Task** system introduces a powerful way to execute custom tasks asynchronously in the background, as well as **suggest changes to selected files** based on the outcome or processing of the task.  This functionality is leveraged by Intent Architect’s AI modules to interact with the selected LLM and present intelligent code modification suggestions seamlessly within Intent Architect.
 
-While designed with AI integration in mind, Hosted Module Tasks are fully extensible and can be leveraged by Module Builders for a wide range of scenarios, including (but not limited to):
+While originally designed with AI integration in mind, Hosted Module Tasks are fully extensible and can be utilized by Module Builders for a wide range of scenarios, including (but not limited to):
 
-- Querying or updating data in a database
-- Calling external HTTP endpoints
-- Executing external applications or scripts
+- **Querying a database**, such as connecting to an existing SQL Server instance to extract and import schema metadata into Intent Architect
+- **Calling external HTTP endpoints**, for example, retrieving OpenAPI specifications from a remote service to generate corresponding client code
+- **Executing external applications or scripts**, such as running a custom PowerShell script to gather environment-specific configuration data
+- **Suggesting file updates based on analysis or external input**
 
-This new system provides a flexible foundation for building richer, more dynamic module behavior.
+This system provides a flexible and extensible foundation for building richer, more dynamic, and intelligent module behavior.
 
 #### Samples and Sample Creation
 
