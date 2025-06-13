@@ -36,6 +36,10 @@ While originally designed with AI integration in mind, Hosted Module Tasks are f
 
 This system provides a flexible and extensible foundation for building richer, more dynamic, and intelligent module behavior.
 
+AI-powered functionality is currently available in the [Intent.AI.AutoImplementation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-ai-autoimplementation/intent-ai-autoimplementation.html) and [Intent.AI.UnitTests](https://docs.intentarchitect.com/articles/modules-dotnet/intent-ai-unittests/intent-ai-unittests.html) modules:
+
+![Available AI context menu](images/4.5/ai-context-menu.png)
+
 #### Samples and Sample Creation
 
 The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications — complete with source code.
