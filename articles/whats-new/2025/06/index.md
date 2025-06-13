@@ -2,17 +2,19 @@
 
 Welcome to the June 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
+We are proud to announce the release of Intent Architect 4.5 beta.  This version is fully backwards compatible.
+
 - Highlights
   - **[Revamped "Get Started"](#revamped-get-started)** - The "Get Started" process to create new applications has been completely re-imagined to simplify the creation of new solutions
-  - **[Sample Applications](#sample-applications)** - Create new Intent Architect solutions from fully functional, ready-to-run sample applications.
+  - **[New Sample System](#new-sample-system)** - Create new Intent Architect solutions from fully functional, ready-to-run sample applications. Easily create your own templates too.
   - **[Hosted Module Tasks](#hosted-module-tasks)** - The powerful new system enables background task execution and suggests file changes based on task outcomes.
   - **[Handler Auto-Implementation](#auto-implementation)** - Automatically generate Command and Query handler implementations using AI in conjunction with Intent Architect metadata.
   - **[Unit Testing Module](#unit-testing-module)** - Scaffolds the project structure, configurations, and NuGet packages required for unit testing - ready for test cases to be added.
   - **[Unit Test Implementation Generation](#unit-test-generation)** - Automatically generate relevant Command and Query unit test implementations using AI in conjunction with Intent Architect metadata.
-  - **[Entity Framework OData Module](#entity-framework-odata-module)** - This module enables you to expose `Entity`'s as OData endpoints.
-  - **[Diff Audit Module](#diff-audit-module)** - This module adds functionality to model differential auditing on an `Entity`.
 
 - More updates
+  - **[Entity Framework OData Module](#entity-framework-odata-module)** - This module enables you to expose `Entity`'s as OData endpoints.
+  - **[Diff Audit Module](#diff-audit-module)** - This module adds functionality to model differential auditing on an `Entity`.
   - **[AutoMapper option for separating Profiles from DTOs](#automapper-option-for-separating-profiles-from-dtos)** - As AutoMapper `Profile`s and DTO have very different dependencies it is often better to have these as separate files.
   - **[PostgreSQL Stored Procedure Support](#postgresql-stored-procedure-support)** - Stored Procedure support has been added for PostgreSQL Entity Framework database provider type.
   - **[Improved VS Solution modeling options](#improved-vs-solution-modeling-options)** - Improvements in the VS Designer.
@@ -33,7 +35,7 @@ Available from:
 
 - Intent Architect 4.4.5
 
-### Sample Applications
+### New Sample System
 
 The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications — complete with source code.
 
@@ -76,7 +78,7 @@ Optional guidance can be provided:
 
 Available from:
 
-- Intent.AI.AutoImplementation 1.0.0-beta.1
+- Intent.AI.AutoImplementation 1.0.0-beta.1 *(Requires Intent Architect 4.5 or later)*
 
 ### Unit Testing Module
 
