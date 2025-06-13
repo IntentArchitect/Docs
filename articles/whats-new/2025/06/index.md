@@ -55,7 +55,8 @@ AI-powered functionality is currently available in the [Intent.AI.AutoImplementa
 
 ![Available AI context menu](images/ai-context-menu.png)
 
-> 💡 This is an initial release of our AI-driven features. We plan to continue investing in and extending this functionality, and we welcome any feedback or suggestions on how to improve it.
+> [!NOTE]
+> This is an initial release of our AI-driven features. We plan to continue investing in and extending this functionality, and we welcome any feedback or suggestions on how to improve it.
 
 Available from:
 
