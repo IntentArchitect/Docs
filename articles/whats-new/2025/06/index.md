@@ -5,10 +5,10 @@ Welcome to the June 2025 edition of highlights of What's New in Intent Architect
 We are proud to announce the release of Intent Architect 4.5 beta.  This version is fully backwards compatible.
 
 - Highlights
-  - **[Revamped "Get Started"](#revamped-get-started)** - The "Get Started" process to create new applications has been completely re-imagined to simplify the creation of new solutions
+  - **[Revamped "Get Started"](#revamped-get-started)** - The "Get Started" process to create new applications has been completely re-imagined to simplify the creation of new solutions.
   - **[New Sample System](#new-sample-system)** - Create new Intent Architect solutions from fully functional, ready-to-run sample applications. Easily create your own templates too.
-  - **[Hosted Module Tasks](#hosted-module-tasks)** - The powerful new system enables background task execution and suggests file changes based on task outcomes.
-  - **[Handler Auto-Implementation](#auto-implementation)** - Automatically generate Command and Query handler implementations using AI in conjunction with Intent Architect metadata.
+  - **[Hosted Module Tasks](#hosted-module-tasks)** - The powerful new system enables background task execution with UI interactions like reviewing code change the task would like to make.
+  - **[Handler Auto-Implementation](#handler-auto-implementation)** - Automatically generate Command and Query handler implementations using AI in conjunction with Intent Architect metadata.
   - **[Unit Testing Module](#unit-testing-module)** - Scaffolds the project structure, configurations, and NuGet packages required for unit testing - ready for test cases to be added.
   - **[Unit Test Implementation Generation](#unit-test-generation)** - Automatically generate relevant Command and Query unit test implementations using AI in conjunction with Intent Architect metadata.
 
@@ -27,7 +27,7 @@ We are proud to announce the release of Intent Architect 4.5 beta.  This version
 
 ### Revamped Get Started
 
-The **Get Started** process has been completely re-imagined to simplify the creation of new solutions, with the ability to now choose from one of the existing **Architecture Templates** or jump straight into one of the fully working and configured [Sample Applications](#sample-applications).
+The **Get Started** process has been completely re-imagined to simplify the creation of new solutions, with the ability to now choose from one of the existing **Architecture Templates** or jump straight into one of the fully working and configured [Sample Applications](#new-sample-system).
 
 ![Template Selection](images/templates-selection.png)
 
@@ -64,7 +64,7 @@ Available from:
 
 - Intent Architect 4.4.5
 
-### Auto Implementation
+### Handler Auto Implementation
 
 The new AI-powered `Intent.AI.AutoImplementation` module automatically generates Command and Query handler implementations by leveraging Intent Architect’s rich metadata and generated code context. The generated output can further be refined, by providing additional guidance through an optional prompt, enabling more accurate and tailored code generation.
 
