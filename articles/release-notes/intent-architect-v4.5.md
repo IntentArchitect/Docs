@@ -80,6 +80,18 @@ This new capability is currently utilized by the Intent AI modules to securely s
 
 ![User Settings](images/4.5/user-settings.png)
 
+### Improved Application Settings Screen
+
+The **Application Settings** screen has been significantly improved for better usability and consistency:
+
+- Full-text search with result highlighting makes it easier to quickly locate specific settings:
+
+![Settings Search](images/4.5/settings-search.png)
+
+- The **Application Settings** screen now supports the global `Save All` button, saving all settings in one action - no more saving each section individually. Included is automatic change detection and save prompt when running the Software Factory, aligning its behavior with other Designers.
+
+![Settings Save](images/4.5/settings-save.png)
+
 ### Improvements in 4.5.0
 
 - Enhanced "Search Everywhere" search to include Stereotype Definitions and produce better search results.
