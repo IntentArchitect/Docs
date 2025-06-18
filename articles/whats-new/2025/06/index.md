@@ -2,7 +2,8 @@
 
 Welcome to the June 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
-We are proud to announce the release of Intent Architect 4.5 beta.  This version is fully backwards compatible.
+We're super excited to announce that a beta version of **Intent Architect 4.5** is now available, packed with powerful new features including **generative AI capabilities**, a revamped **"Get Started"** experience, an all-new **sample system** and more.  
+Check out the [release notes here](https://docs.intentarchitect.com/articles/release-notes/intent-architect-v4.5.html) - this version is fully backwards compatible.
 
 - Highlights
   - **[Revamped "Get Started"](#revamped-get-started)** - The "Get Started" process to create new applications has been completely re-imagined to simplify the creation of new solutions.
