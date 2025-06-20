@@ -152,6 +152,18 @@ intent-cli apply-pending-changes <username> <password> <isln-path> [options]
 |`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=error;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
 |`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=warning;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
 
+## FAQ
+
+### The command fails with a "Response file not found '\<value\>'" error
+
+This error will show if a provided argument (typically a password) starts with an `@` character and is due to it being attempted to be parsed as a [response file](https://learn.microsoft.com/dotnet/standard/commandline/syntax#response-files).
+
+To prevent an argument being interpreted as a response file it can be prefixed with `--` followed by a space, for example:
+
+```bash
+intent-cli apply-pending-changes user@example.com -- @Password1 intent-solution.isln
+```
+
 ## Example: Azure Pipelines
 
 > [!TIP]
