@@ -158,10 +158,16 @@ intent-cli apply-pending-changes <username> <password> <isln-path> [options]
 
 This error will show if a provided argument (typically a password) starts with an `@` character and is due to it being attempted to be parsed as a [response file](https://learn.microsoft.com/dotnet/standard/commandline/syntax#response-files).
 
-To prevent an argument being interpreted as a response file it can be prefixed with `--` followed by a space, for example:
+To prevent an argument being interpreted as a response file it must be preceded by an `--` argument, for example:
 
 ```bash
-intent-cli apply-pending-changes user@example.com -- @Password1 intent-solution.isln
+intent-cli ensure-no-outstanding-changes -- "user@example.com" "@Password1" "./intent-solution.isln"
+```
+
+Be aware that any optional arguments will need to be specified before the `--`, for example:
+
+```bash
+intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" --check-deviations -- "user@example.com" "@Password1" "./intent-solution.isln"
 ```
 
 ## Example: Azure Pipelines
