@@ -164,7 +164,7 @@ To prevent an argument being interpreted as a response file it must be preceded 
 intent-cli ensure-no-outstanding-changes -- "user@example.com" "@Password1" "./intent-solution.isln"
 ```
 
-Be aware that any optional arguments will need to be specified before the `--`, for example:
+Be aware that any optional arguments will need to be specified before the `--` argument, for example:
 
 ```bash
 intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" --check-deviations -- "user@example.com" "@Password1" "./intent-solution.isln"
