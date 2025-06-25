@@ -96,5 +96,5 @@ The table below shows the minimum version of Intent Architect required when usin
 |3.4.2-pre.0   |4.0.0-beta.10|
 |3.4.1         |4.0.0-beta.5|
 
-> ![NOTE]
+> [!NOTE]
 > SDK versions for Intent Architect versions lower than version 4 have not been captured.
