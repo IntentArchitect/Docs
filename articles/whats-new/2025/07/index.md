@@ -5,6 +5,8 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
 - Highlights
   - **[Universal Azure Service Bus Integration](#universal-azure-service-bus-integration)** - Seamlessly integrate Azure Service Bus messaging with ASP.NET Core, Windows Host Services through intelligent host detection.
   - **[Ignore specific lines of C# chained statements](#ignore-specific-lines-of-c-chained-statements)** - Use `// IntentIgnore` on specific lines of method chains in C# files.
+  - **[ASP.NET Core Identity Service](#aspnet-core-identity-service)** - Adds the latest ASP.NET Core Identity Service with HTTP Endpoints.
+  - **[ASP.NET Core Identity](#aspnet-core-identity)** - The latest `Intent.AspNetCore.Identity` module now exposes the entire Identity model within the Domain Designer.
 
 - More updates
   - **[Suppression of "Namespace does not match folder structure" warnings on eventing contracts](#automatic-suppression-of-namespace-does-not-match-folder-structure-ide0130-warnings-on-generated-eventing-messages)** - No more warnings from eventing contracts when `dotnet_style_namespace_match_folder` is enabled in your `.editorconfig` file.
@@ -47,6 +49,26 @@ This is also documented in our [](xref:application-development.code-weaving-and-
 Available from:
 
 - Intent.OutputManager.RoslynWeaver 4.9.9
+
+### ASP.NET Core Identity Service
+
+The `Intent.AspNetCore.IdentityService` module exposes the latest ASP.NET Core Identity Services as a HTTP endpoints. This module exposes additional configuration within the Service Designer.
+
+![Service Desginer](images/identity-service-service-designer.png)
+
+This module also allows you to inject the `IIdentityManagerService` and use the functionality in other services.
+
+To learn more about the Identity Service module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identityservice/intent-aspnetcore-identityservice.html).
+
+### ASP.NET Core Identity
+
+From version `4.2.0` the `Intent.AspNetCore.Identity` module now exposes the ASP.NET Core Identity model within the Domain Designer. This give you more control over how ASP.NET Core Identity is modelled, and you are able to extend any of the model classes.
+
+![Domain Desginer](images/identity-domain-designer.png)
+
+`Intent.AspNetCore.AccountController V4.1.6` and `Intent.AspNetCore.IdentityService V1.2.0` have also been updated with this Module and are extending the default ASP.NET Core Identity `IdentityUser<T>` model.
+
+To learn more about the Identity module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identity/intent-aspnetcore-identity.html).
 
 ### Automatic suppression of "Namespace does not match folder structure (IDE0130)" warnings on generated eventing messages
 
