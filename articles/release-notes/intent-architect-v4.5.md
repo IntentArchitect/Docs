@@ -92,13 +92,58 @@ The **Application Settings** screen has been significantly improved for better u
 
 ![Settings Save](images/4.5/settings-save.png)
 
+### In-app Explanations and Documentation
+
+Implemented in-app explanations and further support for "inline" documentation throughout the platform. This, for example, includes explanations of Stereotypes, dialogs, and element properties that appear as a popover when the user hovers over the subject. The feature aims to make it easier for new users of Intent Architect to easily understand the function of the feature or applied metadata.
+
+For example, selecting Stereotypes now displays a description:
+
+![Select Stereotype](images/4.5/select-stereotype.png)
+
+Explanation of applied stereotypes can also be found by overing over the stereotype. Properties with a dotted underlined also indicate that there is an explation for that property:
+
+![Stereotype Explanation](images/4.5/applied-stereotype-documentation.png)
+
+These explanations and documentation is applied from the modules simply by capturing the explanation in the Comments field for the Element Settings, Stereotype, or Stereotype Property. Note that you must be running the latest Module Builder for this information to be added to your module.
+
 ### Improvements in 4.5.0
 
 - Enhanced "Search Everywhere" search to include Stereotype Definitions and produce better search results.
 - New Application and Module screens now will remember your selected repository and whether Include Prerelease and Include Incompatible have been checked.
-
-_(documentation coming soon)_
+- Stereotypes can now indicate that they are a trait, which will then be extended to the element on which the stereotype is applied.
+- Dynamic Form support for `open-file` and `button` control types with support for markdown in hints and error messages.
+- Dynamic Form tree-views now support specifying the tree data explicitly.
+- Implemented an "always" hot modal stack for dialogs so that they open instantly.
+- Software Factory now stop on first error. 
+- Highlight `ElementException` exceptions during Software Factory Executions better to indicate that can be clicked.
+- Improved dialog styling.
+- Documentation ("Help") Dialog now allows you to choose whether to filter on all topics or just those in the current context.
+- Aligned Application Settings to standard "Tab Saving" paradigm. Saving Application Settings will restart the application's SF if running.
+- Added Open in IDE option to changes from Software Factory Execution and Hosted Module Tasks.
+- Support for `Ctrl + click` to navigate from diagram to types in the tree-view Model.
+- Copy + paste on root elements like Classes, Commands, Queries will copy them now.
+- Added `nagivateToDesigner` method to MacroApiFactory.ts which also allows a script to get executed once navigation completes.
+- Added `isReference()` to Element JS API.
+- Can now search applications by ID in the solution explorer. Supports space delimited list of application IDs to find multiple applications.
+- Renamed Deviations to Customizations.
+- Added "Order Priority" support to Module Settings' Fields to allow for control of ordering of fields. Fields are sorted first by OrderPriority, then by Title.
+-  Added `FriendlyException` to Intent.SoftwareFactory.SDK and upgraded client to render the error message with markdown. For example, this can be useful for Module Building where you want to throw errors to the user that has links to documentation.
+- Element properties and applied stereotypes can be collapsed and expaneded by clicking on the heading.
 
 ### Issues fixed in 4.5.0
 
-_(documentation coming soon)_
+- Fixed: Unnecessary designer reloads on module reinstall.
+- Fixed: Modules listed in the Manage Modules and Topics in the Documentation dialog not displaying selected font-awesome icons.
+- Fixed: Copy Application function not creating new Ids for packages, causing unexpected errors and challenges in various places in the system.
+- Fixed: Copy pasting a folder on itself creates an infinite hierarchy.
+- Fixed: Copy paste of elements with generics causes duplicate Id errors
+- Fixed: Modules' Installed tab not finding the module for pre-release installed modules.
+- Fixed: Copy paste not renaming advanced mapping expressions correctly.
+- Fixed: Ctrl + dragging to copy elements in the designers not working in certain scenarios.
+- Fixed: Order persisted on associations is incorrect when generic arguments are specified on the Element.
+- Fixed: Generic Arguments not showing correct options in the Type Reference properties.
+- Fixed: associations not unregistering themselves from referenced elements on deletion, making them linger when accessing the `getAssociations()` method on the Designer JS API.
+- Fixed: Persisted ordering of application settings not alphabetical leading to inconsistent changes.
+- Fixed: Associations that exist only in package references not showing in diagrams.
+- Fixed: Stereotype icons not showing in diagrams on package referenced elements.
+- Fixed: Solution Explorer search filter not expanding folders and not showing underlying designers for found applications.
