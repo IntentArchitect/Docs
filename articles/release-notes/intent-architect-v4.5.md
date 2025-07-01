@@ -100,7 +100,7 @@ For example, selecting Stereotypes now displays a description:
 
 ![Select Stereotype](images/4.5/select-stereotype.png)
 
-Explanation of applied stereotypes can also be found by overing over the stereotype. Properties with a dotted underlined also indicate that there is an explation for that property:
+Explanation of applied stereotypes can also be found by overing over the stereotype. Properties with a dotted underline also indicate that there is an explanation for that property:
 
 ![Stereotype Explanation](images/4.5/applied-stereotype-documentation.png)
 
@@ -128,7 +128,7 @@ These explanations and documentation is applied from the modules simply by captu
 - Renamed Deviations to Customizations.
 - Added "Order Priority" support to Module Settings' Fields to allow for control of ordering of fields. Fields are sorted first by OrderPriority, then by Title.
 -  Added `FriendlyException` to Intent.SoftwareFactory.SDK and upgraded client to render the error message with markdown. For example, this can be useful for Module Building where you want to throw errors to the user that has links to documentation.
-- Element properties and applied stereotypes can be collapsed and expaneded by clicking on the heading.
+- Element properties and applied stereotypes can be collapsed and expanded by clicking on the heading.
 
 ### Issues fixed in 4.5.0
 
