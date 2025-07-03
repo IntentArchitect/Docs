@@ -9,10 +9,10 @@ trigger:
 resources:
   pipelines:
   - pipeline: 'ModulesDotNetPipeline'
-    source: 'IntentSoftware.Intent.Modules.NET'
+    source: 'Modules.NET'
     trigger: true
   - pipeline: 'ModulesCommonPipeline'
-    source: 'IntentSoftware.Intent.Modules'
+    source: 'Modules'
     trigger: true
 
 parameters:
