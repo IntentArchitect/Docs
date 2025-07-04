@@ -65,13 +65,14 @@ The table below shows the minimum version of Intent Architect required when usin
 
 |SDK version   |Minimum required Intent Architect version|
 |--------------|-----------------------------------------|
-|3.9.0-pre.0   |4.5.0-beta.3|
-|3.9.0-alpha.4 |4.5.0-alpha.0|
-|3.9.0-alpha.4 |4.5.0-alpha.0|
-|3.9.0-alpha.3 |4.5.0-alpha.0|
-|3.9.0-alpha.2 |4.5.0-alpha.0|
-|3.9.0-alpha.1 |4.5.0-alpha.0|
-|3.9.0-alpha.0 |4.5.0-alpha.0|
+|3.9.0         |4.5.0-a|
+|3.9.0-pre.0   |4.5.0-a|
+|3.9.0-alpha.4 |4.5.0-a|
+|3.9.0-alpha.4 |4.5.0-a|
+|3.9.0-alpha.3 |4.5.0-a|
+|3.9.0-alpha.2 |4.5.0-a|
+|3.9.0-alpha.1 |4.5.0-a|
+|3.9.0-alpha.0 |4.5.0-a|
 |3.8.0-pre.2   |4.4.0-beta.2|
 |3.8.0-pre.1   |4.4.0-alpha.0|
 |3.8.0-pre.0   |4.4.0-alpha.0|
@@ -97,4 +98,15 @@ The table below shows the minimum version of Intent Architect required when usin
 |3.4.1         |4.0.0-beta.5|
 
 > [!NOTE]
-> SDK versions for Intent Architect versions lower than version 4 have not been captured.
+> SDK versions prior to `3.4.1` have not been captured.
+
+## `Intent.Persistence.SDK` compatibility reference
+
+|SDK version   |Minimum required Intent Architect version|
+|--------------|-----------------------------------------|
+|1.0.1         |4.5.0-a|
+
+> [!NOTE]
+> SDK versions prior to `1.0.1` have not been captured.
+
+[](#intentpersistencesdk-compatibility-reference)
