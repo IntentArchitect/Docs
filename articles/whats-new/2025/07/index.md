@@ -5,8 +5,8 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
 - Highlights
   - **[Universal Azure Service Bus Integration](#universal-azure-service-bus-integration)** - Seamlessly integrate Azure Service Bus messaging with ASP.NET Core, Windows Host Services through intelligent host detection.
   - **[Ignore specific lines of C# chained statements](#ignore-specific-lines-of-c-chained-statements)** - Use `// IntentIgnore` on specific lines of method chains in C# files.
-  - **[ASP.NET Core Identity Service](#aspnet-core-identity-service-endpoints)** – Exposes Identity-related functionality as HTTP endpoints using the latest ASP.NET Core Identity services.
-  - **[ASP.NET Core Identity](#aspnet-core-identity-domain-modelling)** – Enables full modelling and extension of ASP.NET Core Identity types within the Domain Designer.
+  - **[ASP.NET Core Identity Service](#aspnet-core-identity-service)** – Exposes Identity-related functionality as HTTP endpoints using the latest ASP.NET Core Identity services.
+  - **[ASP.NET Core Identity](#aspnet-core-identity)** – Enables full modelling and extension of ASP.NET Core Identity types within the Domain Designer.
 
 - More updates
   - **[Suppression of "Namespace does not match folder structure" warnings on eventing contracts](#automatic-suppression-of-namespace-does-not-match-folder-structure-ide0130-warnings-on-generated-eventing-messages)** - No more warnings from eventing contracts when `dotnet_style_namespace_match_folder` is enabled in your `.editorconfig` file.
