@@ -37,7 +37,6 @@ function Process-ModuleFolder {
     cd "articles"
 
     # create the toc file for the module folder
-    New-Item -Path $moduleOutputFolder -ItemType Directory -Force
     $tocPath = Join-Path -Path $moduleOutputFolder -ChildPath "toc.yml"
     Set-Content -Path $tocPath -Value "items:"
 
