@@ -9,6 +9,11 @@ In distributed architectures, services often need to communicate with one anothe
 
 The generated `Service Proxy` acts as an intermediary between an application and an external service, providing a strongly typed API that abstracts away the complexity of request configuration and client setup.
 
+Initially, Intent Architect required explicit modeling of Service Proxy elements as described in this article, but we have since made it possible for Service Proxies to be implicitly generated based on `Perform Invocation` relationships directly to Service Operations or CQRS requests which allows for quicker and simpler modelling. For more information on this approach please refer to the [](xref:application-development.modelling.services-designer.invoking-http-endpoints) article.
+
+> [!NOTE]
+> Although explicit modeling of Service Proxies as described in this article is still fully supported by Intent Architect, the alternative approach as described in the [](xref:application-development.modelling.services-designer.invoking-http-endpoints) article is the recommended approach going forward.
+
 ## Configuring Service References
 
 Before creating a `Service Proxy`, the service to be proxied must be added as a reference in the `Services Designer`.
@@ -99,7 +104,7 @@ This generates CQRS operations that call the `Proxy Service`, with parameters an
 
 > [!NOTE]
 > The `Create CQRS Operations` and `Create Service` options are available at a **Proxy Service** level. These options will accelerate the creation of the `commands/queries/operations` that don't already exist. Selecting them again will have no effect if all `commands/queries/operations` have already been created.
-
+>
 > [!NOTE]
 > The `Create CQRS Operation` and `Create Service Operations` options are available at the **Proxy Operation** level. These options will accelerate the **creation or updating** of the selected `command/query/operation`. If selected for a proxy operation which is already linked to a proxy `command/query/operation`, the proxy `command/query/operation` synced with the source `command/query/operation`. Attributes, attribute types, and default values will be updated to match the source as closely as possible. Be aware this could result in a loss of manual changes which have been made to linked proxy `command/query/operation`.
 
@@ -115,7 +120,7 @@ This generates service operations that call the `Proxy Service`, with parameters
 
 > [!NOTE]
 > The `Create CQRS Operations` and `Create Service` options are available at a **Proxy Service** level. These options will accelerate the creation of the `commands/queries/operations` that don't already exist. Selecting them again will have no effect if all `commands/queries/operations` have already been created.
-
+>
 > [!NOTE]
 > The `Create CQRS Operation` and `Create Service Operations` options are available at the **Proxy Operation** level. These options will accelerate the **creation or updating** of the selected `command/query/operation`. If selected for a proxy operation which is already linked to a proxy `command/query/operation`, the proxy `command/query/operation` synced with the source `command/query/operation`. Attributes, attribute types, and default values will be updated to match the source as closely as possible. Be aware this could result in a loss of manual changes which have been made to linked proxy `command/query/operation`.
 

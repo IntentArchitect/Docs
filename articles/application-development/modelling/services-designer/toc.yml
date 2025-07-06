@@ -1,5 +1,11 @@
 items:
 
+- name: Invoking HTTP Endpoints
+  href: invoking-http-endpoints/invoking-http-endpoints.md
+
+- name: Message-Based Integration Modeling
+  href: message-based-integration-modeling/message-based-integration-modeling.md
+
 - name: Modeling Services
   href: modeling-services/modeling-services.md
 
@@ -7,7 +13,4 @@ items:
   href: securing-services/securing-services.md
 
 - name: Service Proxy Modeling
-  href: ../proxy-designer/proxy-designer.md
-
-- name: Message-Based Integration Modeling
-  href: message-based-integration-modeling/message-based-integration-modeling.md
+  href: modeling-service-proxies/modeling-service-proxies.md
