@@ -10,6 +10,8 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
 
 - More updates
   - **[Suppression of "Namespace does not match folder structure" warnings on eventing contracts](#automatic-suppression-of-namespace-does-not-match-folder-structure-ide0130-warnings-on-generated-eventing-messages)** - No more warnings from eventing contracts when `dotnet_style_namespace_match_folder` is enabled in your `.editorconfig` file.
+  - **[`// IntentInitialGen` support for statements](#c-code-management-now-supports--intentinitialgen-on-statements)** - "Only once" statement generation option for template authors.
+  - **[Software Factory CLI quality of life improvements for pre-commit checking](#software-factory-cli-quality-of-life-improvements-for-pre-commit-checking)** - Optionally have the Software Factory CLI show all failing applications.
 
 ## Update details
 
@@ -50,6 +52,47 @@ Available from:
 
 - Intent.OutputManager.RoslynWeaver 4.9.9
 
+### C# code management now supports `// IntentInitialGen` on statements
+
+The `IntentInitialGen` can now be added above statements to essentially achieve "once off" generation of it. This is useful for scenarios where a statement like `throw new NotImplementedException()` needs to be generated in a method for it to be able to compile, but you don't want to put a method body fully ignore mode either which before would have been required to prevent the statement being generated when the user removed it.
+
+Consider the below template content:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    // IntentInitialGen
+    throw new NotImplementedException();
+}
+```
+
+When the method is initially generated it inserts the the `throw new NotImplementedException();` statement but without the code management instruction:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    throw new NotImplementedException();
+}
+```
+
+If the user deletes the statement while adding their own logic, Intent Architect will now not try to bring it back, for example:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    return _calculationService.Calculate(id);
+}
+```
+
+This is also documented in [](xref:application-development.code-weaving-and-generation.about-code-management-csharp#the--intentinitialgen-instruction) article.
+
+Available from:
+
+- Intent.OutputManager.RoslynWeaver 4.9.10
+
 ### ASP.NET Core Identity Service
 
 The `Intent.AspNetCore.IdentityService` module exposes the latest ASP.NET Core Identity services as HTTP endpoints. This module provides additional configuration options within the Service Designer.
@@ -83,3 +126,29 @@ To suppress this warning, an assembly attribute like the following is now genera
 Available from:
 
 - Intent.Eventing.Contracts 5.2.1
+
+### Software Factory CLI quality of life improvements for pre-commit checking
+
+When using the [Software Factory CLI's `ensure-no-outstanding-changes` command](xref:tools.software-factory-cli#ensure-no-outstanding-changes-command) for a solution, when an error was encountered it would immediately stop processing all other applications as well.
+
+This behaviour can be desirable on CI servers to avoid holding it up while other builds may be queued up, but when using the Software Factory CLI as a pre-commit check on a developer's local machine it can waste time as the developer has to fix applications one at a time, re-running the CLI after each fixed application to see if any other applications possibly have an error.
+
+There is now a `--continue-on-error` [option](xref:tools.software-factory-cli#ensure-no-outstanding-changes-options) which will instruct the Software Factory to continue processing other applications and at the end it will show the list of failing applications:
+
+For example, here is a screenshot of the Software Factory CLI failing on multiple applications:
+
+![The Software Factory showing the full list of failing applications](images/software-factory-cli-list-of-failing-applications.png)
+
+Also take note of the following line in the output:
+
+```text
+Failing application ids (hint: The Intent Architect solution filter box supports these space separated ids as is): 9e282f05-7636-4f1f-8d76-c849d13508c3 c3ac2e0f-34c5-4509-9652-5f90a99106e8
+```
+
+These application ids can be copied to your clipboard and pasted in the Solution Explorer's filter box in Intent Architect to have it show just those particular applications:
+
+![Solution Explorer with the applications filtered](images/filtered-solution-explorer-application-list.png)
+
+Available from:
+
+- Intent.SoftwareFactory.CLI 4.5.0

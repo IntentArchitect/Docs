@@ -397,6 +397,37 @@ When `[IntentInitialGen]` is on a statement in a template, it is generated durin
 
 During initial generation of a file, the instruction is removed from statement so this instruction will never be visible except to template authors.
 
+Consider the below template content:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    // IntentInitialGen
+    throw new NotImplementedException();
+}
+```
+
+When the method is initially generated it inserts the the `throw new NotImplementedException();` statement but without the code management instruction:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    throw new NotImplementedException();
+}
+```
+
+If the user deletes the statement while adding their own logic, Intent Architect will not try to bring it back, for example:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    return _calculationService.Calculate(id);
+}
+```
+
 #### Method chains
 
 In both fully and merge mode of a block statement, you can add to a chain to a method chain using `// IntentIgnore` above it, for example:
