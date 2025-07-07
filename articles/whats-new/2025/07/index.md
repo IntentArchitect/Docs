@@ -5,11 +5,11 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
 We are proud to announce 4.5 is officially live, for full details available in the [release notes](https://docs.intentarchitect.com/articles/release-notes/intent-architect-v4.5.html) .
 
 - Highlights
-  - **[Universal Azure Service Bus Integration](#universal-azure-service-bus-integration)** - Seamlessly integrate Azure Service Bus messaging with ASP.NET Core, Windows Host Services through intelligent host detection.
   - **[Ignore specific lines of C# chained statements](#ignore-specific-lines-of-c-chained-statements)** - Use `// IntentIgnore` on specific lines of method chains in C# files.
   - **[ASP.NET Core Identity Service](#aspnet-core-identity-service)** – Exposes Identity-related functionality as HTTP endpoints using the latest ASP.NET Core Identity services.
   - **[ASP.NET Core Identity](#aspnet-core-identity)** – Enables full modelling and extension of ASP.NET Core Identity types within the Domain Designer.
   - **[CRUD Script enhancements](#crud-script-enhancements)** – Improved validations, user feedback, better parity between CQRS paradigm and Traditional style services.
+  - **[Universal Azure Service Bus Integration](#universal-azure-service-bus-integration)** - Seamlessly integrate Azure Service Bus messaging with ASP.NET Core, Windows Host Services through intelligent host detection.
 
 - More updates
   - **[AutoMapper and MediatR going commercial](#automapper-and-mediatr-going-commercial)** – Currently our modules are locked to use the free versions of these NuGet packages.
@@ -19,22 +19,6 @@ We are proud to announce 4.5 is officially live, for full details available in t
   - **[Software Factory CLI quality of life improvements for pre-commit checking](#software-factory-cli-quality-of-life-improvements-for-pre-commit-checking)** - Optionally have the Software Factory CLI show all failing applications.
 
 ## Update details
-
-### Universal Azure Service Bus Integration
-
-The Azure Service Bus module now automatically detects your hosting platform and configures appropriate message consumption patterns. Whether you're building ASP.NET Core web applications or Windows Host Services, message handling is automatically configured.
-
-Your host configuration will have this background service running to process incoming messages from an Azure Service Bus queue or topic:
-
-```csharp
-builder.Services.AddHostedService<AzureServiceBusHostedService>();
-```
-
-To learn more about the Azure Service Bus module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azureservicebus.html).
-
-Available from:
-
-- Intent.Eventing.AzureServiceBus 1.1.0
 
 ### Ignore specific lines of C# chained statements
 
@@ -77,15 +61,6 @@ From version `4.2.0`, the `Intent.AspNetCore.Identity` module exposes the ASP.NE
 
 To learn more about the Identity module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identity/intent-aspnetcore-identity.html)
 
-### AutoMapper and MediatR going commercial
-
-These two NuGet packages have recently introduced commercial versions. For now, we have locked our modules to the current free versions. We will soon be adding a setting that allows you to choose between using the free or the commercial version. Once the commercial versions start to diverge from the free ones, we’ll reassess how this impacts our modules.
-
-Available from:
-
-- Intent.Application.MediatR 4.4.1
-- Intent.Application.AutoMapper 5.2.2
-
 ### CRUD Script enhancements
 
 There have been many improvements to CRUD scripts:
@@ -103,6 +78,31 @@ Traditional Style services now add diagrams and can CRUD compositional child col
 Available from:
 
 - Intent.Modelers.Services.DomainInteractions 2.2.0
+
+### Universal Azure Service Bus Integration
+
+The Azure Service Bus module now automatically detects your hosting platform and configures appropriate message consumption patterns. Whether you're building ASP.NET Core web applications or Windows Host Services, message handling is automatically configured.
+
+Your host configuration will have this background service running to process incoming messages from an Azure Service Bus queue or topic:
+
+```csharp
+builder.Services.AddHostedService<AzureServiceBusHostedService>();
+```
+
+To learn more about the Azure Service Bus module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azureservicebus/intent-eventing-azureservicebus.html).
+
+Available from:
+
+- Intent.Eventing.AzureServiceBus 1.1.0
+
+### AutoMapper and MediatR going commercial
+
+These two NuGet packages have recently introduced commercial versions. For now, we have locked our modules to the current free versions. We will soon be adding a setting that allows you to choose between using the free or the commercial version. Once the commercial versions start to diverge from the free ones, we’ll reassess how this impacts our modules.
+
+Available from:
+
+- Intent.Application.MediatR 4.4.1
+- Intent.Application.AutoMapper 5.2.2
 
 ### Visualize Aggregates
 
