@@ -7,8 +7,10 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
   - **[Ignore specific lines of C# chained statements](#ignore-specific-lines-of-c-chained-statements)** - Use `// IntentIgnore` on specific lines of method chains in C# files.
   - **[ASP.NET Core Identity Service](#aspnet-core-identity-service)** – Exposes Identity-related functionality as HTTP endpoints using the latest ASP.NET Core Identity services.
   - **[ASP.NET Core Identity](#aspnet-core-identity)** – Enables full modelling and extension of ASP.NET Core Identity types within the Domain Designer.
+  - **[CRUD Script enhancements](#crud-script-enhancements)** – Improved validations, user feedback, better parity between CQRS paradigm and Traditional style services.
 
 - More updates
+  - **[Visualize aggregates](#visualize-aggregates)** – **Domain Designer** now visually differentiates aggregates and entities.
   - **[Suppression of "Namespace does not match folder structure" warnings on eventing contracts](#automatic-suppression-of-namespace-does-not-match-folder-structure-ide0130-warnings-on-generated-eventing-messages)** - No more warnings from eventing contracts when `dotnet_style_namespace_match_folder` is enabled in your `.editorconfig` file.
   - **[`// IntentInitialGen` support for statements](#c-code-management-now-supports--intentinitialgen-on-statements)** - "Only once" statement generation option for template authors.
   - **[Software Factory CLI quality of life improvements for pre-commit checking](#software-factory-cli-quality-of-life-improvements-for-pre-commit-checking)** - Optionally have the Software Factory CLI show all failing applications.
@@ -112,6 +114,34 @@ From version `4.2.0`, the `Intent.AspNetCore.Identity` module exposes the ASP.NE
 `Intent.AspNetCore.AccountController V4.1.6` and `Intent.AspNetCore.IdentityService V1.2.0` have also been updated to support this module and now extend the default ASP.NET Core Identity `IdentityUser<T>` model.
 
 To learn more about the Identity module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identity/intent-aspnetcore-identity.html)
+
+### CRUD Script enhancements
+
+There have been many improvements to CRUD scripts:
+
+- General validations and user feedback, on unsupported scenarios.
+- Better parity between the CQRS and Traditional style services.
+- Generate endpoint for nested aggregate collection, previously this only worked 1 level deep.
+
+The CRUD scripts have better validation and user feedback, if you try to create service endpoint which are not possible the script will let you know and make suggestions on how to achieve this , rather than just skipping those options. e.g. Trying to CRUD entities without primary keys.
+
+Traditional Style services now add diagrams and can CRUD compositional child collections, like it's CQRS counter part.
+
+![CRUD Traditional Service](images/crud-traditional.png)
+
+Available from:
+
+- Intent.Modelers.Services.DomainInteractions 2.2.0
+
+### Visualize Aggregates
+
+The **Domain Designer** now visually differentiates aggregates from entities making it easier to understand and validate your domain models at a glance.
+
+![Domain Designer](images/visualize-aggregates.png)
+
+Available from:
+
+- Intent.Modelers.Domain 3.12.3
 
 ### Automatic suppression of "Namespace does not match folder structure (IDE0130)" warnings on generated eventing messages
 
