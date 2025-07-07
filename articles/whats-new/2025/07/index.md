@@ -54,47 +54,6 @@ Available from:
 
 - Intent.OutputManager.RoslynWeaver 4.9.9
 
-### C# code management now supports `// IntentInitialGen` on statements
-
-The `IntentInitialGen` can now be added above statements to essentially achieve "once off" generation of it. This is useful for scenarios where a statement like `throw new NotImplementedException()` needs to be generated in a method for it to be able to compile, but you don't want to put a method body fully ignore mode either which before would have been required to prevent the statement being generated when the user removed it.
-
-Consider the below template content:
-
-```csharp
-[IntentFully, IntentMergeBody]
-public int DoSomeCalculationFor(Guid id)
-{
-    // IntentInitialGen
-    throw new NotImplementedException();
-}
-```
-
-When the method is initially generated it inserts the the `throw new NotImplementedException();` statement but without the code management instruction:
-
-```csharp
-[IntentFully, IntentMergeBody]
-public int DoSomeCalculationFor(Guid id)
-{
-    throw new NotImplementedException();
-}
-```
-
-If the user deletes the statement while adding their own logic, Intent Architect will now not try to bring it back, for example:
-
-```csharp
-[IntentFully, IntentMergeBody]
-public int DoSomeCalculationFor(Guid id)
-{
-    return _calculationService.Calculate(id);
-}
-```
-
-This is also documented in [](xref:application-development.code-weaving-and-generation.about-code-management-csharp#the--intentinitialgen-instruction) article.
-
-Available from:
-
-- Intent.OutputManager.RoslynWeaver 4.9.10
-
 ### ASP.NET Core Identity Service
 
 The `Intent.AspNetCore.IdentityService` module exposes the latest ASP.NET Core Identity services as HTTP endpoints. This module provides additional configuration options within the Service Designer.
@@ -156,6 +115,47 @@ To suppress this warning, an assembly attribute like the following is now genera
 Available from:
 
 - Intent.Eventing.Contracts 5.2.1
+
+### C# code management now supports `// IntentInitialGen` on statements
+
+The `IntentInitialGen` can now be added above statements to essentially achieve "once off" generation of it. This is useful for scenarios where a statement like `throw new NotImplementedException()` needs to be generated in a method for it to be able to compile, but you don't want to put a method body fully ignore mode either which before would have been required to prevent the statement being generated when the user removed it.
+
+Consider the below template content:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    // IntentInitialGen
+    throw new NotImplementedException();
+}
+```
+
+When the method is initially generated it inserts the the `throw new NotImplementedException();` statement but without the code management instruction:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    throw new NotImplementedException();
+}
+```
+
+If the user deletes the statement while adding their own logic, Intent Architect will now not try to bring it back, for example:
+
+```csharp
+[IntentFully, IntentMergeBody]
+public int DoSomeCalculationFor(Guid id)
+{
+    return _calculationService.Calculate(id);
+}
+```
+
+This is also documented in [](xref:application-development.code-weaving-and-generation.about-code-management-csharp#the--intentinitialgen-instruction) article.
+
+Available from:
+
+- Intent.OutputManager.RoslynWeaver 4.9.10
 
 ### Software Factory CLI quality of life improvements for pre-commit checking
 
