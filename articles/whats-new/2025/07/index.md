@@ -2,6 +2,8 @@
 
 Welcome to the July 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
+We are proud to announce 4.5 is officially live, for full details available in the [release notes](https://docs.intentarchitect.com/articles/release-notes/intent-architect-v4.5.html) .
+
 - Highlights
   - **[Universal Azure Service Bus Integration](#universal-azure-service-bus-integration)** - Seamlessly integrate Azure Service Bus messaging with ASP.NET Core, Windows Host Services through intelligent host detection.
   - **[Ignore specific lines of C# chained statements](#ignore-specific-lines-of-c-chained-statements)** - Use `// IntentIgnore` on specific lines of method chains in C# files.
@@ -10,6 +12,7 @@ Welcome to the July 2025 edition of highlights of What's New in Intent Architect
   - **[CRUD Script enhancements](#crud-script-enhancements)** – Improved validations, user feedback, better parity between CQRS paradigm and Traditional style services.
 
 - More updates
+  - **[AutoMapper and MediatR going commercial](#automapper-and-mediatr-going-commercial)** – Currently our modules are locked to use the free versions of these NuGet packages.
   - **[Visualize aggregates](#visualize-aggregates)** – **Domain Designer** now visually differentiates aggregates and entities.
   - **[Suppression of "Namespace does not match folder structure" warnings on eventing contracts](#automatic-suppression-of-namespace-does-not-match-folder-structure-ide0130-warnings-on-generated-eventing-messages)** - No more warnings from eventing contracts when `dotnet_style_namespace_match_folder` is enabled in your `.editorconfig` file.
   - **[`// IntentInitialGen` support for statements](#c-code-management-now-supports--intentinitialgen-on-statements)** - "Only once" statement generation option for template authors.
@@ -73,6 +76,15 @@ From version `4.2.0`, the `Intent.AspNetCore.Identity` module exposes the ASP.NE
 `Intent.AspNetCore.AccountController V4.1.6` and `Intent.AspNetCore.IdentityService V1.2.0` have also been updated to support this module and now extend the default ASP.NET Core Identity `IdentityUser<T>` model.
 
 To learn more about the Identity module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-identity/intent-aspnetcore-identity.html)
+
+### AutoMapper and MediatR going commercial
+
+These two NuGet packages have recently introduced commercial versions. For now, we have locked our modules to the current free versions. We will soon be adding a setting that allows you to choose between using the free or the commercial version. Once the commercial versions start to diverge from the free ones, we’ll reassess how this impacts our modules.
+
+Available from:
+
+- Intent.Application.MediatR 4.4.1
+- Intent.Application.AutoMapper 5.2.2
 
 ### CRUD Script enhancements
 
