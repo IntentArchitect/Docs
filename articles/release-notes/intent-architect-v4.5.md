@@ -3,6 +3,18 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.2
+
+### Issues fixed in 4.5.2
+
+- Fixed: Fixed issue where module migrations were not running.
+
+## Version 4.5.1
+
+### Issues fixed in 4.5.1
+
+- Fixed: Fixed errors running Software Factories related to uninitialized **User Settings**.
+
 ## Version 4.5.0
 
 Intent Architect v4.5.0 is the latest release focused on making integrated AI capabilities accessible to developers and on improving usability and discoverability of the platform's capabilities.
