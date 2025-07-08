@@ -121,7 +121,7 @@ For de-serialization of eventing message contracts to work between different app
 To suppress this warning, an assembly attribute like the following is now generated in an `AssemblyAttributes.cs` for each namespace which needs to be suppressed:
 
 ```csharp
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Formatting", "IDE0130:Namespace does not match folder structure.", Justification = "Message namespaces need to consistent between applications for deserialization to work", Scope = "namespaceanddescendants", Target = "<namespace>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Formatting", "IDE0130:Namespace does not match folder structure.", Justification = "Message namespaces need to be consistent between applications for deserialization to work", Scope = "namespaceanddescendants", Target = "<namespace>")]
 ```
 
 Available from:
