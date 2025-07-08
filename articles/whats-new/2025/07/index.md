@@ -97,7 +97,7 @@ Available from:
 
 ### AutoMapper and MediatR going commercial
 
-These two NuGet packages have recently introduced commercial versions. For now, we have locked our modules to the current free versions. We will soon be adding a setting that allows you to choose between using the free or the commercial version. Once the commercial versions start to diverge from the free ones, we’ll reassess how this impacts our modules.
+These two NuGet packages [have recently introduced commercial versions](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/). For now, we have locked our modules to the current free versions. We will soon be adding a setting that allows you to choose between using the free or the commercial version. Once the commercial versions start to diverge from the free ones, we’ll reassess how this impacts our modules.
 
 Available from:
 
