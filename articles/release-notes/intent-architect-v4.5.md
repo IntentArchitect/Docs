@@ -3,6 +3,37 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.3
+
+### Improvements in 4.5.3
+
+- Support for cross-designer JS scripting. You can now programmatically navigate the user to another designer and execute a script once the designer is active. For example:
+
+    ``` JS
+    const serviceDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
+    navigateToDesigner(serviceDesignerId, {
+        executeScript: `await CrudApi.createCQRSService(getPackages()[0], lookup('${element.id}'));`, // Execute this in the services designer
+        scriptDependencies: ["61a8411f-b5bc-4a00-9a37-a967e0893d9d"] // Script dependency on CRUD Script
+    });
+    ```
+    As an example, this has allowed the team upgrade the `Intent.Modelers.Services.DomainInteractions` module to offer suggestions to the user in the Domain that will be executed in the Services designer:
+    ![create-crud-from-domain-suggestion](images/4.5/create-crud-from-domain-suggestion.png)
+    _Note: to access this feature you will need to update `Intent.Modelers.Services.DomainInteractions` to `2.3.0-pre.0` or later._
+    
+ - Added additional JS API functions to the `IDiagramApi` (e.g. `selectVisuals(...)` and `getViewPort()`). These new functions have, for example, made it possible to call the "Create CRUD..." accelerators directly from a diagram in the Services Designer (a simpler paradigm and easier to discover than right-clicking the package).
+
+
+### Issues fixed in 4.5.3
+
+- Fixed: Auto-focus of drop-downs not working in dynamic forms
+- Fixed: Associations added to diagrams are not aligned with the center of the target element.
+- Fixed: Error trying to reopen an application that had an incompatibilities warning that was cancelled by the user.
+- Fixed: Ctrl + dragging package reference elements into the diagram can fail to lay out the elements and place them on top of each other.
+- Fixed: Dynamic Form `tree-view` control not respected the `isSelected` default from the form configuration.
+- Fixed: Missed places where "deviation" name was not changed to "customization".
+- Fixed: Auto-mapping in Advanced Mapper not working in the new Invocation Mappings for Perform Invocation interactions.
+- Fixed: Unexpected Error dialog popping up with "Software Factory Task could not be shut down after 5 retries" when I/O taking very long.
+
 ## Version 4.5.2
 
 ### Issues fixed in 4.5.2
