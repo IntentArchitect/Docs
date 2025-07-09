@@ -33,6 +33,8 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Missed places where "deviation" name was not changed to "customization".
 - Fixed: Auto-mapping in Advanced Mapper not working in the new Invocation Mappings for Perform Invocation interactions.
 - Fixed: Unexpected Error dialog popping up with "Software Factory Task could not be shut down after 5 retries" when I/O taking very long.
+- Fixed: designer reloads not happening when they should in certain circumstances on updating modules
+- Fixed: Select in diagram centered visual incorrectly;
 
 ## Version 4.5.2
 
