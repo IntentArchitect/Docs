@@ -3,6 +3,18 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.4
+
+### Improvements in 4.5.4
+
+- Extended the Dynamic Form Open File Dialog configuration to include Title, Default Path and Button Label.
+
+### Issues fixed in 4.5.4
+
+- Dynamic Form Tree-view can now have multiple instances that operate independently and their selected/pre-selected values are correctly managed.
+- Dynamic Form Open File Dialog file path will resort to providing the full absolute path and no longer just the filename.
+- Overall stability improvements using the Dynamic Form system.
+
 ## Version 4.5.3
 
 ### Improvements in 4.5.3
