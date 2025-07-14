@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.5
+
+- Fixed: Renaming of elements would sometimes not reflect in the tree views until the designer was reloaded.
+
+### Issues fixed in 4.5.5
+
 ## Version 4.5.4
 
 ### Improvements in 4.5.4
