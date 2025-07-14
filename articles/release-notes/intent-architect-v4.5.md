@@ -5,27 +5,27 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.5
 
-- Fixed: Renaming of elements would sometimes not reflect in the tree views until the designer was reloaded.
-
 ### Issues fixed in 4.5.5
+
+- Fixed: Renaming of elements would sometimes not reflect in the tree views until the designer was reloaded.
 
 ## Version 4.5.4
 
 ### Improvements in 4.5.4
 
-- Extended the Dynamic Form Open File Dialog configuration to include Title, Default Path and Button Label.
+- Improvement: Extended the Dynamic Form Open File Dialog configuration to include Title, Default Path and Button Label.
 
 ### Issues fixed in 4.5.4
 
-- Dynamic Form Tree-view can now have multiple instances that operate independently and their selected/pre-selected values are correctly managed.
-- Dynamic Form Open File Dialog file path will resort to providing the full absolute path and no longer just the filename.
-- Overall stability improvements using the Dynamic Form system.
+- Fixed: Dynamic Form Tree-view can now have multiple instances that operate independently and their selected/pre-selected values are correctly managed.
+- Fixed: Dynamic Form Open File Dialog file path will resort to providing the full absolute path and no longer just the filename.
+- Fixed: Overall stability improvements using the Dynamic Form system.
 
 ## Version 4.5.3
 
 ### Improvements in 4.5.3
 
-- Support for cross-designer JS scripting. You can now programmatically navigate the user to another designer and execute a script once the designer is active. For example:
+- Improvement: Support for cross-designer JS scripting. You can now programmatically navigate the user to another designer and execute a script once the designer is active. For example:
 
     ``` JS
     const serviceDesignerId = "81104ae6-2bc5-4bae-b05a-f987b0372d81";
@@ -38,7 +38,7 @@ uid: release-notes.intent-architect-v4.5
     ![create-crud-from-domain-suggestion](images/4.5/create-crud-from-domain-suggestion.png)
     _Note: to access this feature you will need to update `Intent.Modelers.Services.DomainInteractions` to `2.3.0-pre.0` or later._
     
- - Added additional JS API functions to the `IDiagramApi` (e.g. `selectVisuals(...)` and `getViewPort()`). These new functions have, for example, made it possible to call the "Create CRUD..." accelerators directly from a diagram in the Services Designer (a simpler paradigm and easier to discover than right-clicking the package).
+ - Improvement: Added additional JS API functions to the `IDiagramApi` (e.g. `selectVisuals(...)` and `getViewPort()`). These new functions have, for example, made it possible to call the "Create CRUD..." accelerators directly from a diagram in the Services Designer (a simpler paradigm and easier to discover than right-clicking the package).
 
 
 ### Issues fixed in 4.5.3
