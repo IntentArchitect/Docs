@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.6
+
+### Improvements in 4.5.6
+
+- Improvement: The Intent Software Factory CLI tool now allows use of Organization Access Tokens instead of requiring credentials for an Intent Architect user account. Refer to [this section in the  Software Factory CLI article](xref:tools.software-factory-cli#do-i-have-to-use-the-credentials-of-a-user-license) for more information.
+
 ## Version 4.5.5
 
 ### Issues fixed in 4.5.5
