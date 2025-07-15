@@ -34,12 +34,12 @@ uid: release-notes.intent-architect-v4.5
         scriptDependencies: ["61a8411f-b5bc-4a00-9a37-a967e0893d9d"] // Script dependency on CRUD Script
     });
     ```
+
     As an example, this has allowed the team upgrade the `Intent.Modelers.Services.DomainInteractions` module to offer suggestions to the user in the Domain that will be executed in the Services designer:
     ![create-crud-from-domain-suggestion](images/4.5/create-crud-from-domain-suggestion.png)
     _Note: to access this feature you will need to update `Intent.Modelers.Services.DomainInteractions` to `2.3.0-pre.0` or later._
-    
- - Improvement: Added additional JS API functions to the `IDiagramApi` (e.g. `selectVisuals(...)` and `getViewPort()`). These new functions have, for example, made it possible to call the "Create CRUD..." accelerators directly from a diagram in the Services Designer (a simpler paradigm and easier to discover than right-clicking the package).
 
+- Improvement: Added additional JS API functions to the `IDiagramApi` (e.g. `selectVisuals(...)` and `getViewPort()`). These new functions have, for example, made it possible to call the "Create CRUD..." accelerators directly from a diagram in the Services Designer (a simpler paradigm and easier to discover than right-clicking the package).
 
 ### Issues fixed in 4.5.3
 
@@ -163,7 +163,7 @@ For example, selecting Stereotypes now displays a description:
 
 ![Select Stereotype](images/4.5/select-stereotype.png)
 
-Explanation of applied stereotypes can also be found by overing over the stereotype. Properties with a dotted underline also indicate that there is an explanation for that property:
+Explanation of applied stereotypes can also be found by hovering over the stereotype. Properties with a dotted underline also indicate that there is an explanation for that property:
 
 ![Stereotype Explanation](images/4.5/applied-stereotype-documentation.png)
 
@@ -177,7 +177,7 @@ These explanations and documentation is applied from the modules simply by captu
 - Dynamic Form support for `open-file` and `button` control types with support for markdown in hints and error messages.
 - Dynamic Form tree-views now support specifying the tree data explicitly.
 - Implemented an "always" hot modal stack for dialogs so that they open instantly.
-- Software Factory now stop on first error. 
+- Software Factory now stop on first error.
 - Highlight `ElementException` exceptions during Software Factory Executions better to indicate that can be clicked.
 - Improved dialog styling.
 - Documentation ("Help") Dialog now allows you to choose whether to filter on all topics or just those in the current context.
@@ -185,12 +185,12 @@ These explanations and documentation is applied from the modules simply by captu
 - Added Open in IDE option to changes from Software Factory Execution and Hosted Module Tasks.
 - Support for `Ctrl + click` to navigate from diagram to types in the tree-view Model.
 - Copy + paste on root elements like Classes, Commands, Queries will copy them now.
-- Added `nagivateToDesigner` method to MacroApiFactory.ts which also allows a script to get executed once navigation completes.
+- Added `navigateToDesigner` method to MacroApiFactory.ts which also allows a script to get executed once navigation completes.
 - Added `isReference()` to Element JS API.
 - Can now search applications by ID in the solution explorer. Supports space delimited list of application IDs to find multiple applications.
 - Renamed Deviations to Customizations.
 - Added "Order Priority" support to Module Settings' Fields to allow for control of ordering of fields. Fields are sorted first by OrderPriority, then by Title.
--  Added `FriendlyException` to Intent.SoftwareFactory.SDK and upgraded client to render the error message with markdown. For example, this can be useful for Module Building where you want to throw errors to the user that has links to documentation.
+- Added `FriendlyException` to Intent.SoftwareFactory.SDK and upgraded client to render the error message with markdown. For example, this can be useful for Module Building where you want to throw errors to the user that has links to documentation.
 - Element properties and applied stereotypes can be collapsed and expanded by clicking on the heading.
 
 ### Issues fixed in 4.5.0
