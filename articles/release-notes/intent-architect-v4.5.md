@@ -14,12 +14,16 @@ uid: release-notes.intent-architect-v4.5
 ### Improvements in 4.5.4
 
 - Improvement: Extended the Dynamic Form Open File Dialog configuration to include Title, Default Path and Button Label.
+- Improvement: Navigate focus from the diagram to the tree view by pressing `escape` twice (first will unselect current selection, second will shift the focus).
 
 ### Issues fixed in 4.5.4
 
 - Fixed: Dynamic Form Tree-view can now have multiple instances that operate independently and their selected/pre-selected values are correctly managed.
 - Fixed: Dynamic Form Open File Dialog file path will resort to providing the full absolute path and no longer just the filename.
 - Fixed: Overall stability improvements using the Dynamic Form system.
+- Fixed: Associations incorrectly reorder themselves on an element when they are changed.
+- Fixed: Find in Diagram context menu option on elements not shifting focus to the diagram.
+- Fixed: Warnings on application creation.
 
 ## Version 4.5.3
 
