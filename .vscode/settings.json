@@ -16,7 +16,10 @@
     "Blazor",
     "configurator",
     "idempotently",
+    "namespaceanddescendants",
     "Qube",
+    "Serilog",
+    "softwarefactory",
     "Structs"
   ]
 }
