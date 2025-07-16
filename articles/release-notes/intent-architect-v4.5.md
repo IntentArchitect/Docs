@@ -3,16 +3,30 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.7
+
+### Improvements in 4.5.7
+
+- Improvement: Added `checkUnsavedChangesAsync(): Promise<boolean>` to the JS API which allows for programmatic prompting of the user to save any unsaved changes.
+
+### Issues fixed in 4.5.7
+
+- Fixed: Advanced mapping validations that failed to initialize don't show errors in the designer.
+- Fixed: Unsaved changes prompt triggering if a save is requested and a software factory execution is requested in short succession.
+- Fixed: Save All stopping and restarting Software Factory execution for each tab individually, instead of once for the Save All process.
+- Fixed: Software Factory processes not being shut down properly when exiting a solution back to the home screen.
+- Fixed: Save All becoming permanently disabled when clicked while a Module Manager tab is open.
+
 ## Version 4.5.6
+
+### Improvements in 4.5.6
+
+- Improvement: The Intent Software Factory CLI tool now allows use of Organization Access Tokens instead of requiring credentials for an Intent Architect user account. Refer to [this section in the  Software Factory CLI article](xref:tools.software-factory-cli#do-i-have-to-use-the-credentials-of-a-user-license) for more information.
 
 ### Issues fixed in 4.5.6
 
 - Fixed: Dynamic Form Tree-view causes items to be unticked when using the filter and certain items are pre-selected.
 - Fixed: Add association suggestions showing even when the associated element doesn't have visuals configured.
-
-### Improvements in 4.5.6
-
-- Improvement: The Intent Software Factory CLI tool now allows use of Organization Access Tokens instead of requiring credentials for an Intent Architect user account. Refer to [this section in the  Software Factory CLI article](xref:tools.software-factory-cli#do-i-have-to-use-the-credentials-of-a-user-license) for more information.
 
 ## Version 4.5.5
 
