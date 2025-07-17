@@ -7,7 +7,7 @@ uid: release-notes.intent-architect-v4.5
 
 ### Improvements in 4.5.7
 
-- Improvement: Added `checkUnsavedChangesAsync(): Promise<boolean>` to the JS API which allows for programmatic prompting of the user to save any unsaved changes.
+- Improvement: Added `promptIfUnsavedChangesAsync(): Promise<boolean>` to the JS API which allows for programmatic prompting of the user to save any unsaved changes.
 
 ### Issues fixed in 4.5.7
 
