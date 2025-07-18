@@ -28,110 +28,201 @@ for (let classIndex = 1; classIndex <= 10; classIndex++) {
 
 The example script provided will locate the main package in the current designer and create 10 Classes with 5 Attributes each and setting each Attribute's type to a `string`.
 
-The following TypeScript declarations serve as a reference guide for understanding the scripting capabilities within the Intent Architect environment. By examining these declarations, users can determine the functions available for execution and gain insight into their intended purposes, allowing the automation of various operations directly within their design workspace.
+Complete API documentation with IntelliSense is available in the built-in editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.ModuleBuilder/Api/ApiMetadataProviderExtensions.cs).
 
-```typescript
-/**
- * Returns information about the application and it's settings.
- */
-declare const application: IApplication;
+## Designer-Specific Elements
 
-/**
- * Creates an element of specialization type with the specified name, as a child of the specified parent.
- */
-declare function createElement(specialization: string, name: string, parentId: string): IElementApi;
+Different designers support different element types. Here's a reference of which elements are available in which designers (not an exhaustive list):
 
-/**
- * Creates an association of specialization type with from a sourceElementId and optionally to a targetElementId.
- */
-declare function createAssociation(specialization: string, sourceElementId: string, targetElementId?: string): IAssociationApi;
+**Services Designer:**
+- DTO
+- Service  
+- Command
+- Query
+- DTO-Field
 
-/**
- * Returns the packages currently loaded into the designer.
- */
-declare function getPackages(): IPackageApi[];
+**Domain Designer:**
+- Class
+- Attribute
+- Constructor
 
-/**
- * Present a popup dialog for user feedback or intervention.
- */
-declare const dialogService: IDialogService;
+**Common (available in multiple designers):**
+- Operation
+- Parameter
 
-/**
- * Finds the element with the specified id across all loaded packages.
- */
-declare function lookup(id: string): IElementApi;
+## Common Type IDs Reference
 
-/**
- * Finds the elements of the specified type(s) across all loaded packages.
- */
-declare function lookupTypesOf(types: string | string[]): IElementApi[];
+When setting type references for elements, you'll need to use these common type IDs. **Best practice:** Define these as constants rather than using magic strings:
 
-/**
- * Removes specified prefixes from the provided string.
- * @param string The string from which the prefixes should be removed.
- * @param prefixes An array of prefix strings to remove.
- */
-declare function removePrefix(string: string, ...prefixes: string[]): string;
+```javascript
+// Define type constants for better maintainability
+const stringType = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const intType = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+const longType = "33013006-E404-48C2-AC46-24EF5A5774FD";
+const boolType = "e6f92b09-b2c5-4536-8270-a4d9e5bbd930";
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
+const decimalType = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
+const doubleType = "24A77F70-5B97-40DD-8F9A-4208AD5F9219";
+```
 
-/**
- * Removes specified suffixes from the provided string.
- * @param string The string from which the suffixes should be removed.
- * @param suffixes An array of suffix strings to remove.
- */
-declare function removeSuffix(string: string, ...suffixes: string[]): string;
+| Type | ID |
+|------|-----|
+| string | `d384db9c-a279-45e1-801e-e4e8099625f2` |
+| int | `fb0a362d-e9e2-40de-b6ff-5ce8167cbe74` |
+| long | `33013006-E404-48C2-AC46-24EF5A5774FD` |
+| bool | `e6f92b09-b2c5-4536-8270-a4d9e5bbd930` |
+| guid | `6b649125-18ea-48fd-a6ba-0bfff0d8f488` |
+| datetime | `a4107c29-7851-4121-9416-cf1236908f1e` |
+| decimal | `675c7b84-997a-44e0-82b9-cd724c07c9e6` |
+| double | `24A77F70-5B97-40DD-8F9A-4208AD5F9219` |
 
-/**
-* Returns the plural form of the specified word.
-*/
-declare function pluralize(word: string): string;
+## Bulk Domain Model Creation
 
-/**
-* Returns the singular form of the specified word.
-*/
-declare function singularize(word: string): string;
+This example shows how to create a complete e-commerce domain model with entities and different relationship types:
 
-interface IDiagramApi {
-    /**
-     * The mouse position of the last user activated event.
-     */
-    mousePosition: IPoint;
-    /**
-     * Returns true if a visual with the specified element identifier is in the diagram.
-     */
-    isVisual: (elementId: string | any) => boolean;
-    /**
-     * Returns the visual API for the visual with the specified element identifier in the diagram.
-     */
-    getVisual: (elementId: string | any) => IElementVisualApi;
+```javascript
+// Define type constants
+const stringType = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const intType = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
+const decimalType = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
 
-    /**
-     * Automatically lays out the specified elements and associations using the Dagre algorithm around the provided position.
-     */
-    layoutVisuals: (elementIds: string | string[] | any, position: { x: number, y: number }) => void;
-
-    /**
-     * Adds an element visual to the diagram.
-     *
-     * @param elementId The element's id.
-     * @param position The position to place the element visual.
-     * @param size The size of the element visual.
-     */
-    addElement: (elementId: string | any, position: { x: number, y: number }, size?: { width: number, height: number }) => void;
-
-    /**
-     * Adds an association visual to the diagram.
-     *
-     * @param associationId The association's id.
-     * @param targetPrefPoint (optional) The relative point within the target element's visual to align the association.
-     * @param fixedPoints (optional) The absolute fixed points that the association must follow.
-     */
-    addAssociation: (associationId: string | any, targetPrefPoint?: { x: number, y: number }, fixedPoints?: { x: number, y: number }[]) => void;
-
-    /**
-     * Hides the visual with the specified visual identifier.
-     */
-    hideVisual: (visualId: string | any) => void;
+// Helper function to add attributes to entities
+function addAttributes(entity, attributes) {
+    // Note: Id attributes are auto-generated when Intent.Metadata.RDBMS module is installed
+    attributes.forEach(attr => {
+        let attribute = createElement("Attribute", attr.name, entity.id);
+        attribute.typeReference.setType(attr.type);
+    });
 }
+
+// Find target package
+let domainPackage = getPackages().find(p => p.name === "Domain") || getPackages()[0];
+
+// Create entities
+let customer = createElement("Class", "Customer", domainPackage.id);
+let order = createElement("Class", "Order", domainPackage.id);
+let orderItem = createElement("Class", "OrderItem", domainPackage.id);
+let product = createElement("Class", "Product", domainPackage.id);
+
+// Add attributes to each entity
+addAttributes(customer, [
+    { name: "Name", type: stringType },
+    { name: "Email", type: stringType }
+]);
+
+addAttributes(order, [
+    { name: "OrderDate", type: datetimeType },
+    { name: "TotalAmount", type: decimalType }
+]);
+
+addAttributes(orderItem, [
+    { name: "Quantity", type: intType },
+    { name: "UnitPrice", type: decimalType }
+]);
+
+addAttributes(product, [
+    { name: "Name", type: stringType }
+]);
+
+// Create relationships with different patterns:
+
+// 1. Aggregate: Customer -> Orders (defaults to 1-to-many aggregate relationship)
+createAssociation("Association", customer.id, order.id);
+
+// 2. Composition: Order -> OrderItems (1-to-many composite - OrderItem can't exist without Order)
+// Key: Use getOtherEnd() to configure both sides for composite relationships
+let orderItemAssoc = createAssociation("Association", order.id, orderItem.id);
+orderItemAssoc.getOtherEnd().typeReference.setIsCollection(false); // Order side (one)
+orderItemAssoc.typeReference.setIsCollection(true); // OrderItem side (many)
+
+// 3. Reference: OrderItem -> Product (many-to-1 reference - Product exists independently)
+createAssociation("Association", orderItem.id, product.id);
+
+await dialogService.info("Created e-commerce domain model with proper relationship types!");
+```
+
+![Bulk domain element creation](images/bulk-domain-element-creation.png)
+
+## Dynamic Form for User Input
+
+This example demonstrates using dynamic forms to gather user input before executing bulk operations:
+
+```javascript
+// Define type constants
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const intType = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+const longType = "33013006-E404-48C2-AC46-24EF5A5774FD";
+const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
+
+// Configure a form to collect entity generation parameters
+let formConfig = {
+    title: "Bulk Entity Generator",
+    submitButtonText: "Generate Entities",
+    minWidth: "500px",
+    fields: [
+        {
+            id: "entityNames",
+            fieldType: "textarea",
+            label: "Entity Names (one per line)",
+            isRequired: true,
+            placeholder: "Customer\nOrder\nProduct\nCategory",
+            hint: "Enter each entity name on a separate line"
+        },
+        {
+            id: "addIdAttribute",
+            fieldType: "checkbox",
+            label: "Add Id attribute to each entity",
+            value: true
+        },
+        {
+            id: "idType",
+            fieldType: "select",
+            label: "Id Type",
+            selectOptions: [
+                { id: guidType, description: "Guid" },
+                { id: intType, description: "Int" },
+                { id: longType, description: "Long" }
+            ],
+            value: guidType
+        },
+        {
+            id: "addAuditFields",
+            fieldType: "checkbox",
+            label: "Add audit fields (CreatedDate, UpdatedDate)",
+            value: true
+        }
+    ]
+};
+
+// Show the form and get user input
+let result = await dialogService.openForm(formConfig);
+let entityNames = result.entityNames.split('\n').filter(name => name.trim());
+
+// Create entities based on form input
+let targetPackage = getPackages()[0];
+entityNames.forEach(name => {
+    let entity = createElement("Class", name.trim(), targetPackage.id);
+    
+    // Add Id attribute if requested
+    if (result.addIdAttribute) {
+        let idAttr = createElement("Attribute", "Id", entity.id);
+        idAttr.typeReference.setType(result.idType);
+    }
+    
+    // Add audit fields if requested
+    if (result.addAuditFields) {
+        let createdDate = createElement("Attribute", "CreatedDate", entity.id);
+        createdDate.typeReference.setType(datetimeType);
+        
+        let updatedDate = createElement("Attribute", "UpdatedDate", entity.id);
+        updatedDate.typeReference.setType(datetimeType);
+    }
+});
+
+await dialogService.info(`Successfully created ${entityNames.length} entities!`);
 ```
 
 ## Event Triggered Scripts for Elements
@@ -166,247 +257,65 @@ In the provided TypeScript example, the script will activate when a Class elemen
 - When a Class is modified and has a Soft Delete stereotype applied, it adds an `IsDeleted` attribute of boolean type, marked with soft-delete metadata.
 - When the Soft Delete stereotype is removed, it searches for any attribute with soft-delete metadata and deletes it from the Class.
 
-The API provides several global objects and functions to interact with the application model, elements, packages, and user interface:
+## Auto-Configure New Entities
 
-```typescript
-declare let element: IElementApi;
+This example shows how to automatically add common attributes when new entities are created:
 
-/**
- * Returns information about the application and it's settings.
- */
-declare const application: MacroApi.Context.IApplication;
+```javascript
+// Define type constants
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
 
-/**
- * Obsolete. Use {@link getCurrentDiagram} instead. This would only return the diagram which was open at the time the script execution began.
- */
-declare const currentDiagram: MacroApi.Context.IDiagramApi;
-
-/**
- * Returns the currently opened and displayed diagram.
- */
-declare const getCurrentDiagram: () => MacroApi.Context.IDiagramApi;
-
-/**
- * Creates an element of specialization type with the specified name, as a child of the specified parent.
- */
-declare function createElement(specialization: string, name: string, parentId: string): IElementApi;
-
-/**
- * Creates an association of specialization type with from a sourceElementId and optionally to a targetElementId.
- */
-declare function createAssociation(specialization: string, sourceElementId: string, targetElementId?: string): IAssociationApi;
-
-/**
- * Returns the packages currently loaded into the designer.
- */
-declare function getPackages(): IPackageApi[];
-
-/**
- * Present a popup dialog for user feedback or intervention.
- */
-declare const dialogService: IDialogService;
-
-/**
- * Finds the element with the specified id across all loaded packages.
- */
-declare function lookup(id: string): IElementApi;
-
-/**
- * Finds the elements of the specified type(s) across all loaded packages.
- */
-declare function lookupTypesOf(type: string | string[]): IElementApi[];
-
-/**
- * Removes specified suffixes from the provided string.
- * @param string The string from which the suffixes should be removed.
- * @param suffixes An array of suffix strings to remove.
- */
-declare function removeSuffix(string: string, ...suffixes: string[]): string;
-
-/**
-* Returns the plural form of the specified word.
-*/
-declare function pluralize(word: string): string;
-
-/**
-* Returns the singular form of the specified word.
-*/
-declare function singularize(word: string): string;
-
-interface IElementApi {
-    /**
-     * The human-readable specialization type (e.g. "Class", "Attribute", etc.)
-     */
-    specialization: string;
-    /**
-     * The unique identifier for the element.
-     */
-    id: string;
-    /**
-     * Returns the name of the element.
-     */
-    getName(): string;
-    /**
-     * Sets the name of the element.
-     */
-    setName(value: string): void;
-    /**
-     * Returns the comment of the element.
-     */
-    getComment(): string;
-    /**
-     * Sets the comment of the element.
-     */
-    setComment(value: string): void;
-    /**
-     * Returns the value of the element.
-     */
-    getValue(): string;
-    /**
-     * Sets the name of the element.
-     */
-    setValue(value: string): void;
-    /**
-     * Returns the value of the element.
-     */
-    getExternalReference(): string;
-    /**
-     * Sets the external reference of the element.
-     */
-    setExternalReference(value: string): void;
-    /**
-     * Returns the comment of the element.
-     */
-    getGenericTypesDisplay(): string;
-    /**
-     * Returns true if the element is configured to have a typeReference.
-     */
-    hasType: boolean;
-    /**
-     * The typeReference property of the element
-     */
-    typeReference?: ITypeReference;
-    /**
-     * Returns all the child elements of this element. If a type argument is provided, the children will
-     * be filtered to those that match on specialization. 
-     */
-    getChildren(type?: string): IElementApi[];
-    /**
-     * Opens the diagram that this element represents, if it configured to support a diagram.
-     */
-    loadDiagram(): void;
-    /**
-     * Returns this element's parent
-     */
-    getParent(type?: string): IElementApi;
-    /**
-     * Sets this element's parent.
-     */
-    setParent(parentId: string): void;
-    /**
-     * Returns the owning package for this element.
-     */
-    getPackage(): IPackageApi;
-    /**
-     * Returns true if this element is mapped.
-     */
-    isMapped(): boolean;
-    /**
-     * Clears the mapping model of this element.
-     */
-    clearMapping(): void;
-    /**
-     * Returns the mapping model for this element.
-     */
-    getMapping(): IElementMappingApi;
-    /**
-     * Sets the mapping for this element.
-     * @param elementId The unique identifier of the target element. If the mapping traverses more than one element in a hierarchy,
-     * an array of element identifiers must be provided.
-     * @param mappingSettingsId The specific mapping settings to use. The first mapping settings available will be used if no
-     * value is provided.
-     */
-    setMapping(elementId: string | string[], mappingSettingsId?: string): void;
-    /**
-     * Launches the mapping dialog for the element for the provided mappingSettingsId.
-     *
-     * Must be called with await.
-     * @param mappingSettingsId The specific mapping settings to use. The first mapping settings available will be used if no
-     * value is provided.
-     */
-    launchMappingDialog(mappingSettingsId?: string): Promise<void>
-    /**
-     * Returns true if a stereotype that matches the specified name or definition identifier is applied to the element.
-     */
-    hasStereotype(nameOrDefinitionId: string): boolean;
-    /**
-     * Returns all stereotypes currently applied to the element.
-     */
-    getStereotypes(): IStereotypeApi[];
-    /**
-     * Returns the stereotype that matches the specified name or definition identifier
-     */
-    getStereotype(nameOrDefinitionId: string): IStereotypeApi;
-    /**
-     * Applies the stereotype with definition id of stereotypeDefinitionId to this element.
-     */
-    addStereotype(stereotypeDefinitionId: string): IStereotypeApi;
-    /**
-     * Removes the stereotype that matches the specified name or definition identifier from this element.
-     */
-    removeStereotype(nameOrDefinitionId: string): void;
-    /**
-     * Expands this element in the designer model.
-     */
-    expand(): void;
-    /**
-     * Collapses this element in the designer model.
-     */
-    collapse(): void;
-
-    /**
-     * Activates the editing mode for this element.
-     */
-    enableEditing(): void;
-    /**
-     * Deletes this element.
-     */
-    delete(): void;
-    /**
-     * Returns all the association connected to this element. If a type argument is provided, the associations will
-     * be filtered to those that match on specialization. 
-     */
-    getAssociations(type?: string): IAssociationApi[];
-    /**
-     * Sets the order index of this element within it's parent.
-     */
-    setOrder(index: number): void;
-    /**
-     * Notifies that this element has been changed, which would lead to a refresh of display text and errors. 
-     * This can be useful when you want to force a refresh of the elements state within the designer.
-     */
-    notifyChanged(): void;
-    /**
-     * Gets the metadata value for the specified key.
-     */
-    getMetadata(key: string): string;
-    /**
-     * Returns true if a metadata value exists for the specified key.
-     */
-    hasMetadata(key: string): boolean;
-    /**
-     * Add the metadata value for the specified key. Throws an error if metadata already exists for the specified key.
-     */
-    addMetadata(key: string, value: string): void;
-    /**
-     * Sets the metadata value for the specified key. Adds the metadata if it does not exist.
-     */
-    setMetadata(key: string, value: string): void;
-    /**
-     * Removes the metadata value for the specified key.
-     */
-    removeMetadata(key: string): void;
+// When a new Class is created, auto-add common attributes
+if (element.specialization === "Class") {
+    // Add Id attribute if it doesn't exist
+    let hasId = element.getChildren("Attribute").some(attr => attr.getName().toLowerCase() === "id");
+    if (!hasId) {
+        let idAttr = createElement("Attribute", "Id", element.id);
+        idAttr.typeReference.setType(guidType);
+    }
+    
+    // Add CreatedDate and UpdatedDate for audit trail
+    let createdDate = createElement("Attribute", "CreatedDate", element.id);
+    createdDate.typeReference.setType(datetimeType);
+    
+    let updatedDate = createElement("Attribute", "UpdatedDate", element.id);
+    updatedDate.typeReference.setType(datetimeType);
 }
+```
+
+## Service Layer Generation
+
+This example demonstrates generating CRUD operations for domain entities:
+
+```javascript
+// Define type constants
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+
+// Generate CRUD operations for all domain classes
+let domainClasses = lookupTypesOf("Class").filter(c => c.getPackage().name === "Domain");
+let servicesPackage = getPackages().find(p => p.name === "Services") || getPackages()[0];
+
+domainClasses.forEach(domainClass => {
+    let service = createElement("Service", `${domainClass.getName()}Service`, servicesPackage.id);
+    
+    // Create CRUD operations
+    let createOp = createElement("Operation", `Create${domainClass.getName()}`, service.id);
+    let getOp = createElement("Operation", `Get${domainClass.getName()}`, service.id);
+    let updateOp = createElement("Operation", `Update${domainClass.getName()}`, service.id);
+    let deleteOp = createElement("Operation", `Delete${domainClass.getName()}`, service.id);
+    
+    // Set return types
+    getOp.typeReference.setType(domainClass.id); // Return the domain class
+    createOp.typeReference.setType(guidType); // Return guid
+    
+    // Add parameters to operations
+    let createParam = createElement("Parameter", `create${domainClass.getName()}Request`, createOp.id);
+    createParam.typeReference.setType(domainClass.id);
+    
+    let idParam = createElement("Parameter", "id", getOp.id);
+    idParam.typeReference.setType(guidType);
+});
 ```
 
 ## Event Triggered Scripts for Associations
@@ -428,144 +337,98 @@ sourceEnd.setIsNullable(false);
 
 The example above gets executed when an associated is created which then turns the association into a 1 -> 1 composite relationship by disabling `Is Collection` and `Is Nullable` on the source end of the association.
 
-The API provides several global objects and functions to interact with the application model, elements, packages, and user interface:
+## Auto-Configure Association Properties
 
-```typescript
-/**
- * Returns the association that triggered this script's execution.
- */
-declare const association: IAssociationApi;
+This example shows how to automatically configure association properties based on naming conventions:
 
-/**
- * Returns information about the application and it's settings.
- */
-declare const application: MacroApi.Context.IApplication;
-
-/**
- * Returns the currently opened and displayed diagram.
- */
-declare const currentDiagram: MacroApi.Context.IDiagramApi;
-
-/**
- * Creates an element of specialization type with the specified name, as a child of the specified parent.
- */
-declare function createElement(specialization: string, name: string, parentId: string): IElementApi;
-
-/**
- * Creates an association of specialization type with from a sourceElementId and optionally to a targetElementId.
- */
-declare function createAssociation(specialization: string, sourceElementId: string, targetElementId?: string): IAssociationApi;
-
-/**
- * Returns the packages currently loaded into the designer.
- */
-declare function getPackages(): IPackageApi[];
-
-/**
- * Present a popup dialog for user feedback or intervention.
- */
-declare const dialogService: IDialogService;
-
-/**
- * Finds the element with the specified id across all loaded packages.
- */
-declare function lookup(id: string): IElementApi;
-
-/**
- * Finds the elements of the specified type across all loaded packages.
- */
-declare function lookupTypesOf(type: string): IElementApi[];
-
-/**
- * Removes specified suffixes from the provided string.
- * @param string The string from which the suffixes should be removed.
- * @param suffixes An array of suffix strings to remove.
- */
-declare function removeSuffix(string: string, ...suffixes: string[]): string;
-
-/**
-* Returns the plural form of the specified word.
-*/
-declare function pluralize(word: string): string;
-
-/**
-* Returns the singular form of the specified word.
-*/
-declare function singularize(word: string): string;
-
-interface IAssociationApi {
-    /**
-     * The human-readable specialization type (e.g. "Class", "Attribute", etc.)
-     */
-    specialization: string;
-    /**
-     * The unique identifier for the element.
-     */
-    id: string;
-    /**
-     * Returns the name of the element.
-     */
-    getName(): string;
-    /**
-     * Sets the name of the element.
-     */
-    setName(value: string): void;
-    /**
-     * The typeReference property of the element
-     */
-    typeReference: ITypeReference;
-    /**
-     * Returns true if this association end is the source-end of the association.
-     */
-    isSourceEnd(): boolean;
-    /**
-     * Returns true if this association end is the target-end of the association.
-     */
-    isTargetEnd(): boolean;
-    /**
-     * Returns the other-end of the association.
-     */
-    getOtherEnd(): IAssociationApi;
-    /**
-     * Returns the owning package for this element.
-     */
-    getPackage(): IPackageApi;
-    /**
-     * Returns all stereotypes currently applied to the element.
-     */
-    getStereotypes(): IStereotypeApi[];
-    /**
-     * Returns the stereotype that matches the specified name or definition identifier
-     */
-    getStereotype(nameOrDefinitionId: string): IStereotypeApi;
-    /**
-     * Returns all the child elements of this element. If a type argument is provided, the children will
-     * be filtered to those that match on specialization. 
-     */
-    getChildren(type: string): IElementApi[];
-    /**
-    * Gets the metadata value for the specified key.
-    */
-    getMetadata(key: string): string;
-    /**
-     * Returns true if a metadata value exists for the specified key.
-     */
-    hasMetadata(key: string): boolean;
-    /**
-     * Add the metadata value for the specified key. Throws an error if metadata already exists for the specified key.
-     */
-    addMetadata(key: string, value: string): void;
-    /**
-     * Sets the metadata value for the specified key. Adds the metadata if it does not exist.
-     */
-    setMetadata(key: string, value: string): void;
-    /**
-     * Removes the metadata value for the specified key.
-     */
-    removeMetadata(key: string): void;
-    /**
-     * Deletes this association.
-     */
-    delete(): void;
+```javascript
+// Auto-configure association properties based on naming patterns
+if (!association) {
+    return;
 }
+
+let sourceElement = association.getOtherEnd().typeReference.getType();
+let targetElement = association.typeReference.getType();
+
+// If association is from Order to Customer, make it many-to-one
+if (sourceElement.getName() === "Order" && targetElement.getName() === "Customer") {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
+    association.typeReference.setIsCollection(false); // Customer side
+    association.typeReference.setIsNullable(false); // Customer is required
+}
+
+// If association is from Order to OrderItem, make it one-to-many
+if (sourceElement.getName() === "Order" && targetElement.getName().includes("Item")) {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
+    association.typeReference.setIsCollection(true); // Items side
+    association.typeReference.setIsNullable(false); // Items are required
+}
+
+// Set meaningful names for navigation properties
+if (association.getName() === "") {
+    if (association.isTargetEnd()) {
+        association.setName(pluralize(targetElement.getName().toLowerCase()));
+    } else {
+        association.setName(targetElement.getName().toLowerCase());
+    }
+}
+```
+
+## Command/Query Pattern Generator
+
+This example demonstrates generating Commands and Queries from Service Operations:
+
+```javascript
+// Generate Commands and Queries for selected service operations
+let services = lookupTypesOf("Service");
+let commandsPackage = getPackages().find(p => p.name === "Commands") || getPackages()[0];
+let queriesPackage = getPackages().find(p => p.name === "Queries") || getPackages()[0];
+
+services.forEach(service => {
+    service.getChildren("Operation").forEach(operation => {
+        let operationName = operation.getName();
+        
+        if (operationName.startsWith("Get") || operationName.startsWith("Find") || operationName.startsWith("Search")) {
+            // Create Query
+            let query = createElement("Query", `${operationName}Query`, queriesPackage.id);
+            
+            // Copy parameters as DTO fields
+            operation.getChildren("Parameter").forEach(param => {
+                let field = createElement("DTO-Field", param.getName(), query.id);
+                if (param.typeReference) {
+                    field.typeReference.setType(param.typeReference.getTypeId());
+                    field.typeReference.setIsNullable(param.typeReference.getIsNullable());
+                    field.typeReference.setIsCollection(param.typeReference.getIsCollection());
+                }
+            });
+            
+            // Set return type to match operation
+            if (operation.typeReference && operation.typeReference.getTypeId()) {
+                query.typeReference.setType(operation.typeReference.getTypeId());
+                query.typeReference.setIsCollection(operation.typeReference.getIsCollection());
+            }
+            
+        } else {
+            // Create Command
+            let command = createElement("Command", `${operationName}Command`, commandsPackage.id);
+            
+            // Copy parameters as DTO fields
+            operation.getChildren("Parameter").forEach(param => {
+                let field = createElement("DTO-Field", param.getName(), command.id);
+                if (param.typeReference) {
+                    field.typeReference.setType(param.typeReference.getTypeId());
+                    field.typeReference.setIsNullable(param.typeReference.getIsNullable());
+                    field.typeReference.setIsCollection(param.typeReference.getIsCollection());
+                }
+            });
+            
+            // Commands typically return void or an ID
+            if (operation.typeReference && operation.typeReference.getTypeId()) {
+                command.typeReference.setType(operation.typeReference.getTypeId());
+            }
+        }
+    });
+});
+
+await dialogService.info("Commands and Queries generated successfully!");
 ```
