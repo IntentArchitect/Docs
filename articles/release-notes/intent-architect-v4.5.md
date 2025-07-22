@@ -3,6 +3,23 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.8
+
+### Improvements in 4.5.8
+
+- Improvement: Dynamic Forms can now set the icon used of the dialog.
+- Improvement: Added useful `addChild(...)` method to `IElementApi` in JS API.
+- Improvement: Extended `IElementVisualAPI` with `getElement()` method to access backing element API.
+- Improvement: Auto layout system aligns to grid more closely.
+
+### Issues fixed in 4.5.8
+
+- Fixed: Updating icons in stereotypes when selected multiple elements not working.
+- Fixed: Double click not working on Dynamic Form tree-view controls.
+- Fixed: Switching between search categories quickly on the "Create New Solution" can show previous category's results.
+- Fixed: Additional Settings on Architecture Templates never showing.
+- Fixed: Diagram JS API available before the diagram has been initialized which causes bugs in execution.
+
 ## Version 4.5.7
 
 ### Improvements in 4.5.7
