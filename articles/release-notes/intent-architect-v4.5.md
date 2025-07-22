@@ -14,8 +14,8 @@ uid: release-notes.intent-architect-v4.5
 
 ### Issues fixed in 4.5.8
 
-- Fixed: Updating icons in stereotypes when selected multiple elements not working.
-- Fixed: Double click not working on Dynamic Form tree-view controls.
+- Fixed: Bulk updating of icons in stereotypes not working.
+- Fixed: Double-click not working on Dynamic Form tree-view controls.
 - Fixed: Switching between search categories quickly on the "Create New Solution" can show previous category's results.
 - Fixed: Additional Settings on Architecture Templates never showing.
 - Fixed: Diagram JS API available before the diagram has been initialized which causes bugs in execution.
