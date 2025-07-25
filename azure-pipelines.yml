@@ -8,11 +8,14 @@ trigger:
 
 resources:
   pipelines:
-  - pipeline: 'ModulesDotNetPipeline'
-    source: 'Modules.NET'
-    trigger: true
   - pipeline: 'ModulesCommonPipeline'
     source: 'Modules'
+    trigger: true
+  - pipeline: 'ModulesImportersPipeline'
+    source: 'Modules.Importers'
+    trigger: true
+  - pipeline: 'ModulesDotNetPipeline'
+    source: 'Modules.NET'
     trigger: true
 
 parameters:
@@ -27,6 +30,10 @@ parameters:
       repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
       folderName: Intent.Modules
       destinationFolder: modules-common
+    - repositoryName: 'modules-importers'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.Importers.git"
+      folderName: Intent.Modules.Importers
+      destinationFolder: modules-importers
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -46,22 +53,29 @@ steps:
 
   # calculate the repo and branch which triggered this pipeline
   - powershell: |
-      if ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-          
-          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      } 
-      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+      if ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
           
           $branchName = "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" -replace '^refs/heads/', ''
           Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      } 
+      }
+      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesImportersPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.Importers"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesImportersPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesImportersPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
+      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.NET"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
       else {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Docs"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
           
           $branchName = "$(Build.SourceBranchName)" -replace '^refs/heads/', ''

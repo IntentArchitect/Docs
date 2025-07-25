@@ -27,6 +27,9 @@ items:
   - name: Modules (Common)
     href: modules-common/toc.yml
 
+  - name: Modules (Importers)
+    href: modules-importers/toc.yml
+
   - name: Modules (.NET)
     href: modules-dotnet/toc.yml
 
