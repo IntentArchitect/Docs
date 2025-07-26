@@ -216,10 +216,20 @@ Pagination enables large datasets to be returned in smaller, more manageable chu
 1. Right-click on the qualifying **Operation** or **Query**.
 2. Select the **Paginate** menu item.
 
-#### Actions performed by this accelerator
+Two primary types of pagination are available, dependant on the underlying database provider:
 
-- Changes the return type of the `Operation` or `Query` from `TReturnType` to `PagedResult<TReturnType>`.
-- Adds three parameters/properties to the `Operation`/`Query`:
+- **Offset-based pagination**: Common in SQL-based systems. Uses page numbers and sizes.
+- **Cursor-based pagination**: Often used in NoSQL or distributed systems. Uses tokens for consistent, ordered traversal.
+
+> [!NOTE]
+> If the provider only supports a single pagination type, a single `Paginate` menu item will be available. If multiple types are supported, multiple options will appear under the `Paginate` menu.
+
+#### Offset-based Pagination
+
+When **offset-based pagination** is applied, the following occurs:
+
+- The return type of the `Operation` or `Query` is changed from `TReturnType` to `PagedResult<TReturnType>`.
+- Three parameters/properties are added to the `Operation`/`Query`:
   - **PageNo**: Specifies the page number to retrieve, based on the *PageSize*.
   - **PageSize**: Specifies how many records should be included in a single page.
   - **OrderBy**: Specifies how data should be sorted before pagination. This is optional, and defaults to database ordering if omitted. It will order data in **ascending order** by default.
@@ -238,6 +248,36 @@ Examples of valid `OrderBy` formats:
 - `created desc, name asc`
 
 ![Pagination](./images/paginate.png)
+
+The `PagedResult` returned by the `Operation` or `Query` contains the following fields:
+
+- `TotalCount`: Total number of records available
+- `PageCount`: Total number of pages
+- `PageSize`: Number of records per page
+- `PageNumber`: Current page number
+- `Data`: Collection of returned data records
+
+#### Cursor-based Pagination
+
+When **cursor-based pagination** is applied, the following occurs:
+
+- The return type of the `Operation` or `Query` is changed from `TReturnType` to `CursorPagedResult<TReturnType>`.
+- Three parameters/properties are added to the `Operation`/`Query`:
+  - `PartitionKey`: The partition key to be queried
+  - `PageSize`: The number of records to include per page
+  - `CursorToken`: The optional opaque token used to fetch the next set of results. If not set, the first set of results is retrieved.
+
+> [!NOTE]
+> A default query mapping is applied to filter by `PartitionKey`. You may remove this parameter if the query is intended to span all partitions.
+
+![Cursor Pagination](./images/cursor-paginate.png)
+
+The `CursorPagedResult` returned by the `Operation` or `Query` contains the following fields:
+
+- `PageSize`: Number of records per page
+- `CursorToken`: Token used to retrieve the next set of results
+- `HasMoreResults`: Indicates if there are more results available
+- `Data`: Collection of returned data records
 
 ## Modeled Implementations
 
