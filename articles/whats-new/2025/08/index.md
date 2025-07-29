@@ -11,6 +11,7 @@ Welcome to the August 2025 edition of highlights of What's New in Intent Archite
   - **[Improvements to generated methods requiring manual implementations](#improvements-to-generated-methods-requiring-manual-implementations)** - Improved generation and default code management instructions for methods generated with `throw new NotImplementedException()`.
   - **[Updated "Empty Application" Template](#updated-empty-application-template)** - Updated template allowing creation of Visual Studio based, Folder based or completely empty applications.
   - **[Software Factory CLI Authentication Token Support](#software-factory-cli-authentication-token-support)** - Use an organization authentication token instead of user credentials for the Software Factory CLI.
+  - **[Azure Table Storage Enhancements](#azure-table-storage-enhancements)** - Azure Table Storage updated to support **cursor-based pagination** as well as **auto-generated** primary keys.
 
 ## Update details
 
@@ -189,3 +190,29 @@ To learn more about this, you can read the [documentation](https://docs.intentar
 Available from:
 
 - Intent.Eventing.AzureEventGrid 1.2.0
+
+### Azure Table Storage Enhancements
+
+#### Cursor-based Pagination
+
+Queries and operations configured with pagination in **Azure Table Storage** will now automatically use **cursor-based pagination**. This change ensures improved performance and better alignment with how Azure Table Storage handles paging natively.
+
+The implementation updates the endpoint to include the required input parameters and response type (`CursorPagedResult<T>`).
+
+![Cursor-based Pagination](images/cursor-pagination.png)
+
+To learn more about this, you can read the [documentation](https://docs.intentarchitect.com/articles/application-development/modelling/services-designer/modeling-services/modeling-services.html#paginate-accelerator).
+
+Available from:
+
+- Intent.Azure.TableStorage 1.0.0-beta.29
+
+#### Primary Key Data Source
+
+The **Primary Key** generation strategy for Azure Table Storage entities can now be explicitly configured via the `Data Source` setting. This enhancement brings it in line with other persistence providers and allows for finer control.
+
+![PK-Data-Source](images/pk-data-source.png)
+
+Available from:
+
+- Intent.Azure.TableStorage 1.0.0-beta.29
