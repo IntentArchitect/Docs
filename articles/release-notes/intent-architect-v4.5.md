@@ -3,6 +3,28 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.9
+
+### Improvements in 4.5.9
+
+- Improvement: Package Referenced Elements now support syntax highlighting and `ctrl + click` navigation.
+- Improvement: Recently opened solutions on the home screen will now appear and refresh more quickly, one at a time as their additional data is read.
+- Improvement: Improved display of error messages when unable to communicate with a module server.
+- Improvement: Suggestions now support custom icons and ordering configuration.
+- Improvement: Users are now able to inline set element values in the tree model.
+- Improvement: Styling of dividers on context-menus in dark theme made more subtle and clear.
+- Improvement: JS API Support for controlling `Is Navigable` on Type References (i.e. `getIsNavigable()` and `setIsNavigable(value: boolean)`).
+
+### Issues fixed in 4.5.9
+
+- Fixed: Script dependencies on Events not being loaded when the script is called.
+- Fixed: Service operation types don't navigate to type when `ctrl + clicked` on the diagrams.
+- Fixed: If a recently opened `.isln` file had malformed XML, it was not possible to open or create any solutions.
+- Fixed: Searching Solution Explorer by id wouldn't show the application's designers.
+- Fixed: Application Settings getting removed when multiple concurrent Module reinstalls triggered through mass module repository updates.
+- Fixed: Script options on associations disabled permanently; Added undo/redo to `createAdvancedMapping()` JS API method on elements and associations.
+- Fixed: Applications created from application templates would not respect the specifically selected Intent Architect artifact repositories when installing application metadata.
+
 ## Version 4.5.8
 
 ### Improvements in 4.5.8
@@ -42,7 +64,7 @@ uid: release-notes.intent-architect-v4.5
 
 ### Issues fixed in 4.5.6
 
-- Fixed: Dynamic Form Tree-view causes items to be unticked when using the filter and certain items are pre-selected.
+- Fixed: Dynamic Form Tree-view causes items to be un-ticked when using the filter and certain items are pre-selected.
 - Fixed: Add association suggestions showing even when the associated element doesn't have visuals configured.
 
 ## Version 4.5.5
