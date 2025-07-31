@@ -601,6 +601,28 @@ public class ApiController
 }
 ```
 
+### Chained method invocations
+
+```csharp
+method.AddStatement(new CSharpAssignmentStatement(
+    new CSharpVariableDeclaration("activeItems"),
+    new CSharpStatement("Items")
+        .AddInvocation("Where", i => i.AddArgument(new CSharpLambdaBlock("x"), a => a.WithExpressionBody("x.IsActive")).OnNewLine())
+        .AddInvocation("Select", i => i.OnNewLine())
+));
+```
+
+Example Output:
+
+```csharp
+public void Method()
+{
+    var activeItems = Items
+        .Where(x => x.IsActive)
+        .ToArray();
+}
+```
+
 ### OnBuild vs AfterBuild Callbacks
 
 The File Builder System provides two types of callbacks for modifying generated code. These callbacks are essential because they execute at the correct time during the software factory execution process, allowing you to access existing template information that wouldn't be available under normal circumstances (since templates aren't ready yet).
