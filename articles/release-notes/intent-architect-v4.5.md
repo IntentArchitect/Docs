@@ -3,6 +3,30 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.10
+
+### Improvements in 4.5.10
+
+- Improvement: A popover will appear adjacent to diagram elements when hovering over any element. The popover will display the full name of the element, its comments in markdown (if any), and its package name.
+- Improvement: "Update Available" icon will now pulsate if a new update is available. The pulsating will stop permanently for the user's current session once they click on the icon. This is aimed at ensuring users are aware of updates and to help users stay updated with the latest version of the platform.
+- Improvement: Associations from package references will now show syntax highlighting (e.g. in the advanced mapping view between the Services and Domain)
+- Improvement: When dragging and dropping elements, there is now an indicator to more clearly show whether the element will be inserted above, below or within the destination element if dropped.
+- Improvement: Added `ctrl + shift + z` as an additional shortcut for *Redo*.
+- Improvement: `ctrl + enter` on diagrams now adds the visual to empty space in the diagram.
+- Improvement: Copy + Paste on diagrams now adds the new element to the diagram automatically.
+- Improvement: `ctrl + click` on applied Stereotypes will take you to the Stereotype Definition if it exists in the current solution.
+- Improvement: Updated Advanced Mapping `Is Required` validation behaviour to no longer validate but instead indicate that the mapping dialog should be launched automatically on element creation.
+
+### Issues fixed in 4.5.10
+
+- Fixed: Double-clicking on diagram wouldn't open it.
+- Fixed: Mapping errors would sometimes show due to an error when being initialized.
+- Fixed: The Software Factory would sometimes fail with a "Failed to compare two elements in the array" error.
+- Fixed: Current selection in the tree view would be collapsed and lost after closing the Advanced Mapping dialog.
+- Fixed: Empty `Values` set on Elements would sometimes result in a value of `""` being persisted rather their value should be been set to `null`.
+- Fixed: On the Advanced Mapping screen the root node mapping anchor would be slightly cut off and hidden.
+- Fixed: Deleting applied Stereotypes from the diagram popover would disable suggestions from being shown.
+
 ## Version 4.5.9
 
 ### Improvements in 4.5.9
