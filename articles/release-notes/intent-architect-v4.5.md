@@ -8,7 +8,7 @@ uid: release-notes.intent-architect-v4.5
 ### New Features in 4.5.10
 
 - New Feature: A popover will appear adjacent to diagram elements when hovering over any element. The popover will display the full name of the element, its comments in markdown (if any), and its package name.
-![Diagram Popover Example](diagram-popover-comment.png)
+![Diagram Popover Example](images/4.5/diagram-popover-comment.png)
 
 ### Improvements in 4.5.10
 
