@@ -5,10 +5,13 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.10
 
+### New Features in 4.5.10
+
+- New Feature: A popover will appear adjacent to diagram elements when hovering over any element. The popover will display the full name of the element, its comments in markdown (if any), and its package name.
+![Diagram Popover Example](diagram-popover-comment.png)
+
 ### Improvements in 4.5.10
 
-- Improvement: A popover will appear adjacent to diagram elements when hovering over any element. The popover will display the full name of the element, its comments in markdown (if any), and its package name.
-![alt text](diagram-popover-comment.png)
 - Improvement: "Update Available" icon will now pulsate if a new update is available. The pulsating will stop permanently for the user's current session once they click on the icon. This is aimed at ensuring users are aware of updates and to help users stay updated with the latest version of the platform.
 - Improvement: Associations from package references will now show syntax highlighting (e.g. in the advanced mapping view between the Services and Domain)
 - Improvement: When dragging and dropping elements, there is now an indicator to more clearly show whether the element will be inserted above, below or within the destination element if dropped.
