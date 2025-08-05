@@ -3,6 +3,16 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.11
+
+### Improvements in 4.5.11
+
+- Improvement: Comments textarea now automatically resizes to fit its text.
+
+### Issues fixed in 4.5.11
+
+- Fixed: Designer null reference errors can potentially occur on any scripts (validation, accelerators, on-change events, etc.) which are working with empty stereotype values.
+
 ## Version 4.5.10
 
 ### New Features in 4.5.10
