@@ -108,43 +108,70 @@ If a syntax node doesn't have an identifier, a match is performed in order by th
 
 ### Component specific attribute matching configuration
 
-Module authors can configure matching behaviour for particular element/component tag names by using the `ConfigureRazor` extension method on any instance of `ISoftwareFactoryExecutionContext`.
+Module authors can configure matching behaviour for particular element/component tag names by using the `ConfigureRazorTagMatchingFor` extension method on any instance of `ISoftwareFactoryExecutionContext`.
 
 > [!TIP]
 >
 > The `IApplication` interface and the `ExecutionContext` property on template base types are two common places which are `ISoftwareFactoryExecutionContext` and this extension method can be used.
 
-The extension method takes an `Action<IRazorConfigurator>` argument which allows fluent style configuration to occur. The following methods are available:
+The extension method takes an `Action<IRazorTagMatchingConfiguration>` argument which allows fluent style configuration to occur. The following methods are available:
 
-- **AllowMatchByTagNameOnly** - Adds an item to the Razor Weaver's list of element/directive tag names which may be matched by tag name alone rather than requiring content also be matched.
-- **AddTagNameAttributeMatch** - Adds an entry to the Razor Weaver's list of attributes for a tag name which can be used to find matches of elements/directives between existing and generated files.
+#### AllowMatchByDescendant
 
-> [!NOTE]
->
-> This extension method is only available from version `3.8.7` and later of the `Intent.Common.CSharp` module and corresponding `Intent.Modules.Common.CSharp` NuGet package.
+The tag may be matched by a descendant at the specified path.
 
-Example from a template:
+Consider you're trying matching MudGrid in the following existing file:
 
-```csharp
-public override void AfterTemplateRegistration()
+```razor
+@if (Model is not null)
 {
-    ExecutionContext.ConfigureRazor(configurator =>
-    {
-        configurator.AllowMatchByTagNameOnly("MudDialogProvider");
-        configurator.AddTagNameAttributeMatch("MudDatePicker", "@bind-Date");
-    });
+  <MudGrid>
+    <MudItem>
+      <MudImage id="SomeId" />
+    </MudItem>
+  </MudGrid>
 }
 ```
 
-Example from a factory extension:
+With the one in the following generated file:
+
+```razor
+<MudGrid>
+  <MudItem>
+    <MudImage id="SomeId" />
+  </MudItem>
+</MudGrid>
+```
+
+We can specify the following in a factory extension in our module:
 
 ```csharp
 protected override void OnAfterTemplateRegistrations(IApplication application)
 {
-    application.ConfigureRazor(configurator =>
-    {
-        configurator.AllowMatchByTagNameOnly("MudDialogProvider");
-        configurator.AddTagNameAttributeMatch("MudDatePicker", "@bind-Date");
-    });
+    application.ConfigureRazorTagMatchingFor("MudGrid", c => c.AllowMatchByDescendant(["MudItem"]));
+}
+```
+
+The Razor Weaver will then know that for a `MudGrid` that it can consider it matched with a `MudGrid` when both have at least one direct descendant under their `MudItem` with is considered a match.
+
+#### AllowMatchByNameOnly
+
+The tag may be matched by its name alone rather than requiring content also be matched.
+
+```csharp
+protected override void OnAfterTemplateRegistrations(IApplication application)
+{
+    application.ConfigureRazorTagMatchingFor("MudDialogProvider", c => c.AllowMatchByNameOnly());
+}
+```
+
+#### AllowMatchByAttributes
+
+The tag may be match by the one or more specified attribute names.
+
+```csharp
+protected override void OnAfterTemplateRegistrations(IApplication application)
+{
+    application.ConfigureRazorTagMatchingFor("MudDialogProvider", c => c.AddTagNameAttributeMatch("@bind-Date", "otherAttribute", ...));
 }
 ```
