@@ -102,7 +102,7 @@ For example, for the following existing file:
 ```razor
 @attribute [Intent.Skip("h1", "/div[@id='main']")]
 
-<div id="custom>
+<div id="custom">
   <p>My content</p>
 </div>
 
