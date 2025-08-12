@@ -3,6 +3,26 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.12
+
+### Improvements in 4.5.12
+
+- Improvement: Package as Sample feature now allows the user to specify whether the source code should be included and whether the application can be renamed.
+![Package as Sample](images/4.5/package-sample-checkboxes.png)
+- Improvement: JS API now exposes as `getPreviousName()` function on elements. This allows name changes to be detected in designer scripts.
+- Improvement: JS API now exposes `applicationId` and `designerId` on packages. This is useful to, for example, detect if elements are from external applications.
+- Improvement: Added `Try Auto-Map` (with `space` shortcut) to mappable elements in the Advanced Mapping dialog.
+- Improvement: Suggestions now show in the tree-view Model
+- Improvement: Warning with resolution message shown on package references if the packageId is misconfigured in the metadata.
+
+### Issues fixed in 4.5.12
+
+- Fixed: Reordering DTO-Fields in the Advanced Mapping not working when there are Generic Arguments present (e.g. when a Query returns a PagedResult<T>)
+- Fixed: Source of scripts not showing in Output Console for Element Setting Extensions in certain circumstances.
+- Fixed: On-changed events no longer get triggered by child element changes if the child is deleted and then an undo is applied.
+- Fixed: Module config (e.g. disabled templates) not getting installed with Sample system.
+- Fixed: Shutting down SF from dialog causes unexpected focus requests to the Intent Architect application.
+
 ## Version 4.5.11
 
 ### Improvements in 4.5.11
