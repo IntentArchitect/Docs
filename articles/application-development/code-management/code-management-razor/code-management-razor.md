@@ -93,6 +93,38 @@ The following instructions are available and are applied the same way as normal 
 - **`@Intent.InitialGenBody`** - The body of the syntax is ignored after initial generation.
 - **`@Intent.InitialGenSignature`** - The signature of the syntax are ignored after initial generation.
 
+### `Intent.Skip("<path1>", ["<path2>", "<path3>", ...])`
+
+Will skip over insertion of template content at the specified [paths](#match-path-syntax).
+
+For example, for the following existing file:
+
+```razor
+@attribute [Intent.Skip("h1", "/div[@id='main']")]
+
+<div id="custom>
+  <p>My content</p>
+</div>
+
+<div id="other">
+  <p>Other generated content</p>
+</div>
+```
+
+It will skip generation of the `<h1>` and `<div id="main">`, but not the other `<div>` in the following template output:
+
+```razor
+<h1>Heading 1<h1>
+
+<div id="main">
+  <p>Generated content</p>
+</div>
+
+<div id="other">
+  <p>Other generated content</p>
+</div>
+```
+
 ## Default code management behaviour
 
 By default, templates are in `Merge` mode. This default can be changed in the [settings](xref:module-building.application-settings) for your application:
@@ -120,6 +152,86 @@ If a syntax node doesn't have an identifier, a match is performed in order by th
 - `@bind-Value`
 - `@bind`
 - `Value`
+
+### `Intent.Match(<path1>)`
+
+Adding an `Intent.Match(<paths>)` instruction above an element will cause the element to be matched with an element on the template at the specified [path](#match-path-syntax).
+
+For example, for the following existing file:
+
+```razor
+@Intent.Match("/div[@id='main']/h1")
+<h1>Heading 1<h1>
+
+<div id="main">
+  <p>Generated content</p>
+</div>
+```
+
+It will allow the `<h1>` element to be moved from inside the `<div>` in the following template output:
+
+```razor
+<div id="main">
+  <h1>Heading 1<h1>
+  <p>Generated content</p>
+</div>
+```
+
+### Match path syntax
+
+This section discusses the syntax for the path arguments used by the [Skip](#intentskippath1-path2-path3-) and [Match](#intentmatchpath1) instructions.
+
+The path supports a URL like path separated by forward-slashes (`/`), for example, `/div/div/h1` would match the `<h1>` in the following:
+
+```razor
+<div>
+  <div>
+    <h1>Heading 1</h1>
+  </div>
+</div>
+```
+
+The path syntax supports only a very small subset of [XPath](https://developer.mozilla.org/en-US/docs/Web/XML/XPath) which are listed below.
+
+#### [`attribute` Axis](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Axes#attribute)
+
+This will match elements with attribute names prefixed with an `@` with the specified value, for example the string `/div/div[@id='additional']` will match the 2nd nested `<div>` in the following:
+
+```razor
+<div>
+  <div id="main">
+    Main content.
+  </div>
+
+  <div id="additional">
+    Additional content.
+  </div>
+
+  <div id="footer">
+    Footer content.
+  </div>
+</div>
+```
+
+#### [`position` Function](https://developer.mozilla.org/en-US/docs/Web/XML/XPath/Reference/Functions/position)
+
+This will match the element at the specified 1-based index position, for example the string `/div/div[position()=3]` will match the 3rd div in the following:
+
+```razor
+<div>
+  <div>
+    1st
+  </div>
+
+  <div>
+    2nd
+  </div>
+
+  <div>
+    3rd
+  </div>
+</div>
+```
 
 ### Component specific attribute matching configuration
 
