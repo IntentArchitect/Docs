@@ -3,6 +3,15 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.13
+
+### Issues fixed in 4.5.13
+
+- Fixed: SF changes appearing after SF has completed in scenarios where the `intent` folder is inside of the `Output Location`.
+- Fixed: Metadata installer not setting Diagram Target Package Id to new folder's Id on installation.
+- Fixed: Advanced Mapping duplicating new complex types for the same source mapping type.
+- Fixed: Advanced Mapping creating unnecessary new properties with "auto-mapping" on root nodes.
+
 ## Version 4.5.12
 
 ### Improvements in 4.5.12
@@ -12,7 +21,7 @@ uid: release-notes.intent-architect-v4.5
 - Improvement: JS API now exposes as `getPreviousName()` function on elements. This allows name changes to be detected in designer scripts.
 - Improvement: JS API now exposes `applicationId` and `designerId` on packages. This is useful to, for example, detect if elements are from external applications.
 - Improvement: Added `Try Auto-Map` (with `space` shortcut) to mappable elements in the Advanced Mapping dialog.
-- Improvement: Suggestions now show in the tree-view Model
+- Improvement: Suggestions now show in the tree-view Model.
 - Improvement: Warning with resolution message shown on package references if the packageId is misconfigured in the metadata.
 
 ### Issues fixed in 4.5.12
