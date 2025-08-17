@@ -65,23 +65,12 @@ The table below shows the minimum version of Intent Architect required when usin
 
 |SDK version   |Minimum required Intent Architect version|
 |--------------|-----------------------------------------|
+|3.10.0        |4.5.14-a|
 |3.9.0         |4.5.0-a|
-|3.9.0-pre.0   |4.5.0-a|
-|3.9.0-alpha.4 |4.5.0-a|
-|3.9.0-alpha.4 |4.5.0-a|
-|3.9.0-alpha.3 |4.5.0-a|
-|3.9.0-alpha.2 |4.5.0-a|
-|3.9.0-alpha.1 |4.5.0-a|
-|3.9.0-alpha.0 |4.5.0-a|
 |3.8.0-pre.2   |4.4.0-beta.2|
 |3.8.0-pre.1   |4.4.0-alpha.0|
 |3.8.0-pre.0   |4.4.0-alpha.0|
 |3.7.0         |4.3.0|
-|3.7.0-pre.4   |4.3.0-beta.10|
-|3.7.0-pre.3   |4.3.0-beta.6|
-|3.7.0-pre.2   |4.3.0-beta.4|
-|3.7.0-pre.1   |4.3.0-beta.4|
-|3.7.0-pre.0   |4.3.0-beta.4|
 |3.6.0-pre.6   |4.2.4-pre.1|
 |3.6.0-pre.5   |4.2.4-beta.5|
 |3.6.0-pre.4   |4.2.4-beta.2|
