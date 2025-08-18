@@ -5,12 +5,19 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.13
 
+### Improvements in 4.5.13
+
+- Improvement: Dynamic Forms now support pages in a wizard with asynchronous `onInitialize` and `onContinue` hook points for each page. This functionality has been applied to enhance the experience of the Database Importer.
+- Improvement: Added a button to expand and compress the Advanced Mapping dialog in and out of full screen.
+
 ### Issues fixed in 4.5.13
 
 - Fixed: SF changes appearing after SF has completed in scenarios where the `intent` folder is inside of the `Output Location`.
 - Fixed: Metadata installer not setting Diagram Target Package Id to new folder's Id on installation.
 - Fixed: Advanced Mapping duplicating new complex types for the same source mapping type.
 - Fixed: Advanced Mapping creating unnecessary new properties with "auto-mapping" on root nodes.
+- Fixed: Advanced Mapping not providing correct auto-mapping options when `Override Map to Parent Function` is active.
+- Fixed: Diagram `New diagram elements` changes dropdown not saving unless diagram is opened.
 
 ## Version 4.5.12
 
