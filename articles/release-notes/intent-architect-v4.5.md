@@ -12,6 +12,7 @@ uid: release-notes.intent-architect-v4.5
 - Improvement: Dynamic Form support for layout using `columns` field (experimental)
 - Improvement: Added `hintType` to Dynamic Form Field configurations to control the colour and icon of the hint.
 - Improvement: Added `alert` field type to Dynamic Forms.
+- Improvement: Loading spinner will no show in tree-views when expanding to display large numbers (>1000) of child elements
 
 ### Issues fixed in 4.5.14
 
