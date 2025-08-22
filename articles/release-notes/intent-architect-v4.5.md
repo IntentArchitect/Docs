@@ -3,6 +3,22 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.14
+
+### Improvements in 4.5.14
+
+- Feature: Added `Package as Module...` option to applications in the Solution Explorer. This option opens a dialog which the user can use to package the selected application's metadata into a Module for sharing with other application (e.g. across repositories).
+- Improvement: Performance optimizations for Selectable Tree-View.
+- Improvement: Dynamic Form support for layout using `columns` field (experimental)
+- Improvement: Added `hintType` to Dynamic Form Field configurations to control the colour and icon of the hint.
+- Improvement: Added `alert` field type to Dynamic Forms.
+
+### Issues fixed in 4.5.14
+
+- Fixed: Type Reference dropdown options for target elements in the Advanced Mapping being cut off and not fully visible.
+- Fixed: zIndex fields in visual metadata files can lead to many unnecessary changes in version control, creating noise and increasing the chance of merge conflicts.
+- Fixed: Tree-model suggestions misaligned when no diagram has been loaded.
+
 ## Version 4.5.13
 
 ### Improvements in 4.5.13
