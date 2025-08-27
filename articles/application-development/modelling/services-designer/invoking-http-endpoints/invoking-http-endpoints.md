@@ -132,6 +132,32 @@ The procedure for invoking traditional Service Operations is essentially the sam
 
 ![Mapping configuration for invoking a traditional service operation](images/invoke-traditional-service-operation-mapping-screen.png)
 
+## Service Proxy for a 3rd party service
+
+You can have a proxy created for a third-party services and invoke it, provided the service definition is modeled in Intent Architect. Invoking the service follows the same steps described [above.](#invoking-http-endpoints)
+
+To represent a third-party service, you must create a **separate application** in your Intent Architect solution. Use the _External API_ application template for this purpose:
+
+- Right-click the solution in Intent Architect and select **Create New Application**.
+- Choose the `External API` application template.  
+  ![External API](images/external-api-template.png)
+- Give the application a clear, descriptive name to identify it as a third-party service.
+- An empty Intent Application will be created and added to your solution, pre-configured with the necessary modules to model an external API.
+
+### Using Intent.OpenApi.Importer
+
+If the third-party service provides a OpenApi document, you can import it directly into the `Services Designer` using the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-openapi-importer/intent-openapi-importer.html) module.
+
+Once imported, follow the steps outlined above to [invoke the service](#invoking-http-endpoints).
+
+> [!NOTE]
+>
+> The [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-openapi-importer/intent-openapi-importer.html) module is automatically installed when creating an application using the `External API` template.
+
+### Manually Modeling the Service
+
+If no OpenApi document is available, you can manually model the third-party service in the `Service Designer`. Once modeled, follow the same steps above to [invoke the service](#invoking-http-endpoints).
+
 ## Summary
 
 This article guided you through using the `Invoke Service` association to invoke HTTP endpoints.

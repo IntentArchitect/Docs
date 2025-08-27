@@ -126,19 +126,26 @@ This generates service operations that call the `Proxy Service`, with parameters
 
 ## Service Proxy for a 3rd party service
 
-A `Service Proxy` can also be created for third-party services, provided the service definition is modeled in Intent Architect.
+You can have a proxy created for a third-party services and invoke it, provided the service definition is modeled in Intent Architect.
 
-Regardless of the approach used, a **separate application must be created in the Intent Architect solution to represent the third-party service**.
+To represent a third-party service, you must create a **separate application** in your Intent Architect solution. Use the _External API_ application template for this purpose:
 
-- Right-click on the solution in Intent Architect and select **Create new application**.
-- Name the application appropriately to clearly identify it as a third-party service.
+- Right-click the solution in Intent Architect and select **Create New Application**.
+- Choose the `External API` application template.  
+  ![External API](images/external-api-template.png)
+- Give the application a clear, descriptive name to identify it as a third-party service.
+- An empty Intent Application will be created and added to your solution, pre-configured with the necessary modules to model an external API.
 
 ### Using Intent.OpenApi.Importer
 
-If a Swagger document is available for the third-party service, the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-openapi-importer/intent-openapi-importer.html) module can import the service definition directly into the `Services Designer`.
+If an OpenApi document is available for the third-party service, the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-openapi-importer/intent-openapi-importer.html) module can import the service definition directly into the `Services Designer`.
 
-Once the service is defined, follow the steps above to [create a service proxy](#creating-a-service-proxy).
+Once imported, follow the steps outlined above to [create a service proxy](#creating-a-service-proxy).
+
+> [!NOTE]
+>
+> The [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-dotnet/intent-openapi-importer/intent-openapi-importer.html) module is automatically installed when creating an application using the `External API` template.
 
 ### Manually modeling the service
 
-If a Swagger document is not available, the third-party service can be manually modeled in the `Service Designer`. Once modeled, follow the steps above to [create a service proxy](#creating-a-service-proxy).
+If no OpenApi document is available, you can manually model the third-party service in the `Service Designer`. Once modeled, follow the same steps above to [create a service proxy](#creating-a-service-proxy).
