@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.15
+
+### Issues fixed in 4.5.15
+
+Fixed: Under rare circumstances the agent would shut itself down when an error occurs during software factory execution.
+
 ## Version 4.5.14
 
 ### Improvements in 4.5.14
@@ -19,6 +25,7 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Type Reference dropdown options for target elements in the Advanced Mapping being cut off and not fully visible.
 - Fixed: zIndex fields in visual metadata files can lead to many unnecessary changes in version control, creating noise and increasing the chance of merge conflicts.
 - Fixed: Tree-model suggestions misaligned when no diagram has been loaded.
+- Fixed: (macOS) Only the first module task execution during an Intent Architect session would launch and any further module task execution attempts would do nothing until Intent Architect was completely restarted.
 
 ## Version 4.5.13
 
