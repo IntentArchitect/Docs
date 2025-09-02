@@ -6,6 +6,7 @@ Welcome to the August September edition of highlights of What's New in Intent Ar
 
 - More updates
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
+  - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
 
 ## Update details
 
@@ -29,3 +30,13 @@ Available from:
 
 - Intent.Rdbms.Importer 1.0.3
 - Intent Architect 4.5.13
+
+### EF migrations README file changed from a `.txt` to `.md` file
+
+The `MIGRATIONS_README.txt` file has been changed to a `README.md` file which will now by default generate in the the same `Migrations` folder in which EF generates the migrations themselves and the content has been significantly altered to make use of Markdown formatting:
+
+![Example of updated migrations README.md file](images/sample-migrations-readme-file.png)
+
+Available from:
+
+- Intent.EntityFrameworkCore 3.0.28
