@@ -5,6 +5,7 @@ Welcome to the August September edition of highlights of What's New in Intent Ar
 - Highlights
 
 - More updates
+  - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages.
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
   - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
 
@@ -42,3 +43,20 @@ The `MIGRATIONS_README.txt` file has been changed to a `README.md` file which wi
 Available from:
 
 - Intent.EntityFrameworkCore 3.0.28
+
+### AutoMapper and MediatR commercial version settings
+
+![AutoMapper & MediatR](images/automapper-and-mediatr.png)
+
+Following up on our [July 2025 announcement](../07/index.md#automapper-and-mediatr-going-commercial), both the `Intent.Application.AutoMapper` (version 5.3.0+) and `Intent.Application.MediatR` (version 4.5.0+) modules have been updated with new settings that give you full control over which versions of these popular NuGet packages to use in your applications.
+
+You can now choose whether to lock the versions of AutoMapper and MediatR to those prior to their commercial editions, or proceed with the latest commercial versions while accepting their respective licenses. This flexibility ensures that your projects can adapt to your organization's licensing preferences and requirements. For more details about the commercial transition, read Jimmy Bogard's announcement [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).
+
+> [!WARNING]
+>
+> If you decide to use the commercial versions, you will need to obtain and configure the appropriate license keys. License keys can be requested as detailed in Jimmy Bogard's article above, and should be configured in your `appsettings.json` file under `AutoMapper:LicenseKey` for AutoMapper or `MediatR:LicenseKey` for MediatR. Alternatively, you can set them as environment variables using `AutoMapper__LicenseKey` or `MediatR__LicenseKey` respectively.
+
+Available from:
+
+- Intent.Application.AutoMapper 5.3.0
+- Intent.Application.MediatR 4.5.0
