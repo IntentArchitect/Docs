@@ -22,6 +22,8 @@ In particular:
 - When the tree view has many objects (1000s or more) it is no longer very slow to check/un-check parent nodes and will a loading indicator is now shown when there are lots of nodes to initialize.
 - When the actual import process has been kicked off, output is now shown in a module task dialogue which pops up.
 
+Refer to the [RDBMS Importer Documentation](https://docs.intentarchitect.com/articles/modules-importers/intent-rdbms-importer/intent-rdbms-importer.html) for more information.
+
 > [!NOTE]
 >
 > In order to see latest version of the importer you will need to ensure you are running the latest release version of Intent Architect, at least version 4.5.13.
