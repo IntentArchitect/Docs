@@ -18,6 +18,7 @@
     "idempotently",
     "namespaceanddescendants",
     "Qube",
+    "Rdbms",
     "Serilog",
     "softwarefactory",
     "Structs"
