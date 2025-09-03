@@ -1,14 +1,17 @@
 # What's new in Intent Architect (September 2025)
 
-Welcome to the August September edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
+Welcome to the September edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 - Highlights
   - **[Blazor Authentication Module](#blazor-authentication-module)** - Quickly scaffold authentication into your Blazor applications. Works with Interactive -WebAssembly, -Server, and -Auto modes, plus supports Individual Accounts, JWT, and OIDC password flow.
-- More updates
-  - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages.
+  - **[Blazor AI Module](#blazor-ai-module)** - Build professional Blazor Front-ends faster than ever by simply modeling your ViewModel and letting IA drive the AI to create your views.
+  - **[Blazor Server Architecture Template](#rdbms-importer-improvements)** - Kickstart your ASP.NET Core projects with a ready-to-use Blazor Server setup featuring in-process services and Clean Architecture best practices.
+  - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages. 
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
-  - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
   - **[Global Exceptions in Azure Functions](#enabling-global-exception-handling-in-azure-functions-isolated-mode)** - Enable global exceptions for Azure Functions in isolated process mode.
+
+- More updates
+  - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
 
 ## Update details
 
@@ -32,6 +35,35 @@ Refer to the [Blazor Authentication Documentation](https://docs.intentarchitect.
 Available from:
 
 - Intent.Blazor.Authentication 1.0.1
+
+### Blazor AI Module
+
+We’re excited to introduce the new Blazor AI Module, designed to work seamlessly with your existing Blazor modules. This innovation blends deterministic and non-deterministic code generation to help you build professional Blazor front ends — faster than ever.
+
+With this module, you simply define the ViewModel aspects of your Blazor components (service interactions, navigations, models), and let AI fill in the rest. Thanks to our prompt-less interaction, Intent Architect handles all the context engineering behind the scenes, allowing you to collaborate with the AI through a simple, intuitive code-diff workflow.
+
+The module also includes an extensible prompt templating system, giving you full control to customize the automated prompt engineering for your needs.
+
+For more details read [Blazor UI Modeling with AI](https://docs.intentarchitect.com/articles/application-development/modelling/ui-designer/blazor-modeling/blazor-modeling.html) for more information.
+
+Available from:
+
+- Intent.AI.Blazor 1.0.0-beta.13
+
+### Blazor Server Architecture Template
+
+The new **Blazor Server** Architecture Template, the simplest way to model your way to a full-stack solution. This template sets up an ASP.NET Core application running Blazor in Server Interactive mode, following Clean Architecture best practices.
+
+Key Features
+
+- Simplest way to model your way to a full stack solution
+- Single application deployment
+- In-process service invocation
+- Blazor Security patterns
+
+Available from:
+
+- Intent Architect 4.5.*
 
 ### RDBMS importer improvements
 
@@ -66,6 +98,22 @@ Available from:
 
 - Intent.EntityFrameworkCore 3.0.28
 
+### Enabling Global Exception Handling in Azure Functions (Isolated Mode)
+
+Global exception handling in Azure Functions isolated process mode allows you to centralize error handling logic, remove repetitive try/catch blocks, and ensure consistent logging and responses across all functions.
+
+You can enable global exception handling via `Settings`.
+
+![Azure Functions Global Exceptions Settings](images/az-functions-global-exception-setting.png)
+
+The following middleware will be registered within your application.
+
+![Azure Functions Middleware](images/az-functions-middleware.png)
+
+Available from:
+
+- Intent.Modules.AzureFunctions 5.0.13
+
 ### AutoMapper and MediatR commercial version settings
 
 ![AutoMapper & MediatR](images/automapper-and-mediatr.png)
@@ -82,19 +130,3 @@ Available from:
 
 - Intent.Application.AutoMapper 5.3.0
 - Intent.Application.MediatR 4.5.0
-
-### Enabling Global Exception Handling in Azure Functions (Isolated Mode)
-
-Global exception handling in Azure Functions isolated process mode allows you to centralize error handling logic, remove repetitive try/catch blocks, and ensure consistent logging and responses across all functions.
-
-You can enable global exception handling via `Settings`.
-
-![Azure Functions Global Exceptions Settings](images/az-functions-global-exception-setting.png)
-
-The following middleware will be registered within your application.
-
-![Azure Functions Middleware](images/az-functions-middleware.png)
-
-Available from:
-
-- Intent.Modules.AzureFunctions 5.0.13
