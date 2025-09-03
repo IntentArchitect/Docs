@@ -3,7 +3,7 @@
 Welcome to the August September edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 - Highlights
-
+  - **[Blazor Authentication Module](#blazor-authentication-module)** - Quickly scaffold authentication into your Blazor applications. Works with Interactive -WebAssembly, -Server, and -Auto modes, plus supports Individual Accounts, JWT, and OIDC password flow.
 - More updates
   - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages.
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
@@ -11,6 +11,27 @@ Welcome to the August September edition of highlights of What's New in Intent Ar
   - **[Global Exceptions in Azure Functions](#enabling-global-exception-handling-in-azure-functions-isolated-mode)** - Enable global exceptions for Azure Functions in isolated process mode.
 
 ## Update details
+
+### Blazor Authentication Module
+
+This new Blazor Authentication module makes it easier than ever to add secure, production-ready auth to your applications. Built on top of the familiar Blazor auth templates, it supports all three rendering modes (Interactive WebAssembly, Interactive Server, and Interactive Auto) so you can choose the right hosting model for your app without reworking your auth.
+
+Here’s what’s included:
+
+#### Individual Accounts
+Get a fully functional login, registration, and profile management system using ASP.NET Core Identity. Ideal for apps that need user management, password resets, and role-based security out of the box.
+
+#### JWT Authentication
+Perfect for modern APIs and SPAs, this option allows your Blazor app to authenticate against any token-issuing service. It’s lightweight, scalable, and a great fit for microservice or API-first architectures.
+
+#### OIDC Password Flow
+Easily integrate with your existing identity provider (like IdentityServer, Auth0, or Azure AD B2C) using the Resource Owner Password flow. Great for scenarios where you need central user management and single sign-on across multiple apps.
+
+Refer to the [Blazor Authentication Documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-authentication/intent-blazor-authentication.html) for more information.
+
+Available from:
+
+- Intent.Blazor.Authentication 1.0.1
 
 ### RDBMS importer improvements
 
