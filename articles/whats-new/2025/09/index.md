@@ -1,6 +1,6 @@
 # What's new in Intent Architect (September 2025)
 
-Welcome to the September edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
+Welcome to the September edition of What’s New in Intent Architect. Here’s a roundup of the latest updates and improvements designed to make your development experience faster, cleaner, and more productive.
 
 - Highlights
   - **[Blazor AI Module](#blazor-ai-module)** - Build professional Blazor Front-ends faster than ever by simply modeling your ViewModel and letting IA drive the AI to create your views.
@@ -33,7 +33,7 @@ Available from:
 
 The new **Blazor Server** Architecture Template, the simplest way to model your way to a full-stack solution. This template sets up an ASP.NET Core application running Blazor in Server Interactive mode, following Clean Architecture best practices.
 
-Key Features
+Key Features include:
 
 - Simplest way to model your way to a full stack solution
 - Single application deployment
@@ -51,12 +51,15 @@ This new Blazor Authentication module makes it easier than ever to add secure, p
 Here’s what’s included:
 
 #### Individual Accounts
+
 Get a fully functional login, registration, and profile management system using ASP.NET Core Identity. Ideal for apps that need user management, password resets, and role-based security out of the box.
 
 #### JWT Authentication
+
 Perfect for modern APIs and SPAs, this option allows your Blazor app to authenticate against any token-issuing service. It’s lightweight, scalable, and a great fit for microservice or API-first architectures.
 
 #### OIDC Password Flow
+
 Easily integrate with your existing identity provider (like IdentityServer, Auth0, or Azure AD B2C) using the Resource Owner Password flow. Great for scenarios where you need central user management and single sign-on across multiple apps.
 
 Refer to the [Blazor Authentication Documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-blazor-authentication/intent-blazor-authentication.html) for more information.
