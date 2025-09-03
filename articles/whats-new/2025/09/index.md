@@ -8,6 +8,7 @@ Welcome to the August September edition of highlights of What's New in Intent Ar
   - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages.
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
   - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
+  - **[Global Exceptions in Azure Functions](#enabling-global-exception-handling-in-azure-functions-isolated-mode)** - Enable global exceptions for Azure Functions in isolated process mode.
 
 ## Update details
 
@@ -60,3 +61,19 @@ Available from:
 
 - Intent.Application.AutoMapper 5.3.0
 - Intent.Application.MediatR 4.5.0
+
+### Enabling Global Exception Handling in Azure Functions (Isolated Mode)
+
+Global exception handling in Azure Functions isolated process mode allows you to centralize error handling logic, remove repetitive try/catch blocks, and ensure consistent logging and responses across all functions.
+
+You can enable global exception handling via `Settings`.
+
+![Azure Functions Global Exceptions Settings](images/az-functions-global-exception-setting.png)
+
+The following middleware will be registered within your application.
+
+![Azure Functions Middleware](images/az-functions-middleware.png)
+
+Available from:
+
+- Intent.Modules.AzureFunctions 5.0.13
