@@ -19,18 +19,19 @@ This tutorial should take around 5 minutes.
 ## Create your first Intent Architect application
 
 * Open Intent Architect.
-* Click `Create a new application`.
+* Click `Create a new solution`.
 
 ![Home Screen](images/create-application.png)
 
-On the first screen of the wizard you can select your desired architecture. For this tutorial use the `Clean Architecture .NET` option.
-
-* Select the `Clean Architecture .NET` template.
-* Change the application name to `HelloWorldTutorial`.
-* Check / change the `Location` field (this is where your Intent Architect application will be created).
-* Click `Next`.
+On the first screen of the wizard you can select your desired architecture. For this tutorial select the `ASP.NET Core - Clean Architecture` option.
 
 ![Select your architecture](images/choose-application-template.png)
+
+In the `Create New Solution` screen, give your solution and application the name `HelloWorldTutorial`. 
+
+* Click `Select Components`.
+
+![Application Name](images/capture-application-name.png)
 
 This screen allows you to configure your selected Architecture, for the tutorial you are just going to use the default configuration.
 
@@ -80,7 +81,7 @@ In the `Services` Designer you describe your application services, which is the 
 
 Lets create a service for your `Planet` entity.
 
-* Right-click on `HelloWorldTutorial.Services` and select `Create CQRS CRUD Operations`.
+* Right-click anywhere on the grid, and select `Create CRUD CQRS Operations`.
 * In the dialog window
   * Select `Planet` from the `Entity for CRUD operations` dropdown.
   * Click `Done`.
@@ -90,9 +91,11 @@ Lets create a service for your `Planet` entity.
 Intent Architect has created a minimalist CQRS style service for you with basic CRUD operations for your `Planet` entity.
 
 > [!NOTE]
-> The `Clean Architecture in .NET` template has installed an optional CRUD feature, which is what you used to quickly create service definitions and it will create default convention-based service implementations for you. This is a feature which can be used as is, embraced and extended or skipped all together.
+> The `ASP.NET Core - Clean Architecture` template has installed an optional CRUD feature, which is what you used to quickly create service definitions and it will create default convention-based service implementations for you. This is a feature which can be used as is, embraced and extended or skipped all together.
 
 These service operations are currently only available within the application, your next step will be to expose these operations as a RESTful API.
+
+In the tree-view on the right-hand side:
 
 * Click on `CreatePlanetCommand`.
 * Hold down `Shift`.
@@ -181,7 +184,7 @@ You should get a response similar to this:
 
 ```json
 {
-  "id": "3ba435f3-89e8-4282-a12d-5a7522524e2c",
+  "id": "cf40c444-7dc6-462e-b9c1-5c9e4b8719f7",
   "name": "hello world"
 }
 ```
