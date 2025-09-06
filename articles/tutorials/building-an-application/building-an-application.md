@@ -16,22 +16,25 @@ This tutorial will take around 40 minutes.
 ## Setting up your Intent Architect Solution
 
 * Open Intent Architect.
-* Click `Create a new application`.
+* Click `Create a new solution`.
 
-![Home Screen](images/create-application.png)
+![Home Screen](images/create-solution.png)
 
-On the first screen of the wizard you can select your desired architecture. For this tutorial use the `Clean Architecture .NET` option:
+On the first screen of the wizard you can select your desired architecture. For this tutorial use the `ASP.NET Core - Clean Architecture` option:
 
-* Select the `Clean Architecture .NET` application template.
-* Change the application name to `SimplifiedEShopTutorial`.
-* Check / change the `Location` field (this is where your Intent Architect application will be created).
-* Click `Next`.
+* Select the `ASP.NET Core - Clean Architecture` application template.
 
 > [!NOTE]
 > In this tutorial we will be using a .NET implementation of the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) as explained by Robert C. Martin (aka "Uncle Bob"). This popular architecture promotes separation of concerns and the dependency rule to create systems that are modular, maintainable, and testable.
 > If you are curious about the architecture of this solution, check out our [Webinar on Clean Architecture in .NET](https://intentarchitect.com/#/redirect/?category=resources&subCategory=CleanArchitectureWebinar).
 
 ![Select your architecture](images/choose-your-architecture.png)
+
+In the `Create New Solution` screen, give your solution and application the name `SimplifiedEShopTutorial`. 
+
+* Click `Select Components`.
+
+![Application Name](images/capture-application-name.png)
 
 The next screen allows you to configure your selected Architecture, for this tutorial we will use the default configuration:
 
@@ -122,6 +125,10 @@ You have configured a *many-to-one* relationship, i.e. a `BasketItem` has one `P
 
 ![Model Second Association](images/association-basketItem-product.png)
 
+> [!NOTE]
+>
+> `BasketItem` is taking on a darker shade color than `Basket` to visually represent a **composite** relationship meaning that `BasketItem` cannot exist independently from `Basket`.
+
 ### Modeling Data
 
 To finish these entities up, you will now model their data.
@@ -167,10 +174,10 @@ The last thing to add to the model will be a `Status` on the order, so that our 
 
 Add an `OrderStatus` `Enum` to the model:
 
-* In the tree-view (top right pane), right-click on root node of the tree (`SimplifiedEShopTutorial.Domain`) and click `New Enum`.
+* Right click anywhere on the background of the diagram and select `New Enum`.
 * Type in `OrderStatus` as its name.
 * Right-click on `OrderStatus` and select `Add Literal`.
-* Type `Submitted`, in the `Property` pane below set `Value` to `1`.
+* Type `Submitted`, press tab and type `1` (this will add a literal called `Submitted` with its ordinal value of `1`).
 * Add two more statuses:
   * `Shipped` = `2`.
   * `Cancelled` = `3`.
@@ -203,7 +210,7 @@ You have successfully modelled the domain.
 
 ## Configuring your database
 
-When the `Clean Architecture .NET` application template was used to create your application, by default it configured it to use `Entity Framework Core` for persistence and defaulted the `Database Provider` to `In Memory`. Although still useful for testing during development, the `In Memory` Database Provider has the limitation that all persisted data is lost each time the application is stopped.
+When the `ASP.NET Core - Clean Architecture` application template was used to create your application, by default it configured it to use `Entity Framework Core` for persistence and defaulted the `Database Provider` to `In Memory`. Although still useful for testing during development, the `In Memory` Database Provider has the limitation that all persisted data is lost each time the application is stopped.
 
 In this section you will change the application's Database Provider to `SQL Server` and then cover using *Entity Framework Core* tooling to create your application's schema in a `SQL Server` instance.
 
@@ -215,14 +222,11 @@ In this section you will change the application's Database Provider to `SQL Serv
 Let's start by changing your `Database Provider`:
 
 * Open the application setting tab by right-clicking on the Application in the `Solution Explorer` and selecting `Settings`.
-* Scroll down to the `Database Settings` section.
+* Scroll down to the `Database Settings` section (click to expand).
 * Change `Database Provider` to `SQL Server`.
+* Press `CTRL` + `S` to save.
 
 ![Configure the Database Provider](images/configure-database-provider.png)
-
-* Click `Save Changes` (directly under the `Database Setting` section).
-
-![Save Database Settings](images/configure-database-provider-2.png)
 
 Run the Software Factory to apply these changes:
 
@@ -246,16 +250,20 @@ Apply these changes to your codebase.
 The next step is to create your application's database. To achieve this you are going to use `Entity Framework Core`'s migration system. Switch to the codebase in your C# IDE, then:
 
 * Navigate to the `SimplifiedEShopTutorial.Infrastructure` project.
-* Expand the `Persistence` folder.
-* Open the `MIGRATION_README.txt` file.
+* Expand the `Migrations` folder.
+* Open the `README.md` file.
 
-![View of MIGRATION_README.txt](images/migration-readme.png)
+> [!NOTE]
+>
+> If you have an older version of the `Intent.EntityFrameworkCore` module installed (before version 5.0.28) you will need to locate the `MIGRATION_README.txt` file in the `SimplifiedEShopTutorial.Infrastructure` project's `Persistence` folder.
+
+![View of README.md](images/migration-readme.png)
 
 This file is an easy-to-use reference of commonly needed migration commands, pre-configured for this C# solution. Your first step will be to create a new migration:
 
 * Find the `Create a new migration` section.
 * Run the migration command, changing `{ChangeName}` to `Initial` (as EF Core's tooling ignores curly braces, `{Initial}` will also work).
-  * If you are using Visual Studio, open the `Package Manager Console`. (View > Other Windows > Package Manager Console).
+  * If you are using Visual Studio, open the `Package Manager Console` (View > Other Windows > Package Manager Console). For any other IDE, you can use the `.NET CLI` commands instead.
   * Paste the Command into the console: `Add-Migration -Name {ChangeName} -StartupProject "SimplifiedEShopTutorial.Api" -Project "SimplifiedEShopTutorial.Infrastructure"`.
   * Change `{ChangeName}` to `Initial`.
   * Press `Enter`.
@@ -286,16 +294,16 @@ You have now created a SQL Server database which is based on your modeled design
 
 ## Modeling the services
 
-Next up you are going to want to model the services of your application. Looking at the domain, `Customer`s and `Product`s are really just supporting data for `Basket`s and `Order`s. Given that, you can easily use Intent Architect to create CRUD services for these:
+Next up you are going to model the services of your application. Looking at the domain, `Customer`s and `Product`s are really just supporting data for `Basket`s and `Order`s. Given that, you can easily use Intent Architect to create CRUD services for these:
 
 * Open the `Services` Designer.
-* In the tree-view in the center pane, right-click on the root node of the tree (`SimplifiedEShopTutorial.Services`) and click `Create CQRS CRUD Operations`.
-* In the `CRUD Creation Options` dialog, in the `Entity for CRUD operations` drop down, select `Customer`.
+* Anywhere on the diagram, right-click and select `Create CRUD CQRS Operations`.
+* The `CRUD Creation Options` dialog will appear. Select `Customer` in the `Entity for CRUD operations` drop down.
 * Click `Done`.
 
 ![Customer Service Added](images/crud-customer-service.png)
 
-Look at what has been created, you can see a logical `Customer` service in a `CQRS` style. Intent has added all the basic CRUD operations you'd expect to see.
+The `Customer` service has been created in a `CQRS` style. Intent Architect has added all the basic CRUD operations by default.
 
 > [!NOTE]
 > Simplifying it a bit, the CQRS paradigm is about separating server instructions into two groups:
@@ -317,9 +325,14 @@ Your next action is to expose these commands and queries as REST endpoints:
 > When modeling services in Intent Architect you are modeling application level services, i.e. they are not necessarily available for remote access. In this tutorial
 you have chosen to expose your services as HTTP REST endpoints.
 
-Similarly, create a CRUD Service for `Product`s, don't forget to expose them so that we can interact with them through Swagger later on:
+To create services for the `Product` entities we will add them to a different folder and diagram altogether:
 
-* Create your CRUD `Product` service, in the same way you made the `Customer` service.
+* Right-click on the `SimplifiedEShopTutorial.Services` package located in the tree-view on the right-hand side of your screen.
+* Select `Create CRUD CQRS Operations`.
+* In the `Entity for CRUD Operations` dropdown, select `Product`.
+* In the `Add to Diagram` drop-down, select `Create New Diagram`.
+* Click on `Done`.
+* Make sure to expose those endpoints too by selecting them, right-clicking and selecting `Expose as Http Endpoint`.
 
 The `Services` Designer should now look as follows:
 
@@ -337,7 +350,7 @@ At this point, you can apply these changes and see how your modeling is translat
 > [!TIP]
 > Using Intent Architect's CRUD modules to create services can be a great productivity boost whether you are using them as-is or as a starting point to extend.
 
-Now let's look at our `Basket` service. You can use the Intent CRUD module to create the service and then tailor it to the specific needs.
+Now let's look at our `Basket` service. You can use the Intent Architect's CRUD module to create the service and then tailor it to the specific needs.
 
 As before using the `Create CQRS CRUD Operations`, but on the `Basket` this time.
 ![CRUD the Basket Service](images/crud-basket.png)
@@ -358,13 +371,13 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 >
 > By clicking on the `Toggle between diagram and tree views` button [featherlight images/toggle-diagram-treeviews-button.png] you can change between having the diagram or tree-view in the middle of the screen.
 
-Proceed to model the Commands. Most of the current `Command`s meet your requirements and you can use them as is. We will be customizing the service as follows:
+Proceed to model the Commands. Most of the current `Command`s meet your requirements and you can use them as-is. The next steps will cover the following:
 
-* Get rid of `GetBasketsQuery` as you don't need it.
-* Replace `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
+* Deleting the `GetBasketsQuery` - we won't need it.
+* Replacing the `UpdateBasketCommand` with a new `AddItemToBasketCommand`, this feels more aligned to how a customer would interact with the `Basket`.
 * Add a `CheckoutCommand` for the customer to place their order.
 
-Remove the unwanted `Command`s and `Query`s:
+Let's start by removing the unwanted `Command`s and `Query`s:
 
 * Select `GetBasketsQuery` and `UpdateBasketCommand` (you can use the `Ctrl` key to select/de-select multiple nodes ones by one).
 * Press `Delete`.
@@ -390,9 +403,9 @@ Next you are going to model the `AddToBasketCommand` command:
 ![Mapping Screen](images/mapping-screen-from-basket-item.png)
 
 * Double-click on the `BasketItem`
-  * You will see a yellow arrow linking the Dto and the Entity
+  * You will see a purple-dotted arrow linking the Dto and the Entity.
 * Double-click on the `BasketItem` again
-  * This add all the entity data fields to the Dto contract and map them.
+  * This will add all the entity data fields to the Dto contract and map them.
 
 ![Mapping Screen](images/basket-item-mapped.png)
 
@@ -410,7 +423,7 @@ Again, let's look at the results of your modeling:
 
 ![SF - Add Basket Item](images/software-factory-add-item-to-basket.png)
 
-There should be a change to `AddToBasketCommandHandler`, if you double-click and inspect the change, you will notice that this class has been fully implemented for us. Here the CRUD module has figured out what you are trying to do and given you an implementation which meets your requirements.
+Locate the change to `AddToBasketCommandHandler`. Inspect its changes by double-clicking on the file. It has been fully implemented as the CRUD module used the mapping information that was done in the previous step and generated a full implementation that knows how to create a new `BasketItem`. Since the `BasketItem` is a composite entity of `Basket` it knew that the `Basket` has to be fetched first.
 
 ![Add BasketItem Auto Implemented](images/diff-add-item-to-basket.png)
 
@@ -421,13 +434,20 @@ Accept all the changes:
 
 * Click `Apply Changes`.
 
-To finish up the `Basket` service, you are going to create the `CheckoutCommand`:
+Before we proceed to create a `Basket` service, let's introduce the `AddToBasketCommand` to the `Baskets` diagram.
 
-* Right-click on the `Baskets` folder and select `New Command`.
+* Double-click on `Baskets` (which has the green-graph-like icon).
+* Expand the `AddToBasketCommand` and shift-select the Command including its Attributes and Actions.
+* Drag it onto the diagram below the `Basket` services.
+
+![AddToBasketCommand introduced onto diagram](images/add-to-basket-command-diagram-introduction.png)
+
+Now create the `CheckoutCommand`:
+
+* Right-click anywhere on the diagram and select `New Command` (it will be created inside the `Baskets` folder in the tree-view).
 * Name the command `CheckoutCommand` and return a `guid` which will be the identifier of the newly added `Order`.
 * Right-click on `CheckoutCommand` and select `Add Property`
   * Name the property `Id` of type `guid`
-* Click `Done`.
 * Right-click on `CheckoutCommand` and select `Expose as Http Endpoint`
 * In the `Properties` pane, in the `Http Settings` section:
   * Change the `Verb` to `POST`.
@@ -446,25 +466,29 @@ If you double-click the `CheckoutCommandHandler`, you will notice that this clas
 
 ![SF - Check out](images/checkout-needs-implementation.png)
 
-* Click `Apply Changes`.
-* Click on the blue hyperlink at the bottom left of the Software Factory dialog, this should open a folder containing all the generated source code.
-* Open the `.sln` file.
-* Open the `CheckoutCommandHandler.cs` file.
+* Click `Apply Changes`. Close the Software Factory dialog.
+* Right-click on the `CheckoutCommand` element in the `Services` designer that was just created.
+* Hover over `Open in IDE`, then select the `CheckoutCommandHandler.cs`.
+* It will signal to `Visual Studio` to open that source file.
 
-Now you need to implement the `CommandHandler`. Basically this service should create a new `Order` based on the `Basket`. The service should also clear out the customers `Basket`, once the order is created:
+> [!TIP]
+>
+> Using the `Open in IDE` feature is convenient when you are still learning to familiarize yourself with the generated architecture.
+
+Implementing the `CommandHandler` should create a new `Order` based on the `Basket Id`. The service should also clear out the customers `Basket`, once the order is created:
 
 * Update the code as follows:
 
 [!code-csharp[](code/complete-CheckoutCommandHandler.cs?highlight=2,7-9,19,20,23,25,26,32-51,54-62)]
 
-Lastly, you will want to implement an order service. This service will allow customers to view their orders. Let's create the service from scratch:
+Lastly an `Order` service will be created which will allow customers to view their orders. It will be created from scratch.
 
-* In the tree-view in the center pane, right-click on the root node and click `New Folder`.
+* In the tree-view in the center pane, right-click on the root node (`SimplifiedEShopTutorial.Services`) and click `New Folder`.
 * Name the folder `Orders`.
 * Right-click on the `Orders` folder and select `New Query`.
 * Name the query `GetMyOrdersQuery`.
 
-You will need to model the `DTO` that this `Query` returns:
+Now, model the `DTO` that this `Query` returns:
 
 * Right-click on the `Orders` folder and select `New DTO`.
 * Name the DTO `OrderDto`.
@@ -477,13 +501,14 @@ You will need to model the `DTO` that this `Query` returns:
 * Click `Done`.
 * Right-click on the `OrderItemDto` and select `Map from Domain`.
 * Expand the `Product` node, check `Name`.
+* Click `Done`.
 
 ![OrderDto Modeled](images/orderdto-modelled.png)
 
-* Select `GetMyOrdersQuery`
-* In the `Property` pane change
-  * `Type` to `OrderDto`
-  * Check `IsCollection`
+* Select `GetMyOrdersQuery`.
+* In the `Property` pane change.
+  * `Type` to `OrderDto`.
+  * Check `Is Collection`.
 * Right-click on `GetMyOrdersQuery` and select `Add Property`.
 * Name it `CustomerId` of type `guid`.
 * Right-click on `GetMyOrdersQuery`, and select `Expose as Http Endpoint`.
@@ -499,13 +524,12 @@ Run the Software Factory:
 
 ![SF - GetMyOrdersQuery](images/software-factory-get-my-orders.png)
 
-If you double-click the `GetMyOrdersQueryCommandHandler`, you will notice that there is a default implementation but it's not what you need, it's not taking into account the `CustomerId` parameter.
+Double-click on the `GetMyOrdersQueryCommandHandler.cs` file. It will have a default implementation that will fetch all orders from the database. This will not suit us as we need to use the `CustomerId` to look-up orders for a customer.
 
 ![Default GetMyOrdersQuery implementation](images/get-my-orders-default-impl.png)
 
 * Click `Apply Changes`.
-* Open the generated solution in your C# IDE.
-* Open the `GetMyOrdersQueryCommandHandler.cs` file.
+* Right-click on `GetMyOrdersQuery` and hover over `Open in IDE` and select the `GetMyOrdersQueryCommandHandler.cs` file.
 * Update the code as follows:
 
 [!code-csharp[](code/complete-GetMyOrdersQueryHandler.cs?highlight=28,31)]
@@ -647,6 +671,10 @@ Here you can see the standard `ASP.NET Core` `Authorize` attributes being applie
 
 ![Products Controller changes](images/security-controller-changes.png)
 
+Separately the actual role names are kept in the `Permissions.cs` so that they can be referenced in a type-safe way.
+
+![Permissions Class changes](images/security-permissions-class.png)
+
 * Click `Apply Changes`.
 
 > [!NOTE]
@@ -655,6 +683,12 @@ Here you can see the standard `ASP.NET Core` `Authorize` attributes being applie
 Attempting to access these endpoints through the Swagger UI without providing a valid JWT will result in the following:
 
 ![Access Denied service request](images/access-denied-service-request.png)
+
+> [!TIP]
+>
+> Click on the `?` button at the top-right corner of Intent Architect (or press `F1`) to perform keyword searches to learn more (or revise any steps in this tutorial) through the use of help topics.
+> 
+> ![Help Topics](images/help-topics-security.png)
 
 ## Next steps
 

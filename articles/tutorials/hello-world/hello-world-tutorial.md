@@ -21,9 +21,11 @@ This tutorial should take around 5 minutes.
 * Open Intent Architect.
 * Click `Create a new solution`.
 
-![Home Screen](images/create-application.png)
+![Home Screen](images/create-solution.png)
 
 On the first screen of the wizard you can select your desired architecture. For this tutorial select the `ASP.NET Core - Clean Architecture` option.
+
+* Select the `ASP.NET Core - Clean Architecture` application template.
 
 ![Select your architecture](images/choose-application-template.png)
 
