@@ -5,9 +5,19 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.15
 
+### Improvements in 4.5.15
+
+- Improvement: (Module Building) Various additions to the SDK to enable additional features for output targeting designers (such as the Visual Studio designer) towards being able to support multiple `Template Output` items for the same template, but in different locations:
+  - May now specify dependencies which templates can use to determine scope in which to search for other template instances.
+  - `IOutputTarget` now has `Emit` and `On` methods allowing scope based "publishing" of events where only the same or referencing projects will receive emitted events.
+  - May now specify on Template Outputs whether they are enabled / disabled.
+  - May now specify filters on Template Outputs for model per template which models should apply.
+- Improvement: Template Outputs can now be created multiple times, once for each matching `Role`.
+
 ### Issues fixed in 4.5.15
 
-Fixed: Under rare circumstances the agent would shut itself down when an error occurs during software factory execution.
+- Fixed: Under rare circumstances the agent would shut itself down when an error occurs during software factory execution.
+- Metadata exporting and installation ignored metadata entries on packages.
 
 ## Version 4.5.14
 
