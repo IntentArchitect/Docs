@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.16
+
+### Issues fixed in 4.5.16
+
+- Fixed: Certain users would experience a license validation error when trying to create a new application.
+
 ## Version 4.5.15
 
 ### Improvements in 4.5.15
