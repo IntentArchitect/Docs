@@ -188,6 +188,19 @@ This accelerator models a CQRS service with a CRUD implementation, including the
 1. Right-click on the **Services Package**, and select **Create CRUD CQRS Operations**.
 2. Select the domain `Entity` to model the service around.
 
+> [!NOTE]
+> Not all entities types will be available for selection.
+
+The following entities types will be available:
+
+- **Aggregate roots**
+- **Collection composites that are entities** of the aggregate root
+
+The following entities will **not** be available for selection:
+
+- **One-to-one composites** of the aggregate root
+- **Value Objects**, even when they appear as collection composites under the root
+
 ![Generated CRUD CQRS Service Example](./images/accelerator-crud-cqrs.png)
 
 > [!NOTE]
