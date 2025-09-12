@@ -1,14 +1,14 @@
 ---
 uid: tools.software-factory-cli
 ---
+# Software Factory CLI
+
 <!-- Workaround to align the column widths consistently -->
 <style>
 table th:first-of-type {
     width: 375px;
 }
 </style>
-
-# Software Factory CLI
 
 A CLI (command line interface) version of the Intent Architect Software Factory.
 
@@ -67,7 +67,19 @@ If you're seeing this error on a build server you will need to ensure it has the
     version: '<major-version>.x'
 ```
 
-This task can be used multiple times in the same Pipeline if you need to have multiple .NET SDK versions available.
+This task can be used multiple times on the same Pipeline if you need to have multiple .NET SDK versions available, for example if the latest version of .NET is 9 and your code is targeting .NET 8 you can add the following two tasks:
+
+```yaml
+- task: UseDotNet@2
+  displayName: 'Install latest .NET 8 SDK'
+  inputs:
+    version: '8.x'
+
+- task: UseDotNet@2
+  displayName: 'Install latest .NET 9 SDK'
+  inputs:
+    version: '9.x'
+```
 
 ## Updating
 
@@ -81,48 +93,17 @@ The same command for installation (`dotnet tool install Intent.SoftwareFactory.C
 
 ## Options
 
-|Option|Description|
-|------|-----------|
-|`--version`                                           |Show version information|
-|`-?, -h, --help`                                      |Show help and usage information|
-|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=error;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
-|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=warning;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
+|Option          |Description|
+|----------------|-----------|
+|`-?, -h, --help`|Show help and usage information|
+|`--version`     |Show version information|
 
 ## Commands
 
-|Command|Description|
-|-------|-----------|
+|Command                                                           |Description|
+|------------------------------------------------------------------|-----------|
+|`apply-pending-changes <username> <password> <isln-path>`         |Runs the Software Factory and applies any outstanding changes.|
 |`ensure-no-outstanding-changes <username> <password> <isln-path>` |Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.|
-|`apply-pending-changes <username> <password> <isln-path>` |Runs the Software Factory and applies any outstanding changes.|
-
-## ensure-no-outstanding-changes command
-
-Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.
-
-### ensure-no-outstanding-changes usage
-
-```bash
-intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [options]
-```
-
-### ensure-no-outstanding-changes arguments
-
-|Argument|Description|
-|--------|-----------|
-|`<username>`  |Username for an active Intent Architect account.|
-|`<password>`  |Password for the Intent Architect account.|
-|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
-
-### ensure-no-outstanding-changes options
-
-|Option|Description|
-|------------------------------------------------------|-----------|
-|`--check-deviations`                                  |Whether to also check for unapproved deviations.|
-|`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
-|`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
-|`-?, -h, --help`                                      |Show help and usage information|
-|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=error;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
-|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=warning;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
 
 ## apply-pending-changes command
 
@@ -136,21 +117,77 @@ intent-cli apply-pending-changes <username> <password> <isln-path> [options]
 
 ### apply-pending-changes arguments
 
-|Argument|Description|
-|--------|-----------|
-|`<username>`  |Username for an active Intent Architect account.|
-|`<password>`  |Password for the Intent Architect account.|
+|Argument      |Description|
+|--------------|-----------|
+|`<username>`  |Username for an active Intent Architect account. If you're using an Organization Access Token (OAT), use "token", see [below](#do-i-have-to-use-the-credentials-of-a-user-license) for more information.|
+|`<password>`  |Password for the Intent Architect account. If a password is causing a "response file not found" error see [below](#the-command-fails-with-a-response-file-not-found-value-error) for more information and a workaround.|
 |`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
 
 ### apply-pending-changes options
 
-|Option|Description|
-|------|-----------|
+|Option                                                |Description|
+|------------------------------------------------------|-----------|
 |`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
 |`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
+|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for \"commands\" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetErrorLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
+|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for \"commands\" for logging of warnings. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetWarningLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`-?, -h, --help`                                      |Show help and usage information|
-|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=error;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
-|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for "commands" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br />- Azure Pipelines: By default applies `"##vso[task.logissue type=warning;]{@m} {@x}\n"` (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br /><br />See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>|
+
+## ensure-no-outstanding-changes command
+
+Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.
+
+### ensure-no-outstanding-changes usage
+
+```bash
+intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [options]
+```
+
+### ensure-no-outstanding-changes arguments
+
+|Argument      |Description|
+|--------------|-----------|
+|`<username>`  |Username for an active Intent Architect account. If you're using an Organization Access Token (OAT), use "token", see [below](#do-i-have-to-use-the-credentials-of-a-user-license) for more information.|
+|`<password>`  |Password for the Intent Architect account. If a password is causing a "response file not found" error see [below](#the-command-fails-with-a-response-file-not-found-value-error) for more information and a workaround.|
+|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
+
+### ensure-no-outstanding-changes options
+
+|Option                                                      |Description|
+|------------------------------------------------------------|-----------|
+|`--application-id <application-id>`                         |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
+|`--attach-debugger`                                         |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
+|`--check-deviations, --check-for-unapproved-customizations` |Whether to also check for any unapproved customizations.|
+|`--continue-on-error`                                       |Whether Software Factory execution should continue to run for other applications when an error is encountered.|
+|`--error-logging-command <error-logging-command>`           |Command to use for logging an error. Some continuous integration environments watch output for \"commands\" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetErrorLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
+|`--warning-logging-command <warning-logging-command>`       |Command to use for logging a warning. Some continuous integration environments watch output for \"commands\" for logging of warnings. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetWarningLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
+|`-?, -h, --help`                                            |Show help and usage information|
+
+## FAQ
+
+### The command fails with a "Response file not found '\<value\>'" error
+
+This error will show if a provided argument (typically a password) starts with an `@` character and is due to it being attempted to be parsed as a [response file](https://learn.microsoft.com/dotnet/standard/commandline/syntax#response-files).
+
+To prevent an argument being interpreted as a response file it must be preceded (not necessarily immediately) by an `--` argument, for example:
+
+```bash
+intent-cli ensure-no-outstanding-changes -- "user@example.com" "@Password1" "./intent-solution.isln"
+```
+
+Be aware that any optional arguments will need to be specified before the `--` argument, for example:
+
+```bash
+intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" --check-deviations -- "user@example.com" "@Password1" "./intent-solution.isln"
+```
+
+### Do I have to use the credentials of a user license?
+
+To avoid a situation of having to store or use a specific user's credentials on environments like a continuous integration server, an Organization Access Token (OAT) can be used instead.
+
+Please contact us and we will create and provide you an OAT for your organization, you can request as many as needed and optionally specify expiry times.
+
+To use the OAT, use `token` as the username argument the OAT as the password.
 
 ## Example: Azure Pipelines
 
@@ -202,7 +239,7 @@ variables:
     targetType: 'inline'
     pwsh: true
     script: |
-      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
+      intent-cli ensure-no-outstanding-changes -- "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
 ```
 
 ### A complete YAML file
@@ -241,7 +278,7 @@ steps:
     targetType: 'inline'
     pwsh: true
     script: |
-      intent-cli ensure-no-outstanding-changes "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
+      intent-cli ensure-no-outstanding-changes -- "$Env:INTENT_USER" "$Env:INTENT_PASS" "$Env:INTENT_SOLUTION_PATH"
 ```
 
 ### Run the pipeline

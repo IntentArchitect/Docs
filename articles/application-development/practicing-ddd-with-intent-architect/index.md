@@ -102,3 +102,72 @@ And when the Software Factory is run you will see that the generated implementat
 ### Conclusion
 
 We have now created Rich Domain behaviors on our Domain entity and mapped our services to interact with them.
+
+## Advanced Example: Modeling Aggregates and Composite Entities
+
+In certain scenarios, you may need to model an aggregate root (for example, an `Order`) that manages a collection of associated entities (for example, `OrderLine`). This section illustrates how to structure such a domain relationship in Intent Architect using private setters, map these structures through the Services designer, and expose operations to manage the aggregate.
+
+### Designing the Aggregate and Composite Entities
+
+1. **Create the Domain Classes**  
+   In the Domain Designer, model a class named `Order` and another named `OrderLine`. Establish a one-to-many relationship so that `Order` contains a collection of `OrderLine` entities.  
+   ![Order and OrderLine in the domain](images/30-order-orderline-association.png)
+
+2. **Use Private Setters and a Dedicated Constructor**  
+   To keep the domain model cohesive and prevent anemic updates, introduce a constructor that accepts a list or enumeration of `OrderLineDO` data objects. Within that constructor, create a collection to map these objects into actual `OrderLine` entities:
+
+```csharp
+public class Order
+{
+    private List<OrderLine> _orderLines = [];
+
+    public Order(int refNo, IEnumerable<OrderLineDO> orderLines)
+    {
+        RefNo = refNo;
+        _orderLines = orderLines.Select(s => new OrderLine(s.Description, s.Amount)).ToList();
+    }
+}
+```
+![Order class constructor code](images/31-order-class-constructor-code.png)
+
+1. **Instantiate the Aggregate via a Command**  
+   In the Services Designer, configure a `CreateOrderCommand` that links to this constructor. Fields for critical properties, like `RefNo` and the list of `OrderLineDO`, can then be mapped automatically.  
+   ![CreateOrderCommand created in Services designer](images/32-createordercommand-services.png.png)
+
+### Managing Existing Aggregates
+
+After the `Order` entity is created, you can add or modify `OrderLine` entities:
+
+1. **Define a Domain Operation**  
+   For instance, create an `AddOrderLine` operation on the `Order` entity. This method can accept parameters (e.g., `amount`, `description`, `quantity`) and build a new `OrderLine` (this assumes your `OrderLine` has a constructor accepting: `amount`, `description`, `quantity`).
+
+```csharp
+public void AddOrderLine(decimal amount, string description, int quantity)
+{
+    _orderLines.Add(new OrderLine(amount, description, quantity));
+}
+```
+![AddOrderLine operation in the domain designer](images/33-addorderline-operation-domain.png)
+
+2. **Expose the Operation with a Command**  
+   Create an `AddOrderLineOrderCommand` (or similar) in the Services Designer. Map its parameters to the `AddOrderLine` operation.  
+   ![CQRS CRUD Operations menu](images/34-cqrs-crud-operations-menu.png)
+
+3. **Command Handler**  
+   Intent Architect will generate the handler logic, retrieving `Order` from the repository and invoking `AddOrderLine`:
+
+```csharp
+public async Task Handle(AddOrderLineOrderCommand request, CancellationToken cancellationToken)
+{
+    var order = await _orderRepository.FindByIdAsync(request.Id, cancellationToken);
+    if (order is null)
+    {
+        throw new NotFoundException($"Could not find Order with Id '{request.Id}'");
+    }
+    order.AddOrderLine(request.Description, request.Amount);
+}
+```
+
+---
+
+This advanced example extends the concepts introduced earlier by demonstrating how to create aggregates with composite entities and expose domain operations through commands in Intent Architect—helping maintain a cohesive, rich domain model.

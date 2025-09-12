@@ -59,6 +59,43 @@ To ensure a stable ecosystem, we implement rigorous internal processes:
 - **Major Intent Architect updates require module version alignment**:
   - If Intent Architect undergoes a major version update, all dependent modules receive version bumps with updated compatibility ranges.
 
-## Conclusion
+## `Intent.SoftwareFactory.SDK` compatibility reference
 
-Our API’s backwards compatibility strategy is built on a foundation of strict change management, thorough testing, and transparent communication. By proactively avoiding breaking changes and carefully managing necessary updates, we provide a reliable platform that allows users to build with confidence while minimizing upgrade risks. Our commitment to compatibility ensures that developers can depend on a stable, well-documented, and actively supported ecosystem.
+The table below shows the minimum version of Intent Architect required when using a particular particular version of the [Intent.SoftwareFactory.SDK](https://www.nuget.org/packages/Intent.SoftwareFactory.SDK) NuGet package:
+
+|SDK version   |Minimum required Intent Architect version|
+|--------------|-----------------------------------------|
+|3.10.0        |4.5.15-a|
+|3.9.0         |4.5.0-a|
+|3.8.0-pre.2   |4.4.0-beta.2|
+|3.8.0-pre.1   |4.4.0-alpha.0|
+|3.8.0-pre.0   |4.4.0-alpha.0|
+|3.7.0         |4.3.0|
+|3.6.0-pre.6   |4.2.4-pre.1|
+|3.6.0-pre.5   |4.2.4-beta.5|
+|3.6.0-pre.4   |4.2.4-beta.2|
+|3.6.0-pre.3   |4.2.4-beta.2|
+|3.6.0-pre.2   |4.2.0-beta.0|
+|3.6.0-pre.1   |4.2.0-beta.0|
+|3.6.0-pre.0   |4.1.3-pre.3|
+|3.5.0-pre.3   |4.1.2-pre.1|
+|3.5.0-pre.2   |4.1.0-alpha.27|
+|3.5.0-pre.1   |4.1.0-alpha.13|
+|3.5.0-pre.0   |4.1.0-alpha.13|
+|3.4.2         |4.0.1-pre.2|
+|3.4.2-pre.0   |4.0.0-beta.10|
+|3.4.1         |4.0.0-beta.5|
+
+> [!NOTE]
+> SDK versions prior to `3.4.1` have not been captured.
+
+## `Intent.Persistence.SDK` compatibility reference
+
+|SDK version   |Minimum required Intent Architect version|
+|--------------|-----------------------------------------|
+|1.0.1         |4.5.0-a|
+
+> [!NOTE]
+> SDK versions prior to `1.0.1` have not been captured.
+
+[](#intentpersistencesdk-compatibility-reference)

@@ -54,6 +54,9 @@ items:
 - name: Debugging Modules
   href: debugging-modules/debugging-modules.md
 
+- name: Document Modules with Help Topics
+  href: document-modules-with-help-topics/document-modules-with-help-topics.md
+
 - name: Module Distribution
   href: module-distribution/module-distribution.md
 

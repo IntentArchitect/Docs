@@ -2,17 +2,19 @@ trigger:
   batch: 'true'
   branches:
     include:
-    - master
     - development
     - development-*
 
 resources:
   pipelines:
-  - pipeline: 'ModulesDotNetPipeline'
-    source: 'IntentSoftware.Intent.Modules.NET'
-    trigger: true
   - pipeline: 'ModulesCommonPipeline'
-    source: 'IntentSoftware.Intent.Modules'
+    source: 'Modules'
+    trigger: true
+  - pipeline: 'ModulesImportersPipeline'
+    source: 'Modules.Importers'
+    trigger: true
+  - pipeline: 'ModulesDotNetPipeline'
+    source: 'Modules.NET'
     trigger: true
 
 parameters:
@@ -27,6 +29,10 @@ parameters:
       repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
       folderName: Intent.Modules
       destinationFolder: modules-common
+    - repositoryName: 'modules-importers'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.Importers.git"
+      folderName: Intent.Modules.Importers
+      destinationFolder: modules-importers
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -46,22 +52,29 @@ steps:
 
   # calculate the repo and branch which triggered this pipeline
   - powershell: |
-      if ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules.NET"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-          
-          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      } 
-      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Intent.Modules"
+      if ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
           
           $branchName = "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" -replace '^refs/heads/', ''
           Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
-      } 
+      }
+      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesImportersPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.Importers"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesImportersPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesImportersPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
+      elseif ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.NET"
+          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
+          
+          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
+          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+      }
       else {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]IntentSoftware.Docs"
+          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Docs"
           Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
           
           $branchName = "$(Build.SourceBranchName)" -replace '^refs/heads/', ''
@@ -97,12 +110,22 @@ steps:
       dotnet docfx $(Build.SourcesDirectory)/docfx.json
     displayName: 'run docfx'
 
-  - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranchNameOnly)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+  - task: AzureCLI@2
     displayName: 'Pre-production storage sync'
     condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'), ne(variables['triggeredByBranch'], 'development'), ne(variables['triggeredByBranch'], 'refs/heads/development'))
+    inputs:
+      azureSubscription: 'Intent Architect Azure Resource Group'
+      scriptType: 'pscore'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranchNameOnly)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
 
-  - pwsh: |
-      az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+  - task: AzureCLI@2
     displayName: 'Production storage sync'
     condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'), eq(variables['triggeredByBranch'], 'development'), eq(variables['triggeredByBranch'], 'refs/heads/development')))
+    inputs:
+      azureSubscription: 'Intent Architect Azure Resource Group'
+      scriptType: 'pscore'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'

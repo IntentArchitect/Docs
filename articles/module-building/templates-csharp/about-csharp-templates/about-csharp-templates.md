@@ -27,9 +27,12 @@ The Module Builder has three available options for C# Template types, they are b
 
 ### Template Methods
 
-Intent Architect supports several templating technologies, the default (and recommended) approach is our `C# File Builder` method .
+Intent Architect supports several templating technologies, the default (and recommended) approach is our `C# File Builder` method.
 
 ![Template Method Options](images/template-methods.png)
+
+> [!TIP]
+> For comprehensive coverage of the C# File Builder System, including advanced patterns, best practices, and integration techniques, see the [C# File Builder System Guide](xref:module-building.templates-csharp.csharp-file-builder-system).
 
 ## Files generated during the Software Factory Execution of the Module Builder
 
