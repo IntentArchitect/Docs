@@ -2,6 +2,7 @@ trigger:
   batch: 'true'
   branches:
     include:
+    - master
     - development
     - development-*
 
@@ -100,7 +101,7 @@ steps:
       inputs:
         targetType: 'inline'
         pwsh: true
-        script: ./PipelineScripts/merge-repo-docs.ps1 "$(triggeredByBranchNameOnly)" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+        script: ./PipelineScripts/merge-repo-docs.ps1 "development" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
 
   - pwsh: |
       dotnet tool install docfx --version 2.77.0
