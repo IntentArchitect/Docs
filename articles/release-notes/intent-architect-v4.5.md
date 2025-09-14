@@ -3,6 +3,25 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.17
+
+- Feature: 🔥 The Software Factory now supports hot-restarting provided you have version `3.9.1-pre.0` or higher of the `Intent.Common` module installed in your application. When the Software Factory hot restarts it does not tear down the process, preventing the requirement of reloading DLLs and also allowing the CLR's runtime optimizations to be longer lived and more effective.
+- Improvement: Ignored Software Factory changes now have their processing skipped which can greatly speed up Software Factory execution times in cases where there are many ignored files.
+- Improvement: It is now possible to hide ignored Software Factory changes:
+
+  ![Hide ignored files feature](images/hide-ignored-files.png)
+
+  The options are as follows:
+
+  - **Hide All Ignored** - All ignored changes are hidden.
+  - **Hide Unchanged Ignored** - (Recommended) Ignored changes are hidden, except for changes which are different from the previous Software Factory execution.
+  - **Show Ignored** - This is the legacy behaviour where all ignored files were visible.
+
+  It is recommended to use the `Hide Unchanged Ignored` option as this will show ignored files which have changed since they were initially ignored. This option can facilitate progressively resolving reasons for files being ignored in the first place without the need to try "fix" all ignored files at once.
+- Improvement: Added `Open metadata location` option to Applications in the Solution Explorer
+- Fixed: ModelLoader crashing in situations when applications exist within a solution that don't share the same designers
+- Fixed: Open in IDE will now also work when for Visual Studio versions other than 2022 release versions, such as preview, insider, or newer versions.
+
 ## Version 4.5.16
 
 ### Issues fixed in 4.5.16
