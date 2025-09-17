@@ -43,6 +43,7 @@ uid: release-notes.intent-architect-v4.5
 
 - Fixed: Under rare circumstances the agent would shut itself down when an error occurs during software factory execution.
 - Metadata exporting and installation ignored metadata entries on packages.
+- ApplicationId is passed to solution-based metadata provider to prevent returning metadata from all applications.
 
 ## Version 4.5.14
 
