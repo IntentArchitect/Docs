@@ -6,9 +6,9 @@ Welcome to the September edition of What’s New in Intent Architect. Here’s a
   - **[Blazor AI Module](#blazor-ai-module)** - Build professional Blazor Front-ends faster than ever by simply modeling your ViewModel and letting IA drive the AI to create your views.
   - **[Blazor Server Architecture Template](#rdbms-importer-improvements)** - Kickstart your ASP.NET Core projects with a ready-to-use Blazor Server setup featuring in-process services and Clean Architecture best practices.
   - **[Blazor Authentication Module](#blazor-authentication-module)** - Quickly scaffold authentication into your Blazor applications. Works with Interactive -WebAssembly, -Server, and -Auto modes, plus supports Individual Accounts, JWT, and OIDC password flow.
-  - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages. 
   - **[RDBMS importer improvements](#rdbms-importer-improvements)** - The RDBMS importer has had various usability and performance improvements.
   - **[Global Exceptions in Azure Functions](#enabling-global-exception-handling-in-azure-functions-isolated-mode)** - Enable global exceptions for Azure Functions in isolated process mode.
+  - **[AutoMapper and MediatR commercial version settings](#automapper-and-mediatr-commercial-version-settings)** - Choose between free and commercial versions of AutoMapper and MediatR packages. 
 
 - More updates
   - **[EF Core Migrations README update](#ef-migrations-readme-file-changed-from-a-txt-to-md-file)** - Migrations README file updated to leverage Markdown formatting.
@@ -18,6 +18,8 @@ Welcome to the September edition of What’s New in Intent Architect. Here’s a
 ### Blazor AI Module
 
 We’re excited to introduce the new Blazor AI Module, designed to work seamlessly with your existing Blazor modules. This innovation blends deterministic and non-deterministic code generation to help you build professional Blazor front ends — faster than ever.
+
+![Blazor AI to generate views](images/blazor-ai.png)
 
 With this module, you simply define the ViewModel aspects of your Blazor components (service interactions, navigations, models), and let AI fill in the rest. Thanks to our prompt-less interaction, Intent Architect handles all the context engineering behind the scenes, allowing you to collaborate with the AI through a simple, intuitive code-diff workflow.
 
@@ -39,6 +41,8 @@ Key Features include:
 - Single application deployment
 - In-process service invocation
 - Blazor Security patterns
+
+![Blazor Service Template](images/blazor-server.png)
 
 Available from:
 
@@ -80,6 +84,8 @@ In particular:
 - When the tree view has many objects (1000s or more) it is no longer very slow to check/un-check parent nodes and will a loading indicator is now shown when there are lots of nodes to initialize.
 - When the actual import process has been kicked off, output is now shown in a module task dialogue which pops up.
 
+![Importer Wizard](images/importer-wizard.png)
+
 Refer to the [RDBMS Importer Documentation](https://docs.intentarchitect.com/articles/modules-importers/intent-rdbms-importer/intent-rdbms-importer.html) for more information.
 
 > [!NOTE]
@@ -90,16 +96,6 @@ Available from:
 
 - Intent.Rdbms.Importer 1.0.3
 - Intent Architect 4.5.13
-
-### EF migrations README file changed from a `.txt` to `.md` file
-
-The `MIGRATIONS_README.txt` file has been changed to a `README.md` file which will now by default generate in the the same `Migrations` folder in which EF generates the migrations themselves and the content has been significantly altered to make use of Markdown formatting:
-
-![Example of updated migrations README.md file](images/sample-migrations-readme-file.png)
-
-Available from:
-
-- Intent.EntityFrameworkCore 3.0.28
 
 ### Enabling Global Exception Handling in Azure Functions (Isolated Mode)
 
@@ -115,11 +111,9 @@ The following middleware will be registered within your application.
 
 Available from:
 
-- Intent.Modules.AzureFunctions 5.0.13
+- Intent.AzureFunctions 5.0.13
 
 ### AutoMapper and MediatR commercial version settings
-
-![AutoMapper & MediatR](images/automapper-and-mediatr.png)
 
 Following up on our [July 2025 announcement](../07/index.md#automapper-and-mediatr-going-commercial), both the `Intent.Application.AutoMapper` (version 5.3.0+) and `Intent.Application.MediatR` (version 4.5.0+) modules have been updated with new settings that give you full control over which versions of these popular NuGet packages to use in your applications.
 
@@ -133,3 +127,13 @@ Available from:
 
 - Intent.Application.AutoMapper 5.3.0
 - Intent.Application.MediatR 4.5.0
+
+### EF migrations README file changed from a `.txt` to `.md` file
+
+The `MIGRATIONS_README.txt` file has been changed to a `README.md` file which will now by default generate in the the same `Migrations` folder in which EF generates the migrations themselves and the content has been significantly altered to make use of Markdown formatting:
+
+![Example of updated migrations README.md file](images/sample-migrations-readme-file.png)
+
+Available from:
+
+- Intent.EntityFrameworkCore 3.0.28
