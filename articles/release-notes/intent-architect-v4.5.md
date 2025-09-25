@@ -3,7 +3,39 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.18
+
+### Improvements in 4.5.18
+
+- Improvement: It is now possible to convert element types, this is particularly useful after using importers and it is sometimes needed to fix some imported element types:
+
+  ![alt text](images/4-5-18-convert-type.png)
+
+  The feature can be accessed on element context menus under the `Advanced` option:
+
+  ![alt text](images/4-5-18-advanced-content-menu-option.png)
+
+- Improvement: Designers will now indicate which elements are dirty (i.e. have changes that have not yet been saved) in the tree-view:
+
+  ![Dirty indicator feature](images/4-5-18-dirty-indicator.png)
+
+- Improvement: Implemented file system caching on most operations to improve hot Software Factory performance.
+- Improvement: Dynamic form tree-view now supports setting the `expandedIcon` which renders when the node is expanded.
+- Improvement: Added support for open directory functionality in dynamic forms.
+
+### Issues fixed in 4.5.18
+
+- Fixed: Memory leaks in the hot Software Factory. Also ensure you are running the following minimum module versions to for the best possible hot Software Factory experience:
+  - `Intent.Common` version `3.9.1`.
+  - `Intent.Common.CSharp` version `3.9.7.-pre.0`.
+- Fixed: Advanced Mapping errors on source elements not disappearing after the new mapping is specified.
+- Fixed: Filter being ignored when bulk selecting tree-view elements in dynamic forms.
+- Fixed: Association mappings being silently removed when the mapping option doesn't exist in the settings.
+- Fixed: Basic Mapping dialog cannot be opened if mapping is in a broken state (e.g. the target element has been deleted).
+
 ## Version 4.5.17
+
+### Improvements in 4.5.17
 
 - Feature: 🔥 The Software Factory now supports hot-restarting provided you have version `3.9.1-pre.0` or higher of the `Intent.Common` module installed in your application. When the Software Factory hot restarts it does not tear down the process, preventing the requirement of reloading DLLs and also allowing the CLR's runtime optimizations to be longer lived and more effective.
 - Improvement: Ignored Software Factory changes now have their processing skipped which can greatly speed up Software Factory execution times in cases where there are many ignored files.
@@ -19,6 +51,9 @@ uid: release-notes.intent-architect-v4.5
 
   It is recommended to use the `Hide Unchanged Ignored` option as this will show ignored files which have changed since they were initially ignored. This option can facilitate progressively resolving reasons for files being ignored in the first place without the need to try "fix" all ignored files at once.
 - Improvement: Added `Open metadata location` option to Applications in the Solution Explorer
+
+### Issues fixed in 4.5.17
+
 - Fixed: ModelLoader crashing in situations when applications exist within a solution that don't share the same designers
 - Fixed: Open in IDE will now also work when for Visual Studio versions other than 2022 release versions, such as preview, insider, or newer versions.
 
