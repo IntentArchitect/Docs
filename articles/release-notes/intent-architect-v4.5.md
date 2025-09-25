@@ -27,7 +27,7 @@ uid: release-notes.intent-architect-v4.5
 
 - Fixed: Memory leaks in the hot Software Factory. Also ensure you are running the following minimum module versions to for the best possible hot Software Factory experience:
   - `Intent.Common` version `3.9.1`.
-  - `Intent.Common.CSharp` version `3.9.7.-pre.0`.
+  - `Intent.Common.CSharp` version `3.9.7-pre.0`.
 - Fixed: Advanced Mapping errors on source elements not disappearing after the new mapping is specified.
 - Fixed: Filter being ignored when bulk selecting tree-view elements in dynamic forms.
 - Fixed: Association mappings being silently removed when the mapping option doesn't exist in the settings.
