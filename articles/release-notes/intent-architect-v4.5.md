@@ -5,15 +5,17 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.18
 
-### Improvements in 4.5.18
+### Features in 4.5.18
 
-- Improvement: It is now possible to convert element types, this is particularly useful after using importers and it is sometimes needed to fix some imported element types:
+- Feature: It is now possible to convert element types, this is particularly useful after using importers and it is sometimes needed to fix some imported element types:
 
   ![alt text](images/4-5-18-convert-type.png)
 
   The feature can be accessed on element context menus under the `Advanced` option:
 
   ![alt text](images/4-5-18-advanced-content-menu-option.png)
+
+### Improvements in 4.5.18
 
 - Improvement: Designers will now indicate which elements are dirty (i.e. have changes that have not yet been saved) in the tree-view:
 
@@ -37,7 +39,7 @@ uid: release-notes.intent-architect-v4.5
 
 ### Improvements in 4.5.17
 
-- Feature: 🔥 The Software Factory now supports hot-restarting provided you have version `3.9.1-pre.0` or higher of the `Intent.Common` module installed in your application. When the Software Factory hot restarts it does not tear down the process, preventing the requirement of reloading DLLs and also allowing the CLR's runtime optimizations to be longer lived and more effective.
+- Improvement: 🔥 The Software Factory now supports hot-restarting provided you have version `3.9.1-pre.0` or higher of the `Intent.Common` module installed in your application. When the Software Factory hot restarts it does not tear down the process, preventing the requirement of reloading DLLs and also allowing the CLR's runtime optimizations to be longer lived and more effective.
 - Improvement: Ignored Software Factory changes now have their processing skipped which can greatly speed up Software Factory execution times in cases where there are many ignored files.
 - Improvement: It is now possible to hide ignored Software Factory changes:
 
