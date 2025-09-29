@@ -9,6 +9,8 @@ Welcome to the October edition of What’s New in Intent Architect. This month w
 
 ### AWS Lambda Functions module
 
+![AWS Lambda Functions](images/aws-lambda-functions.png)
+
 The new `Intent.Aws.Lambda.Functions` module enables modeling-first development of serverless APIs on AWS Lambda. 
 
 Key features include:
