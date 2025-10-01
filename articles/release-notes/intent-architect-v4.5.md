@@ -9,7 +9,7 @@ uid: release-notes.intent-architect-v4.5
 ### Improvements in 4.5.19
 
 - Improvement: To eliminate the cause of many SCM (e.g. Git) file conflicts, the `<application-name>.application.output.log` has been replaced with two separate files:
-  - **`<application-name>.application.ignored.xml`** - Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [Software Factory CLI](https://docs.intentarchitect.com/articles/tools/software-factory-cli/software-factory-cli.html) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored.
+  - **`<application-name>.application.ignored.xml`** - Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [](xref:tools.software-factory-cli) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored.
   - **`.intent/output-log`** - Tracks other aspects of output of the Software Factory for various purposes such as: knowing whether a file from a previous run now needs to be deleted or renamed; "Open in IDE" options for elements in designers, etc. This file should not be committed to source control and because it is in the `.intent` folder, it is by default ignored through the `.gitignore` file which Intent Architect creates as an application is created.
 
   > [!NOTE]
