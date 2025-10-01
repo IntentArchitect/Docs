@@ -56,7 +56,7 @@ uid: release-notes.intent-architect-v4.2
 ### Improvements in 4.2.4
 
 - Improvement: Installation of multiple modules is now significantly faster, this is especially noticeable when creating new applications.
-- Improvement: Application templates can now specify minimum versions of module dependencies and interoperabilities making it possible for new applications to have all modules at the latest version.
+- Improvement: Application templates can now specify minimum versions of module dependencies and interoperability making it possible for new applications to have all modules at the latest version.
 
 ### Issues fixed in 4.2.4
 
@@ -97,7 +97,7 @@ Intent Architect V4.2.0 comes with several highly anticipated features, many of 
 
 #### C# code management instruction deviation tracking
 
-It can be useful to know which files may not be following the architecture which your installed Modules normally generates. Intent Architect can now track these "Deviations" and shows them on a new screen during [Software Factory execution](xref:application-development.software-factory.about-software-factory-execution#the-deviations-screen):
+It can be useful to know which files may not be following the architecture which your installed Modules normally generates. Intent Architect can now track these "Deviations" and shows them on a new screen during [Software Factory execution](xref:application-development.software-factory.customizations-screen):
 
 > [!NOTE]
 > At this time deviation tracking is only supported for C# files and requires the `Intent.OutputManager.RoslynWeaver` module, at version `4.6.0` or later, to be installed.
@@ -110,7 +110,7 @@ Selecting the "Compare with Template" context menu option, or simply double-clic
 
 It is possible to immediately remove deviations by updating content in the right pane and saving it which will trigger a "re-merging" of the file by the Software Factory.
 
-Otherwise, deviations can be approved and have notes added to them, for more information refer to the [](xref:application-development.software-factory.about-software-factory-execution#the-deviations-screen) article.
+Otherwise, deviations can be approved and have notes added to them, for more information refer to the [](xref:application-development.software-factory.customizations-screen) article.
 
 #### Edits to staged changes will now be applied
 
@@ -248,7 +248,7 @@ The other "experimental" aspect of this feature is the inline popover of stereot
 - Improved error visibility for the Advanced Mapping dialog.
 - Allow filtering of [Application Templates](xref:application-templates.overview) when creating a new application to include Prerelease and/or Incompatible Application Templates.
 - Stereotypes display their target types inline.
-- Minimum Client Verion stored in `.application.config` files and will trigger compatibility warnings on opening a solution. This Minimum Client Version is determined by the lowest supported client versions from the installed modules.
+- Minimum Client Version stored in `.application.config` files and will trigger compatibility warnings on opening a solution. This Minimum Client Version is determined by the lowest supported client versions from the installed modules.
 - Collapse button in tree views will now, instead of collapsing the entire tree, incrementally collapse nodes and only hides leaf nodes on each click.
 
 ### Issues fixed in 4.2.0

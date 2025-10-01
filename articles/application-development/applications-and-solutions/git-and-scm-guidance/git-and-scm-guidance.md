@@ -9,8 +9,8 @@ This article provides an overview on working with Intent Architect and SCM (Sour
 
 Intent Architect is not inherently aware of SCMs, it merely reads and writes files to your file system, allowing users to use their own choice of SCM systems and associated tooling, but Intent Architect is intentionally designed with the use of SCMs in mind.
 
-In particular, it is intended that Intent Architect files are committed into SCM repositories alongside normal source code files in the same commits. This enables checking out other versions or branches of a code base using your SCM and having the Intent Architect Designer metadata correlate with the committed source code. The other benefit of this approach is that teams practicing automated CI (Continuous Integration) can run the
-[Intent Architect Software Factory CLI tool](https://docs.intentarchitect.com/articles/tools/software-factory-cli/software-factory-cli.html) as part of their CI process to provide another quality check.
+It is intended that Intent Architect files are committed into SCM repositories alongside normal source code files in the same commits. This enables checking out other versions or branches of a code base using your SCM and having the Intent Architect Designer metadata correlate with the committed source code. The other benefit of this approach is that teams practicing automated CI (Continuous Integration) can run the
+[](xref:tools.software-factory-cli) as part of their CI process to provide another quality check.
 
 Another aspect of intentionally designing Intent Architect with SCMs in mind is the format and layout of files. Careful consideration has been applied as to whether Designer metadata is saved in its own file per element or embedded in the file of a parent element. For example, in the Domain Designer each Class is saved as a separate file, with all aspects of it (e.g. Attributes, Operations, Constructors, etc) being saved in the same file. This means that you are unlikely to have merge conflicts with other developers unless you are working on the same Class on the designer. If there is a merge conflict, all files are deliberately stored in a clear text format allowing the conflicts to be resolved using regular merge tools.
 
@@ -26,13 +26,13 @@ Should you alter the layout structure when you create a new Application, the fil
 | `.application.config`     | Intent Architect Application |
 | `modules.config` file     | Installed modules registry |
 | `Intent.Metadata` folder  | Designer Metadata |
-| `.application.deviations.log` / `.application.deviations.xml` | Intent Architect uses this to "audit" which parts of the code base are allowed to deviate from the generated pattern and where it was signed off by authorized users. |
-| `.application.output.log` / `.application.output.xml` | Intent Architect uses this to track files under management so that it can determine when files might need to be deleted or renamed. |
+| `.application.deviations.xml` | Tracks files which have customizations necessitating additions/changes to default code management instructions, see [](xref:application-development.software-factory.customizations-screen) for more information. |
+| `.application.ignored.xml` | Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [](xref:tools.software-factory-cli) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored. |
 | `intent.repositories.config` file | Solution-level asset repository configuration |
 
 ## Folders which should always be ignored
 
-`.intent` folders should always be ignored, they contain data like downloaded/restored modules and other cached data.
+`.intent` folders should always be ignored, they contain data like downloaded/restored modules and data from previous Software Factory output to facilitate functionality such as advanced merging and knowing which files need to be renamed/deleted.
 
 ## Configuring Git (`.gitignore` files)
 
@@ -44,5 +44,4 @@ If your application or solution was created in a version of Intent Architect les
 # Intent Architect
 
 **/.intent/*
-!*.application.output.log
 ```

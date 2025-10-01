@@ -157,7 +157,7 @@ intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [opti
 |------------------------------------------------------------|-----------|
 |`--application-id <application-id>`                         |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
 |`--attach-debugger`                                         |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
-|`--check-deviations, --check-for-unapproved-customizations` |Whether to also check for any unapproved customizations.|
+|`--check-deviations, --check-for-unapproved-customizations` |Whether to also check for any unapproved [customizations](xref:application-development.software-factory.customizations-screen).|
 |`--continue-on-error`                                       |Whether Software Factory execution should continue to run for other applications when an error is encountered.|
 |`--error-logging-command <error-logging-command>`           |Command to use for logging an error. Some continuous integration environments watch output for \"commands\" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetErrorLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`--warning-logging-command <warning-logging-command>`       |Command to use for logging a warning. Some continuous integration environments watch output for \"commands\" for logging of warnings. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetWarningLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
@@ -178,7 +178,7 @@ intent-cli ensure-no-outstanding-changes -- "user@example.com" "@Password1" "./i
 Be aware that any optional arguments will need to be specified before the `--` argument, for example:
 
 ```bash
-intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" --check-deviations -- "user@example.com" "@Password1" "./intent-solution.isln"
+intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" --check-for-unapproved-customizations -- "user@example.com" "@Password1" "./intent-solution.isln"
 ```
 
 ### Do I have to use the credentials of a user license?

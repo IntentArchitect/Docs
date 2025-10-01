@@ -21,7 +21,7 @@ The Software Factory Execution is initiated from within an Application by clicki
 ![Play Button](images/software-factory-execution-play-button.png)
 _Run the Software Factory from the top tool bar_
 
-You can also run the Software Factory from the applications context menu.
+You can also run the Software Factory from the application's context menu:
 
 ![Run from Context Menu](images/software-factory-context-menu-run.png)
 _Run the Software Factory from the application context menu_
@@ -30,26 +30,3 @@ The Software Factory can also be minimized to the task bar. In this state the So
 
 ![Running in the Background](images/software-factory-minimized.png)
 _Minimized Software Factory running in the background._
-
-## The Deviations screen
-
-It can be useful to know which files may not be following the architecture which your installed modules normally generates.
-
-Towards this, the Software Factory is able to track deviations of code management instructions, i.e. where instructions such as `IntentIgnore` are added to files which aren't present in default template output:
-
-![The deviations screen on the Software Factory](images/deviations.png)
-
-Selecting the "Compare with Template" context menu option or simply double-clicking a deviation will open a diff comparing the unmerged template output (left) with the current file (right):
-
-![Diff of a deviation](images/deviation-diff.png)
-
-It is worth noting that editing and saving the file in the right pane will trigger re-running the code merging for that particular file allowing fixing of deviations without having to open the file through some other means.
-
-Deviations can be approved by right-clicking it and selecting "Approve deviation" which will also record who approved the deviation and when. To see when a deviation was approved, you can hover over the name in the "Approved by" column and read the tooltip which shows.
-
-If the particular deviation(s) for the file changes, the approval is revoked, approvals can also be manually revoked using the context menu.
-
-The final option available on the context menu is the ability to update "Notes" on a deviation, allowing you to enter any free form text which you feel may be relevant to a particular deviation.
-
-> [!TIP]
-> The [Software Factory CLI tool](xref:tools.software-factory-cli)'s `ensure-no-outstanding-changes` command has a `--check-deviations` option that can be used on CI environments to automatically detect unapproved deviations pushed into source control.

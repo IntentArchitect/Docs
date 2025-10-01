@@ -19,8 +19,11 @@
     "namespaceanddescendants",
     "Qube",
     "Rdbms",
+    "sdlc",
     "Serilog",
     "softwarefactory",
-    "Structs"
+    "Structs",
+    "Triggerable",
+    "typeref"
   ]
 }

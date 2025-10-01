@@ -3,6 +3,20 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+<!--
+## Version 4.5.19
+
+### Improvements in 4.5.19
+
+- Improvement: To eliminate the cause of many SCM (e.g. Git) file conflicts, the `<application-name>.application.output.log` has been replaced with two separate files:
+  - **`<application-name>.application.ignored.xml`** - Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [Software Factory CLI](https://docs.intentarchitect.com/articles/tools/software-factory-cli/software-factory-cli.html) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored.
+  - **`.intent/output-log`** - Tracks other aspects of output of the Software Factory for various purposes such as: knowing whether a file from a previous run now needs to be deleted or renamed; "Open in IDE" options for elements in designers, etc. This file should not be committed to source control and because it is in the `.intent` folder, it is by default ignored through the `.gitignore` file which Intent Architect creates as an application is created.
+
+  > [!NOTE]
+  >
+  > Due to the changes in these files, when opening an old solution for the first time Intent Architect will prompt the user to perform a one time migration, after which any attempts to open the same solution on older versions of Intent Architect will present an error that a newer version of Intent Architect is required.
+ -->
+
 ## Version 4.5.18
 
 ### Features in 4.5.18

@@ -2,6 +2,8 @@ items:
   - name: About Software Factory Execution
     href: about-software-factory-execution/about-software-factory-execution.md
     items:
+    - name: Customizations Screen
+      href: customizations-screen/customizations-screen.md
     - name: Environmental factors which can slow down Software Factory execution
       href: environmental-factors-which-can-slow-down-software-factory-execution/environmental-factors-which-can-slow-down-software-factory-execution.md
 
