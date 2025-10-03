@@ -4,9 +4,9 @@ uid: release-notes.intent-architect-v4.5
 # Release notes: Intent Architect version 4.5
 
 <!--
-## Version 4.5.19
+## Version 4.5.20
 
-### Improvements in 4.5.19
+### Improvements in 4.5.20
 
 - Improvement: To eliminate the cause of many SCM (e.g. Git) file conflicts, the `<application-name>.application.output.log` has been replaced with two separate files:
   - **`<application-name>.application.ignored.xml`** - Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [](xref:tools.software-factory-cli) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored.
@@ -16,6 +16,12 @@ uid: release-notes.intent-architect-v4.5
   >
   > Due to the changes in these files, when opening an old solution for the first time Intent Architect will prompt the user to perform a one time migration, after which any attempts to open the same solution on older versions of Intent Architect will present an error that a newer version of Intent Architect is required.
  -->
+
+## Version 4.5.19
+
+### Issues fixed in 4.5.19
+
+- Fixed: An error saying `A handler for invocationType 'CancelAllTasksForApplicationRequest' has already been registered` would occur when pressing cancel on the dialogue which appears when opening a solution which requires a migration or has already been migrated to only work with a newer version of Intent Architect.
 
 ## Version 4.5.18
 
