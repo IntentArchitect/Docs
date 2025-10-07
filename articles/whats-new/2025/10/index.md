@@ -4,6 +4,7 @@ Welcome to the October edition of What’s New in Intent Architect. This month w
 
 - Highlights
   - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
+  - **[External API Template](#external-api-template)** - A new app template is now available which makes importing an external service’s OpenAPI document quick and straightforward.
   - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
 
 ## Update details
@@ -41,6 +42,21 @@ Available from:
 
 - Intent.Aws.Lambda.Functions 1.0.0
 
+### External API Template
+
+The new **External API Template** streamlines bringing external APIs into your app. Provide an OpenAPI document and the template will model its endpoints so you can configure and call those APIs directly from your application.
+
+![External API Template](images/external-api-template.png)
+
+When you create an application with this template, all modules required for OpenAPI import are installed and pre-configured — no manual setup needed.
+
+![Imported OpenAPI Document](images/imported-external.png)
+
+Available from:
+
+- Intent Architect 4.5.0
+
+
 ### Service Proxy URL Population
 
 A client application now pre-populates the default service URL when you add a proxy service. This works in two scenarios:
@@ -66,3 +82,4 @@ Available from:
 - Intent.Blazor.HttpClients 4.0.17
 - Intent.Integration.HttpClients 6.0.7
 - Intent.VisualStudio.Projects 3.9.2
+
