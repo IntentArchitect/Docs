@@ -3,7 +3,8 @@
 Welcome to the October edition of What’s New in Intent Architect. This month we’re introducing first-class support for building .NET serverless backends on AWS Lambda.
 
 - Highlights
-	- **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
+  - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
+  - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
 
 ## Update details
 
@@ -40,3 +41,28 @@ Available from:
 
 - Intent.Aws.Lambda.Functions 1.0.0
 
+### Service Proxy URL Population
+
+A client application now pre-populates the default service URL when you add a proxy service. This works in two scenarios:
+
+#### External API
+
+When importing an OpenAPI document with the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-importers/intent-openapi-importer/intent-openapi-importer.html) module, any server URL found in the spec is saved on the **Service Package** as the *Service URL*. That value is then used automatically as the default URL when you create a proxy to that external service.
+
+Available from:
+
+- Intent.OpenApi.Importer 1.1.8
+
+![Service URL](images/external-service-url.png)
+
+#### Intent Architect Application
+
+The **Api** projects `Base URL` is now stored in the Visual Studio Designer. When you create a proxy service to that application, this Base URL is used as the default service URL in the client.
+
+![Base URL](images/internal-base-url.png)
+
+Available from:
+
+- Intent.Blazor.HttpClients 4.0.17
+- Intent.Integration.HttpClients 6.0.7
+- Intent.VisualStudio.Projects 3.9.2
