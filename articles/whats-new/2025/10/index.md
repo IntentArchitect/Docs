@@ -1,19 +1,46 @@
 # What's new in Intent Architect (October 2025)
 
-Welcome to the October edition of What’s New in Intent Architect. This month we’re introducing first-class support for building .NET serverless backends on AWS Lambda.
+Welcome to the October edition of What’s New in Intent Architect. 
 
 - Highlights
-  - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
+  - **[Software Factory performance enhancements](#software-factory-performance-enhancements)** – Software Factory processing time has been reduced by up to 80% after the first execution.
+  - **[CSharp Importer Module](#csharp-importer-module)** – Reverse-engineer models directly from existing codebases.
   - **[External API Template](#external-api-template)** - A new app template is now available which makes importing an external service’s OpenAPI document quick and straightforward.
+  - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
   - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
+  - **[Scalar Module](#scalar-module)** – Scalar is a modern API documentation and testing tool for .NET that provides interactive, OpenAPI-based UI experiences (similar to Swagger UI) for REST APIs.
+  - **[Mongo Driver Module](#mongo-driver-module)** – The MongoDB module now uses the official MongoDB Driver instead of MongoFramework for closer alignment with MongoDB’s native technology.
+  - **[Configurable ambient persistence behaviours](#configurable-ambient-persistence-behaviours)** – More customization around Unit or Work and ambient transactions.
+  - **[Designers visualize unsaved changes](#designers-visualize-unsaved-changes)** – Designers now indicate which elements have unsaved modifications (“dirty” states).
 
 ## Update details
+
+### Software Factory performance enhancements
+
+🔥 The Software Factory now supports hot restarting, reducing processing time by up to 80% after the first execution.
+
+When the Software Factory hot restarts, it no longer tears down the process—this avoids reloading DLLs and allows the CLR’s runtime optimizations to persist between executions.
+
+If you aren’t already doing so, simply minimize the Software Factory to keep it alive between runs. Subsequent executions will display the message “Hot Restarting Execution 🔥” at the start of the execution log.
+
+![Hot SF Execution](images/hot-sf.png)
+
+You may also notice further performance gains as the .NET JIT compiler applies additional optimizations across runs.
+
+Minimum required versions for the hot restart experience:
+
+- `Intent.Common` version `3.9.1`
+- `Intent.Common.CSharp` version `3.9.7-pre.0`
+
+Available from:
+
+- Intent Architect 4.5.18
 
 ### AWS Lambda Functions module
 
 ![AWS Lambda Functions](images/aws-lambda-functions.png)
 
-The new `Intent.Aws.Lambda.Functions` module enables modeling-first development of serverless APIs on AWS Lambda. 
+The new `Intent.Aws.Lambda.Functions` module enables modeling-first development of serverless APIs on AWS Lambda.
 
 Key features include:
 
@@ -42,6 +69,78 @@ Available from:
 
 - Intent.Aws.Lambda.Functions 1.0.0
 
+### CSharp Importer Module
+
+The new C# Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your C# source code.
+
+This is part of our broader initiative to make Intent Architect more seamless when working with existing projects.
+
+This modules can be used in the `Services` and `Domain` designers, to import the follow model types:
+
+- Service
+- Command
+- Query
+- DTO
+- Entity
+- Domain Contracts
+- Domain Events
+- Enum
+
+![C# Importer](images/csharp-importer.png)
+
+Available from:
+
+- Intent.CSharp.Importer 1.0.0
+- Intent Architect 4.5.18
+
+### Scalar Module
+
+Scalar is a modern API documentation and testing tool for .NET that provides interactive, OpenAPI-based UI experiences (similar to Swagger UI) for REST APIs.
+
+![Scalar](images/scalar.png)
+
+Refer to the [Scalar module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-scalar/intent-aspnetcore-scalar.html) for more information.
+
+Available from:
+
+- Intent.AspNetCore.Scalar 1.0.1 (projects must be .net9)
+
+### Mongo Driver Module
+
+The MongoDB module has been upgraded to use the official MongoDB.Driver instead of MongoFramework, providing closer alignment with MongoDB’s native technology and improved performance.
+
+This upgrade is designed to be automatic for clients currently using MongoFramework, ensuring a seamless transition to the new driver with minimal configuration changes.
+
+Available from:
+
+- Intent.MongoDB 2.0.2
+
+### Designers visualize unsaved changes
+
+Designers will now indicate which elements are dirty (i.e. have changes that have not yet been saved) in the tree-view.
+
+![Visual Dirty Tracking Indicator](images/4-5-18-dirty-indicator.png)
+
+Available from:
+
+- Intent Architect 4.5.18
+
+### Configurable ambient persistence behaviours
+
+Until now, our service dispatching patterns have automatically configured:
+
+- Ambient transactions for write operations (e.g. within a Business Transaction Boundary)
+- An implicit Unit of Work save at the end of service execution
+
+While these defaults are ideal for most line-of-business applications, they may not suit every scenario.
+You can now opt out of these behaviours through configuration, giving you finer control over persistence and transaction management.
+
+![Unit of work config](images/uow-config.png)
+
+Available from:
+
+- Intent.Application.MediatR.Behaviours 4.5.3
+- Intent.AspNetCore.Controllers.Dispatch.ServiceContract 5.2.18
 ### External API Template
 
 The new **External API Template** streamlines bringing external APIs into your app. Provide an OpenAPI document and the template will model its endpoints so you can configure and call those APIs directly from your application.
