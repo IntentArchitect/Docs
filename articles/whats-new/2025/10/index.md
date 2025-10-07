@@ -7,9 +7,9 @@ Welcome to the October edition of What’s New in Intent Architect.
   - **[CSharp Importer Module](#csharp-importer-module)** – Reverse-engineer models directly from existing codebases.
   - **[External API Template](#external-api-template)** - A new app template is now available which makes importing an external service’s OpenAPI document quick and straightforward.
   - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
-  - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
   - **[Scalar Module](#scalar-module)** – Scalar is a modern API documentation and testing tool for .NET that provides interactive, OpenAPI-based UI experiences (similar to Swagger UI) for REST APIs.
   - **[Mongo Driver Module](#mongo-driver-module)** – The MongoDB module now uses the official MongoDB Driver instead of MongoFramework for closer alignment with MongoDB’s native technology.
+  - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
   - **[Configurable ambient persistence behaviours](#configurable-ambient-persistence-behaviours)** – More customization around Unit or Work and ambient transactions.
   - **[Designers visualize unsaved changes](#designers-visualize-unsaved-changes)** – Designers now indicate which elements have unsaved modifications (“dirty” states).
 
@@ -35,6 +35,48 @@ Minimum required versions for the hot restart experience:
 Available from:
 
 - Intent Architect 4.5.18
+
+### CSharp Importer Module
+
+The new C# Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your C# source code.
+
+This is part of our broader initiative to make Intent Architect more seamless when working with existing projects.
+
+This modules can be used in the `Services` and `Domain` designers, to import the follow model types:
+
+- Service
+- Command
+- Query
+- DTO
+- Entity
+- Domain Contracts
+- Domain Events
+- Enum
+
+![C# Importer](images/csharp-importer.png)
+
+Available from:
+
+- Intent.CSharp.Importer 1.0.0
+- Intent Architect 4.5.18
+
+### External API Template
+
+Integrating with external REST APIs is now easier than ever. The new **External API Template** simplifies the process by importing swagger documents to create modeled services which you can simply drag  onto your designers and model their interactions directly.
+
+![JP To Supply](images/external-api-overview.png)
+
+The new **External API Template** streamlines bringing external APIs into your app. Provide an OpenAPI document and the template will model its endpoints so you can configure and call those APIs directly from your application.
+
+![External API Template](images/external-api-template.png)
+
+When you create an application with this template, all modules required for OpenAPI import are installed and pre-configured — no manual setup needed.
+
+![Imported OpenAPI Document](images/imported-external.png)
+
+Available from:
+
+- Intent Architect 4.5.0
 
 ### AWS Lambda Functions module
 
@@ -69,30 +111,6 @@ Available from:
 
 - Intent.Aws.Lambda.Functions 1.0.0
 
-### CSharp Importer Module
-
-The new C# Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your C# source code.
-
-This is part of our broader initiative to make Intent Architect more seamless when working with existing projects.
-
-This modules can be used in the `Services` and `Domain` designers, to import the follow model types:
-
-- Service
-- Command
-- Query
-- DTO
-- Entity
-- Domain Contracts
-- Domain Events
-- Enum
-
-![C# Importer](images/csharp-importer.png)
-
-Available from:
-
-- Intent.CSharp.Importer 1.0.0
-- Intent Architect 4.5.18
-
 ### Scalar Module
 
 Scalar is a modern API documentation and testing tool for .NET that provides interactive, OpenAPI-based UI experiences (similar to Swagger UI) for REST APIs.
@@ -114,6 +132,32 @@ This upgrade is designed to be automatic for clients currently using MongoFramew
 Available from:
 
 - Intent.MongoDB 2.0.2
+
+### Service Proxy URL Population
+
+A client application now pre-populates the default service URL when you add a proxy service. This works in two scenarios:
+
+#### External API
+
+When importing an OpenAPI document with the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-importers/intent-openapi-importer/intent-openapi-importer.html) module, any server URL found in the spec is saved on the **Service Package** as the *Service URL*. That value is then used automatically as the default URL when you create a proxy to that external service.
+
+Available from:
+
+- Intent.OpenApi.Importer 1.1.8
+
+![Service URL](images/external-service-url.png)
+
+#### Intent Architect Application
+
+The **Api** projects `Base URL` is now stored in the Visual Studio Designer. When you create a proxy service to that application, this Base URL is used as the default service URL in the client.
+
+![Base URL](images/internal-base-url.png)
+
+Available from:
+
+- Intent.Blazor.HttpClients 4.0.17
+- Intent.Integration.HttpClients 6.0.7
+- Intent.VisualStudio.Projects 3.9.2
 
 ### Designers visualize unsaved changes
 
@@ -141,44 +185,4 @@ Available from:
 
 - Intent.Application.MediatR.Behaviours 4.5.3
 - Intent.AspNetCore.Controllers.Dispatch.ServiceContract 5.2.18
-### External API Template
-
-The new **External API Template** streamlines bringing external APIs into your app. Provide an OpenAPI document and the template will model its endpoints so you can configure and call those APIs directly from your application.
-
-![External API Template](images/external-api-template.png)
-
-When you create an application with this template, all modules required for OpenAPI import are installed and pre-configured — no manual setup needed.
-
-![Imported OpenAPI Document](images/imported-external.png)
-
-Available from:
-
-- Intent Architect 4.5.0
-
-
-### Service Proxy URL Population
-
-A client application now pre-populates the default service URL when you add a proxy service. This works in two scenarios:
-
-#### External API
-
-When importing an OpenAPI document with the [Intent.OpenApi.Importer](https://docs.intentarchitect.com/articles/modules-importers/intent-openapi-importer/intent-openapi-importer.html) module, any server URL found in the spec is saved on the **Service Package** as the *Service URL*. That value is then used automatically as the default URL when you create a proxy to that external service.
-
-Available from:
-
-- Intent.OpenApi.Importer 1.1.8
-
-![Service URL](images/external-service-url.png)
-
-#### Intent Architect Application
-
-The **Api** projects `Base URL` is now stored in the Visual Studio Designer. When you create a proxy service to that application, this Base URL is used as the default service URL in the client.
-
-![Base URL](images/internal-base-url.png)
-
-Available from:
-
-- Intent.Blazor.HttpClients 4.0.17
-- Intent.Integration.HttpClients 6.0.7
-- Intent.VisualStudio.Projects 3.9.2
 
