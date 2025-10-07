@@ -64,7 +64,7 @@ Available from:
 
 Integrating with external REST APIs is now easier than ever. The new **External API Template** simplifies the process by importing swagger documents to create modeled services which you can simply drag  onto your designers and model their interactions directly.
 
-![JP To Supply](images/external-api-overview.png)
+![External Service Invocation](images/external-invocation.png)
 
 The new **External API Template** streamlines bringing external APIs into your app. Provide an OpenAPI document and the template will model its endpoints so you can configure and call those APIs directly from your application.
 
