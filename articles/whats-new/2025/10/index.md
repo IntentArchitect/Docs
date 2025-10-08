@@ -42,7 +42,7 @@ The new C# Importer Module makes it easier to integrate existing codebases by re
 
 This is part of our broader initiative to make Intent Architect more seamless when working with existing projects.
 
-This modules can be used in the `Services` and `Domain` designers, to import the follow model types:
+This module can be used in the `Services` and `Domain` designers, to import the follow model types:
 
 - Service
 - Command
