@@ -6,7 +6,7 @@ Welcome to the October edition of What’s New in Intent Architect.
   - **[Software Factory performance enhancements](#software-factory-performance-enhancements)** – Software Factory processing time has been reduced by up to 80% after the first execution.
   - **[CSharp Importer Module](#csharp-importer-module)** – Reverse-engineer models directly from existing codebases.
   - **[External API Template](#external-api-template)** - A new app template is now available which makes importing an external service’s OpenAPI document quick and straightforward.
-  - **[AWS Lambda Functions module](#aws-lambda-functions-module)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
+  - **[AWS Lambda Functions Architecture Template](#aws-lambda-functions-architecture-template)** – Model operations in the Services designer and generate idiomatic .NET AWS Lambda functions with out-of-the-box tooling for local run and deployment.
   - **[Scalar Module](#scalar-module)** – Scalar is a modern API documentation and testing tool for .NET that provides interactive, OpenAPI-based UI experiences (similar to Swagger UI) for REST APIs.
   - **[Mongo Driver Module](#mongo-driver-module)** – The MongoDB module now uses the official MongoDB Driver instead of MongoFramework for closer alignment with MongoDB’s native technology.
   - **[Service Proxy URLs auto-populated](#service-proxy-url-population)** - When creating a proxy service to an external API or another Intent Architect application, the client app now **auto-fills the base URL** from the source.
@@ -78,11 +78,11 @@ Available from:
 
 - Intent Architect 4.5.0
 
-### AWS Lambda Functions module
+### AWS Lambda Functions Architecture Template
 
 ![AWS Lambda Functions](images/aws-lambda-functions.png)
 
-The new `Intent.Aws.Lambda.Functions` module enables modeling-first development of serverless APIs on AWS Lambda.
+The new `Intent.Aws.Lambda.Functions` architecture template enables modeling-first development of serverless APIs on AWS Lambda.
 
 Key features include:
 
@@ -109,7 +109,7 @@ For more information, see the [documentation](https://docs.intentarchitect.com/a
 
 Available from:
 
-- Intent.Aws.Lambda.Functions 1.0.0
+- Intent Architect 4.5.*
 
 ### Scalar Module
 
