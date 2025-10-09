@@ -35,3 +35,24 @@ Windows Registry Editor Version 5.00
 ```bash
 git config --system core.longpaths true
 ```
+
+## Troubleshooting
+
+### Github Desktop
+
+If even after performing the above steps, you still get a `Filename too long` error when cloning a repository using the **Github Desktop Client**, perform the following steps:
+
+- Browse to the location of your GitHub Desktop installation (default location is `%USERPROFILE%\AppData\Local\GitHubDesktop`)
+- Browse to the subfolder: `app-x.x.x >> resources >> app >> git >> etc`, so the full path would be `%USERPROFILE%\AppData\Local\GitHubDesktop\app-x.x.x\resources\app\git\etc`
+- Edit the `gitconfig` file (in your text editor of choice)
+- Add `longpath=true` under the `core` section
+
+```
+[core]
+  symlinks = false
+  autocrlf = true
+  fscache = true
+  longpaths = true
+```
+
+- Restart the Github Client and try the clone again.
