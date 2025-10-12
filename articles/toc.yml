@@ -8,7 +8,7 @@ items:
 
   - name: Tutorials
     href: tutorials/toc.yml
-    topicUid: tutorials.hello-world-tutorial
+    topicUid: tutorials.fundamentals-landing-page
 
   - name: Application Development
     href: application-development/toc.yml
