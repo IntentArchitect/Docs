@@ -101,5 +101,6 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
   </tr>
 </table>
 
-> [!NOTE]
-> All the training videos in the `Fundamentals Series` are [available in the Fundamentals Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist)
+## Related Resources
+
+- [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist)
