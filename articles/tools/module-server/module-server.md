@@ -72,49 +72,75 @@ Here is a simple guide on creating an Azure App Service which runs the Module Se
 
 ### Create the Azure resources
 
-1. Type **app services** in the search. Under **Services**, select **App Services**.
+- Type **app services** in the search. Under **Services**, select **App Services**.
+
   ![search box](images/search-box.png)
-1. In the **App Services** page, select **+ Create** and then select the **+ Web App** option.
+
+- In the **App Services** page, select **+ Create** and then select the **+ Web App** option.
+
   ![create web app](images/app-services-create-web-app.png)
-1. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to Create new resource group. Type `intentArchitectModuleServerResourceGroup` for the name.
-  ![project details](images/project-details.png)
-1. Under **Instance details**, type a globally unique name for your web app and select **Docker Container**. Select *Linux* for the **Operating System**. Select a **Region** you want to serve your app from.
-  ![pricing plans](images/instance-details.png)
-1. Under **App Service Plan**, select **Create new** App Service Plan. Type `moduleServerAppServicePlan` for the name and choose a *Pricing plan*.
-  ![pricing plans](images/pricing-plans.png)
-1. Select the **Next: Docker** > button at the bottom of the page.
-1. In the **Docker** tab, select *Single Container* under **Options** and *Private Registry* for the **Image Source**. Under **Private registry options**, set the following values:
-   - **Server URL:** `https://crintentarchitectprodzanorth.azurecr.io`
-   - **Username:** `anonymous`
-   - **Password:** `1Ww/o4nfLPIKdComVBukyVGlmtWVgYm7MgfVPwwnfO+ACRAX3G9B`
-   - **Image and tag:** `intent-architect/module-server:latest`
-  ![Docker details](images/docker-details.png)
-1. Select the **Review + create** button at the bottom of the page.
-1. After validation runs, select the **Create** button at the bottom of the page.
-1. After deployment is complete, select **Go to resource**.
+
+- In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to Create new resource group. Type `intentArchitectModuleServerResourceGroup` for the name.
+
+  ![Project details](images/project-details.png)
+
+- Under **Instance details**, type a globally unique name for your web app and select **Container**. Select *Linux* for the **Operating System**. Select a **Region** you want to serve your app from.
+
+  ![Instance details](images/instance-details.png)
+
+- Under **App Service Plan**, select **Create new** App Service Plan. Type `moduleServerAppServicePlan` for the name and choose a *Pricing plan*.
+
+  ![Pricing plans](images/pricing-plans.png)
+
+- Select the **Container** tab at the top of the page.
+- For **Image Source** select *Other container registries*.
+- Under **Docker hub options**, set the following values:
+  - **Access type:** `Private`
+  - **Server URL:** `https://crintentarchitectprodzanorth.azurecr.io`
+  - **Username:** `anonymous`
+  - **Password:** `1Ww/o4nfLPIKdComVBukyVGlmtWVgYm7MgfVPwwnfO+ACRAX3G9B`
+  - **Image and tag:** `intent-architect/module-server:latest`
+  - **Port:** `8080`
+  - **Startup Command**: (blank / empty)
+
+  ![Container details](images/container-details.png)
+
+- Select the **Review + create** tab at the top of the page.
+- After validation runs, select the **Create** button at the bottom of the page.
+- After deployment is complete, select **Go to resource**.
 
 ### Set environment variables for the Docker image
 
-1. In the left pane, click on *Configuration*.
-  ![web app configuration pane](images/web-app-configuration.png)
-1. For each of the following press the **+ New application setting**, capture the **Name**, **Value** fields, leave the *Deployment slow setting* checkbox unchecked and press the **OK** button:
-   - [Microsoft SQL Server connection string](#connectionstrings__defaultconnection):
-     - **Name:** `ConnectionStrings__DefaultConnection`
-     - **Value:** (A valid SQL Server connection string)
-   - [API keys](#apikeys):
-     - **Name:** `ApiKeys`
-     - **Value:** (Semi-colon separated list of randomly generated API keys)
-   - [Azure Application Insights connection string](#applicationinsights_connection_string) (optional):
-     - **Name:** `APPLICATIONINSIGHTS_CONNECTION_STRING`
-     - **Value:** (A valid Azure Application Insights connection string)
+- In the left pane, under *Settings* click on *Environment variables*.
+- For each of the following press the **+ Add**, capture the **Name**, **Value** fields, leave the *Deployment slow setting* checkbox unchecked and press the **OK** button:
+  - [Microsoft SQL Server connection string](#connectionstrings__defaultconnection):
+    - **Name:** `ConnectionStrings__DefaultConnection`
+    - **Value:** (A valid SQL Server connection string)
+  - HTTP port to listen on (optional, depending on the configuration of your container host):
+    - **Name:** `ASPNETCORE_URLS`
+    - **Value:** `http://+:8080/` (this is its default value if unset)
+  - [API keys](#apikeys):
+    - **Name:** `ApiKeys`
+    - **Value:** (Semi-colon separated list of randomly generated API keys)
+  - [Azure Application Insights connection string](#applicationinsights_connection_string) (optional):
+    - **Name:** `APPLICATIONINSIGHTS_CONNECTION_STRING`
+    - **Value:** (A valid Azure Application Insights connection string)
   ![web app configuration pane (save)](images/web-app-configuration-save.png)
-1. Press the **💾 Save** button at the top of the pane.
+- Press the **💾 Save** button at the top of the pane.
 
 ## Configuring Intent Architect clients to be able to use the Module Server
 
 Intent Architect clients can use other Module Servers by entering their address into the **Address** field when [adding a repository](https://docs.intentarchitect.com/articles/application-development/applications-and-solutions/how-to-manage-repositories/how-to-manage-repositories.html).
 
 The value to enter **Address** is "base" URL for the website. For example if you had set up a [local instance](#running-locally) the address would be `http://localhost:33800/`, if you had [deployed it to Azure](#deploying-to-azure) then the address would be something like `https://myorganizationnamemoduleserver.azurewebsites.net/`.
+
+## FAQ
+
+### I'm getting a gateway error when attempting to visit the module server URL
+
+During set up of the container on Azure it by default fills in port `80` as the HTTP port to connect to, but the container is listening on `8080`, hence it being unable to connect to it.
+
+You [set the ASPNETCORE_URLS environment variable](#set-environment-variables-for-the-docker-image) to `http://+:80/` to have the container listen on port 80.
 
 ## SQL Server schema migration script
 
