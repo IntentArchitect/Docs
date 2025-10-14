@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-6-version-control
 
 Learn how to manage your codebase and Intent Architect metadata in a single repository — and keep them in sync as changes are made.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-six" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,10 +13,10 @@ This video shows how to store and maintain application code alongside Intent Arc
 
 ## Chapters
 
-- [Introduction to Version Control (0:00)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Creating Git Repository (1:46)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=106&autoplay=1){target="lessonVideo"}
-- [Adding New Attributes (7:12)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=432&autoplay=1){target="lessonVideo"}
-- [CLI Version of Software Factory (11:10)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=670&autoplay=1){target="lessonVideo"}
+- [Introduction to Version Control with Intent Architect (0:00)](https://www.youtube.com/embed/EUnmDKpxb08?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Creating a Git Repository (1:46)](https://www.youtube.com/embed/EUnmDKpxb08?rel=0&start=106&autoplay=1){target="lessonVideo"}
+- [Adding New Attributes (7:12)](https://www.youtube.com/embed/EUnmDKpxb08?rel=0&start=432&autoplay=1){target="lessonVideo"}
+- [CLI Version of Software Factory (11:10)](https://www.youtube.com/embed/EUnmDKpxb08?rel=0&start=670&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 

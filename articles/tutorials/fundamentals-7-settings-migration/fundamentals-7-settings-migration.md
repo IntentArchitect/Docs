@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-7-settings-migration
 
 Learn about Application Settings, focusing on how to transition from an in-memory database to a more persistent solution like SQLite.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-seven" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,10 +13,10 @@ This video focuses on using and adjusting application configuration using the Ap
 
 ## Chapters
 
-- [Introduction to Application Settings (0:00)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Switching to SQLite Database (2:00)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=120&autoplay=1){target="lessonVideo"}
-- [Creating Migrations with EF (5:06)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=200&autoplay=1){target="lessonVideo"}
-- [Running the Application (7:18)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=350&autoplay=1){target="lessonVideo"}
+- [Introduction to Intent Architect Application Settings (0:00)](https://www.youtube.com/embed/sYF8eId-6Gg?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Switching to SQLite Database (2:00)](https://www.youtube.com/embed/sYF8eId-6Gg?rel=0&start=120&autoplay=1){target="lessonVideo"}
+- [Creating Migrations with EF (5:06)](https://www.youtube.com/embed/sYF8eId-6Gg?rel=0&start=200&autoplay=1){target="lessonVideo"}
+- [Running the Application (7:18)](https://www.youtube.com/embed/sYF8eId-6Gg?rel=0&start=350&autoplay=1){target="lessonVideo"}
 
 ---
 

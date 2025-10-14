@@ -86,8 +86,7 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
   </tr>
 
   <tr>
-    <td>
-    </td>
+    <td></td>
     <td>
       <a href="../fundamentals-7-settings-migration/fundamentals-7-settings-migration.md" class="feature-card">
         <svg class="landing-svg" viewBox="0 0 24 24">
@@ -98,7 +97,9 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
         <p>Learn about application settings, with a focus on migrating database provider to SQLite.</p>
       </a>
     </td>
-    <td>
-    </td>
+    <td></td>
   </tr>
 </table>
+
+> [!NOTE]
+> All the training videos in the `Fundamentals Series` are [available in the Fundamentals Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist)

@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-1-building-an-application
 
 Learn to create a new application in Intent Architect and build an end-to-end CRUD use case.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-one" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,11 +13,10 @@ This video introduces **Intent Architect** and shows how to set up an initial so
 
 ## Chapters
 
-- [Introduction to Intent Architect (0:00)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Managing Modules (2:52)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=172&autoplay=1){target="lessonVideo"}
-- [Modeling Customer Entity (7:11)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=431&autoplay=1){target="lessonVideo"}
-- [Creating CRUD Operations (9:59)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=599&autoplay=1){target="lessonVideo"}
-- [Conclusion and Next Steps (14:30)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=870&autoplay=1){target="lessonVideo"}
+- [Introduction to Intent Architect (0:00)](https://www.youtube.com/embed/eygY3PCXCvA?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Managing Modules (2:52)](https://www.youtube.com/embed/eygY3PCXCvA?rel=0&start=172&autoplay=1){target="lessonVideo"}
+- [Modeling Customer Domain Entity (7:11)](https://www.youtube.com/embed/eygY3PCXCvA?rel=0&start=431&autoplay=1){target="lessonVideo"}
+- [Creating CRUD Service Operations (9:59)](https://www.youtube.com/embed/eygY3PCXCvA?rel=0&start=599&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 

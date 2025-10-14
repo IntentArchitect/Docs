@@ -384,7 +384,7 @@ pre > code .line-highlight {
 .feature-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 24px rgba(0,0,0,.12);
-  border-color: #d6d6d6;
+  border-color: #5999d8;
 }
 
 .feature-card-title { margin: 8px 0 6px; font-size: 1.5rem; font-weight: 700; }
@@ -401,7 +401,7 @@ pre > code .line-highlight {
   height: 48px;
 
   fill: none;
-  stroke: var(--theme-code-header-forecolor);
+  stroke: #5999d8; /*var(--theme-code-header-forecolor);*/
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round; 

@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-5-customizing-code
 
 Learn how to customize and fine-tune Intent Architect’s interaction with your codebase, to effectively maintain code customizations while still leveraging automation.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-five" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,12 +13,11 @@ This video focuses on using the code management systems of Intent Architect, to 
 
 ## Chapters
 
-- [Introduction to Customization (0:00)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Code Management Tags Explained (2:09)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=129&autoplay=1){target="lessonVideo"}
-- [Using Merge Instruction (5:06)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=306&autoplay=1){target="lessonVideo"}
-- [Applying Changes to Code (7:18)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=438&autoplay=1){target="lessonVideo"}
-- [Creating New Services (11:21)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=681&autoplay=1){target="lessonVideo"}
-- [Conclusion and Summary (14:50)](https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0&start=890&autoplay=1){target="lessonVideo"}
+- [Introduction to Intent Architect Code Management (0:00)](https://www.youtube.com/embed/31SXHhgEdSg?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Code Management Tags Explained (2:09)](https://www.youtube.com/embed/31SXHhgEdSg?rel=0&start=129&autoplay=1){target="lessonVideo"}
+- [Using Merge Instruction (5:06)](https://www.youtube.com/embed/31SXHhgEdSg?rel=0&start=306&autoplay=1){target="lessonVideo"}
+- [Applying Changes to Code (7:18)](https://www.youtube.com/embed/31SXHhgEdSg?rel=0&start=438&autoplay=1){target="lessonVideo"}
+- [Creating New Services (11:21)](https://www.youtube.com/embed/31SXHhgEdSg?rel=0&start=681&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 
