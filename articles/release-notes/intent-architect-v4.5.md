@@ -13,6 +13,12 @@ uid: release-notes.intent-architect-v4.5
   - **`.intent/output-log`** - Tracks other aspects of output of the Software Factory for various purposes such as: knowing whether a file from a previous run now needs to be deleted or renamed; "Open in IDE" options for elements in designers, etc. This file should not be committed to source control and because it is in the `.intent` folder, it is by default ignored through the `.gitignore` file which Intent Architect creates as an application is created.
  -->
 
+## Version 4.5.22
+
+### Issues fixed in 4.5.22
+
+- Fixed: The file caching system would not correctly handle underlying file system deletions.
+
 ## Version 4.5.21
 
 ### Issues fixed in 4.5.21
