@@ -1,6 +1,5 @@
 ---
 uid: introducing.learn-fundamentals
-title: Learn the Fundamentals
 ---
 
 # Learn the Fundamentals

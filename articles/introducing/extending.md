@@ -1,6 +1,5 @@
 ---
 uid: introducing.extending
-title: Extending & Integrating Intent Architect
 ---
 
 # Extending & Integrating Intent Architect
