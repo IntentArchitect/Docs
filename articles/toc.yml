@@ -1,4 +1,9 @@
 items:
+
+  - name: Introducing
+    href: introducing/toc.yml
+    topicUid: introducing.overview
+
   - name: Getting started
     href: getting-started/toc.yml
     topicUid: getting-started.welcome
