@@ -133,12 +133,13 @@ uid: introducing.overview
 }
 
 /* Icon accent colors (looping 6) */
+/*
 .ia-overview .cards-2 > ul > li:nth-child(6n+1) > .icon { background: #2563eb; }
 .ia-overview .cards-2 > ul > li:nth-child(6n+2) > .icon { background: #059669; }
 .ia-overview .cards-2 > ul > li:nth-child(6n+3) > .icon { background: #7e22ce; }
 .ia-overview .cards-2 > ul > li:nth-child(6n+4) > .icon { background: #be185d; }
 .ia-overview .cards-2 > ul > li:nth-child(6n+5) > .icon { background: #0284c7; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+6) > .icon { background: #6d28d9; }
+.ia-overview .cards-2 > ul > li:nth-child(6n+6) > .icon { background: #6d28d9; }*/
 
 /* ==========================================================================
    Problems We Solve — single column cards
@@ -231,6 +232,7 @@ html[data-bs-theme="dark"] .ia-overview .ps-card,
 html[data-theme="dark"] .ia-overview .ps-card {
   box-shadow: 0 3px 8px rgba(0,0,0,.3);
 }
+
 </style>
 
 <div class="ia-overview">
@@ -395,6 +397,15 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 <div class="cards-2">
   <ul>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M15 21h-8a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.734 1.002" />
+  <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
+  <path d="M19 16v3" />
+  <path d="M19 22v.01" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🧱</span>-->
       <div>
         <strong class="card-title">No Lock-in</strong>
@@ -402,6 +413,11 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M4 8l2 -1l10 13l4 -2v-12l-4 -2l-10 13l-2 -1z" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">💻</span>-->
       <div>
         <strong class="card-title">Developer-centric</strong>
@@ -409,6 +425,9 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
 <!--      <span class="icon" aria-hidden="true">♾️</span>-->
       <div>
         <strong class="card-title">Continuous code automation</strong>
@@ -416,6 +435,13 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M12 9v4" />
+  <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
+  <path d="M12 16h.01" />
+</svg>
+</span>
 <!--      <span class="icon" aria-hidden="true">🚦</span>-->
       <div>
         <strong class="card-title">Architecture opt-out model</strong>
@@ -423,6 +449,15 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M8 4h-2l-3 10v2.5" />
+  <path d="M16 4h2l3 10v2.5" />
+  <path d="M10 16l4 0" />
+  <path d="M17.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" />
+  <path d="M6.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">✅</span>-->
       <div>
         <strong class="card-title">Change Transparency</strong>
@@ -430,6 +465,13 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M5 13h14" />
+  <path d="M5 17h14" />
+  <path d="M5 7.686c2.333 -2.624 4.667 -1.856 7 .064s4.667 2.688 7 .064" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🧠</span>-->
       <div>
         <strong class="card-title">Deterministic & Non-Deterministic Code Generation</strong>
@@ -437,6 +479,19 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M17 4h1a2 2 0 0 1 2 2v1" />
+  <path d="M20 17v1a2 2 0 0 1 -2 2h-1" />
+  <path d="M7 20h-1a2 2 0 0 1 -2 -2v-1" />
+  <path d="M4 7v-1a2 2 0 0 1 2 -2h1" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <path d="M12 18v2" />
+  <path d="M4 12h2" />
+  <path d="M12 4v2" />
+  <path d="M20 12h-2" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🛡️</span>-->
       <div>
         <strong class="card-title">Deterministic AI</strong>
@@ -444,6 +499,12 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+  <path d="M10 9v6l5 -3z" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div>
         <strong class="card-title">Code Automation Platform</strong>
@@ -451,6 +512,13 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
+  <path d="M19 16h-12a2 2 0 0 0 -2 2" />
+  <path d="M9 8h6" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🗺️</span>-->
       <div>
         <strong class="card-title">Living documentation</strong>
@@ -458,6 +526,14 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
       </div>
     </li>
     <li>
+          <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+  <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
+  <path d="M12.5 15.5l2 2" />
+  <path d="M15 13l2 2" />
+</svg>
+          </span>
 <!--      <span class="icon" aria-hidden="true">🧰</span>-->
       <div>
         <strong class="card-title">Augments your Favourite IDE</strong>
