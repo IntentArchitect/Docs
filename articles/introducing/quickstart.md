@@ -4,35 +4,36 @@ uid: introducing.quickstart
 
 # Quick Start: Build Your First Application
 
-Follow **Fundamentals Video #1** to create an end‑to‑end CRUD application in ~10 minutes.
+> Learn how to create, generate, and run your first application in **Intent Architect** — all in under 15 minutes.
 
-> 🎥 **Video #1 — Build Your First Application** (embed/link here)
-
----
-
-## Step‑by‑Step (Recap)
-
-1. **Create a new solution** — choose the *Clean Architecture* template.  
-2. **Install modules** — e.g., **EF Core**, **AutoMapper**.  
-3. **Model your domain** — entities and relationships.  
-4. **Run the Software Factory** — review diffs (adds/edits/deletes).  
-5. **Apply changes** — approve and merge into your codebase.  
-6. **Run the app** — open in your IDE or run:
-```bash
-dotnet run
-```
+**Goal:** Build a working .NET Clean Architecture application.
 
 ---
 
-## What You Learned
+<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-one" title="Video" allowfullscreen></iframe></div>
 
-- IA continuously **synchronizes design and code**.  
-- All changes go through a **staging gate** (no surprise overwrites).  
-- The output is **normal .NET code** — edit freely in your IDE.
+---
+
+## 1️⃣ Create a New Solution
+
+Start **Intent Architect** and click **Create New Solution**.  
+Choose the **Clean Architecture template**, name your app (e.g., *MyShop*), and keep the default modules selected.
+
+## 2️⃣ Generate Your Codebase
+
+Run the **Software Factory** to stage and apply your first code generation.  
+Intent Architect will create a full, working solution — no runtime dependencies, 100% standard .NET code.
+
+## 3️⃣ Run and Explore
+
+Open the generated `.sln` in Visual Studio or Rider.  
+Run the API project, open **Swagger**, and try the customer endpoints.
+
+You’ve just built a complete, architecture-aligned application with clean, deterministic code you can evolve.
 
 ---
 
 ## Next Steps
 
-- **[Learn the Fundamentals](learn-fundamentals.md)** — videos #2–#7  
-- **[How It Works](how-it-works.md)** — conceptual deep dive
+🎓 Continue to **[Fundamentals #2: Introduction to Domain Modeling](xref:tutorials.fundamentals-2-intro-to-domain-modeling)**  
+📘 Learn more about **[How It Works](xref:introducing.how-it-works)**  

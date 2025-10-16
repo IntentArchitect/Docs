@@ -30,6 +30,7 @@ intentarchitect update
 
 ## Helpful Links
 
-- Official site: https://intentarchitect.com  
-- Quick Start: [quickstart.md](quickstart.md)  
-- Fundamentals: [learn-fundamentals.md](learn-fundamentals.md)
+- **[Official site](https://intentarchitect.com)**  
+- **[Get Intent Architect](xref:introducing.get-the-app)**
+- **[Quick Start](xref:introducing.quickstart)**
+- **[Intent Architect Fundamentals](xref:tutorials.fundamentals-landing-page)**

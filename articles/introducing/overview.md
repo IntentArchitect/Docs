@@ -254,56 +254,56 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 <div class="cards-2">
   <ul>
     <li>
-      <span class="icon">🧩</span>
+<!--      <span class="icon">🧩</span>-->
       <div>
         <strong class="card-title">Model visually</strong>
         <p class="card-text">Design domains, services, and integrations through an intuitive visual interface.</p>
       </div>
     </li>
     <li>
-      <span class="icon">⚙️</span>
+<!--      <span class="icon">⚙️</span>-->
       <div>
         <strong class="card-title">Deterministic code generation</strong>
         <p class="card-text">Intent Architect writes and maintains your system’s boilerplate and architectural patterns automatically, keeping design and code continuously in sync.</p>
       </div>
     </li>
     <li>
-      <span class="icon">🤖</span>
+<!--      <span class="icon">🤖</span>-->
       <div>
         <strong class="card-title">Non-deterministic (AI-assisted) code generation</strong>
         <p class="card-text">Intent Architect can use architectural context to guide an LLM for “prompt-less” AI interactions.</p>
       </div>
     </li>
     <li>
-      <span class="icon">📏</span>
+<!--      <span class="icon">📏</span>-->
       <div>
         <strong class="card-title">Enforces consistency and standards</strong>
         <p class="card-text">With up to 85% of your solution is generated, Intent Architect automatically applies consistent structure, naming, and practices across your entire codebase.</p>
       </div>
     </li>
     <li>
-      <span class="icon">🧑‍💻</span>
+<!--      <span class="icon">🧑‍💻</span>-->
       <div>
         <strong class="card-title">Developer-in-the-loop</strong>
         <p class="card-text">Every proposed change is presented as a diff for review and approval before it touches your source.</p>
       </div>
     </li>
     <li>
-      <span class="icon">🔄</span>
+<!--      <span class="icon">🔄</span>-->
       <div>
         <strong class="card-title">Architectural refactoring</strong>
         <p class="card-text">Make broad, pattern-level changes across your solution in a single controlled action.</p>
       </div>
     </li>
     <li>
-      <span class="icon">🗺️</span>
+<!--      <span class="icon">🗺️</span>-->
       <div>
         <strong class="card-title">Visualize your design</strong>
         <p class="card-text">Architecture diagrams always reflect the actual code, creating living documentation you can trust.</p>
       </div>
     </li>
     <li>
-      <span class="icon">🧰</span>
+<!--      <span class="icon">🧰</span>-->
       <div>
         <strong class="card-title">Extensible platform for code automation</strong>
         <p class="card-text">Extend Intent Architect with your own modules or templates, or extend existing ones,  most are open source.</p>
@@ -323,7 +323,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">⚡</div>
     <div>
-      <h3 class="ps-title">Faster Delivery</h3>
+      <strong class="ps-title">Faster Delivery</strong>
       <p class="ps-text">A large portion of development time goes into writing and maintaining repetitive, mechanical code — services, DTOs, controllers, and mappings. <strong>Intent Architect automates up to 85% of that code deterministically</strong>, so teams can focus on meaningful logic and features instead of boilerplate.</p>
     </div>
   </li>
@@ -331,7 +331,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">✅</div>
     <div>
-      <h3 class="ps-title">Consistent, High-Quality Code</h3>
+      <strong class="ps-title">Consistent, High-Quality Code</strong>
       <p class="ps-text">As teams grow, small inconsistencies in structure, naming, and layering compound into major maintenance issues. <strong>Intent Architect enforces standards automatically</strong> through code automation, producing clean, uniform code across projects by default.</p>
     </div>
   </li>
@@ -339,7 +339,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🤝</div>
     <div>
-      <h3 class="ps-title">Better Collaboration</h3>
+      <strong class="ps-title">Better Collaboration</strong>
       <p class="ps-text">Architectural intent often gets lost between architects, developers, and leads, trapped in outdated documents, tribal knowledge, or code that must be painstakingly reverse-engineered to understand. <strong>Intent Architect makes design explicit, visible, and collaborative</strong>, everyone works from the same living architecture model, which ultimately is the code.</p>
     </div>
   </li>
@@ -347,7 +347,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🧭</div>
     <div>
-      <h3 class="ps-title">Better Understanding of Complex Systems</h3>
+      <strong class="ps-title">Better Understanding of Complex Systems</strong>
       <p class="ps-text"><strong>Intent Architect’s living diagrams</strong> visualize domains, services, and integrations directly from the source code, allowing new (and existing) developers to explore and understand a system in minutes.</p>
     </div>
   </li>
@@ -355,7 +355,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🔁</div>
     <div>
-      <h3 class="ps-title">Agile Architecture</h3>
+      <strong class="ps-title">Agile Architecture</strong>
       <p class="ps-text">Architecture is traditionally rigid — once it’s coded, it’s hard to evolve safely. <strong>Intent Architect turns architecture into something adaptable</strong>, enabling sweeping, pattern-level refactors or upgrades across large systems in a single controlled action.</p>
     </div>
   </li>
@@ -363,7 +363,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🧹</div>
     <div>
-      <h3 class="ps-title">Reduced Technical Debt</h3>
+      <strong class="ps-title">Reduced Technical Debt</strong>
       <p class="ps-text">Code drift, duplicated patterns, and inconsistent practices accumulate debt fast. <strong>IA prevents drift before it starts</strong> by continuously synchronizing architecture and source, and lets teams retroactively realign existing systems without rewrites.</p>
     </div>
   </li>
@@ -371,7 +371,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🏗️</div>
     <div>
-      <h3 class="ps-title">Better Standardization</h3>
+      <strong class="ps-title">Better Standardization</strong>
       <p class="ps-text">Keeping standards aligned across teams and projects is nearly impossible manually. <strong>IA centralizes patterns in modules</strong>, so every generated component adheres to the same conventions by default.</p>
     </div>
   </li>
@@ -379,7 +379,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
   <li class="ps-card">
     <div class="ps-icon">🛡️</div>
     <div>
-      <h3 class="ps-title">Deterministic AI</h3>
+      <strong class="ps-title">Deterministic AI</strong>
       <p class="ps-text">AI tools can be unpredictable and prompt-heavy. <strong>Intent Architect integrates AI with guardrails</strong>, constructs architectural context automatically, and converts results into reviewable diffs,  enabling deterministic, repeatable, prompt-less generation that’s developer-controlled.</p>
     </div>
   </li>
@@ -395,70 +395,70 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 <div class="cards-2">
   <ul>
     <li>
-      <span class="icon" aria-hidden="true">🧱</span>
+<!--      <span class="icon" aria-hidden="true">🧱</span>-->
       <div>
         <strong class="card-title">No Lock-in</strong>
-        <p class="card-text">Runs entirely at design time. You can stop using it anytime—your code keeps running. No runtime lock-in or hidden frameworks.</p>
+        <p class="card-text">Runs entirely at design time. You can stop using it anytime, your code keeps running. No runtime lock-in or hidden frameworks.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">💻</span>
+<!--      <span class="icon" aria-hidden="true">💻</span>-->
       <div>
         <strong class="card-title">Developer-centric</strong>
         <p class="card-text">Unlike low-code platforms, Intent Architect empowers developers, not replaces them. All generated code is standard and maintainable.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">♾️</span>
+<!--      <span class="icon" aria-hidden="true">♾️</span>-->
       <div>
         <strong class="card-title">Continuous code automation</strong>
         <p class="card-text">Architecture and code evolve together continuously, not as one-off scaffolding.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🚦</span>
+<!--      <span class="icon" aria-hidden="true">🚦</span>-->
       <div>
         <strong class="card-title">Architecture opt-out model</strong>
         <p class="card-text">Standards are enforced by default; deviations are intentional, visible, and tracked.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">✅</span>
+<!--      <span class="icon" aria-hidden="true">✅</span>-->
       <div>
         <strong class="card-title">Change Transparency</strong>
-        <p class="card-text">Every change is proposed as a diff for developer approval before applying—automation with full control.</p>
+        <p class="card-text">Every change is proposed as a diff for developer approval before applying, automation with full control.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🧠</span>
+<!--      <span class="icon" aria-hidden="true">🧠</span>-->
       <div>
         <strong class="card-title">Deterministic & Non-Deterministic Code Generation</strong>
         <p class="card-text">Combines pattern re-use with AI-assisted generation, both governed and traceable within the same pipeline.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🛡️</span>
+<!--      <span class="icon" aria-hidden="true">🛡️</span>-->
       <div>
         <strong class="card-title">Deterministic AI</strong>
-        <p class="card-text">AI assistance with guardrails—Intent Architect constructs full architectural context for the LLM, producing repeatable, reviewable diffs you can trust.</p>
+        <p class="card-text">AI assistance with guardrails, Intent Architect constructs full architectural context for the LLM, producing repeatable, reviewable diffs you can trust.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🧩</span>
+<!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div>
         <strong class="card-title">Code Automation Platform</strong>
         <p class="card-text">Every behavior is modular and extensible. Our modules are open source, allowing teams to customize and evolve patterns transparently.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🗺️</span>
+<!--      <span class="icon" aria-hidden="true">🗺️</span>-->
       <div>
         <strong class="card-title">Living documentation</strong>
         <p class="card-text">Architecture remains visible, accurate, and collaborative, always reflecting the real system.</p>
       </div>
     </li>
     <li>
-      <span class="icon" aria-hidden="true">🧰</span>
+<!--      <span class="icon" aria-hidden="true">🧰</span>-->
       <div>
         <strong class="card-title">Augments your Favourite IDE</strong>
         <p class="card-text">Works seamlessly alongside Visual Studio or Rider, complementing your existing workflow.</p>
@@ -469,7 +469,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 
 ## Next Steps
 
-- Continue to **[Installation](installation.md)**
-- Jump to **[Quick Start](quickstart.md)**
+- Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
+- Jump to **[Quick Start](xref:introducing.quickstart)**
 
 </div>

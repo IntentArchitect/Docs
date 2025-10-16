@@ -1,5 +1,5 @@
 ---
-uid: installation
+uid: introducing.get-the-app
 ---
 
 # Get Intent Architect
@@ -46,9 +46,12 @@ For smoother desktop integration, you can optionally install **[AppImageLauncher
 
 ---
 
+> [!NOTE]
+> [Detailed Installation Guide](xref:introducing.installation-guide) available if required.
+
 You’re all set!  
 
 ## Next Steps
 
-- Continue to **[Quick Start](quickstart.md)** to build your first application in under 10 minutes.
-- Jump to **[Intent Architect Fundamentals](xref:tutorials.fundamentals-landing-page)**.
+- Continue to **[Quick Start](xref:introducing.quickstart)** to build your first application in under 15 minutes
+- Jump to **[Intent Architect Fundamentals](xref:tutorials.fundamentals-landing-page)**

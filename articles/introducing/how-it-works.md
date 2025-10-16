@@ -60,5 +60,5 @@ Your models and visualizations are a **true reflection** of the code (when the f
 
 ## Next Steps
 
-- **[Installation Guide](installation.md)**  
-- **[Quick Start](quickstart.md)**
+- **[Quick Start](xref:introducing.quickstart)**
+- **[Get Intent Architect](xref:introducing.get-the-app)**

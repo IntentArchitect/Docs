@@ -1,3 +1,6 @@
+---
+uid: introducing.installation-guide
+---
 
 # Installation Guide
 
@@ -50,6 +53,5 @@ To make your limit permanent use:
 $ echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
 $ sudo sysctl -p
 ```
-
 
 [(Source)](https://github.com/dotnet/aspnetcore/issues/7531#issuecomment-484364033)

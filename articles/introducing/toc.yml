@@ -8,15 +8,8 @@ items:
 - name: Quick Start
   href: quickstart.md
 
-- name: Learn the Fundamentals
-  href: learn-fundamentals.md
-
 - name: How it works?
   href: how-it-works.md
 
-- name: Beyond the Fundamentals
-  href: extending.md
-
 - name: Get Help
   href: reference.md
-
