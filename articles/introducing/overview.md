@@ -233,14 +233,15 @@ html[data-theme="dark"] .ia-overview .ps-card {
 }
 </style>
 
-
 <div class="ia-overview">
 
 # Introduction to Intent Architect
 
-**Intent Architect** is an extensible **IDE for software architecture**, a *design-time* tool that lets you visually model your systems while continuously integrating that design into your **.NET source code**.
+**Intent Architect** is an **extensible IDE for software architecture** — a *design-time* tool that lets you visually model your systems and continuously integrate that design into your **.NET source code**.
 
-It’s **developer-centric** and proudly **High-Code**: you work in your IDE (Visual Studio, Rider, etc.) as usual, while Intent Architect automates the predictable parts, enforces architectural consistency, and provides transparent governance and control.
+Built for professional developers, it works **side-by-side with your favourite IDE** (Visual Studio, Rider, etc.), automating predictable code, enforcing architectural consistency, and maintaining clean, standardized solutions at scale.
+
+By combing visual modeling and cutting-edge code generation systems, Intent Architect keeps your code **standardized, maintainable, and architecture-driven**.
 
 ![Overview](images/ia-overview.png)
 
