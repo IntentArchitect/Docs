@@ -386,6 +386,8 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 
 </ul>
 
+---
+
 ## Why It’s Different
 
 > Intent Architect is just different, there is no other tool quiet like it.
@@ -467,7 +469,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 
 ## Next Steps
 
-- Learn **[How It Works](how-it-works.md)**  
 - Jump to **[Installation](installation.md)**
+- Continue to **[Quick Start](quickstart.md)**
 
 </div>
