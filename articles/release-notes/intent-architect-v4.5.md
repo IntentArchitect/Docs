@@ -18,6 +18,7 @@ uid: release-notes.intent-architect-v4.5
 ### Issues fixed in 4.5.22
 
 - Fixed: The file caching system would not correctly handle underlying file system deletions.
+- Fixed: "Package as sample" would show an error about directory not found when "Include source code for application(s)" was checked and any of the solution's applications did not yet have its output folder created.
 
 ## Version 4.5.21
 
