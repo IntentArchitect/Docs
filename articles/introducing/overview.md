@@ -187,7 +187,7 @@ It’s **developer-centric** and proudly **High-Code**: you work in your IDE (Vi
 
 ## What Intent Architect Does
 
-Intent Architect turns architectural design into concrete, automated development, so you can see, generate, and evolve your system with confidence
+>Intent Architect turns architectural design into concrete, automated development, so you can see, generate, and evolve your system with confidence.
 
 <div class="cards-2">
   <ul>
@@ -244,7 +244,7 @@ Intent Architect turns architectural design into concrete, automated development
       <span class="icon">🧰</span>
       <div>
         <strong class="card-title">Extensible platform for code automation</strong>
-        <p class="card-text">Extend Intent Architect with your own modules or templates, or customize existing ones — most are open source.</p>
+        <p class="card-text">Extend Intent Architect with your own modules or templates, or extend existing ones,  most are open source.</p>
       </div>
     </li>
   </ul>
@@ -254,7 +254,7 @@ Intent Architect turns architectural design into concrete, automated development
 
 ## Problems We Solve
 
-Intent Architect was built to fix the everyday challenges that slow down teams and erode code quality over time.
+>Intent Architect was built to fix the everyday challenges that slow down teams and erode code quality over time.
 
 <ul class="ps-grid">
 
@@ -278,7 +278,7 @@ Intent Architect was built to fix the everyday challenges that slow down teams a
     <div class="ps-icon">🤝</div>
     <div>
       <h3 class="ps-title">Better Collaboration</h3>
-      <p class="ps-text">Architectural intent often gets lost between architects, developers, and leads, trapped in outdated documents, tribal knowledge, or code that must be painstakingly reverse-engineered to understand. <strong>Intent Architect makes design explicit, visible, and collaborative</strong> — everyone works from the same living architecture model, which ultimately is the code.</p>
+      <p class="ps-text">Architectural intent often gets lost between architects, developers, and leads, trapped in outdated documents, tribal knowledge, or code that must be painstakingly reverse-engineered to understand. <strong>Intent Architect makes design explicit, visible, and collaborative</strong>, everyone works from the same living architecture model, which ultimately is the code.</p>
     </div>
   </li>
 
@@ -318,7 +318,7 @@ Intent Architect was built to fix the everyday challenges that slow down teams a
     <div class="ps-icon">🛡️</div>
     <div>
       <h3 class="ps-title">Deterministic AI</h3>
-      <p class="ps-text">AI tools can be unpredictable and prompt-heavy. <strong>Intent Architect integrates AI with guardrails</strong>, constructs architectural context automatically, and converts results into reviewable diffs — enabling deterministic, repeatable, prompt-less generation that’s developer-controlled.</p>
+      <p class="ps-text">AI tools can be unpredictable and prompt-heavy. <strong>Intent Architect integrates AI with guardrails</strong>, constructs architectural context automatically, and converts results into reviewable diffs,  enabling deterministic, repeatable, prompt-less generation that’s developer-controlled.</p>
     </div>
   </li>
 
