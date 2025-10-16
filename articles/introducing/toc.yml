@@ -2,11 +2,8 @@ items:
 - name: Overview
   href: overview.md
 
-- name: How it works?
-  href: how-it-works.md
-
-- name: Installation
-  href: installation.md
+- name: Get Intent Architect
+  href: get-the-app.md
 
 - name: Quick Start
   href: quickstart.md
@@ -14,10 +11,10 @@ items:
 - name: Learn the Fundamentals
   href: learn-fundamentals.md
 
-- name: Learn the Fundamentals
-  href: learn-fundamentals.md
+- name: How it works?
+  href: how-it-works.md
 
-- name: Beyond the basics
+- name: Beyond the Fundamentals
   href: extending.md
 
 - name: Get Help

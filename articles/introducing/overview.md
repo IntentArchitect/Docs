@@ -469,7 +469,7 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 
 ## Next Steps
 
-- Jump to **[Installation](installation.md)**
-- Continue to **[Quick Start](quickstart.md)**
+- Continue to **[Installation](installation.md)**
+- Jump to **[Quick Start](quickstart.md)**
 
 </div>
