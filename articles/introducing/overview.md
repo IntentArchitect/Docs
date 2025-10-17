@@ -1,13 +1,13 @@
 ---
 uid: introducing.overview
 ---
+
 <style>
-/* ==========================================================================
-   Intent Architect Overview — Final Card Design (light default + dark override)
-   ========================================================================== */
+/* =============================================================================
+   Intent Architect Overview — Final (DocFX 2.77+ compatible)
+   ============================================================================= */
 
 .ia-overview {
-  /* Your original large sizing */
   --card-title-size: 1.6rem;
   --card-body-size: 1.6rem;
   --card-line-height: 1.55;
@@ -16,36 +16,28 @@ uid: introducing.overview
   --card-gap: 22px;
   --card-radius: 16px;
 
-  /* Icon sizes (original) */
-  --icon-box: 40px;   /* cards-2 */
+  --icon-box: 40px;
   --icon-font: 20px;
 
-  /* LIGHT defaults (readable on white) */
-  --card-text: #334155;        /* slate-700 */
-  --card-title-color: #0f172a; /* slate-900 */
-  --card-border: #cbd5e1;      /* slate-300 */
+  --card-text: #334155;
+  --card-title-color: #0f172a;
+  --card-border: #cbd5e1;
   --card-bg-top: #ffffff;
   --card-bg-btm: #ffffff;
 }
 
-/* ==========================================================================
-   2-column responsive grid
-   ========================================================================== */
-.ia-overview .cards-2 > ul {
-  display: grid;
-  gap: var(--card-gap);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-@media (min-width: 900px) {
-  .ia-overview .cards-2 > ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* Responsive Grids */
+.ia-overview .cards-grid { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--card-gap); }
+.ia-overview .cards-3 { grid-template-columns: 1fr; }
+.ia-overview .cards-2x2 { grid-template-columns: 1fr; }
+@media (min-width: 720px) {
+  .ia-overview .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ia-overview .cards-2x2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-/* ==========================================================================
-   Card Shell
-   ========================================================================== */
-.ia-overview .cards-2 > ul > li {
+/* Card Shell */
+.ia-overview .card {
+  position: relative;
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -56,67 +48,35 @@ uid: introducing.overview
   box-shadow: 0 2px 8px rgba(15,23,42,.08);
   transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
 }
-.ia-overview .cards-2 > ul > li:hover {
+.ia-overview .card:hover {
   transform: translateY(-2px);
   border-color: var(--card-title-color);
   box-shadow: 0 6px 16px rgba(0,0,0,.15);
 }
+.ia-overview .card > .content { flex: 1 1 auto; min-width: 0; }
 
-/* Let the text area grow; don't squeeze icons */
-.ia-overview .cards-2 > ul > li > div,
-.ia-overview .ps-card > div { flex: 1 1 auto; min-width: 0; }
-
-/* ==========================================================================
-   ICONS — make them unsqueezable (explicit width/height/flex-basis)
-   ========================================================================== */
-
-/* Two-column cards icon — target the direct child for max specificity */
-.ia-overview .cards-2 > ul > li > .icon {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  border-radius: 10px !important;
-  background-clip: padding-box !important;
-  color: #fff !important;
-  font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla",system-ui,sans-serif !important;
-
-  width: var(--icon-box) !important;
-  height: var(--icon-box) !important;
-  font-size: var(--icon-font) !important;
-
-  /* The fixes that stop shrinking */
-  flex: 0 0 var(--icon-box) !important;
-  min-width: var(--icon-box) !important;
-  max-width: var(--icon-box) !important;
-  box-sizing: content-box !important;
+/* Icons */
+.ia-overview .icon {
+  display: flex; align-items: center; justify-content: center;
+  width: var(--icon-box); height: var(--icon-box);
+  flex: 0 0 var(--icon-box); min-width: var(--icon-box); max-width: var(--icon-box);
+  border-radius: 10px;
+  background-clip: padding-box;
+  color: #fff;
+  font-size: var(--icon-font);
+  font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla",system-ui,sans-serif;
+  box-sizing: content-box;
 }
 
-/* Problems We Solve icons (44/22) */
-.ia-overview .ps-icon {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  line-height: 1 !important;
-  border-radius: 10px !important;
-  background-clip: padding-box !important;
-  color: #fff !important;
-  font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji","Twemoji Mozilla",system-ui,sans-serif !important;
+/* Icon Accent Colors */
+.ia-overview .cards-grid > li:nth-child(6n+1) .icon { background: #2563eb; }
+.ia-overview .cards-grid > li:nth-child(6n+2) .icon { background: #059669; }
+.ia-overview .cards-grid > li:nth-child(6n+3) .icon { background: #7e22ce; }
+.ia-overview .cards-grid > li:nth-child(6n+4) .icon { background: #be185d; }
+.ia-overview .cards-grid > li:nth-child(6n+5) .icon { background: #0284c7; }
+.ia-overview .cards-grid > li:nth-child(6n+6) .icon { background: #6d28d9; }
 
-  width: 44px !important;
-  height: 44px !important;
-  font-size: 22px !important;
-
-  /* The fixes that stop shrinking */
-  flex: 0 0 44px !important;
-  min-width: 44px !important;
-  max-width: 44px !important;
-  box-sizing: content-box !important;
-}
-
-/* ==========================================================================
-   Titles & body text
-   ========================================================================== */
+/* Typography */
 .ia-overview .card-title {
   font-size: var(--card-title-size);
   font-weight: 650;
@@ -129,77 +89,31 @@ uid: introducing.overview
   color: var(--card-text);
   line-height: var(--card-line-height);
   margin: 0;
-  max-width: 68ch; /* comfy width on 2-col cards */
+  max-width: 68ch;
 }
 
-/* Icon accent colors (looping 6) */
-/*
-.ia-overview .cards-2 > ul > li:nth-child(6n+1) > .icon { background: #2563eb; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+2) > .icon { background: #059669; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+3) > .icon { background: #7e22ce; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+4) > .icon { background: #be185d; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+5) > .icon { background: #0284c7; }
-.ia-overview .cards-2 > ul > li:nth-child(6n+6) > .icon { background: #6d28d9; }*/
-
-/* ==========================================================================
-   Problems We Solve — single column cards
-   ========================================================================== */
-.ia-overview .ps-grid {
-  display: grid;
-  gap: var(--card-gap);
-  margin: 0;
-  padding: 0;
-  grid-template-columns: 1fr;
-  max-width: 1000px;
-  margin-inline: auto;
-}
-.ia-overview .ps-card {
-  list-style: none;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  padding: var(--card-pad-y) var(--card-pad-x);
-  border: 1px solid var(--card-border);
-  border-radius: var(--card-radius);
-  background: linear-gradient(180deg, var(--card-bg-top), var(--card-bg-btm));
-  box-shadow: 0 2px 8px rgba(15,23,42,.08);
-  transition: transform .2s ease, box-shadow .25s ease, border-color .25s ease;
-}
-.ia-overview .ps-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--card-title-color);
-  box-shadow: 0 6px 16px rgba(0,0,0,.15);
-}
-.ia-overview .ps-title {
-  font-size: var(--card-title-size);
-  font-weight: 650;
-  margin: 0 0 8px;
+/* XREF-friendly clickable card overlay */
+.ia-overview .xref-card strong.card-title a.xref {
   color: var(--card-title-color);
-  line-height: 1.3;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
 }
-.ia-overview .ps-text {
-  font-size: var(--card-body-size);
-  line-height: var(--card-line-height);
-  color: var(--card-text);
-  margin: 0;
-  max-width: none; /* full width on single-column cards */
+.ia-overview .xref-card strong.card-title a.xref::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: 0;
+}
+.ia-overview .xref-card:hover strong.card-title a.xref {
+  text-decoration: underline;
 }
 
-/* Accent colors for ps icons */
-.ia-overview .ps-grid > li:nth-child(6n+1) .ps-icon{ background:#2563eb; }
-.ia-overview .ps-grid > li:nth-child(6n+2) .ps-icon{ background:#059669; }
-.ia-overview .ps-grid > li:nth-child(6n+3) .ps-icon{ background:#7e22ce; }
-.ia-overview .ps-grid > li:nth-child(6n+4) .ps-icon{ background:#be185d; }
-.ia-overview .ps-grid > li:nth-child(6n+5) .ps-icon{ background:#0284c7; }
-.ia-overview .ps-grid > li:nth-child(6n+6) .ps-icon{ background:#6d28d9; }
-
-/* ==========================================================================
-   Hint line (blockquote under each H2)
-   ========================================================================== */
-.ia-overview h2 + blockquote{
+/* Hint Line */
+.ia-overview h2 + blockquote {
   background: none !important;
   border: 0 !important;
-  border-radius: 0 !important;
   border-left: 3px solid var(--card-title-color) !important;
   padding: .6rem .75rem .6rem .9rem !important;
   margin: .5rem 0 1rem 0 !important;
@@ -207,11 +121,9 @@ uid: introducing.overview
   font-size: var(--card-body-size);
   line-height: var(--card-line-height);
 }
-.ia-overview h2 + blockquote p{ margin:0 }
+.ia-overview h2 + blockquote p { margin: 0; }
 
-/* ==========================================================================
-   DARK MODE overrides (DocFX/Bootstrap flags)
-   ========================================================================== */
+/* Dark Mode */
 html[data-theme="dark"] .ia-overview,
 body[data-theme="dark"] .ia-overview,
 html[data-bs-theme="dark"] .ia-overview,
@@ -224,28 +136,94 @@ html.theme-dark .ia-overview {
   --card-bg-top: rgba(255,255,255,.05);
   --card-bg-btm: rgba(255,255,255,.02);
 }
-
-/* Slightly stronger shadow in dark mode */
-html[data-bs-theme="dark"] .ia-overview .cards-2 > ul > li,
-html[data-theme="dark"] .ia-overview .cards-2 > ul > li,
-html[data-bs-theme="dark"] .ia-overview .ps-card,
-html[data-theme="dark"] .ia-overview .ps-card {
+html[data-bs-theme="dark"] .ia-overview .card,
+html[data-theme="dark"] .ia-overview .card {
   box-shadow: 0 3px 8px rgba(0,0,0,.3);
 }
 
+/* Full-card clickable overlay for DocFX xrefs */
+.ia-overview .card > a[href]{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  text-decoration: none !important;
+  z-index: 0; /* content stays above for selection */
+}
+.ia-overview .card:hover > a[href]{ cursor: pointer; }
+.ia-overview .card > a[href]:focus-visible{
+  outline: 2px solid var(--card-title-color);
+  outline-offset: 2px;
+}
+
+/* Hide DocFX-inserted text inside the stretched overlay link */
+.ia-overview .card > a[href]{
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  text-decoration: none !important;
+  z-index: 0;
+  /* hide any auto-inserted link text without breaking focusability */
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+}
+.ia-overview .card:hover > a[href]{ cursor: pointer; }
+.ia-overview .card > a[href]:focus-visible{
+  outline: 2px solid var(--card-title-color);
+  outline-offset: 2px;
+}
 </style>
 
 <div class="ia-overview">
 
 # Introduction to Intent Architect
 
-**Intent Architect** is an **extensible IDE for software architecture** — a *design-time* tool that lets you visually model your systems and continuously integrate that design into your **.NET source code**.
+Intent Architect is the first architecture-centric code automation platform for professional .NET developers.
 
-Built for professional developers, it works **side-by-side with your favourite IDE** (Visual Studio, Rider, etc.), automating predictable code, enforcing architectural consistency, and maintaining clean, standardized solutions at scale.
+It’s the platform leading .NET teams use to deliver 10X faster, standardize flawlessly at scale, and maintain systems with ease – using their preferred tech stack, IDE and LLM.
 
-By combing visual modeling and cutting-edge code generation systems, Intent Architect keeps your code **standardized, maintainable, and architecture-driven**.
+It combines cutting-edge code generation systems, such as Pattern Reuse and your favorite LLM, to continuously generate clean, production-ready code driven by your architectural intention and approved design — so your code stays standardized, consistent, and easy to maintain.
 
 ![Overview](images/ia-overview.png)
+
+---
+
+## Getting Started
+
+> Install the app, build your first solution, then go deeper with tutorials.
+
+<ul class="cards-grid cards-3">
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">⬇️</span>
+      <div class="content">
+        <strong class="card-title">Get Intent Architect</strong>
+        <p class="card-text">Download and install the latest Intent Architect for your environment.</p>
+      </div>
+      <a href="xref:introducing.get-the-app" aria-label="Get Intent Architect"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">🚀</span>
+      <div class="content">
+        <strong class="card-title">Quick Start</strong>
+        <p class="card-text">Generate a working .NET solution in minutes and learn the core workflow.</p>
+      </div>
+      <a href="xref:introducing.quickstart" aria-label="Quick Start"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">📚</span>
+      <div class="content">
+        <strong class="card-title">Tutorials</strong>
+        <p class="card-text">Hands-on guides for domains, services, integrations, testing, and more.</p>
+      </div>
+      <a href="xref:introducing.tutorials" aria-label="Tutorials"></a>
+    </div>
+  </li>
+</ul>
 
 ---
 
@@ -253,299 +231,55 @@ By combing visual modeling and cutting-edge code generation systems, Intent Arch
 
 > Intent Architect turns architectural design into concrete, automated development, so you can see, generate, and evolve your system with confidence.
 
-<div class="cards-2">
-  <ul>
-    <li>
-<!--      <span class="icon">🧩</span>-->
-      <div>
+<ul class="cards-grid cards-2x2">
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">🧩</span>
+      <div class="content">
         <strong class="card-title">Model visually</strong>
         <p class="card-text">Design domains, services, and integrations through an intuitive visual interface.</p>
       </div>
-    </li>
-    <li>
-<!--      <span class="icon">⚙️</span>-->
-      <div>
+      <a href="xref:introducing.modeling" aria-label="Model visually"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">⚙️</span>
+      <div class="content">
         <strong class="card-title">Deterministic code generation</strong>
-        <p class="card-text">Intent Architect writes and maintains your system’s boilerplate and architectural patterns automatically, keeping design and code continuously in sync.</p>
+        <p class="card-text">Keep design and code continuously in sync with reliable, repeatable generation.</p>
       </div>
-    </li>
-    <li>
-<!--      <span class="icon">🤖</span>-->
-      <div>
-        <strong class="card-title">Non-deterministic (AI-assisted) code generation</strong>
-        <p class="card-text">Intent Architect can use architectural context to guide an LLM for “prompt-less” AI interactions.</p>
+      <a href="xref:introducing.codegen" aria-label="Deterministic code generation"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">🤖</span>
+      <div class="content">
+        <strong class="card-title">AI-assisted generation</strong>
+        <p class="card-text">Use architectural context to guide an LLM for prompt-light, developer-controlled changes.</p>
       </div>
-    </li>
-    <li>
-<!--      <span class="icon">📏</span>-->
-      <div>
-        <strong class="card-title">Enforces consistency and standards</strong>
-        <p class="card-text">With up to 85% of your solution is generated, Intent Architect automatically applies consistent structure, naming, and practices across your entire codebase.</p>
+      <a href="xref:introducing.ai-assisted" aria-label="AI-assisted generation"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">📏</span>
+      <div class="content">
+        <strong class="card-title">Enforce standards</strong>
+        <p class="card-text">Apply consistent structure, naming, and patterns across your entire codebase by default.</p>
       </div>
-    </li>
-    <li>
-<!--      <span class="icon">🧑‍💻</span>-->
-      <div>
-        <strong class="card-title">Developer-in-the-loop</strong>
-        <p class="card-text">Every proposed change is presented as a diff for review and approval before it touches your source.</p>
-      </div>
-    </li>
-    <li>
-<!--      <span class="icon">🔄</span>-->
-      <div>
-        <strong class="card-title">Architectural refactoring</strong>
-        <p class="card-text">Make broad, pattern-level changes across your solution in a single controlled action.</p>
-      </div>
-    </li>
-    <li>
-<!--      <span class="icon">🗺️</span>-->
-      <div>
-        <strong class="card-title">Visualize your design</strong>
-        <p class="card-text">Architecture diagrams always reflect the actual code, creating living documentation you can trust.</p>
-      </div>
-    </li>
-    <li>
-<!--      <span class="icon">🧰</span>-->
-      <div>
-        <strong class="card-title">Extensible platform for code automation</strong>
-        <p class="card-text">Extend Intent Architect with your own modules or templates, or extend existing ones,  most are open source.</p>
-      </div>
-    </li>
-  </ul>
-</div>
-
----
-
-## Problems We Solve
-
-> Intent Architect was built to fix the everyday challenges that slow down teams and erode code quality over time.
-
-<ul class="ps-grid">
-
-  <li class="ps-card">
-    <div class="ps-icon">⚡</div>
-    <div>
-      <strong class="ps-title">Faster Delivery</strong>
-      <p class="ps-text">A large portion of development time goes into writing and maintaining repetitive, mechanical code — services, DTOs, controllers, and mappings. <strong>Intent Architect automates up to 85% of that code deterministically</strong>, so teams can focus on meaningful logic and features instead of boilerplate.</p>
+      <a href="xref:introducing.standards" aria-label="Enforce standards"></a>
     </div>
   </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">✅</div>
-    <div>
-      <strong class="ps-title">Consistent, High-Quality Code</strong>
-      <p class="ps-text">As teams grow, small inconsistencies in structure, naming, and layering compound into major maintenance issues. <strong>Intent Architect enforces standards automatically</strong> through code automation, producing clean, uniform code across projects by default.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🤝</div>
-    <div>
-      <strong class="ps-title">Better Collaboration</strong>
-      <p class="ps-text">Architectural intent often gets lost between architects, developers, and leads, trapped in outdated documents, tribal knowledge, or code that must be painstakingly reverse-engineered to understand. <strong>Intent Architect makes design explicit, visible, and collaborative</strong>, everyone works from the same living architecture model, which ultimately is the code.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🧭</div>
-    <div>
-      <strong class="ps-title">Better Understanding of Complex Systems</strong>
-      <p class="ps-text"><strong>Intent Architect’s living diagrams</strong> visualize domains, services, and integrations directly from the source code, allowing new (and existing) developers to explore and understand a system in minutes.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🔁</div>
-    <div>
-      <strong class="ps-title">Agile Architecture</strong>
-      <p class="ps-text">Architecture is traditionally rigid — once it’s coded, it’s hard to evolve safely. <strong>Intent Architect turns architecture into something adaptable</strong>, enabling sweeping, pattern-level refactors or upgrades across large systems in a single controlled action.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🧹</div>
-    <div>
-      <strong class="ps-title">Reduced Technical Debt</strong>
-      <p class="ps-text">Code drift, duplicated patterns, and inconsistent practices accumulate debt fast. <strong>IA prevents drift before it starts</strong> by continuously synchronizing architecture and source, and lets teams retroactively realign existing systems without rewrites.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🏗️</div>
-    <div>
-      <strong class="ps-title">Better Standardization</strong>
-      <p class="ps-text">Keeping standards aligned across teams and projects is nearly impossible manually. <strong>IA centralizes patterns in modules</strong>, so every generated component adheres to the same conventions by default.</p>
-    </div>
-  </li>
-
-  <li class="ps-card">
-    <div class="ps-icon">🛡️</div>
-    <div>
-      <strong class="ps-title">Deterministic AI</strong>
-      <p class="ps-text">AI tools can be unpredictable and prompt-heavy. <strong>Intent Architect integrates AI with guardrails</strong>, constructs architectural context automatically, and converts results into reviewable diffs,  enabling deterministic, repeatable, prompt-less generation that’s developer-controlled.</p>
-    </div>
-  </li>
-
 </ul>
 
 ---
-
-## Why It’s Different
-
-> Intent Architect is just different, there is no other tool quiet like it.
-
-<div class="cards-2">
-  <ul>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M15 21h-8a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.734 1.002" />
-  <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-  <path d="M8 11v-4a4 4 0 1 1 8 0v4" />
-  <path d="M19 16v3" />
-  <path d="M19 22v.01" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🧱</span>-->
-      <div>
-        <strong class="card-title">No Lock-in</strong>
-        <p class="card-text">Runs entirely at design time. You can stop using it anytime, your code keeps running. No runtime lock-in or hidden frameworks.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M4 8l2 -1l10 13l4 -2v-12l-4 -2l-10 13l-2 -1z" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">💻</span>-->
-      <div>
-        <strong class="card-title">Developer-centric</strong>
-        <p class="card-text">Unlike low-code platforms, Intent Architect empowers developers, not replaces them. All generated code is standard and maintainable.</p>
-      </div>
-    </li>
-    <li>
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M9.828 9.172a4 4 0 1 0 0 5.656a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
-</svg>
-<!--      <span class="icon" aria-hidden="true">♾️</span>-->
-      <div>
-        <strong class="card-title">Continuous code automation</strong>
-        <p class="card-text">Architecture and code evolve together continuously, not as one-off scaffolding.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M12 9v4" />
-  <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0z" />
-  <path d="M12 16h.01" />
-</svg>
-</span>
-<!--      <span class="icon" aria-hidden="true">🚦</span>-->
-      <div>
-        <strong class="card-title">Architecture opt-out model</strong>
-        <p class="card-text">Standards are enforced by default; deviations are intentional, visible, and tracked.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M8 4h-2l-3 10v2.5" />
-  <path d="M16 4h2l3 10v2.5" />
-  <path d="M10 16l4 0" />
-  <path d="M17.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" />
-  <path d="M6.5 16.5m-3.5 0a3.5 3.5 0 1 0 7 0a3.5 3.5 0 1 0 -7 0" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">✅</span>-->
-      <div>
-        <strong class="card-title">Change Transparency</strong>
-        <p class="card-text">Every change is proposed as a diff for developer approval before applying, automation with full control.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M5 13h14" />
-  <path d="M5 17h14" />
-  <path d="M5 7.686c2.333 -2.624 4.667 -1.856 7 .064s4.667 2.688 7 .064" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🧠</span>-->
-      <div>
-        <strong class="card-title">Deterministic & Non-Deterministic Code Generation</strong>
-        <p class="card-text">Combines pattern re-use with AI-assisted generation, both governed and traceable within the same pipeline.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M17 4h1a2 2 0 0 1 2 2v1" />
-  <path d="M20 17v1a2 2 0 0 1 -2 2h-1" />
-  <path d="M7 20h-1a2 2 0 0 1 -2 -2v-1" />
-  <path d="M4 7v-1a2 2 0 0 1 2 -2h1" />
-  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-  <path d="M12 18v2" />
-  <path d="M4 12h2" />
-  <path d="M12 4v2" />
-  <path d="M20 12h-2" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🛡️</span>-->
-      <div>
-        <strong class="card-title">Deterministic AI</strong>
-        <p class="card-text">AI assistance with guardrails, Intent Architect constructs full architectural context for the LLM, producing repeatable, reviewable diffs you can trust.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
-  <path d="M10 9v6l5 -3z" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🧩</span>-->
-      <div>
-        <strong class="card-title">Code Automation Platform</strong>
-        <p class="card-text">Every behavior is modular and extensible. Our modules are open source, allowing teams to customize and evolve patterns transparently.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" />
-  <path d="M19 16h-12a2 2 0 0 0 -2 2" />
-  <path d="M9 8h6" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🗺️</span>-->
-      <div>
-        <strong class="card-title">Living documentation</strong>
-        <p class="card-text">Architecture remains visible, accurate, and collaborative, always reflecting the real system.</p>
-      </div>
-    </li>
-    <li>
-          <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-  <path d="M12 6l-3.293 3.293a1 1 0 0 0 0 1.414l.543 .543c.69 .69 1.81 .69 2.5 0l1 -1a3.182 3.182 0 0 1 4.5 0l2.25 2.25" />
-  <path d="M12.5 15.5l2 2" />
-  <path d="M15 13l2 2" />
-</svg>
-          </span>
-<!--      <span class="icon" aria-hidden="true">🧰</span>-->
-      <div>
-        <strong class="card-title">Augments your Favourite IDE</strong>
-        <p class="card-text">Works seamlessly alongside Visual Studio or Rider, complementing your existing workflow.</p>
-      </div>
-    </li>
-  </ul>
-</div>
 
 ## Next Steps
 
 - Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
 - Jump to **[Quick Start](xref:introducing.quickstart)**
+- Explore **[Tutorials](xref:introducing.tutorials)**
 
 </div>
