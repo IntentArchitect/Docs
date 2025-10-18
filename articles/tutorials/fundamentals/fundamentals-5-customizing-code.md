@@ -1,7 +1,7 @@
 ---
 uid: tutorials.fundamentals-5-customizing-code
 ---
-# Fundamentals 5: Customizing Code with Code Management
+# Fundamentals #5: Customizing Code with Code Management
 
 Learn how to customize and fine-tune Intent Architect’s interaction with your codebase, to effectively maintain code customizations while still leveraging automation.{: .lead }
 

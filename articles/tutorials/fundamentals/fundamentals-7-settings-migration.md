@@ -1,7 +1,7 @@
 ---
 uid: tutorials.fundamentals-7-settings-migration
 ---
-# Fundamentals 7: Application Settings and Migrating to SQLite
+# Fundamentals #7: Application Settings and Migrating to SQLite
 
 Learn about Application Settings, focusing on how to transition from an in-memory database to a more persistent solution like SQLite.{: .lead }
 
