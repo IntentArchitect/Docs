@@ -189,6 +189,81 @@ Please contact us and we will create and provide you an OAT for your organizatio
 
 To use the OAT, use `token` as the username argument the OAT as the password.
 
+### The CLI reports unexpected file renames or changes on the build server but not locally
+
+If the Software Factory CLI running on your build server reports numerous file renames or modifications, but running the same command locally shows no outstanding changes, this is **most commonly caused by filename case sensitivity differences** between operating systems.
+
+#### What You're Seeing
+
+**On the build server (typically Linux):**
+```
+[ERR] [⚠ Rename    ] MyApplication.sln
+[ERR] [⚠ Rename    ] MyApplication.Api/Program.cs
+[ERR] [⚠ Rename    ] MyApplication.Api/appsettings.json
+[ERR] [🆕 Create   ] MyApplication.Api/Properties/launchSettings.json
+[ERR] [⚠ Rename    ] MyApplication.Api.csproj
+...
+```
+
+**On your local development machine (typically Windows):**
+```
+[INF] Completed 1 in 00:00:05.9470192
+```
+No changes detected.
+
+#### Why This Happens
+
+The most common cause of this issue is filename case sensitivity differences:
+
+- **Linux build servers**: Case-sensitive filesystems treat `MyFile.cs` and `myfile.cs` as completely different files
+- **Windows development machines**: Case-insensitive filesystems (by default) treat `MyFile.cs` and `myfile.cs` as the same file
+- **Git is always case-sensitive**: When files are committed with inconsistent casing, Git tracks both versions, but your local filesystem may only show one
+
+This mismatch causes the build server to detect files that appear to have different casing than what's committed in the repository, resulting in reported renames or recreations.
+
+> [!NOTE]
+> While filename casing issues are the most common cause of this discrepancy, other Git configuration differences or repository state issues could potentially cause similar symptoms.
+
+#### How to Fix (Remediation Steps)
+
+If the case sensitivity issue has already been committed to your repository, here are some methods to fix it:
+
+**Option 1: Bulk fix for entire repository** (Recommended for widespread issues)
+
+```bash
+# Remove all files from Git's index (but keep them in working directory)
+git rm -r --cached .
+
+# Re-add all files with correct casing
+git add --all .
+
+# Review the changes - should show renames with case corrections
+git status
+
+# Commit the fixes
+git commit -m "Fix filename casing inconsistencies"
+git push
+```
+
+> [!WARNING]
+> This approach will show all affected files as renamed. Carefully review `git status` before committing to ensure only case changes are being staged.
+
+**Option 2: Two-step rename for individual files/folders**
+
+For individual files or folders that need case correction:
+
+```bash
+# Step 1: Rename to a temporary name
+git mv MyFolder temp-folder
+git commit -m "Temp rename step 1"
+
+# Step 2: Rename to correct casing
+git mv temp-folder myfolder
+git commit -m "Fix folder casing"
+
+git push
+```
+
 ## Example: Azure Pipelines
 
 > [!TIP]
