@@ -56,24 +56,24 @@ System.IO.IOException: The configured user limit (128) on the number of inotify 
 You can get your current inotify file watch limit by executing:
 
 ```bash
-$ cat /proc/sys/fs/inotify/max_user_watches
+cat /proc/sys/fs/inotify/max_user_instances
+cat /proc/sys/fs/inotify/max_user_watches
 ```
 
 You can set a temporary new limit with:
 
 ```bash
-$ sudo sysctl -w fs.inotify.max_user_watches=16384
+sudo sysctl -w fs.inotify.max_user_instances=16384
+sudo sysctl -w fs.inotify.max_user_watches=16384
 ```
 
 To make your limit permanent use:
 
 ```bash
-$ echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
-$ sudo sysctl -p
+echo fs.inotify.max_user_instances=16384 | sudo tee -a /etc/sysctl.conf
+echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
 ```
-
-
-[(Source)](https://github.com/dotnet/aspnetcore/issues/7531#issuecomment-484364033)
 
 ## What's Next
 
