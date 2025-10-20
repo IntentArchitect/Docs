@@ -226,29 +226,7 @@ This mismatch causes the build server to detect files that appear to have differ
 
 #### How to Fix (Remediation Steps)
 
-If the case sensitivity issue has already been committed to your repository, here are some methods to fix it:
-
-**Option 1: Bulk fix for entire repository** (Recommended for widespread issues)
-
-```bash
-# Remove all files from Git's index (but keep them in working directory)
-git rm -r --cached .
-
-# Re-add all files with correct casing
-git add --all .
-
-# Review the changes - should show renames with case corrections
-git status
-
-# Commit the fixes
-git commit -m "Fix filename casing inconsistencies"
-git push
-```
-
-> [!WARNING]
-> This approach will show all affected files as renamed. Carefully review `git status` before committing to ensure only case changes are being staged.
-
-**Option 2: Two-step rename for individual files/folders**
+If the case sensitivity issue has already been committed to your repository, here is a method to fix it:
 
 For individual files or folders that need case correction:
 
