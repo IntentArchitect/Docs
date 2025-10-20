@@ -26,21 +26,21 @@ Guides, tutorials, and best practices
 
 ──────
 
-## ![Release Notes icon](images/release-notes-g.png) **Release Notes**
-
-See what’s new, fixed, or changed by version  
-*Check what's new in the latest module versions*  
-
-[Learn more about release notes →](#release-notes)
-
-──────
-
 ## ![Contact icon](images/contact-support-g.png) **Contact Support**
 
 Can’t find it? Reach our team for personalized help  
 *Reach our team with your question or feedback*  
 
 [Learn how to contact our support team →](#contact-support)
+
+──────
+
+## ![Release Notes icon](images/release-notes-g.png) **Release Notes**
+
+See what’s new, fixed, or changed by version  
+*Check what's new in the latest module versions*  
+
+[Learn more about release notes →](#release-notes)
 
 ---
 
@@ -62,18 +62,6 @@ You can browse through the suggested topics or use the **search box** to look up
 > Use the search box to explore beyond your current context or to discover features from other modules.
 
 ![In-app Help Dialog](images/in-app-help-dialog.png)
-
----
-
-## Release Notes
-
-On the `Modules` screen, each module includes a link to its release notes.
-
-![Release Notes link](images/release-notes-module-list.png)
-
-Clicking **Release Notes** displays a versioned list of *enhancements, bug fixes, and new features* for the module.
-
-![Release Notes Details](images/release-notes-module-details.png)
 
 ---
 
@@ -110,6 +98,18 @@ Send feedback or rate the application directly within the app using the *yellow 
 ### ![Contact icon](images/teams-g.png) **Teams / Slack**
 
 You can also contact us through your company’s dedicated **Teams** or **Slack** support channel.
+
+---
+
+## Release Notes
+
+On the `Modules` screen, each module includes a link to its release notes.
+
+![Release Notes link](images/release-notes-module-list.png)
+
+Clicking **Release Notes** displays a versioned list of *enhancements, bug fixes, and new features* for the module.
+
+![Release Notes Details](images/release-notes-module-details.png)
 
 ---
 
