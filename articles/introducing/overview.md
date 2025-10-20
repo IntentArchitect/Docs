@@ -69,12 +69,13 @@ uid: introducing.overview
 }
 
 /* Icon Accent Colors */
+/*
 .ia-overview .cards-grid > li:nth-child(6n+1) .icon { background: #2563eb; }
 .ia-overview .cards-grid > li:nth-child(6n+2) .icon { background: #059669; }
 .ia-overview .cards-grid > li:nth-child(6n+3) .icon { background: #7e22ce; }
 .ia-overview .cards-grid > li:nth-child(6n+4) .icon { background: #be185d; }
 .ia-overview .cards-grid > li:nth-child(6n+5) .icon { background: #0284c7; }
-.ia-overview .cards-grid > li:nth-child(6n+6) .icon { background: #6d28d9; }
+.ia-overview .cards-grid > li:nth-child(6n+6) .icon { background: #6d28d9; }*/
 
 /* Typography */
 .ia-overview .card-title {
@@ -190,12 +191,16 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ## Getting Started
 
-> Install the app, build your first solution, then go deeper with tutorials.
-
 <ul class="cards-grid cards-3">
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">⬇️</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4" />
+  <path d="M12 13l0 9" />
+  <path d="M9 19l3 3l3 -3" />
+</svg>
+      </span>
       <div class="content">
         <strong class="card-title">Get Intent Architect</strong>
         <p class="card-text">Download and install the latest Intent Architect for your environment.</p>
@@ -205,7 +210,13 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
   </li>
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">🚀</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />
+  <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
+  <path d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+</svg>
+      </span>
       <div class="content">
         <strong class="card-title">Quick Start</strong>
         <p class="card-text">Generate a working .NET solution in minutes and learn the core workflow.</p>
@@ -215,63 +226,127 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
   </li>
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">📚</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+  <path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
+  <path d="M5 8h4" />
+  <path d="M9 16h4" />
+  <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z" />
+  <path d="M14 9l4 -1" />
+  <path d="M16 16l3.923 -.98" />
+</svg>
+      </span>
       <div class="content">
         <strong class="card-title">Tutorials</strong>
-        <p class="card-text">Hands-on guides for domains, services, integrations, testing, and more.</p>
+        <p class="card-text">Hands-on guides to learn the fundamentals and more.</p>
       </div>
-      <a href="xref:introducing.tutorials" aria-label="Tutorials"></a>
+      <a href="xref:tutorials.fundamentals-landing-page" aria-label="Tutorials"></a>
     </div>
   </li>
 </ul>
 
 ---
 
-## What Intent Architect Does
-
-> Intent Architect turns architectural design into concrete, automated development, so you can see, generate, and evolve your system with confidence.
+## How It Works
 
 <ul class="cards-grid cards-2x2">
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">🧩</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M11.933 5h-6.933v16h13v-8" />
+  <path d="M14 17h-5" />
+  <path d="M9 13h5v-4h-5z" />
+  <path d="M15 5v-2" />
+  <path d="M18 6l2 -2" />
+  <path d="M19 9h2" />
+</svg>
+      </span>
+<!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
-        <strong class="card-title">Model visually</strong>
-        <p class="card-text">Design domains, services, and integrations through an intuitive visual interface.</p>
+        <strong class="card-title">Visual Modeling</strong>
+        <p class="card-text">Design your systems visually, Intent Architect provides rich designers for expressing your design including domains and services designer. These visual designs are the blue-prints of you system, becoming living documents for collaboratively designing and maintaining your applications.   </p>
       </div>
-      <a href="xref:introducing.modeling" aria-label="Model visually"></a>
+      <a href="xref:how-to.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
   </li>
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">⚙️</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M20 11a8.1 8.1 0 0 0 -6.986 -6.918a8.095 8.095 0 0 0 -8.019 3.918" />
+  <path d="M4 13a8.1 8.1 0 0 0 15 3" />
+  <path d="M19 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M5 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+</svg>
+      </span>
       <div class="content">
-        <strong class="card-title">Deterministic code generation</strong>
-        <p class="card-text">Keep design and code continuously in sync with reliable, repeatable generation.</p>
+        <strong class="card-title">Pattern-Based Code Generation</strong>
+        <p class="card-text">Intent Architect’s deterministic code generation engine uses Pattern Reuse — versioned, community-verified patterns that produce predictable, clean code. These patterns are tested and open source, ensuring every generated line reflects proven architectural best practices.</p>
       </div>
-      <a href="xref:introducing.codegen" aria-label="Deterministic code generation"></a>
+      <a href="xref:how-to.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
     </div>
   </li>
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">🤖</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
+  <path d="M12 2v2" />
+  <path d="M9 12v9" />
+  <path d="M15 12v9" />
+  <path d="M5 16l4 -2" />
+  <path d="M15 14l4 2" />
+  <path d="M9 18h6" />
+  <path d="M10 8v.01" />
+  <path d="M14 8v.01" />
+</svg>
+      </span>
       <div class="content">
-        <strong class="card-title">AI-assisted generation</strong>
-        <p class="card-text">Use architectural context to guide an LLM for prompt-light, developer-controlled changes.</p>
+        <strong class="card-title">AI-Assisted Code Generation</strong>
+        <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which are not easily covered by patterns. By performing all the necessary context engineering automatically, IA integrates with LLMs to provide a prompt-less, predictable AI experience.</p>
       </div>
-      <a href="xref:introducing.ai-assisted" aria-label="AI-assisted generation"></a>
+      <a href="xref:how-to.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
   </li>
   <li>
     <div class="card">
-      <span class="icon" aria-hidden="true">📏</span>
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M12.5 16h-8.5a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v8" />
+  <path d="M7 20h4" />
+  <path d="M9 16v4" />
+  <path d="M20 21l2 -2l-2 -2" />
+  <path d="M17 17l-2 2l2 2" />
+</svg>
+      </span>
       <div class="content">
-        <strong class="card-title">Enforce standards</strong>
-        <p class="card-text">Apply consistent structure, naming, and patterns across your entire codebase by default.</p>
+        <strong class="card-title">Codebase Integration</strong>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE. It integrates your design work into your codebase via review process and the Code Management system which allows you fine-tune the code automation systems. </p>
       </div>
-      <a href="xref:introducing.standards" aria-label="Enforce standards"></a>
+      <a href="xref:how-to.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
   </li>
+<!--  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+  <path d="M14 7l6 0" />
+  <path d="M17 4l0 6" />
+</svg>
+      </span>
+      <div class="content">
+        <strong class="card-title">Extensible Platform</strong>
+        <p class="card-text">Intent Architect is fully modular. Every behavior,  from code generation to design tooling, is driven by open-source modules. Build your own or extend ours to automate your proprietary patterns, endlessly customizable, entirely under your control.</p>
+      </div>
+      <a href="xref:how-to.extensible-platform" aria-label="Extensible Platform"></a>
+    </div>
+  </li>-->
 </ul>
 
 ---
