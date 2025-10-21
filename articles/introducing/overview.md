@@ -249,6 +249,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 ---
 
 ## How It Works
+uid: introducing.how-it-works
 
 <ul class="cards-grid cards-2x2">
   <li>
@@ -361,6 +362,6 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 - Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
 - Jump to **[Quick Start](xref:introducing.quickstart)**
-- Explore **[Tutorials](xref:introducing.tutorials)**
+- Explore **[Tutorials](xref:tutorials.fundamentals-landing-page)**
 
 </div>
