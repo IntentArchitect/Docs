@@ -7,9 +7,10 @@ items:
 
 - name: Quick Start
   href: quickstart.md
-
+  
 - name: How it works?
-  href: how-it-works.md
+  href: how-it-works/toc.yml
+  topicHref: overview.md#how-it-works
 
 - name: Get Help
   href: reference.md

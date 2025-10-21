@@ -351,6 +351,12 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ---
 
+## Watch a Demo
+
+<div class="video-16x9"><iframe src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=intro-and-demo" title="Video" allowfullscreen></iframe></div>
+
+---
+
 ## Next Steps
 
 - Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
