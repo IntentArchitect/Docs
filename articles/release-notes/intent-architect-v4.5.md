@@ -62,6 +62,7 @@ uid: release-notes.intent-architect-v4.5
 - Improvement: Implemented file system caching on most operations to improve hot Software Factory performance.
 - Improvement: Dynamic form tree-view now supports setting the `expandedIcon` which renders when the node is expanded.
 - Improvement: Added support for open directory functionality in dynamic forms.
+- Improvement: JS APIs now provide a `userSettings` property which gives access to reading and writing to user settings.
 
 ### Issues fixed in 4.5.18
 
