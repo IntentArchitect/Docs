@@ -193,10 +193,10 @@ To use the OAT, use `token` as the username argument the OAT as the password.
 
 If the Software Factory CLI running on your build server reports numerous file renames or modifications, but running the same command locally shows no outstanding changes, this is **most commonly caused by filename case sensitivity differences** between operating systems.
 
-#### What You're Seeing
+#### What you're seeing
 
 **On the build server (typically Linux):**
-```
+```text
 [ERR] [⚠ Rename    ] MyApplication.sln
 [ERR] [⚠ Rename    ] MyApplication.Api/Program.cs
 [ERR] [⚠ Rename    ] MyApplication.Api/appsettings.json
@@ -206,12 +206,12 @@ If the Software Factory CLI running on your build server reports numerous file r
 ```
 
 **On your local development machine (typically Windows):**
-```
+```text
 [INF] Completed 1 in 00:00:05.9470192
 ```
 No changes detected.
 
-#### Why This Happens
+#### Why this happens
 
 The most common cause of this issue is filename case sensitivity differences:
 
@@ -224,7 +224,7 @@ This mismatch causes the build server to detect files that appear to have differ
 > [!NOTE]
 > While filename casing issues are the most common cause of this discrepancy, other Git configuration differences or repository state issues could potentially cause similar symptoms.
 
-#### How to Fix (Remediation Steps)
+#### How to Fix (remediation steps)
 
 If the case sensitivity issue has already been committed to your repository, here is a method to fix it:
 
