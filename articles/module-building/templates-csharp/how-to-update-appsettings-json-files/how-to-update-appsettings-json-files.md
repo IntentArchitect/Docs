@@ -73,6 +73,9 @@ protected override void OnAfterTemplateRegistrations(IApplication application)
 }
 ```
 
+> [!NOTE]
+> When providing a complex value, you should pass in an anonymous C# object as demonstrated above. Passing a JSON formatted string is not supported and will result in the string being escaped and written as a single value in the `appsettings.json` file, rather than being parsed as a JSON object.
+
 The resulting `appsettings.json` file will be the same as in the previous `Template` example:
 
 ```json
