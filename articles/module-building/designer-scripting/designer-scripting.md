@@ -4,67 +4,76 @@ uid: module-building.designer-scripting
 
 # Designer Scripting
 
-In the coding editor, documentation for code constructs is readily available, along with powerful scripting capabilities that allow developers to automate certain front-end related concerns.
+Designer scripting allows you to automate modeling tasks in Intent Architect's designers through JavaScript-based scripts. Whether you need to create dozens of entities at once, enforce modeling conventions, or generate boilerplate structures, designer scripting can save significant time and ensure consistency across your models.
+
+There are two primary ways to use designer scripting:
+
+- **Execute Script Dialog**: Run ad-hoc scripts to perform one-time bulk operations or automate repetitive modeling tasks
+- **Event Handlers**: Create automated responses to modeling events (e.g., automatically configure new entities or associations as they're created)
+
+Both approaches share the same powerful API that gives you full programmatic access to create, modify, and configure elements in your designers. IntelliSense and inline documentation are available throughout the scripting environment to help you discover available functions and their usage.
+
+## Getting Started with the Execute Script Dialog
+
+Intent Architect includes a scripting editor which can be launched by clicking the Execute Script Dialog button (`</>`) located in the designer toolbar. This editor allows you to write and execute JavaScript scripts directly within your designer environment.
 
 ![Code Docs in Code Completion Screenshot](images/code-complete-code-docs.png)
 
-You can access the documentation by simply clicking on the small arrow beside each code construct to expand the respective documentation and learn more about the available functions for automation.
+You can access detailed documentation by clicking on the small arrow beside each code construct in the IntelliSense dropdown to expand the respective documentation and learn more about the available functions.
 
-## Execute Script Dialog
+### Your First Script
 
-Intent Architect includes a scripting editor, which can be launched by clicking the on the Execute Script Dialog button (`</>`) located in the toolbar. This editor allows you to execute scripts directly within your designer environment.
+Here's a simple example that creates a class with five attributes:
 
-```typescript
+```javascript
 let mainPackage = getPackages()[0];
-for (let classIndex = 1; classIndex <= 10; classIndex++) {
-    let newClass = createElement("Class", `Class${classIndex}`, mainPackage.id);
-    for (let attrIndex = 1; attrIndex <= 5; attrIndex++) {
-        let attr = createElement("Attribute", `Attribute${attrIndex}`, newClass.id);
-        const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
-        attr.typeReference.setType(stringTypeId);
-    }
+let newClass = createElement("Class", "Customer", mainPackage.id);
+
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+
+for (let i = 1; i <= 5; i++) {
+    let attr = createElement("Attribute", `Attribute${i}`, newClass.id);
+    attr.typeReference.setType(stringTypeId);
 }
 ```
 
-The example script provided will locate the main package in the current designer and create 10 Classes with 5 Attributes each and setting each Attribute's type to a `string`.
+This script demonstrates the core concepts:
+- `getPackages()` retrieves available packages in your designer
+- `createElement(type, name, parentId)` creates new elements
+- Type IDs (like the string type ID) are used to set data types
+- Elements are created hierarchically (attributes belong to a class)
 
-Complete API documentation with IntelliSense is available in the built-in editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.ModuleBuilder/Api/ApiMetadataProviderExtensions.cs).
+## Understanding the Basics
 
-## Designer-Specific Elements
+Before diving into more complex examples, it's helpful to understand the key concepts and building blocks available in designer scripting.
 
-Different designers support different element types. Here's a reference of which elements are available in which designers (not an exhaustive list):
+### Element Types by Designer
 
-**Services Designer:**
-- DTO
-- Service  
-- Command
-- Query
-- DTO-Field
+Different designers support different element types. Here are the most common ones:
 
 **Domain Designer:**
 - Class
 - Attribute
+- Association
 - Constructor
+- Operation
+
+**Services Designer:**
+- Service
+- DTO
+- DTO-Field
+- Command
+- Query
+- Operation
 
 **Common (available in multiple designers):**
 - Operation
 - Parameter
+- Package (folder)
 
-## Common Type IDs Reference
+### Common Type IDs
 
-When setting type references for elements, you'll need to use these common type IDs. **Best practice:** Define these as constants rather than using magic strings:
-
-```javascript
-// Define type constants for better maintainability
-const stringType = "d384db9c-a279-45e1-801e-e4e8099625f2";
-const intType = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
-const longType = "33013006-E404-48C2-AC46-24EF5A5774FD";
-const boolType = "e6f92b09-b2c5-4536-8270-a4d9e5bbd930";
-const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
-const decimalType = "675c7b84-997a-44e0-82b9-cd724c07c9e6";
-const doubleType = "24A77F70-5B97-40DD-8F9A-4208AD5F9219";
-```
+When setting type references for attributes, parameters, or return types, you'll need to use type IDs. Here are the most commonly used ones:
 
 | Type | ID |
 |------|-----|
@@ -77,9 +86,53 @@ const doubleType = "24A77F70-5B97-40DD-8F9A-4208AD5F9219";
 | decimal | `675c7b84-997a-44e0-82b9-cd724c07c9e6` |
 | double | `24A77F70-5B97-40DD-8F9A-4208AD5F9219` |
 
-## Bulk Domain Model Creation
+**Best practice:** Define these as constants at the top of your script rather than using magic strings:
 
-This example shows how to create a complete e-commerce domain model with entities and different relationship types:
+```javascript
+// Define type constants for better maintainability
+const stringType = "d384db9c-a279-45e1-801e-e4e8099625f2";
+const intType = "fb0a362d-e9e2-40de-b6ff-5ce8167cbe74";
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+```
+
+### Working with Packages
+
+Packages are the containers (folders) that organize elements in your designer. You can find existing packages or create new ones:
+
+```javascript
+// Get all packages
+let allPackages = getPackages();
+
+// Find a specific package by name
+let domainPackage = getPackages().find(p => p.name === "Domain");
+
+// Use the first package as default if target not found
+let targetPackage = getPackages().find(p => p.name === "MyPackage") || getPackages()[0];
+```
+
+### Creating Elements and Setting Types
+
+The basic pattern for creating elements is:
+
+```javascript
+// Create an element: createElement(elementType, name, parentId)
+let myClass = createElement("Class", "Customer", packageId);
+
+// Create a child element
+let myAttribute = createElement("Attribute", "Name", myClass.id);
+
+// Set the attribute's type
+const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
+myAttribute.typeReference.setType(stringTypeId);
+```
+
+## Practical Examples: Ad-hoc Scripts
+
+The following examples demonstrate common scenarios where ad-hoc scripts can save significant time. You can copy these examples and adapt them to your needs.
+
+### Bulk Domain Model Creation
+
+This example creates a complete e-commerce domain model with multiple entities and different relationship types. This is useful when you need to quickly scaffold a domain model based on existing documentation or requirements.
 
 ```javascript
 // Define type constants
@@ -146,9 +199,9 @@ await dialogService.info("Created e-commerce domain model with proper relationsh
 
 ![Bulk domain element creation](images/bulk-domain-element-creation.png)
 
-## Dynamic Form for User Input
+### Gathering User Input with Dynamic Forms
 
-This example demonstrates using dynamic forms to gather user input before executing bulk operations:
+When you need to make your scripts more flexible and reusable, you can prompt users for input using dynamic forms. This example shows how to create a configurable entity generator that asks users what entities to create and what common fields to add.
 
 ```javascript
 // Define type constants
@@ -225,68 +278,9 @@ entityNames.forEach(name => {
 await dialogService.info(`Successfully created ${entityNames.length} entities!`);
 ```
 
-## Event Triggered Scripts for Elements
+### Service Layer Generation
 
-Event Triggered Scripts in a module building environment enable developers to execute custom logic when specified events occur for elements.
-
-![Event Triggered Script for Elements Screenshot](images/event-triggered-script-element.png)
-
-Inside the Module Builder designer you can add Element Event Handlers for an Element you've created or to an Element you want to extend from an existing Designer.
-
-
-```typescript
-const stereotypeId = "65860af3-8805-4a63-9fb9-3884b80f4380";
-const boolTypeId = "e6f92b09-b2c5-4536-8270-a4d9e5bbd930";
-
-if (element.hasStereotype(stereotypeId)) {
-    let isDeleteAttr = element.getChildren("Attribute").filter(x => x.hasMetadata("soft-delete"))[0] ||
-        createElement("Attribute", "IsDeleted", element.id);
-    isDeleteAttr.typeReference.setType(boolTypeId);
-    isDeleteAttr.setMetadata("soft-delete", true);
-    return;
-}
-
-let isDeleteAttr = element.getChildren("Attribute").filter(x => x.hasMetadata("soft-delete"))[0];
-if (isDeleteAttr) {
-    isDeleteAttr.delete();
-}
-```
-
-In the provided TypeScript example, the script will activate when a Class element is modified. It performs the following actions:
-
-- When a Class is modified and has a Soft Delete stereotype applied, it adds an `IsDeleted` attribute of boolean type, marked with soft-delete metadata.
-- When the Soft Delete stereotype is removed, it searches for any attribute with soft-delete metadata and deletes it from the Class.
-
-## Auto-Configure New Entities
-
-This example shows how to automatically add common attributes when new entities are created:
-
-```javascript
-// Define type constants
-const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
-const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
-
-// When a new Class is created, auto-add common attributes
-if (element.specialization === "Class") {
-    // Add Id attribute if it doesn't exist
-    let hasId = element.getChildren("Attribute").some(attr => attr.getName().toLowerCase() === "id");
-    if (!hasId) {
-        let idAttr = createElement("Attribute", "Id", element.id);
-        idAttr.typeReference.setType(guidType);
-    }
-    
-    // Add CreatedDate and UpdatedDate for audit trail
-    let createdDate = createElement("Attribute", "CreatedDate", element.id);
-    createdDate.typeReference.setType(datetimeType);
-    
-    let updatedDate = createElement("Attribute", "UpdatedDate", element.id);
-    updatedDate.typeReference.setType(datetimeType);
-}
-```
-
-## Service Layer Generation
-
-This example demonstrates generating CRUD operations for domain entities:
+This example generates CRUD (Create, Read, Update, Delete) operations for existing domain entities. This is particularly useful when you've modeled your domain and need to quickly create a corresponding service layer.
 
 ```javascript
 // Define type constants
@@ -318,65 +312,9 @@ domainClasses.forEach(domainClass => {
 });
 ```
 
-## Event Triggered Scripts for Associations
+### Command/Query Pattern Generator
 
-Event Triggered Scripts in a module building environment enable developers to execute custom logic when specified events occur for associations. Below is an example of an event triggered script and an overview of the available APIs to interact with elements in an event-driven manner.
-
-![Event Triggered Script for Associations Screenshot](images/event-triggered-script-association.png)
-
-Inside the Module Builder designer you can add Association Event Handlers for an Association you've created or to an Association you want to extend from an existing Designer.
-
-```typescript
-if (!association) {
-    return;
-}
-let sourceEnd = association.getOtherEnd().typeReference;
-sourceEnd.setIsCollection(false);
-sourceEnd.setIsNullable(false);
-```
-
-The example above gets executed when an associated is created which then turns the association into a 1 -> 1 composite relationship by disabling `Is Collection` and `Is Nullable` on the source end of the association.
-
-## Auto-Configure Association Properties
-
-This example shows how to automatically configure association properties based on naming conventions:
-
-```javascript
-// Auto-configure association properties based on naming patterns
-if (!association) {
-    return;
-}
-
-let sourceElement = association.getOtherEnd().typeReference.getType();
-let targetElement = association.typeReference.getType();
-
-// If association is from Order to Customer, make it many-to-one
-if (sourceElement.getName() === "Order" && targetElement.getName() === "Customer") {
-    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
-    association.typeReference.setIsCollection(false); // Customer side
-    association.typeReference.setIsNullable(false); // Customer is required
-}
-
-// If association is from Order to OrderItem, make it one-to-many
-if (sourceElement.getName() === "Order" && targetElement.getName().includes("Item")) {
-    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
-    association.typeReference.setIsCollection(true); // Items side
-    association.typeReference.setIsNullable(false); // Items are required
-}
-
-// Set meaningful names for navigation properties
-if (association.getName() === "") {
-    if (association.isTargetEnd()) {
-        association.setName(pluralize(targetElement.getName().toLowerCase()));
-    } else {
-        association.setName(targetElement.getName().toLowerCase());
-    }
-}
-```
-
-## Command/Query Pattern Generator
-
-This example demonstrates generating Commands and Queries from Service Operations:
+If you're following the CQRS (Command Query Responsibility Segregation) pattern, this script can automatically generate Commands and Queries from existing Service Operations. It analyzes operation names to determine whether to create a Command or Query and copies parameters as DTO fields.
 
 ```javascript
 // Generate Commands and Queries for selected service operations
@@ -432,3 +370,188 @@ services.forEach(service => {
 
 await dialogService.info("Commands and Queries generated successfully!");
 ```
+
+## Event-Driven Automation
+
+While ad-hoc scripts are great for one-time operations, event handlers allow you to automate responses to modeling actions. Event handlers run automatically when specific events occur, such as when an element is created, modified, or when an association is drawn.
+
+Event handlers are particularly useful for:
+- Enforcing modeling conventions automatically
+- Auto-configuring new elements with common attributes
+- Maintaining relationships between elements
+- Applying stereotypes and metadata consistently
+
+> [!NOTE]
+> Event handlers are created in the Module Builder designer and become part of a module. This section assumes you're familiar with basic module building concepts.
+
+### Element Event Handlers
+
+Element event handlers execute when an element is created or modified. This example shows how to automatically manage a "soft delete" pattern by adding or removing an `IsDeleted` attribute based on whether a stereotype is applied.
+
+![Event Triggered Script for Elements Screenshot](images/event-triggered-script-element.png)
+
+Inside the Module Builder designer, you can add Element Event Handlers for an Element you've created or extend an existing Element from a Designer.
+
+```javascript
+const stereotypeId = "65860af3-8805-4a63-9fb9-3884b80f4380";
+const boolTypeId = "e6f92b09-b2c5-4536-8270-a4d9e5bbd930";
+
+if (element.hasStereotype(stereotypeId)) {
+    let isDeleteAttr = element.getChildren("Attribute").filter(x => x.hasMetadata("soft-delete"))[0] ||
+        createElement("Attribute", "IsDeleted", element.id);
+    isDeleteAttr.typeReference.setType(boolTypeId);
+    isDeleteAttr.setMetadata("soft-delete", true);
+    return;
+}
+
+let isDeleteAttr = element.getChildren("Attribute").filter(x => x.hasMetadata("soft-delete"))[0];
+if (isDeleteAttr) {
+    isDeleteAttr.delete();
+}
+```
+
+In this JavaScript example, the script activates when a Class element is modified. It performs the following actions:
+
+- When a Class has a Soft Delete stereotype applied, it adds an `IsDeleted` attribute of boolean type, marked with soft-delete metadata
+- When the Soft Delete stereotype is removed, it searches for any attribute with soft-delete metadata and deletes it from the Class
+
+### Auto-Configuring New Entities
+
+This example shows how to automatically add common attributes (like Id, CreatedDate, UpdatedDate) whenever a new entity is created. This ensures consistency across your domain model without manual repetition.
+
+```javascript
+// Define type constants
+const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+const datetimeType = "a4107c29-7851-4121-9416-cf1236908f1e";
+
+// When a new Class is created, auto-add common attributes
+if (element.specialization === "Class") {
+    // Add Id attribute if it doesn't exist
+    let hasId = element.getChildren("Attribute").some(attr => attr.getName().toLowerCase() === "id");
+    if (!hasId) {
+        let idAttr = createElement("Attribute", "Id", element.id);
+        idAttr.typeReference.setType(guidType);
+    }
+    
+    // Add CreatedDate and UpdatedDate for audit trail
+    let createdDate = createElement("Attribute", "CreatedDate", element.id);
+    createdDate.typeReference.setType(datetimeType);
+    
+    let updatedDate = createElement("Attribute", "UpdatedDate", element.id);
+    updatedDate.typeReference.setType(datetimeType);
+}
+```
+
+### Association Event Handlers
+
+Association event handlers execute when associations (relationships) are created between elements. This is useful for automatically configuring relationship properties based on conventions or element types.
+
+![Event Triggered Script for Associations Screenshot](images/event-triggered-script-association.png)
+
+Inside the Module Builder designer, you can add Association Event Handlers for an Association you've created or extend an existing Association from a Designer.
+
+Here's a simple example that automatically configures new associations as 1-to-1 composite relationships:
+
+```javascript
+if (!association) {
+    return;
+}
+let sourceEnd = association.getOtherEnd().typeReference;
+sourceEnd.setIsCollection(false);
+sourceEnd.setIsNullable(false);
+```
+
+This script gets executed when an association is created and turns it into a 1-to-1 composite relationship by disabling `Is Collection` and `Is Nullable` on the source end of the association.
+
+### Auto-Configuring Association Properties Based on Naming
+
+This more sophisticated example shows how to automatically configure association properties based on naming conventions. This helps enforce consistent relationship patterns across your domain model.
+
+```javascript
+// Auto-configure association properties based on naming patterns
+if (!association) {
+    return;
+}
+
+let sourceElement = association.getOtherEnd().typeReference.getType();
+let targetElement = association.typeReference.getType();
+
+// If association is from Order to Customer, make it many-to-one
+if (sourceElement.getName() === "Order" && targetElement.getName() === "Customer") {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
+    association.typeReference.setIsCollection(false); // Customer side
+    association.typeReference.setIsNullable(false); // Customer is required
+}
+
+// If association is from Order to OrderItem, make it one-to-many
+if (sourceElement.getName() === "Order" && targetElement.getName().includes("Item")) {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
+    association.typeReference.setIsCollection(true); // Items side
+    association.typeReference.setIsNullable(false); // Items are required
+}
+
+// Set meaningful names for navigation properties
+if (association.getName() === "") {
+    if (association.isTargetEnd()) {
+        association.setName(pluralize(targetElement.getName().toLowerCase()));
+    } else {
+        association.setName(targetElement.getName().toLowerCase());
+    }
+}
+```
+
+## API Reference
+
+This section provides quick reference information for commonly used APIs and constants in designer scripting.
+
+### Complete Type ID Reference
+
+When setting type references for attributes, parameters, or return types, use these type IDs:
+
+| Type | ID |
+|------|-----|
+| string | `d384db9c-a279-45e1-801e-e4e8099625f2` |
+| int | `fb0a362d-e9e2-40de-b6ff-5ce8167cbe74` |
+| long | `33013006-E404-48C2-AC46-24EF5A5774FD` |
+| bool | `e6f92b09-b2c5-4536-8270-a4d9e5bbd930` |
+| guid | `6b649125-18ea-48fd-a6ba-0bfff0d8f488` |
+| datetime | `a4107c29-7851-4121-9416-cf1236908f1e` |
+| decimal | `675c7b84-997a-44e0-82b9-cd724c07c9e6` |
+| double | `24A77F70-5B97-40DD-8F9A-4208AD5F9219` |
+
+### Available Elements by Designer
+
+**Domain Designer:**
+- Class
+- Attribute
+- Association
+- Constructor
+- Operation
+- Parameter
+
+**Services Designer:**
+- Service
+- DTO
+- DTO-Field
+- Command
+- Query
+- Operation
+- Parameter
+
+**Common (available in multiple designers):**
+- Package (folder)
+- Operation
+- Parameter
+
+### Key Functions
+
+- `getPackages()` - Returns all packages in the current designer
+- `createElement(type, name, parentId)` - Creates a new element
+- `createAssociation(type, sourceId, targetId)` - Creates an association between two elements
+- `lookupTypesOf(type)` - Finds all elements of a specific type across the designer
+- `dialogService.info(message)` - Shows an information dialog to the user
+- `dialogService.openForm(config)` - Opens a dynamic form to gather user input
+
+### Full API Documentation
+
+Complete API documentation with IntelliSense is available in the built-in script editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.ModuleBuilder/Api/ApiMetadataProviderExtensions.cs).
