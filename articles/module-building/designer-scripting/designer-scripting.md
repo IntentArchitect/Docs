@@ -554,4 +554,4 @@ When setting type references for attributes, parameters, or return types, use th
 
 ### Full API Documentation
 
-Complete API documentation with IntelliSense is available in the built-in script editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/blob/development/Modules/Intent.Modules.ModuleBuilder/Api/ApiMetadataProviderExtensions.cs).
+Complete API documentation with IntelliSense is available in the built-in script editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/tree/development/DesignerMacros/typings).
