@@ -562,58 +562,6 @@ if (association.getName() === "") {
 }
 ```
 
-## API Reference
-
-This section provides quick reference information for commonly used APIs and constants in designer scripting.
-
-### Complete Type ID Reference
-
-When setting type references for attributes, parameters, or return types, use these type IDs:
-
-| Type | ID |
-|------|-----|
-| string | `d384db9c-a279-45e1-801e-e4e8099625f2` |
-| int | `fb0a362d-e9e2-40de-b6ff-5ce8167cbe74` |
-| long | `33013006-E404-48C2-AC46-24EF5A5774FD` |
-| bool | `e6f92b09-b2c5-4536-8270-a4d9e5bbd930` |
-| guid | `6b649125-18ea-48fd-a6ba-0bfff0d8f488` |
-| datetime | `a4107c29-7851-4121-9416-cf1236908f1e` |
-| decimal | `675c7b84-997a-44e0-82b9-cd724c07c9e6` |
-| double | `24A77F70-5B97-40DD-8F9A-4208AD5F9219` |
-
-### Available Elements by Designer
-
-**Domain Designer:**
-- Class
-- Attribute
-- Association
-- Constructor
-- Operation
-- Parameter
-
-**Services Designer:**
-- Service
-- DTO
-- DTO-Field
-- Command
-- Query
-- Operation
-- Parameter
-
-**Common (available in multiple designers):**
-- Package (folder)
-- Operation
-- Parameter
-
-### Key Functions
-
-- `getPackages()` - Returns all packages in the current designer
-- `createElement(type, name, parentId)` - Creates a new element
-- `createAssociation(type, sourceId, targetId)` - Creates an association between two elements
-- `lookupTypesOf(type)` - Finds all elements of a specific type across the designer
-- `dialogService.info(message)` - Shows an information dialog to the user
-- `dialogService.openForm(config)` - Opens a dynamic form to gather user input
-
-### Full API Documentation
+## Full API Documentation
 
 Complete API documentation with IntelliSense is available in the built-in script editor. For the full TypeScript definitions, see the [GitHub repository](https://github.com/IntentArchitect/Intent.Modules/tree/development/DesignerMacros/typings).
