@@ -110,11 +110,48 @@ let domainPackage = getPackages().find(p => p.name === "Domain");
 let targetPackage = getPackages().find(p => p.name === "MyPackage") || getPackages()[0];
 ```
 
+### Printing to the Console
+
+When running scripts in the Execute Script dialog you can write messages and inspect objects using `console.log`. The output is shown in the [Task Output Console](xref:release-notes.intent-architect-v4.3#task-output-console) in Intent Architect. For complex objects use `JSON.stringify` to get a readable JSON representation.
+
+```javascript
+// Get all packages and print them
+let allPackages = getPackages();
+console.log(`allPackages = ${JSON.stringify(allPackages)}`);
+
+// Find a named package and print it (may be undefined if not present)
+let domainPackage = getPackages().find(p => p.name === "Domain");
+console.log(`domainPackage = ${JSON.stringify(domainPackage)}`);
+
+// Use the first package as default if target not found
+let targetPackage = getPackages().find(p => p.name === "MyPackage") || getPackages()[0];
+console.log(`targetPackage = ${JSON.stringify(targetPackage)}`);
+```
+
+> [!TIP]
+>
+> `JSON.stringify` provides compact output; if you prefer pretty output use `JSON.stringify(obj, null, 2)`.
+
+Example of what the results pane might show (trimmed/simplified):
+
+```text
+[12:24:56] Executed Script: Executing script (0ms)
+allPackages = [{"specializationId":"1a824508-4623-45d9-accc-f572091ade5a","specialization":"Domain Package","id":"fad9fe56-bb78-4b1d-8945-0e40ca9d77d3","name":"NewApplication.Domain",...}]
+domainPackage = undefined
+targetPackage = {"specializationId":"1a824508-4623-45d9-accc-f572091ade5a","specialization":"Domain Package","id":"fad9fe56-bb78-4b1d-8945-0e40ca9d77d3","name":"NewApplication.Domain",...}
+```
+
+This mirrors the example screenshots in the editor: objects printed as JSON, `undefined` printed when a find returns nothing, and the selected fallback package printed when the named package is not found.
+
+
 ### Creating Elements and Setting Types
 
 The basic pattern for creating elements is:
 
 ```javascript
+// Get arbitrary package ID
+let packageId = getPackages()[0].id;
+
 // Create an element: createElement(elementType, name, parentId)
 let myClass = createElement("Class", "Customer", packageId);
 
@@ -124,6 +161,7 @@ let myAttribute = createElement("Attribute", "Name", myClass.id);
 // Set the attribute's type
 const stringTypeId = "d384db9c-a279-45e1-801e-e4e8099625f2";
 myAttribute.typeReference.setType(stringTypeId);
+
 ```
 
 ## Practical Examples: Ad-hoc Scripts
@@ -161,6 +199,8 @@ let orderItem = createElement("Class", "OrderItem", domainPackage.id);
 let product = createElement("Class", "Product", domainPackage.id);
 
 // Add attributes to each entity
+// Use (or create) a DTO package to hold generated DTOs
+let dtosPackage = getPackages().find(p => p.name === "DTOs") || servicesPackage;
 addAttributes(customer, [
     { name: "Name", type: stringType },
     { name: "Email", type: stringType }
@@ -196,6 +236,8 @@ createAssociation("Association", orderItem.id, product.id);
 
 await dialogService.info("Created e-commerce domain model with proper relationship types!");
 ```
+
+Once created, you can drag them onto the diagram to resemble this:
 
 ![Bulk domain element creation](images/bulk-domain-element-creation.png)
 
@@ -287,10 +329,28 @@ This example generates CRUD (Create, Read, Update, Delete) operations for existi
 const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 
 // Generate CRUD operations for all domain classes
-let domainClasses = lookupTypesOf("Class").filter(c => c.getPackage().name === "Domain");
+let domainClasses = lookupTypesOf("Class");
 let servicesPackage = getPackages().find(p => p.name === "Services") || getPackages()[0];
 
+// Use (or create) a DTO package to hold generated DTOs
+let dtosPackage = getPackages().find(p => p.name === "DTOs") || servicesPackage;
+
 domainClasses.forEach(domainClass => {
+    // Create a DTO that represents the domain entity in service layer APIs
+    let dto = createElement("DTO", `${domainClass.getName()}Dto`, dtosPackage.id);
+
+    // Copy attributes from the domain class into DTO fields where available
+    // (This keeps the service layer decoupled from domain element types)
+    domainClass.getChildren("Attribute").forEach(attr => {
+        let field = createElement("DTO-Field", attr.getName(), dto.id);
+        if (attr.typeReference) {
+            // Use the attribute's type for the DTO field when possible
+            field.typeReference.setType(attr.typeReference.getTypeId());
+            field.typeReference.setIsNullable(attr.typeReference.getIsNullable());
+            field.typeReference.setIsCollection(attr.typeReference.getIsCollection());
+        }
+    });
+
     let service = createElement("Service", `${domainClass.getName()}Service`, servicesPackage.id);
     
     // Create CRUD operations
@@ -299,13 +359,15 @@ domainClasses.forEach(domainClass => {
     let updateOp = createElement("Operation", `Update${domainClass.getName()}`, service.id);
     let deleteOp = createElement("Operation", `Delete${domainClass.getName()}`, service.id);
     
-    // Set return types
-    getOp.typeReference.setType(domainClass.id); // Return the domain class
-    createOp.typeReference.setType(guidType); // Return guid
+    // Set return/parameter types to the DTO (not the domain element)
+    // Get should return the DTO representation
+    getOp.typeReference.setType(dto.id);
+    // Create returns an id (guid)
+    createOp.typeReference.setType(guidType);
     
-    // Add parameters to operations
+    // Add parameters to operations - use DTO for payloads
     let createParam = createElement("Parameter", `create${domainClass.getName()}Request`, createOp.id);
-    createParam.typeReference.setType(domainClass.id);
+    createParam.typeReference.setType(dto.id);
     
     let idParam = createElement("Parameter", "id", getOp.id);
     idParam.typeReference.setType(guidType);
