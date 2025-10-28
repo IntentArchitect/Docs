@@ -200,7 +200,8 @@ let product = createElement("Class", "Product", domainPackage.id);
 
 // Add attributes to each entity
 // Use (or create) a DTO package to hold generated DTOs
-let dtosPackage = getPackages().find(p => p.name === "DTOs") || servicesPackage;
+// (fall back to the first package if a dedicated DTOs package doesn't exist)
+let dtosPackage = getPackages().find(p => p.name === "DTOs") || getPackages()[0];
 addAttributes(customer, [
     { name: "Name", type: stringType },
     { name: "Email", type: stringType }
@@ -324,6 +325,10 @@ await dialogService.info(`Successfully created ${entityNames.length} entities!`)
 
 This example generates CRUD (Create, Read, Update, Delete) operations for existing domain entities. This is particularly useful when you've modeled your domain and need to quickly create a corresponding service layer.
 
+> [!NOTE]
+>
+> You need to have domain entities modeled before running this script.
+
 ```javascript
 // Define type constants
 const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
@@ -336,8 +341,12 @@ let servicesPackage = getPackages().find(p => p.name === "Services") || getPacka
 let dtosPackage = getPackages().find(p => p.name === "DTOs") || servicesPackage;
 
 domainClasses.forEach(domainClass => {
-    // Create a DTO that represents the domain entity in service layer APIs
-    let dto = createElement("DTO", `${domainClass.getName()}Dto`, dtosPackage.id);
+    // Create or reuse a DTO that represents the domain entity in service layer APIs
+    const dtoName = `${domainClass.getName()}Dto`;
+    let dto = lookupTypesOf("DTO").find(d => d.getName() === dtoName);
+    if (!dto) {
+        dto = createElement("DTO", dtoName, dtosPackage.id);
+    }
 
     // Copy attributes from the domain class into DTO fields where available
     // (This keeps the service layer decoupled from domain element types)
@@ -378,11 +387,15 @@ domainClasses.forEach(domainClass => {
 
 If you're following the CQRS (Command Query Responsibility Segregation) pattern, this script can automatically generate Commands and Queries from existing Service Operations. It analyzes operation names to determine whether to create a Command or Query and copies parameters as DTO fields.
 
+> [!TIP]
+>
+> Run the script in [Service Layer Generation](xref:module-building.designer-scripting#service-layer-generation) before executing this one.
+
 ```javascript
 // Generate Commands and Queries for selected service operations
 let services = lookupTypesOf("Service");
-let commandsPackage = getPackages().find(p => p.name === "Commands") || getPackages()[0];
-let queriesPackage = getPackages().find(p => p.name === "Queries") || getPackages()[0];
+let commandsPackage = getPackages()[0];
+let queriesPackage = getPackages()[0];
 
 services.forEach(service => {
     service.getChildren("Operation").forEach(operation => {
@@ -444,7 +457,7 @@ Event handlers are particularly useful for:
 - Applying stereotypes and metadata consistently
 
 > [!NOTE]
-> Event handlers are created in the Module Builder designer and become part of a module. This section assumes you're familiar with basic module building concepts.
+> Event handlers are created in the Module Builder designer and become part of a module. This section assumes you're familiar with basic module building concepts. See [Module Builder overview](xref:module-building.about-the-module-builder) for conceptual background.
 
 ### Element Event Handlers
 
@@ -453,6 +466,8 @@ Element event handlers execute when an element is created or modified. This exam
 ![Event Triggered Script for Elements Screenshot](images/event-triggered-script-element.png)
 
 Inside the Module Builder designer, you can add Element Event Handlers for an Element you've created or extend an existing Element from a Designer.
+
+Installed as: Element Event Handler on the `Class` element's `On Changed` event.
 
 ```javascript
 const stereotypeId = "65860af3-8805-4a63-9fb9-3884b80f4380";
@@ -480,6 +495,8 @@ In this JavaScript example, the script activates when a Class element is modifie
 ### Auto-Configuring New Entities
 
 This example shows how to automatically add common attributes (like Id, CreatedDate, UpdatedDate) whenever a new entity is created. This ensures consistency across your domain model without manual repetition.
+
+Installed as: Element Event Handler on the `Class` element's `On Created` event.
 
 ```javascript
 // Define type constants
@@ -512,6 +529,8 @@ Association event handlers execute when associations (relationships) are created
 
 Inside the Module Builder designer, you can add Association Event Handlers for an Association you've created or extend an existing Association from a Designer.
 
+Installed as: Association Event Handler on the `Association` element's `On Created` event.
+
 Here's a simple example that automatically configures new associations as 1-to-1 composite relationships:
 
 ```javascript
@@ -525,41 +544,44 @@ sourceEnd.setIsNullable(false);
 
 This script gets executed when an association is created and turns it into a 1-to-1 composite relationship by disabling `Is Collection` and `Is Nullable` on the source end of the association.
 
-### Auto-Configuring Association Properties Based on Naming
+### Auto-configuring association properties by aggregate semantics
 
-This more sophisticated example shows how to automatically configure association properties based on naming conventions. This helps enforce consistent relationship patterns across your domain model.
+Rather than relying on literal type names, this example shows a more robust approach: determine whether an element is an aggregate root (no other entity composes it) or a value object (specialization `Value Object`), and apply relationship semantics accordingly.
+
+Installed as: Association Event Handler on the `Association` element's `On Created` event.
 
 ```javascript
-// Auto-configure association properties based on naming patterns
-if (!association) {
+// Auto-configure association properties using aggregate-root inference
+if (!association) { return; }
+
+function isAggregateRoot(element) {
+    return !element.getAssociations("Association")
+        .some(x => x.isSourceEnd() && !x.typeReference.isCollection && !x.typeReference.isNullable);
+}
+
+const sourceElement = association.getOtherEnd().typeReference.getType();
+const targetElement = association.typeReference.getType();
+
+// 1) If target is explicitly a Value Object -> make it a composition (parent one -> child many)
+if (targetElement && targetElement.specialization === 'Value Object') {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Parent: only one composite owner
+    association.typeReference.setIsCollection(true); // Child: collection of value objects
+    association.typeReference.setIsNullable(false); // Child instances cannot be null
     return;
 }
 
-let sourceElement = association.getOtherEnd().typeReference.getType();
-let targetElement = association.typeReference.getType();
-
-// If association is from Order to Customer, make it many-to-one
-if (sourceElement.getName() === "Order" && targetElement.getName() === "Customer") {
-    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
-    association.typeReference.setIsCollection(false); // Customer side
-    association.typeReference.setIsNullable(false); // Customer is required
+// 2) If target is an aggregate root (no composite owners) -> make relationship a required reference (many-to-one)
+if (isAggregateRoot(targetElement)) {
+    association.getOtherEnd().typeReference.setIsCollection(false); // Source end: single reference
+    association.typeReference.setIsCollection(false); // Target end: single reference
+    association.typeReference.setIsNullable(false); // Target must be present (required)
+    return;
 }
 
-// If association is from Order to OrderItem, make it one-to-many
-if (sourceElement.getName() === "Order" && targetElement.getName().includes("Item")) {
-    association.getOtherEnd().typeReference.setIsCollection(false); // Order side
-    association.typeReference.setIsCollection(true); // Items side
-    association.typeReference.setIsNullable(false); // Items are required
-}
-
-// Set meaningful names for navigation properties
-if (association.getName() === "") {
-    if (association.isTargetEnd()) {
-        association.setName(pluralize(targetElement.getName().toLowerCase()));
-    } else {
-        association.setName(targetElement.getName().toLowerCase());
-    }
-}
+// 3) Fallback: optional reference (one-to-one optional)
+association.getOtherEnd().typeReference.setIsCollection(false);
+association.typeReference.setIsCollection(false);
+association.typeReference.setIsNullable(true);
 ```
 
 ## Full API Documentation
