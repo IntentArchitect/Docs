@@ -4,9 +4,9 @@ uid: how-it-works.deterministic-codegen
 
 # Pattern-based code generation
 
-Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
+Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging, or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
 
-This is **deterministic code generation**: its fast, predictable and developer-controlled. It’s not a black box or one-time scaffolding, it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all changes before applying them.
+This is **deterministic code generation**: it's fast, predictable and developer-controlled. It’s not a black box or one-time scaffolding; it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all changes before applying them.
 
 The result is an architecture that stays consistent, extensible, and always aligned with your intent, without sacrificing flexibility or developer ownership.
 
@@ -23,7 +23,7 @@ The result is an architecture that stays consistent, extensible, and always alig
 - **🔁 Agile architecture**  
   Swap frameworks, refactor layers, or evolve your architecture safely by changing configuration or modules, no rewrites required.
 
-- **🧱 Its all design time, no runtime dependencies**  
+- **🧱 It's all design time, no runtime dependencies**  
   Generated code runs independently of Intent Architect. It’s your code, in your stack, written the way you would have, developer-centric, high-code, and free from lock-in.
 
 ---
@@ -54,7 +54,7 @@ With Intent Architect, teams can choose to build and maintain their own Modules 
 
 ![Pattern Reuse](images/patterns.png)
 
-🧩 Think of architecture as the aggregation of you set of patterns.
+🧩 Think of architecture as the aggregation of your set of patterns.
 
 ## Non-prescriptive
 

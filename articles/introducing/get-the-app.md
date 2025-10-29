@@ -21,10 +21,10 @@ Download the app from our [website](https://intentarchitect.com/#/downloads).
 
 ### 3️⃣ Install
 
-Install the App.
+Install the app.
 
 > [!NOTE]
-> [Detailed Installation Guide](xref:introducing.installation-guide) available if required.
+> See the [Detailed Installation Guide](xref:introducing.installation-guide) if needed.
 
 ---
 

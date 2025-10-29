@@ -46,9 +46,9 @@ As an example, by simply modeling a logical screen, i.e. give it basic details a
 
 Intent Architect performs structured context engineering, it builds detailed, repeatable prompts under the hood using your models and patterns, ensuring that the generated output is predictable and aligned with your design decisions. This transforms AI assistance from a creative experiment into a deterministic, repeatable process.
 
-AI code generation is visualized as code diffs, enuring developers have full transparency and control.
+AI code generation is visualized as code diffs, ensuring developers have full transparency and control.
 
-⚙️ Easy to use, deterministic AI code generation you can count on.
+⚙️ Easy-to-use, deterministic AI code generation you can count on.
 
 ## Choose your AI
 

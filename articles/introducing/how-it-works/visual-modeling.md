@@ -31,7 +31,7 @@ With Intent Architect, you can design and reason about complex systems visually 
 ## Design visually
 
 Model your systems through Intent Architect’s visual designers, model domains, services, integrations and much more.
-Each designer helps you model your applications in a structured, intuitive way. Behind the scenes, every element you draw is represented as structured metadata, saved alongside your source code in human-readable files. You’re never disconnected from your design it lives right inside your solution.
+Each designer helps you model your applications in a structured, intuitive way. Behind the scenes, every element you draw is represented as structured metadata, saved alongside your source code in human-readable files. You’re never disconnected from your design, it lives right inside your solution.
 
 💡 Visual modeling turns complex systems into clear, collaborative blueprints for innovation.
 

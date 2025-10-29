@@ -30,7 +30,7 @@ At its core, this is powered by three systems: **Code Management**, **Customizat
 
 ---
 
-## Architecture Opt-Out model, standards by fefault
+## Architecture Opt-Out model, standards by default
 
 Traditional architecture is opt-in: teams rely on every developer to follow patterns perfectly.
 Intent Architect makes architecture opt-out: standards and structure are applied automatically, and developers consciously opt out only when necessary.
@@ -54,7 +54,7 @@ As an example, a developer may configure a C# or Java file such that they are ma
 
 ![Code Management](images/code-management.png)
 
-For more information read [](xref:application-development.code-management.about-code-management).
+For more information, read [](xref:application-development.code-management.about-code-management).
 
 ⚙️ Code Management unlocks all the advantages of code generation, without the traditional limitations.
 
@@ -63,18 +63,19 @@ For more information read [](xref:application-development.code-management.about-
 When developers intentionally deviate from generated patterns, Customization Tracking records and highlights those changes.
 
 Each customization shows:
-What was changed
-Who changed it
-When and why
-How it diverges from the reference pattern
+
+- What was changed
+- Who changed it
+- When and why
+- How it diverges from the reference pattern
 
 This creates a living audit trail of architectural decisions, enabling developers to see where the system differs from standards and why.
 
-Easily visualize customization to generated code.
+Easily visualize customizations in generated code.
 
 ![Customization Tracking](images/customization-tracking.png)
 
-For more information read [](xref:application-development.software-factory.customizations-screen).
+For more information, read [](xref:application-development.software-factory.customizations-screen).
 
 🕵️‍♂️ Auditable transparency on architectural customizations, with reasoning
 

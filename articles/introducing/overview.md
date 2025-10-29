@@ -324,7 +324,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
       </span>
       <div class="content">
         <strong class="card-title">Codebase Integration</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase., via review process. Advanced Code Integration systems keeps developers in control of the code, with full transparency. </p>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase, via a review process. Advanced Code Integration systems keep developers in control of the code, with full transparency. </p>
       </div>
       <a href="xref:how-it-works.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
