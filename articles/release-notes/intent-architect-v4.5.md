@@ -4,9 +4,9 @@ uid: release-notes.intent-architect-v4.5
 # Release notes: Intent Architect version 4.5
 
 <!--
-## Version 4.5.22
+## Version 4.5.23
 
-### Improvements in 4.5.22
+### Improvements in 4.5.23
 
 - Improvement: To eliminate the cause of many SCM (e.g. Git) file conflicts, the `<application-name>.application.output.log` has been replaced with two separate files:
   - **`<application-name>.application.ignored.xml`** - Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [](xref:tools.software-factory-cli) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored.
@@ -19,6 +19,7 @@ uid: release-notes.intent-architect-v4.5
 
 - Fixed: The file caching system would not correctly handle underlying file system deletions.
 - Fixed: "Package as sample" would show an error about directory not found when "Include source code for application(s)" was checked and any of the solution's applications did not yet have its output folder created.
+- Fixed: (Linux) When saving from a designer and existing metadata .xml files had different casing to what needed to be saved, a "File already exists" exception would occur.
 
 ## Version 4.5.21
 
