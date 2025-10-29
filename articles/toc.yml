@@ -1,24 +1,20 @@
 items:
 
-  - name: Introducing
+  - name: Getting started
     href: introducing/toc.yml
     topicUid: introducing.overview
 
-  - name: Getting started
-    href: getting-started/toc.yml
-    topicUid: getting-started.welcome
-
   - name: Getting help
-    href: getting-help/getting-help.md
+    href: introducing/getting-help.md
 
   - name: Tutorials
     href: tutorials/toc.yml
     topicUid: tutorials.fundamentals-landing-page
 
-  - name: Application Development
+  - name: Application development
     href: application-development/toc.yml
 
-  - name: Module Building
+  - name: Module building
     topicUid: module-building.overview
     href: module-building/toc.yml
 

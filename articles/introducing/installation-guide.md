@@ -2,7 +2,7 @@
 uid: introducing.installation-guide
 ---
 
-# Installation Guide
+# Installation guide
 
 ## Windows
 

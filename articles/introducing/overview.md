@@ -189,7 +189,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ---
 
-## Getting Started
+## Getting started
 
 <ul class="cards-grid cards-3">
   <li>
@@ -351,7 +351,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ---
 
-## Watch a Demo
+## Watch a demo
 
 <div class="video-16x9"><iframe src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=intro-and-demo" title="Video" allowfullscreen></iframe></div>
 
@@ -369,7 +369,7 @@ What's covered in this demo:
 ## Next Steps
 
 - Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
-- Jump to **[Quick Start](xref:introducing.quickstart)**
+- Jump to **[Quick start](xref:introducing.quickstart)**
 - Explore **[Tutorials](xref:tutorials.fundamentals-landing-page)**
 
 </div>

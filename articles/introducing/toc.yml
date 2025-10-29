@@ -11,6 +11,3 @@ items:
 - name: How it works?
   href: how-it-works/toc.yml
   topicHref: overview.md#how-it-works
-
-- name: Get Help
-  href: reference.md

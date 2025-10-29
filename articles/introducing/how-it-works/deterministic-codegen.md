@@ -2,7 +2,7 @@
 uid: how-it-works.deterministic-codegen
 ---
 
-# Pattern-Based Code Generation
+# Pattern-based code generation
 
 Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
 
@@ -12,23 +12,23 @@ The result is an architecture that stays consistent, extensible, and always alig
 
 ---
 
-## Key Benefits
+## Key benefits
 
-- **⚡ Faster Delivery**  
+- **⚡ Faster delivery**  
   Automate up to **85% of your codebase** using pre-tested, reusable patterns, so teams can focus on meaningful business logic rather than boilerplate.
 
-- **✅ Consistent, High-Quality Code**  
+- **✅ Consistent, high-quality code**  
   Every generated file adheres to the same standards and best practices, producing clean, maintainable code by default across your solutions.
 
-- **🔁 Agile Architecture**  
+- **🔁 Agile architecture**  
   Swap frameworks, refactor layers, or evolve your architecture safely by changing configuration or modules, no rewrites required.
 
-- **🧱 No Runtime Dependencies**  
+- **🧱 Its all design time, no runtime dependencies**  
   Generated code runs independently of Intent Architect. It’s your code, in your stack, written the way you would have, developer-centric, high-code, and free from lock-in.
 
 ---
 
-## Continuous Deterministic code generation
+## Continuous deterministic code generation
 
 Intent Architect is ideal for automating architectural, infrastructural, and boilerplate code. Depending on the project, this type of code can make up over 85% of the codebase. Typically, the tool is used by developers to achieve the following:
 
@@ -70,14 +70,14 @@ Similarly, Intent Architect does not dictate how developers design their system.
 
 🛠️ Your architecture. Your patterns. Your rules.
 
-## No Lock-In
+## No lock-in
 
 Intent Architect is not a framework or runtime platform. It does not inherently introduce any hard runtime dependencies. Because it generates and manages code (and the code is written in the same style as a developer - a key principle when creating Modules), there is no dependency on it and therefore no lock-in. Teams may choose to continue building their project without Intent Architect and all the code that was managed by Intent Architect will be no worse off than if it were originally written by hand.
 
 🧱 The output is indistinguishable from handcrafted code, just faster, cleaner, and consistent.
 
-## Learn More
+## Learn more
 
-- **[Visual Modeling](xref:how-it-works.visual-modeling)**
-- **[AI-Assisted Code Generation](xref:how-it-works.non-deterministic-codegen)**
-- **[Codebase Integration](xref:how-it-works.codebase-integration)**
+- **[Visual modeling](xref:how-it-works.visual-modeling)**
+- **[AI-Assisted code generation](xref:how-it-works.non-deterministic-codegen)**
+- **[Codebase integration](xref:how-it-works.codebase-integration)**

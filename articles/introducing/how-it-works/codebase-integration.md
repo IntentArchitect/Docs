@@ -2,7 +2,7 @@
 uid: how-it-works.codebase-integration
 ---
 
-# Codebase Integration
+# Codebase integration
 
 Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with automation.  
 
@@ -12,9 +12,9 @@ At its core, this is powered by three systems: **Code Management**, **Customizat
 
 ---
 
-## Key Benefits
+## Key benefits
 
-- **🎚️ Architecture Opt-out Model**
+- **🎚️ Architecture Opt-out model**
   In traditional development, architecture is opt-in, it only holds if every developer rigorously follows it. Intent Architect flips that model: architecture is enforced by default through code automation, and developers explicitly opt-out when needed, with transparency.
   This ensures high-fidelity, consistent architecture across the entire system without restricting flexibility.
 
@@ -22,15 +22,15 @@ At its core, this is powered by three systems: **Code Management**, **Customizat
   Customizable code automation, easily adjust which parts of your code are managed by Intent Architect and which remain developer-controlled.  
   Fine-grained configuration, from entire files down to individual statements, ensures automation never interferes with your code.
 
-- **🧭 Customization Tracking**  
+- **🧭 Customization tracking**  
   Track and visualize every architectural deviation. See what’s been customized, by whom, and why bringing clarity to design evolution.
 
-- **💻 IDE Integration & Review**  
+- **💻 IDE integration**  
   Work side-by-side with your favourite IDE. Transition seamlessly from visual design to the implementation code.
 
 ---
 
-## Architecture Opt-Out Model, Standards by Default
+## Architecture Opt-Out model, standards by fefault
 
 Traditional architecture is opt-in: teams rely on every developer to follow patterns perfectly.
 Intent Architect makes architecture opt-out: standards and structure are applied automatically, and developers consciously opt out only when necessary.
@@ -44,7 +44,7 @@ Here Intent Architect is highlighting architectural deviations it would like to 
 
 ✅ Architectural adherence by default, spend less time policing your codebase.
 
-## Code Management, Customizable Code Generation
+## Code Management, customizable code generation
 
 Code-automation, as used in the software industry, has two flavours: once-off (scaffolding) and continuous. Both have their place but come with trade-offs and compromises in the form of customizability and control.
 
@@ -58,7 +58,7 @@ For more information read [](xref:application-development.code-management.about-
 
 ⚙️ Code Management unlocks all the advantages of code generation, without the traditional limitations.
 
-## Customization Tracking, Transparency and Auditability
+## Customization tracking, transparency and auditability
 
 When developers intentionally deviate from generated patterns, Customization Tracking records and highlights those changes.
 
@@ -78,15 +78,15 @@ For more information read [](xref:application-development.software-factory.custo
 
 🕵️‍♂️ Auditable transparency on architectural customizations, with reasoning
 
-## Developer-in-the-Loop Workflow
+## Developer-in-the-loop workflow
 
 Every change proposed by Intent Architect passes through the Software Factory, a staging system that previews how your design will affect the codebase.
 Developers review these proposed modifications as diffs before applying them. Nothing touches your codebase without explicit consent.
 
 💡 This “staging gate” makes automation transparent and reversible.
 
-## Learn More
+## Learn more
 
-- **[Visual Modeling](xref:how-it-works.visual-modeling)**
-- **[Pattern-Based Code Generation](xref:how-it-works.deterministic-codegen)**
-- **[AI-Assisted Code Generation](xref:how-it-works.non-deterministic-codegen)**
+- **[Visual modeling](xref:how-it-works.visual-modeling)**
+- **[Pattern-based code generation](xref:how-it-works.deterministic-codegen)**
+- **[AI-assisted code generation](xref:how-it-works.non-deterministic-codegen)**
