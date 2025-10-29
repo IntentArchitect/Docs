@@ -468,12 +468,13 @@ Element event handlers execute when an element is created or modified. This exam
 Inside the Module Builder designer, you can add Element Event Handlers for an Element you've created or extend an existing Element from a Designer.
 
 Installed as: Element Event Handler on the `Class` element's `On Changed` event.
+Requires a Stereotype `Soft Delete Entity`.
 
 ```javascript
-const stereotypeId = "65860af3-8805-4a63-9fb9-3884b80f4380";
+const softDeleteStereotype = "Soft Delete Entity";
 const boolTypeId = "e6f92b09-b2c5-4536-8270-a4d9e5bbd930";
 
-if (element.hasStereotype(stereotypeId)) {
+if (element.hasStereotype(softDeleteStereotype)) {
     let isDeleteAttr = element.getChildren("Attribute").filter(x => x.hasMetadata("soft-delete"))[0] ||
         createElement("Attribute", "IsDeleted", element.id);
     isDeleteAttr.typeReference.setType(boolTypeId);
@@ -531,7 +532,7 @@ Inside the Module Builder designer, you can add Association Event Handlers for a
 
 Installed as: Association Event Handler on the `Association` element's `On Created` event.
 
-Here's a simple example that automatically configures new associations as 1-to-1 composite relationships:
+Here's a simple example that automatically configures new associations so that the source is the composite owner of the relationship (no matter which association type you use):
 
 ```javascript
 if (!association) {
