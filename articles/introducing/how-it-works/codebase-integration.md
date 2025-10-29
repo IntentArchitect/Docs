@@ -1,10 +1,8 @@
 ---
-uid: how-to.codebase-integration
+uid: how-it-works.codebase-integration
 ---
 
 # Codebase Integration
-
-## Overview
 
 Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with automation.  
 
@@ -16,42 +14,79 @@ At its core, this is powered by three systems: **Code Management**, **Customizat
 
 ## Key Benefits
 
+- **🎚️ Architecture Opt-out Model**
+  In traditional development, architecture is opt-in, it only holds if every developer rigorously follows it. Intent Architect flips that model: architecture is enforced by default through code automation, and developers explicitly opt-out when needed, with transparency.
+  This ensures high-fidelity, consistent architecture across the entire system without restricting flexibility.
+
 - **🧩 Code Management**  
-  Define exactly which parts of your code are managed by Intent Architect and which remain developer-controlled.  
+  Customizable code automation, easily adjust which parts of your code are managed by Intent Architect and which remain developer-controlled.  
   Fine-grained configuration, from entire files down to individual statements, ensures automation never interferes with your code.
 
 - **🧭 Customization Tracking**  
-  Track and visualize every architectural deviation.  
-  See what’s been customized, by whom, and why — bringing accountability and clarity to design evolution.
+  Track and visualize every architectural deviation. See what’s been customized, by whom, and why bringing clarity to design evolution.
 
 - **💻 IDE Integration & Review**  
-  Work side-by-side with your IDE.  
-  Visual models link directly to the codebase, and every change is presented as a diff for review before it’s applied.
-
-- **⚙️ Unified Generation Pipeline**  
-  Deterministic (pattern-based) and AI-assisted code generation share the same transparent process — reviewable, reversible, and developer-controlled.
+  Work side-by-side with your favourite IDE. Transition seamlessly from visual design to the implementation code.
 
 ---
 
-## Code Management
+## Architecture Opt-Out Model, Standards by Default
 
-## Customization Tracking
+Traditional architecture is opt-in: teams rely on every developer to follow patterns perfectly.
+Intent Architect makes architecture opt-out: standards and structure are applied automatically, and developers consciously opt out only when necessary.
+This yields consistent, high-fidelity architecture across your system, without restricting flexibility or innovation.
 
-Code Management (Wev)
-Customization Tracking
-IDE Integration
-Non-run time dependency
-Generated code is integrated into you codebase
+### Automatic governance
 
+Here Intent Architect is highlighting architectural deviations it would like to correct, for developer review.
 
-| **Architecture opt-out model** | Standards are enforced by default; deviations are intentional, visible, and tracked. |
+![Architectural governance](images/architectual-deviation.png)
 
-| **Staging & review (Software Factory)** | Every change is proposed as a diff for developer approval before applying, automation with full control. |
+✅ Architectural adherence by default, spend less time policing your codebase.
 
-| **Deterministic and Non-Deterministic Generation** | Combines versioned, repeatable templates with AI-assisted generation, both governed and traceable within the same pipeline. |
-| **Augments your IDE** | Works seamlessly alongside Visual Studio or Rider, complementing your existing workflow. |
- **Developer-in-the-loop** — every proposed change is presented as a diff for review and approval before it touches your source.  
-- **Non-deterministic (AI-assisted) code generation** — Intent Architect can use architectural context to guide an LLM for “prompt-less” AI interactions.  
+## Code Management, Customizable Code Generation
 
+Code-automation, as used in the software industry, has two flavours: once-off (scaffolding) and continuous. Both have their place but come with trade-offs and compromises in the form of customizability and control.
 
-Automatic governanace
+Code-management is a unique approach to code-automation that completely avoids the typical compromises. It utilizes abstract syntax tree parsing and intelligent algorithms to merge user-written code with automatically generated code. Code-management allows developers to control the automation systems of Intent Architect from a high-level down to the granular level of the members within each managed code file (e.g. classes, fields, functions, methods, etc.).
+
+As an example, a developer may configure a C# or Java file such that they are managing the implementation of one method within a class, while Intent Architect will manage the remaining methods. They may then choose to change this configuration, perhaps deciding to take over management of the entire class or just one of the other methods. The configuration of each file is completely controlled by the developer, preventing the automation system from ever getting in the way.
+
+![Code Management](images/code-management.png)
+
+For more information read [](xref:application-development.code-management.about-code-management).
+
+⚙️ Code Management unlocks all the advantages of code generation, without the traditional limitations.
+
+## Customization Tracking, Transparency and Auditability
+
+When developers intentionally deviate from generated patterns, Customization Tracking records and highlights those changes.
+
+Each customization shows:
+What was changed
+Who changed it
+When and why
+How it diverges from the reference pattern
+
+This creates a living audit trail of architectural decisions, enabling developers to see where the system differs from standards and why.
+
+Easily visualize customization to generated code.
+
+![Customization Tracking](images/customization-tracking.png)
+
+For more information read [](xref:application-development.software-factory.customizations-screen).
+
+🕵️‍♂️ Auditable transparency on architectural customizations, with reasoning
+
+## Developer-in-the-Loop Workflow
+
+Every change proposed by Intent Architect passes through the Software Factory, a staging system that previews how your design will affect the codebase.
+Developers review these proposed modifications as diffs before applying them. Nothing touches your codebase without explicit consent.
+
+💡 This “staging gate” makes automation transparent and reversible.
+
+## Learn More
+
+- **[Visual Modeling](xref:how-it-works.visual-modeling)**
+- **[Pattern-Based Code Generation](xref:how-it-works.deterministic-codegen)**
+- **[AI-Assisted Code Generation](xref:how-it-works.non-deterministic-codegen)**

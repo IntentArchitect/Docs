@@ -11,27 +11,26 @@ Intent Architect runs locally on your machine, no cloud dependencies, no lock-in
 > [!NOTE]
 > To use Intent Architect, you’ll need a valid license. If your organization already subscribes, your license will be assigned automatically. If you would like to get a license, please [get in touch](https://intentarchitect.com/#/contact-us) with our team or send an email to [info@intentarchitect.com](mailto:info@intentarchitect.com?subject=Intent%20Architect%20-%20License%20Request).
 
-
-## 1️⃣ Create an Account
+### 1️⃣ Create an Account
 
 If you haven't yet done so, [create an account](https://intentarchitect.com/#/register).
 
-## 2️⃣ Download
+### 2️⃣ Download
 
 Download the app from our [website](https://intentarchitect.com/#/downloads).
 
-## 3️⃣ Install
+### 3️⃣ Install
 
-### Windows 🪟
+#### Windows 🪟
 
 - Run the downloaded `.exe` file.  
 
-### macOS 🍎
+#### macOS 🍎
 
 1. Open the `.dmg` file.  
 2. Drag **Intent Architect** into your **Applications** folder.  
 
-### Linux 🐧
+#### Linux 🐧
 
 1. Make the downloaded file executable:
    ```bash

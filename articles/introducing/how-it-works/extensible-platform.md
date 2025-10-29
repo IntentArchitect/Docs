@@ -1,5 +1,5 @@
 ---
-uid: how-to.extensible-platform
+uid: how-it-works.extensible-platform
 ---
 
 # Extensible Platform

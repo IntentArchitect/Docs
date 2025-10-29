@@ -249,7 +249,6 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 ---
 
 ## How It Works
-uid: introducing.how-it-works
 
 <ul class="cards-grid cards-2x2">
   <li>
@@ -267,9 +266,9 @@ uid: introducing.how-it-works
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
         <strong class="card-title">Visual Modeling</strong>
-        <p class="card-text">Design your systems visually, Intent Architect provides rich designers for expressing your design including domains and services designer. These visual designs are the blue-prints of you system, becoming living documents for collaboratively designing and maintaining your applications.   </p>
+        <p class="card-text">Design your systems visually. Intuitive designers make complex architectures easy to understand, turning models into living blueprints that help teams collaborate, validate, and evolve applications with confidence.</p>
       </div>
-      <a href="xref:how-to.visual-modeling" aria-label="Visual Modeling"></a>
+      <a href="xref:how-it-works.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
   </li>
   <li>
@@ -285,9 +284,9 @@ uid: introducing.how-it-works
       </span>
       <div class="content">
         <strong class="card-title">Pattern-Based Code Generation</strong>
-        <p class="card-text">Intent Architect’s deterministic code generation engine uses Pattern Reuse — versioned, community-verified patterns that produce predictable, clean code. These patterns are tested and open source, ensuring every generated line reflects proven architectural best practices.</p>
+        <p class="card-text">Pattern-based code generation automates the predictable parts of your system, up to 85% of your codebase. Each pattern applies proven practices, ensuring code is clean, consistent, and production-ready.</p>
       </div>
-      <a href="xref:how-to.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
+      <a href="xref:how-it-works.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
     </div>
   </li>
   <li>
@@ -307,9 +306,9 @@ uid: introducing.how-it-works
       </span>
       <div class="content">
         <strong class="card-title">AI-Assisted Code Generation</strong>
-        <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which are not easily covered by patterns. By performing all the necessary context engineering automatically, IA integrates with LLMs to provide a prompt-less, predictable AI experience.</p>
+        <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which can't be predefined. Performing all the necessary context engineering automatically, Intent Architect integrates with LLMs providing a prompt-less, predictable AI experience.</p>
       </div>
-      <a href="xref:how-to.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
+      <a href="xref:how-it-works.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
   </li>
   <li>
@@ -325,9 +324,9 @@ uid: introducing.how-it-works
       </span>
       <div class="content">
         <strong class="card-title">Codebase Integration</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE. It integrates your design work into your codebase via review process and the Code Management system which allows you fine-tune the code automation systems. </p>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase., via review process. Advanced Code Integration systems keeps developers in control of the code, with full transparency. </p>
       </div>
-      <a href="xref:how-to.codebase-integration" aria-label="Codebase Integration"></a>
+      <a href="xref:how-it-works.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
   </li>
 <!--  <li>
@@ -345,7 +344,7 @@ uid: introducing.how-it-works
         <strong class="card-title">Extensible Platform</strong>
         <p class="card-text">Intent Architect is fully modular. Every behavior,  from code generation to design tooling, is driven by open-source modules. Build your own or extend ours to automate your proprietary patterns, endlessly customizable, entirely under your control.</p>
       </div>
-      <a href="xref:how-to.extensible-platform" aria-label="Extensible Platform"></a>
+      <a href="xref:how-it-works.extensible-platform" aria-label="Extensible Platform"></a>
     </div>
   </li>-->
 </ul>
@@ -355,6 +354,15 @@ uid: introducing.how-it-works
 ## Watch a Demo
 
 <div class="video-16x9"><iframe src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=intro-and-demo" title="Video" allowfullscreen></iframe></div>
+
+If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+
+What's covered in this demo:
+
+- What is "Pattern Reuse" actually?
+- A comprehensive introduction & demo of the platform, Intent Architect
+- Building a working, high-quality .NET application in minutes following a Clean Architecture
+- A sneak peek at how Intent Architect can leverage generative-AI to push productivity even further.
 
 ---
 

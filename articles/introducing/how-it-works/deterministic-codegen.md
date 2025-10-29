@@ -1,16 +1,14 @@
 ---
-uid: how-to.deterministic-codegen
+uid: how-it-works.deterministic-codegen
 ---
 
 # Pattern-Based Code Generation
 
-## Overview
+Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
 
-Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system using open-source, versioned architectural patterns. Each pattern encapsulates proven practices ,from domain entities and CQRS commands to service contracts and persistence layers, ensuring every generated line of code is clean, consistent, and production-ready.
+This is **deterministic code generation**: its fast, predictable and developer-controlled. It’s not a black box or one-time scaffolding, it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all changes before applying them.
 
-This is **deterministic generation**: identical inputs always produce identical outputs. It’s not a black box or one-time scaffolding, it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all proposed changes through the Software Factory before applying them.
-
-The result is an architecture that stays consistent, extensible, and always aligned with your intent — without sacrificing flexibility or developer ownership.
+The result is an architecture that stays consistent, extensible, and always aligned with your intent, without sacrificing flexibility or developer ownership.
 
 ---
 
@@ -20,7 +18,7 @@ The result is an architecture that stays consistent, extensible, and always alig
   Automate up to **85% of your codebase** using pre-tested, reusable patterns, so teams can focus on meaningful business logic rather than boilerplate.
 
 - **✅ Consistent, High-Quality Code**  
-  Every generated component adheres to the same standards and best practices, producing clean, maintainable code by default across large teams and projects.
+  Every generated file adheres to the same standards and best practices, producing clean, maintainable code by default across your solutions.
 
 - **🔁 Agile Architecture**  
   Swap frameworks, refactor layers, or evolve your architecture safely by changing configuration or modules, no rewrites required.
@@ -30,58 +28,56 @@ The result is an architecture that stays consistent, extensible, and always alig
 
 ---
 
-## The Software Factory (Code Generation)
+## Continuous Deterministic code generation
 
-## Staging Changes
+Intent Architect is ideal for automating architectural, infrastructural, and boilerplate code. Depending on the project, this type of code can make up over 85% of the codebase. Typically, the tool is used by developers to achieve the following:
 
-## Modules
+- Bootstrapping - Microservices, Monolithic Applications, Application Modules, Identity, etc.
+- Persistence Infrastructure - ORM Mappings, Repositories, etc.
+- Service Infrastructure - RESTful Web Services, Data Transfer Objects, Dispatch Patterns (e.g. Mediator, Interface Dispatch), etc.
+- Eventing Infrastructure - Events, Message Broker Configuration, Message Dispatch Infrastructure, etc.
+- Business Logic Placeholders - Domain Entities, Service Call Handlers, Command / Query Handlers, etc.
+- Front-End Infrastructure - Components, Service Proxies, Models, etc.
+- Workflow Design - Workflow Infrastructure, Flow Control Systems, etc.
 
-## Configuration
+The use cases for Intent Architect really are endless. A general rule of thumb is if it can be described, it can be automated. In other words, if a developer can define a way to adequately model their design intent, they would be able to create a Module to automate that particular pattern.
 
-## Architect Templates
+![Software Factory](images/software-factory.png)
 
-## Non Runtime Dependencies
+💡 No boilerplate, no stale scaffolding, no surprises, just clean, consistent code that evolves with your design.
 
+## Patterns Reuse
 
-Faster Delivery
-Consistent High Quality
-Agile Architecture
-Reduced Technical Debt
-Better Standardization
-- **Enforces consistency and standards** — because up to 85% of your solution is generated, Intent Architect automatically applies consistent structure, naming, and practices across your entire codebase.  
+Software systems are made up of patterns, each instance is different, but the patterns are the same. These patterns glue the technologies to the business logic and can easily account for over 85% of a codebase. Pattern reuse is the ability to turn these patterns into artifacts that can be reused within projects and across organizations. Intent Architect's Modules serve as a collection of one or more of these artifacts and provide the mechanism to turn visual models and metadata into code.
 
-- **Deterministic code generation** — Intent Architect writes and maintains your system’s boilerplate and architectural patterns automatically, keeping design and code continuously in sync.  
+With Intent Architect, teams can choose to build and maintain their own Modules or simply reuse modules made by other developers.
 
-### Faster Delivery
+![Pattern Reuse](images/patterns.png)
 
-A large portion of development time goes into writing and maintaining repetitive, mechanical code — services, DTOs, controllers, and mappings.
-**Intent Architect automates up to 85% of that code deterministically**, so teams can focus on meaningful logic and features instead of boilerplate.
+🧩 Think of Patterns as the “DNA” of your architecture, repeatable, shareable, and evolvable.
 
-### Consistent, High-Quality Code
+## Non-prescriptive
 
-As teams grow, small inconsistencies in structure, naming, and layering compound into major maintenance issues.  
-**Intent Architect enforces standards automatically** through code automation, producing clean, uniform code across projects by default.
+Intent Architect is non-prescriptive, making it unopinionated regarding the choice of architecture, language, technologies, or even how the application's design is prescribed.
 
-### Agile Architecture
+While other code generation solutions tend to generate code that works and looks in a particular way; Intent Architect is instead just a platform, and the code that is managed is determined by the particular Modules that the team has installed into any particular application.
 
-Architecture is traditionally one of the most rigid parts of software — once it’s coded, it’s hard to evolve safely.
-**Intent Architect turns architecture into something adaptable**, enabling sweeping, pattern-level refactors or upgrades across large systems in a single controlled action.
+Since Modules are typically created and managed by the architect(s) within an organization, there is no constraint on forced opt-in since the development team is completely in control of what code is managed under automation and what code they will manage by hand.
 
-### Reduced Technical Debt
+Similarly, Intent Architect does not dictate how developers design their system. Where most modelling products constrain developers to use strict UML diagrams (Class Diagrams, State Diagrams, Sequence Diagrams, etc.), Intent Architect's modelling systems are completely customizable, configurable, and extensible. Teams choose how they want to design their application and which parts of the system they want to model visually.
 
-Code drift, duplicated patterns, and inconsistent practices accumulate debt fast.  
-**IA prevents drift before it starts** by continuously synchronizing architecture and source, and allows teams to retroactively realign existing systems without rewrites.
+![Modules](images/modules.png)
 
+🛠️ Your architecture. Your patterns. Your rules.
 
-### Better Standardization
+## No Lock-In
 
-Keeping standards aligned across teams and projects is nearly impossible manually.  
-**IA centralizes patterns in modules**, so every generated component across your organization adheres to the same design and coding conventions by default.
+Intent Architect is not a framework or runtime platform. It does not inherently introduce any hard runtime dependencies. Because it generates and manages code (and the code is written in the same style as a developer - a key principle when creating Modules), there is no dependency on it and therefore no lock-in. Teams may choose to continue building their project without Intent Architect and all the code that was managed by Intent Architect will be no worse off than if it were originally written by hand.
 
-| **High-Code / Developer-centric** | Unlike low-code platforms, Intent Architect empowers developers, not replaces them. All generated code is standard, maintainable. |
-| **Continuous code automation** | Architecture and code evolve together continuously, not one-off scaffolding. |
+🧱 The output is indistinguishable from handcrafted code, just faster, cleaner, and consistent.
 
-- **Enforces consistency and standards** — because up to 85% of your solution is generated, Intent Architect automatically applies consistent structure, naming, and practices across your entire codebase.  
+## Learn More
 
-- **Architectural refactoring** — make broad, pattern-level changes across your solution in a single controlled action.  
-| **Design-time only** | Runs entirely at design time. You can stop using it anytime, your code keeps running. No runtime lock-in or hidden frameworks. |
+- **[Visual Modeling](xref:how-it-works.visual-modeling)**
+- **[AI-Assisted Code Generation](xref:how-it-works.non-deterministic-codegen)**
+- **[Codebase Integration](xref:how-it-works.codebase-integration)**

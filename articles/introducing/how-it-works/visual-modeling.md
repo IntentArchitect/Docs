@@ -1,14 +1,12 @@
 ---
-uid: how-to.visual-modeling
+uid: how-it-works.visual-modeling
 ---
 
 # Visual Modeling
 
-## Overview
+Intent Architect provides **rich visual designers** for modeling applications, allowing you to express your architecture in a way that’s intuitive, precise, and always in sync with your codebase.  
 
-Intent Architect provides **rich visual designers** for modeling domains, services, and integrations, allowing you to express your architecture in a way that’s intuitive, precise, and always in sync with your codebase.  
-
-Unlike static diagrams or external modeling tools, these designs are *live blueprints*: every change you make is reflected in the codebase. This makes Intent Architect not just a modeling environment, but a **living architectural workspace** where visualization and implementation stay continuously aligned.
+By compressing information into visual formats (e.g. entity-relationship diagrams), the human mind can quickly interpret and digest it. Unlike static diagrams or external modeling tools, these designs are *live blueprints*: every change you make is reflected in the codebase. This makes Intent Architect not just a modeling environment, but a **living architectural workspace** where visualization and implementation stay continuously aligned.
 
 With Intent Architect, you can design and reason about complex systems visually rather than mentally reverse-engineering structure from a codebase. It’s the difference between *seeing your architecture* and *guessing at it*.
 
@@ -23,50 +21,57 @@ With Intent Architect, you can design and reason about complex systems visually 
   Shared visual models give architects and developers a common language for discussion, review, and decision-making.
 
 - **🗺️ Living documentation**  
-  Designs are always synchronized with the codebase — what you see is a true reflection of what’s in the source, not an outdated diagram.
+  Designs are always synchronized with the codebase, what you see is a true reflection of what’s in the source, not an outdated diagram, ensures architecture stays consistent with evolving codebase.
 
 - **🚀 Reduced onboarding friction**  
   New team members can explore and understand the system architecture visually, accelerating their ability to contribute meaningfully.
 
-## How it works?
-
-...
-
-## Domain
-
-## Services
-
-## Designers
-
-## Accelerators
-
-## Scripting
-
-## Stereotypes
-
-## Living Document
-
-Better Collaberation
-Reduced Complexity / Better Understanding of Complex System
-Faster Onboarding
-Easier to spot design flaws
-
-
-## What Intent Architect Does
-
-- **Model visually** — design domains, services, and integrations through an intuitive visual interface.  
-- **Visualize your design** — architecture diagrams always reflect the actual code, creating living documentation you can trust.  
-
 ---
 
-### Better Collaboration
+## Design Visually
 
-Architectural intent often gets lost between architects, developers, and leads, trapped in outdated documents, tribal knowledge, or code that must be painstakingly reverse-engineered to understand.
-**Intent Architect makes design explicit, visible, and collaborative**  developers, architects, and leads all work from the same living architecture model, which ultimately is the code.
+Model your systems through Intent Architect’s visual designers, model domains, services, integrations and much more.
+Each designer helps you model your applications in a structured, intuitive way. Behind the scenes, every element you draw is represented as structured metadata, saved alongside your source code in human-readable files. You’re never disconnected from your design it lives right inside your solution.
 
-### Better Understanding of Complex Systems
+💡 Visual modeling turns complex systems into clear, collaborative blueprints for innovation.
 
-As projects grow and inconsistencies creep in, systems become harder to understand and  reason about.  
-**Intent Architect’s living diagrams** visualize domains, services, and integrations directly from the source code, allowing new (and existing) developers to explore and understand a system in minutes.
+### Domain Modeling
 
-| **Living diagrams** | Architecture remains visible, accurate, and collaborative, always reflecting the real system. |
+Visual domain modeling lets you define your system’s core entities, relationships, and logic in a clear, structured way forming the base from which your applications are built.
+
+![Domain modeling](images/domain-modeling.png)
+
+### Application Modeling
+
+Visual application modeling defines how your system behaves, mapping services, contracts, and integrations that connect your applications into a unified flow
+
+![Application modeling](images/applicaiton-modeling.png)
+
+### UI Modeling
+
+Visual UI modeling defines how users interact with your system — mapping screens, service calls, and flows that shape the end-to-end experience, with AI accelerators helping fill in the details.
+
+![UI Modeling](images/ui-modeling.png)
+
+## Living Synchronization with Your Codebase
+
+The visual models aren’t just diagrams, they’re true reflections of your architecture and implementation.
+When you run the Software Factory, it analyzes your design and proposes code updates to bring the solution into alignment with your modeled intent.
+Developers can review and apply these changes directly within their workflow, ensuring that architectural intent is consistently and transparently reflected in the codebase.
+
+🔄 Think of it as "design-driven development", visual models inform code generation, and generated code maintains fidelity with the design.
+
+<!-- JOEL Image here Design -> SF -> Review and Apply -> Design  -->
+
+## Designed for Collaboration and Clarity
+
+Intent Architect’s modeling environment makes architecture a shared, inspectable artifact rather than a hidden understanding in developers’ heads.
+Teams can annotate, discuss, and validate decisions directly within the modeling environment, so architecture reviews are visual, contextual, and actionable.
+
+👥 No more separate whiteboards or UML tools. Your architecture lives where your code lives.
+
+## Learn More
+
+- **[Pattern-Based Code Generation](xref:how-it-works.deterministic-codegen)**
+- **[AI-Assisted Code Generation](xref:how-it-works.non-deterministic-codegen)**
+- **[Codebase Integration](xref:how-it-works.codebase-integration)**
