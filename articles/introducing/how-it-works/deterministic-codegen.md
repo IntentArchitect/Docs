@@ -54,7 +54,7 @@ With Intent Architect, teams can choose to build and maintain their own Modules 
 
 ![Pattern Reuse](images/patterns.png)
 
-🧩 Think of Patterns as the “DNA” of your architecture, repeatable, shareable, and evolvable.
+🧩 Think of architecture as the aggregation of you set of patterns.
 
 ## Non-prescriptive
 
