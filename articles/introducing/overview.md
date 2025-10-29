@@ -205,7 +205,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
         <strong class="card-title">Get Intent Architect</strong>
         <p class="card-text">Download and install the latest Intent Architect for your environment.</p>
       </div>
-      <a href="xref:introducing.get-the-app" aria-label="Get Intent Architect"></a>
+      <a href="xref:getting-started.get-the-application" aria-label="Get Intent Architect"></a>
     </div>
   </li>
   <li>
@@ -368,7 +368,7 @@ What's covered in this demo:
 
 ## Next Steps
 
-- Continue to **[Get Intent Architect](xref:introducing.get-the-app)**
+- Continue to **[Get Intent Architect](xref:getting-started.get-the-application)**
 - Jump to **[Quick start](xref:introducing.quickstart)**
 - Explore **[Tutorials](xref:tutorials.fundamentals-landing-page)**
 

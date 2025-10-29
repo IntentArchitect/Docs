@@ -3,7 +3,7 @@ items:
   href: overview.md
 
 - name: Get Intent Architect
-  href: get-the-app.md
+  topicUid: getting-started.get-the-application
 
 - name: Quick Start
   href: quickstart.md

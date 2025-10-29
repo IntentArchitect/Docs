@@ -2,81 +2,35 @@
 uid: getting-started.get-the-application
 ---
 
-# Get the application
+# Get Intent Architect
 
-Intent Architect needs to be installed on your local machine. You need to have an account created, the application downloaded, and installed by following the instructions below.
+Intent Architect runs locally on your machine, no cloud dependencies, no lock-in.  Follow these simple steps to create your account, download, and install the app.
+
+---
+
 > [!NOTE]
-> You will need a license to access the Intent Architect application. This will be auto-assigned if you are an existing customer. If you would like to get a license, please [get in touch](https://intentarchitect.com/#/contact-us) with our team or send an email to [info@intentarchitect.com](mailto:info@intentarchitect.com?subject=Intent%20Architect%20-%20License%20Request).
+> To use Intent Architect, you’ll need a valid license. If your organization already subscribes, your license will be assigned automatically. If you would like to get a license, please [get in touch](https://intentarchitect.com/#/contact-us) with our team or send an email to [info@intentarchitect.com](mailto:info@intentarchitect.com?subject=Intent%20Architect%20-%20License%20Request).
 
-## 1. Create an account
+### 1️⃣ Create an account
 
 If you haven't yet done so, [create an account](https://intentarchitect.com/#/register).
 
-## 2. Confirm your email address
+### 2️⃣ Download
 
-Your email address will need to be confirmed before you can use Intent Architect. If you haven't already done so, follow the instructions in the email which was sent to you during account creation to confirm your email address.
+Download the app from our [website](https://intentarchitect.com/#/downloads).
 
-If you need another confirmation email sent, you can do so from your [account details page](https://intentarchitect.com/#/user-access/account-details).
+### 3️⃣ Install
 
-## 3. Downloading & Installing
+Install the app.
 
-Intent Architect can run on Windows, macOS, and Linux; download links are available on the [downloads page](https://intentarchitect.com/#/downloads) of our website.
+> [!NOTE]
+> See the [Detailed Installation Guide](xref:introducing.installation-guide) if needed.
 
-### Installation (Windows)
+---
 
-Simply run the digitally signed `.exe` file which is a one-click installer that will install Intent Architect and then run it immediately afterward.
+You’re all set!  
 
-> [!TIP]
-> To avoid issues with long paths we strongly recommend [enabling long path support](xref:application-development.getting-started.long-path-support-windows-only).
->
-> [!TIP]
-> To ensure Intent Architect can run the Software Factory as quickly as possible, we highly recommend reviewing [](xref:application-development.software-factory.environmental-factors-which-can-slow-down-software-factory-execution).
+## Next Steps
 
-### Installation (macOS)
-
-Simply open the `.dmg` file and drag Intent Architect into the Applications folder.
-
-### Installation (Linux)
-
-For Linux, we recommend downloading the [AppImage](https://appimage.org/) package format option which is able to run on any common Linux-based operating system (Ubuntu, Debian, openSUSE, RHEL, CentOS, Fedora, etc.).
-
-Although not essential, the easiest way to use AppImages is to first install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) which makes using AppImages seamless and also enables integration with your desktop environment, for example, it will "install" AppImages such that they appear in your desktop environment's list of Applications.
-
-If you just want to run Intent Architect without "installing" it, you can just set the downloaded file to be executable by running `chmod a+x intent-architect*.AppImage` after which you can then run it.
-
-#### I'm getting an "The configured user limit (128) on the number of inotify instances has been reached" error
-
-On some Linux distributions, the Software Factory may show the following error:
-
-```text
-System.IO.IOException: The configured user limit (128) on the number of inotify instances has been reached, or the per-process limit on the number of open file descriptors has been reached.
-   at System.IO.FileSystemWatcher.StartRaisingEvents()
-```
-
-You can get your current inotify file watch limit by executing:
-
-```bash
-cat /proc/sys/fs/inotify/max_user_instances
-cat /proc/sys/fs/inotify/max_user_watches
-```
-
-You can set a temporary new limit with:
-
-```bash
-sudo sysctl -w fs.inotify.max_user_instances=16384
-sudo sysctl -w fs.inotify.max_user_watches=16384
-```
-
-To make your limit permanent use:
-
-```bash
-echo fs.inotify.max_user_instances=16384 | sudo tee -a /etc/sysctl.conf
-echo fs.inotify.max_user_watches=16384 | sudo tee -a /etc/sysctl.conf
-sudo sysctl -p
-```
-
-## What's Next
-
-### [Take a tour of Intent Architect](xref:getting-started.take-a-tour)
-
-Discover the key concepts in Intent Architect.
+- Continue to **[Quick start](xref:introducing.quickstart)** to build your first application in under 15 minutes
+- Jump to **[Intent Architect fundamentals](xref:tutorials.fundamentals-landing-page)**

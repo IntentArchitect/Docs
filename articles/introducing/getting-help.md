@@ -116,6 +116,6 @@ Clicking **Release Notes** displays a versioned list of *enhancements, bug fixes
 ## Helpful Links
 
 - **[Official site](https://intentarchitect.com)**  
-- **[Get Intent Architect](xref:introducing.get-the-app)**
+- **[Get Intent Architect](xref:getting-started.get-the-application)**
 - **[Quick start](xref:introducing.quickstart)**
 - **[Intent Architect fundamentals](xref:tutorials.fundamentals-landing-page)**
