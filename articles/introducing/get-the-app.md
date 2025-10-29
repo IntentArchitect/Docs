@@ -21,32 +21,12 @@ Download the app from our [website](https://intentarchitect.com/#/downloads).
 
 ### 3️⃣ Install
 
-#### Windows 🪟
-
-- Run the downloaded `.exe` file.  
-
-#### macOS 🍎
-
-1. Open the `.dmg` file.  
-2. Drag **Intent Architect** into your **Applications** folder.  
-
-#### Linux 🐧
-
-1. Make the downloaded file executable:
-   ```bash
-   chmod a+x intent-architect*.AppImage
-   ```
-2. Run the AppImage to launch the application:
-   ```bash
-   ./intent-architect*.AppImage
-   ```
-
-For smoother desktop integration, you can optionally install **[AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher)**.
-
----
+Install the App.
 
 > [!NOTE]
 > [Detailed Installation Guide](xref:introducing.installation-guide) available if required.
+
+---
 
 You’re all set!  
 
