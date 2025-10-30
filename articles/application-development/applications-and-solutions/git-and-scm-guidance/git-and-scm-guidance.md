@@ -20,15 +20,16 @@ When you create a new Application in Intent Architect and you keep the default l
 
 Should you alter the layout structure when you create a new Application, the files and folders to include to source control are:
 
-| File, Extension or Folder | Description |
-|---------------------------|-------------|
-| `.isln`                   | Intent Architect Solution |
-| `.application.config`     | Intent Architect Application |
-| `modules.config` file     | Installed modules registry |
-| `Intent.Metadata` folder  | Designer Metadata |
-| `.application.deviations.xml` | Tracks files which have customizations necessitating additions/changes to default code management instructions, see [](xref:application-development.software-factory.customizations-screen) for more information. |
-| `.application.ignored.xml` | Tracks which files have been ignored in the Software Factory changes view and must be committed to source control so that the [](xref:tools.software-factory-cli) running on CI servers and other users will also know which Software Factory files to ignore. This file is only created when at least one file is being ignored. |
-| `intent.repositories.config` file | Solution-level asset repository configuration |
+| File, Extension or Folder        | Description |
+|----------------------------------|-------------|
+| `.application.config`            | Intent Architect Application with basic data such as it's name, icon, etc. |
+| `.application.deviations.xml`    | Tracks files which have customizations necessitating additions/changes to default code management instructions, see [](xref:application-development.software-factory.customizations-screen) for more information. |
+| `.application.output.config.xml` | Only created/updated by the Software Factory if it already existed or when it has one or more files it should not generate any reason, for example due to a file being ignored or being once-off generation only. If this file is not committed into source control, then other users and the [](xref:tools.software-factory-cli) will not be aware of which files should not be generated. |
+| `.application.output.log`        | Obsolete. Prior to [version 4.5.22](xref:release-notes.intent-architect-v4.5#version-4522) of Intent Architect, was used to track aspects of Software Factory output. For backwards compatibility with older versions of Intent Architect, this file will still be updated by the Software Factory if it already exists, but if it's not present then it will not be created again. Provided that all users working on an Intent Architect application have updated to at least version 4.5.22, this file can be deleted. |
+| `.isln`                          | Intent Architect Solution file. |
+| `Intent.Metadata` folder         | Designer Metadata files. |
+| `intent.repositories.config`     | Solution-level asset repository configuration. |
+| `modules.config` file            | Tracks which modules and their versions are installed for the application. |
 
 ## Folders which should always be ignored
 
