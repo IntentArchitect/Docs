@@ -21,6 +21,12 @@ uid: release-notes.intent-architect-v4.5
 
 ### Improvements in 4.5.22
 
+- Improvement: The **Help Dialog** now supports searching and loading from **_all available documentation topics_**, not just those associated with currently installed modules. This makes it easier to discover, explore and evaluate additional capabilities that could be installed and integrated into your application.
+
+For example, **MongoDB help topics** will now appear in the search results even if your application only has the **Entity Framework Core** module installed.
+
+  ![All topics search](images/4.5/all-topics-search.png)
+
 - Improvement: The `<application-name>.application.output.log` file (which was prone to often having merge conflicts), no longer needs to be committed and tracked in SCMs (e.g. Git) in order for the [](xref:tools.software-factory-cli) running on your CI servers to be able to be know which files should be ignored. Its content is now split into the following two files:
   - **`<application-name>.application.output.config.xml`**:
     - Used by the Software Factory (including the [CLI version](xref:tools.software-factory-cli) on CI servers) to prevent generation of particular files.
