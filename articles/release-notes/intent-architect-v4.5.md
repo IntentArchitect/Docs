@@ -23,7 +23,7 @@ uid: release-notes.intent-architect-v4.5
 
 - Improvement: The **Help Dialog** now supports searching and loading from **_all available documentation topics_**, not just those associated with currently installed modules. This makes it easier to discover, explore and evaluate additional capabilities that could be installed and integrated into your application.
 
-For example, **MongoDB help topics** will now appear in the search results even if your application only has the **Entity Framework Core** module installed.
+  For example, **MongoDB help topics** will now appear in the search results even if your application only has the **Entity Framework Core** module installed.
 
   ![All topics search](images/4.5/all-topics-search.png)
 
