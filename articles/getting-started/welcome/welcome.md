@@ -23,7 +23,9 @@ What's covered in this demo:
 * Building a working, high-quality .NET application in minutes following a Clean Architecture
 * A sneak peek at how Intent Architect can leverage generative-AI to push productivity even further.
 
-<div class="video-16x9"><iframe src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series" title="Video" allowfullscreen></iframe></div>
+[![Demo Thumbnail](images/demo-thumbnail.png)](https://intentarchitect.com/#/redirect/?category=resources&subCategory=IntroductionAndDemo)
+
+To watch the webinar, `middle-click` on the image above or use the following link: [Introduction to Intent Architect](https://intentarchitect.com/#/redirect/?category=resources&subCategory=IntroductionAndDemo)
 
 ## How it's achieved
 
