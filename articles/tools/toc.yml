@@ -1,15 +1,9 @@
 items:
-  - name: JSON Metadata Synchronizer
-    href: json-metadata-synchronizer/json-metadata-synchronizer.md
-
   - name: Module Server
     href: module-server/module-server.md
 
   - name: Module Server Client CLI
     href: module-server-client-cli/module-server-client-cli.md
-
-  - name: OpenAPI Metadata Synchronizer
-    href: open-api-metadata-synchronizer/open-api-metadata-synchronizer.md
 
   - name: Packager CLI
     href: packager-cli/packager-cli.md
@@ -19,6 +13,3 @@ items:
 
   - name: Software Factory CLI
     href: software-factory-cli/software-factory-cli.md
-
-  - name: CSharp Metadata Synchronizer
-    href: csharp-metadata-synchronizer/csharp-metadata-synchronizer.md
