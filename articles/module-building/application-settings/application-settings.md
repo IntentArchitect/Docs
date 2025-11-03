@@ -3,32 +3,37 @@ uid: module-building.application-settings
 ---
 # Application Settings
 
-Application Settings offer Modules the ability to let end-users customize certain parts and behaviors of it within Intent Architect. These Settings can be located through the Application's context menu option `Settings`. Modules can create (or extend existing) `Settings Groups` which compose of Settings that are related and can be accessed by other Modules too.
+Application Settings allow Modules to provide configuration options that end-users can customize within Intent Architect. These settings help enable flexible, modular behavior without requiring code changes. Settings can be accessed through the Application's context menu option `Settings`. Modules can create new `Settings Groups` (collections of related settings) or extend existing ones from other modules.
 
 ![Application Settings Example](images/application-module-settings.png)
 
 ## Creating Application Settings for your Module
 
-Open the Module Builder for your Module and do the following:
+To create a new settings group for your module, open the Module Builder and follow these steps:
 
-- Right click on the Package element at the top of the tree-view and select `New Settings Group`.
-- Give the `Settings Group` a name which will reflect on the Application Settings screen (for example `My Module Settings`).
-- Right click on the `Settings Group` and select `Add Field` and give it a name (i.e. `Enable My Setting`) and choose a Type (i.e. `Checkbox`).
+1. Right-click on the **Package** element at the top of the tree view and select `New Settings Group`.
+2. Enter a name for the settings group that will appear on the Application Settings screen (for example, `My Module Settings`).
+3. Right-click on the new `Settings Group` and select `Add Field`.
+4. Enter a field name (for example, `Enable My Setting`) and choose a field type (for example, `Switch`).
 
 ![My Modules Setting Example](images/my-module-settings-example.png)
 
-Once the Module is installed in your target Application, it will introduce this `Settings Group` on the Application's Settings screen.
+Once the Module is installed in your target Application, the new `Settings Group` will appear on the Application's Settings screen.
 
 ![My Modules Settings Screen Example](images/my-module-settings-screen-example.png)
 
 > [!TIP]
-> You can change the icon for the Setting by setting the icon for that Module.
+> To change the icon displayed for your settings group, open the Settings page for your Module Builder application and change the module's icon.
 >
 > ![Change Settings Icon](images/change-settings-icon.png)
 
 ## Consuming Application Settings inside your Module
 
-Open up the Module's Visual Studio solution. The newly created Setting will have code generated inside your Module under the `Settings` folder and can be used by first accessing the `ExecutionContext.Settings` properties inside your Template code and then using the `GetMyModuleSettings()` extension method you can read the value of `Enable My Setting` by using the `EnableMySetting()` extension method.
+The generated Setting code is available in your Module's Visual Studio solution under the `Settings` folder. To use a setting in your Template code:
+
+1. Access `ExecutionContext.Settings` in your template
+2. Use the generated extension method (for example, `GetMyModuleSettings()`)
+3. Call the property accessor method (for example, `EnableMySetting()`)
 
 ```csharp
 private bool IsMySettingEnabled()
@@ -37,7 +42,7 @@ private bool IsMySettingEnabled()
 }
 ```
 
-If you want to read the same Setting inside a Factory Extension, you can use it by first accessing the supplied `application` parameter and then accessing the `Settings` property.
+To read the same setting inside a Factory Extension, access it through the supplied `application` parameter:
 
 ```csharp
 protected override void OnBeforeTemplateExecution(IApplication application)
@@ -48,20 +53,66 @@ protected override void OnBeforeTemplateExecution(IApplication application)
 
 ## Extending an existing Module Settings Group
 
-Install the target Module with the `Settings Group` that you would like to extend (also ensuring the `Install Metadata only` option is checked). For example install the `Intent.Modelers.Domain` module.
+You can extend settings groups created by other modules. First, install the target module with the settings group you want to extend (ensure only the `Install Designer Metadata` option is checked). For example, install `Intent.Modelers.Domain`.
 
-Open the Module Builder for your Module and do the following:
+Then, in your Module Builder, follow these steps:
 
-- Right click on the Package element at the top of the tree-view and select `New Settings Extension`.
-- Specify a distinct name for that `Settings Extension`.
-- Choose the `Settings Group` that you would like to extend in the Type drop-down (i.e. `Domain Settings`).
-- Right click on the newly created `Settings Extension` and select `Add Field`. Give it the name `Custom Settings Field` and choose the control type of `Checkbox`.
-- Fill in the `Hint` property to provide information about what this setting does.
+1. Right-click on the **Package** element and select `New Settings Extension`.
+2. Enter a distinct name for the `Settings Extension`.
+3. In the **Type** dropdown, select the `Settings Group` you want to extend (for example, `Domain Settings`).
+4. Right-click on the new `Settings Extension` and select `Add Field`.
+5. Enter a field name (for example, `Custom Settings Field`) and choose a field type (for example, `Switch`).
+6. Optionally, fill in the **Hint** property to explain what this setting does.
 
-Once the Module is installed in your target Application, it will add your new field to the `Domain Settings` Group.
+Once your module is installed in an Application, your new field will be added to the selected `Settings Group`.
 
 ![My Modules Setting Extension Example](images/my-module-settings-extension-example.png)
 
-See also:
+## User Settings
 
-- [](xref:module-building.application-templates.how-to-create-application-templates#for-module-settings)
+User Settings are similar to Application Settings, but they are scoped to individual users rather than the entire application. These settings persist across multiple applications and allow users to configure module behavior according to their personal preferences.
+
+### Creating User Settings for your Module
+
+To create a new user settings group for your module, open the Module Builder and follow these steps:
+
+1. Right-click on the **Package** element at the top of the tree view and select `New Settings Group`.
+2. Enter a name for the settings group (for example, `Custom User Settings`).
+3. Right-click on the new `Settings Group` and select `Add Field`.
+4. Enter a field name (for example, `Custom User Setting`) and choose a field type `Text Box`.
+
+The difference from Application Settings is in how these are accessed and where they appear in the user interface. User Settings appear in the **User Settings** dialog, which is accessible by left-clicking on the profile icon at the top-right corner of the Intent Architect window.
+
+![Module Builder User Settings Example](images/module-builder-user-settings-example.png)
+
+Once your module is installed, these settings will appear in the **User Settings** dialog:
+
+![User Settings Dialog Example](images/user-settings-dialog-example.png)
+
+### Consuming User Settings inside your Module
+
+User Settings are accessed similarly to Application Settings. In your Template code, you can read user settings by:
+
+1. Accessing `ExecutionContext.Settings` in your template
+2. Using the generated extension method (for example, `GetCustomUserSettings()`)
+3. Calling the property accessor method (for example, `CustomSettingsField()`)
+
+```csharp
+private string GetUserPreference()
+{
+    return ExecutionContext.Settings.GetCustomUserSettings().CustomUserSetting();
+}
+```
+
+To read user settings inside a Factory Extension, access them through the supplied `application` parameter:
+
+```csharp
+protected override void OnBeforeTemplateExecution(IApplication application)
+{
+    var customUserSetting = application.Settings.GetCustomUserSettings().CustomUserSetting();
+}
+```
+
+## Related Topics
+
+- [Application Settings in Application Templates](xref:module-building.application-templates.how-to-create-application-templates#for-module-settings)
