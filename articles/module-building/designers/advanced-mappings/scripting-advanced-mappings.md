@@ -571,7 +571,6 @@ let shippingDetailsField = command.getChildren("DTO-Field").find(x => x.getName(
 let shippingInfoAssocEnd = orderEntity.getAssociations("Association").find(x => x.getName() === "ShippingInfo");
 
 if (shippingDetailsField && shippingInfoAssocEnd) {
-    // Get the association's other end (the actual target)
     let shippingInfoAssoc = shippingInfoAssocEnd;
     
     // Get the types to access their nested fields
