@@ -829,6 +829,39 @@ public static Order MapToOrder(this CreateOrderCommand source)
 
 ---
 
+## 16. DOCUMENTATION PLAN
+
+### Article Structure Decision
+
+**ONE COMPREHENSIVE ARTICLE** at: `module-building/advanced-mappings/advanced-mappings-guide.md`
+
+**Rationale:**
+- Fills the gap between tutorial-advanced-mapping.md (HOW to configure) and designer-scripting.md (API reference)
+- Provides the "WHAT and WHY" that's currently missing
+- Complex topic benefits from cohesive reading experience
+- Can be referenced in sections later
+
+**Target Audience:**
+- **Primary**: Module builder developers creating advanced mapping modules
+- **Secondary**: Advanced end users who script automation
+- **Prerequisites**: Intermediate scripting knowledge, understand CQRS patterns
+
+**Article Coverage (7 main sections):**
+1. Introduction & Problem Statement
+2. Core Concepts (3 mapping types + architecture)
+3. How It Works (the 3-step API flow)
+4. Primary Use Case: CRUD Accelerators
+5. Scripting Advanced Mappings (practical examples)
+6. Key Patterns & Best Practices
+7. Real-World Example (end-to-end)
+
+**Cross-References:**
+- Link to `tutorial-advanced-mapping.md` for Module Builder setup
+- Link to `designer-scripting.md` for detailed API docs
+- Link from both back to this guide for conceptual understanding
+
+---
+
 **END OF ANALYSIS DOCUMENT**
 
 This document provides the foundation for creating comprehensive user-facing documentation on advanced mappings in Intent Architect's designer scripting.
