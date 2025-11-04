@@ -1,5 +1,5 @@
 ---
-uid: how-it-works.visual-modeling
+uid: key-concepts.visual-modeling
 ---
 
 # Visual modeling
@@ -70,6 +70,6 @@ Teams can annotate, discuss, and validate decisions directly within the modeling
 
 ## Learn more
 
-- **[Pattern-based code generation](xref:how-it-works.deterministic-codegen)**
-- **[AI-assisted code generation](xref:how-it-works.non-deterministic-codegen)**
-- **[Codebase integration](xref:how-it-works.codebase-integration)**
+- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
+- **[AI-assisted code generation](xref:key-concepts.non-deterministic-codegen)**
+- **[Codebase integration](xref:key-concepts.codebase-integration)**

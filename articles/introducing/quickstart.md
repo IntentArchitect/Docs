@@ -10,7 +10,7 @@ Learn how to create, generate, and run your first application in **Intent Archit
 
 ---
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-one" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/eygY3PCXCvA?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ---
 
@@ -36,4 +36,4 @@ You’ve just built a complete, architecture-aligned application with clean, det
 ## Next steps
 
 - Continue to **[Fundamentals #2: Introduction to Domain Modeling](xref:tutorials.fundamentals-2-intro-to-domain-modeling)**  
-- Learn more about **[How It Works](xref:introducing.overview#how-it-works)**  
+- Learn more about **[How It Works](xref:introducing.overview#key-concepts)**  

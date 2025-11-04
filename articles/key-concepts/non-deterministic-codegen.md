@@ -1,10 +1,11 @@
 ---
-uid: how-it-works.non-deterministic-codegen
+uid: key-concepts.non-deterministic-codegen
 ---
 
-# AI-Assisted code generation
+# Non-Deterministic code generation (AI-Assisted)
 
-While Pattern-Based Code Generation automates predictable patterns, some parts of software development require creative, context-aware logic that can’t be fully predefined.  
+While Deterministic Code Generation automates predictable patterns, some parts of software development require creative, context-aware logic that can’t be fully predefined.  
+
 **Intent Architect’s AI-Assisted Code Generation** bridges that gap with **AI Accelerators**, guided tools that can implement Blazor views, service implementations, unit tests, and other non-deterministic code directly from your architectural design.
 
 Unlike traditional AI coding tools that rely on hand-crafted prompts and unpredictable output, Intent Architect performs all the **context engineering** automatically. It builds structured, detailed prompts from your blueprints, ensuring that AI generation aligns with your architecture.  
@@ -59,6 +60,6 @@ AI Accelerators are designed to work well out-of-the-box for most use cases (~80
 
 ## Learn more
 
-- **[Visual modeling](xref:how-it-works.visual-modeling)**
-- **[Pattern-based code generation](xref:how-it-works.deterministic-codegen)**
-- **[Codebase integration](xref:how-it-works.codebase-integration)**
+- **[Visual modeling](xref:key-concepts.visual-modeling)**
+- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
+- **[Codebase integration](xref:key-concepts.codebase-integration)**

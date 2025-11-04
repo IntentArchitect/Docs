@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-3-create-crud-service
 
 Learn to build CRUD services for domain entities and map data consistently between service contracts and the domain model.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-three" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/JlYp_3mALm4?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 

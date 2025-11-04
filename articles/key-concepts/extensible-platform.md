@@ -1,5 +1,5 @@
 ---
-uid: how-it-works.extensible-platform
+uid: key-concepts.extensible-platform
 ---
 
 # Extensible Platform

@@ -248,7 +248,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ---
 
-## How It Works
+## Key Concepts
 
 <ul class="cards-grid cards-2x2">
   <li>
@@ -268,7 +268,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
         <strong class="card-title">Visual Modeling</strong>
         <p class="card-text">Design your systems visually. Intuitive designers make complex architectures easy to understand, turning models into living blueprints that help teams collaborate, validate, and evolve applications with confidence.</p>
       </div>
-      <a href="xref:how-it-works.visual-modeling" aria-label="Visual Modeling"></a>
+      <a href="xref:key-concepts.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
   </li>
   <li>
@@ -283,10 +283,10 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Pattern-Based Code Generation</strong>
+        <strong class="card-title">Deterministic Code Generation (Pattern Reuse)</strong>
         <p class="card-text">Pattern-based code generation automates the predictable parts of your system, up to 85% of your codebase. Each pattern applies proven practices, ensuring code is clean, consistent, and production-ready.</p>
       </div>
-      <a href="xref:how-it-works.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
+      <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
     </div>
   </li>
   <li>
@@ -305,10 +305,10 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">AI-Assisted Code Generation</strong>
+        <strong class="card-title">Non-Deterministic Code Generation(AI-Assisted)</strong>
         <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which can't be predefined. Performing all the necessary context engineering automatically, Intent Architect integrates with LLMs providing a prompt-less, predictable AI experience.</p>
       </div>
-      <a href="xref:how-it-works.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
+      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
   </li>
   <li>
@@ -326,7 +326,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
         <strong class="card-title">Codebase Integration</strong>
         <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase, via a review process. Advanced Code Integration systems keep developers in control of the code, with full transparency. </p>
       </div>
-      <a href="xref:how-it-works.codebase-integration" aria-label="Codebase Integration"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
   </li>
 <!--  <li>
@@ -344,7 +344,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
         <strong class="card-title">Extensible Platform</strong>
         <p class="card-text">Intent Architect is fully modular. Every behavior,  from code generation to design tooling, is driven by open-source modules. Build your own or extend ours to automate your proprietary patterns, endlessly customizable, entirely under your control.</p>
       </div>
-      <a href="xref:how-it-works.extensible-platform" aria-label="Extensible Platform"></a>
+      <a href="xref:key-concepts.extensible-platform" aria-label="Extensible Platform"></a>
     </div>
   </li>-->
 </ul>
@@ -353,7 +353,7 @@ It combines cutting-edge code generation systems, such as Pattern Reuse and your
 
 ## Watch a demo
 
-<div class="video-16x9"><iframe src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=intro-and-demo" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
 
 If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
 

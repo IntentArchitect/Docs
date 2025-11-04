@@ -1,11 +1,15 @@
 items:
 
-  - name: Getting started
-    href: introducing/toc.yml
+  - name: Overview
     topicUid: introducing.overview
 
-  - name: Getting help
-    href: introducing/getting-help.md
+  - name: Getting started
+    href: introducing/toc.yml
+    topicHref: introducing/overview.md#getting-started
+
+  - name: Key Concepts
+    href: key-concepts/toc.yml
+    topicHref: introducing/overview.md#key-concepts
 
   - name: Tutorials
     href: tutorials/toc.yml
@@ -39,3 +43,6 @@ items:
 
   - name: What's new
     href: whats-new/toc.yml
+
+  - name: Getting help
+    href: introducing/getting-help.md

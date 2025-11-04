@@ -1,5 +1,5 @@
 ---
-uid: how-it-works.codebase-integration
+uid: key-concepts.codebase-integration
 ---
 
 # Codebase integration
@@ -88,6 +88,6 @@ Developers review these proposed modifications as diffs before applying them. No
 
 ## Learn more
 
-- **[Visual modeling](xref:how-it-works.visual-modeling)**
-- **[Pattern-based code generation](xref:how-it-works.deterministic-codegen)**
-- **[AI-assisted code generation](xref:how-it-works.non-deterministic-codegen)**
+- **[Visual modeling](xref:key-concepts.visual-modeling)**
+- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
+- **[AI-assisted code generation](xref:key-concepts.non-deterministic-codegen)**

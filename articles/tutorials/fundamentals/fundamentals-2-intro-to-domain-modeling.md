@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-2-intro-to-domain-modeling
 
 Learn to model domain entity data and define relationships in your domain.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-two" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/Q4HDH95VAY4?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 

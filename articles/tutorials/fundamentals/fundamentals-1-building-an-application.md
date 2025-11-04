@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-1-building-an-application
 
 Learn to create a new application in Intent Architect and build an end-to-end CRUD use case.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-one" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/eygY3PCXCvA?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 

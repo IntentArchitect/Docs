@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-4-create-non-crud-service
 
 Learn to build services beyond standard CRUD operations for more complex use cases, which require a developer to implement.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-four" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/mi6g8px0_Ec?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 

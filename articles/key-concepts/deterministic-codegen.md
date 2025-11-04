@@ -1,10 +1,10 @@
 ---
-uid: how-it-works.deterministic-codegen
+uid: key-concepts.deterministic-codegen
 ---
 
-# Pattern-based code generation
+# Deterministic code generation (Pattern reuse)
 
-Intent Architect’s **Pattern-Based Code Generation** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging, or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
+Intent Architect’s **Pattern Reuse** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging, or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
 
 This is **deterministic code generation**: it's fast, predictable and developer-controlled. It’s not a black box or one-time scaffolding; it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all changes before applying them.
 
@@ -23,14 +23,14 @@ The result is an architecture that stays consistent, extensible, and always alig
 - **🔁 Agile architecture**  
   Swap frameworks, refactor layers, or evolve your architecture safely by changing configuration or modules, no rewrites required.
 
-- **🧱 It's all design time, no runtime dependencies**  
+- **🧱 No Lock-in, It's all design time**  
   Generated code runs independently of Intent Architect. It’s your code, in your stack, written the way you would have, developer-centric, high-code, and free from lock-in.
 
 ---
 
 ## Continuous deterministic code generation
 
-Intent Architect is ideal for automating architectural, infrastructural, and boilerplate code. Depending on the project, this type of code can make up over 85% of the codebase. Typically, the tool is used by developers to achieve the following:
+Intent Architect is ideal for automating architectural, infrastructural, and boilerplate code. Depending on the project, this type of code can make up over 85% of the codebase. Typically, the platform is used by developers to achieve the following:
 
 - Bootstrapping - Microservices, Monolithic Applications, Application Modules, Identity, etc.
 - Persistence Infrastructure - ORM Mappings, Repositories, etc.
@@ -78,6 +78,6 @@ Intent Architect is not a framework or runtime platform. It does not inherently 
 
 ## Learn more
 
-- **[Visual modeling](xref:how-it-works.visual-modeling)**
-- **[AI-Assisted code generation](xref:how-it-works.non-deterministic-codegen)**
-- **[Codebase integration](xref:how-it-works.codebase-integration)**
+- **[Visual modeling](xref:key-concepts.visual-modeling)**
+- **[AI-Assisted code generation](xref:key-concepts.non-deterministic-codegen)**
+- **[Codebase integration](xref:key-concepts.codebase-integration)**

@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-7-settings-migration
 
 Learn about Application Settings, focusing on how to transition from an in-memory database to a more persistent solution like SQLite.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-seven" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/sYF8eId-6Gg?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 

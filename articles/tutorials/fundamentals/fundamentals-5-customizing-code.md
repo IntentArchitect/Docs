@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-5-customizing-code
 
 Learn how to customize and fine-tune Intent Architect’s interaction with your codebase, to effectively maintain code customizations while still leveraging automation.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-five" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/31SXHhgEdSg?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
