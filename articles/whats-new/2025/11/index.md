@@ -4,6 +4,8 @@ Welcome to the November edition of What’s New in Intent Architect.
 
 - Highlights
   - **[Mapperly Module](#mapperly-module)** – Mapperly is a .NET source generator that automatically creates efficient object mappings between different data models at compile time.
+  - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
+  - **[Azure Storage Queue Module](#azure-storage-queue-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
   - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality oif life.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
   - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
@@ -14,6 +16,30 @@ Welcome to the November edition of What’s New in Intent Architect.
 ### Mapperly Module
 
 To Do
+
+### AWS Secrets Management Module
+
+The `Intent.Aws.SecretsManager` module extends the standard .NET Configuration system by integrating directly with **AWS Secrets Manager**. This enables your application to securely retrieve secrets (such as connection strings, API keys, and credentials) at runtime with minimal code changes.
+
+Once configured, secrets are accessible through the familiar `IConfiguration` interface, just like any other configuration value in ASP.NET Core.
+
+Available from:
+
+- Intent.Aws.SecretsManager 1.0.0-beta.2
+
+### Azure Storage Queue Module
+
+The `Intent.Eventing.AzureQueueStorage` module provides all necessary files, configuration, and abstractions for working with Azure Queue Storage messaging. It supports both publishing and consuming messages in a structured, opinionated way.
+
+Whether you're building an ASP.NET Core web application or an Azure Function, this module simplifies queue integration by setting up message dispatching, consumption patterns, and dependency injection automatically.
+
+![Azure Queue Storage](images/azure-queue-storage.png)
+
+To learn more about the Azure Queue Storage module, read the [documentation here](https://docs.intentarchitect.com/articles/modules-dotnet/intent-eventing-azurequeuestorage/intent-eventing-azurequeuestorage.html).
+
+Available from:
+
+- Intent.Eventing.AzureQueueStorage 1.0.0-beta.1
 
 ### Open in IDE enhancements
 
