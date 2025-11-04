@@ -1,9 +1,27 @@
 items:
-- name: 'Tutorial 1: Hello World'
-  href: hello-world/hello-world-tutorial.md
+- name: 'Overview'
+  href: fundamentals/fundamentals-landing-page.md
   
-- name: 'Tutorial 2: Build an Application'
-  href: building-an-application/building-an-application.md
+- name: '1: Build Your First Application'
+  href: fundamentals/fundamentals-1-building-an-application.md
+
+- name: '2: Introduction to Domain Modeling'
+  href: fundamentals/fundamentals-2-intro-to-domain-modeling.md
+
+- name: '3: Creating CRUD Services'
+  href: fundamentals/fundamentals-3-create-crud-service.md
+
+- name: '4: Creating Non-CRUD Services'
+  href: fundamentals/fundamentals-4-create-non-crud-services.md
+
+- name: '5: Customizing Code with Code Management'
+  href: fundamentals/fundamentals-5-customizing-code.md
+
+- name: '6: Version Control with Intent Architect'
+  href: fundamentals/fundamentals-6-version-control.md
+
+- name: '7: Application Settings & Migrating to SQLite'
+  href: fundamentals/fundamentals-7-settings-migration.md
 
 # this to be converted to Java tutorial
 # - name: 'Tutorial: Create a Sample App'

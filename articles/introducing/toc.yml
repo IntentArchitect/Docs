@@ -1,0 +1,8 @@
+items:
+
+- name: Get Intent Architect
+  topicUid: getting-started.get-the-application
+
+- name: Quick Start
+  href: quickstart.md
+  

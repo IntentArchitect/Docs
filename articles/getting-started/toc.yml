@@ -1,9 +1,0 @@
-items:
-- name: Welcome
-  href: welcome/welcome.md
-
-- name: Get the application
-  href: get-the-application/get-the-application.md
-
-- name: Take a tour
-  href: take-a-tour/take-a-tour.md

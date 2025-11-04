@@ -125,10 +125,10 @@ div.sideaffix {
     height: auto;
 }
 
-    .navbar-brand img {
-        width: 300px;
-        height: auto;
-    }
+.navbar-brand img {
+    width: 300px;
+    height: auto;
+}
 
 .navbar-inverse {
     padding-top: 20px;
@@ -137,6 +137,29 @@ div.sideaffix {
 
 .navbar-form {
     margin-top: 0px;
+    width: 35%;
+}
+
+/* .search-icon {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+} */
+
+.form-group{
+    width: 100%;
+}
+
+.input-group{
+    width: 95%;
+}
+
+.nav-search .search-glyph{ display:block; }
+
+/* Make the input visually merge with the addon */
+.nav-search .form-control{
+  height: 30px;                
+  box-shadow: none;
 }
 
 .hide-when-search.container {
@@ -259,9 +282,9 @@ https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100
     margin-right: -16px;
 }
 
-    .tabGroup section[role="tabpanel"] .code-header:first-child {
-        margin-top: -16px;
-    }
+.tabGroup section[role="tabpanel"] .code-header:first-child {
+    margin-top: -16px;
+}
 
 .code-header > .language {
     padding: 2px 16px;
@@ -318,3 +341,96 @@ https://github.com/dotnet/docfx/issues/5103#issuecomment-658849100
 pre > code .line-highlight {
     background-color: var(--theme-code-highlight-color);
 }
+
+/* For embedding the youtube videos */
+.video-16x9 {
+  max-width: 100%;
+  margin: 1rem auto;
+  aspect-ratio: 16/9;
+}
+.video-16x9 iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* The tutorial lead text before going to the video */
+.lead { font-size: 2.00rem; line-height: 1.8; }
+
+.docs-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 24px auto;
+}
+
+/* The tutorial landing page grid of topics */
+.docs-tiles {
+  border-collapse: separate;
+  border-spacing: 16px;           /* gap between tiles */
+  margin: 24px auto;
+  max-width: 1100px;
+  table-layout: fixed;
+  width: 100%;
+}
+.docs-tiles td { padding: 0; vertical-align: top; border: 0; height: 100%;}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+  background: var(--theme-code-header-background);
+  border: 1px solid var(--theme-code-header-border);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+  transition: transform .08s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .12);
+  border-color: #5999d8;
+}
+
+.feature-card-title {
+  margin: 8px 0 6px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--theme-code-header-forecolor);
+  line-height: 1.5;
+}
+
+.spacer-card {
+  visibility: hidden;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+@media (max-width: 640px) {
+  .docs-tiles, .docs-tiles tbody, .docs-tiles tr { display: block; width: 100%; }
+  .docs-tiles td { display: block; margin: 0 12px 16px; }
+}
+
+/* The tutorial landing page SVGs */
+.landing-svg {
+  width: 48px;
+  height: 48px;
+
+  fill: none;
+  stroke: #5999d8; /*var(--theme-code-header-forecolor);*/
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round; 
+}
+

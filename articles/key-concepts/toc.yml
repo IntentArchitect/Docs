@@ -1,0 +1,12 @@
+items:
+- name: Visual Modeling
+  href: visual-modeling.md
+
+- name: Deterministic Code Generation (Pattern Reuse)
+  href: deterministic-codegen.md
+
+- name: Non-Deterministic Code Generation (AI-Assisted)
+  href: non-deterministic-codegen.md
+
+- name: Codebase Integration
+  href: codebase-integration.md

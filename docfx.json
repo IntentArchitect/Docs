@@ -1,5 +1,9 @@
 {
   "build": {
+    "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [ "attributes", "advanced" ]
+    },
     "content": [
       {
         "files": [

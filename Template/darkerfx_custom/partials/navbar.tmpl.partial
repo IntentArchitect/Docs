@@ -13,7 +13,16 @@
     <div class="collapse navbar-collapse" id="navbar">
       <form class="navbar-form navbar-right" role="search" id="search">
         <div class="form-group">
-          <input type="text" class="form-control" id="search-query" placeholder="{{__global.search}}" autocomplete="off">
+          <div class="input-group">
+            <span class="input-group-addon" style="width:20px">
+              <span class="glyphicon glyphicon-search"></span>
+            </span>
+            <input type="search"
+                  class="form-control"
+                  id="search-query"
+                  placeholder="{{__global.search}}"
+                  autocomplete="off">
+          </div>
         </div>
       </form>
     </div>

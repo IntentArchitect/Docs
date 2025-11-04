@@ -1,3 +1,3 @@
 <script type="text/javascript">
-  window.location.href = "./articles/getting-started/welcome/welcome.html";
+  window.location.href = "./articles/introducing/overview.html";
 </script>
