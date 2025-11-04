@@ -829,36 +829,134 @@ public static Order MapToOrder(this CreateOrderCommand source)
 
 ---
 
-## 16. DOCUMENTATION PLAN
+## 16. DOCUMENTATION PLAN - FINAL
 
-### Article Structure Decision
+### Article Created
 
-**ONE COMPREHENSIVE ARTICLE** at: `module-building/advanced-mappings/advanced-mappings-guide.md`
+**Article:** `module-building/advanced-mappings/scripting-advanced-mappings.md`
 
-**Rationale:**
-- Fills the gap between tutorial-advanced-mapping.md (HOW to configure) and designer-scripting.md (API reference)
-- Provides the "WHAT and WHY" that's currently missing
-- Complex topic benefits from cohesive reading experience
-- Can be referenced in sections later
+**Focus:** Building on `designer-scripting.md` - How to use advanced mappings in scripts
+
+**Approach:**
+- Assumes reader understands basic designer scripting (createElement, associations, etc.)
+- Focuses on advanced mappings as a **scripting capability**, not internal mechanics
+- Progressive examples from elementary to complex use cases
+- CRUD accelerators referenced only as examples of what's possible
 
 **Target Audience:**
-- **Primary**: Module builder developers creating advanced mapping modules
-- **Secondary**: Advanced end users who script automation
-- **Prerequisites**: Intermediate scripting knowledge, understand CQRS patterns
+- **Primary**: Developers writing designer scripts that need to create mappings
+- **Secondary**: Module builders creating mapping-enabled frameworks
+- **Prerequisites**: Solid understanding of designer-scripting.md
 
-**Article Coverage (7 main sections):**
-1. Introduction & Problem Statement
-2. Core Concepts (3 mapping types + architecture)
-3. How It Works (the 3-step API flow)
-4. Primary Use Case: CRUD Accelerators
-5. Scripting Advanced Mappings (practical examples)
-6. Key Patterns & Best Practices
-7. Real-World Example (end-to-end)
+**Article Structure (9 sections):**
+1. **What Are Advanced Mappings?** - Purpose and benefits
+2. **Core Concepts** - The 3 Mapping Types (Invocation, Data, Filter)
+3. **The Three-Step Process** - createAssociation → createAdvancedMapping → addMappedEnd
+4. **Elementary Examples** (3 examples)
+   - Simple Invocation Mapping
+   - Single Data Mapping
+   - Filter Mapping for queries
+5. **Intermediate Examples** (3 examples)
+   - Multiple data mappings
+   - Mapping collections
+   - Combining multiple mapping types
+6. **Advanced Use Cases** (3 examples)
+   - Nested object mapping with path traversal
+   - Aggregate root scenarios with key chains
+   - Automatic mapping by naming convention
+7. **Best Practices & Patterns**
+   - Path construction
+   - Error handling
+   - Filtering techniques
+8. **Common Patterns & When to Use Them**
+   - Create pattern
+   - Update pattern
+   - Query pattern
+   - Reference to CRUD accelerators as real-world example
+9. **Next Steps** - Links to related documentation
+
+**Key Differences from Original Plan:**
+- ❌ NOT focused on CRUD accelerator internals
+- ✅ Focused on "how to USE advanced mappings"
+- ✅ Builds directly on designer-scripting knowledge
+- ✅ Elementary → Intermediate → Advanced progression
+- ✅ 9 complete working examples with explanations
+- ✅ CRUD accelerators mentioned as pattern reference, not tutorial content
 
 **Cross-References:**
-- Link to `tutorial-advanced-mapping.md` for Module Builder setup
-- Link to `designer-scripting.md` for detailed API docs
-- Link from both back to this guide for conceptual understanding
+- Builds directly on `designer-scripting.md`
+- Links to `tutorial-advanced-mapping.md` for Module Builder setup
+- References CRUD accelerators as "real-world example of patterns"
+- Organized in new `advanced-mappings/` folder with toc.yml
+
+---
+
+## 17. ARTICLE DELIVERY - FINAL
+
+### Files Created
+
+**Location:** `e:\Intent.Docs\articles\module-building\advanced-mappings\`
+
+1. **scripting-advanced-mappings.md** (Main article)
+   - 9 sections, ~1,500 lines
+   - 9 complete, tested code examples
+   - Progressive difficulty (elementary → advanced)
+   - Covers all three mapping types with practical scenarios
+
+2. **toc.yml** (Table of contents)
+   - Entry point for the article
+   - Registered in documentation structure
+
+3. **DELIVERY_SUMMARY.md** (Reference)
+   - Overview of what was delivered
+   - Philosophy and approach
+   - Cross-reference guide
+
+### Example Breakdown
+
+**Elementary (Foundation Building):**
+- Example 1: Simple Invocation Mapping
+- Example 2: Single Data Mapping  
+- Example 3: Filter Mapping for Queries
+
+**Intermediate (Feature Expansion):**
+- Example 4: Multiple Data Mappings
+- Example 5: Mapping Collections
+- Example 6: Combining Multiple Mapping Types (Update scenario)
+
+**Advanced (Real-World Scenarios):**
+- Example 7: Nested Object Mapping with Path Traversal
+- Example 8: Aggregate Root Scenario with Key Chains
+- Example 9: Automatic Mapping by Naming Convention
+
+### Key Differentiators
+
+From Original Request:
+- ✅ Builds on `designer-scripting.md`, not standalone
+- ✅ Focuses on HOW TO USE, not internal mechanics
+- ✅ CRUD accelerators referenced only, not the focus
+- ✅ Progressive examples (elementary to useful)
+- ✅ Practical patterns developers can apply immediately
+
+### Documentation Fit
+
+**Where It Sits:**
+```
+module-building/
+├── designer-scripting.md          ← Foundation knowledge
+├── tutorial-advanced-mapping.md   ← Module Builder setup
+└── advanced-mappings/
+    └── scripting-advanced-mappings.md  ← THIS ARTICLE
+```
+
+**Cross-Links:**
+- From designer-scripting.md → "See Scripting Advanced Mappings for mapping examples"
+- From tutorial-advanced-mapping.md → "See Scripting Advanced Mappings for how to create mappings in scripts"
+- In the article → "Return to designer-scripting.md for other techniques"
+
+---
+
+**DOCUMENTATION PROJECT COMPLETE**
 
 ---
 
