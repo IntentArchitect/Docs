@@ -5,8 +5,9 @@ Welcome to the November edition of What’s New in Intent Architect.
 - Highlights
   - **[Mapperly Module](#mapperly-module)** – Mapperly is a .NET source generator that automatically creates efficient object mappings between different data models at compile time.
   - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality oif life.
-  - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
+  - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
+  - **[Model Integration Messages directly with AWS SQS](#model-integration-messages-directly-with-aws-sqs)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
 
 ## Update details
 
@@ -40,6 +41,22 @@ Available from:
 - Intent.AI.Blazor 1.0.0-beta.17
 - Intent.AI.UnitTests 1.0.0-beta.13
 - Intent Architect 4.5.18
+
+### Model Integration Messages directly with AWS SQS
+
+Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+
+![Modeling Events and Commands](images/modeling-event-command.png)
+
+![Customize Queue Name](images/message-with-queue-name.png)
+
+Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html).
+
+Available from:
+
+- Intent.Aws.Sqs 1.0.0
 
 ### JSON Importer enhancements
 
