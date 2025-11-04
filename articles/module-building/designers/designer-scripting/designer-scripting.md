@@ -517,6 +517,12 @@ services.forEach(service => {
 await dialogService.info("Commands and Queries generated successfully!");
 ```
 
+## Working with Advanced Mappings
+
+For scenarios beyond basic element creation and modification, Intent Architect also supports programmatically creating **Advanced Mappings** - declarative configurations that define data transformation paths between model elements. This is particularly useful when generating CRUD operations that need sophisticated mapping logic.
+
+See [Scripting Advanced Mappings](xref:module-building.designers.scripting-advanced-mappings) for detailed examples of creating Invocation Mappings, Data Mappings, and Filter Mappings programmatically.
+
 ## Configuring Scripts in the Module Builder
 
 While the Execute Script Dialog is great for one-off scripting, creating reusable scripts as part of a module requires configuration in the [Module Builder](xref:module-building.about-the-module-builder). This section covers how to set up scripts that persist as part of your module and are automatically available to users.

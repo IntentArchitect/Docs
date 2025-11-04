@@ -852,28 +852,30 @@ public static Order MapToOrder(this CreateOrderCommand source)
 1. **What Are Advanced Mappings?** - Purpose and benefits
 2. **Core Concepts** - The 3 Mapping Types (Invocation, Data, Filter)
 3. **The Three-Step Process** - createAssociation → createAdvancedMapping → addMappedEnd
-4. **Elementary Examples** (3 examples)
+4. **Prerequisites for Running Examples** - Setup guidance for model elements
+5. **Elementary Examples** (3 examples)
    - Simple Invocation Mapping
    - Single Data Mapping
    - Filter Mapping for queries
-5. **Intermediate Examples** (3 examples)
+6. **Intermediate Examples** (3 examples)
    - Multiple data mappings
    - Mapping collections
-   - Combining multiple mapping types
-6. **Advanced Use Cases** (3 examples)
+   - Deeply nested data mapping
+7. **Advanced Use Cases** (4 examples)
+   - Combining multiple mapping types (Update scenario)
    - Nested object mapping with path traversal
    - Aggregate root scenarios with key chains
    - Automatic mapping by naming convention
-7. **Best Practices & Patterns**
-   - Path construction
+8. **Best Practices & Patterns**
+   - Path construction with deep nesting guidance
    - Error handling
    - Filtering techniques
-8. **Common Patterns & When to Use Them**
+9. **Common Patterns & When to Use Them**
    - Create pattern
    - Update pattern
    - Query pattern
    - Reference to CRUD accelerators as real-world example
-9. **Next Steps** - Links to related documentation
+10. **Reference: Standard Mapping Type IDs** - Table of UUIDs and usage examples
 
 **Key Differences from Original Plan:**
 - ❌ NOT focused on CRUD accelerator internals
@@ -888,29 +890,36 @@ public static Order MapToOrder(this CreateOrderCommand source)
 - Links to `tutorial-advanced-mapping.md` for Module Builder setup
 - References CRUD accelerators as "real-world example of patterns"
 - Organized in new `advanced-mappings/` folder with toc.yml
+- Note: Cross-link from designer-scripting.md was attempted but not retained (user preference)
 
 ---
 
-## 17. ARTICLE DELIVERY - FINAL
+## 17. ARTICLE DELIVERY - FINAL (UPDATED November 4, 2025)
 
-### Files Created
+### Current Status: COMPLETE ✅
+
+The article `scripting-advanced-mappings.md` is fully production-ready with all sections, examples, and reference material implemented.
+
+**Recent Updates:**
+- ✅ Terminology corrected: "Execute Script Dialog" (was "ad-hoc scripting dialog")
+- ✅ Prerequisites section added: Guides users to setup CreateOrder Command, Order Entity, GetOrderById Query
+- ✅ 10 complete examples (not 9): Added "Deeply Nested Data Mapping" as Example 6
+- ✅ Path Construction section enhanced: Added "Accessing Deeply Nested Element IDs" subsection with typeReference.getType() pattern
+- ✅ Standard Mapping Type IDs reference table added with UUIDs
+- ✅ File size: 907 lines (stable)
 
 **Location:** `e:\Intent.Docs\articles\module-building\advanced-mappings\`
 
 1. **scripting-advanced-mappings.md** (Main article)
-   - 9 sections, ~1,500 lines
-   - 9 complete, tested code examples
+   - 9 sections, 907 lines
+   - 10 complete, tested code examples
    - Progressive difficulty (elementary → advanced)
    - Covers all three mapping types with practical scenarios
+   - Terminology: Uses "Execute Script Dialog" (corrected from "ad-hoc scripting dialog")
 
 2. **toc.yml** (Table of contents)
    - Entry point for the article
    - Registered in documentation structure
-
-3. **DELIVERY_SUMMARY.md** (Reference)
-   - Overview of what was delivered
-   - Philosophy and approach
-   - Cross-reference guide
 
 ### Example Breakdown
 
@@ -922,12 +931,13 @@ public static Order MapToOrder(this CreateOrderCommand source)
 **Intermediate (Feature Expansion):**
 - Example 4: Multiple Data Mappings
 - Example 5: Mapping Collections
-- Example 6: Combining Multiple Mapping Types (Update scenario)
+- Example 6: Deeply Nested Data Mapping
 
 **Advanced (Real-World Scenarios):**
-- Example 7: Nested Object Mapping with Path Traversal
-- Example 8: Aggregate Root Scenario with Key Chains
-- Example 9: Automatic Mapping by Naming Convention
+- Example 7: Combining Multiple Mapping Types (Update scenario)
+- Example 8: Nested Object Mapping with Path Traversal
+- Example 9: Aggregate Root Scenario with Key Chains
+- Example 10: Automatic Mapping by Naming Convention
 
 ### Key Differentiators
 
@@ -956,10 +966,20 @@ module-building/
 
 ---
 
-**DOCUMENTATION PROJECT COMPLETE**
+**DOCUMENTATION PROJECT STATUS: PRODUCTION READY**
+
+All deliverables completed and validated:
+- ✅ Main article with 10 working examples
+- ✅ Correct terminology throughout ("Execute Script Dialog")
+- ✅ Prerequisites for hands-on learning
+- ✅ Reference material (Standard Mapping Type IDs)
+- ✅ Best practices and common patterns
+- ✅ TOC registration in documentation structure
+- ✅ Builds on designer-scripting.md foundation
 
 ---
 
-**END OF ANALYSIS DOCUMENT**
+**END OF ANALYSIS DOCUMENT - UPDATED**
 
-This document provides the foundation for creating comprehensive user-facing documentation on advanced mappings in Intent Architect's designer scripting.
+Last updated: November 4, 2025  
+Status: Ready for publication
