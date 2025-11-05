@@ -400,6 +400,162 @@ await dialogService.info("Filter mapping created!");
 - Tells templates to filter by Id
 - Templates will generate: `where(x => x.Id == id)`
 
+### Example: Querying Associations, Mappings, and Mapping Ends
+
+Learn how to find and inspect existing associations, mappings, and mapping ends programmatically. This example demonstrates a modular approach using helper functions.
+
+```javascript
+// Define mapping type constants (built-in types)
+const CreateEntityMappingId = "5f172141-fdba-426b-980e-163e782ff53e";
+const QueryEntityMappingId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
+
+// ===== HELPER FUNCTIONS =====
+
+function logAssociationDetails(association, targetEntity) {
+    console.log(`Found association from ${association.getOtherEnd().typeReference.getType().getName()} to ${targetEntity.getName()}`);
+    console.log(`  Association name: ${association.getName()}`);
+    console.log(`  Association specialization: ${association.specialization}`);
+    console.log(`  Other end points to: ${association.getOtherEnd().typeReference.getType().getName()}`);
+    console.log(`  Is source end: ${association.isSourceEnd()}`);
+    console.log(`  Is target end: ${association.isTargetEnd()}`);
+}
+
+function logMappingDetails(mapping) {
+    console.log(`Found mapping: ${mapping.mappingType}`);
+    console.log(`  Mapping type ID: ${mapping.mappingTypeId}`);
+    
+    let sourceElement = mapping.getSourceElement();
+    let targetElement = mapping.getTargetElement();
+    console.log(`  Mapping: ${sourceElement.getName()} -> ${targetElement.getName()}`);
+}
+
+function logMappedEndDetails(mappedEnd, index) {
+    console.log(`\nMapped End ${index + 1}:`);
+    console.log(`  Mapping Type: ${mappedEnd.mappingType}`);
+    
+    // Log source path
+    console.log(`  Source Path: ${mappedEnd.sourcePath.map(p => p.name).join(" > ")}`);
+    
+    // Log target path
+    console.log(`  Target Path: ${mappedEnd.targetPath.map(p => p.name).join(" > ")}`);
+    
+    // Log ultimate elements
+    console.log(`  Source Element: ${mappedEnd.getSourceElement().getName()}`);
+    console.log(`  Target Element: ${mappedEnd.getTargetElement().getName()}`);
+    
+    // Log expression if exists
+    if (mappedEnd.mappingExpression) {
+        console.log(`  Mapping Expression: ${mappedEnd.mappingExpression}`);
+    }
+    
+    // Log sources for complex mappings
+    if (mappedEnd.sources.length > 0) {
+        console.log(`  Sources: ${mappedEnd.sources.length}`);
+        mappedEnd.sources.forEach((source, i) => {
+            console.log(`    [${i + 1}] ${source.mappingType}: ${source.path.map(p => p.name).join(" > ")}`);
+        });
+    }
+}
+
+function validateMappingCoverage(mapping, targetEntity) {
+    console.log("\n=== Validating Mapping Coverage ===");
+    
+    let targetAttributes = targetEntity.getChildren("Attribute");
+    console.log(`Target entity has ${targetAttributes.length} attributes`);
+    
+    // Collect all mapped attribute IDs
+    let mappedAttributes = new Set();
+    mapping.getMappedEnds().forEach(mappedEnd => {
+        if (mappedEnd.targetPath.length > 0) {
+            let lastElement = mappedEnd.targetPath[mappedEnd.targetPath.length - 1];
+            mappedAttributes.add(lastElement.id);
+        }
+    });
+    
+    // Find unmapped attributes
+    let unmappedAttributes = targetAttributes.filter(attr => !mappedAttributes.has(attr.id));
+    if (unmappedAttributes.length > 0) {
+        console.log(`⚠ WARNING: ${unmappedAttributes.length} attributes are not mapped:`);
+        unmappedAttributes.forEach(attr => console.log(`  - ${attr.getName()}`));
+        return false;
+    } else {
+        console.log(`✓ All attributes are mapped`);
+        return true;
+    }
+}
+
+// ===== MAIN SCRIPT =====
+
+// Find elements
+let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
+let orderEntity = lookupTypesOf("Class").find(x => x.getName() === "Order");
+
+if (!command || !orderEntity) {
+    await dialogService.error("Could not find Command or Entity");
+    return;
+}
+
+// Query associations
+console.log("=== Querying Associations ===");
+let allAssociations = command.getAssociations();
+console.log(`Total associations on command: ${allAssociations.length}`);
+
+let createActions = command.getAssociations("Create Entity Action");
+console.log(`Create Entity Action associations: ${createActions.length}`);
+
+let actionToOrder = createActions.find(x => x.typeReference?.typeId === orderEntity.id);
+if (actionToOrder) {
+    logAssociationDetails(actionToOrder, orderEntity);
+}
+
+// Query mappings
+if (actionToOrder) {
+    console.log("\n=== Querying Mappings ===");
+    console.log(`Has Create Entity mappings: ${actionToOrder.hasMappings(CreateEntityMappingId)}`);
+    console.log(`Has Query Entity mappings: ${actionToOrder.hasMappings(QueryEntityMappingId)}`);
+    
+    let createMapping = actionToOrder.getAdvancedMapping(CreateEntityMappingId);
+    if (createMapping) {
+        logMappingDetails(createMapping);
+        console.log(`Total mappings on association: ${actionToOrder.getAdvancedMappings().length}`);
+        
+        // Query mapped ends
+        console.log("\n=== Querying Mapping Ends ===");
+        let mappedEnds = createMapping.getMappedEnds();
+        console.log(`Total mapped ends: ${mappedEnds.length}`);
+        mappedEnds.forEach((mappedEnd, index) => logMappedEndDetails(mappedEnd, index));
+        
+        // Validate coverage
+        validateMappingCoverage(createMapping, orderEntity);
+    }
+}
+
+await dialogService.info("Association and mapping query complete! Check the Task Output Console for details.");
+```
+
+**What This Does:**
+- **Query Associations**: Finds all associations on an element, filtered by type, and retrieves association properties
+- **Query Mappings**: Checks if mappings exist, retrieves them by type ID, and gets their source/target elements
+- **Query Mapping Ends**: Iterates through mapped ends to inspect paths, types, and source configurations
+- **Validation Example**: Finds unmapped attributes to catch incomplete mappings
+
+**Key Querying Methods:**
+- `element.getAssociations(type?)` - Get all associations, optionally filtered by specialization
+- `association.hasMappings(mappingTypeId?)` - Check if specific mapping type exists
+- `association.getAdvancedMapping(mappingTypeId?)` - Get a single advanced mapping by type
+- `association.getAdvancedMappings()` - Get all advanced mappings on the association
+- `mapping.getMappedEnds()` - Get all mapped ends (Invocation, Data, Filter)
+- `mappedEnd.sourcePath` / `mappedEnd.targetPath` - Get the element path arrays
+- `mappedEnd.getSourceElement()` / `mappedEnd.getTargetElement()` - Get ultimate source/target
+- `mappedEnd.sources` - Get all source connections (for multi-source mappings)
+
+> [!NOTE]
+> 
+> Always use the `getAdvancedMapping*` methods when working with advanced mappings:
+> - `getAdvancedMapping(mappingTypeId?)` - Get a specific advanced mapping
+> - `getAdvancedMappings()` - Get all advanced mappings
+> - `createAdvancedMapping(sourceId?, targetId?, mappingTypeId?)` - Create a new advanced mapping
+
 ---
 
 ## Intermediate Examples
