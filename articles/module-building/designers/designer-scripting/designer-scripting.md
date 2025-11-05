@@ -521,7 +521,7 @@ await dialogService.info("Commands and Queries generated successfully!");
 
 For scenarios beyond basic element creation and modification, Intent Architect also supports programmatically creating **Advanced Mappings** - declarative configurations that define data transformation paths between model elements. This is particularly useful when generating CRUD operations that need sophisticated mapping logic.
 
-See [Scripting Advanced Mappings](xref:module-building.designers.scripting-advanced-mappings) for detailed examples of creating Invocation Mappings, Data Mappings, and Filter Mappings programmatically.
+See [Scripting Advanced Mappings](xref:module-building.designers.designer-scripting-advanced-mappings) for detailed examples of creating Invocation Mappings, Data Mappings, and Filter Mappings programmatically.
 
 ## Configuring Scripts in the Module Builder
 

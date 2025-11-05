@@ -1,8 +1,8 @@
 ---
-uid: module-building.designers.scripting-advanced-mappings
+uid: module-building.designers.designer-scripting-advanced-mappings
 ---
 
-# Scripting Advanced Mappings
+# Designer Scripting: Advanced Mappings
 
 Learn how to automate advanced mapping creation using scripts. This guide is for module builders and developers who want to programmatically create mappings between designer elements.
 
