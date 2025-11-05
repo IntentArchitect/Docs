@@ -10,6 +10,8 @@ Welcome to the November edition of What’s New in Intent Architect.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
   - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
   - **[Model Integration Messages directly with AWS SQS](#model-integration-messages-directly-with-aws-sqs)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+  - **[Git friendly alternative to `.application.output.log` files](#git-friendly-alternative-to-applicationoutputlog-files)** - A new Git friendly .xml file is now used to track which largely (if not completely) eliminates merge conflicts which would occur on `.application.output.log` files.
+  - **[Add a reason for a file being ignored](#add-a-reason-for-a-file-being-ignored)** - A text box for documenting the reason for file being ignored in the Software Factory.
 
 ## Update details
 
@@ -124,3 +126,31 @@ To learn more you can visit the [documentation](https://docs.intentarchitect.com
 Available from:
 
 - Intent.Json.Importer 1.0.0
+
+### Git friendly alternative to `.application.output.log` files
+
+The now obsolete `.application.output.log` file (which is used by the Software Factory to track which files should not be generated on subsequent runs) is quite verbose and highly prone to merge conflicts, but also couldn't be ignored in Git by teams using the [](xref:tools.software-factory-cli) on a CI server.
+
+To greatly improve this experience, Software Factory runs will now update a much more concise `.application.output.config.xml`, where a primary consideration in the formatting of the data stored in it is that (compared to the the obsolete `.application.output.log`), it is highly unlikely to cause merge conflicts and any that do occur should be trivial to resolve.
+
+For compatibility with older versions of Intent Architect, if a `.application.output.log` is found it will still be updated, but it will not be created at all for new applications. If your entire team has updated to at least version 4.5.22 of Intent Architect, then `.application.output.log` files for applications created with older versions of Intent can be safely deleted.
+
+A comparison of the older (obsolete) file format on the left, and the newer (Git friendly) format on the right:
+
+![Comparison of the old and new ignored file tracking](images/output-log-comparison.png)
+
+The [](xref:application-development.applications-and-solutions.git-and-scm-guidance#files-and-folders-to-always-include) article has also been updated accordingly in regards to both of the above files.
+
+Available from:
+
+- Intent Architect 4.5.22
+
+### Add a reason for a file being ignored
+
+Ever found yourself wondering why a file was ignored in the Software Factory? This is why we've now made it possible to capture the reason for ignoring a file, either by using the option on the ignored file's context menu, or by clicking the note icon on the right:
+
+![How to open the "reason for being ignored" dialogue](images/opening-reason-for-being-ignored.png)
+
+Available from:
+
+- Intent Architect 4.5.22
