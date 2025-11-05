@@ -21,7 +21,7 @@ Advanced Mappings are **blueprints for code generation**. When you map a `Create
 - Which fields map to which properties (**Data Mapping**)
 - How to filter or query data (**Filter Mapping**)
 
-Templates read these mappings and generate code:
+Templates read these mappings and can generate code like this:
 
 ```csharp
 // Your mapping creates this blueprint:
@@ -36,22 +36,15 @@ var order = new Order
 };
 ```
 
-**When to use scripting:**
-- Automate repetitive mapping patterns across many elements
-- Enforce consistent mapping conventions
-- Build tools that help users create mappings
+## Learn through examples
 
-**When NOT to use scripting:**
-- Simple one-off mappings (use the UI instead)
-- You're still learning the basics (practice manual mapping first)
-
-## Complete Setup Script
+### Complete setup script
 
 > [!IMPORTANT]
 > 
 > Before running any examples, execute this comprehensive setup script. It creates all the model elements needed for every example in this guide.
 
-### Step 1: Domain Designer Setup
+#### Step 1: Domain designer setup
 
 Open your **Domain Designer** and run this script:
 
@@ -74,8 +67,6 @@ createElement("Attribute", "TotalAmount", order.id);
 // Create OrderLine entity for collection example
 let orderLine = createElement("Class", "OrderLine", packageId);
 createElement("Attribute", "Description", orderLine.id);
-let orderIdAttr = createElement("Attribute", "OrderId", orderLine.id);
-orderIdAttr.typeReference.setType(GuidTypeId);
 
 // Order -> OrderLines (1:many)
 let orderLinesAssoc = createAssociation("Association", order.id, orderLine.id, "OrderLines");
@@ -92,10 +83,14 @@ let shippingAssoc = createAssociation("Association", order.id, shippingInfo.id, 
 shippingAssoc.typeReference.setIsCollection(false);
 shippingAssoc.getOtherEnd().typeReference.setIsCollection(false);
 
+const diagram = getCurrentDiagram();
+let space = diagram.findEmptySpace(diagram.getViewPort().getCenter(),  { width: 500, height: 550 });
+diagram.layoutVisuals(getPackages()[0], space, true);
+
 await dialogService.info("Domain entities created!");
 ```
 
-### Step 2: Services Designer Setup
+#### Step 2: Services designer setup
 
 Switch to your **Services Designer** and run this script:
 
@@ -151,11 +146,9 @@ getOrderById.typeReference.setType(orderDto.id);
 await dialogService.info("Services elements created!");
 ```
 
-> [!TIP]
-> **📸 SCREENSHOT NEEDED**: Show the **Execute Script Dialog** in Intent Architect:
-> - Location: Designer toolbar → Tools → Execute Script
-> - Empty script editor with "Run" button highlighted
-> - Caption: "Access the Execute Script Dialog from the Designer toolbar to run setup scripts"
+![Created Domain Elements](images/created-domain-elements.png)
+
+![Created Service Elements](images/created-service-elements.png)
 
 **What was created:**
 - `Order`, `OrderLine`, `ShippingInfo` entities with associations (Domain)
@@ -164,11 +157,9 @@ await dialogService.info("Services elements created!");
 
 ---
 
-## Examples
-
 All examples run in the **Services Designer**. Make sure you've completed the [setup scripts](#complete-setup-script) first.
 
-### Example 1: Map Command Fields to Entity
+### Example 1: Map command fields to Entity
 
 Map `CreateOrder` command fields to `Order` entity attributes using the three-step process.
 
@@ -186,7 +177,7 @@ let mapping = action.createAdvancedMapping(command.id, entity.id);
 // Step 3a: Add invocation (tells template to call constructor)
 mapping.addMappedEnd("Invocation Mapping", [command.id], [entity.id]);
 
-// Step 3b: Map each field
+// Step 3b: Map simple fields
 let fields = ["RefNo", "CreatedDate", "TotalAmount"];
 fields.forEach(name => {
     let field = command.getChildren("DTO-Field").find(x => x.getName() === name);
@@ -201,6 +192,29 @@ fields.forEach(name => {
     }
 });
 
+// Step 3c: Map shipping info fields (nested object with multi-level paths)
+let shippingField = command.getChildren("DTO-Field").find(x => x.getName() === "ShippingDetails");
+let shippingAssoc = entity.getAssociations("Association").find(x => x.getName() === "ShippingInfo");
+
+if (shippingField && shippingAssoc) {
+    let shippingDto = shippingField.typeReference.getType();
+    let shippingEntity = shippingAssoc.typeReference.getType();
+    
+    // Map each nested field
+    ["Street", "City"].forEach(fieldName => {
+        let dtoField = shippingDto.getChildren("DTO-Field").find(x => x.getName() === fieldName);
+        let entityAttr = shippingEntity.getChildren("Attribute").find(x => x.getName() === fieldName);
+        
+        if (dtoField && entityAttr) {
+            mapping.addMappedEnd(
+                "Data Mapping",
+                [command.id, shippingField.id, dtoField.id],      // command.ShippingDetails.Street
+                [entity.id, shippingAssoc.id, entityAttr.id]      // entity.ShippingInfo.Street
+            );
+        }
+    });
+}
+
 await dialogService.info("Mapping created!");
 ```
 
@@ -210,26 +224,26 @@ await dialogService.info("Mapping created!");
 - `createAdvancedMapping()` - Creates the mapping blueprint on the association
 - `addMappedEnd()` - Adds each transformation rule (Invocation + Data mappings)
 - **Path arrays** `[command.id, field.id]` - Represents "command.RefNo" traversal
+- **Nested fields** - Use 3-level paths like `[command.id, shippingField.id, streetField.id]` to map individual nested properties
 
-**Generated code:**
+![Advanced mapping created](images/advanced-mapping-example1.png)
+
+**Possible generated code:**
 ```csharp
 var order = new Order  // From Invocation Mapping
 {
     RefNo = command.RefNo,             // From Data Mapping
     CreatedDate = command.CreatedDate, // From Data Mapping
-    TotalAmount = command.TotalAmount  // From Data Mapping
+    TotalAmount = command.TotalAmount, // From Data Mapping
+    ShippingInfo = new ShippingInfo
+    {
+        Street = command.ShippingDetails.Street,  // From 3-level Data Mapping
+        City = command.ShippingDetails.City       // From 3-level Data Mapping
+    }
 };
 ```
 
-> [!TIP]
-> **📸 SCREENSHOT NEEDED**: Show the resulting mapping in the Services Designer UI:
-> - CreateOrder command element selected
-> - "Create Entity Action" association visible connecting to Order entity
-> - Advanced Mapping panel showing Invocation Mapping and Data Mappings
-> - Mapped ends visible: RefNo→RefNo, CreatedDate→CreatedDate, TotalAmount→TotalAmount
-> - Caption: "Advanced mapping created by Example 1 script, visible in the Services Designer"
-
-### Example 2: Filter Mapping for Queries
+### Example 2: Filter mapping for queries
 
 Create a query mapping that filters by ID.
 
@@ -261,14 +275,16 @@ await dialogService.info("Filter mapping created!");
 - `"Filter Mapping"` - Tells templates to generate a WHERE clause
 - Same path array pattern: `[parent.id, child.id]`
 
-**Generated code:**
+![Advanced mapping query](images/advanced-mapping-example2.png)
+
+**Possible generated code:**
 ```csharp
 var order = dbContext.Orders
     .Where(x => x.Id == query.Id)  // From Filter Mapping
     .FirstOrDefault();
 ```
 
-### Example 3: Map Collection Fields
+### Example 3: Map collection fields
 
 Map a collection property from command to entity.
 
@@ -324,7 +340,9 @@ await dialogService.info("Collection mapping created!");
 - First `addMappedEnd()` maps the collection itself
 - Second `addMappedEnd()` maps fields within each collection item
 
-**Generated code:**
+![Collection mapping with nested field mappings](images/advanced-mapping-example3.png)
+
+**Possible generated code:**
 ```csharp
 OrderLines = command.OrderLines.Select(line => new OrderLine
 {
@@ -332,161 +350,9 @@ OrderLines = command.OrderLines.Select(line => new OrderLine
 }).ToList()
 ```
 
-> [!TIP]
-> **📸 SCREENSHOT NEEDED**: Show a collection mapping visualization:
-> - CreateOrder.OrderLines field (collection) pointing to Order.OrderLines association
-> - Nested path: OrderLines[].Description → OrderLines[].Description
-> - Visual representation of the array traversal with [*] notation
-> - Caption: "Collection mapping with nested field mappings"
-
-### Example 4: Map Nested Objects
-
-Map nested objects using multi-level paths.
-
-```javascript
-let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
-let entity = lookupTypesOf("Class").find(x => x.getName() === "Order");
-
-// Get existing mapping
-let action = command.getAssociations("Create Entity Action")
-    .find(x => x.typeReference?.typeId === entity.id);
-let mapping = action.getAdvancedMappings()[0];
-
-// Find nested object field and association
-let shippingField = command.getChildren("DTO-Field").find(x => x.getName() === "ShippingDetails");
-let shippingAssoc = entity.getAssociations("Association").find(x => x.getName() === "ShippingInfo");
-
-if (shippingField && shippingAssoc) {
-    // Get the nested types
-    let detailsDto = shippingField.typeReference.getType();
-    let infoEntity = shippingAssoc.typeReference.getType();
-    
-    // Map nested fields
-    ["Street", "City"].forEach(fieldName => {
-        let field = detailsDto.getChildren("DTO-Field").find(x => x.getName() === fieldName);
-        let attr = infoEntity.getChildren("Attribute").find(x => x.getName() === fieldName);
-        
-        if (field && attr) {
-            mapping.addMappedEnd(
-                "Data Mapping",
-                [command.id, shippingField.id, field.id],
-                [entity.id, shippingAssoc.id, attr.id]
-            );
-        }
-    });
-}
-
-await dialogService.info("Nested object mapping created!");
-```
-
-**Understanding the code:**
-- Same 3-level path pattern for nested objects
-- `command.ShippingDetails.Street` → `entity.ShippingInfo.Street`
-
-**Generated code:**
-```csharp
-ShippingInfo = new ShippingInfo
-{
-    Street = command.ShippingDetails.Street,
-    City = command.ShippingDetails.City
-}
-```
-
-> [!TIP]
-> **📸 SCREENSHOT NEEDED**: Show nested object mapping visualization:
-> - Path diagram: CreateOrder → ShippingDetails → Street (source side)
-> - Path diagram: Order → ShippingInfo → Street (target side)
-> - Arrows showing the traversal through nested objects
-> - Highlight the multi-level path arrays: [command.id, shippingDetails.id, street.id]
-> - Caption: "Deeply nested mapping with multi-level path traversal"
-
----
-
-### Example 5: Query and Validate Mappings
-
-Check existing mappings and find unmapped fields.
-
-```javascript
-let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
-let entity = lookupTypesOf("Class").find(x => x.getName() === "Order");
-
-// Find the association
-let action = command.getAssociations("Create Entity Action")
-    .find(x => x.typeReference?.typeId === entity.id);
-
-if (!action) {
-    console.log("No mapping found");
-    return;
-}
-
-// Get the mapping
-let mapping = action.getAdvancedMappings()[0];
-if (!mapping) {
-    console.log("No advanced mapping found");
-    return;
-}
-
-// Show what's mapped
-console.log("\n=== Mapped Fields ===");
-mapping.getMappedEnds().forEach(end => {
-    let sourcePath = end.sourcePath.map(p => p.name).join(".");
-    let targetPath = end.targetPath.map(p => p.name).join(".");
-    console.log(`${end.mappingType}: ${sourcePath} → ${targetPath}`);
-});
-
-// Find unmapped attributes
-let targetAttrs = entity.getChildren("Attribute");
-let mappedAttrIds = new Set();
-
-mapping.getMappedEnds().forEach(end => {
-    if (end.targetPath.length > 0) {
-        let lastElement = end.targetPath[end.targetPath.length - 1];
-        mappedAttrIds.add(lastElement.id);
-    }
-});
-
-let unmapped = targetAttrs.filter(attr => !mappedAttrIds.has(attr.id));
-
-console.log("\n=== Validation ===");
-if (unmapped.length > 0) {
-    console.log(`⚠ Unmapped attributes: ${unmapped.map(a => a.getName()).join(", ")}`);
-} else {
-    console.log("✓ All attributes mapped");
-}
-
-await dialogService.info("Check Task Output Console for results");
-```
-
-**Understanding the code:**
-- `getMappedEnds()` - Returns all mapped ends (Invocation + Data mappings)
-- `sourcePath.map(p => p.name).join(".")` - Converts path array to readable string
-- Uses `Set` to track which attributes are mapped
-- Finds unmapped attributes by comparing all attributes vs mapped ones
-
-> [!TIP]
-> **📸 SCREENSHOT NEEDED**: Show the Task Output Console with query results:
-> - Console panel at bottom of Intent Architect showing logged output
-> - Sample output showing "=== Mapped Fields ===" section with field mappings
-> - Validation results showing either "✓ All attributes mapped" or warnings
-> - Caption: "Task Output Console displaying mapping validation results"
-
 ---
 
 ## Common Issues
-
-### "Element not found" errors
-
-**Cause:** Script running in wrong designer or elements don't exist yet.
-
-**Fix:** Always check which designer you're in and run the [setup scripts](#complete-setup-script) first.
-
-```javascript
-let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
-if (!command) {
-    await dialogService.error("CreateOrder not found. Run setup scripts first.");
-    return;
-}
-```
 
 ### Duplicate mappings
 
@@ -540,15 +406,10 @@ element.getAssociations("Create Entity Action") // Get associations by type
 createAssociation(type, sourceId, targetId)   // Step 1: Create association
 action.createAdvancedMapping(srcId, tgtId)    // Step 2: Create mapping
 mapping.addMappedEnd(type, sourcePath, targetPath) // Step 3: Add mapped ends
-
-// Querying mappings
-action.getAdvancedMappings()                  // Get all mappings
-action.getAdvancedMapping(typeId)             // Get specific mapping type
-mapping.getMappedEnds()                       // Get all mapped ends
 ```
 
 ## Next Steps
 
-- **[Designer Scripting Guide](xref:module-building.designers.designer-scripting)** - Learn the full Designer Scripting API
-- **[Advanced Mapping Tutorial](xref:module-building.tutorial-advanced-mapping)** - Configure mapping-enabled designers in the Module Builder
-- **[Template Development](xref:module-building.templates-general)** - Learn how templates read mappings to generate code
+- **[Designer Scripting Guide](xref:module-building.designers.designer-scripting)** - Learn the full Designer Scripting API.
+- **[Advanced Mapping Tutorial](xref:module-building.tutorial-advanced-mapping)** - Configure mapping-enabled designers in the Module Builder.
+- **[API Documentation](https://github.com/IntentArchitect/Intent.Modules/tree/development/DesignerMacros/typings)** - Review Full API Documentation in the Designer Scripting reference for detailed method signatures.
