@@ -155,10 +155,11 @@ From the association, create the actual mapping object. Optionally specify a map
 let mapping = action.createAdvancedMapping(sourceElement.id, targetEntity.id);
 
 // Specific mapping type (Query mapping, for example)
+const QueryEntityMappingId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
 let mapping = action.createAdvancedMapping(
     sourceElement.id,
     targetEntity.id,
-    "25f25af9-c38b-4053-9474-b0fabe9d7ea7"  // Query mapping type ID
+    QueryEntityMappingId
 );
 ```
 
@@ -196,8 +197,8 @@ if (!packageId) {
     return;
 }
 
-// Define type constants
-const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+// Define type constants (built-in types)
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 
 // Create the Order entity
 let orderEntity = createElement("Class", "Order", packageId);
@@ -213,7 +214,7 @@ createElement("Attribute", "TotalAmount", orderEntity.id);
 let orderLineEntity = createElement("Class", "OrderLine", packageId);
 createElement("Attribute", "Description", orderLineEntity.id);
 let orderIdAttr = createElement("Attribute", "OrderId", orderLineEntity.id);
-orderIdAttr.typeReference.setType(guidType);
+orderIdAttr.typeReference.setType(GuidTypeId);
 
 // Create composite association: Order (1) -> OrderLines (*)
 let association = createAssociation("Association", orderEntity.id, orderLineEntity.id, "OrderLines");
@@ -247,8 +248,8 @@ if (!packageId) {
     return;
 }
 
-// Define type constants
-const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+// Define type constants (built-in types)
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 
 // Create the CreateOrder command
 let createOrderCommand = createElement("Command", "CreateOrder", packageId);
@@ -263,7 +264,7 @@ let orderDto = createElement("DTO", "OrderDto", packageId);
 
 // Add fields to OrderDto
 let idField = createElement("DTO-Field", "Id", orderDto.id);
-idField.typeReference.setType(guidType); // guid type
+idField.typeReference.setType(GuidTypeId); // guid type
 
 createElement("DTO-Field", "RefNo", orderDto.id);
 createElement("DTO-Field", "CreatedDate", orderDto.id);
@@ -274,7 +275,7 @@ let getOrderByIdQuery = createElement("Query", "GetOrderById", packageId);
 
 // Add Id field to query
 idField = createElement("DTO-Field", "Id", getOrderByIdQuery.id);
-idField.typeReference.setType(guidType); // guid type
+idField.typeReference.setType(GuidTypeId); // guid type
 
 // Set return type to OrderDto
 getOrderByIdQuery.typeReference.setType(orderDto.id);
@@ -417,8 +418,8 @@ if (!packageId) {
     return;
 }
 
-// Define type constants
-const guidType = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
+// Define type constants (built-in types)
+const GuidTypeId = "6b649125-18ea-48fd-a6ba-0bfff0d8f488";
 
 // Find existing elements
 let createOrderCommand = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
@@ -450,7 +451,7 @@ shippingDetailsField.typeReference.setType(shippingDetailsDto.id);
 // Create UpdateOrder command
 let updateOrderCommand = createElement("Command", "UpdateOrder", packageId);
 let idField = createElement("DTO-Field", "Id", updateOrderCommand.id);
-idField.typeReference.setType(guidType);
+idField.typeReference.setType(GuidTypeId);
 createElement("DTO-Field", "RefNo", updateOrderCommand.id);
 createElement("DTO-Field", "CreatedDate", updateOrderCommand.id);
 
@@ -458,7 +459,7 @@ createElement("DTO-Field", "CreatedDate", updateOrderCommand.id);
 let createOrderLineCommand = createElement("Command", "CreateOrderLine", packageId);
 createElement("DTO-Field", "Description", createOrderLineCommand.id);
 let orderIdField = createElement("DTO-Field", "OrderId", createOrderLineCommand.id);
-orderIdField.typeReference.setType(guidType);
+orderIdField.typeReference.setType(GuidTypeId);
 
 await dialogService.info("Advanced elements created successfully!");
 ```
@@ -476,6 +477,9 @@ This script adds:
 Handle collection fields that map to associations.
 
 ```javascript
+// Define mapping type constants
+const CreateEntityMappingId = "5f172141-fdba-426b-980e-163e782ff53e";
+
 let command = lookupTypesOf("Command").filter(x => x.getName() === "CreateOrder")[0];
 let orderEntity = lookupTypesOf("Class").filter(x => x.getName() === "Order")[0];
 
@@ -494,8 +498,7 @@ if (!action) {
 }
 
 // Get or create mapping for the association
-// Note: Check the API documentation for methods to retrieve existing mappings
-let mapping = action.getAdvancedMapping("5f172141-fdba-426b-980e-163e782ff53e") ?? 
+let mapping = action.getAdvancedMapping(CreateEntityMappingId) ?? 
     action.createAdvancedMapping(command.id, orderEntity.id);
 
 // Map the collection field to the association
@@ -545,6 +548,9 @@ if (orderLinesField && orderLinesAssoc) {
 Map nested objects within objects using multi-level path traversal.
 
 ```javascript
+// Define mapping type constants
+const CreateEntityMappingId = "5f172141-fdba-426b-980e-163e782ff53e";
+
 let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
 let orderEntity = lookupTypesOf("Class").find(x => x.getName() === "Order");
 
@@ -563,7 +569,7 @@ if (!action) {
 }
 
 // Get or create mapping for the association
-let mapping = action.getAdvancedMapping("5f172141-fdba-426b-980e-163e782ff53e") ?? 
+let mapping = action.getAdvancedMapping(CreateEntityMappingId) ?? 
     action.createAdvancedMapping(command.id, orderEntity.id);
 
 // Map nested object: Command.ShippingDetails -> Order.ShippingInfo
@@ -631,18 +637,22 @@ When working with Intent Architect's standard elements (Commands, Queries, Entit
 
 **Example Usage:**
 ```javascript
+// Define mapping type constants (from reference table below)
+const QueryEntityMappingId = "25f25af9-c38b-4053-9474-b0fabe9d7ea7";
+const CreateEntityMappingId = "5f172141-fdba-426b-980e-163e782ff53e";
+
 // Create a Query Entity mapping
 let queryMapping = action.createAdvancedMapping(
     query.id,
     entity.id,
-    "25f25af9-c38b-4053-9474-b0fabe9d7ea7"  // Query Entity Mapping ID
+    QueryEntityMappingId
 );
 
 // Create a Create Entity mapping
 let createMapping = action.createAdvancedMapping(
     command.id,
     entity.id,
-    "5f172141-fdba-426b-980e-163e782ff53e"  // Create Entity Mapping ID
+    CreateEntityMappingId
 );
 ```
 
