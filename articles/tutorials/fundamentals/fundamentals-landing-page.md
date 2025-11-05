@@ -85,8 +85,6 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
 </div>
 
 <div class="docs-tiles-grid">
-  <div class="spacer-card"></div>
-
   <div class="feature-card">
     <a href="xref:tutorials.fundamentals-7-settings-migration">
       <svg class="landing-svg" viewBox="0 0 24 24">
@@ -95,6 +93,23 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
       </svg>
       <p class="feature-card-title">7: Application Settings & Migrating to SQLite</p>
       <p>Application settings configuration, with a focus on migrating database provider to SQLite.</p>
+    </a>
+  </div>
+  <div class="feature-card">
+    <a href="xref:tutorials.fundamentals-8-encapsulating-domain-logic">
+      <svg class="landing-svg" viewBox="0 0 24 24">
+          <path d="M7 16.5l-5 -3l5 -3l5 3v5.5l-5 3z" />
+          <path d="M2 13.5v5.5l5 3" />
+          <path d="M7 16.545l5 -3.03" />
+          <path d="M17 16.5l-5 -3l5 -3l5 3v5.5l-5 3z" />
+          <path d="M12 19l5 3" />
+          <path d="M17 16.5l5 -3" />
+          <path d="M12 13.5v-5.5l-5 -3l5 -3l5 3v5.5" />
+          <path d="M7 5.03v5.455" />
+      <path d="M12 8l5 -3" />
+          </svg>
+      <p class="feature-card-title">8: Encapsulating Logic in the Domain</p>
+      <p>Write cleaner, more maintainable, business logic.</p>
     </a>
   </div>
   <div class="spacer-card"></div>

@@ -20,5 +20,5 @@ This video focuses on using and adjusting application configuration using the Ap
 
 ---
 
-| [← #6 Version Control with Intent Architect](xref:tutorials.fundamentals-6-version-control) |  |
+| [← #6 Version Control with Intent Architect](xref:tutorials.fundamentals-6-version-control) | [#8 Encapsulating Business Logic in the Domain →](xref:tutorials.fundamentals-8-encapsulating-domain-logic) |
 |:--|--:|
