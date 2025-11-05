@@ -50,16 +50,19 @@ To Do
 Intent Architect’s AI tooling now understands that one size does not fit all. You can register several AI providers side-by-side and switch between them whenever you invoke Auto Implementation, Blazor page generation, or AI-powered unit tests.
 
 #### Configure multiple providers once
+
 - Head to **User Settings → AI Settings** and add as many provider/model combinations as you need (OpenAI, Azure OpenAI, Anthropic, OpenRouter, Google Gemini, OpenAI-compatible services, or Ollama).
 - Each selection keeps its own API keys, endpoints, and token limits so you can swap without re-entering credentials.
 
 #### Choose the right model per workflow
+
 - When you run **Implement with AI**, **Generate Blazor UI with AI**, or **Generate Unit Tests with AI**, Intent now surfaces a provider dropdown so you can select the exact model for that run.
 - The last-used choice is remembered per module, making it easy to rely on a fast local model for drafts and a premium model for production-ready outputs.
 
 #### Tune the thinking effort
+
 - Every provider-aware dialog exposes a **Thinking Level** control that maps to the underlying model’s reasoning or thinking configuration.
-- You can nudge the control higher for deeper reasoning or lower to prioritise speed, and Intent automatically translates that preference into the right provider-specific settings.
+- You can nudge the control higher for deeper reasoning or lower to prioritize speed, and Intent automatically translates that preference into the right provider-specific settings.
 
 Available from:
 
@@ -89,16 +92,19 @@ Available from:
 The new JSON Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your JSON files representing payload structures.
 
 #### Guided import wizard
+
 - Set the `Source Folder` and optional `File Pattern` (defaults to `**/*.json`) so the importer scopes exactly the files you need.
 - Review a tree of discovered files and include or exclude specific items with a single click, ensuring clean inputs before generating metadata.
 
 #### Profiles that match your design surface
+
 - **DomainDocumentDB**: Converts each JSON file into a Domain Entity, automatically splitting nested objects into their own entities and wiring up composite relationships.
 - **EventingMessages**: Produces Eventing Messages and supporting DTOs ready for your Services designer.
 - **ServicesDtos**: Builds DTOs (with `Dto` naming conventions) and references that align with service-facing contracts.
 
 #### Smarter type inference
-The importer recognises sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
+
+The importer recognizes sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
 
 ```json
 {
