@@ -1,6 +1,6 @@
 items:
-  - name: 'Advanced Mappings'
-    href: advanced-mappings/scripting-advanced-mappings.md
+  - name: 'Scripting Advanced Mappings'
+    href: scripting-advanced-mappings/scripting-advanced-mappings.md
   - name: 'Designer Modelling'
     href: designer-modelling/designer-modelling.md
   - name: 'Designer Scripting'
