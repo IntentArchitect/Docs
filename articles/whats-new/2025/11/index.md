@@ -5,7 +5,7 @@ Welcome to the November edition of What’s New in Intent Architect.
 - Highlights
   - **[Fundamentals Training Videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
   - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
-  - **[AWS SQS Integration Modeling](#model-integration-messages-directly-with-aws-sqs)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+  - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
   - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
   - **[Azure Storage Queue Module](#azure-storage-queue-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
 - More updates
@@ -55,6 +55,22 @@ Available from:
 
 - Intent Architect 4.5.22
 
+### AWS SQS Integration Modeling
+
+Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+
+![Modeling Events and Commands](images/modeling-event-command.png)
+
+![Customize Queue Name](images/message-with-queue-name.png)
+
+Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html).
+
+Available from:
+
+- Intent.Aws.Sqs 1.0.0
+
 ### AWS Secrets Management Module
 
 The `Intent.Aws.SecretsManager` module extends the standard .NET Configuration system by integrating directly with **AWS Secrets Manager**. This enables your application to securely retrieve secrets (such as connection strings, API keys, and credentials) at runtime with minimal code changes.
@@ -78,22 +94,6 @@ To learn more about the Azure Queue Storage module, read the [documentation here
 Available from:
 
 - Intent.Eventing.AzureQueueStorage 1.0.0-beta.1
-
-### Model Integration Messages directly with AWS SQS
-
-Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
-
-![Modeling Events and Commands](images/modeling-event-command.png)
-
-![Customize Queue Name](images/message-with-queue-name.png)
-
-Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
-
-To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html).
-
-Available from:
-
-- Intent.Aws.Sqs 1.0.0
 
 ### Open in IDE enhancements
 
