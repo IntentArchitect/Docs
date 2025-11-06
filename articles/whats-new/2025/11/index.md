@@ -61,9 +61,7 @@ Available from:
 
 Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
 
-![Modeling Events and Commands](images/modeling-event-command.png)
-
-![Customize Queue Name](images/message-with-queue-name.png)
+![AWS SQS](images/aws-sqs.png)
 
 Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
 
@@ -115,6 +113,8 @@ Available from:
 
 Intent Architect’s AI tooling now understands that one size does not fit all. You can register several AI providers side-by-side and switch between them whenever you invoke Auto Implementation, Blazor page generation, or AI-powered unit tests.
 
+![Multi AI models](images/multi-ai-models.png)
+
 #### Configure multiple providers once
 
 - Head to **User Settings → AI Settings** and add as many provider/model combinations as you need (OpenAI, Azure OpenAI, Anthropic, OpenRouter, Google Gemini, OpenAI-compatible services, or Ollama).
@@ -140,6 +140,8 @@ Available from:
 ### JSON Importer enhancements
 
 The new JSON Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your JSON files representing payload structures.
+
+![JSON Importer](images/json-importer.png)
 
 #### Guided import wizard
 
