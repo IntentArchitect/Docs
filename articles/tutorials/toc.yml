@@ -23,6 +23,9 @@ items:
 - name: '7: Application Settings & Migrating to SQLite'
   href: fundamentals/fundamentals-7-settings-migration.md
 
+- name: '8: Encapsulating Business Logic in the Domain'
+  topicUid: tutorials.fundamentals-8-encapsulating-domain-logic
+
 # this to be converted to Java tutorial
 # - name: 'Tutorial: Create a Sample App'
 #   href: tutorials/create-a-sample-app/toc.yml
