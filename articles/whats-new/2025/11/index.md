@@ -3,21 +3,57 @@
 Welcome to the November edition of What’s New in Intent Architect.
 
 - Highlights
-  - **[Mapperly Module](#mapperly-module)** – Mapperly is a .NET source generator that automatically creates efficient object mappings between different data models at compile time.
+  - **[Fundamentals Training Videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
+  - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
+  - **[AWS SQS Integration Modeling](#model-integration-messages-directly-with-aws-sqs)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
   - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
   - **[Azure Storage Queue Module](#azure-storage-queue-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
-  - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality oif life.
+- More updates
+  - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
   - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
-  - **[Model Integration Messages directly with AWS SQS](#model-integration-messages-directly-with-aws-sqs)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
   - **[Git friendly alternative to `.application.output.log` files](#git-friendly-alternative-to-applicationoutputlog-files)** - A new Git friendly .xml file is now used to track which largely (if not completely) eliminates merge conflicts which would occur on `.application.output.log` files.
   - **[Add a reason for a file being ignored](#add-a-reason-for-a-file-being-ignored)** - A text box for documenting the reason for file being ignored in the Software Factory.
 
 ## Update details
 
-### Mapperly Module
+### Fundamentals Training Videos
 
-To Do
+We’ve launched the Intent Architect Fundamentals Training Series, a collection of short, focused videos designed to get you building with Intent Architect faster and more confidently.
+
+![Training Playlist](images/training-playlist.png)
+
+Each video walks through a key foundational concept, providing step-by-step demonstrations and explanations. Whether you’re new to Intent Architect or brushing up on the latest features, these sessions help you move from installation to end-to-end application generation in minutes.
+
+The series currently covers:
+
+- [#1 Building Your First Application with Intent Architect](xref:tutorials.fundamentals-1-building-an-application) – Create a new application and generate your first end-to-end CRUD use case.
+- [#2 Introduction to Domain Modeling](xref:tutorials.fundamentals-2-intro-to-domain-modeling) – Learn how to model your domain with entities, attributes, and relationships.
+- [#3 Creating CRUD Services](xref:tutorials.fundamentals-3-create-crud-service) – Generate and wire up CRUD services to your domain models.
+- [#4 Creating non-CRUD Services](xref:tutorials.fundamentals-4-create-non-crud-service) – Build custom service operations for specialized business logic.
+- [#5 Customizing Code with Code Management](xref:tutorials.fundamentals-5-customizing-code) – Understand how Intent Architect integrates with your codebase and how to safely extend generated code.
+- [#6 Version Control with Intent Architect](xref:tutorials.fundamentals-6-version-control) – Keep your generated artifacts and metadata in sync across your team.
+- [#7 Application Settings & Migrating to SQLite](xref:tutorials.fundamentals-7-settings-migration) – Configure application settings and explore database provider migration.
+- [#8 Encapsulating Business Logic in the Domain](xref:tutorials.fundamentals-8-encapsulating-domain-logic) – Apply domain-driven principles to keep your business logic clean and maintainable.
+
+You can access all videos directly from the [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist) or via the [Fundamentals Tutorials landing page](https://docs.intentarchitect.com/articles/tutorials/fundamentals/fundamentals-landing-page.html).
+
+### Help Topic Improvements
+
+The Help dialog now supports searching and loading from all available documentation topics, not just those associated with currently installed modules. This makes it easier to discover, explore and evaluate additional capabilities that could be installed and integrated into your application:
+
+![Help Dialogue: All Topics](images/all-help-topics.png)
+
+If we don't yet have a help topic available on what you were searching for, you can now very easily send us a message to let us know and also request help,
+this will also help guide our team to focus their efforts on documenting topics that users actually want.
+
+![Help Dialogue: Request a Topic](images/request-topic.png)
+
+Full details in the [release notes](xref:release-notes.intent-architect-v4.5).
+
+Available from:
+
+- Intent Architect 4.5.22
 
 ### AWS Secrets Management Module
 
@@ -43,9 +79,35 @@ Available from:
 
 - Intent.Eventing.AzureQueueStorage 1.0.0-beta.1
 
+### Model Integration Messages directly with AWS SQS
+
+Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+
+![Modeling Events and Commands](images/modeling-event-command.png)
+
+![Customize Queue Name](images/message-with-queue-name.png)
+
+Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
+
+To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html).
+
+Available from:
+
+- Intent.Aws.Sqs 1.0.0
+
 ### Open in IDE enhancements
 
-To Do
+The Software Factory and application context menus in the Solution Explorer will now show an "Open in IDE" option if at least one `.sln` has been generated by the Software Factory:
+
+![Open in IDE feature on the Software Factory screen](images/open-in-ide-sf.png)
+
+![Open in IDE feature on Application context menu](images/open-in-ide-on-application-context-menu.png)
+
+If you are using Visual Studio, `Open In IDE`, on designer elements, should always use / open the code files in an instance of there appropriate solution. (No more having to first open the VS solution).
+
+Available from:
+
+- Intent Architect 4.5.22
 
 ### AI modules multi-provider support
 
@@ -73,22 +135,6 @@ Available from:
 - Intent.AI.UnitTests 1.0.0-beta.13
 - Intent Architect 4.5.18
 
-### Model Integration Messages directly with AWS SQS
-
-Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
-
-![Modeling Events and Commands](images/modeling-event-command.png)
-
-![Customize Queue Name](images/message-with-queue-name.png)
-
-Model your Integration Events (orange Message envelope) and Commands (green Message envelope) in the Services designer, and they automatically configure to work with SQS queues. Customize queue names using the `AWS SQS` stereotype when needed.
-
-To learn more, read the [module documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aws-sqs/intent-aws-sqs.html).
-
-Available from:
-
-- Intent.Aws.Sqs 1.0.0
-
 ### JSON Importer enhancements
 
 The new JSON Importer Module makes it easier to integrate existing codebases by reverse-engineering model metadata directly from your JSON files representing payload structures.
@@ -105,6 +151,7 @@ The new JSON Importer Module makes it easier to integrate existing codebases by 
 - **ServicesDtos**: Builds DTOs (with `Dto` naming conventions) and references that align with service-facing contracts.
 
 #### Smarter type inference
+The importer recognises sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
 
 The importer recognizes sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
 
