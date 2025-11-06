@@ -7,7 +7,7 @@ Welcome to the November edition of What’s New in Intent Architect.
   - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
   - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
   - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
-  - **[Azure Storage Queue Module](#azure-storage-queue-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
+  - **[Azure Storage Queue Module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
 - More updates
   - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
@@ -83,7 +83,7 @@ Available from:
 
 - Intent.Aws.SecretsManager 1.0.0-beta.2
 
-### Azure Storage Queue Module
+### Azure Queue Storage Module
 
 The `Intent.Eventing.AzureQueueStorage` module provides all necessary files, configuration, and abstractions for working with Azure Queue Storage messaging. It supports both publishing and consuming messages in a structured, opinionated way.
 
