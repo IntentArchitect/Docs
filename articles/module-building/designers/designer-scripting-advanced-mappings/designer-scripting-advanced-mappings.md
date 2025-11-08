@@ -352,6 +352,79 @@ OrderLines = command.OrderLines.Select(line => new OrderLine
 
 ---
 
+### Example 4: Query and Validate Mappings
+
+Check existing mappings and find unmapped fields.
+
+```javascript
+let command = lookupTypesOf("Command").find(x => x.getName() === "CreateOrder");
+let entity = lookupTypesOf("Class").find(x => x.getName() === "Order");
+
+// Find the association
+let action = command.getAssociations("Create Entity Action")
+    .find(x => x.typeReference?.typeId === entity.id);
+
+if (!action) {
+    console.log("No mapping found");
+    return;
+}
+
+// Get the mapping
+let mapping = action.getAdvancedMappings()[0];
+if (!mapping) {
+    console.log("No advanced mapping found");
+    return;
+}
+
+// Show what's mapped
+console.log("\n=== Mapped Fields ===");
+
+mapping.getMappedEnds().forEach(end => {
+    let sourcePath = end.sourcePath.map(p => p.name).join(".");
+    let targetPath = end.targetPath.map(p => p.name).join(".");
+    console.log(`${end.mappingType}: ${sourcePath} → ${targetPath}`);
+});
+
+// Find unmapped attributes
+let targetAttrs = entity.getChildren("Attribute");
+let mappedAttrIds = new Set();
+
+mapping.getMappedEnds().forEach(end => {
+    if (end.targetPath.length > 0) {
+        let lastElement = end.targetPath[end.targetPath.length - 1];
+        mappedAttrIds.add(lastElement.id);
+    }
+});
+
+let unmapped = targetAttrs.filter(attr => !mappedAttrIds.has(attr.id));
+
+let results = "=== Validation ===\n";
+
+if (unmapped.length > 0) {
+    results += `⚠ Unmapped attributes: ${unmapped.map(a => a.getName()).join(", ")}`;
+} else {
+    results += "✓ All attributes mapped";
+}
+
+await dialogService.info(results);
+```
+
+**Understanding the code:**
+- `getAdvancedMappings()` - Returns all advanced mappings on the association
+- `getMappedEnds()` - Returns all mapped ends (Invocation + Data mappings)
+- `sourcePath.map(p => p.name).join(".")` - Converts path array to readable string
+- Uses `Set` to track which attributes are mapped
+- Finds unmapped attributes by comparing all attributes vs mapped ones
+
+![Query results](images/query-results.png)
+
+---
+
+// Querying mappings
+action.getAdvancedMappings()                  // Get all mappings
+action.getAdvancedMapping(typeId)             // Get specific mapping type
+mapping.getMappedEnds()                       // Get all mapped ends
+
 ## Common Issues
 
 ### Duplicate mappings
