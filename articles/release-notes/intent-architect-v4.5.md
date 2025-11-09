@@ -3,6 +3,39 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.23
+
+### Improvements in 4.5.23
+
+- Improvement: Architecture Template view added to the Modules management tab.
+
+  This new feature displays the architectural landspace that is installed and would be compatible with the chosen architecture of the application. It aims to make it simpler, safer, and easier for team to manage and evolve their architecture. It also serves as a way for teams to discover and explore other patterns and technologies.
+
+  ![Architecture Template View](images/4.5/23/architecture-template-view.png)
+
+  The view will always fetch the latest version of the Architecture Template, making newly added components visible and therefore easier to discover.
+  
+  New applications will now automatically open to the Module Template view by default, instead of the Settings tab.
+
+- Improvement: Revamped Module Uninstall systems to allow the user to uninstall depending Modules and "safe to uninstall" dependencies too. This allows for safer and easier removal of Modules from applications.
+
+  ![Revamped Uninstall Dialog](images/4.5/23/revamped-uninstall-dialog.png)
+
+- Improvement: Added gift icon to main navbar which opens up the latest release notes for the Intent Architect platform. Clicking on this icon will route you here, to the latest release notes.
+
+  ![Gift-Release-Notes](images/4.5/23/gift-release-notes.png)
+
+### Fixes in 4.5.23
+
+- Fixed: Suggestions "lightbulb" disappears when clicking on stereotypes in the diagram.
+- Fixed: Software Factory Executions not shutting down when navigating out of the Solution back to the Home view.
+- Fixed: Software Factories from other applications not being shut down when reinstalling modules that affect them, causing locking issues and failing reinstallations.
+- Fixed: JS API properties on the `IElementToElementMappedEndApi` breaking inside of closures.
+- Fixed: JS API not reflecting association options correctly in the intellisense.
+- Fixed: Generic argument usages of types not being found in Search Everywhere system.
+- Fixed: Search Everywhere does not indicate if no results were found.
+- Fixed: Styling of hints for check-boxes in settings inconsistent.
+
 ## Version 4.5.22
 
 ### Improvements in 4.5.22
