@@ -24,6 +24,10 @@ uid: release-notes.intent-architect-v4.5
 
   ![Gift-Release-Notes](images/4.5/23/gift-release-notes.png)
 
+- Improvement: Ability to now pin solutions on the home page.
+
+  ![Home Screen Pin Example](images/4.5/23/home-screen-pin-example.png)
+
 ### Fixes in 4.5.23
 
 - Fixed: Suggestions "lightbulb" disappears when clicking on stereotypes in the diagram.
