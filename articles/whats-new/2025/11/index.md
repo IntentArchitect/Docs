@@ -5,7 +5,7 @@ Welcome to the November edition of What’s New in Intent Architect.
 - Highlights
   - **[Fundamentals Training Videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
   - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
-  - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+  - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
   - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
   - **[Azure Storage Queue Module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
 - More updates
@@ -59,7 +59,7 @@ Available from:
 
 ### AWS SQS Integration Modeling
 
-Direct implementation to use AWS SQS as the message broker of choice to send and receive Integration Events and Commands for your application.
+Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
 
 ![AWS SQS](images/aws-sqs.png)
 
