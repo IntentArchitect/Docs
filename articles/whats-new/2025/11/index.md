@@ -3,19 +3,35 @@
 Welcome to the November edition of What’s New in Intent Architect.
 
 - Highlights
+  - **[Simplified Architectural Management](#simplified-architectural-management)** – Architecture Templates are now available for modifying your architecture at any point.
   - **[Fundamentals Training Videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
   - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
   - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
   - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
-  - **[Azure Storage Queue Module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
+envelope-based message handling.
 - More updates
-  - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
+  - **[Azure Storage Queue Module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and   - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
   - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
   - **[Git friendly alternative to `.application.output.log` files](#git-friendly-alternative-to-applicationoutputlog-files)** - A new Git friendly .xml file is now used to track which largely (if not completely) eliminates merge conflicts which would occur on `.application.output.log` files.
   - **[Add a reason for a file being ignored](#add-a-reason-for-a-file-being-ignored)** - A text box for documenting the reason for file being ignored in the Software Factory.
 
 ## Update details
+
+### Simplified Architectural Management
+
+The Architecture Template is now always available on the **Architecture Template** view added to the Modules management tab.
+
+This new feature displays the architectural landscape that is installed and would be compatible with the chosen architecture of the application. It aims to make it simpler, safer, and easier for teams to manage and evolve their architecture. It also serves as a way to discover and explore other patterns and technologies.
+
+![Architecture Template View](images/architecture-template-view.png)
+The view will always fetch the latest version of the Architecture Template from the selected repository, making newly added components visible and therefore easier to discover.
+
+Note that new applications will now automatically open to the Module Template view by default, instead of the Settings tab, on creation.
+
+Available from:
+
+- Intent Architect 4.5.23
 
 ### Fundamentals Training Videos
 

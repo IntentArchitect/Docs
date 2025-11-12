@@ -9,7 +9,7 @@ uid: release-notes.intent-architect-v4.5
 
 - Improvement: Architecture Template view added to the Modules management tab.
 
-  This new feature displays the architectural landspace that is installed and would be compatible with the chosen architecture of the application. It aims to make it simpler, safer, and easier for teams to manage and evolve their architecture. It also serves as a way to discover and explore other patterns and technologies.
+  This new feature displays the architectural landscape that is installed and would be compatible with the chosen architecture of the application. It aims to make it simpler, safer, and easier for teams to manage and evolve their architecture. It also serves as a way to discover and explore other patterns and technologies.
 
   ![Architecture Template View](images/4.5/23/architecture-template-view.png)
   The view will always fetch the latest version of the Architecture Template from the selected repository, making newly added components visible and therefore easier to discover.
