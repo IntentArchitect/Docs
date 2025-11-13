@@ -41,6 +41,11 @@ To start, create a Blazor Application in Intent Architect.
 
 ![Page Added](./images/add-page.png)
 
+To quickly add your page to the `Sider Menu`, use the **Add to Sider Menu** suggestion.  
+![Add to Sider Menu](./images/add-to-sider-menu.png)
+
+### Adding Route parameters to your page
+
 If your page requires **Route Parameters** (e.g., `customers/edit/{customerId}`), you can model these as follows:
 
 1. Right-click on the `Page` → **Add Property**.  
@@ -50,10 +55,6 @@ If your page requires **Route Parameters** (e.g., `customers/edit/{customerId}`)
 ![Page with Route Parameters Added](./images/add-page-with-route.png)
 
 The page route will automatically update based on the route parameters.
-
-To quickly add your page to the `Sider Menu`, use the **Add to Sider Menu** suggestion.  
-![Add to Sider Menu](./images/add-to-sider-menu.png)
-
 
 ---
 
@@ -149,7 +150,6 @@ Once you are satisfied with your **View Model** design, you can use the Blazor A
 
 > [!NOTE]  
 > AI by its nature is non-deterministic. While we put a lot of effort into making this interaction as predictable as possible, results will vary. Test the results and make changes as desired.
-
 
 ---
 
