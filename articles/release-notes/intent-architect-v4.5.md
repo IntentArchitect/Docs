@@ -28,6 +28,9 @@ uid: release-notes.intent-architect-v4.5
 
   ![Home Screen Pin Example](images/4.5/23/home-screen-pin-example.png)
 
+- Improvement: Better highlighting of Component Extensions in the Architecture Template when creating a new application.
+- Improvement: Software Factories and Module Tasks will now indicate as successful if there are no outstanding changes.
+
 ### Fixes in 4.5.23
 
 - Fixed: Suggestions "lightbulb" disappears when clicking on stereotypes in the diagram.
@@ -38,6 +41,7 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Generic argument usages of types not being found in Search Everywhere system.
 - Fixed: Search Everywhere does not indicate if no results were found.
 - Fixed: Styling of hints for check-boxes in settings inconsistent.
+- Fixed: Module Tasks showing as cancelled when restarting them.
 
 ## Version 4.5.22
 
