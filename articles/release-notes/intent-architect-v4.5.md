@@ -3,6 +3,14 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.24
+
+### Improvements in 4.5.24
+
+- Improvement: Intent Architect will now show a yellow triangle at the top right corner of the window if there are any suggested system settings to be applied:
+
+  ![The System Suggestions dialog](images/system-suggestions-dialog.png)
+
 ## Version 4.5.23
 
 ### Improvements in 4.5.23
