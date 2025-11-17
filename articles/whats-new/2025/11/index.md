@@ -58,8 +58,6 @@ You can access all videos directly from the [Fundamentals Training Series Playli
 
 Previously, help topics were limited to your installed modules. Now, you can search the full module suite, making it possible to discover more, and if you still don’t find what you need, you can request a new topic with a single click.
 
-The Help dialog now supports searching and loading from all available documentation topics, not just those associated with currently installed modules. This makes it easier to discover, explore and evaluate additional capabilities that could be installed and integrated into your application:
-
 ![Help Dialogue: All Topics](images/all-help-topics.png)
 
 If we don't yet have a help topic available on what you were searching for, you can now very easily send us a message to let us know and also request help,
