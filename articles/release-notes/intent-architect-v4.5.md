@@ -20,6 +20,7 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Navigating back and forward would behave unpredictably between designers.
 - Fixed: Centering the diagram on point would not work correctly when zoom was not neutral.
 - Fixed: The dialog opening animation was not working correctly in the designers.
+- Fixed: Some help topics would not show under certain circumstances.
 
 ## Version 4.5.23
 
