@@ -3,13 +3,23 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
-## Version 4.5.24
+<!-- ## Version 4.5.25
 
-### Improvements in 4.5.24
+### Improvements in 4.5.25
 
 - Improvement: Intent Architect will now show a yellow triangle at the top right corner of the window if there are any suggested system settings to be applied:
 
-  ![The System Suggestions dialog](images/system-suggestions-dialog.png)
+  ![The System Suggestions dialog](images/system-suggestions-dialog.png) -->
+
+## Version 4.5.24
+
+### Fixes in 4.5.24
+
+- Fixed: When creating samples an error saying "Could not find a part of the path '.../output-log.xml'" would occur.
+- Fixed: Undo/redo buttons in toolbar would not indicate that undo/redo actions are available after changes in the designer.
+- Fixed: Navigating back and forward would behave unpredictably between designers.
+- Fixed: Centering the diagram on point would not work correctly when zoom was not neutral.
+- Fixed: The dialog opening animation was not working correctly in the designers.
 
 ## Version 4.5.23
 
