@@ -205,6 +205,27 @@ if (auditStereotype) {
         createdByProp.setValue("AdminUser");
     }
 }
+
+// Set value on multi-select properties with static options
+// JSON.stringify is used to convert the array to a JSON string
+let permissionStereotype = element.getStereotype("Permissions");
+if (permissionStereotype) {
+    let scopesProp = permissionStereotype.getProperty("Scopes");
+    if (scopesProp) {
+        scopesProp.setValue(JSON.stringify(["Read", "Write"]));
+    }
+}
+
+// Set value on multi-select properties with lookup element options
+// JSON.stringify is used to convert the array to a JSON string
+if (permissionStereotype) {
+    // commandsProp has a "Lookup Types" value of "Command"
+    let commandsProp = permissionStereotype.getProperty("Accessible Commands");
+    if (commandsProp) {
+        // set the property value to the Id's of two Command elements set prior in the script
+        commandsProp.setValue(JSON.stringify([createCommand.id, deleteCommand.id]));
+    }
+}
 ```
 
 #### Applying stereotypes programmatically
