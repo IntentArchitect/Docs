@@ -13,6 +13,10 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.24
 
+### Improvements in 4.5.24
+
+- Improvement: Access tokens are refreshed more proactively to ensure that users are able to operate offline without interruption for longer periods of time, and more predictably. The need for this was highlighted by the [Cloudflare outage experienced on 18th November 2025](https://blog.cloudflare.com/18-november-2025-outage/).
+
 ### Fixes in 4.5.24
 
 - Fixed: When creating samples an error saying "Could not find a part of the path '.../output-log.xml'" would occur.
@@ -21,6 +25,8 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Centering the diagram on point would not work correctly when zoom was not neutral.
 - Fixed: The dialog opening animation was not working correctly in the designers.
 - Fixed: Some help topics would not show under certain circumstances.
+- Fixed: Error occurring when installing Modules that have installation metadata with cyclic package references.
+- Fixed: Visual elements added from designer scripts occasionally not rendering when long-running async tasks are called (e.g. a dialog is launched).
 
 ## Version 4.5.23
 
