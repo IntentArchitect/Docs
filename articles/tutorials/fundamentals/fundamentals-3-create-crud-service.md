@@ -16,7 +16,7 @@ This video focuses on creating CRUD services for domain entities and managing da
 - [Introduction to CRUD Services (0:00)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=0&autoplay=1){target="lessonVideo"}
 - [Updating Orders and Validation (3:50)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=230&autoplay=1){target="lessonVideo"}
 - [Address Mapping Warnings (7:20)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=440&autoplay=1){target="lessonVideo"}
-- [Traditional Services Overview (11:20)](hhttps://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=680&autoplay=1){target="lessonVideo"}
+- [Traditional Services Overview (11:20)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=680&autoplay=1){target="lessonVideo"}
 - [Implementing Pagination (13:20)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=800&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
