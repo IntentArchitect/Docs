@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-3-create-crud-service
 
 Learn to build CRUD services for domain entities and map data consistently between service contracts and the domain model.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/JlYp_3mALm4?rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/GEBxta9QpKw?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,11 +13,11 @@ This video focuses on creating CRUD services for domain entities and managing da
 
 ## Chapters
 
-- [Introduction to CRUD Services (0:00)](https://www.youtube.com/embed/JlYp_3mALm4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Updating Orders and Validation (3:50)](https://www.youtube.com/embed/JlYp_3mALm4?rel=0&start=230&autoplay=1){target="lessonVideo"}
-- [Address Mapping Warnings (7:20)](https://www.youtube.com/embed/JlYp_3mALm4?rel=0&start=440&autoplay=1){target="lessonVideo"}
-- [Traditional Services Overview (11:20)](hhttps://www.youtube.com/embed/JlYp_3mALm4?rel=0&start=680&autoplay=1){target="lessonVideo"}
-- [Implementing Pagination (13:20)](https://www.youtube.com/embed/JlYp_3mALm4?rel=0&start=800&autoplay=1){target="lessonVideo"}
+- [Introduction to CRUD Services (0:00)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Updating Orders and Validation (3:50)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=230&autoplay=1){target="lessonVideo"}
+- [Address Mapping Warnings (7:20)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=440&autoplay=1){target="lessonVideo"}
+- [Traditional Services Overview (11:20)](hhttps://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=680&autoplay=1){target="lessonVideo"}
+- [Implementing Pagination (13:20)](https://www.youtube.com/embed/GEBxta9QpKw?rel=0&start=800&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 

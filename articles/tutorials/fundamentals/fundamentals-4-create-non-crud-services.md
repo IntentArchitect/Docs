@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-4-create-non-crud-service
 
 Learn to build services beyond standard CRUD operations for more complex use cases, which require a developer to implement.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/mi6g8px0_Ec?rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/noJ6gmoevnw?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,10 +13,10 @@ This video focuses on designing services beyond standard CRUD to handle complex,
 
 ## Chapters
 
-- [Introduction to non-CRUD Services (0:00)](https://www.youtube.com/embed/mi6g8px0_Ec?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [Updating Order State (1:30)](https://www.youtube.com/embed/mi6g8px0_Ec?rel=0&start=90&autoplay=1){target="lessonVideo"}
-- [Creating Customer Orders Query (3:15)](https://www.youtube.com/embed/mi6g8px0_Ec?rel=0&start=195&autoplay=1){target="lessonVideo"}
-- [Adding Service Operations (4:40)](https://www.youtube.com/embed/mi6g8px0_Ec?rel=0&start=280&autoplay=1){target="lessonVideo"}
+- [Introduction to non-CRUD Services (0:00)](https://www.youtube.com/embed/noJ6gmoevnw?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [Updating Order State (1:30)](https://www.youtube.com/embed/noJ6gmoevnw?rel=0&start=90&autoplay=1){target="lessonVideo"}
+- [Creating Customer Orders Query (3:15)](https://www.youtube.com/embed/noJ6gmoevnw?rel=0&start=195&autoplay=1){target="lessonVideo"}
+- [Adding Service Operations (4:40)](https://www.youtube.com/embed/noJ6gmoevnw?rel=0&start=280&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 

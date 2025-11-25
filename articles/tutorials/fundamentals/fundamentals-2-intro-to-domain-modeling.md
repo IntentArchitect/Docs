@@ -5,7 +5,7 @@ uid: tutorials.fundamentals-2-intro-to-domain-modeling
 
 Learn to model domain entity data and define relationships in your domain.{: .lead }
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/Q4HDH95VAY4?rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/O22ZCT2uL_o?rel=0" title="Video" allowfullscreen></iframe></div>
 
 ## Summary
 
@@ -13,12 +13,12 @@ This video builds on the previous lesson and focuses on modeling **entity attrib
 
 ## Chapters
 
-- [Introduction to Domain Modeling (0:00)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=0&autoplay=1){target="lessonVideo"}
-- [One-to-Many Relationship Explained (1:57)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=117&autoplay=1){target="lessonVideo"}
-- [Customer-Order Relationship (6:30)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=390&autoplay=1){target="lessonVideo"}
-- [Adding Address Entity (8:39)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=519&autoplay=1){target="lessonVideo"}
-- [Delivery and Billing Addresses (10:30)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=630&autoplay=1){target="lessonVideo"}
-- [Product Category Relationship (13:16)](https://www.youtube.com/embed/Q4HDH95VAY4?rel=0&start=796&autoplay=1){target="lessonVideo"}
+- [Introduction to Domain Modeling (0:00)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=0&autoplay=1){target="lessonVideo"}
+- [One-to-Many Relationship Explained (1:57)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=117&autoplay=1){target="lessonVideo"}
+- [Customer-Order Relationship (6:30)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=390&autoplay=1){target="lessonVideo"}
+- [Adding Address Entity (8:39)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=519&autoplay=1){target="lessonVideo"}
+- [Delivery and Billing Addresses (10:30)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=630&autoplay=1){target="lessonVideo"}
+- [Product Category Relationship (13:16)](https://www.youtube.com/embed/O22ZCT2uL_o?rel=0&start=796&autoplay=1){target="lessonVideo"}
 
 ## Related Resources
 
