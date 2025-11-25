@@ -7,17 +7,19 @@ uid: release-notes.intent-architect-v4.5
 
 ### Improvements in 4.5.25
 
-- Improvement: Intent Architect will now show a yellow triangle at the top right corner of the window if there are any suggested system settings to be applied:
+- Improvement: Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied:
 
   ![The System Suggestions dialog](images/4.5/25/system-suggestions-dialog.png)
-  
+
   This feature comes as part of our ongoing effort to make Intent Architect more accessible for first time users and aims to address two common troubleshooting issues by suggesting the following:
-  
-  1. **Enabling "Windows Long Paths"** –  Windows still uses an "antiquated" path-length limit that doesn’t align well with modern development practices. When this setting is off, long or nested project structures can trigger avoidable build or file-operation issues.
 
-  2. **Enabling "Git Long Paths"** – Git also enforces its own legacy path-length restriction, which can interfere with cloning or checking out repositories containing deeper folder structures. If disabled, it can surface confusing errors tied solely to file length.
+  1. **Enabling "Windows Long Paths"** – By default, Windows still uses an "antiquated" path-length limit that doesn’t align well with modern development practices. When this setting is off, long or nested project structures can trigger avoidable build or file-operation issues.
 
-- Improvement: Moved "Export Model to XML" button from main toolbar to designer toolbar to make it less prominent. This feature is typically only used for installing preconfigured metadata when building Modules and Architecture Templates.
+  2. **Enabling "Git Long Paths"** – Due to the historic Windows path-length limitation, Git on Windows also enforces its own legacy path-length restriction, which can interfere with cloning or checking out repositories containing deeper folder structures. If disabled, it can surface confusing errors tied solely to file length.
+
+  If this dialog is dismissed it can be shown again by pressing the yellow warning triangle (⚠️) at the top right corner of the window.
+
+- Improvement: Moved "Export Model to XML" button from main toolbar to designer toolbar to make it less prominent. This feature is typically only used for installing pre-configured metadata when building Modules and Architecture Templates.
 - Improvement: Intent Architect now able to provide a default API key for OpenAI so that users can start using the AI capabilities of the platform more easily. All organizations will get a temporary API key initially.
 
 ### Fixes in 4.5.25
