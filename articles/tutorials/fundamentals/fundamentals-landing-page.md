@@ -14,7 +14,7 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
           <path d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
       </svg>
       <p class="feature-card-title">1: Build Your First Application</p>
-      <p>Create a new application in Intent Architect and build an end-to-end CRUD use case</p>
+      <p>Create a new application in Intent Architect and build an end-to-end CRUD use case.</p>
     </a>
   </div>
   <div class="feature-card">
@@ -27,7 +27,7 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
           <path d="M18.42 15.61a2.1 2.1 0 0 1 2.97 2.97l-3.39 3.42h-3v-3l3.42 -3.39z" />
       </svg>
       <p class="feature-card-title">2: Introduction to Domain Modeling</p>
-      <p>Model your domain with a focus on entity data and relationships</p>
+      <p>Model your domain with a focus on entity data and relationships.</p>
     </a>
   </div>
   <div class="feature-card">
@@ -112,7 +112,28 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
       <p>Write cleaner, more maintainable, business logic.</p>
     </a>
   </div>
-  <div class="spacer-card"></div>
+  <div class="feature-card">
+    <a href="xref:tutorials.fundamentals-9-managing-and-updating-our-architectures">
+      <svg class="landing-svg" viewBox="0 0 24 24">
+        <path d="M3 21h9" />
+        <path d="M9 8h1" />
+        <path d="M9 12h1" />
+        <path d="M9 16h1" />
+        <path d="M14 8h1" />
+        <path d="M14 12h1" />
+        <path d="M5 21v-16c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h10c.53 0 1.039 .211 1.414 .586c.375 .375 .586 .884 .586 1.414v7" />
+        <path d="M16 18c0 .53 .211 1.039 .586 1.414c.375 .375 .884 .586 1.414 .586c.53 0 1.039 -.211 1.414 -.586c.375 -.375 .586 -.884 .586 -1.414c0 -.53 -.211 -1.039 -.586 -1.414c-.375 -.375 -.884 -.586 -1.414 -.586c-.53 0 -1.039 .211 -1.414 .586c-.375 .375 -.586 .884 -.586 1.414z" />
+        <path d="M18 14.5v1.5" />
+        <path d="M18 20v1.5" />
+        <path d="M21.032 16.25l-1.299 .75" />
+        <path d="M16.27 19l-1.3 .75" />
+        <path d="M14.97 16.25l1.3 .75" />
+        <path d="M19.733 19l1.3 .75" />
+      </svg>
+      <p class="feature-card-title">9: Managing and Updating Architecture</p>
+      <p>Manage app architecture, modules, and releases effectively during active development.</p>
+    </a>
+  </div>
 </div>
 
 ## Related Resources
