@@ -5,13 +5,7 @@ uid: release-notes.intent-architect-v4.5
 
 ## Version 4.5.26
 
-### Fixes in 4.5.26
-
-- The following error would occur during execution of the Software Factory when run for recent versions Module Builder: `The minimum required Intent Architect version for the current Intent.SoftwareFactory.SDK version (3.12.1) has not been captured`
-
-## Version 4.5.25
-
-### Improvements in 4.5.25
+### Improvements in 4.5.26
 
 - Improvement: Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied:
 
@@ -28,10 +22,14 @@ uid: release-notes.intent-architect-v4.5
 - Improvement: Moved "Export Model to XML" button from main toolbar to designer toolbar to make it less prominent. This feature is typically only used for installing pre-configured metadata when building Modules and Architecture Templates.
 - Improvement: Intent Architect now able to provide a default API key for OpenAI so that users can start using the AI capabilities of the platform more easily. All organizations will get a temporary API key initially.
 
-### Fixes in 4.5.25
+### Fixes in 4.5.26
 
 - Fixed: Errors occurring when package references are reloaded that have nested associations.
 - Fixed: Token refresh logic is redirecting to login event if the token is still valid.
+
+## Version 4.5.25
+
+This version of Intent Architect was rolled back due to an error which would manifest when running the module builder. This version was only available for a very short period of time, but anyone running this version is advised to upgrade to a newer version.
 
 ## Version 4.5.24
 
