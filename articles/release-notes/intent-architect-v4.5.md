@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.26
+
+### Fixes in 4.5.26
+
+- The following error would occur during execution of the Software Factory when run for recent versions Module Builder: `The minimum required Intent Architect version for the current Intent.SoftwareFactory.SDK version (3.12.1) has not been captured`
+
 ## Version 4.5.25
 
 ### Improvements in 4.5.25
