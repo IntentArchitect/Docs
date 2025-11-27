@@ -26,6 +26,8 @@ uid: release-notes.intent-architect-v4.5
 
 - Fixed: Errors occurring when package references are reloaded that have nested associations.
 - Fixed: Token refresh logic is redirecting to login event if the token is still valid.
+- Fixed: Domain suggestions to create CRUD CQRS Services fail to find the new Entity if the designer has not already been saved.
+
 
 ## Version 4.5.25
 
