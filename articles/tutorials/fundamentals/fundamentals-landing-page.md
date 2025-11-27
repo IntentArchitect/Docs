@@ -136,6 +136,25 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
   </div>
 </div>
 
+<div class="docs-tiles-grid">
+  <div>
+  </div>
+  <div class="feature-card">
+    <a href="xref:tutorials.fundamentals-10-essential-tips-and-tricks">
+      <svg class="landing-svg" viewBox="0 0 24 24">
+        <path d="M6 21l15 -15l-3 -3l-15 15l3 3" />
+        <path d="M15 6l3 3" />
+        <path d="M9 3a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+        <path d="M19 13a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2" />
+      </svg>
+      <p class="feature-card-title">10: Essential Tips and Tricks</p>
+      <p>Essential tips and tricks for navigating Intent Architect effectively.</p>
+    </a>
+  </div>
+  <div>
+  </div>
+</div>
+
 ## Related Resources
 
 - [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist)

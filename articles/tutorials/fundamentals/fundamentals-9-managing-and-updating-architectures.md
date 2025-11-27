@@ -24,5 +24,5 @@ This video walks you through managing and updating your application's architectu
 
 ---
 
-| [← #8 Encapsulating Business Logic in the Domain](xref:tutorials.fundamentals-8-encapsulating-domain-logic) |  |
+| [← #8 Encapsulating Business Logic in the Domain](xref:tutorials.fundamentals-8-encapsulating-domain-logic) | [#10 Essential Tips and Tricks →](xref:tutorials.fundamentals-10-essential-tips-and-tricks) |
 |:--|--:|

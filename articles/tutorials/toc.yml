@@ -29,6 +29,9 @@ items:
 - name: '9: Managing and Updating Architectures'
   topicUid: tutorials.fundamentals-9-managing-and-updating-architectures
 
+- name: '10: Essential Tips and Tricks'
+  topicUid: tutorials.fundamentals-10-essential-tips-and-tricks
+
 # this to be converted to Java tutorial
 # - name: 'Tutorial: Create a Sample App'
 #   href: tutorials/create-a-sample-app/toc.yml
