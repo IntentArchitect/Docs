@@ -26,8 +26,8 @@ items:
 - name: '8: Encapsulating Business Logic in the Domain'
   topicUid: tutorials.fundamentals-8-encapsulating-domain-logic
 
-- name: '9: Managing and updating our architectures'
-  topicUid: tutorials.fundamentals-9-managing-and-updating-our-architectures
+- name: '9: Managing and Updating Architectures'
+  topicUid: tutorials.fundamentals-9-managing-and-updating-architectures
 
 # this to be converted to Java tutorial
 # - name: 'Tutorial: Create a Sample App'

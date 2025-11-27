@@ -25,5 +25,5 @@ This video introduces rich domain modeling, demonstrating how to encapsulate bus
 
 ---
 
-| [← #7 Application Settings and Migrating to SQLite](xref:tutorials.fundamentals-7-settings-migration) | [#9 Managing and updating our architectures →](xref:tutorials.fundamentals-9-managing-and-updating-our-architectures) |
+| [← #7 Application Settings and Migrating to SQLite](xref:tutorials.fundamentals-7-settings-migration) | [#9 Managing and Updating Architectures →](xref:tutorials.fundamentals-9-managing-and-updating-architectures) |
 |:--|--:|

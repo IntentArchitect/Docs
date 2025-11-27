@@ -1,7 +1,7 @@
 ---
-uid: tutorials.fundamentals-9-managing-and-updating-our-architectures
+uid: tutorials.fundamentals-9-managing-and-updating-architectures
 ---
-# Fundamentals #9: Managing and updating our architectures
+# Fundamentals #9: Managing and Updating Architectures
 
 Learn how to manage and update application architecture, modules, and releases effectively during active development.{: .lead }
 

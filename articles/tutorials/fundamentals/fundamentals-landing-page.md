@@ -113,7 +113,7 @@ Get familiar with the fundamental functions and concepts in Intent Architect ena
     </a>
   </div>
   <div class="feature-card">
-    <a href="xref:tutorials.fundamentals-9-managing-and-updating-our-architectures">
+    <a href="xref:tutorials.fundamentals-9-managing-and-updating-architectures">
       <svg class="landing-svg" viewBox="0 0 24 24">
         <path d="M3 21h9" />
         <path d="M9 8h1" />
