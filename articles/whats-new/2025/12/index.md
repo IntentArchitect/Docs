@@ -1,0 +1,51 @@
+# What's new in Intent Architect (December 2025)
+
+Welcome to the December edition of What’s New in Intent Architect.
+
+- Highlights
+
+- More updates
+  - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
+  - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
+
+## Update details
+
+### .NET 10 support
+
+Full .NET 10 support has been applied in the relevant areas of Intent Architect.
+
+The Visual Studio Designer allows selecting .NET 10.0 as a Target Framework on projects:
+
+![.NET 10.0 option for Target Framework in the Visual Studio Designer](images/vs-designer-net10-option.png)
+
+> [!TIP]
+>
+> To upgrade existing applications to .NET 10.0, simply select all projects in the Visual Studio Designer, change the Target Framework to .NET 10.0 and run the Software Factory to apply the changes.
+
+All .NET Architecture Templates now have .NET 10.0 as an available option for Target Framework under Basic Setting:
+
+![.NET 10.0 option for Target Framework on Architecture Templates](images/architect-template-net10-option.png)
+
+Finally, all .NET modules have been updated to install .NET 10 NuGet packages when available.
+
+Available from:
+
+- All applicable modules and architecture templates as of 2 December 2025.
+
+### System Suggestions
+
+Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied:
+
+![The System Suggestions dialog](images/system-suggestions-dialog.png)
+
+This feature comes as part of our ongoing effort to make Intent Architect more accessible for first time users and aims to address two common troubleshooting issues by suggesting the following:
+
+1. **Enabling "Windows Long Paths"** – By default, Windows still uses an "antiquated" path-length limit that doesn’t align well with modern development practices. When this setting is off, long or nested project structures can trigger avoidable build or file-operation issues.
+
+2. **Enabling "Git Long Paths"** – Due to the historic Windows path-length limitation, Git on Windows also enforces its own legacy path-length restriction, which can interfere with cloning or checking out repositories containing deeper folder structures. If disabled, it can surface confusing errors tied solely to file length.
+
+If this dialog is dismissed it can be shown again by pressing the yellow warning triangle (⚠️) at the top right corner of the window.
+
+Available from:
+
+- Intent Architect 4.5.26
