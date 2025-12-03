@@ -3,14 +3,15 @@
 Welcome to the November edition of What’s New in Intent Architect.
 
 - Highlights
-  - **[Simplified Architectural Management](#simplified-architectural-management)** – Architecture Templates are now available for modifying your architecture at any point.
-  - **[Fundamentals Training Videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
-  - **[Help Topic Improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
-  - **[AWS SQS Integration Modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
-  - **[AWS Secrets Management Module](#aws-secrets-management-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
+  - **[Simplified architectural management](#simplified-architectural-management)** – Architecture Templates are now available for modifying your architecture at any point.
+  - **[Fundamentals training videos](#fundamentals-training-videos)** – Focused videos designed to get you building with Intent Architect faster and more confidently.
+  - **[Help topic improvements](#help-topic-improvements)** – Search across all help topics and easily request new topics right from within Intent Architect.
+  - **[AWS SQS integration modeling](#aws-sqs-integration-modeling)** – Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
+  - **[AWS Secrets Manager module](#aws-secrets-manager-module)** – Extend .NET Configuration to automatically resolve secrets from AWS Secrets Manager at runtime.
 envelope-based message handling.
 - More updates
-  - **[Azure Storage Queue Module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and   - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
+  - **[Azure Storage Queue module](#azure-queue-storage-module)** –  Add streamlined Azure Queue Storage messaging to ASP.NET Core and Azure Functions, including dispatching, consumption, and envelope-based message handling.
+  - **[Open in IDE enhancements](#open-in-ide-enhancements)** – Several enhancements tightening up the IDE integration and improved quality of life.
   - **[AI modules multi-provider support](#ai-modules-multi-provider-support)** – Configure multiple AI providers, pick them per workflow, and dial in the thinking level that best fits each model.
   - **[JSON Importer enhancements](#json-importer-enhancements)** – A guided experience for turning JSON files into rich Domain, Services, or Eventing models in just a few clicks.
   - **[Git friendly alternative to `.application.output.log` files](#git-friendly-alternative-to-applicationoutputlog-files)** - A new Git friendly .xml file is now used to track which largely (if not completely) eliminates merge conflicts which would occur on `.application.output.log` files.
@@ -18,7 +19,7 @@ envelope-based message handling.
 
 ## Update details
 
-### Simplified Architectural Management
+### Simplified architectural management
 
 The Architecture Template is now always available on the **Architecture Template** view added to the Modules management tab.
 
@@ -33,7 +34,7 @@ Available from:
 
 - Intent Architect 4.5.23
 
-### Fundamentals Training Videos
+### Fundamentals training videos
 
 We’ve launched the Intent Architect Fundamentals Training Series, a collection of short, focused videos designed to get you building with Intent Architect faster and more confidently.
 
@@ -54,7 +55,7 @@ The series currently covers:
 
 You can access all videos directly from the [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist) or via the [Fundamentals Tutorials landing page](https://docs.intentarchitect.com/articles/tutorials/fundamentals/fundamentals-landing-page.html).
 
-### Help Topic Improvements
+### Help topic improvements
 
 Previously, help topics were limited to your installed modules. Now, you can search the full module suite, making it possible to discover more, and if you still don’t find what you need, you can request a new topic with a single click.
 
@@ -71,7 +72,7 @@ Available from:
 
 - Intent Architect 4.5.22
 
-### AWS SQS Integration Modeling
+### AWS SQS integration modeling
 
 Direct implementation to use AWS SQS to send and receive Integration Events and Commands for your application.
 
@@ -85,7 +86,7 @@ Available from:
 
 - Intent.Aws.Sqs 1.0.0
 
-### AWS Secrets Management Module
+### AWS Secrets Manager module
 
 The `Intent.Aws.SecretsManager` module extends the standard .NET Configuration system by integrating directly with **AWS Secrets Manager**. This enables your application to securely retrieve secrets (such as connection strings, API keys, and credentials) at runtime with minimal code changes.
 
@@ -95,7 +96,7 @@ Available from:
 
 - Intent.Aws.SecretsManager 1.0.0-beta.2
 
-### Azure Queue Storage Module
+### Azure Queue Storage module
 
 The `Intent.Eventing.AzureQueueStorage` module provides all necessary files, configuration, and abstractions for working with Azure Queue Storage messaging. It supports both publishing and consuming messages in a structured, opinionated way.
 
@@ -169,7 +170,8 @@ The new JSON Importer Module makes it easier to integrate existing codebases by 
 - **ServicesDtos**: Builds DTOs (with `Dto` naming conventions) and references that align with service-facing contracts.
 
 #### Smarter type inference
-The importer recognises sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
+
+The importer recognizes sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
 
 The importer recognizes sentinel values such as `"guid"` and `"datetime"`, infers decimals, booleans, and arrays, and defaults unknown values to objects—making the generated models immediately usable.
 
