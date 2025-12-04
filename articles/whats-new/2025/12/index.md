@@ -8,6 +8,8 @@ Welcome to the December edition of What’s New in Intent Architect.
   - **[2 New Fundamentals training videos](#2-new-fundamentals-training-videos)** – More videos covering the core concepts of Intent Architect.
   - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
   - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
+  - **[Paged endpoint defaults](#paging-defaults)** - Support added for application-wide default paging values for all paged endpoints.
+  - **[Cache eviction modelling](#cache-eviction)** - Endpoints can now be configured to explicitly evict cached data when they are invoked.
 
 ## Update details
 
@@ -59,3 +61,34 @@ If this dialog is dismissed it can be shown again by pressing the yellow warning
 Available from:
 
 - Intent Architect 4.5.26
+
+### Paging Defaults
+
+An application-level setting is now available to configure **Paging Default Values** that are automatically applied to all paged endpoints in your application.
+
+These defaults allow you to centrally control how paging behaves without changing individual endpoints. You can:
+
+- Set the default page size returned by all paged endpoints
+- Set the default data ordering to ensure consistent paging behavior across the application.
+
+These values can still be overridden on specific endpoints where needed, but if nothing is specified, the global defaults are used.
+
+![Pagination Default Values](images/paging-defaults.png)
+
+> [!NOTE]  
+> Default paging values are automatically configured only for new applications.  
+> For existing applications that upgrade the module, these values are not set automatically and must be configured explicitly in the Application Settings screen.
+
+Available from:
+
+- Intent.Application.Dtos.Pagination 4.1.4-pre.0
+
+### Cache Eviction
+
+Endpoints can now be modelled to **evict cached data by tag** whenever they are invoked. This allows you to keep your cache in sync when (specifically) write operations, such as create, update or delete, are performed.
+
+![Cache Eviction](images/cache-eviction.png)
+
+Available from:
+
+- Intent.AspNetCore.OutputCaching.Redis 1.1.13-pre.1
