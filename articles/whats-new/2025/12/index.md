@@ -5,10 +5,20 @@ Welcome to the December edition of What’s New in Intent Architect.
 - Highlights
 
 - More updates
+  - **[2 New Fundamentals training videos](#2-new-fundamentals-training-videos)** – More videos covering the core concepts of Intent Architect.
   - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
   - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
 
 ## Update details
+
+### 2 New Fundamentals training videos
+
+We have added 2 new videos for round off the **Fundamentals Training Series**, these new videos cover
+
+- [#9 Managing and Updating Architectures](xref:tutorials.fundamentals-9-managing-and-updating-architectures) – Learn how to manage and update application architecture, modules, and releases effectively during active development.
+- [#10 Essential Tips and Tricks](xref:tutorials.fundamentals-10-essential-tips-and-tricks) – Learn how to navigate Intent Architect effectively, using shortcuts for navigating between tabs, "Search Anywhere" functionality, and much more.
+
+You can access all videos directly from the [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist) or via the [Fundamentals Tutorials landing page](https://docs.intentarchitect.com/articles/tutorials/fundamentals/fundamentals-landing-page.html).
 
 ### .NET 10 support
 
