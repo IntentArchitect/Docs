@@ -5,6 +5,8 @@ Welcome to the December edition of What’s New in Intent Architect.
 - Highlights
 
 - More updates
+  - **[AI-Powered Unit Test Generation](#ai-powered-unit-test-generation)** – Enhanced unit test generation for CQRS handlers, Integration/Domain Events, and Domain Services with improved quality.
+  - **[Multiple Message Bus Providers](#multiple-message-bus-providers)** – Run multiple eventing providers simultaneously with intelligent message routing and composition.
   - **[2 New Fundamentals training videos](#2-new-fundamentals-training-videos)** – More videos covering the core concepts of Intent Architect.
   - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
   - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
@@ -12,6 +14,26 @@ Welcome to the December edition of What’s New in Intent Architect.
   - **[Cache eviction modelling](#cache-eviction)** - Endpoints can now be configured to explicitly evict cached data when they are invoked.
 
 ## Update details
+
+### AI-Powered Unit Test Generation
+
+We've improved the prompting in `Intent.Modules.AI.UnitTests` to generate higher quality unit tests. The module now supports unit test generation for CQRS handlers (Commands and Queries), Integration Event handlers, Domain Event handlers, and Domain Services.
+
+Right-click on any of these elements and select **Generate Unit Tests with AI** to let the module analyze your code context and model metadata, then generate comprehensive test implementations for review.
+
+Available from:
+
+- Intent.Modules.AI.UnitTests 1.0.0
+
+### Multiple Message Bus Providers
+
+The eventing architecture now supports **multiple message bus providers coexisting** within a single application through a new **Composite Message Bus** infrastructure. This enables you to install and use multiple messaging providers simultaneously (e.g., Azure Service Bus, Azure Queue Storage, Azure Event Grid, Kafka, MassTransit, Solace) and automatically route messages to the appropriate provider.
+
+The new `IMessageBus` interface serves as the primary eventing contract, while the legacy `IEventBus` interface remains fully backward compatible. When multiple providers are installed, the Composite Message Bus automatically orchestrates message routing. All the infrastructure plumbing is handled for you.
+
+Available from:
+
+- Intent.Modules.Eventing.Contracts 6.1.0
 
 ### 2 New Fundamentals training videos
 
