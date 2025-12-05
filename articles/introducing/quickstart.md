@@ -10,8 +10,7 @@ Learn how to create, generate, and run your first application in **Intent Archit
 
 ---
 
-<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/eygY3PCXCvA?rel=0" title="Video" allowfullscreen></iframe></div>
-
+<div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/kFa_3ZHFusk?rel=0" title="Video" allowfullscreen></iframe></div>
 ---
 
 ## 1️⃣ Create a new solution
