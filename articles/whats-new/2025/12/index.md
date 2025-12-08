@@ -2,12 +2,14 @@
 
 Welcome to the December edition of What’s New in Intent Architect.
 
-- Highlights
+We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular —a long-term goal we are excited to achieve. The initial release will will include application setup, UI modeling and AI generated views. We are aiming to have an alpha release available by the end of December.
 
-- More updates
+- Highlights
   - **[AI-Powered Unit Test Generation](#ai-powered-unit-test-generation)** – Enhanced unit test generation for CQRS handlers, Integration/Domain Events, and Domain Services with improved quality.
   - **[Multiple Message Bus Providers](#multiple-message-bus-providers)** – Run multiple eventing providers simultaneously with intelligent message routing and composition.
   - **[2 New Fundamentals training videos](#2-new-fundamentals-training-videos)** – More videos covering the core concepts of Intent Architect.
+
+- More updates
   - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
   - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
   - **[Paged endpoint defaults](#paging-defaults)** - Support added for application-wide default paging values for all paged endpoints.
