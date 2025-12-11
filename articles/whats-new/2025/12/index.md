@@ -19,6 +19,8 @@ We’re thrilled to announce that our team has been working diligently on our ne
 
 ### AI-Powered Unit Test Generation
 
+![Generate Unit Test with AI](images/generate-unit-test-with-ai.png)
+
 We've improved the prompting in `Intent.Modules.AI.UnitTests` to generate higher quality unit tests. The module now supports unit test generation for CQRS handlers (Commands and Queries), Integration Event handlers, Domain Event handlers, and Domain Services.
 
 Right-click on any of these elements and select **Generate Unit Tests with AI** to let the module analyze your code context and model metadata, then generate comprehensive test implementations for review.
@@ -28,6 +30,8 @@ Available from:
 - Intent.Modules.AI.UnitTests 1.0.0
 
 ### Multiple Message Bus Providers
+
+![Multiple Message Bus Providers](images/multiple-message-bus-providers.png)
 
 The eventing architecture now supports **multiple message bus providers coexisting** within a single application through a new **Composite Message Bus** infrastructure. This enables you to install and use multiple messaging providers simultaneously (e.g., Azure Service Bus, Azure Queue Storage, Azure Event Grid, Kafka, MassTransit, Solace) and automatically route messages to the appropriate provider.
 
