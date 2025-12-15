@@ -11,7 +11,7 @@ We’re thrilled to announce that our team has been working diligently on our ne
 
 - More updates
   - **[.NET 10 support](#net-10-support)** – Full support for targeting .NET 10.
-  - **[System Suggestions](#net-10-support)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
+  - **[System Suggestions](#system-suggestions)** – Intent Architect will now show a dialog on startup if there are any strongly recommended System Suggestions to be applied.
   - **[Paged endpoint defaults](#paging-defaults)** - Support added for application-wide default paging values for all paged endpoints.
   - **[Cache eviction modelling](#cache-eviction)** - Endpoints can now be configured to explicitly evict cached data when they are invoked.
 
