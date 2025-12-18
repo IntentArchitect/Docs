@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.5
 ---
 # Release notes: Intent Architect version 4.5
 
+## Version 4.5.27
+
+### Fixes in 4.5.27
+
+- Fixed: The Software Factory CLI would fail to authenticate when authenticating using a username and password.
+
 ## Version 4.5.26
 
 ### Improvements in 4.5.26
