@@ -1,10 +1,10 @@
 ---
-title: Blazor UI Modeling with AI
-description: Use Intent Architect to build professional UIs rapidly with deterministic and AI-driven code generation.
-keywords: blazor, intent architect, mudblazor, ai, software factory, llm, code generation
+title: Angular UI Modeling with AI
+description: Use Intent Architect to build professional Angular UIs rapidly with deterministic and AI-driven code generation.
+keywords: angular, intent architect, material, ai, software factory, llm, code generation
 ---
 
-# Blazor UI Modeling with AI
+## Angular UI Modeling with AI
 
 This article will show you how you can use Intent Architect to rapidly build professional-looking UIs, using a combination of both deterministic (pattern reuse) and non-deterministic (LLMs driven by Intent Architect) code generation techniques.
 
@@ -20,18 +20,47 @@ How this works at a high level is as follows:
   ![Generated Front ends](./images/genarate-search.png)
 
 > [!NOTE]  
-> While the samples here use MudBlazor, there is nothing inherently MudBlazor-specific about the implementation, and you can adjust the configuration for other component libraries.
+> While the samples here use Material Components, there is nothing inherently Material-specific about the implementation, and you can adjust the configuration for other component libraries.
+
+> [!NOTE]  
+> The Angular modules and application template are currently in **beta**. While we make every effort to make sure the code is bug free, unexpected issues still might occur. If you do encounter any issues, please do let us know so we can address them.  
+> Please refer to the [Known Issues and Snags](#known-issues-and-snags) for known issues and limitations which we are actively working at resolving.
 
 ---
 
 ## Design and Generate Your View Model
 
-To start, create a Blazor Application in Intent Architect.
+To start, create a Angular Web Application in Intent Architect.
+
+  ![Angular Web Application](./images/angular-template.png)
 
 > [!NOTE]  
-> Intent Architect has two Architecture Templates for quickly setting up a Blazor application:  
-> - **Blazor Server** (Fullstack ASP.NET core Server)  
-> - **Blazor Web Application (Standalone)** (Standalone UI which composes one or more Service Applications)
+> The Angular modules and architecture template are currently in beta. Make sure `Include prerelease` is ticked to see the architecture templates and modules.
+
+> [!NOTE]  
+> There is a comprehensive Angular Sample application available if preferred. When creating a new application, instead of selecting the `Angular Web Application` template, select the **Explore Samples** on the left hand side, and select `Angular Web Application` here.
+
+When creating the application make sure the `Angular AI`, `Material` and `Http Clients` components are all selected (they will be ticked by default):
+
+  ![Angular Web Application](./images/angular-components.png)
+
+### Initial Code Gen and Module Installation
+
+Run the **Software Factory** to generate the initial application structure and infrastructure code.
+
+Before the application can be run, the referenced modules need to be installed. Open a Console window to the output location of your application (a shortcut to the path can be found at the bottom of the Software Factory execution windows)
+
+Execute the following command to install the modules:
+
+``` cmd
+npm i
+```
+
+Once finished, you can run the following to run the application:
+
+``` cmd
+ng serve
+```
 
 ### How to Model Pages
 
@@ -40,9 +69,6 @@ To start, create a Blazor Application in Intent Architect.
 3. *Optional*: Adjust the route in the property pane.  
 
 ![Page Added](./images/add-page.png)
-
-To quickly add your page to the `Sider Menu`, use the **Add to Sider Menu** suggestion.  
-![Add to Sider Menu](./images/add-to-sider-menu.png)
 
 ### Adding Route parameters to your page
 
@@ -69,20 +95,29 @@ If your dialog requires parameterization, you can model that as follows:
 
 1. Right-click on the **Dialog** → **Add Property**.  
 2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).  
-3. Apply the `Route Parameter` stereotype using **F3**.  
+3. Apply the `Route Parameter` (or `Bindable`) stereotype using **F3**.  
 
 ![Dialog with Route Parameters Added](./images/add-dialog-with-parameters.png)
 
 ---
 
-### How to Model UI Navigations
+FROM HERE
 
-1. Right-click on the `Component` (Page, Dialog, Component) → **Add Operation**.  
+### How to Model UI Navigation
+
+#### Navigation to a Page
+
+1. Right-click on the `Page` (Page, Dialog) → **Add Navigation**.  
+2. Connect the navigation arrow to the destination by left-clicking the destination.
+
+#### Navigation to a Dialog
+
+1. Right-click on the `Component` (Page, Dialog) → **Add Operation**.  
 2. Name your operation (e.g., `AddNewCustomer`).  
-3. Right-click on the operation → **Navigate to Page** or **Show Dialog**.  
-4. Connect the navigation to the destination by left-clicking the destination.  
+3. Right-click on the operation → **Show Dialog**.  
+4. Connect the navigation to the destination by left-clicking the **Dialog** destination.
 
-![Navigations Modeled](./images/navigation.png)
+![Navigation Modeled](./images/navigation.png)
 
 If your `Component` has `Route Parameters`, a mapping dialog will open for you to bind those parameters. Typically you would simply add these parameters to your navigation `Operation`.  
 
@@ -95,7 +130,7 @@ If your `Component` has `Route Parameters`, a mapping dialog will open for you t
 UI `Component`s interact with services to retrieve data and to affect change on the system. This is how we model this behaviour.
 
 1. On the `Component`'s suggestions, click the `Call Backend Service` suggestion.  
-2. On the **Add to Diagram** dialog select the service endpoint you want to call.  
+2. On the **Call Backend Service** dialog select the service endpoint you want to call.  
 
 > [!NOTE]  
 > If you are not seeing the Services you want to call, [add a package reference to the `Service Package` which contains those Services in the UI Designer](#connecting-your-ui-components-to-services-in-other-applications).
@@ -123,16 +158,16 @@ To use these services in your UI application:
 You can now use these external services in the diagrams of the UI application.
 
 > [!NOTE]  
-> You will also need the appropriate integration module installed to make the remote communication work (e.g., `Intent.Blazor.HttpClients` for a WASM UI talking to an external REST Web API, or `Intent.Integration.HttpClients` for a server-side Blazor application talking to an external REST Web API).
+> You will also need the appropriate integration module installed to make the remote communication work - currently the only integration client available is `Intent.Angular.HttpClients` (this module is selected by default when creating a new Angular application)
 
 ---
 
 ## Implement Your View with AI
 
 > [!TIP]  
-> You will need to install the `Intent.AI.Blazor` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed — including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
+> You will need to install the `Intent.AI.Angular` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed — including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
 
-Once you are satisfied with your **View Model** design, you can use the Blazor AI accelerator to have AI generate the remaining implementation details.
+Once you are satisfied with your **View Model** design, you can use the Angular AI accelerator to have AI generate the remaining implementation details.
 
 > [!NOTE]  
 > Don't forget to apply your **Software Factory** before running AI prompts, as the generated code is input/context for the AI.
@@ -153,46 +188,26 @@ Once you are satisfied with your **View Model** design, you can use the Blazor A
 
 ---
 
-### Common Compilation Issues (with MudBlazor)
+### Implement Your Layout with AI
 
-The AI does not always get it right, even when guided explicitly. Here are a few common compilation issues you may run into.
+1. Make sure you have run and applied the **Software Factory**.  
+2. Right-click on the `Layout` → **Implement with AI**.  
+3. *(Optional)* Adjust the settings in the AI Prompt dialog.  
+4. Click **Done** — IA will generate and submit a prompt to the LLM (this may take a little while).  
+5. Review the AI's proposed changes as a code diff.  
+6. Click **Apply** to accept the changes.  
 
-#### Non-nullable Model Fields
+On a `Layout` the `Implement with AI` will generate a menu structure based on the navigation items added to the layout. Menu items can manually be added if required, as well manually adjusted (e.g. menu item ordering) when required.
 
-Certain MudBlazor components expect nullable bindings. For example, `MudDatePicker` requires a `DateTime?`. If it gets bound to a `DateTime` on your model you will get the error:  
+---
 
-```
-Argument 2: cannot convert from 'Microsoft.AspNetCore.Components.EventCallback<System.DateTime>' to 'Microsoft.AspNetCore.Components.EventCallback'
-```
+### Application Styling
 
-To resolve this issue, make the corresponding properties on the model nullable, ideally in Intent Architect, and run the **Software Factory**.  
+Out of the box, the application will be styled by two stylesheets, `styles.scss` and `theme.scss`, which use the Material themes. These two files (along with the components specific style sheets) can manually be updated or modified to suite your styling.
 
-If the field is required on the service contract, it still will be. We are only changing the model, and the AI should have configured the component as required based on the contract, so the value will be populated when form validation passes.  
+If you use the implementation out the box, the color themes (Primary and Accent colors) can be adjusted in the `Application Settings`:
 
-![Nullable Model Property](./images/nullable-model.png)
-
-#### The Missing `T=""`
-
-Sometimes the AI generates code like this, which does not compile:
-
-```csharp
-@if (context.IsActive)
-{
-    <MudChip Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">Active</MudChip>
-}
-else
-{
-    <MudChip Color="Color.Error" Variant="Variant.Filled" Size="Size.Small">Inactive</MudChip>
-}
-```
-
-Error:  
-```
-The type of component 'MudChip' cannot be inferred based on the values provided. Consider specifying the type arguments directly using the following attributes: 'T'.
-```
-
-**Fix:** Simply add `T="string"` into the `MudChip` components.
-
+![Color Theme](./images/color-theme.png)
 
 ---
 
@@ -229,19 +244,13 @@ There are several pre-configured MudBlazor templates for various types of Pages 
 | Dialog - Edit Entity    | dialog, edit, update, modify, change |
 
 > [!NOTE]  
-> [These templates can easily be customized, extended or replaced](#blazor-ai-prompt-augment-and-customization-through-templates). They could even be changed to work for a completely different component library.
+> [These templates can easily be customized, extended or replaced](#angular-ai-prompt-augment-and-customization-through-templates). They could even be changed to work for a completely different component library.
 
 #### Giving It an Example
 
 If you already have an example of a similar screen to the one you are trying to create, you can simply select it in the **Example Components**. This will submit code associated with that `Component` to guide the AI.
 
-#### Blazor Component Comments
-
-Whatever comments you put on your Blazor `Component` will also be included in the prompt. This can be used for persistent, instance-based prompting context. For example:  
-
-- "The page does the following and has X, Y, Z features."  
-- "Ensure the customer grid refreshes when a dialog closes."  
-
+Occasionally, the LLM might generate the layout of the **Add Entity** and **Edit Entity** pages differently - the *Example Component* in conjunction with additional context ("*ensure the layout of the edit page is the same as the add page*") can prove helpful in aligning the layout of the screens.
 
 ---
 
@@ -249,68 +258,68 @@ Whatever comments you put on your Blazor `Component` will also be included in th
 
 In this approach you have used both deterministic and non-deterministic code generation.  
 
-- Everything you modeled will be generated deterministically through the **Software Factory** in the **ViewModel** (e.g., `MyComponent.razor.cs`).  
-- The AI/LLM will generate the code in the **View** (e.g., `MyComponent.razor`), and may augment or change some code in the **ViewModel**.  
+- Everything you modeled will be generated deterministically through the **Software Factory** in the **ViewModel** (e.g., `customer-add.component.ts`).  
+- The AI/LLM will generate the code in the **View** (e.g., `customer-add.component.html` and `customer-add.component.scss`), and may augment or change some code in the **ViewModel**.  
 
 Implications/considerations:  
 
 - The **ViewModel** runs in *Merge* mode by default. This means both systems can operate there smoothly.  
 - If the AI changes deterministic code in the **ViewModel**, the Software Factory may not be able to automatically merge the changes and may attempt to undo or duplicate code blocks.  
 - Ideally, you can refactor the code and/or add explicit [**Code Management**](xref:application-development.code-management.about-code-management) instructions to the point where Intent Architect can merge code automatically.  
-- If not possible, you may need to add an `IntentIgnore`.  
-
+- If not possible, you may need to add the `@IntentIgnore()` decorator.
 
 ---
 
-## Blazor AI Prompt Augment and Customization Through Templates
+## Known Issues and Snags
 
-The Blazor AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for MudBlazor, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it — the choice is yours.
+Below are a list of known issues and limitations which we are actively working on addressing:
+
+- **Multiple AI agent execution**: Currently the `Implement with AI` functionality is per page/component. As such, if you make a change which effects multiple pages (e.g. adding an "Add Entity" navigation to a "Search" page) then the `Implement with AI` functionality is required to be run on both pages to get the full end to end implementation to be functional.
+- **Import removal**: When page A references page B, an `import` statement is automatically added to page A which references page B. However, if page B is deleted or the reference is no longer required, the `import` statement is not automatically removed. This could result in non-compiling code if the page no longer exists. To resolve, manually remove any offending `import` statements.
+- **Traditional Services Support**: Currently only CQRS Services are officially supported. Traditional Services may partially work, but has not been explicitly tested. We are working on fully supporting Traditional Services.
+- **Limited Weaving Capabilities** (especially compared to C#): The weaving capabilities of Typescript are not as mature as that of C#, so there are some use cases where an *IntentMerge* might not operate the same way as the C# *IntentMerge* does. In these cases, it is best to *IntentIgnore* the method.
+
+---
+
+## Angular AI Prompt Augment and Customization Through Templates
+
+The Angular AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for Material, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it — the choice is yours.
 
 Look in the following folder within your Intent Architect Solution:
 
 ```cmd
-.\Intent\AI.Prompt.Templates\{application name}\Intent.Blazor.AI
+.\intent\AI.Prompt.Templates\{application name}\Intent.Modules.AI.Angular.Generate
 ```
 
 You will find:  
 
-- `prompt-config.json` (prompt configuration)  
+- `prompt.md` (generic prompt rules, limitations and instructions)
+- `prompt-config.json` (prompt configuration)
 - Folders containing sample code files for the various templates  
+- Template specific markdown (template specific rules, limitations or instructions
 
 ![AI Prompt Config Folder](./images/ai-prompt-folder.png)
 
 ---
 
+### Prompt Overview
+
+The main prompt (`prompt.md`) is a readable markdown file, which can be adjusted to suite your specific rules and requirements.
+
+This file contains the generic rules, limitations and instructions for the prompt, including:
+
+- Component Libraries (including versions)
+- Styling guides and rules (using Material)
+- Rules for when and how to modify existing code
+- Rules for navigation between components
+
+#### Template Specific Prompt
+
+Each template also has its own markdown file (e.g. `add-entity.md`) which contain any additional template specific rules to be passed to the LLM.
+
 ### JSON Schema Overview
 
-#### 1. `metadata`
-
-The `metadata` block provides **contextual information** that is injected into the AI prompt. This ensures generated code aligns with your project’s dependencies and conventions.
-
-```json
-"metadata": {
-  "component-library": {
-    "name": "MudBlazor",
-    "version": "8.10.0"
-  }
-}
-```
-
-#### 2. `rules`
-
-The `rules` array defines **best practices, constraints, and coding standards** that the AI must follow.
-
-```json
-"rules": [
-  "Don't add `@using MudBlazor` into .razor files.",
-  "Favour reusing existing backing methods to fetching data.",
-  "In Razor pages use foreach statements rather than for statements."
-]
-```
-
-#### 3. `templates`
-
-Templates define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
+The `prompt-config.json` file defines templates which define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
 
 - **id** → Unique identifier  
 - **name** → Human-friendly label  
@@ -320,7 +329,7 @@ Templates define **reusable AI prompt blueprints** for common scenarios (e.g., S
 - **metadata** → Template-specific context  
 - **rules** → Additional template-specific rules  
 
-##### Example Template: *Search Entity Page*
+#### Example Template: *Search Entity Page*
 
 ```json
 {
@@ -333,11 +342,7 @@ Templates define **reusable AI prompt blueprints** for common scenarios (e.g., S
       { "word": "list", "weight": 3 }
     ]
   },
-  "template-folder": "SearchEntity",
-  "rules": [
-    "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
-    "Always add placeholders to search criteria input controls"
-  ]
+  "template-folder": "SearchEntity"
 }
 ```
 
@@ -357,8 +362,7 @@ The schema already defines several templates:
   - `AddEntityDialog` → Generates dialogs for adding entities  
   - `EditEntityDialog` → Generates dialogs for editing entities  
 
-Each template includes its **own rules** to ensure compliance with MudBlazor and project conventions.
-
+Each template includes its **own rules** to ensure compliance with Material and project conventions.
 
 ---
 
@@ -366,13 +370,12 @@ Each template includes its **own rules** to ensure compliance with MudBlazor and
 
 To extend the configuration:  
 
-1. **Add new rules** under `rules` (global) or under a specific `template`.  
-2. **Create a new template** by adding an object under `templates`.  
+1. **Add new rules** in `prompt.md` (global) or under a specific `template` markdown.  
+2. **Create a new template** in `prompt-config.json` by adding an object under `templates`.  
    - Define keywords under `applicability`.  
-   - Add `rules` to enforce conventions.  
    - Specify a `template-folder` with an example implementation.  
 
-##### Example A: Bulk Import Entities
+#### Example A: Bulk Import Entities
 
 ```json
 {
@@ -392,15 +395,16 @@ To extend the configuration:
   "template-folder": "BulkImportEntities",
   "metadata": {},
   "rules": [
-    "Provide a file input and a server-side parse action; reuse existing parse/validate/commit methods if available.",
-    "Render a preview table with paging and basic filtering using MudTable or MudDataGrid.",
-    "Use official enum values for component parameters (no raw strings).",
-    "Surface row-level validation messages using Func<T, IEnumerable<string>> validators.",
-    "Disable 'Commit' until there are no blocking validation errors.",
-    "Show success/error toasts/dialogs using existing notification services if present."
+    
   ]
 }
 ```
+
+Rules in the template specific markdown file:
+> Provide a file input and a server-side parse action; reuse existing parse/validate/commit methods if available.  
+> Render a preview table with paging and basic filtering using mat-table or mat-grid-list.  
+> Use official enum values for component parameters (no raw strings).  
+> Show success/error toasts/dialogs using existing notification services if present.  
 
 ##### Example B: Upsert Template
 
@@ -424,20 +428,17 @@ To extend the configuration:
       { "word": "save", "weight": 2 }
     ]
   },
-  "template-folder": "AddOrUpdateEntity",
-  "metadata": {},
-  "rules": [
-    "Reuse existing backing methods if present (e.g., SaveEntityAsync, UpdateEntityAsync, LoadEntityAsync). Do not invent new ones if appropriate methods already exist.",
-    "If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.",
-    "Use MudForm and consistent variants/density/margins across all inputs.",
-    "For MudBlazor generics (MudSelect, MudRadioGroup, MudChipSet, MudSwitch), always declare T explicitly.",
-    "When binding to inputs that accept nullable values (e.g., MudSelect, MudDatePicker), update the backing model property to be nullable.",
-    "Validation delegates must match Func<T, IEnumerable<string>>.",
-    "Always use official enum values for component parameters (no raw strings)."
-  ]
+  "template-folder": "AddOrUpdateEntity"
 }
 ```
 
+Rules in the template specific markdown file:
+> Reuse existing backing methods if present (e.g., save, updateEntity, loadEntityById). Do not invent new ones if appropriate methods already exist.  
+> If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.  
+> Always use official enum values for component parameters (no raw strings).  
+
 ---
 
-✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and event using a different blazor component library
+✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and event using a different Angular component library
+
+

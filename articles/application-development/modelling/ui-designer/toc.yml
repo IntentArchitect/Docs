@@ -1,3 +1,5 @@
 items:
 - name: Blazor Modeling
   href: blazor-modeling/blazor-modeling.md
+- name: Angular Modeling
+  href: angular-modeling/angular-modeling.md
