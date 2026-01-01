@@ -2,237 +2,230 @@
 title: Angular UI Modeling with AI
 description: Use Intent Architect to build professional Angular UIs rapidly with deterministic and AI-driven code generation.
 keywords: angular, intent architect, material, ai, software factory, llm, code generation
+uid: angular.ui-modeling
 ---
 
 ## Angular UI Modeling with AI
 
-This article will show you how you can use Intent Architect to rapidly build professional-looking UIs, using a combination of both deterministic (pattern reuse) and non-deterministic (LLMs driven by Intent Architect) code generation techniques.
+This article explains how to use Intent Architect to rapidly build professional Angular UIs, leveraging both deterministic (pattern-based) and non-deterministic (AI/LLM-driven) code generation.
 
-How this works at a high level is as follows:
+The high-level workflow is:
 
-- Design and generate your **View Model**s. This includes aspects like which Services to interact with and where UI navigations are going.  
+- **Design and generate your View Models**: Define which services to interact with and how UI navigation should work.
+
   ![Model View Model](./images/basic-viewmodel-design.png)
 
-- Use our "Implement with AI" accelerator to get the LLM of your choice to build the **View** in a "prompt-less" fashion. Intent Architect handles the context engineering and manages the LLM interactions on your behalf. The results can be reviewed as a code diff of what the LLM proposes, similar to a regular **Software Factory** execution.  
+- **Implement with AI**: Use the "Implement with AI" accelerator to have your chosen LLM generate the View. Intent Architect manages the context and LLM interactions for you. Review the proposed changes as a code diff, similar to a regular Software Factory execution.
   ![AI Generates View](./images/ai-review.png)
 
-- Review and validate the code. As always when dealing with LLMs, you will want to review and validate the code. By their nature LLMs are non-deterministic, but with a little bit of luck you should end up with a screen similar to this:  
+- **Review and validate the code**: Since LLMs are non-deterministic, always review the generated code. With a bit of luck, you’ll get a screen like this:
   ![Generated Front ends](./images/genarate-search.png)
 
-> [!NOTE]  
-> While the samples here use Material Components, there is nothing inherently Material-specific about the implementation, and you can adjust the configuration for other component libraries.
+> [!NOTE]
+> While the samples use Material Components, the approach is not Material-specific. You can configure for other component libraries as needed.
 
-> [!NOTE]  
-> The Angular modules and application template are currently in **beta**. While we make every effort to make sure the code is bug free, unexpected issues still might occur. If you do encounter any issues, please do let us know so we can address them.  
-> Please refer to the [Known Issues and Snags](#known-issues-and-snags) for known issues and limitations which we are actively working at resolving.
+> [!NOTE]
+> The Angular modules and application template are currently in **beta**. If you encounter issues, please let us know. See [Known Issues and Snags](#known-issues-and-snags) for current limitations.
 
 ---
 
 ## Design and Generate Your View Model
 
-To start, create a Angular Web Application in Intent Architect.
+To get started, create an Angular Web Application in Intent Architect (using the Angular Web Application architecture template)
 
   ![Angular Web Application](./images/angular-template.png)
 
-> [!NOTE]  
-> The Angular modules and architecture template are currently in beta. Make sure `Include prerelease` is ticked to see the architecture templates and modules.
+> [!NOTE]
+> The Angular modules and architecture template are currently in beta. Make sure `Include prerelease` is checked to see the templates and modules.
 
-> [!NOTE]  
-> There is a comprehensive Angular Sample application available if preferred. When creating a new application, instead of selecting the `Angular Web Application` template, select the **Explore Samples** on the left hand side, and select `Angular Web Application` here.
+> [!NOTE]
+> A comprehensive Angular Sample application is also available. To use it, select **Explore Samples** on the left, then choose `Angular Web Application`.
 
-When creating the application make sure the `Angular AI`, `Material` and `Http Clients` components are all selected (they will be ticked by default):
+When creating the application, ensure the `Angular AI`, `Material`, and `Http Clients` components are all selected (these are ticked by default):
 
   ![Angular Web Application](./images/angular-components.png)
 
-### Initial Code Gen and Module Installation
+### Initial Code Generation and Module Installation
 
 Run the **Software Factory** to generate the initial application structure and infrastructure code.
 
-Before the application can be run, the referenced modules need to be installed. Open a Console window to the output location of your application (a shortcut to the path can be found at the bottom of the Software Factory execution windows)
+Before running the application, install the referenced modules. Open a console window at your application's output location (a shortcut is provided at the bottom of the Software Factory execution window).
 
-Execute the following command to install the modules:
+Install the modules:
 
-``` cmd
+```cmd
 npm i
 ```
 
-Once finished, you can run the following to run the application:
+Then start the application:
 
-``` cmd
+```cmd
 ng serve
 ```
 
-### How to Model Pages
+### Modeling Pages
 
-1. Add a `Page` to a diagram in the **UI Designer**.  
-2. Name the `Page`, typically describing its function (e.g., `CustomerSearch` or `CustomerAdd`).  
-3. *Optional*: Adjust the route in the property pane.  
+1. Add a `Page` to a diagram in the **UI Designer**.
+2. Name the `Page` to describe its function (e.g., `CustomerSearch`, `CustomerAdd`).
+3. *(Optional)* Adjust the route in the property pane.
 
 ![Page Added](./images/add-page.png)
 
-### Adding Route parameters to your page
+### Adding Route Parameters to a Page
 
-If your page requires **Route Parameters** (e.g., `customers/edit/{customerId}`), you can model these as follows:
+If your page needs **Route Parameters** (e.g., `customers/edit/{customerId}`):
 
-1. Right-click on the `Page` → **Add Property**.  
-2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).  
-3. Apply the `Route Parameter` stereotype to the property using **F3**.  
+1. Right-click the `Page` → **Add Property**.
+2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).
+3. Apply the `Route Parameter` stereotype to the property (press **F3**).
 
 ![Page with Route Parameters Added](./images/add-page-with-route.png)
 
-The page route will automatically update based on the route parameters.
+The page route updates automatically based on the route parameters.
 
 ---
 
-### How to Model a Dialog
+### Modeling a Dialog
 
-1. Add a `Page` to a diagram in the **UI Designer**.  
-2. Name the `Page`, suffixed with the word **Dialog** (e.g., `CustomerAddDialog`).  
+1. Add a `Page` to a diagram in the **UI Designer**.
+2. Name the `Page` with a **Dialog** suffix (e.g., `CustomerAddDialog`).
 
 ![Dialog Added](./images/add-dialog.png)
 
-If your dialog requires parameterization, you can model that as follows:
+If your dialog needs parameters:
 
-1. Right-click on the **Dialog** → **Add Property**.  
-2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).  
-3. Apply the `Route Parameter` (or `Bindable`) stereotype using **F3**.  
+1. Right-click the **Dialog** → **Add Property**.
+2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).
+3. Apply the `Route Parameter` or `Bindable` stereotype (press **F3**).
 
 ![Dialog with Route Parameters Added](./images/add-dialog-with-parameters.png)
 
 ---
 
-FROM HERE
-
-### How to Model UI Navigation
+### Modeling UI Navigation
 
 #### Navigation to a Page
 
-1. Right-click on the `Page` (Page, Dialog) → **Add Navigation**.  
-2. Connect the navigation arrow to the destination by left-clicking the destination.
+1. Right-click the `Page` (or Dialog) → **Add Navigation**.
+2. Connect the navigation arrow to the destination by left-clicking the target.
 
 #### Navigation to a Dialog
 
-1. Right-click on the `Component` (Page, Dialog) → **Add Operation**.  
-2. Name your operation (e.g., `AddNewCustomer`).  
-3. Right-click on the operation → **Show Dialog**.  
-4. Connect the navigation to the destination by left-clicking the **Dialog** destination.
+1. Right-click the `Component` (Page or Dialog) → **Add Operation**.
+2. Name the operation (e.g., `AddNewCustomer`).
+3. Right-click the operation → **Show Dialog**.
+4. Connect the navigation to the dialog by left-clicking the destination.
 
 ![Navigation Modeled](./images/navigation.png)
 
-If your `Component` has `Route Parameters`, a mapping dialog will open for you to bind those parameters. Typically you would simply add these parameters to your navigation `Operation`.  
+If your `Component` has `Route Parameters`, a mapping dialog will open for you to bind those parameters. Usually, you add these parameters to your navigation `Operation`.
 
 ![Map Route Parameters](./images/map-route-parameters.png)
 
 ---
 
-### Modeling Service Interactions
+### Connecting UI Components to Services in Other Applications
 
-UI `Component`s interact with services to retrieve data and to affect change on the system. This is how we model this behaviour.
+UI `Component`s interact with services to retrieve data or trigger changes in the system. Model this as follows:
 
-1. On the `Component`'s suggestions, click the `Call Backend Service` suggestion.  
-2. On the **Call Backend Service** dialog select the service endpoint you want to call.  
+To use external services in your UI application:
 
-> [!NOTE]  
-> If you are not seeing the Services you want to call, [add a package reference to the `Service Package` which contains those Services in the UI Designer](#connecting-your-ui-components-to-services-in-other-applications).
-
-![Call Backend Service to Fetch Data](./images/call-backend-service-fetch.png)
-
-Depending on the nature of the service being invoked, the default setup is slightly different:
-
-- For `Query`s: the result is added to the `Component` as a property, and request parameters are modeled as `Operation` parameters.  
-- For `Command`s: a corresponding `Model Definition` is created, based on the command, and added to the `Component`. This model is mapped to the command for invocation. Typically for `Command`s you want a separate model which may have additional view concerns.
-
----
-
-### Connecting Your UI Components to Services in Other Applications
-
-When modeling service invocations, you may want to connect to Services defined in applications beyond your UI application.
-
-To use these services in your UI application:
-
-1. In the `User Interface Designer`, under the `User Interface Package`, right-click `References` → **Add a Package Reference**.  
-2. In the `Package Reference Manager` dialog, select the package containing the Services (e.g., `OtherApplication.Services`).  
+1. In the `User Interface Designer`, under the `User Interface Package`, right-click `References` → `Add a Package Reference`.
+2. In the `Package Reference Manager`, select the package containing the services (e.g., `OtherApplication.Services`).
 
 ![Add Package Reference](./images/add-package-reference.png)
 
-You can now use these external services in the diagrams of the UI application.
+You can now use these external services in your UI diagrams.
 
-> [!NOTE]  
-> You will also need the appropriate integration module installed to make the remote communication work - currently the only integration client available is `Intent.Angular.HttpClients` (this module is selected by default when creating a new Angular application)
+1. In the `Component`'s suggestions, click `Call Backend Service`.
+2. In the **Call Backend Service** dialog, select the service endpoint to call.
+
+> [!NOTE]
+> If you don't see the desired services, remember to add a package reference to the `Service Package` containing those services in the UI Designer.
+
+![Call Backend Service to Fetch Data](./images/call-backend-service-fetch.png)
+
+Depending on the service type:
+
+- For `Query`s: The result is added to the `Component` as a property, and request parameters are modeled as `Operation` parameters.
+- For `Command`s: A corresponding `Model Definition` is created and added to the `Component`, mapped to the command for invocation. For `Command`s, you typically want a separate model for view concerns.
+
+> [!NOTE]
+> You also need the appropriate integration module for remote communication. Currently, only `Intent.Angular.HttpClients` is supported (selected by default for new Angular applications).
 
 ---
 
-## Implement Your View with AI
+## Implementing Your View with AI
 
-> [!TIP]  
-> You will need to install the `Intent.AI.Angular` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed — including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
+> [!TIP]
+> Install the `Intent.AI.Angular` module and connect Intent Architect to your preferred LLM API. Ensure [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) are complete, including a valid API key. Prompt results will vary by provider and model-experiment to find what works best for you.
 
-Once you are satisfied with your **View Model** design, you can use the Angular AI accelerator to have AI generate the remaining implementation details.
+Once your **View Model** design is ready, use the Angular AI accelerator to generate the remaining implementation details.
 
-> [!NOTE]  
-> Don't forget to apply your **Software Factory** before running AI prompts, as the generated code is input/context for the AI.
+> [!NOTE]
+> Always apply your **Software Factory** before running AI prompts, as the generated code is used as input/context for the AI.
 
 ### Generate Your View with AI
 
-1. Make sure you have run and applied the **Software Factory**.  
-2. Right-click on the `Component` → **Implement with AI**.  
-3. *(Optional)* Adjust the settings in the AI Prompt dialog.  
-4. Click **Done** — IA will generate and submit a prompt to the LLM (this may take a little while).  
-5. Review the AI's proposed changes as a code diff.  
-6. Click **Apply** to accept the changes.  
+1. Run and apply the **Software Factory**.
+2. Right-click the `Component` → **Implement with AI**.
+3. *(Optional)* Adjust settings in the AI Prompt dialog.
+4. Click **Done** - Intent Architect will generate and submit a prompt to the LLM (this may take a while).
+5. Review the AI's proposed changes as a code diff.
+6. Click **Apply** to accept the changes.
 
 ![Implement with AI](./images/implement-ai-dialog.png)
 
-> [!NOTE]  
-> AI by its nature is non-deterministic. While we put a lot of effort into making this interaction as predictable as possible, results will vary. Test the results and make changes as desired.
+> [!NOTE]
+> AI is non-deterministic. While we strive for predictability, results will vary. Test and adjust as needed.
 
 ---
 
-### Implement Your Layout with AI
+### Implementing Your Layout with AI
 
-1. Make sure you have run and applied the **Software Factory**.  
-2. Right-click on the `Layout` → **Implement with AI**.  
-3. *(Optional)* Adjust the settings in the AI Prompt dialog.  
-4. Click **Done** — IA will generate and submit a prompt to the LLM (this may take a little while).  
-5. Review the AI's proposed changes as a code diff.  
-6. Click **Apply** to accept the changes.  
+1. Run and apply the **Software Factory**.
+2. Right-click the `Layout` → **Implement with AI**.
+3. *(Optional)* Adjust settings in the AI Prompt dialog.
+4. Click **Done** - Intent Architect will generate and submit a prompt to the LLM.
+5. Review the AI's proposed changes as a code diff.
+6. Click **Apply** to accept the changes.
 
-On a `Layout` the `Implement with AI` will generate a menu structure based on the navigation items added to the layout. Menu items can manually be added if required, as well manually adjusted (e.g. menu item ordering) when required.
+For a `Layout`, the AI will generate a menu structure based on navigation items. You can manually add or adjust menu items (such as ordering) as needed in the layout html file.
 
 ---
 
 ### Application Styling
 
-Out of the box, the application will be styled by two stylesheets, `styles.scss` and `theme.scss`, which use the Material themes. These two files (along with the components specific style sheets) can manually be updated or modified to suite your styling.
+By default, the application uses two stylesheets - `styles.scss` and `theme.scss` - which leverage Material themes. You can update or modify these files (and component-specific stylesheets) to suit your branding.
 
-If you use the implementation out the box, the color themes (Primary and Accent colors) can be adjusted in the `Application Settings`:
+If you use the default implementation, you can adjust the primary and accent color themes in `Application Settings`:
 
 ![Color Theme](./images/color-theme.png)
 
 ---
 
-### Improving the Results of AI
+### Improving AI Results
 
-Hopefully you are getting good consistent results "out of the box" with the AI Prompt, but there are several things you can do to tweak/improve the results even further.
+You may get good results with the default AI prompt, but you can further improve outcomes with these techniques:
 
-#### Additional User Prompt Context
+#### Add User Prompt Context
 
-You typically don't have to provide additional context to the LLM, but if you find it frequently making the same mistakes or you need to give it more guidance (e.g., how to refactor code it previously generated), you can provide extra instructions in the AI dialog. Examples:
+Usually, you don't need to provide extra context, but if the LLM repeats mistakes or needs more guidance (e.g., how to refactor code), add instructions in the AI dialog. Examples:
 
-- "Ensure buttons/actions exist for the new navigations I added."  
-- "Refresh the grid if the add customer dialog closes successfully."  
-- "Ensure you have controls for adding and removing addresses."  
+- "Ensure buttons/actions exist for the new navigations I added."
+- "Refresh the grid if the add customer dialog closes successfully."
+- "Ensure you have controls for adding and removing addresses."
 
-#### Using a Template
+#### Use a Template
 
-You can select a template to further guide the AI. These templates contain:  
+Select a template to guide the AI. Templates provide:
 
-- Additional rules and guidance for the AI  
-- Sample implementations  
+- Additional rules and guidance
+- Sample implementations
 
 ![Select a Template](./images/select-a-template.png)
 
-There are several pre-configured MudBlazor templates for various types of Pages and Dialogs. These templates are also designed to automatically select the correct template based on your `Component` naming convention (this can be adjusted as required).
+Several pre-configured Material templates exist for different Pages and Dialogs. Templates are auto-selected based on your `Component` naming convention (this can be adjusted).
 
 | Template                | Keywords                             |
 |-------------------------|--------------------------------------|
@@ -243,47 +236,47 @@ There are several pre-configured MudBlazor templates for various types of Pages 
 | Dialog - Add Entity     | dialog, add, create, new, insert     |
 | Dialog - Edit Entity    | dialog, edit, update, modify, change |
 
-> [!NOTE]  
-> [These templates can easily be customized, extended or replaced](#angular-ai-prompt-augment-and-customization-through-templates). They could even be changed to work for a completely different component library.
+> [!NOTE]
+> [Templates can be customized, extended, or replaced](#angular-ai-prompt-augment-and-customization-through-templates). You can even adapt them for a different component library.
 
-#### Giving It an Example
+#### Provide an Example
 
-If you already have an example of a similar screen to the one you are trying to create, you can simply select it in the **Example Components**. This will submit code associated with that `Component` to guide the AI.
+If you have a similar screen, select it in **Example Components** to submit its code as guidance for the AI.
 
-Occasionally, the LLM might generate the layout of the **Add Entity** and **Edit Entity** pages differently - the *Example Component* in conjunction with additional context ("*ensure the layout of the edit page is the same as the add page*") can prove helpful in aligning the layout of the screens.
-
----
-
-## Try to Keep Your ViewModel Managed
-
-In this approach you have used both deterministic and non-deterministic code generation.  
-
-- Everything you modeled will be generated deterministically through the **Software Factory** in the **ViewModel** (e.g., `customer-add.component.ts`).  
-- The AI/LLM will generate the code in the **View** (e.g., `customer-add.component.html` and `customer-add.component.scss`), and may augment or change some code in the **ViewModel**.  
-
-Implications/considerations:  
-
-- The **ViewModel** runs in *Merge* mode by default. This means both systems can operate there smoothly.  
-- If the AI changes deterministic code in the **ViewModel**, the Software Factory may not be able to automatically merge the changes and may attempt to undo or duplicate code blocks.  
-- Ideally, you can refactor the code and/or add explicit [**Code Management**](xref:application-development.code-management.about-code-management) instructions to the point where Intent Architect can merge code automatically.  
-- If not possible, you may need to add the `@IntentIgnore()` decorator.
+Sometimes, the LLM may generate different layouts for **Add Entity** and **Edit Entity** pages. Using an *Example Component* and extra context (e.g., "*ensure the layout of the edit page is the same as the add page*") helps align layouts.
 
 ---
 
-## Known Issues and Snags
+## Keep Your ViewModel Managed
 
-Below are a list of known issues and limitations which we are actively working on addressing:
+This approach combines deterministic and non-deterministic code generation:
 
-- **Multiple AI agent execution**: Currently the `Implement with AI` functionality is per page/component. As such, if you make a change which effects multiple pages (e.g. adding an "Add Entity" navigation to a "Search" page) then the `Implement with AI` functionality is required to be run on both pages to get the full end to end implementation to be functional.
-- **Import removal**: When page A references page B, an `import` statement is automatically added to page A which references page B. However, if page B is deleted or the reference is no longer required, the `import` statement is not automatically removed. This could result in non-compiling code if the page no longer exists. To resolve, manually remove any offending `import` statements.
-- **Traditional Services Support**: Currently only CQRS Services are officially supported. Traditional Services may partially work, but has not been explicitly tested. We are working on fully supporting Traditional Services.
-- **Limited Weaving Capabilities** (especially compared to C#): The weaving capabilities of Typescript are not as mature as that of C#, so there are some use cases where an *IntentMerge* might not operate the same way as the C# *IntentMerge* does. In these cases, it is best to *IntentIgnore* the method.
+- Everything you model is generated deterministically by the **Software Factory** in the **ViewModel** (e.g., `customer-add.component.ts`).
+- The AI/LLM generates code in the **View** (e.g., `customer-add.component.html` and `customer-add.component.scss`) and may also update the **ViewModel**.
+
+Considerations:
+
+- The **ViewModel** uses *Merge* mode by default, allowing both systems to operate together.
+- If the AI changes deterministic code in the **ViewModel**, the Software Factory may not merge changes automatically and could undo or duplicate code blocks.
+- Ideally, refactor code and/or add explicit [**Code Management**](xref:application-development.code-management.about-code-management) instructions so Intent Architect can merge code automatically.
+- If merging is not possible, use the `@IntentIgnore()` decorator.
+
+---
+
+## Known Issues and Limitations
+
+We are actively working to address the following issues:
+
+- **Multiple AI agent execution**: `Implement with AI` runs per page/component. If you make a change affecting multiple pages (e.g., adding an "Add Entity" page along with a navigation to a "Search" page), you must run `Implement with AI` on each page for full functionality.
+- **Import removal**: If page A references page B, an `import` is added to page A. If page B is deleted or the reference is removed, the `import` is not automatically removed, which may cause build errors. Manually remove any unused `import` statements.
+- **Traditional Services Support**: Only CQRS Services are officially supported. Traditional Services may partially work but are not fully tested. Full support is in progress.
+- **Limited Weaving Capabilities** (vs. C#): TypeScript weaving is less mature than C#. Some *IntentMerge* scenarios may not work as expected; use *IntentIgnore* as needed.
 
 ---
 
 ## Angular AI Prompt Augment and Customization Through Templates
 
-The Angular AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for Material, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it — the choice is yours.
+The Angular AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for Material, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it - the choice is yours.
 
 Look in the following folder within your Intent Architect Solution:
 
@@ -326,8 +319,6 @@ The `prompt-config.json` file defines templates which define **reusable AI promp
 - **description** → What the template does  
 - **applicability** → Keywords that help Intent Architect pick the most appropriate template  
 - **template-folder** → The folder containing sample files  
-- **metadata** → Template-specific context  
-- **rules** → Additional template-specific rules  
 
 #### Example Template: *Search Entity Page*
 
@@ -439,6 +430,6 @@ Rules in the template specific markdown file:
 
 ---
 
-✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and event using a different Angular component library
+✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and even use a different Angular component library.
 
 

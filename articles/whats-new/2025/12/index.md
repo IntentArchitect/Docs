@@ -2,9 +2,10 @@
 
 Welcome to the December edition of What’s New in Intent Architect.
 
-We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular —a long-term goal we are excited to achieve. The initial release will will include application setup, UI modeling and AI generated views. We are aiming to have an alpha release available by the end of December.
+We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular —a long-term goal we are excited to achieve. The initial release includes application setup, UI modeling and AI generated views.
 
 - Highlights
+  - **[Angular UI Automation](#angular-ui-automation)** – Define your pages and navigation, and let Intent Architect’s deterministic code generation, combined with AI, generate an Angular application.
   - **[AI-Powered Unit Test Generation](#ai-powered-unit-test-generation)** – Enhanced unit test generation for CQRS handlers, Integration/Domain Events, and Domain Services with improved quality.
   - **[Multiple Message Bus Providers](#multiple-message-bus-providers)** – Run multiple eventing providers simultaneously with intelligent message routing and composition.
   - **[2 New Fundamentals training videos](#2-new-fundamentals-training-videos)** – More videos covering the core concepts of Intent Architect.
@@ -16,6 +17,16 @@ We’re thrilled to announce that our team has been working diligently on our ne
   - **[Cache eviction modelling](#cache-eviction)** - Endpoints can now be configured to explicitly evict cached data when they are invoked.
 
 ## Update details
+
+### Angular UI Automation
+
+When creating new applications, a new **Angular Web Application** template is now available (currently in **Beta**), enabling you to use Intent Architect to rapidly build professional Angular UIs. It combines deterministic, pattern-based code generation for TypeScript with non-deterministic, AI/LLM-driven generation for views and styling.
+
+![Angular Application](images/angular-app.png)
+
+An Angular sample application is also available from the **Create New Solution -> Explore Samples** screen in Intent Architect.
+
+Documentation on [Angular UI Modeling with AI](xref:angular.ui-modeling) is available on the [docs website](https://docs.intentarchitect.com/).
 
 ### AI-Powered Unit Test Generation
 
