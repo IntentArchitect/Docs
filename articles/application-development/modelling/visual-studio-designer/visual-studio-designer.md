@@ -67,7 +67,11 @@ If you drag the **Intent.Entities.Entity** `Template Output` to the root folder 
 
 Alternatively, you could create a new folder, say `My Folder`, and move `Intent.Entities.Entity` into that folder. Now, the entities will be generated into a folder named `My Folder`.
 
-### Changing the Project Structure
+### Restructuring Projects
+
+You can reorganize your Visual Studio solution structure by consolidating projects, splitting them apart, or creating entirely new projects. This section demonstrates common restructuring scenarios.
+
+#### Consolidating Projects
 
 In this example, let's assume you do not want four projects and prefer to consolidate the `Application` and `Domain` projects.
 
@@ -76,6 +80,29 @@ To consolidate the `Domain` project into the `Application` project:
 1. Move all `Template Output`s from the `Domain` project into the `Application` project, placing them where you want the code to go.
 2. Delete the `Domain` project.
 
-![Consolidated Project](images/consolidated-project.png)
+![Consolidated Project](images/consolidated-project.png)  
+_Visual Studio solution with Domain project consolidated into Application project._
 
 Now, your Visual Studio solution will have three projects instead of four.
+
+#### Adding Projects
+
+In this example, we have a Standalone Blazor application, and we don't want HTTP Client information in our Client application but would prefer to split it out into its own project.
+
+The existing structure of the solution. In this example, we want to move the `Intent.Blazor.HttpClients.ServiceContract` template to a separate project.
+
+![Existing Project Structure](images/add-project-blazor.png)  
+_Original Blazor project structure with the ServiceContract template in the main Client project._
+
+To split out templates into a separate project:
+
+1. Create a new project, as per the steps described in the [Add a New Project](#adding-a-new-project) section.
+2. Move the `Intent.Blazor.HttpClients.ServiceContract` template from the existing project to the new project, placing it where you want the code to go.
+
+> [!WARNING]
+> Templates that `Intent.Blazor.HttpClients.ServiceContract` depends on also need to be moved to avoid circular dependencies. The Software Factory will throw errors if projects have circular references.
+
+3. Move dependent templates to the new project. In this example, the entire `Contracts` folder also needs to be moved to the new project to prevent the Client project from depending on the New project while the New project depends on the Client project.
+
+![Split Project Structure](images/add-project-blazor-proxy.png)  
+_Refactored structure with HttpClients in a separate project._
