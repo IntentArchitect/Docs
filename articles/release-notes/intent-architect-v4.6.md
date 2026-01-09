@@ -15,15 +15,15 @@ The Software Factory will now offer this for templates which have had support ad
 
 For example, perhaps a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it:
 
-![Diff showing software factory trying to remove items](images/synchronize-changes-diff.png)
+![Diff showing software factory trying to remove items](images/4.6/00/synchronize-changes-diff.png)
 
 Intent Architect will now showing a "synchronize changes" icon next to such files:
 
-![Code changes available for import](images/software-factory-changes-available.png)
+![Code changes available for import](images/4.6/00/software-factory-changes-available.png)
 
 On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty the indicator on the `Notes` attribute.
 
-![Synchronized code changes in the designer](images/synchronized-code-changes.png)
+![Synchronized code changes in the designer](images/4.6/00/synchronized-code-changes.png)
 
 You can then save and the Software Factory will no longer want to remove those changes from the file.
 
@@ -33,7 +33,7 @@ Initially this functionality has been added to the Domain Entity classes and con
 
 - Improvement: Icons added to tabs.
 
-  ![Icons in tabs](images/improvement-icons-added-to-tabs.png)
+  ![Icons in tabs](images/4.6/00/improvement-icons-added-to-tabs.png)
 
 - Improvement: Focus is highlighted more clearly in the Solution Explorer.
 - Improvement: Software Factories now auto-start when opening up new solutions. This enhancement aims to make it more obvious when there are outstanding changes and to "warm up" the Software Factory ahead of the user's changes. Which applications have active Software Factories is now saved to the user's solution preferences so that they are started automatically when the solution is opened again in the future.
