@@ -478,6 +478,22 @@ This will instruct Intent Architect where to place the `using` directives within
 | Default                  | All using directives will be placed at the top of the C# file.         |
 | Move to inside namespace | All using directives will be placed within the scope of a `namespace`. |
 
+### Code Management in C# Project files
+
+Intent Architect automatically manages NuGet packages and will install the minimum required version of a NuGet package to ensure that a module will function as expected and generate the correct code.
+
+If additional NuGet packages are manually `added` to the csproj file, or a NuGet package is `upgraded` to a later version than Intent Architect is expecting, the references and versions will not be altered by the Software Factory execution.
+
+There may be some use cases where Intent Architect will want to alter the referenced packages (such as `removing` unused references, or `upgrading` a package to the minimum required version), but you would like Intent Architect to ignore these changes.
+
+The `IntentIgnore` attribute can be used in the csproj file to instruct Intent Architect to ignore the package reference. In the below snippet from a csproj file, the `IntentIgnore` attribute will prevent Intent Architect from removing or updating the version number of the `Microsoft.EntityFrameworkCore` NuGet package:
+
+``` xml
+<ItemGroup>
+    <PackageReference IntentIgnore="true" Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
+</ItemGroup>
+```
+
 ## Frequently asked questions
 
 ### How can I disable the RoslynWeaver from formatting my C# files?

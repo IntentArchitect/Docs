@@ -20,3 +20,6 @@ items:
 
 - name: How to update `appsettings.json` files
   href: how-to-update-appsettings-json-files/how-to-update-appsettings-json-files.md
+
+- name: How to add custom configuration to C# projects
+  href: how-to-add-custom-config-to-cs-projects/how-to-add-custom-config-to-cs-projects.md
