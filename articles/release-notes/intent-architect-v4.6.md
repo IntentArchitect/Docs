@@ -5,7 +5,7 @@ uid: release-notes.intent-architect-v4.6
 
 ## Version 4.6.0
 
-### Highlights in 4.5.0
+### Highlights in 4.6.0
 
 ### Synchronize code changes back into designers
 
@@ -29,7 +29,7 @@ You can then save and the Software Factory will no longer want to remove those c
 
 Initially this functionality has been added to the Domain Entity classes and contract DTOs, but we will be progressively rolling it out to other templates over time.
 
-### Improvements in 4.5.0
+### Improvements in 4.6.0
 
 - Improvement: Icons added to tabs.
 
@@ -41,7 +41,7 @@ Initially this functionality has been added to the Domain Entity classes and con
 - Improvement: Restyled the login page to align with the new website design.
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
 
-### Issues fixed in 4.5.0
+### Issues fixed in 4.6.0
 
 - Fixed: Domain suggestions to create CRUD CQRS Services fail to find the new Entity if the designer has not already been saved.
 - Fixed: Stereotype Properties not listed in `Search Everywhere` when searching by their ID.
