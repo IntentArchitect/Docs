@@ -34,7 +34,6 @@ uid: release-notes.intent-architect-v4.5
 - Fixed: Token refresh logic is redirecting to login event if the token is still valid.
 - Fixed: Domain suggestions to create CRUD CQRS Services fail to find the new Entity if the designer has not already been saved.
 
-
 ## Version 4.5.25
 
 This version of Intent Architect was rolled back due to an error which would manifest when running the module builder. This version was only available for a very short period of time, but anyone running this version is advised to upgrade to a newer version.
@@ -294,7 +293,7 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ### Issues fixed in 4.5.12
 
-- Fixed: Reordering DTO-Fields in the Advanced Mapping not working when there are Generic Arguments present (e.g. when a Query returns a PagedResult<T>)
+- Fixed: Reordering DTO-Fields in the Advanced Mapping not working when there are Generic Arguments present (e.g. when a Query returns a `PagedResult<T>`)
 - Fixed: Source of scripts not showing in Output Console for Element Setting Extensions in certain circumstances.
 - Fixed: On-changed events no longer get triggered by child element changes if the child is deleted and then an undo is applied.
 - Fixed: Module config (e.g. disabled templates) not getting installed with Sample system.
@@ -323,7 +322,7 @@ This version of Intent Architect was rolled back due to an error which would man
 - Improvement: "Update Available" icon will now pulsate if a new update is available. The pulsating will stop permanently for the user's current session once they click on the icon. This is aimed at ensuring users are aware of updates and to help users stay updated with the latest version of the platform.
 - Improvement: Associations from package references will now show syntax highlighting (e.g. in the advanced mapping view between the Services and Domain)
 - Improvement: When dragging and dropping elements, there is now an indicator to more clearly show whether the element will be inserted above, below or within the destination element if dropped.
-- Improvement: Added `ctrl + shift + z` as an additional shortcut for *Redo*.
+- Improvement: Added `ctrl + shift + z` as an additional shortcut for _Redo_.
 - Improvement: `ctrl + enter` on diagrams now adds the visual to empty space in the diagram.
 - Improvement: Copy + Paste on diagrams now adds the new element to the diagram automatically.
 - Improvement: `ctrl + click` on applied Stereotypes will take you to the Stereotype Definition if it exists in the current solution.
