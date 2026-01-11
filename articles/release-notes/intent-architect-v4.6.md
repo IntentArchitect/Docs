@@ -66,6 +66,9 @@ Initially this functionality has been added to the Domain Entity classes and con
 
 #### Application Overview Tab
 
+The Application Overview tab aims to make the mechanisms of Intent Architect clear, particularly for new users, by highlighting the flow of Designer metadata, Architecture and Settings into the Software Factory executions to drive code changes in the Codebase. Each of the components can be clicked to navigate to its aspect of the system.
+
+![Application Overview Tab](images/4.6/00/application-overview-tab.png)
 
 ### Improvements in 4.6.0
 
