@@ -81,6 +81,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Improvement: The Software Factory close button now minimizes the dialog instead of shutting down the process. This aims to ensure that software factories remain "hot" and active by avoiding reflexive shutting down of the process. To shut down the Software Factory, the user can right-click the task in the taskbar and select the `Shutdown` option, or simply use the middle mouse click on the process.
 - Improvement: Restyled the login page to align with the new website design.
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
+- Improvement: The Dynamic Form Tree-view control now features a display-function per node to provide a rich text display over the ordinary plain text.
 
 ### Issues fixed in 4.6.0
 
