@@ -32,9 +32,25 @@ Documentation on [Angular UI Modeling with AI](xref:angular.ui-modeling) is avai
 
 You can now define relationships to aggregate roots using their identifiers in **Create** and **Update** actions, rather than requiring full aggregate instances to be supplied by the caller.
 
-Instead of mapping an entity’s aggregate associations directly, commands expose **Aggregate Association Ends** (for example, `CategoryIds`) that represent references to existing aggregate roots. During command handling, these identifiers are automatically resolved into aggregate instances through the appropriate repositories and assigned to the target entity before persistence.
+Instead of mapping an entity’s aggregate associations directly, commands expose **Aggregate Association Ends** (for example, `CategoryIds`) that represent references to existing aggregate roots. During command handling, these identifiers are automatically resolved into aggregate instances through their appropriate repositories and assigned to the target entity before persistence.
 
 ![Aggregate Association Mapping via IDs](images/aggregate-association-mapping-via-ids.png)
+
+```csharp
+var existingCategories = await _categoryRepository.FindByIdsAsync(
+    request.CategoryIds.ToArray(),
+    cancellationToken);
+
+var product = new Product
+{
+    Name = request.Name,
+    Description = request.Description,
+    Sku = request.Sku,
+    Categories = existingCategories
+};
+
+_productRepository.Add(product);
+```
 
 Available from:
 
