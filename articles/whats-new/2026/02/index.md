@@ -9,6 +9,7 @@ Lot's of clients have been asking for it - in case you missed it, we recently sh
 
 - More updates
   - **[Aggregate Association Mapping via IDs](#aggregate-association-mapping-via-ids)** – Easily link Entities to related Aggregate Root Entities in Create and Update actions using just their IDs.
+  - **[Synchronize with Domain Entity](#synchronize-with-domain-entity)** – Keep Commands, Queries, and Service Operations aligned with their corresponding Domain Entities by automatically detecting and applying structural changes.
 
 ## Update details
 
@@ -60,3 +61,19 @@ Available from:
 
 - Intent.Application.DomainInteractions 1.1.10
 
+### Synchronize with Domain Entity
+
+You can now keep Commands, Queries, and Service Operations aligned with their corresponding Domain Entities by automatically detecting and applying structural changes.
+
+When structural differences are detected, the system presents a clear list of field discrepancies, such as renamed properties, added or removed fields, and data type changes. Developers can selectively choose which discrepancies to apply. Based on the selected items, the tool automatically updates the DTO structure and adjusts mappings to match the current shape of the target domain entity.
+
+![Suggestion](images/service-sync-suggestion.png)
+
+![Synchronize with Domain Entity](images/synchronize-with-domain-entity.png)
+
+This approach reduces manual maintenance, prevents contract drift as domain models evolve, and ensures application boundaries remain consistent—while keeping all changes explicit, reviewable, and under developer control.
+
+Available from:
+
+- Intent.Modelers.Services.DomainInteractions 2.4.0-pre.1
+- Intent Architect 4.6.0-beta.1
