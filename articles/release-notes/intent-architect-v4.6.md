@@ -71,6 +71,18 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 
 ![Application Overview Tab](images/4.6/00/application-overview-tab.png)
 
+### Potentially breaking changes in 4.6.0
+
+> [!IMPORTANT]
+>
+> Version 10 of of the .NET SDK is now required to be installed on CI/CD servers making use of the [Software Factory CLI](xref:tools.software-factory-cli).
+>
+> For reasons of [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) and to allow module authors to leverage the latest .NET features, Intent Architect has been internally upgraded to run on .NET 10.
+>
+> Our [Software Factory CLI article](xref:tools.software-factory-cli#the-cli-reports-unexpected-file-renames-or-changes-on-the-build-server-but-not-locally) has an example of installing additional .NET SDKs on Azure Pipelines while other CI/CD environments should be very similar, but please don't hesitate to reach out to our support should you like any assistance.
+>
+> NOTE: This requirement is not applicable to the Intent Architect the desktop application as it ships with its own runtime.
+
 ### Improvements in 4.6.0
 
 - Improvement: Icons added to tabs.
@@ -83,7 +95,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Improvement: Restyled the login page to align with the new website design.
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
 - Improvement: The Dynamic Form Tree-view control now features a display-function per node to provide a rich text display over the ordinary plain text.
-- Improvement: Upgraded Intent Architect to internally use .NET 10. This brings [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) as well as allowing module authors to target .NET 10 framework if they so choose.
+- Improvement: Upgraded Intent Architect to internally use .NET 10 which has [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) as well as allowing module authors to use any .NET features only available from .NET 10.
 
 ### Issues fixed in 4.6.0
 
