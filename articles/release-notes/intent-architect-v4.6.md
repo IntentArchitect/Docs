@@ -5,7 +5,7 @@ uid: release-notes.intent-architect-v4.6
 
 ## Version 4.6.0
 
-We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Chat as the flagship feature for 4.6.0, allowing seemless access to documentation and  agentic control of the platform's designers.
+We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Chat as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
 
 The 4.6 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
 
@@ -13,7 +13,7 @@ The 4.6 beta is available as a side-by-side install, so you can keep your curren
 
 #### Integrated AI Chat
 
-The new Integrated AI Chat feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems. 
+The new Integrated AI Chat feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems.
 
 Developers can use it to answer questions about the current workspace, explain how existing elements fit together, and propose design changes to meet new requirements. The assistant can also inspect models and diagrams to summarize structure, highlight dependencies, and identify gaps or inconsistencies.
 
@@ -22,24 +22,26 @@ Developers can use it to answer questions about the current workspace, explain h
 _Example chat to create a simple e-commerce domain. The agent was able to design the domain from a simple natural language prompt._
 
 The Integrated IA Chat has 3 different modes:
+
 - **Ask** - For analyzing and answering questions with read-only access to the designers.
 - **Agent** - For instructing the LLM to read and make simple modifications to the designers.
-- **Plan** - For larger tasks, Plan mode offers the user a way to design a step-by-step implementaiton plan with the LLM and then to convert this into a structured execution plan.
+- **Plan** - For larger tasks, Plan mode offers the user a way to design a step-by-step implementation plan with the LLM and then to convert this into a structured execution plan.
 
 ##### Multiple Provider Integration
-The Intengrated AI Chat can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
+
+The Integrated AI Chat can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
 
 ![Multiple Provider Integration](images/4.6/00/ai-chat-multiple-providers.png)
 
-_Example showing both Open AI and Anthropic models availalbe when both are configured._
+_Example showing both Open AI and Anthropic models available when both are configured._
 
 ##### Daily Budget
+
 In an effort to make this new feature accessible to our entire community, and to show our appreciation to you all, we've made the feature accessible to all existing users and created a Daily Budget of 150 FREE credits for use with Open AI models. Note that this is for a limited period of time and may change later.
 
-No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to support@intentarchitect.com.
+No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
 
 ![AI Chat Daily Budget](images/4.6/00/ai-chat-daily-budget.png)
-
 
 ### Synchronize code changes back into designers
 
@@ -62,7 +64,6 @@ On clicking the icon the Software Factory minimizes, the relevant designer will 
 You can then save and the Software Factory will no longer want to remove those changes from the file.
 
 Initially this functionality has been added to the Domain Entity classes and contract DTOs, but we will be progressively rolling it out to other templates over time.
-
 
 #### Application Overview Tab
 
