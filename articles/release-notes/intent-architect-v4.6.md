@@ -83,6 +83,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Improvement: Restyled the login page to align with the new website design.
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
 - Improvement: The Dynamic Form Tree-view control now features a display-function per node to provide a rich text display over the ordinary plain text.
+- Improvement: Upgraded Intent Architect to internally use .NET 10. This brings [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) as well as allowing module authors to target .NET 10 framework if they so choose.
 
 ### Issues fixed in 4.6.0
 

@@ -1,6 +1,8 @@
 ---
 uid: tools.software-factory-cli
 ---
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD060 -->
 # Software Factory CLI
 
 <!-- Workaround to align the column widths consistently -->
@@ -67,7 +69,7 @@ If you're seeing this error on a build server you will need to ensure it has the
     version: '<major-version>.x'
 ```
 
-This task can be used multiple times on the same Pipeline if you need to have multiple .NET SDK versions available, for example if the latest version of .NET is 9 and your code is targeting .NET 8 you can add the following two tasks:
+This task can be used multiple times on the same Pipeline if you need to have multiple .NET SDK versions available, for example if the latest version of .NET is 10 and your code is targeting .NET 8 you can add the following two tasks:
 
 ```yaml
 - task: UseDotNet@2
@@ -76,9 +78,9 @@ This task can be used multiple times on the same Pipeline if you need to have mu
     version: '8.x'
 
 - task: UseDotNet@2
-  displayName: 'Install latest .NET 9 SDK'
+  displayName: 'Install latest .NET 10 SDK'
   inputs:
-    version: '9.x'
+    version: '10.x'
 ```
 
 ## Updating
@@ -196,6 +198,7 @@ If the Software Factory CLI running on your build server reports numerous file r
 #### What you're seeing
 
 **On the build server (typically Linux):**
+
 ```text
 [ERR] [⚠ Rename    ] MyApplication.sln
 [ERR] [⚠ Rename    ] MyApplication.Api/Program.cs
@@ -206,9 +209,11 @@ If the Software Factory CLI running on your build server reports numerous file r
 ```
 
 **On your local development machine (typically Windows):**
+
 ```text
 [INF] Completed 1 in 00:00:05.9470192
 ```
+
 No changes detected.
 
 #### Why this happens
