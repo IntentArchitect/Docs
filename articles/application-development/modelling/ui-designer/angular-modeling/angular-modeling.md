@@ -25,7 +25,7 @@ The high-level workflow is:
 > While the samples use Material Components, the approach is not Material-specific. You can configure for other component libraries as needed.
 
 > [!NOTE]
-> The Angular modules and application template are currently in **beta**. If you encounter issues, please let us know. See [Known Issues and Snags](#known-issues-and-snags) for current limitations.
+> The Angular modules and application template are currently in **beta**. If you encounter issues, please let us know. See [Known Issues and Snags](#known-issues-and-limitations) for current limitations.
 
 ---
 
@@ -431,5 +431,3 @@ Rules in the template specific markdown file:
 ---
 
 ✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and even use a different Angular component library.
-
-
