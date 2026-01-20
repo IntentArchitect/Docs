@@ -57,7 +57,7 @@ Intent Architect will now showing a "synchronize changes" icon next to such file
 
 ![Code changes available for import](images/4.6/00/software-factory-changes-available.png)
 
-On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty the indicator on the `Notes` attribute.
+On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty indicator on the `Notes` attribute.
 
 ![Synchronized code changes in the designer](images/4.6/00/synchronized-code-changes.png)
 
