@@ -1,15 +1,15 @@
 items:
-  - name: About Software Factory Execution
+  - name: About Software Factory execution
     href: about-software-factory-execution/about-software-factory-execution.md
     items:
-    - name: Customizations Screen
+    - name: Customizations screen
       href: customizations-screen/customizations-screen.md
     - name: Environmental factors which can slow down Software Factory execution
       href: environmental-factors-which-can-slow-down-software-factory-execution/environmental-factors-which-can-slow-down-software-factory-execution.md
-    - name: Reverse Synchronization
+    - name: Reverse synchronization
       href: reverse-synchronization/reverse-synchronization.md
 
-  - name: About Template Output Targeting
+  - name: About Template Output targeting
     href: about-template-output-targeting/about-template-output-targeting.md
 
   - name: Troubleshooting errors
