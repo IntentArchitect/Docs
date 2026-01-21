@@ -57,7 +57,7 @@ For model operations to create or update elements with type references in Intent
 
 ### Example: DTO
 
-Here is the (probably) simplest possible example of reverse synchronizing properties from an existing `.cs` file to `Field` elements in the `Services` designer in Intent Architect. 
+Here is the (probably) simplest possible example of reverse synchronizing properties from an existing `.cs` file to `Field` elements in the `Services` designer in Intent Architect.
 
 The code below was taken from [`DtoModelTemplatePartial.cs`](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs) ([permalink](https://github.com/IntentArchitect/Intent.Modules.NET/blob/400733db176e7b0ab5a5763a9f98753e8cb989c0/Modules/Intent.Modules.Application.Dtos/Templates/DtoModel/DtoModelTemplatePartial.cs#L447)) available as open source.
 
