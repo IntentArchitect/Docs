@@ -23,3 +23,6 @@ items:
 
 - name: How to add custom configuration to C# projects
   href: how-to-add-custom-config-to-cs-projects/how-to-add-custom-config-to-cs-projects.md
+
+- name: Reverse synchronization
+  href: reverse-synchronization/reverse-synchronization.md
