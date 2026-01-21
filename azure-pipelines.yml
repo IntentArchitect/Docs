@@ -139,4 +139,4 @@ steps:
       pwsh: true
       script: |
         $binaryPath = "./PipelineScripts/Tools/DocIngest.dll"
-        dotnet $binaryPath ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey) --http-timeout-seconds 1800
+        dotnet $binaryPath ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
