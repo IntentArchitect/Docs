@@ -34,3 +34,7 @@ On clicking the icon the Software Factory minimizes, the relevant designer will 
 ![Synchronized code changes in the designer](images/synchronized-code-changes.png)
 
 You can then save and the Software Factory will no longer want to remove those changes from the file.
+
+## See also
+
+- [For Module authors: Implementing reverse synchronization for C# templates](xref:module-building.templates-csharp.reverse-synchronization)
