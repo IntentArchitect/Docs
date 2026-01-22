@@ -1,11 +1,11 @@
 ---
-uid: module-building.templates-csharp.reverse-synchronization
+uid: module-building.templates-csharp.synchronize-code-to-design
 ---
-# C# reverse synchronization
+# Synchronize code to design (C#)
 
-This article explains how to add support for [reverse (or code-to-model) synchronization](xref:application-development.software-factory.reverse-synchronization) to C# templates.
+This article explains how to add support for [code to design synchronization](xref:application-development.software-factory.synchronize-code-to-design) to C# templates.
 
-Reverse synchronization allows templates in Intent Architect to detect user edits in C# files and translate those edits back into *model changes* in Intent Architect Designers.
+Code to design synchronization allows templates in Intent Architect to detect user edits in C# files and translate those edits back into *model changes* in Intent Architect Designers.
 
 Minimum required NuGet packages:
 
@@ -41,7 +41,7 @@ This method is called by the `Intent.OutputManager.RoslynWeaver` module if it fi
 
 ## The `IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()` method
 
-This method needs to return a list of "code of model operations" for the designers to apply when the user presses the [synchronize changes](xref:application-development.software-factory.reverse-synchronization#using-the-feature) button on the Software Factory.
+This method needs to return a list of "code of model operations" for the designers to apply when the user presses uses [synchronize code to design](xref:application-development.software-factory.synchronize-code-to-design#using-the-feature) option on the Software Factory.
 
 The operations to return varies by each template as it depends on how a template's generated content relates to metadata in Intent Architect Designers, but in essence you will need to inspect the `ICSharpSemanticComparisonNode` and its `ChildNodes` (which are also `ICSharpSemanticComparisonNode`s), check if each node is an Addition, Removal or Update, possibly correlate with existing members of your class and then return operations as appropriate.
 
@@ -122,7 +122,7 @@ public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
 
 ### Example: Domain Entity
 
-As a more complex example, below shows synchronizing a domain entity back to a `Class` in the `Domain` Designer in Intent Architect and covering synchronization of associations, attributes, methods and parameters.
+As a more complex example, the below shows synchronizing a domain entity back to a `Class` in the `Domain` Designer in Intent Architect and covering synchronization of associations, attributes, methods and parameters.
 
 The code below was taken from [`DomainEntityTemplatePartial.cs`](https://github.com/IntentArchitect/Intent.Modules.NET/blob/master/Modules/Intent.Modules.Entities/Templates/DomainEntity/DomainEntityTemplatePartial.cs) ([permalink](https://github.com/IntentArchitect/Intent.Modules.NET/blob/400733db176e7b0ab5a5763a9f98753e8cb989c0/Modules/Intent.Modules.Entities/Templates/DomainEntity/DomainEntityTemplatePartial.cs#L533)) available as open source.
 
@@ -197,8 +197,6 @@ public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
                                     element: operation.InternalElement,
                                     name: member.Current.Identifier.ToPascalCase(),
                                     typeReference: typeReference));
-
-                                // TODO Sync parameters
                             }
 
                             break;
@@ -287,4 +285,4 @@ public IReadOnlyCollection<ICodeToModelOperation> GetCodeToOperationModels()
 
 ## Summary
 
-This article explains how to implement reverse code synchronization for templates with working real world examples.
+This article has explained how to implement code to design synchronization for templates with working real world examples.

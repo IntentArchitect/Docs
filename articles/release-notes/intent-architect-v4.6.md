@@ -43,23 +43,23 @@ No API Key is required to access these free credits, however adding your own Ope
 
 ![AI Chat Daily Budget](images/4.6/00/ai-chat-daily-budget.png)
 
-### Synchronize code changes back into designers
+### Synchronize code to design
 
 A common request we've received is being able to take changes made to files in your IDE and have them imported back into Intent Architect, particularly for simple changes like the adding or changing of a property type.
 
-The Software Factory will now offer this for templates which have had support added to them for this.
+The Software Factory will now offer this for templates which have had support added to them.
 
-For example, perhaps a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it:
+For example a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it:
 
-![Diff showing software factory trying to remove items](images/4.6/00/synchronize-changes-diff.png)
+![Diff showing software factory trying to remove items](images/4.6/00/synchronize-code-to-design-diff.png)
 
-Intent Architect will now showing a "synchronize changes" icon next to such files:
+Intent Architect will now showing a "Synchronize code to design" icon next to such files:
 
-![Code changes available for import](images/4.6/00/software-factory-changes-available.png)
+![Code to design synchronization available](images/4.6/00/synchronize-code-to-design-available.png)
 
-On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty indicator on the `Notes` attribute.
+On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty indicator on the `Notes` attribute:
 
-![Synchronized code changes in the designer](images/4.6/00/synchronized-code-changes.png)
+![Designer with code synchronized into it](images/4.6/00/synchronize-code-to-design-applied.png)
 
 You can then save and the Software Factory will no longer want to remove those changes from the file.
 

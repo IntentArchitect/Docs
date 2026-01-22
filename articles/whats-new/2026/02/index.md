@@ -7,7 +7,7 @@ Lot's of clients have been asking for it - in case you missed it, we recently sh
 - Highlights
   - **[Integrated AI Chat](#integrated-ai-chat)** – An integrated AI assistant that answers questions about your workspace, analyzes designs, and helps evolve solutions.
   - **[Angular UI Automation](#angular-ui-automation)** – Model your pages, routing and service interaction, then have Intent Architect’s deterministic code generation, combined with AI, to create the Angular app end to end.
-  - **[Synchronize code changes back into designers](#synchronize-code-changes-back-into-designers)** – Reverse-engineer code changes back into your Intent Architect design.
+  - **[Synchronize code to design](#synchronize-code-to-design)** – Reverse-engineer code changes back into your Intent Architect design.
   - **[Synchronize with Domain Entity](#synchronize-with-domain-entity)** – Keep Commands, Queries, and Service Operations aligned with their corresponding Domain Entities by automatically detecting and applying structural changes.
   - **[Aggregate Association Mapping via IDs](#aggregate-association-mapping-via-ids)** – Easily link Entities to related Aggregate Root Entities in Create and Update actions using just their IDs.
 
@@ -43,15 +43,15 @@ An Angular sample application is also available from the **Create New Solution -
 
 Documentation on [Angular UI Modeling with AI](xref:angular.ui-modeling) is available on the [docs website](https://docs.intentarchitect.com/).
 
-### Synchronize code changes back into designers
+### Synchronize code to design
 
 A common request we've received is being able to take changes made to files in your IDE and have them imported back into Intent Architect, particularly for simple changes like the adding or changing of a property type.
 
 The Software Factory will now offer this for templates which have had support added to them for this.
 
-![Synchronize code changes back into designers](images/reverse-engineer-design.png)
+![Synchronize code to design](images/synchronize-code-to-design.png)
 
-Full details in the [release notes](xref:release-notes.intent-architect-v4.6).
+Full details in the [](xref:application-development.software-factory.synchronize-code-to-design) article.
 
 - Intent Architect 4.6.0-beta.*
 
