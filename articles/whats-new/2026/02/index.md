@@ -80,7 +80,7 @@ Instead of mapping an entity’s aggregate associations directly, commands expos
 
 ![Aggregate Association Mapping via IDs](images/aggregate-association-mapping-via-ids.png)
 
-_Example of mapping Aggregate Entities by ID_
+*Example of mapping Aggregate Entities by ID_
 
 ```csharp
 var existingCategories = await _categoryRepository.FindByIdsAsync(
@@ -98,7 +98,7 @@ var product = new Product
 _productRepository.Add(product);
 ```
 
-_Generated Code Example_
+*Generated Code Example_
 
 Available from:
 
