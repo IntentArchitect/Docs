@@ -7,7 +7,7 @@ uid: release-notes.intent-architect-v4.6
 
 We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Chat as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
 
-The 4.6 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be acquired from our [downloads page](https://intentarchitect.com/#/downloads) in the `Pre-Release(s)` section.
+The 4.6 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be downloaded from our [downloads page](https://intentarchitect.com/downloads) under the `Other Releases` section for the relevant OS.
 
 ### Highlights in 4.6.0
 
