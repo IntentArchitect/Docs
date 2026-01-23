@@ -98,7 +98,7 @@ var product = new Product
 _productRepository.Add(product);
 ```
 
-*_Generated code example.*
+*Generated code example.*
 
 Available from:
 
