@@ -54,6 +54,8 @@ The Software Factory will now offer this for templates which have had support ad
 Full details in the [](xref:application-development.software-factory.synchronize-code-to-design) article.
 
 - Intent Architect 4.6.0-beta.*
+- Intent.Application.Dtos 4.5.0-pre.2
+- Intent.Entities 5.2.0-pre.3
 
 ### Synchronize with Domain Entity
 

@@ -65,6 +65,11 @@ You can then save and the Software Factory will no longer want to remove those c
 
 Initially this functionality has been added to the Domain Entity classes and contract DTOs, but we will be progressively rolling it out to other templates over time.
 
+To try out this functionality, install at least these versions of the following modules:
+
+- Intent.Application.Dtos 4.5.0-pre.2
+- Intent.Entities 5.2.0-pre.3
+
 #### Application Overview Tab
 
 The Application Overview tab aims to make the mechanisms of Intent Architect clear, particularly for new users, by highlighting the flow of Designer metadata, Architecture and Settings into the Software Factory executions to drive code changes in the Codebase. Each of the components can be clicked to navigate to its aspect of the system.
