@@ -104,3 +104,4 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Fixed: Domain suggestions to create CRUD CQRS Services fail to find the new Entity if the designer has not already been saved.
 - Fixed: Stereotype Properties not listed in `Search Everywhere` when searching by their ID.
 - Fixed: Reopening of previous tabs sometimes changed their order.
+- Fixed: When renaming an Application not within an `intent` folder, an `Index was outside the bounds of the array.` error would occur.
