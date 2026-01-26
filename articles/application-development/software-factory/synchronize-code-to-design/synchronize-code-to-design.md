@@ -17,13 +17,9 @@ Synchronization supports structural aspects of source code files, here are some 
 
 ## Using the feature
 
-For example a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it:
+For example a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it, but it is also showing the "Synchronize code to design" button next to the change:
 
-![Diff showing software factory trying to remove items](images/synchronize-code-to-design-diff.png)
-
-Intent Architect will show a "Synchronize code to design" icon next to such files:
-
-![Code to design synchronization available](images/synchronize-code-to-design-available.png)
+![Code to design synchronization available](images/synchronize-code-to-design.png)
 
 > [!NOTE]
 >

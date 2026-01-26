@@ -9,11 +9,9 @@ Towards this, the Software Factory is able to track customizations of code manag
 
 ![The customizations screen on the Software Factory](images/customizations.png)
 
-Selecting the "Compare with Template" context menu option or simply double-clicking a customization will open a diff comparing the unmerged template output (left) with the current file (right):
+Clicking on a file in the list shows a diff by default comparing the unmerged template output (left) with the current file (right).
 
-![Diff of a customization](images/customization-diff.png)
-
-It is worth noting that editing and saving the file in the right pane will trigger re-running the code merging for that particular file allowing fixing of customizations without having to open the file through some other means.
+Editing and saving the file in the right pane will trigger re-running the code merging for that particular file allowing fixing of customizations without having to open the file through in a different editor (such as your IDE).
 
 Customizations can be approved by right-clicking it and selecting "Approve customization" which will also record who approved the customization and when. To see when a customization was approved, you can hover over the name in the "Approved by" column and read the tooltip which shows.
 
