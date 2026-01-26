@@ -43,19 +43,31 @@ No API Key is required to access these free credits, however adding your own Ope
 
 ![AI Chat Daily Budget](images/4.6/00/ai-chat-daily-budget.png)
 
+### Integrated diff tool in the Software Factory
+
+To make it even simpler to review pending Software Factory changes Intent Architect has now integrated file diffing capabilities directly into the Software Factory changes dialogue:
+
+![Screenshot of the Software Factory with a diff tool integrated](images/4.6/00/sf-integrated-diff-tool.png)
+
+Typical diff viewing options as well as the ability to save changes are available above the right side of the diff:
+
+![Diff options](images/4.6/00/diff-options.png)
+
+As part of the above changes, the list of files has been changed to be a tree view so as to require less screen real estate as well as making it more clear where files are being output to.
+
+The toolbar buttons above the file list can be used to choose filtering options or toggle between "flat" and "tree" views of the change list:
+
+![Change list buttons](images/4.6/00/sf-changes-view-buttons.png)
+
 ### Synchronize code to design
 
 A common request we've received is being able to take changes made to files in your IDE and have them imported back into Intent Architect, particularly for simple changes like the adding or changing of a property type.
 
 The Software Factory will now offer this for templates which have had support added to them.
 
-For example a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it:
+For example a `Notes` property has been added to an entity in your IDE and when running the Software Factory it wants to remove it, but it is also showing the "Synchronize code to design" button next to the change:
 
-![Diff showing software factory trying to remove items](images/4.6/00/synchronize-code-to-design-diff.png)
-
-Intent Architect will now showing a "Synchronize code to design" icon next to such files:
-
-![Code to design synchronization available](images/4.6/00/synchronize-code-to-design-available.png)
+![Code to design synchronization available](images/4.6/00/synchronize-code-to-design.png)
 
 On clicking the icon the Software Factory minimizes, the relevant designer will be opened and focussed, and the changes applied. In the following screenshot notice the dirty indicator on the `Notes` attribute:
 
