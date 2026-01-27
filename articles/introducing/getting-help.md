@@ -1,5 +1,5 @@
 ---
-uid: introducing.reference
+uid: getting-help
 ---
 
 # Getting help: Reference & resources

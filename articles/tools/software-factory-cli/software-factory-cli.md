@@ -185,67 +185,94 @@ intent-cli ensure-no-outstanding-changes --application-id "db9e35a9-c663-478a-93
 
 ### Do I have to use the credentials of a user license?
 
-To avoid a situation of having to store or use a specific user's credentials on environments like a continuous integration server, an Organization Access Token (OAT) can be used instead.
+To avoid having to store or use a specific user's credentials on environments like a continuous integration server, an Organization Access Token (OAT) can be used instead.
 
 Please contact us and we will create and provide you an OAT for your organization, you can request as many as needed and optionally specify expiry times.
 
-To use the OAT, use `token` as the username argument the OAT as the password.
+To use the OAT, use `token` as the username argument and the OAT as the password.
 
-### The CLI reports unexpected file renames or changes on the build server but not locally
+### The Software Factory on the CI server is showing pending changes which I can't see on my local machine
 
-If the Software Factory CLI running on your build server reports numerous file renames or modifications, but running the same command locally shows no outstanding changes, this is **most commonly caused by filename case sensitivity differences** between operating systems.
+If the Software Factory CLI fails when run on a CI server due to pending changes which don't show on your local machine, here are some troubleshooting steps.
 
-#### What you're seeing
+#### Git reset and clean
 
-**On the build server (typically Linux):**
+The simplest thing to try first on your own machine is to do a Git [`reset`](https://git-scm.com/docs/git-reset) and [`clean`](https://git-scm.com/docs/git-clean) which will reset the Git repository to as if it has been freshly cloned and checked out, which is what CI servers typically do.
 
-```text
-[ERR] [⚠ Rename    ] MyApplication.sln
-[ERR] [⚠ Rename    ] MyApplication.Api/Program.cs
-[ERR] [⚠ Rename    ] MyApplication.Api/appsettings.json
-[ERR] [🆕 Create   ] MyApplication.Api/Properties/launchSettings.json
-[ERR] [⚠ Rename    ] MyApplication.Api.csproj
-...
-```
+> [!WARNING]
+>
+> Running Git `reset` and `clean` will remove any changes in your working directory that are not committed, make sure you stash or commit any changes first.
 
-**On your local development machine (typically Windows):**
+Close any IDEs or other tools that may hold file locks (including Intent Architect). If in doubt, exit them completely.
 
-```text
-[INF] Completed 1 in 00:00:05.9470192
-```
-
-No changes detected.
-
-#### Why this happens
-
-The most common cause of this issue is filename case sensitivity differences:
-
-- **Linux build servers**: Case-sensitive filesystems treat `MyFile.cs` and `myfile.cs` as completely different files
-- **Windows development machines**: Case-insensitive filesystems (by default) treat `MyFile.cs` and `myfile.cs` as the same file
-- **Git is always case-sensitive**: When files are committed with inconsistent casing, Git tracks both versions, but your local filesystem may only show one
-
-This mismatch causes the build server to detect files that appear to have different casing than what's committed in the repository, resulting in reported renames or recreations.
-
-> [!NOTE]
-> While filename casing issues are the most common cause of this discrepancy, other Git configuration differences or repository state issues could potentially cause similar symptoms.
-
-#### How to Fix (remediation steps)
-
-If the case sensitivity issue has already been committed to your repository, here is a method to fix it:
-
-For individual files or folders that need case correction:
+Run the following in your terminal in the repository folder (or alternatively using your preferred Git client):
 
 ```bash
-# Step 1: Rename to a temporary name
-git mv MyFolder temp-folder
-git commit -m "Temp rename step 1"
-
-# Step 2: Rename to correct casing
-git mv temp-folder myfolder
-git commit -m "Fix folder casing"
-
-git push
+git reset --hard
+git clean -fdx
 ```
+
+Open Intent Architect, open the Solution, wait for the module restoration to complete and finally run the Software Factory on your machine to see if it still wants to remove any changes.
+
+#### Why can "resetting" everything fix the problem?
+
+From Intent Architect's side, any [`.intent` folders should always be ignored by source control management](application-development.applications-and-solutions.git-and-scm-guidance). These folders contain the following data which under specific scenarios can affect the Software Factory output, in particular:
+
+- `.intent/previous_output` - The contents of this folder should _not_ result in the Software Factory output differences on a fresh checkout.
+
+  These contain snapshots of generated (but not merged) output of the previous software factory run. This previous output is used by the merging algorithms to determine which lines in merged sections can be removed. If these files are missing the merging algorithm will safely assume that all content in the file was user added and will not remove it.
+
+- `.intent/output.cache` - The contents of this folder should _not_ result in the Software Factory output differences on a fresh checkout.
+
+  These files store hashes of the contents of files managed by the Software Factory for performance reasons so that it can skip processing files which it can see have not changed since the previous execution. If this file is causing differences between your local machine and the CI server, it may indicate a cache invalidation bug in Intent Architect, please do [report any such issues to us](xref:getting-help#contact-support).
+
+- `.intent/Intent.Modules` - Unless you are using custom modules, the contents of this folder should _not_ result in the Software Factory output differences on a fresh checkout.
+
+  These contain a cache of installed modules after they have been downloaded from the official Intent Architect repository or from your own organization's internal repository if you are using custom modules.
+
+  If somehow the content of the module cached on your local machine is different to the content of the module which is restored on your CI server, then this can be the cause of differences in Software Factory output, for example due to having different compiled code which outputs different template content. This can never happen from modules restored from the official Intent Architect repository as they are immutable, but it could happen if you're using a directory folder as a module repository and a particular `.imod` in the folder was overwritten with different content by your organization's module author(s). As a module author, this issue can be avoided by ensuring a version of the module in use by end users should never be modified and instead a new version should be created.
+
+- `bin` and `obj` folders for .NET `.csproj` files - If you're using [global usings](https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/using-directive#the-global-modifier), these folders _may_ result in software factory output differences compared to a fresh checkout.
+
+  These folders are managed entirely by .NET and, amongst other data around building .NET assemblies, may contain a `.cs` file containing global usings generated by .NET based on `.csproj` content such as `<Using />` elements or enablement of [implicit using directives](https://learn.microsoft.com/dotnet/core/project-sdk/overview#implicit-using-directives).
+
+  Intent Architect's `Intent.OutputManager.RoslynWeaver` module is able to automatically remove redundant using directives from files that it manages when it sees there is a global using for it.
+
+  We have observed situations where somehow the global usings managed by .NET itself inside `.cs` files inside of the `bin` and/or `obj` folders are somehow out of date and the `Intent.OutputManager.RoslynWeaver` module will incorrectly remove usings from files. The exact circumstances leading to such a scenario are not clear to us, but clearing all `bin` and `obj` has been found to fix such issues.
+
+#### Differences between different operating systems
+
+A common scenario for development teams is having their CI servers running on Linux while developers do their work on other operating systems such as Windows or macOS.
+
+##### File name case sensitivity differences
+
+Linux has case-sensitive file and folder names while macOS and Windows do not. If a file was initially created by Intent Architect and committed into a Git repository and then later had only its casing changed (e.g. `Clientinvoice.cs` is renamed to `ClientInvoice.cs`), Intent Architect and Git on Windows and/or macOS will generally not pick up this file name casing change.
+
+However, the Software Factory CLI on the CI server running Linux will show that this file needs to be created.
+
+To resolve this issue, firstly ensure that the file/folder name casing is correct on the Windows file system. As Git on Windows tends not to pick up casing differences, you will need to use either of the following manual steps afterwards:
+
+1. [The `git mv` command](https://git-scm.com/docs/git-mv) - This will explicitly have Git update its name of the file or folder to the new casing.
+2. Temporarily rename the file or folder to a completely different name (not just casing) and commit to force Git to pick up the file name changes, then name it back and commit it again:
+
+  a. Rename to `Temp1`
+  b. Commit the changes to Git. A commit message such as "Fix file casing on Windows (commit 1 of 2)" might be appropriate.
+  c. Rename to the desired name in the correct casing.
+  d. Commit the changes to Git. A commit message such as "Fix file casing on Windows (commit 2 of 2)" might be appropriate.
+
+If there are multiple files and/or folders with incorrect casing an easy solution would be to use technique #2 above by either temporarily changing the name of a parent folder within the Git repository or alternatively moving all files and folders in the root of the repository to temporary and then out again afterwards.
+
+##### Line ending differences
+
+For line endings in files, Windows operating systems use `CRLF` (`\r\n`) while Linux and macOS simply use `LF` (`\n`).
+
+Intent Architect (as of version 4.4.0 release February 2025) should ignore all whitespace differences including line endings. If the Software Factory CLI is showing pending changes which seem to only be whitespace differences, please [report any such issues to us](xref:getting-help#contact-support) so that we can investigate further.
+
+##### Local Linux testing suggestions
+
+If the Software Factory on your CI server running Linux is still failing due to pending changes, a good way to troubleshoot the issue more easily is by running Linux through a Virtual Machine or WSL (Windows Subsystem for Linux) on your local machine.
+
+Based on our own experience, we strongly recommend WSL for Windows users as it even allows almost seamless [debugging of custom modules from a Visual Studio instance on your Windows desktop to a Linux process running under WSL](https://learn.microsoft.com/visualstudio/debugger/debug-dotnet-core-in-wsl-2).
 
 ## Example: Azure Pipelines
 
