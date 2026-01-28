@@ -216,7 +216,7 @@ Open Intent Architect, open the Solution, wait for the module restoration to com
 
 #### Why can "resetting" everything fix the problem?
 
-From Intent Architect's side, any [`.intent` folders should always be ignored by source control management](application-development.applications-and-solutions.git-and-scm-guidance). These folders contain the following data which under specific scenarios can affect the Software Factory output, in particular:
+From Intent Architect's side, any [`.intent` folders should always be ignored by source control management](xref:application-development.applications-and-solutions.git-and-scm-guidance). These folders contain the following data which under specific scenarios can affect the Software Factory output, in particular:
 
 - `.intent/previous_output` - The contents of this folder should _not_ result in the Software Factory output differences on a fresh checkout.
 

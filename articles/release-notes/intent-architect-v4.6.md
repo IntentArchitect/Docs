@@ -98,7 +98,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 >
 > For reasons of [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) and to allow module authors to leverage the latest .NET features, Intent Architect has been internally upgraded to run on .NET 10.
 >
-> Our [Software Factory CLI article](xref:tools.software-factory-cli#the-cli-reports-unexpected-file-renames-or-changes-on-the-build-server-but-not-locally) has an example of installing additional .NET SDKs on Azure Pipelines while other CI/CD environments should be very similar, but please don't hesitate to reach out to our support should you like any assistance.
+> Our [Software Factory CLI article](xref:tools.software-factory-cli#the-settings-file-in-the-tools-nuget-package-is-invalid-settings-file-dotnettoolsettingxml-was-not-found-in-the-package) has an example of installing additional .NET SDKs on Azure Pipelines while other CI/CD environments should be very similar, but please don't hesitate to reach out to our support should you like any assistance.
 >
 > NOTE: This requirement is not applicable to the Intent Architect the desktop application as it ships with its own runtime.
 

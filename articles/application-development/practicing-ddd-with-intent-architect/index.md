@@ -136,6 +136,7 @@ public class Order
     }
 }
 ```
+
 ![Order class constructor code](images/31-order-class-constructor-code.png)
 
 1. **Instantiate the Aggregate via a Command**  
@@ -149,18 +150,17 @@ After the `Order` entity is created, you can add or modify `OrderLine` entities:
 1. **Define a Domain Operation**  
    For instance, create an `AddOrderLine` operation on the `Order` entity. This method can accept parameters (e.g., `amount`, `description`, `quantity`) and build a new `OrderLine` (this assumes your `OrderLine` has a constructor accepting: `amount`, `description`, `quantity`).
 
-```csharp
-public void AddOrderLine(decimal amount, string description, int quantity)
-{
-    _orderLines.Add(new OrderLine(amount, description, quantity));
-}
-```
-![AddOrderLine operation in the domain designer](images/33-addorderline-operation-domain.png)
+  ```csharp
+  public void AddOrderLine(decimal amount, string description, int quantity)
+  {
+      _orderLines.Add(new OrderLine(amount, description, quantity));
+  }
+  ```
 
+  ![AddOrderLine operation in the domain designer](images/33-addorderline-operation-domain.png)
 2. **Expose the Operation with a Command**  
    Create an `AddOrderLineOrderCommand` (or similar) in the Services Designer. Map its parameters to the `AddOrderLine` operation.  
    ![CQRS CRUD Operations menu](images/34-cqrs-crud-operations-menu.png)
-
 3. **Command Handler**  
    Intent Architect will generate the handler logic, retrieving `Order` from the repository and invoking `AddOrderLine`:
 
