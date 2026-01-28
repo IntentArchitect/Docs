@@ -9,11 +9,11 @@ Intent Architect allows specifying an icon in many different places and this is 
 
 There are various different places where the Change Icon Dialogue can be opened from, for example by clicking the icon on the Create Application screen:
 
-[!Video-Loop videos/choose-application-icon.mp4]
+![Choose application icon](images/choose-application-icon.png)
 
 Or on a stereotype definition / property:
 
-[!Video-Loop videos/choose-stereotype-icon.mp4]
+![Choose stereotype icon](images/choose-stereotype-icon.png)
 
 And some other places too with the same/similar paradigm.
 
@@ -27,15 +27,17 @@ The dialogue has the following parts:
 
 ![Overview of the dialogue](images/overview.png)
 
+1. Icon preview.
+2. Different icon types.
+3. Content here changes depending on the icon type (2.) selected.
+
 ## Different Icon Types
 
 You can use the "Tabs" to choose which type of icon to choose.
 
 ### Import
 
-This is the easiest way to use any existing image as an icon. You can use Ctrl-V/Cmd+V to paste an image from your clipboard or drag and drop an existing image from a browser window or click on the area to open a browse dialogue:
-
-[!Video-Loop videos/icon-type-import.mp4]
+This is the easiest way to use any existing image as an icon. You can use Ctrl-V/Cmd+V to paste an image from your clipboard or drag and drop an existing image from a browser window or click on the area to open a browse dialogue.
 
 ### URL
 

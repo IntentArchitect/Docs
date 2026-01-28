@@ -83,21 +83,29 @@ In the Services designer, right-click the _Services Package_ and select the _Cre
 
 ![The Create CQRS Operations context menu option](images/13-the-create-cqrs-operations-context-menu-option.png)
 
+Select Customer, leave the checkboxes in their default ticked state and press DONE:
+
+![Dialogue for CQRS creation mapping](images/14-create-cqrs-dialogue.png)
+
+Because operations were detected, we can select which one we want to generate commands for, we'll check `Update` operation:
+
+![Select DDD operations for created CRUD CQRS](images/15-select-ddd-operations-for-crud.png)
+
 Observe that the `CreateCustomerCommand` is mapping to the constructor while the `UpdateCustomerCommand` is mapped to the `Update` operation:
 
-![Customer diagram showing commands, queries and mappings](images/14-customer-diagram-showing-commands-queries-and-mappings.png)
+![Customer diagram showing commands, queries and mappings](images/16-customer-diagram-showing-commands-queries-and-mappings.png)
 
 To see the details of a mapping, we can right-click it and choose the appropriate menu option, for example for an _[update]_ we can select the _Map Entity Update_ option:
 
-![Map Entity Update context menu option](images/15-map-entity-update-context-menu-option.png)
+![Map Entity Update context menu option](images/17-map-entity-update-context-menu-option.png)
 
 Observe how the Command is mapped to the `Update` _Operation_ while the `Name` field is mapped to its parameter:
 
-![Entity Update Mapping screen](images/16-entity-update-mapping-screen.png)
+![Entity Update Mapping screen](images/18-entity-update-mapping-screen.png)
 
 And when the Software Factory is run you will see that the generated implementation is passing the field's value to the method:
 
-![UpdateCustomerCommandHandler.cs file](images/17-updated-customer-command-handler-cs-file.png)
+![UpdateCustomerCommandHandler.cs file](images/19-updated-customer-command-handler-cs-file.png)
 
 ### Conclusion
 

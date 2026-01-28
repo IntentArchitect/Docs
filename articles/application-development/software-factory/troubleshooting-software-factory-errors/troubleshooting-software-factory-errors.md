@@ -53,9 +53,7 @@ In this example after doing the above actions the red triangle is now gone and w
 
 ![No more errors](images/no-more-errors.png)
 
-We can now save the designer, run the Software Factory, and we should see it no longer shows errors during execution:
-
-![Software Factory with no errors](images/software-factory-with-no-errors.png)
+We can now save the designer, run the Software Factory, and we should see it no longer shows errors during execution.
 
 ### What to do if there are no errors visible in the designer
 
