@@ -122,3 +122,4 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Fixed: Stereotype Properties not listed in `Search Everywhere` when searching by their ID.
 - Fixed: Reopening of previous tabs sometimes changed their order.
 - Fixed: When renaming an Application not within an `intent` folder, an `Index was outside the bounds of the array.` error would occur.
+- Fixed: Module migrations and other module tasks would not work for modules with the "Enable Factory Extensions" module setting unchecked.
