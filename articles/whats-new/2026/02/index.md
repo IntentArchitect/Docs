@@ -1,3 +1,9 @@
+<script>
+if (location.hash == "#integrated-ai-chat") {
+  window.location = window.location.hash = "#integrated-ai-assistant";
+}
+</script>
+
 # What's new in Intent Architect (February 2026)
 
 Welcome to the February edition of What’s New in Intent Architect.
@@ -5,7 +11,7 @@ Welcome to the February edition of What’s New in Intent Architect.
 Lot's of clients have been asking for it - in case you missed it, we recently shared that the team has been hard at work on our next front-end automation: Angular - a long-term milestone we’ve been looking forward to. The first release includes application setup, UI modeling, and AI-generated views.
 
 - Highlights
-  - **[Integrated AI Chat](#integrated-ai-chat)** – An integrated AI assistant that answers questions about your workspace, analyzes designs, and helps evolve solutions.
+  - **[Integrated AI Assistant](#integrated-ai-assistant)** – An integrated AI assistant that answers questions about your workspace, analyzes designs, and helps evolve solutions.
   - **[Angular UI Automation](#angular-ui-automation)** – Model your pages, routing and service interaction, then have Intent Architect’s deterministic code generation, combined with AI, to create the Angular app end to end.
   - **[Synchronize code to design](#synchronize-code-to-design)** – Reverse-engineer code changes back into your Intent Architect design.
   - **[Synchronize with Domain Entity](#synchronize-with-domain-entity)** – Keep Commands, Queries, and Service Operations aligned with their corresponding Domain Entities by automatically detecting and applying structural changes.
@@ -13,13 +19,13 @@ Lot's of clients have been asking for it - in case you missed it, we recently sh
 
 ## Update details
 
-### Integrated AI Chat
+### Integrated AI Assistant
 
-The new Integrated AI Chat feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems.
+The new Integrated AI Assistant feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems.
 
 Developers can use it to answer questions about the current workspace, explain how existing elements fit together, and propose design changes to meet new requirements. The assistant can also inspect models and diagrams to summarize structure, highlight dependencies, and identify gaps or inconsistencies.
 
-![Chat AI](images/ai-chat.png)
+![AI Assistant](images/ai-assistant.png)
 
 Full details in the [release notes](xref:release-notes.intent-architect-v4.6).
 
@@ -31,10 +37,10 @@ A new **Angular Web Application** template is now available (currently in Beta) 
 
 These AI interactions build their prompts using customizable templates, so you can tweak or extend them as your requirements evolve.
 
-![Angular Modeling](images/angular-modeling.png)  
+![Angular Modeling](images/angular-modeling.png)
 *Modeling of sample customer CRUD pages*
 
-![Angular Application](images/angular-app.png)  
+![Angular Application](images/angular-app.png)
 *Generated Angular application*
 
 This feature is currently in beta, so while it’s already usable, there are some rough edges we’ll be smoothing out over time. If you’d like to try it early, we’d appreciate your feedback to help shape how this Angular module evolves.
