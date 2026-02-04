@@ -5,23 +5,21 @@ uid: release-notes.intent-architect-v4.6
 
 ## Version 4.6.0
 
-We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Chat as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
-
-The 4.6 beta is available as a side-by-side install, so you can keep your current version of Intent Architect running alongside the beta. The beta can be downloaded from our [downloads page](https://intentarchitect.com/downloads) under the `Other Releases` section for the relevant OS.
+We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Assistant as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
 
 ### Highlights in 4.6.0
 
-#### Integrated AI Chat
+#### Integrated AI Assistant
 
-The new Integrated AI Chat feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems.
+The new Integrated AI Assistant feature provides an in-product assistant to help developers understand and evolve their solution design. It has access to the entire Intent Architect documentation site, and several powerful tools to access and modify the existing design of the systems.
 
 Developers can use it to answer questions about the current workspace, explain how existing elements fit together, and propose design changes to meet new requirements. The assistant can also inspect models and diagrams to summarize structure, highlight dependencies, and identify gaps or inconsistencies.
 
-![AI Chat Example](images/4.6/00/ai-chat-example.png)
+![AI Assistant Example](images/4.6/00/ai-assistant-example.png)
 
-_Example chat to create a simple e-commerce domain. The agent was able to design the domain from a simple natural language prompt._
+_Example use of the AI assistant to create a simple e-commerce domain. The agent was able to design the domain from a simple natural language prompt._
 
-The Integrated IA Chat has 3 different modes:
+The Integrated IA Assistant has 3 different modes:
 
 - **Ask** - For analyzing and answering questions with read-only access to the designers.
 - **Agent** - For instructing the LLM to read and make simple modifications to the designers.
@@ -29,9 +27,9 @@ The Integrated IA Chat has 3 different modes:
 
 ##### Multiple Provider Integration
 
-The Integrated AI Chat can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
+The Integrated AI Assistant can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
 
-![Multiple Provider Integration](images/4.6/00/ai-chat-multiple-providers.png)
+![Multiple Provider Integration](images/4.6/00/ai-assistant-multiple-providers.png)
 
 _Example showing both Open AI and Anthropic models available when both are configured._
 
@@ -41,7 +39,7 @@ In an effort to make this new feature accessible to our entire community, and to
 
 No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
 
-![AI Chat Daily Budget](images/4.6/00/ai-chat-daily-budget.png)
+![AI Assistant Daily Budget](images/4.6/00/ai-assistant-daily-budget.png)
 
 ### Integrated diff tool in the Software Factory
 
@@ -115,6 +113,10 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
 - Improvement: The Dynamic Form Tree-view control now features a display-function per node to provide a rich text display over the ordinary plain text.
 - Improvement: Upgraded Intent Architect to internally use .NET 10 which has [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) as well as allowing module authors to use any .NET features only available from .NET 10.
+- Improvement: Added `?` icon documentation link to components in the Create New Application(s) wizard.
+- Improvement: Added `Show installed only` to the Modules Manager's Template, which defaults to true. This aims to reduce the noise of the other architectural components and to bring the application's current architectural stack into focus.
+- Improvement: Improved performance for indicating when module updates are available.
+- Improvement: Added confirmation to Unloading Packages if they are dirty since unsaved changes could be lost.
 
 ### Issues fixed in 4.6.0
 
@@ -123,3 +125,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 - Fixed: Reopening of previous tabs sometimes changed their order.
 - Fixed: When renaming an Application not within an `intent` folder, an `Index was outside the bounds of the array.` error would occur.
 - Fixed: Module migrations and other module tasks would not work for modules with the "Enable Factory Extensions" module setting unchecked.
+- Fixed: Clearing out a tree view filter manually doesn't automatically scroll to the selected element. Now will scroll that selected element into the center of the panel.
+- Fixed: Markdown displayed in popovers in the designers would not correctly render certain markdown.
+- Fixed: Diagram popover width could become too large and overflow out of the visual diagram.
+- Fixed: Checkboxes in the Software Factory would use operating system colors which could make them visually clash with the rest of Intent Architect's colors.
