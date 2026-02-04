@@ -1,4 +1,7 @@
 items:
+  - name: AI Assistant
+    topicUid: application-development.ai-assistant
+
   - name: Development Practices and Guidance
     href: for-developers/toc.yml
     topicUid: application-development.development-environment-setup
