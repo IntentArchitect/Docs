@@ -19,7 +19,7 @@ Developers can use it to answer questions about the current workspace, explain h
 
 _Example use of the AI assistant to create a simple e-commerce domain. The agent was able to design the domain from a simple natural language prompt._
 
-The Integrated IA Assistant has 3 different modes:
+The Integrated AI Assistant has 3 different modes:
 
 - **Ask** - For analyzing and answering questions with read-only access to the designers.
 - **Agent** - For instructing the LLM to read and make simple modifications to the designers.
@@ -27,17 +27,17 @@ The Integrated IA Assistant has 3 different modes:
 
 ##### Multiple Provider Integration
 
-The Integrated AI Assistant can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
+The Integrated AI Assistant can also be connected to the most popular AI providers (e.g. OpenAI, Azure OpenAI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
 
 ![Multiple Provider Integration](images/4.6/00/ai-assistant-multiple-providers.png)
 
-_Example showing both Open AI and Anthropic models available when both are configured._
+_Example showing both OpenAI and Anthropic models available when both are configured._
 
 ##### Daily Budget
 
-In an effort to make this new feature accessible to our entire community, and to show our appreciation to you all, we've made the feature accessible to all existing users and created a Daily Budget of 150 FREE credits for use with Open AI models. Note that this is for a limited period of time and may change later.
+In an effort to make this new feature accessible to our entire community, and to show our appreciation to you all, we've made the feature accessible to all existing users and created a Daily Budget of 150 FREE credits for use with OpenAI models. Note that this is for a limited period of time and may change later.
 
-No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
+No API Key is required to access these free credits, however adding your own OpenAI API Key in the User Settings will remove the limit completely and no longer access OpenAI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
 
 ![AI Assistant Daily Budget](images/4.6/00/ai-assistant-daily-budget.png)
 
@@ -107,7 +107,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
   ![Icons in tabs](images/4.6/00/improvement-icons-added-to-tabs.png)
 
 - Improvement: Focus is highlighted more clearly in the Solution Explorer.
-- Improvement: Software Factories now auto-start when opening up new solutions. This enhancement aims to make it more obvious when there are outstanding changes and to "warm up" the Software Factory ahead of the user's changes. Which applications have active Software Factories is now saved to the user's solution preferences so that they are started automatically when the solution is opened again in the future.
+- Improvement: Software Factories now auto-start when opening up new solutions. This enhancement aims to make it more obvious when there are outstanding changes and to "warm up" the Software Factory ahead of the user's changes. Which applications have active Software Factories are now saved to the user's solution preferences so that they are started automatically when the solution is opened again in the future.
 - Improvement: The Software Factory close button now minimizes the dialog instead of shutting down the process. This aims to ensure that software factories remain "hot" and active by avoiding reflexive shutting down of the process. To shut down the Software Factory, the user can right-click the task in the taskbar and select the `Shutdown` option, or simply use the middle mouse click on the process.
 - Improvement: Restyled the login page to align with the new website design.
 - Improvement: Association End Properties now hide disabled `Is Navigable`, `Is Nullable` and `Is Collection` options if their value is also `false`.
