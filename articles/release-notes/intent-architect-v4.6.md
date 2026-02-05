@@ -92,7 +92,7 @@ The Application Overview tab aims to make the mechanisms of Intent Architect cle
 >
 > ### .NET 10 SDK now required for running the Software Factory CLI on CI/CD servers
 >
-> At least version 10 of of the .NET SDK is now required to be installed on CI/CD servers making use of the [Software Factory CLI](xref:tools.software-factory-cli).
+> At least version 10 of the .NET SDK is now required to be installed on CI/CD servers making use of the [Software Factory CLI](xref:tools.software-factory-cli).
 >
 > For reasons of [performance improvements](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-10/) and to allow module authors to leverage the latest .NET features, Intent Architect has been internally upgraded to run on .NET 10.
 >
