@@ -17,8 +17,8 @@ items:
   - name: UI Designer
     href: ui-designer/toc.yml
 
-  - name: Visual Studio Designer
-    href: visual-studio-designer/visual-studio-designer.md
+  - name: Codebase Structure Designer
+    href: codebase-structure-designer/codebase-structure-designer.md
 
   - name: Open in IDE
     href: open-in-ide/open-in-ide.md
