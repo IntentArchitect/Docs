@@ -3,6 +3,18 @@ uid: release-notes.intent-architect-v4.6
 ---
 # Release notes: Intent Architect version 4.6
 
+## Version 4.6.1
+
+### Improvements in 4.6.1
+
+- Improvement: Toggling the AI Assistant window (F8) will now move focus to the text input field.
+
+### Fixes in 4.6.1
+
+- Fixed: When selecting the AI Assistant text input, it auto-selects all the text.
+- Fixed: The Software Factory would do an extra needless write of temporary staging files under certain circumstances sometimes resulting in phantom changes in Software Factory diffs.
+- Fixe: Mappings would not be deleted when the source / target element was deleted leading to errors that the user would then need to correct.
+
 ## Version 4.6.0
 
 We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Assistant as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
