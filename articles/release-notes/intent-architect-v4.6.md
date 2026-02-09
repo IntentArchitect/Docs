@@ -8,12 +8,13 @@ uid: release-notes.intent-architect-v4.6
 ### Improvements in 4.6.1
 
 - Improvement: Toggling the AI Assistant window (F8) will now move focus to the text input field.
+- Improvement: The Software Factory will now show a descriptive error when there is already another Software Factory process for the same application at the same path.
 
 ### Fixes in 4.6.1
 
 - Fixed: When selecting the AI Assistant text input, it auto-selects all the text.
 - Fixed: The Software Factory would do an extra needless write of temporary staging files under certain circumstances sometimes resulting in phantom changes in Software Factory diffs.
-- Fixe: Mappings would not be deleted when the source / target element was deleted leading to errors that the user would then need to correct.
+- Fixed: Mappings would not be deleted when the source / target element was deleted leading to errors that the user would then need to correct.
 
 ## Version 4.6.0
 
