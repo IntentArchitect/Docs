@@ -15,6 +15,7 @@ uid: release-notes.intent-architect-v4.6
 - Fixed: When selecting the AI Assistant text input, it auto-selects all the text.
 - Fixed: The Software Factory would do an extra needless write of temporary staging files under certain circumstances sometimes resulting in phantom changes in Software Factory diffs.
 - Fixed: Mappings would not be deleted when the source / target element was deleted leading to errors that the user would then need to correct.
+- Fixed: The "Template" tab under "Manage Modules" would not respect filters such as compatible and pre-release versions.
 
 ## Version 4.6.0
 
