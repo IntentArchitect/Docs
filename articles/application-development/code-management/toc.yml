@@ -5,6 +5,9 @@ items:
   - name: C# Code Management
     href: code-management-csharp/code-management-csharp.md
 
+  - name: C# Code Management Examples
+    href: practical-code-management-examples/practical-code-management-examples.md
+
   - name: Java Code Management
     href: code-management-java/code-management-java.md
 
