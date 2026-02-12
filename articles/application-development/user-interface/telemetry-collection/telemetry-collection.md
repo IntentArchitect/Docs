@@ -7,7 +7,7 @@ Intent Architect includes a telemetry collection feature designed to help improv
 
 ## What data is collected?
 
-Intent Architect collects only basic statistical data, including:
+Intent Architect collects only basic statistical and error data, including:
 
 - **Software Factory Execution Time** - The duration of the Software Factory execution.
 - **Designer Load Time** - How long it takes for Designers to load.
@@ -15,6 +15,7 @@ Intent Architect collects only basic statistical data, including:
 - **Modeling Activity** - The number of elements modeled within the designers.
 - **Application Name** - The specific Intent Architect application in use.
 - **Account Identifier** - The identifier of the current user account.
+- **Errors** - Errors/exceptions which occur in Intent Architect itself.
 
 ## What data is NOT collected?
 
