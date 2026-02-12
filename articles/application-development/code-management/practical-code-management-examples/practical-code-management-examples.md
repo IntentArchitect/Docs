@@ -10,11 +10,11 @@ For a comprehensive explanation of code management concepts, see the [C# Code Ma
 
 ## Code Management Modes
 
-Source code can fall into one of three categories, describing how it is managed by Intent Architect:
+Intent Architect creates and maintains large portions of your codebase through continuous code generation. When you need to customize the generated code, you can use _Code Management Instructions_ to control how Intent Architect handles specific sections of this code. This is achieved by adjusting the `Mode` for a section of code:
 
-- **Fully**: Intent Architect has full control over the particular code block and any deviations from the generated output will be overwritten.
-- **Ignore**: Intent Architect has zero control over the particular code block, which is 100% owned and managed by the developer. Intent Architect will not make any changes to the code block.
-- **Merge**: Intent Architect will add and remove Intent Architect generated code for the code block, but will never remove code which was manually added by the developer.
+- **Fully** Mode: Intent Architect owns, governs and controls the generated code completely.
+- **Ignore** Mode: The developer owns and controls the code completely. Intent Architect will not touch this code.
+- **Merge** Mode: The Intent Architect generated code is intelligently merged with developer added code.
 
 ---
 
