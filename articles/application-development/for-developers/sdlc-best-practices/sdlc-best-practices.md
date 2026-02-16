@@ -110,15 +110,13 @@ This approach allows developers to work freely in development while ensuring tha
 
 ## Upgrading and Installing Modules
 
-Upgrading and installing modules can result in changes to your codebase. It is best practice to perform these operations on a **clean checkout** of your codebase. This helps isolate the impact of the upgrade and verify your codebase's readiness.
+Upgrading and installing modules can result in changes to your codebase. It is best practice to perform these operations on a **clean checkout** of your codebase - that is, all code committed or stashed (or the similar operation in your source control of choice). This helps isolate the impact of the upgrade and verify your codebase's readiness.
 
 This is similar to manually upgrading NuGet packages — you'd typically do this from a clean state to ensure smooth upgrades.
 
 On occasion, a module upgrade may result in many files being changed by the Software Factory, but you as the change in almost all the files are the exact same change to the pattern, typically the changes are incredibly quick to review.
 
-Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments.
-
-This allows you to easily roll back the modules / changes, if for some reason you wanted to.
+Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments. If you are not in a position to perform the manual adjustment at that time, you can easily roll back the modules / changes, and plan for when the upgrades should take place.
 
 If you use pull requests as part of your SDLC, ensure that you do module upgrades as their own PR so as to not mix "functional" changes with regular module upgrade changes, this ensures that the work for reviewers is as easy as possible.
 
@@ -152,3 +150,26 @@ For more information on deploying a Module Server, refer to the [](xref:tools.mo
 ## Configure your Development Environment
 
 When working with Intent Architect there are some best practices we recommend for configuring your development environment, these are detailed in the [](xref:application-development.development-environment-setup) article.
+
+## General FAQ
+
+### What does this installing this module / adjusting this setting / performing this modelling do?
+
+If you are unsure what effect:
+
+- installing a module
+- adjusting an application setting
+- performing modelling in one of the designers
+
+The best approach is to perform these operations on a **clean checkout** of your codebase - that is, all code committed or stashed (or the similar operation in your source control of choice). This helps isolate the impact of performing the action on your code base.
+
+Once you do one of the following, running the Software Factory and evaluating the changes, will allow you to draw a correlation between the changes you made in Intent Architect and the code generated.
+
+As the action was performed on a clean checkout, if you do not require the changes made by performing the action:
+
+- If the **Software Factory execution is applied**, as the operation was performed on a clean checkout, the code can be reverted using your source control tool of choice.
+- If the **Software Factory execution is not applied**:
+  - The Intent Architect metadata updates can reverted using your source control tool of choice
+  - The module can be uninstalled
+  - The setting can be reverted
+  - The modelling can be undone using the `Undo` feature (`Ctrl-z`)
