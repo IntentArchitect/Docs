@@ -114,7 +114,7 @@ Upgrading and installing modules can result in changes to your codebase. It is b
 
 This is similar to manually upgrading NuGet packages — you'd typically do this from a clean state to ensure smooth upgrades.
 
-On occasion, a module upgrade may result in many files being changed by the Software Factory, but you as the change in almost all the files are the exact same change to the pattern, typically the changes are incredibly quick to review.
+On occasion, a module upgrade may result in many files being changed by the Software Factory, but as the change in almost all the files are related to the exact same change to the pattern, typically the changes are incredibly quick to review.
 
 Your codebase is a mix of Intent Architect–managed code and custom code. While the tool upgrades managed code automatically, some custom code may need manual adjustments. If you are not in a position to perform the manual adjustment at that time, you can easily roll back the modules / changes, and plan for when the upgrades should take place.
 
@@ -153,7 +153,9 @@ When working with Intent Architect there are some best practices we recommend fo
 
 ## General FAQ
 
-### What does this installing this module / adjusting this setting / performing this modelling do?
+This section addresses common questions and scenarios you may encounter when working with Intent Architect, providing practical guidance for typical uncertainties.
+
+### What does installing this module / adjusting this setting / performing this modelling do?
 
 If you are unsure what effect:
 
@@ -161,15 +163,15 @@ If you are unsure what effect:
 - adjusting an application setting
 - performing modelling in one of the designers
 
-The best approach is to perform these operations on a **clean checkout** of your codebase - that is, all code committed or stashed (or the similar operation in your source control of choice). This helps isolate the impact of performing the action on your code base.
+the best approach is to perform these operations on a clean checkout of your codebase (i.e., with all changes committed or stashed). This helps isolate the impact of performing the action on your code base.
 
-Once you do one of the following, running the Software Factory and evaluating the changes, will allow you to draw a correlation between the changes you made in Intent Architect and the code generated.
+Once you perform one of the above mentioned actions, you can then run the Software Factory and evaluate the changes - allowing you to draw a correlation between the changes you made in Intent Architect and the code generated.
 
-As the action was performed on a clean checkout, if you do not require the changes made by performing the action:
+As the action was performed on a clean checkout, if you do not require the changes made, you can do the following:
 
 - If the **Software Factory execution is applied**, as the operation was performed on a clean checkout, the code can be reverted using your source control tool of choice.
 - If the **Software Factory execution is not applied**:
-  - The Intent Architect metadata updates can reverted using your source control tool of choice
+  - The Intent Architect metadata updates can be reverted using your source control tool of choice
   - The module can be uninstalled
   - The setting can be reverted
   - The modelling can be undone using the `Undo` feature (`Ctrl-z`)
