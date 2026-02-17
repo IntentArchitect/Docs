@@ -16,7 +16,7 @@ uid: release-notes.intent-architect-v4.6
 - Fixed: The Software Factory would do an extra needless write of temporary staging files under certain circumstances sometimes resulting in phantom changes in Software Factory diffs.
 - Fixed: Mappings would not be deleted when the source / target element was deleted leading to errors that the user would then need to correct.
 - Fixed: The "Template" tab under "Manage Modules" would not respect filters such as compatible and pre-release versions.
-- Fixed: The "has possibly destructive changes" icon in the Software Factory change list was white instead yellow.
+- Fixed: The "has possibly destructive changes" icon in the Software Factory change list was white instead of yellow.
 
 ## Version 4.6.0
 
