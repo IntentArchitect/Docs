@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.6
 ---
 # Release notes: Intent Architect version 4.6
 
+## Version 4.6.2
+
+### Improvements in 4.6.2
+
+- Fixed: Certain errors which occurred when loading stereotypes or their properties would provide somewhat opaque errors or would navigate to elements which weren't the one the stereotype applied to it.
+
 ## Version 4.6.1
 
 ### Improvements in 4.6.1
