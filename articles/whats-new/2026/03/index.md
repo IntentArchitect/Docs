@@ -4,6 +4,7 @@ Welcome to the March edition of What’s New in Intent Architect.
 
 - Highlights
   - **[Mapperly-based DTO mapping generator](#mapperly-based-dto-mapping-generator)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
+  - **[Automatic route parameter filtering in API documentation](#automatic-route-parameter-filtering-in-api-documentation)** – Eliminates duplicate parameter documentation in API specs when properties are already defined as route parameters.
 
 ## Update details
 
@@ -36,4 +37,18 @@ var customerDtos = customers.MapToCustomerDtoList();
 Available from:
 
 - Intent.Application.Dtos.Mapperly 1.0.3
+
+### Automatic route parameter filtering in API documentation
+
+![Swagger Example](images/swagger-route-param-filter-example.png)
+![Scalar Example](images/scalar-route-param-filter-example.png)
+
+When documenting REST endpoints, you often reference the same parameter as both a route parameter (`/api/users/{id}`) and in the request body schema, causing confusing duplication. Both `Intent.AspNetCore.Swashbuckle` and `Intent.AspNetCore.Scalar` now automatically remove properties from request body schemas when they match route parameter names, ensuring clean API documentation.
+
+The implementation handles inline and referenced schemas, matches names case-insensitively, and removes properties from the `required` list automatically.
+
+Available from:
+
+- Intent.AspNetCore.Swashbuckle 5.2.3
+- Intent.AspNetCore.Scalar 1.0.7
 
