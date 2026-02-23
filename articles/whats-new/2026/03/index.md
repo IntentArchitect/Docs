@@ -76,10 +76,3 @@ In our ongoing effort to improve our documentation, a new article has been added
 *Updated Code Management documentation*
 
 See the full article: [Practical Code Management Examples](xref:application-development.code-weaving-and-generation.practical-code-management-examples)
-
-### Smaller Updates
-
-In addition to the major Code Management documentation update, several smaller improvements were made:
-
-- Added a FAQ section to the [SDLC Best Practices](xref:application-development.sdlc-best-practices) guide.
-- Improved the [Upgrading and Installing Modules](xref:application-development.sdlc-best-practices#upgrading-and-installing-modules) section.
