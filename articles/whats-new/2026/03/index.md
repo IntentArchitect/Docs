@@ -6,6 +6,7 @@ Welcome to the March edition of What’s New in Intent Architect.
   - **[Mapperly-based DTO mapping generator](#mapperly-based-dto-mapping-generator)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
   - **[Automatic route parameter filtering in API documentation](#automatic-route-parameter-filtering-in-api-documentation)** – Eliminates duplicate parameter documentation in API specs when properties are already defined as route parameters.
   - **[Convert many-to-many associations to intermediate entities](#convert-many-to-many-associations-to-intermediate-entities)** - Transform implicit join tables into explicitly modeled entities for advanced customization.
+  - **[Improved Code Management Documentation](#improved-code-management-documentation)** – Practical real-world examples and guidance on choosing code management techniques.
 
 ## Update details
 
@@ -67,3 +68,18 @@ Available from:
 
 - Intent.Metadata.RDBMS 3.7.12
 
+### Improved Code Management Documentation
+
+In our ongoing effort to improve our documentation, a new article has been added with **practical real-world** examples of code management, including guidance on when and how to use each technique.
+
+![Code Management Documentation](images/code-management-docs.png)
+*Updated Code Management documentation*
+
+See the full article: [Practical Code Management Examples](xref:application-development.code-weaving-and-generation.practical-code-management-examples)
+
+### Smaller Updates
+
+In addition to the major Code Management documentation update, several smaller improvements were made:
+
+- Added a FAQ section to the [SDLC Best Practices](xref:application-development.sdlc-best-practices) guide.
+- Improved the [Upgrading and Installing Modules](xref:application-development.sdlc-best-practices#upgrading-and-installing-modules) section.
