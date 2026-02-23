@@ -55,7 +55,10 @@ Available from:
 
 ### Convert many-to-many associations to intermediate entities
 
+![Before Convert to Intermediate Entity](images/pre-convert-intermediate-entity.png)
+
 ![Suggestion to Convert to Intermediate Entity](images/suggestion-convert-intermediate-entity.png)
+
 ![Converted](images/converted-intermediate-entity.png)
 
 When modeling many-to-many relationships, a new `Convert to Intermediate Entity` suggestion (available in the Domain Designer) allows you to convert implicit join tables into explicitly modeled entities. Hover over any many-to-many association and select the suggestion to create an intermediate entity with two many-to-one associations, giving you full control over the join table structure for adding properties, indexes, or constraints.
