@@ -5,6 +5,7 @@ Welcome to the March edition of What’s New in Intent Architect.
 - Highlights
   - **[Mapperly-based DTO mapping generator](#mapperly-based-dto-mapping-generator)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
   - **[Automatic route parameter filtering in API documentation](#automatic-route-parameter-filtering-in-api-documentation)** – Eliminates duplicate parameter documentation in API specs when properties are already defined as route parameters.
+  - **[Convert many-to-many associations to intermediate entities](#convert-many-to-many-associations-to-intermediate-entities)** - Transform implicit join tables into explicitly modeled entities for advanced customization.
 
 ## Update details
 
@@ -51,4 +52,15 @@ Available from:
 
 - Intent.AspNetCore.Swashbuckle 5.2.3
 - Intent.AspNetCore.Scalar 1.0.7
+
+### Convert many-to-many associations to intermediate entities
+
+![Suggestion to Convert to Intermediate Entity](images/suggestion-convert-intermediate-entity.png)
+![Converted](images/converted-intermediate-entity.png)
+
+When modeling many-to-many relationships, a new `Convert to Intermediate Entity` suggestion (available in the Domain Designer) allows you to convert implicit join tables into explicitly modeled entities. Hover over any many-to-many association and select the suggestion to create an intermediate entity with two many-to-one associations, giving you full control over the join table structure for adding properties, indexes, or constraints.
+
+Available from:
+
+- Intent.Metadata.RDBMS 3.7.12
 
