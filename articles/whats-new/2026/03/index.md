@@ -3,12 +3,29 @@
 Welcome to the March edition of What’s New in Intent Architect.
 
 - Highlights
+  - **[Software Factory dialogue integrated diff tool and other improvements](#software-factory-dialogue-integrated-diff-tool-and-other-improvements)** - The Software Factory dialogue now has an integrated diff tool (no more needing to launch an external diff tool) as well as other layout improvements.
   - **[Mapperly-based DTO mapping generator](#mapperly-based-dto-mapping-generator)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
   - **[Automatic route parameter filtering in API documentation](#automatic-route-parameter-filtering-in-api-documentation)** – Eliminates duplicate parameter documentation in API specs when properties are already defined as route parameters.
   - **[Convert many-to-many associations to intermediate entities](#convert-many-to-many-associations-to-intermediate-entities)** - Transform implicit join tables into explicitly modeled entities for advanced customization.
   - **[Improved Code Management Documentation](#improved-code-management-documentation)** – Practical real-world examples and guidance on choosing code management techniques.
 
 ## Update details
+
+### Software Factory dialogue integrated diff tool and other improvements
+
+The Software Factory Dialogue changes view has undergone extensive updates:
+
+![Software Factory dialogue improvements](images/updated-software-factory-dialogue.png)
+
+The most immediately noticeable change is the integrated diff view, simply selecting a file in the left pane will show the diff inside the Software Factory dialogue. Typical diff viewing options as well as the ability to save changes are available above the right side of the diff:
+
+![Software Factory diff tool toolbar](images/software-factory-diff-tool-toolbar.png)
+
+As part of the above changes, the list of files has been changed to be a tree view so as to require less screen real estate as well as making it more clear where files are being output to.
+
+The toolbar buttons above the file list can be used to choose filtering options or toggle between "flat" and "tree" views of the change list:
+
+![Change list buttons](images/sf-changes-view-buttons.png)
 
 ### Mapperly-based DTO mapping generator
 
