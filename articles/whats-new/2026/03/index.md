@@ -27,6 +27,10 @@ The toolbar buttons above the file list can be used to choose filtering options 
 
 ![Change list buttons](images/sf-changes-view-buttons.png)
 
+Available from:
+
+- Intent Architect 4.6.0
+
 ### Mapperly support for DTO mappings
 
 ![Mapperly example](images/mapperly-example.png)
