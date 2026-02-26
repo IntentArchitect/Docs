@@ -18,6 +18,9 @@ To reduce the frequency and complexity of merge conflicts, apply standard develo
 - **Rebase instead of merging (when appropriate)** – Keeps history clean and makes conflicts easier to manage.
 - **Use tools for visual diffing** – Tools like Beyond Compare, Meld, or IDE-integrated tools help clarify changes.
 
+> [!NOTE]
+> For a practical walkthrough of version control fundamentals in Intent Architect, see this video tutorial: [Version Control Fundamentals](xref:tutorials.fundamentals-6-version-control).
+
 ## Understanding a merge conflict by example
 
 Assume you have a `Customer` entity, and this design has already been committed to the `development` branch.
