@@ -4,7 +4,7 @@ Welcome to the March edition of What’s New in Intent Architect.
 
 - Highlights
   - **[Integrated diff tool in the Software Factory](#integrated-diff-tool-in-the-software-factory)** - The Software Factory dialogue now has an integrated diff tool (no more needing to launch an external diff tool) as well as other layout improvements.
-  - **[Mapperly-based DTO mapping generator](#mapperly-based-dto-mapping-generator)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
+  - **[Mapperly support for DTO mappings](#mapperly-support-for-dto-mappings)** - Type-safe, compile-time DTO mapping with zero reflection overhead.
   - **[Automatic route parameter filtering in API documentation](#automatic-route-parameter-filtering-in-api-documentation)** – Eliminates duplicate parameter documentation in API specs when properties are already defined as route parameters.
   - **[Convert many-to-many associations to intermediate entities](#convert-many-to-many-associations-to-intermediate-entities)** - Transform implicit join tables into explicitly modeled entities for advanced customization.
   - **[Improved Code Management Documentation](#improved-code-management-documentation)** – Practical real-world examples and guidance on choosing code management techniques.
@@ -27,7 +27,7 @@ The toolbar buttons above the file list can be used to choose filtering options 
 
 ![Change list buttons](images/sf-changes-view-buttons.png)
 
-### Mapperly-based DTO mapping generator
+### Mapperly support for DTO mappings
 
 ![Mapperly](images/mapperly-logo.png)
 
