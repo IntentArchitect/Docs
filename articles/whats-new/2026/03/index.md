@@ -29,29 +29,9 @@ The toolbar buttons above the file list can be used to choose filtering options 
 
 ### Mapperly support for DTO mappings
 
-![Mapperly](images/mapperly-logo.png)
+![Mapperly example](images/mapperly-example.png)
 
 The new `Intent.Application.Dtos.Mapperly` module generates type-safe mapper classes and extension methods using [Mapperly](https://mapperly.riok.app), providing compile-time code generation instead of reflection-based mapping. Mappers automatically handle entity-to-DTO conversions with null-safety and nested DTO references, while remaining fully extensible via partial classes for custom mapping logic.
-
-#### Example Generated Code
-
-```csharp
-[Mapper]
-public partial class CustomerDtoMapper
-{
-    [UseMapper]
-    private readonly AddressDtoMapper _addressDtoMapper;
-
-    [MapProperty(nameof(Customer.Addresses), nameof(CustomerDto.Addresses))]
-    public partial CustomerDto CustomerToCustomerDto(Customer customer);
-
-    public partial List<CustomerDto> CustomerToCustomerDtoList(List<Customer> customers);
-}
-
-// Extension method usage
-var customerDto = customer.MapToCustomerDto();
-var customerDtos = customers.MapToCustomerDtoList();
-```
 
 Available from:
 
