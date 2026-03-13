@@ -4,7 +4,7 @@ This is a DocFX-based documentation site for Intent Architect, published to http
 
 ## Architecture Overview
 
-**DocFX Static Site Generation**: The project uses DocFX 2.77.0 to convert Markdown files in `articles/` into static HTML in `_site/`. The `docfx.json` configuration defines content sources, custom templates, and post-processors.
+**DocFX Static Site Generation**: The project uses DocFX 2.78.5 to convert Markdown files in `articles/` into static HTML in `_site/`. The `docfx.json` configuration defines content sources, custom templates, and post-processors.
 
 **Multi-Repository Documentation Merge**: Module documentation is automatically pulled from three separate GitHub repositories (Intent.Modules, Intent.Modules.NET, Intent.Modules.Importers) via Azure Pipelines. The `PipelineScripts/merge-repo-docs.ps1` script finds all `README.md` files in module repositories (specifically in `/docs` folders), transforms them into the appropriate folder structure under `articles/modules-*`, and generates corresponding `toc.yml` files.
 
@@ -133,7 +133,7 @@ uid: application-development.modelling.about-designers
 
 ## External Dependencies
 
-- **DocFX 2.77.0**: Installed via `dotnet tool install` (see `_install_tools.ps1`)
+- **DocFX 2.78.5**: Installed via `dotnet tool install` (see `_install_tools.ps1`)
 - **Module Repositories**: Documentation content auto-merged from external repos during CI
 - **Azure Blob Storage**: Hosting target for compiled static site
 - **Markdig Extensions**: `attributes` and `advanced` extensions enabled for enhanced markdown

@@ -46,7 +46,7 @@ You may have noticed that a new `Visual Studio` Designer was installed into our 
 3. Fill in the name of the Visual Studio solution, then click `DONE`.
 4. Next, create a project by right-clicking on the new Visual Studio Solution package and selecting the project type. We will create a `C# Project (.NET)` project name `TestProject` in this tutorial.
 
-    [!Video-Loop videos/visual-studio-create-projects.mp4]
+    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/visual-studio-create-projects.mp4"></video></p>
 
     The application structure should look as follows:
 
@@ -71,7 +71,7 @@ By default, Intent Architect is configured only with the repository for official
 3. Reorder the repositories so that this new one is at the top.
 4. Click `Save`.
 
-    [!Video-Loop videos/add-new-modules-repository.mp4]
+    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/add-new-modules-repository.mp4"></video></p>
 5. Type in the search field `MyModules.Entities` to locate your new Module.
 
    > [!TIP]
@@ -88,7 +88,7 @@ After the installation of the module, notice that the minimized Software Factory
 This is due to the background Software Factory Execution process (which you've minimized previously) having detected changes made to your project which triggered a re-run of the Software Factory Execution.
 
 After opening the highlighted status button below, you can drill down into the details to inspect what went wrong.
-[!Video-Loop videos/after-module-install-sf-warnings-detail.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/after-module-install-sf-warnings-detail.mp4"></video></p>
 
 The logged error lets us know that `MyModules.Entities.EntityBase` template hasn't yet had its output location set within the `Visual Studio` Designer, meaning that the Software Factory cannot determine where to place generated output for it.
 
@@ -96,7 +96,7 @@ The logged error lets us know that `MyModules.Entities.EntityBase` template hasn
 2. Navigate to the `Visual Studio` Designer.
 3. Drag the `MyModules.Entities.EntityBase` Template Output into the `TestProject` project.
 
-    [!Video-Loop videos/visual-studio-assign-template-output.mp4]
+    <p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/visual-studio-assign-template-output.mp4"></video></p>
 4. Click on Save.
 
 We've now told Intent Architect that when generating the `EntityBase` template, the output should be placed in the `TestProject` project.
