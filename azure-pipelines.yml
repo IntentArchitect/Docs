@@ -138,5 +138,5 @@ steps:
       targetType: 'inline'
       pwsh: true
       script: |
-        $binaryPath = "./PipelineScripts/Tools/DocIngest.dll"
-        dotnet $binaryPath ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
+        dotnet tool install --global DocSyncEngine
+        docsync ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
