@@ -369,7 +369,7 @@ Before we look at the `Command`s, let's update the `BasketDto` to better reflect
 
 > [!TIP]
 >
-> By clicking on the `Toggle between diagram and tree views` button [featherlight images/toggle-diagram-treeviews-button.png] you can change between having the diagram or tree-view in the middle of the screen.
+> By clicking on the `Toggle between diagram and tree views` button <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/toggle-diagram-treeviews-button.png">🔍</a> you can change between having the diagram or tree-view in the middle of the screen.
 
 Proceed to model the Commands. Most of the current `Command`s meet your requirements and you can use them as-is. The next steps will cover the following:
 

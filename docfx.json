@@ -64,7 +64,7 @@
       "default", 
       "Template/darkerfx_custom"
     ],
-    "postProcessors": ["ExtractSearchIndex", "TagPostProcessor"],
+    "postProcessors": ["ExtractSearchIndex"],
     "noLangKeyword": false,
     "keepFileLink": false,
     "cleanupCacheHistory": false

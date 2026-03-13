@@ -21,7 +21,7 @@ This Designer is seen as a component by Intent Architect, instructing it when th
 
 | Property Name | Description                                                                                                                                            |
 |---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Display Order | Capture an integer number that will be used to determine the order in which your designer gets displayed along with all the other installed designers. [featherlight images/designer-display-order.png]|
+| Display Order | Capture an integer number that will be used to determine the order in which your designer gets displayed along with all the other installed designers. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/designer-display-order.png">🔍</a>|
 
 ### The `Designer Settings` element
 
@@ -51,14 +51,14 @@ _The example contains the StepAttribute visible in the top highlighted area and 
 | Property Name         | Description                                                                                                                                                                                                                                                                                                                                                                          |
 |-----------------------|-|
 | Save Mode             | How the Element's metadata gets saved to disk is controlled by this dropdown. [See here](#save-options) for information on the available options. |
-| Icon                  | The default icon used to represent the Element in a tree view in the designer. This is also the collapsed icon. [featherlight images/expanded-collapsed-icons-example.png] |
-| Expanded Icon         | Inside a tree view designer, specify a distinct icon for when the Element is expanded. [featherlight images/expanded-collapsed-icons-example. |
-| Display Text Function | By default the Element's name gets displayed on the visual designer [featherlight images/element-settings-display-function-default.png]. This can be overridden by coding a display function in JavaScript that will return a string that gets treated as the visual display text. [featherlight images/element-settings-display-function-override.png] |
-| Validate Function     | Optional. A JavaScript function to validate the state of this Element. Return `null` (or leave the validation function blank) to say that validation is successful. Return a string (with an error message) to say that validation failed and display the string as the error message why it failed. [featherlight images/element-settings-validation-function-example.png] |
+| Icon                  | The default icon used to represent the Element in a tree view in the designer. This is also the collapsed icon. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/expanded-collapsed-icons-example.png">🔍</a> |
+| Expanded Icon         | Inside a tree view designer, specify a distinct icon for when the Element is expanded. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/expanded-collapsed-icons-example.png">🔍</a> |
+| Display Text Function | By default the Element's name gets displayed on the visual designer <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-display-function-default.png">🔍</a>. This can be overridden by coding a display function in JavaScript that will return a string that gets treated as the visual display text. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-display-function-override.png">🔍</a> |
+| Validate Function     | Optional. A JavaScript function to validate the state of this Element. Return `null` (or leave the validation function blank) to say that validation is successful. Return a string (with an error message) to say that validation failed and display the string as the error message why it failed. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-validation-function-example.png">🔍</a> |
 | Allow Rename          | If checked, the Element's name can be modified by the user. This will add the option in the context menu to rename. |
 | Allow Abstract        | If checked, allows the end-user to set the `Is Abstract` checkbox on an Element. |
 | Allow Set Value       | If checked, a text field will be provided for the Element to have a specific value captured by the user. |
-| Allow Generic Types   | If checked, the Element will allow Generic type parameters to be specified on itself which can be overridden with specific Types by other Elements that reference them. [featherlight images/element-settings-generic-types.png] |
+| Allow Generic Types   | If checked, the Element will allow Generic type parameters to be specified on itself which can be overridden with specific Types by other Elements that reference them. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-generic-types.png">🔍</a> |
 | Allow Sorting         | If checked, nested Elements can be sorted according to a certain criteria. |
 | Sort Children         | Select which criteria should be used when sorting nested Elements if `Allow Sorting` is checked. [See here](#sort-children-options) for information on the available options. |
 | Allow Find in View    | If checked, adds a `Find in View` context menu to the element which when used will center the visual diagram on the element and select it. |
@@ -86,12 +86,12 @@ Enabling Type Reference Settings to your Element gives the end-user the capabili
 | Property Name    | Description |
 |------------------|-|
 | Mode             | Disabled - No Type Reference. Optional - Select a Type Reference or keep it unassigned (void). Required - Mandatory to select a Type Reference. |
-| Display Name     | The Property Name for selecting a `Type` is by default called "Type" [featherlight images/element-settings-type-reference-display-default.png]. This can be renamed if "Type" is not appropriate for your use case. [featherlight images/element-settings-type-reference-display-custom.png] |
-| Target Types     | Select one or more Elements that become selectable types ([featherlight images/element-settings-type-reference-target-types.png]) when your Element is used in the designer. [featherlight images/element-settings-type-reference-target-types-result.png] |
+| Display Name     | The Property Name for selecting a `Type` is by default called "Type" <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-display-default.png">🔍</a>. This can be renamed if "Type" is not appropriate for your use case. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-display-custom.png">🔍</a> |
+| Target Types     | Select one or more Elements that become selectable types (<a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-target-types.png">🔍</a>) when your Element is used in the designer. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-target-types-result.png">🔍</a> |
 | Represents       | The default value of `Reference` is sufficient for general use. The other option of `Inheritance` is mostly used internally by the Module Building system. |
-| Default Type Id  | If there is an existing instance of an Element created somewhere and you would like that one to become a default selectable Type, copy that Id into this field. [featherlight images/element-settings-type-reference-default-type-id.png] |
-| Allow Nullable   | Controls whether or not the `Is Nullable` checkbox is visible for the Element in the designer. [featherlight images/element-settings-type-reference-allow-nullable.png] |
-| Allow Collection | Controls whether or not the `Is Collection` checkbox is visible for the Element in the designer. [featherlight images/element-settings-type-reference-allow-collection.png] |
+| Default Type Id  | If there is an existing instance of an Element created somewhere and you would like that one to become a default selectable Type, copy that Id into this field. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-default-type-id.png">🔍</a> |
+| Allow Nullable   | Controls whether or not the `Is Nullable` checkbox is visible for the Element in the designer. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-allow-nullable.png">🔍</a> |
+| Allow Collection | Controls whether or not the `Is Collection` checkbox is visible for the Element in the designer. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-type-reference-allow-collection.png">🔍</a> |
 
 #### Context Menu
 
@@ -109,19 +109,19 @@ This will instruct Intent Architect to identify this Element to have a Diagram (
 
 ![Mapping Settings](images/element-settings-mapping-settings.png)
 
-This setting will enable end-users to map the Element to another Element (potentially from a different Designer). It is possible to map Elements recursively, in other words you can map a high-level Element with another high-level Element, then proceed to map their nested Elements one-by-one. Each level can be configured in the designer to allow or limit the end-user over how deep they may map Elements [featherlight images/element-settings-mapping-settings-example.png].
+This setting will enable end-users to map the Element to another Element (potentially from a different Designer). It is possible to map Elements recursively, in other words you can map a high-level Element with another high-level Element, then proceed to map their nested Elements one-by-one. Each level can be configured in the designer to allow or limit the end-user over how deep they may map Elements <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-mapping-settings-example.png">🔍</a>.
 
 The following table documents what the overall mapping looks like but won't describe how to map the granular elements with each other.
 
 | Property Name             | Description |
 |---------------------------|-------------|
-| Default Designer          | Upon creating a mapping, the mapping dialog will be presented with a dropdown featuring all the available Designers. Set the default designer here. [featherlight images/element-settings-mapping-settings-default-designer.png] |
+| Default Designer          | Upon creating a mapping, the mapping dialog will be presented with a dropdown featuring all the available Designers. Set the default designer here. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-mapping-settings-default-designer.png">🔍</a> |
 | Option Source             | Determine what the list of Elements are going to be when presented on the mapping dialog. Option `Elements of Type` will present the `Lookup Types` field, while `Lookup Element` will present the `Lookup Element Function` field. |
 | Lookup Types              | Select the Elements that can be selectable on the mapping dialog. |
 | Lookup Element Function   | Write a JavaScript function that will populate what kind of Elements can be selectable on the mapping dialog. |
-| Map From                  | Selecting `Root Element` will present the mapping dialog in a tree-view style where the top-level Element and its nested Elements can be selected [featherlight images/element-settings-mapping-settings-map-from-root-element.png]. Selecting `Child Elements` will only present the nested Elements on the mapping dialog and allow you to choose only one option [featherlight images/element-settings-mapping-settings-map-from-child-element.png]. |
+| Map From                  | Selecting `Root Element` will present the mapping dialog in a tree-view style where the top-level Element and its nested Elements can be selected <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-mapping-settings-map-from-root-element.png">🔍</a>. Selecting `Child Elements` will only present the nested Elements on the mapping dialog and allow you to choose only one option <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/element-settings-mapping-settings-map-from-child-element.png">🔍</a>. |
 | Auto-sync Type References | Each time the designer is loaded, Elements with mappings and with this setting checked auto-synchronize their types with the mapping source in case they have been changed. |
-| Symbol                    | On the tree-view display the symbol that denotes the mapping is by default a left pointing arrow. This symbol can be changed by selecting a different symbol from the font-awesome icons [featherlight images/left-arrow-fontawesome.png]. |
+| Symbol                    | On the tree-view display the symbol that denotes the mapping is by default a left pointing arrow. This symbol can be changed by selecting a different symbol from the font-awesome icons <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/left-arrow-fontawesome.png">🔍</a>. |
 
 ##### Element Mapping
 
@@ -163,8 +163,8 @@ The properties are the same for Source and Target association ends and is denote
 | Property Name         | Description |
 |-----------------------|-------------|
 | Target Types          | Select the Element types where the Association End can be connected to. |
-| Display Text Function | By default the Associations's name gets displayed on the visual designer [featherlight images/association-type-display-text-default.png]. This can be overridden by coding a display function in JavaScript that will return a string that gets treated as the visual display text. [featherlight images/association-type-display-text-override.png] |
-| Api Property Name     | The Module Builder will generate API code for this Element and you can set what the Association End's name can be here. [featherlight images/association-type-apiname.png] |
+| Display Text Function | By default the Associations's name gets displayed on the visual designer <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/association-type-display-text-default.png">🔍</a>. This can be overridden by coding a display function in JavaScript that will return a string that gets treated as the visual display text. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/association-type-display-text-override.png">🔍</a> |
+| Api Property Name     | The Module Builder will generate API code for this Element and you can set what the Association End's name can be here. <a href="#" class="featherlight-image" title="View Image" data-featherlight="images/association-type-apiname.png">🔍</a> |
 | Is Navigable Enabled  | If checked, the end-user may set whether an association end can be navigated to. |
 | Is Nullable Enabled   | If checked, the end-user may set whether an association end can be set to a nullable type or not. |
 | Is Collection Enabled | If checked, the end-user may set whether an association end can be set to expect zero or more instances of the Element its associated with. |

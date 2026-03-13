@@ -28,7 +28,7 @@ Once the `Application Installation` is complete, you will see a 'Ready' message.
 - Click the root Package element and in the Properties pane on the right:
   - For `Display Name` enter `My Application Template`:
 
-[!Video-Loop videos/create-package.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-package.mp4"></video></p>
 
 ## Specify a Group and a Component
 
@@ -39,7 +39,7 @@ Once the `Application Installation` is complete, you will see a 'Ready' message.
 - Click the root `Component 1` element and in the Properties pane on the right:
   - For `Icon` use the ellipses to [choose an icon](xref:application-development.user-interface.how-to-use-the-change-icon-dialogue):
 
-[!Video-Loop videos/create-group-and-component.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-group-and-component.mp4"></video></p>
 
 ## Add a Module
 

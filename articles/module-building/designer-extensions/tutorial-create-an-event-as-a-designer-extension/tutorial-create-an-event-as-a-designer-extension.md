@@ -34,7 +34,7 @@ Once the `Application Installation` is complete, you will see a `Ready` message 
 - Check `Install metadata only`.
 - Click `Install`:
 
-[!Video-Loop videos/install-domain-module-metadata.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/install-domain-module-metadata.mp4"></video></p>
 
 ## Configure the package to reference the domain designer
 
@@ -43,7 +43,7 @@ Once the `Application Installation` is complete, you will see a `Ready` message 
   - Check `Include in Module`.
   - Add `Domain` to `Reference in Designer`.
 
-[!Video-Loop videos/design-setup-designer-reference.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/design-setup-designer-reference.mp4"></video></p>
 
 ## Create and configure the `Domain Event` element
 
@@ -96,7 +96,7 @@ Once the `Application Installation` is complete, you will see a `Ready` message 
   - Change `Option Source` to `Lookup Element`.
   - For `Lookup Types` add `Domain Event`:
 
-[!Video-Loop videos/create-the-stereotype.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-the-stereotype.mp4"></video></p>
 
 ## Run the Software Factory to generate the module
 
@@ -133,7 +133,7 @@ Ensure you have added the output path as noted in the above step as a repository
 
 You will now have the option of creating the new `Domain Event` element and using it in the `Has Domain Event` Stereotype that was added by the Designer Extension we created above:
 
-[!Video-Loop videos/test-module-domain.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/test-module-domain.mp4"></video></p>
 
 ## See also
 
