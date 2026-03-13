@@ -133,6 +133,9 @@ steps:
       inlineScript: |
         az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
 
+  # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
+  - task: NuGetAuthenticate@1
+
   - task: PowerShell@2
     displayName: 'Synchronize documentation to OpenAI Embedding Store'
     condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'), eq(variables['triggeredByBranch'], 'development'), eq(variables['triggeredByBranch'], 'refs/heads/development')))
