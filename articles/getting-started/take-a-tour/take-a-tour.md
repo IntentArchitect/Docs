@@ -120,7 +120,7 @@ Designers serve as a **blueprint** of your system. They can be used to describe 
 
 The Software Factory Execution is the process that executes the installed Modules with the metadata from the Designers within an Application. This results in changes to the codebase which are **staged** before being accepted or rejected.
 
-[!Video-Loop videos/software-factory-execution.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-execution.mp4"></video></p>
 
 Intent Architect will not make changes to your codebase without your consent. The changes that are listed can be clicked on which will launch a Diff tool for you to view the changes between the files - like a _pull request_ from your robot developer friend.
 
@@ -129,7 +129,7 @@ _An example diff of changes made to a C# interface that's managed by Intent Arch
 
 The Software Factory Execution can also be minimized while it's busy processing the changes it needs to apply. This is useful when processing times might be long or for executing additional Software Factory Executions in parallel. You can end a Software Factory Execution prematurely by clicking on the Red button with the cross.
 
-[!Video-Loop videos/software-factory-minimize.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/software-factory-minimize.mp4"></video></p>
 
 The Software Factory Execution is initiated from within an Application by clicking on the _Play_ button in the top tool bar labelled `Run Software Factory`. The execution is typically kicked off after completing some design changes or installing/updating Modules.
 

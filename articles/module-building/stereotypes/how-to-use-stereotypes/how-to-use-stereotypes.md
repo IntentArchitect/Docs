@@ -28,7 +28,7 @@ In the Properties pane on the right of the screen, ensure that:
 - `Icon` is specified to be a Boxed Character "E" on a Black background `E|#0`.
 - `Display Icon` is should be `return true;`.
 
-[!Video-Loop videos/create-basic-stereotype.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/create-basic-stereotype.mp4"></video></p>
 
 > [!NOTE]
 > During the Software Factory Execution, it generated a `ClassModelExtensions.cs` which contains an "API" for being able to more easily use the Stereotype during module building, such as for Templates. Use of this will be discussed in more detail [further below](#query-stereotypes-from-templates).
@@ -42,7 +42,7 @@ In the Properties pane on the right of the screen:
 - Check `Include in Module`.
 - For `Reference in Designer` ensure that `Domain` is included.
 
-[!Video-Loop videos/package-stereotype.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/package-stereotype.mp4"></video></p>
 
 ## Add properties to a Stereotype
 
@@ -56,7 +56,7 @@ Right-click on the `Entity` Stereotype Definition.
 - Set the Name to `Change Detection`.
 - Select the Type `Checkbox`.
 
-[!Video-Loop videos/stereotype-add-property.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/stereotype-add-property.mp4"></video></p>
 
 ## Query Stereotypes from Templates
 
@@ -189,7 +189,7 @@ Open the Domain Designer and create or select a Class Element.
 Right-click on the Element and select Add Stereotype. A popup dialog appears with a list of Stereotypes Definitions whose `Targets` property contains this `Element` type.
 Select your `Entity` Stereotype. Locate the Stereotype in the Properties pane on the right and check the checkbox next to "Change Detection".
 
-[!Video-Loop videos/apply-stereotype-manually.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/apply-stereotype-manually.mp4"></video></p>
 
 Save the Designer and run the Software Factory.
 

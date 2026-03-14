@@ -21,7 +21,7 @@ First, to access the `Domain` types so that we can configure our Template correc
     > A Software Factory Execution minimized in the background might trigger upon installation (which can be safely ignored for now).
 5. Click `Install` to install the Module.
 
-[!Video-Loop videos/modules-install-domain-metadata-only.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/modules-install-domain-metadata-only.mp4"></video></p>
 
 ## Create a new Template
 
@@ -37,7 +37,7 @@ Next, we will create a new Template that we can configure to receive the models 
 5. Click on the status button at the bottom of the screen which detected changes made to the `My Modules` application (this will only happen if you have minimized the Software Factory Execution process, normally you would have to click on the `Run Software Factory` yourself).
 6. Click `APPLY CHANGES`.
 
-[!Video-Loop videos/module-builder-create-entity-template.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/module-builder-create-entity-template.mp4"></video></p>
 
 > [!WARNING]
 > It is always recommended to inspect the changes that Intent Architect wants to make to your codebase _before_ applying them.
@@ -128,7 +128,7 @@ Next, we will use the `Domain` Designer to model out a basic test domain. We wil
 7. Notice again that on saving, the Software Factory Execution automatically kicked itself off. A new C# entity class should be created for each of our entities with their properties for each Attribute and Association.
 8. Click `APPLY CHANGES`.
 
-[!Video-Loop videos/domain-visually-modelling.mp4]
+<p><video style="max-width: 100%" muted="true" loop="true" autoplay="true" src="videos/domain-visually-modelling.mp4"></video></p>
 
 ## Summary
 

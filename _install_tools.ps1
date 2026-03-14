@@ -1,1 +1,1 @@
-dotnet tool install docfx --version 2.77.0
+dotnet tool install docfx --version 2.78.5
