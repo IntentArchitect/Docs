@@ -26,6 +26,10 @@ Visual Studio Code has some good extensions to aid in writing documentation:
 
 - [Docs Authoring Pack for VS Code](https://marketplace.visualstudio.com/items?itemName=docsmsft.docs-authoring-pack)
 
+#### Install DocFX
+
+Run the `_install_tools.ps1` to ensure the necessary DocFX tool is installed.
+
 #### Build and make localhost preview site available
 
 From the command line run:
