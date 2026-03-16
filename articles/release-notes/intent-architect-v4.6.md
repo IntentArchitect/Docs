@@ -5,9 +5,14 @@ uid: release-notes.intent-architect-v4.6
 
 ## Version 4.6.2
 
-### Improvements in 4.6.2
+### Fixes in 4.6.2
 
-- Fixed: Certain errors which occurred when loading stereotypes or their properties would provide somewhat opaque errors or would navigate to elements which weren't the one the stereotype applied to it.
+- Fixed: Certain errors which occurred when loading stereotypes or their properties would sometimes provide opaque errors or would navigate to elements which weren't the one the stereotype applied to it.
+- Fixed: `Save All` button causing designers to attempt saving while packages are busy processing, which can be triggered by other designers saving. This can cause bugs (e.g. Mapping variable name removed when `Save All` used).
+- Fixed: Diff intermittently not showing the right-hand side file making the file look like a deletion.
+- Fixed: Performance issue when selecting many elements in large models causing delays in showing context-menus.
+- Fixed: (Linux) Intent Architect would fail to start when X11 was not present (i.e. only Wayland was available).
+- Fixed: (Linux) Under certain circumstances one or more Intent Architect processes would not exit themselves when the main window was closed.
 
 ## Version 4.6.1
 
