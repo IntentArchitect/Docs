@@ -2,6 +2,12 @@ items:
 
 - name: Get Intent Architect
   topicUid: getting-started.get-the-application
+  items:
+  - name: Installation Guide
+    topicUid: introducing.installation-guide
+    items:
+      - name: Enable Long Path Support
+        topicUid: application-development.getting-started.long-path-support-windows-only
 
 - name: Quick Start
   href: quickstart.md
