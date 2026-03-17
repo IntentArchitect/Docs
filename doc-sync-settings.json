@@ -1,0 +1,52 @@
+{
+  "Polling": {
+    "DelayMs": 500,
+    "MaxAttempts": 12,
+    "TimeoutSeconds": 30
+  },
+  "Cache": {
+    "Enabled": true,
+    "RefreshIntervalMinutes": 5
+  },
+  "Retry": {
+    "MaxAttempts": 3,
+    "BackoffMs": 500
+  },
+  "Chunking": {
+    "Enabled": true,
+    "TokenLimit": 8192,
+    "MergeThreshold": 1000,
+    "FallbackHeaderLevels": "H1,H2,H3,H4,H5,H6",
+    "EnableSentenceFallback": true,
+    "TokenizerModel": "cl100k_base",
+    "EstimationTimeoutMs": 5000,
+    "ChunkingTimeoutMs": 10000
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Trace",
+      "DocSyncEngine": "Debug"
+    }
+  },
+  "ChunkIntegrity": {
+    "Polling": {
+      "PollingTimeoutSeconds": 30,
+      "MaxRetryAttempts": 3,
+      "RetryBackoffBaseMs": 1000,
+      "PollingStrategy": "ExponentialBackoff"
+    },
+    "Finalization": {
+      "EnableOrphanCleanup": true,
+      "DetailedOrphanLoggingLimit": 100,
+      "OrphanDeleteBatchSize": 10
+    },
+    "RetryPolicy": {
+      "MaxAttempts": 3,
+      "BackoffStrategy": "Exponential",
+      "InitialDelayMs": 1000,
+      "MaxDelayMs": 10000,
+      "RetryableErrorTypes": ["Http5xx", "Timeout", "RateLimit"]
+    }
+  }
+}
+
