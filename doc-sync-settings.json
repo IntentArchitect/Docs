@@ -9,8 +9,8 @@
     "RefreshIntervalMinutes": 5
   },
   "Retry": {
-    "MaxAttempts": 3,
-    "BackoffMs": 500
+    "MaxAttempts": 10,
+    "BackoffMs": 3000
   },
   "Chunking": {
     "Enabled": true,
