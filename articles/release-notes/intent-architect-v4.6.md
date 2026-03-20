@@ -14,6 +14,11 @@ uid: release-notes.intent-architect-v4.6
 - Fixed: Hints under settings in the Setting tab would wrap and overlap the subsequent field.
 - Fixed: (Linux) Intent Architect would fail to start when X11 was not present (i.e. only Wayland was available).
 - Fixed: (Linux) Under certain circumstances one or more Intent Architect processes would not exit themselves when the main window was closed.
+- Fixed: Issue where certain AI Providers (specifically Google Gemini and Ollama) would fail to initialize or process requests correctly.
+
+### Improvements in 4.6.2
+
+- Improvement: Updated LLM provider and model lists to include support for the latest industry models, ensuring compatibility with the newest releases.
 
 ## Version 4.6.1
 
