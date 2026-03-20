@@ -8,6 +8,17 @@ uid: release-notes.intent-architect-v4.6
 ### Improvements in 4.6.2
 
 - Improvement: Updated LLM provider and model lists to include support for the latest industry models, ensuring compatibility with the newest releases.
+- Improvement: Significantly improved designer performance when working with a very large number of elements.
+- Improvement: It is now possible to filter items in either pane of the mappings screens to dramatically improve the experience of working with very large and complex mapping configurations.
+    
+    - Before applying any filtering:
+    ![Adv Mapping Before Filtering](images/4.6/02/adv-mapping-before-filter.png)
+
+    - After applying `Hide Mapped` filter on both sides:
+    ![Adv Mapping Hide Mapped](images/4.6/02/adv-mapping-hide-mapped.png)
+
+    - Filter fields by name:
+    ![Adv Mapping Filter by Name](images/4.6/02/adv-mapping-filter-name.png)
 
 ### Fixes in 4.6.2
 
