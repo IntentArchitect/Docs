@@ -5,6 +5,18 @@ uid: application-development.code-weaving-and-generation.about-code-management-j
 
 This article explains how to control [Code Management / Merging](xref:application-development.code-management.about-code-management) behaviour for `.json` files when using the `Intent.Code.Weaving.Json` module.
 
+> [!NOTE]  
+> **For Module Authors**: For JSON weaving to occur and code management instructions to be applied, the JSON template must set `codeGenType` to `JsonMerger`:
+> ``` csharp
+> public override ITemplateFileConfig GetTemplateFileConfig()
+> {
+>     return new TemplateFileConfig(
+>         fileName: "SampleJson",
+>         fileExtension: "json",
+>         codeGenType: "JsonMerger");
+> }
+> ```
+
 ## Overview of how it works
 
 The merger parses `.json` files into a graph of nodes and recursively applies code management logic on a node-by-node basis.

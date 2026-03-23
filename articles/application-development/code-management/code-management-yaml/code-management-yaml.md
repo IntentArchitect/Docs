@@ -5,6 +5,18 @@ uid: application-development.code-weaving-and-generation.about-code-management-y
 
 This article explains how to control [Code Management / Merging](xref:application-development.code-management.about-code-management) behaviour for `.yaml` files when using the `Intent.Code.Weaving.Yaml` module.
 
+> [!NOTE]  
+> **For Module Authors**: For YAML weaving to occur and code management instructions to be applied, the YAML template must set `codeGenType` to `YamlMerger`:
+> ``` csharp
+> public override ITemplateFileConfig GetTemplateFileConfig()
+> {
+>     return new TemplateFileConfig(
+>         fileName: "SampleYaml",
+>         fileExtension: "yaml",
+>         codeGenType: "YamlMerger");
+> }
+> ```
+
 ## Overview
 
 The YAML merger parses `.yaml` files into a graph of nodes and recursively applies code management logic to each node.
