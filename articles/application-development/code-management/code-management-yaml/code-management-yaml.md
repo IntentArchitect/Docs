@@ -13,7 +13,7 @@ This article explains how to control [Code Management / Merging](xref:applicatio
 >     return new TemplateFileConfig(
 >         fileName: "SampleYaml",
 >         fileExtension: "yaml",
->         codeGenType: "YamlMerger");
+>         codeGenType: CodeGenType.YamlMerger);
 > }
 > ```
 
