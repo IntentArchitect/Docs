@@ -153,6 +153,25 @@ Depending on the service type:
 > [!NOTE]
 > You also need the appropriate integration module for remote communication. Currently, only `Intent.Angular.HttpClients` is supported (selected by default for new Angular applications).
 
+#### Pages using a Query and Command
+
+For pages that use both a `Query` and a `Command` (for example, an Edit Page with a `Query` to retrieve the record by Id and a `Command` to update it), there is some additional configuration required.
+
+When you use the `Call Backend Service` suggestion and select both the `Query` and `Command`, two properties are created:
+
+- A property to store the response from the `Query` (this will be of type `Dto`)
+- A property to store the information to be passed to the `Command` and bound to the UI controls (this will be of type `Model Definition`)
+
+Perform the following steps to ensure the correct end-to-end data flow. Instead of having the data returned from the `Query` populate the `Dto`, it should populate the `Model Definition`:
+
+- On the `Call Service Operation Action` to the **GetByIdQuery** (the dashed line between the page and the `Query`), right-click and select `Map Response`.
+- In the right panel, delete the `Dto` property completely (including its mappings), and then configure the mappings from the response on the left-hand side to the `Model Definition` on the right-hand side.
+
+This ensures that the data returned from the `Query` call is stored in the `Model Definition` property, which is then bound to the UI controls and used when invoking the update `Command`.
+
+Here is an example of what the `Query` mapping should look like after being updated. Instead of the response being mapped to a `Dto`, it is mapped to the model.
+![Update Mapping Example](images/update-mapping.png)
+
 ---
 
 ## Implementing Your View with AI
@@ -368,6 +387,8 @@ To extend the configuration:
 
 #### Example A: Bulk Import Entities
 
+The entry in `prompt-config.json`:
+
 ```json
 {
   "id": "BulkImportEntities",
@@ -391,13 +412,21 @@ To extend the configuration:
 }
 ```
 
-Rules in the template specific markdown file:
-> Provide a file input and a server-side parse action; reuse existing parse/validate/commit methods if available.  
-> Render a preview table with paging and basic filtering using mat-table or mat-grid-list.  
-> Use official enum values for component parameters (no raw strings).  
-> Show success/error toasts/dialogs using existing notification services if present.  
+Examples rules defined in `bulk-import-entities.md`:
+
+```markdown
+### Form generation rules
+- Provide a file input and a server-side parse action. Reuse existing parse, validate, and commit methods where available.
+- Use official enum values for component parameters. Do not use raw strings.
+
+### Save behavior
+- Disable `Commit` until there are no blocking validation errors.
+- Show success and error toasts/dialogs using existing notification services where present.
+```
 
 ##### Example B: Upsert Template
+
+The entry in `prompt-config.json`:
 
 ```json
 {
@@ -423,11 +452,15 @@ Rules in the template specific markdown file:
 }
 ```
 
-Rules in the template specific markdown file:
-> Reuse existing backing methods if present (e.g., save, updateEntity, loadEntityById). Do not invent new ones if appropriate methods already exist.  
-> If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.  
-> Always use official enum values for component parameters (no raw strings).  
+Examples rules defined in `add-or-update-entity.md`:
 
----
+```markdown
+### General behavior
+- Reuse existing backing methods if present (e.g., SaveEntityAsync, UpdateEntityAsync, LoadEntityAsync). Do not invent new ones if appropriate methods already exist.
+- If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.
+
+### Form generation rules
+- Always use official enum values for component parameters (no raw strings).  
+```
 
 ✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and even use a different Angular component library.

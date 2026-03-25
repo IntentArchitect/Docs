@@ -4,7 +4,7 @@ description: Use Intent Architect to build professional UIs rapidly with determi
 keywords: blazor, intent architect, mudblazor, ai, software factory, llm, code generation
 ---
 
-# Blazor UI Modeling with AI
+## Blazor UI Modeling with AI
 
 This article will show you how you can use Intent Architect to rapidly build professional-looking UIs, using a combination of both deterministic (pattern reuse) and non-deterministic (LLMs driven by Intent Architect) code generation techniques.
 
@@ -107,6 +107,25 @@ Depending on the nature of the service being invoked, the default setup is sligh
 - For `Query`s: the result is added to the `Component` as a property, and request parameters are modeled as `Operation` parameters.  
 - For `Command`s: a corresponding `Model Definition` is created, based on the command, and added to the `Component`. This model is mapped to the command for invocation. Typically for `Command`s you want a separate model which may have additional view concerns.
 
+#### Pages using a Query and Command
+
+For pages that use both a `Query` and a `Command` (for example, an Edit Page with a `Query` to retrieve the record by Id and a `Command` to update it), there is some additional configuration required.
+
+When you use the `Call Backend Service` suggestion and select both the `Query` and `Command`, two properties are created:
+
+- A property to store the response from the `Query` (this will be of type `Dto`)
+- A property to store the information to be passed to the `Command` and bound to the UI controls (this will be of type `Model Definition`)
+
+Perform the following steps to ensure the correct end-to-end data flow. Instead of having the data returned from the `Query` populate the `Dto`, it should populate the `Model Definition`:
+
+- On the `Call Service Operation Action` to the **GetByIdQuery** (the dashed line between the page and the `Query`), right-click and select `Map Response`.
+- In the right panel, delete the `Dto` property completely (including its mappings), and then configure the mappings from the response on the left-hand side to the `Model Definition` on the right-hand side.
+
+This ensures that the data returned from the `Query` call is stored in the `Model Definition` property, which is then bound to the UI controls and used when invoking the update `Command`.
+
+Here is an example of what the `Query` mapping should look like after being updated. Instead of the response being mapped to a `Dto`, it is mapped to the model.
+![Update Mapping Example](images/update-mapping.png)
+
 ---
 
 ### Connecting Your UI Components to Services in Other Applications
@@ -161,7 +180,7 @@ The AI does not always get it right, even when guided explicitly. Here are a few
 
 Certain MudBlazor components expect nullable bindings. For example, `MudDatePicker` requires a `DateTime?`. If it gets bound to a `DateTime` on your model you will get the error:  
 
-```
+``` console
 Argument 2: cannot convert from 'Microsoft.AspNetCore.Components.EventCallback<System.DateTime>' to 'Microsoft.AspNetCore.Components.EventCallback'
 ```
 
@@ -187,12 +206,12 @@ else
 ```
 
 Error:  
-```
+
+```console
 The type of component 'MudChip' cannot be inferred based on the values provided. Consider specifying the type arguments directly using the following attributes: 'T'.
 ```
 
 **Fix:** Simply add `T="string"` into the `MudChip` components.
-
 
 ---
 
@@ -242,7 +261,6 @@ Whatever comments you put on your Blazor `Component` will also be included in th
 - "The page does the following and has X, Y, Z features."  
 - "Ensure the customer grid refreshes when a dialog closes."  
 
-
 ---
 
 ## Try to Keep Your ViewModel Managed
@@ -258,7 +276,6 @@ Implications/considerations:
 - If the AI changes deterministic code in the **ViewModel**, the Software Factory may not be able to automatically merge the changes and may attempt to undo or duplicate code blocks.  
 - Ideally, you can refactor the code and/or add explicit [**Code Management**](xref:application-development.code-management.about-code-management) instructions to the point where Intent Architect can merge code automatically.  
 - If not possible, you may need to add an `IntentIgnore`.  
-
 
 ---
 
@@ -281,7 +298,24 @@ You will find:
 
 ---
 
+### Prompt Overview
+
+The main prompt (`prompt.md`) is a readable markdown file, which can be adjusted to suite your specific rules and requirements.
+
+This file contains the generic rules, limitations and instructions for the prompt, including:
+
+- Component Libraries rules
+- Styling guides and rules
+- Rules for when and how to modify existing code
+- Rules for navigation between components
+
+#### Template Specific Prompt
+
+Each template also has its own markdown file (e.g. `add-entity.md`) which contain any additional template specific rules to be passed to the LLM.
+
 ### JSON Schema Overview
+
+The `prompt-config.json` file defines templates which define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
 
 #### 1. `metadata`
 
@@ -296,19 +330,7 @@ The `metadata` block provides **contextual information** that is injected into t
 }
 ```
 
-#### 2. `rules`
-
-The `rules` array defines **best practices, constraints, and coding standards** that the AI must follow.
-
-```json
-"rules": [
-  "Don't add `@using MudBlazor` into .razor files.",
-  "Favour reusing existing backing methods to fetching data.",
-  "In Razor pages use foreach statements rather than for statements."
-]
-```
-
-#### 3. `templates`
+#### 2. `templates`
 
 Templates define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
 
@@ -318,7 +340,6 @@ Templates define **reusable AI prompt blueprints** for common scenarios (e.g., S
 - **applicability** → Keywords that help Intent Architect pick the most appropriate template  
 - **template-folder** → The folder containing sample files  
 - **metadata** → Template-specific context  
-- **rules** → Additional template-specific rules  
 
 ##### Example Template: *Search Entity Page*
 
@@ -333,11 +354,7 @@ Templates define **reusable AI prompt blueprints** for common scenarios (e.g., S
       { "word": "list", "weight": 3 }
     ]
   },
-  "template-folder": "SearchEntity",
-  "rules": [
-    "if you implement LoadServerData it must have 2 parameters (TableState state, CancellationToken cancellationToken)",
-    "Always add placeholders to search criteria input controls"
-  ]
+  "template-folder": "SearchEntity"
 }
 ```
 
@@ -359,20 +376,22 @@ The schema already defines several templates:
 
 Each template includes its **own rules** to ensure compliance with MudBlazor and project conventions.
 
-
 ---
 
 ### Extending Configuration
 
 To extend the configuration:  
 
-1. **Add new rules** under `rules` (global) or under a specific `template`.  
-2. **Create a new template** by adding an object under `templates`.  
+To extend the configuration:  
+
+1. **Add new rules** in `prompt.md` (global) or under a specific `template` markdown.  
+2. **Create a new template** in `prompt-config.json` by adding an object under `templates`.  
    - Define keywords under `applicability`.  
-   - Add `rules` to enforce conventions.  
    - Specify a `template-folder` with an example implementation.  
 
-##### Example A: Bulk Import Entities
+#### Example A: Bulk Import Entities
+
+The entry in `prompt-config.json`:
 
 ```json
 {
@@ -390,19 +409,27 @@ To extend the configuration:
     ]
   },
   "template-folder": "BulkImportEntities",
-  "metadata": {},
-  "rules": [
-    "Provide a file input and a server-side parse action; reuse existing parse/validate/commit methods if available.",
-    "Render a preview table with paging and basic filtering using MudTable or MudDataGrid.",
-    "Use official enum values for component parameters (no raw strings).",
-    "Surface row-level validation messages using Func<T, IEnumerable<string>> validators.",
-    "Disable 'Commit' until there are no blocking validation errors.",
-    "Show success/error toasts/dialogs using existing notification services if present."
-  ]
+  "metadata": {}
 }
 ```
 
+Examples rules defined in `bulk-import-entities.md`:
+
+```markdown
+### Form generation rules
+- Provide a file input and a server-side parse action. Reuse existing parse, validate, and commit methods where available.
+- Render a preview table with paging and basic filtering using `MudTable` or `MudDataGrid`.
+- Use official enum values for component parameters. Do not use raw strings.
+
+### Save behavior
+- Surface row-level validation messages using `Func<T, IEnumerable<string>>` validators.
+- Disable `Commit` until there are no blocking validation errors.
+- Show success and error toasts/dialogs using existing notification services where present.
+```
+
 ##### Example B: Upsert Template
+
+The entry in `prompt-config.json`:
 
 ```json
 {
@@ -425,19 +452,24 @@ To extend the configuration:
     ]
   },
   "template-folder": "AddOrUpdateEntity",
-  "metadata": {},
-  "rules": [
-    "Reuse existing backing methods if present (e.g., SaveEntityAsync, UpdateEntityAsync, LoadEntityAsync). Do not invent new ones if appropriate methods already exist.",
-    "If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.",
-    "Use MudForm and consistent variants/density/margins across all inputs.",
-    "For MudBlazor generics (MudSelect, MudRadioGroup, MudChipSet, MudSwitch), always declare T explicitly.",
-    "When binding to inputs that accept nullable values (e.g., MudSelect, MudDatePicker), update the backing model property to be nullable.",
-    "Validation delegates must match Func<T, IEnumerable<string>>.",
-    "Always use official enum values for component parameters (no raw strings)."
-  ]
+  "metadata": {}
 }
 ```
 
----
+Examples rules defined in `add-or-update-entity.md`:
+
+```markdown
+### General behavior
+- Reuse existing backing methods if present (e.g., SaveEntityAsync, UpdateEntityAsync, LoadEntityAsync). Do not invent new ones if appropriate methods already exist.
+- If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.
+
+### Form generation rules
+- Use MudForm and consistent variants/density/margins across all inputs.
+- For MudBlazor generics (MudSelect, MudRadioGroup, MudChipSet, MudSwitch), always declare T explicitly.
+- When binding to inputs that accept nullable values (e.g., MudSelect, MudDatePicker), update the backing model property to be nullable.
+- Validation delegates must match Func<T, IEnumerable<string>>.
+- Always use official enum values for component parameters (no raw strings).
+```
+
 
 ✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and event using a different blazor component library
