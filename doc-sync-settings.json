@@ -47,6 +47,10 @@
       "MaxDelayMs": 10000,
       "RetryableErrorTypes": ["Http5xx", "Timeout", "RateLimit"]
     }
+  },
+  "ListFilesRetry": {
+    "MaxAttempts": 10,
+    "InitialDelaySeconds": 2.0
   }
 }
 
