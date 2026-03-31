@@ -6,6 +6,7 @@ Welcome to the April edition of What's New in Intent Architect.
   - **[Angular Version Selection](#angular-version-selection)** - When creating an Angular application with the `Angular Web Application` template, you can now select the Angular version.
   - **[Enhanced Advanced Mapping Screen](#enhanced-advanced-mapping-screen)** - A number of improvements have been made to the `Advanced Mapping Screen`, making it easier to manage mappings, especially with large domain models.
   - **[Blazor AI Improvements and Template](#blazor-ai-improvements-and-template)** - The Blazor AI module has been updated to use easier-to-read, maintainable Markdown files, ensuring more accurate and consistent AI results when generating Blazor pages.
+  - **[Domain Constraints for Entities](#domain-constraints-for-entities)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
   - **[Importer upgrades](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
 
 ## Update details
@@ -57,6 +58,22 @@ The AI generated sample application:
 Available from:
 
 - Intent.AI.Blazor 1.0.0-pre.0
+
+### Domain Constraints for Entities
+
+The new Domain Constraints module lets you model validation rules directly on domain entity attributes, centralizing validation intent in your domain model.
+
+![Domain Constraints](images/domain-constraints.png)
+
+Constraints such as `Required`, `Text Limits`, `Numeric Limits`, `Collection Limits`, `Regular Expression`, `Email`, `Url`, and `Base64` can be applied from the `Add Domain Constraint` menu and consumed by downstream modules.
+
+When used with compatible FluentValidation modules, these constraints can be translated into generated validation rules, reducing duplicated validation setup and manual rework.
+
+Visit the [documentation](https://docs.intentarchitect.com/articles/modules-common/intent-metadata-domain-constraints/intent-metadata-domain-constraints.html) to learn more.
+
+Available from:
+
+- Intent.Metadata.Domain.Constraints 1.0.0
 
 ### Importer upgrades
 
