@@ -1,0 +1,34 @@
+parameters:
+- name: branchName
+  type: string
+  default: 'development'
+- name: modules
+  type: object
+  default:
+    - repositoryName: modules-dotnet
+      repositoryUrl: https://github.com/IntentArchitect/Intent.Modules.NET.git
+      folderName: Intent.Modules.NET
+      destinationFolder: modules-dotnet
+    - repositoryName: 'modules-common'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
+      folderName: Intent.Modules
+      destinationFolder: modules-common
+    - repositoryName: 'modules-importers'
+      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.Importers.git"
+      folderName: Intent.Modules.Importers
+      destinationFolder: modules-importers
+
+steps:
+# first clean just to make sure all fresh in case
+- pwsh: |
+    git clean -fdx
+  displayName: '$git clean'
+
+  # for each of the above configured modules (under parameters)
+- ${{ each module in parameters.modules }}:
+  - task: PowerShell@2
+    displayName: "${{ module.repositoryName }} Module Merge"
+    inputs:
+      targetType: 'inline'
+      pwsh: true
+      script: ./PipelineScripts/merge-repo-docs.ps1 "${{ parameters.branchName }}" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1

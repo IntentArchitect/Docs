@@ -8,7 +8,7 @@ This is a DocFX-based documentation site for Intent Architect, published to http
 
 **Multi-Repository Documentation Merge**: Module documentation is automatically pulled from three separate GitHub repositories (Intent.Modules, Intent.Modules.NET, Intent.Modules.Importers) via Azure Pipelines. The `PipelineScripts/merge-repo-docs.ps1` script finds all `README.md` files in module repositories (specifically in `/docs` folders), transforms them into the appropriate folder structure under `articles/modules-*`, and generates corresponding `toc.yml` files.
 
-**Custom DocFX Extensions**: The `docfx-extensions/Intent.DocFx.TagExtensions` C# project provides custom post-processors that run after DocFX builds HTML. Currently implements `FeatherlightImageTag` and `MarkdownVideoTag` handlers for enhanced content presentation.
+**Template and Post-Processing Customization**: The site uses the custom DocFX template at `Template/darkerfx_custom/` together with DocFX's `ExtractSearchIndex` post-processor configured in `docfx.json`.
 
 ## Developer Workflows
 
@@ -110,7 +110,7 @@ uid: application-development.modelling.about-designers
 
 ## CI/CD Pipeline
 
-**Azure Pipelines** (`azure-pipelines.yml`) triggers on pushes to `master`/`development` branches OR when module repositories push updates. The pipeline:
+**Azure Pipelines** (`azure-pipelines.yml`) triggers on pushes to `master`, `development`, and `development-*` branches, and also when module repository pipelines publish updates. The pipeline:
 
 1. Determines which repository/branch triggered the build
 2. Clones all three module repositories (matching branch names when available, falling back to `development`)
@@ -118,7 +118,9 @@ uid: application-development.modelling.about-designers
 4. Builds the site with DocFX
 5. Syncs `_site/` to Azure Blob Storage (pre-production for feature branches, production for master/development)
 
-**Branch-Based Deployments**: Non-master/development branches deploy to pre-production storage with branch name as container prefix for preview environments.
+**Branch-Based Deployments**: Non-`master`/`development` branches deploy to pre-production storage with branch name as container prefix for preview environments.
+
+**Embedding Sync Pipeline**: `azure-pipelines-doc-sync.yml` runs on a nightly schedule for `master` and syncs `articles/` content into the OpenAI embedding store using `DocSyncEngine`.
 
 ## Key Files & Directories
 
@@ -126,7 +128,8 @@ uid: application-development.modelling.about-designers
 - `articles/` - All documentation content organized by topic folders
 - `articles/*/toc.yml` - Table of contents for navigation hierarchy
 - `Template/darkerfx_custom/` - Custom DocFX theme (layout, styles, partials, plugins)
-- `docfx-extensions/Intent.DocFx.TagExtensions/` - C# post-processor plugins (builds to DLL referenced in docfx.json)
+- `azure-pipelines-doc-sync.yml` - Nightly embedding synchronization pipeline
+- `doc-sync-settings.json` - Configuration used by documentation sync tooling
 - `guidelines.md` - Content authoring rules (required reading before contributions)
 - `PipelineScripts/merge-repo-docs.ps1` - Automated module documentation aggregation
 - `.application.*.xml` files in docs - Intent Architect metadata (not present here as this is pure docs repo)

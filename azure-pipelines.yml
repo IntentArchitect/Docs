@@ -18,27 +18,8 @@ resources:
     source: 'Modules.NET'
     trigger: true
 
-parameters:
-- name: modules
-  type: object
-  default:
-    - repositoryName: modules-dotnet
-      repositoryUrl: https://github.com/IntentArchitect/Intent.Modules.NET.git
-      folderName: Intent.Modules.NET
-      destinationFolder: modules-dotnet
-    - repositoryName: 'modules-common'
-      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.git"
-      folderName: Intent.Modules
-      destinationFolder: modules-common
-    - repositoryName: 'modules-importers'
-      repositoryUrl: "https://github.com/IntentArchitect/Intent.Modules.Importers.git"
-      folderName: Intent.Modules.Importers
-      destinationFolder: modules-importers
-
 variables:
   - group: 'Pipeline Agent Pool Names'
-  - name: 'vstsFeedUrl'
-    value: 'https://pkgs.dev.azure.com/intentarchitect/4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/_packaging/intentarchitect-feed/nuget/v3/index.json'
 
 pool:
   name: $(BuildPool.AzureManaged)
@@ -91,19 +72,9 @@ steps:
       Write-Host "Triggered By BranchNameOnly: $(triggeredByBranchNameOnly)"
     displayName: 'Output pipeline variables'
 
-  # first clean just to make sure all fresh incase
-  - pwsh: |
-      git clean -fdx
-    displayName: '$git clean'
-
-    # for each of the above configured modules (under parameters)
-  - ${{ each module in parameters.modules }} :
-    - task: PowerShell@2
-      displayName: "${{ module.repositoryName }} Module Merge"
-      inputs:
-        targetType: 'inline'
-        pwsh: true
-        script: ./PipelineScripts/merge-repo-docs.ps1 "development" "${{ module.repositoryUrl }}" "${{ module.folderName }}" "${{ module.destinationFolder }}" 1
+  - template: PipelineScripts/templates/merge-modules.steps.yml
+    parameters:
+      branchName: development
 
   - pwsh: |
       dotnet tool install docfx --version 2.78.5
@@ -132,16 +103,3 @@ steps:
       scriptLocation: 'inlineScript'
       inlineScript: |
         az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
-
-  # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
-  - task: NuGetAuthenticate@1
-
-  - task: PowerShell@2
-    displayName: 'Synchronize documentation to OpenAI Embedding Store'
-    condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'), eq(variables['triggeredByBranch'], 'development'), eq(variables['triggeredByBranch'], 'refs/heads/development')))
-    inputs:
-      targetType: 'inline'
-      pwsh: true
-      script: |
-        dotnet tool install DocSyncEngine --add-source $(vstsFeedUrl) --global
-        docsync ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)

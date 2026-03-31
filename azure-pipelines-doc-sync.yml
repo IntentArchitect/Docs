@@ -1,0 +1,42 @@
+trigger: none
+
+pr: none
+
+schedules:
+- cron: '0 0 * * *'
+  displayName: 'Nightly docs sync at midnight UTC'
+  branches:
+    include:
+    - master
+  always: true
+
+variables:
+  - group: 'Pipeline Agent Pool Names'
+  - name: 'vstsFeedUrl'
+    value: 'https://pkgs.dev.azure.com/intentarchitect/4bb4c1b9-5b56-4972-8bac-0ad3fa64204e/_packaging/intentarchitect-feed/nuget/v3/index.json'
+
+pool:
+  name: $(BuildPool.AzureManaged)
+  demands:
+  - 'ImageOverride -equals ubuntu-latest'
+
+steps:
+  - checkout: self
+    fetchDepth: '1'
+    displayName: 'Checkout Docs branch'
+
+  - template: PipelineScripts/templates/merge-modules.steps.yml
+    parameters:
+      branchName: development
+
+  # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
+  - task: NuGetAuthenticate@1
+
+  - task: PowerShell@2
+    displayName: 'Synchronize documentation to OpenAI Embedding Store'
+    inputs:
+      targetType: 'inline'
+      pwsh: true
+      script: |
+        dotnet tool install DocSyncEngine --add-source $(vstsFeedUrl) --global
+        docsync ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
