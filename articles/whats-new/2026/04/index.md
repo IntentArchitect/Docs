@@ -7,6 +7,7 @@ Welcome to the April edition of What's New in Intent Architect.
   - **[Enhanced Advanced Mapping Screen](#enhanced-advanced-mapping-screen)** - A number of improvements have been made to the `Advanced Mapping Screen`, making it easier to manage mappings, especially with large domain models.
   - **[Blazor AI Improvements and Template](#blazor-ai-improvements-and-template)** - The Blazor AI module has been updated to use easier-to-read, maintainable Markdown files, ensuring more accurate and consistent AI results when generating Blazor pages.
   - **[Domain Constraints for Entities](#domain-constraints-for-entities)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
+  - **[JSON Merge Patch Support](#json-merge-patch-support)** - Create PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics for precise partial updates on your domain models.
   - **[Importer upgrades](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
 
 ## Update details
@@ -74,6 +75,22 @@ Visit the [documentation](https://docs.intentarchitect.com/articles/modules-comm
 Available from:
 
 - Intent.Metadata.Domain.Constraints 1.0.0
+
+### JSON Merge Patch Support
+
+The new JSON Patch module enables ASP.NET Core PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics. This allows you to create precise partial update endpoints that correctly distinguish between omitted and explicitly-null values, ensuring accurate client intent is preserved throughout the application layer.
+
+The module integrates seamlessly with generated Controllers, Commands, DTOs, and handlers while maintaining clean architecture boundaries. Properties can be patched individually without leaking HTTP transport concerns into your domain logic.
+
+You can expose any existing Command or Service Operation as a PATCH endpoint directly from the designer using the **Expose as HTTP Patch Endpoint** action. If already exposed as an HTTP endpoint, use **Convert to PATCH** to switch it to patch semantics.
+
+![Expose as HTTP Patch Endpoint](images/expose-as-http-patch-endpoints.png)
+
+Visit the [documentation](https://docs.intentarchitect.com/articles/modules-dotnet/intent-aspnetcore-controllers-jsonpatch/intent-aspnetcore-controllers-jsonpatch.html) to learn more.
+
+Available from:
+
+- Intent.AspNetCore.Controllers.JsonPatch 1.0.0
 
 ### Importer upgrades
 
