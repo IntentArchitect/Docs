@@ -3,65 +3,18 @@
 Welcome to the April edition of What's New in Intent Architect.
 
 - Highlights
-  - **[Angular Version Selection](#angular-version-selection)** - When creating an Angular application with the `Angular Web Application` template, you can now select the Angular version.
-  - **[Enhanced Advanced Mapping Screen](#enhanced-advanced-mapping-screen)** - A number of improvements have been made to the `Advanced Mapping Screen`, making it easier to manage mappings, especially with large domain models.
-  - **[Blazor AI Improvements and Template](#blazor-ai-improvements-and-template)** - The Blazor AI module has been updated to use easier-to-read, maintainable Markdown files, ensuring more accurate and consistent AI results when generating Blazor pages.
-  - **[Domain Constraints for Entities](#domain-constraints-for-entities)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
-  - **[JSON Merge Patch Support](#json-merge-patch-support)** - Create PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics for precise partial updates on your domain models.
-  - **[Importer upgrades](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
-  - **[General Client performance and stability improvements](#client-performance-and-stability-improvements)** - Broad client updates improve responsiveness and reliability across common modeling and design activities.
+  - **[Centralize Domain-Driven Validation](#enhanced-domain-validation)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
+  - **[Support for JSON Patch Updates](#json-merge-patch-support)** - Create PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics for precise partial updates on your domain models.
+  - **[New Blazor Sample Application](#new-blazor-sample-application)** - A new sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, showcases the quality of the updated system.  
+  - **[Smarter Blazor Page Generation](#blazor-ai-improvements)** - The Blazor AI module now uses maintainable Markdown-based rules for more accurate and consistent results, with AI capabilities continuously updated and expanded.
+  - **[Improved Advanced Mapping Experience](#enhanced-advanced-mapping-screen)** - A number of improvements have been made to the `Advanced Mapping Screen`, making it easier to manage mappings, especially with large domain models.
+  - **[Angular Version Selection](#angular-version-selection)** - When creating an Angular application with the `Angular Web Application` template, you can now select the Angular version.  
+  - **[More Accurate Importers](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
+  - **[Client Performance and Stability improvements](#client-performance-and-stability-improvements)** - Broad client updates improve responsiveness and reliability across common modeling and design activities.
 
 ## Update details
 
-### Angular Version Selection
-
-When creating a new Angular application with the `Angular Web Application` template, you can now choose which Angular version to use.
-
-The correct package versions will be automatically referenced and the appropriate default configuration applied for your application.
-
-![Angular Version Selection](images/angular-version-selection.png)
-
-Available from:
-
-- Intent Angular Web Application Template 5.0.4-pre.1
-
-### Enhanced Advanced Mapping Screen
-
-The `Advanced Mapping Screen` has been enhanced to streamline managing mappings, especially with large domain models, reducing navigation time and improving overall usability:
-
-- **Filter by mapped/unmapped status** - Independently filter source and/or target side attributes by whether they are mapped or unmapped, helping you quickly focus on the mapped/unmapped items.
-- **Filter by text** - Search and filter source and/or target attributes by text to rapidly locate specific attributes and their mappings.
-- **Performance improvements** - Optimized rendering for large numbers of attributes and mappings, ensuring smooth operation with large models.
-
-![Enhanced Advanced Mapping Screen](images/mapping-enhancements.png)
-
-Available from:
-
-- Intent Architect Client 4.6.2
-
-### Blazor AI Improvements and Template
-
-The Blazor AI module has been enhanced to improve maintainability and accuracy of AI-generated Blazor pages. General and template specific rules are now defined in readable Markdown files, making them easier to maintain while ensuring more consistent results. All rules and templates are fully customizable to suit your requirements and styling preferences.
-
-**Key Enhancements:**
-
-- **Readable Markdown-based rules** - Template and general rules are now defined in clear, maintainable Markdown format, reducing complexity and enabling easier customization.
-- **Improved AI consistency** - The new rule structure ensures more accurate and consistent AI results when generating Blazor pages.
-- **Sample Blazor Server Application** - A new sample application generated almost entirely using the enhanced AI improvements demonstrates the capabilities and quality of the updated system.
-
-An example of the Markdown rules:
-
-![Blazor AI Template Rules](images/markdown-rules.png)
-
-The AI generated sample application:
-
-![Blazor Sample Application](images/blazor-sample.png)
-
-Available from:
-
-- Intent.AI.Blazor 1.0.0-pre.0
-
-### Domain Constraints for Entities
+### Enhanced Domain Validation
 
 The new Domain Constraints module lets you model validation rules directly on domain entity attributes, centralizing validation intent in your domain model.
 
@@ -92,6 +45,61 @@ Visit the [documentation](https://docs.intentarchitect.com/articles/modules-dotn
 Available from:
 
 - Intent.AspNetCore.Controllers.JsonPatch 1.0.0
+
+### Angular Version Selection
+
+When creating a new Angular application with the `Angular Web Application` template, you can now choose which Angular version to use.
+
+The correct package versions will be automatically referenced and the appropriate default configuration applied for your application.
+
+![Angular Version Selection](images/angular-version-selection.png)
+
+Available from:
+
+- Intent Angular Web Application Template 5.0.4-pre.1
+
+### Enhanced Advanced Mapping Screen
+
+The `Advanced Mapping Screen` has been enhanced to streamline managing mappings, especially with large domain models, reducing navigation time and improving overall usability:
+
+- **Filter by mapped/unmapped status** - Independently filter source and/or target side attributes by whether they are mapped or unmapped, helping you quickly focus on the mapped/unmapped items.
+- **Filter by text** - Search and filter source and/or target attributes by text to rapidly locate specific attributes and their mappings.
+- **Performance improvements** - Optimized rendering for large numbers of attributes and mappings, ensuring smooth operation with large models.
+
+![Enhanced Advanced Mapping Screen](images/mapping-enhancements.png)
+
+Available from:
+
+- Intent Architect Client 4.6.2
+
+### Blazor AI Improvements
+
+The Blazor AI module has been enhanced to improve maintainability and accuracy of AI-generated Blazor pages. General and template-specific rules are now defined in readable Markdown files, making them easier to maintain while ensuring more consistent results. All rules and templates are fully customizable to suit your requirements and styling preferences.
+
+We are continuously updating and expanding the AI capabilities in this module, ensuring it keeps pace with evolving best practices and delivers increasingly consistent, high-quality results over time.
+
+**Key enhancements:**
+
+- **Readable Markdown-based rules** - Template and general rules are now defined in clear, maintainable Markdown format, reducing complexity and enabling easier customization.
+- **Improved AI consistency** - The new rule structure ensures more accurate and consistent AI results when generating Blazor pages.
+
+An example of the Markdown rules:
+
+![Blazor AI Template Rules](images/markdown-rules.png)
+
+Available from:
+
+- Intent.AI.Blazor 1.0.0-pre.0
+
+### New Blazor Sample Application
+
+A new sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, demonstrates the quality and consistency of the updated system.
+
+![Blazor Sample Application](images/blazor-sample.png)
+
+Available from:
+
+- Intent.Blazor.Server.Sample 1.0.1
 
 ### Importer upgrades
 
