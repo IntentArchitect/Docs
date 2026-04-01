@@ -3,8 +3,8 @@ trigger: none
 pr: none
 
 schedules:
-- cron: '0 0 * * *'
-  displayName: 'Nightly docs sync at midnight UTC'
+- cron: '0 10 * * *'
+  displayName: 'Daily docs sync at 12pm SAST (10:00 UTC)'
   branches:
     include:
     - master
