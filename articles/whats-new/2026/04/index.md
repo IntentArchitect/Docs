@@ -9,6 +9,7 @@ Welcome to the April edition of What's New in Intent Architect.
   - **[Domain Constraints for Entities](#domain-constraints-for-entities)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
   - **[JSON Merge Patch Support](#json-merge-patch-support)** - Create PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics for precise partial updates on your domain models.
   - **[Importer upgrades](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
+  - **[General Client performance and stability improvements](#client-performance-and-stability-improvements)** - Broad client updates improve responsiveness and reliability across common modeling and design activities.
 
 ## Update details
 
@@ -115,3 +116,20 @@ Available from:
 
 - Intent RDBMS Importer 1.0.13
 - Intent C# Importer 1.0.7
+
+### Client Performance and Stability Improvements
+
+In addition to the [Enhanced Advanced Mapping Screen improvements](#enhanced-advanced-mapping-screen), several general enhancements have been made to the Intent Architect Client to improve responsiveness and stability:
+
+**Key improvements:**
+
+- **Context-menu performance for large selections** - Improved responsiveness when selecting multiple elements in large models.
+- **Smoother diagram panning** - Improved panning performance, especially in diagrams with many elements.
+- **More consistent Linux UI rendering** - Improved rendering stability when running the client on Linux.
+- **Save All reliability** - Fixed an occasional issue where `Save All` during package processing could cause instability in generated code.
+- **Software Factory Diff accuracy** - Fixed an intermittent issue where the right-hand side file did not display.
+- **Advanced Mapping Screen lock pane layout** - Fixed an issue where using the lock feature could cut off the left-hand pane.
+
+Available from:
+
+- Intent Architect Client 4.6.2
