@@ -4,12 +4,12 @@ Welcome to the April edition of What's New in Intent Architect.
 
 - Highlights
   - **[Centralize Domain-Driven Validation](#centralize-domain-driven-validation)** - Define validation rules once on your domain and have them automatically applied wherever they're needed.
-  - **[JSON Patch Support for REST Services](#json-merge-patch-support)** - Build update endpoints that accept targeted changes to a record, while leaving everything else exactly as-is.
-  - **[New Blazor AI Sample Application](#new-blazor-sample-application)** - Get inspiration from a complete, ready-to-run Blazor application created almost entirely by Intent Architect's AI capabilities.
-  - **[Smarter Blazor Page Generation](#blazor-ai-improvements)** - AI-generated Blazor pages are now more consistent and accurate, with improvements rolling out on a continuous basis.
-  - **[Improved Advanced Mapping Experience](#enhanced-advanced-mapping-screen)** - Finding and managing mappings is now faster and more intuitive, with new filtering options and improved performance.
+  - **[JSON Patch Support for REST Services](#json-patch-support-for-rest-services)** - Build update endpoints that accept targeted changes to a record, while leaving everything else exactly as-is.
+  - **[New Blazor AI Sample Application](#new-blazor-ai-sample-application)** - Get inspiration from a complete, ready-to-run Blazor application created almost entirely by Intent Architect's AI capabilities.
+  - **[Smarter Blazor Page Generation](#smarter-blazor-page-generation)** - AI-generated Blazor pages are now more consistent and accurate, with improvements rolling out on a continuous basis.
+  - **[Improved Advanced Mapping Experience](#improved-advanced-mapping-experience)** - Finding and managing mappings is now faster and more intuitive, with new filtering options and improved performance.
   - **[Angular Version Selection](#angular-version-selection)** - Kick off new Angular projects with the exact version you need - fully configured and ready to go.
-  - **[More Accurate Importers](#importer-upgrades)** - Get cleaner, more faithful models when importing from your database or existing code - with less rework.
+  - **[More Accurate Importers](#more-accurate-importers)** - Get cleaner, more faithful models when importing from your database or existing code - with less rework.
   - **[Client Performance and Stability improvements](#client-performance-and-stability-improvements)** - A range of usability improvements make working in Intent Architect smoother and more dependable.
 
 ## Update details
@@ -30,9 +30,9 @@ Available from:
 
 - Intent.Metadata.Domain.Constraints 1.0.0
 
-### JSON Merge Patch Support
+### JSON Patch Support for REST Services
 
-The new JSON Patch module allows you to do dynamic partial update of entities using HTTP PATCH semantics. This allows you to create precise partial update endpoints that correctly distinguish between omitted and explicitly-null values, ensuring accurate client intent is preserved throughout the application layer.
+Partial updates shouldn't require sending an entire object - and your API should always know the difference between a field that was cleared and one that wasn't touched. The new JSON Patch module lets you build exactly that, with no extra plumbing required.
 
 The module integrates seamlessly with generated Controllers, Commands, DTOs, and handlers while maintaining clean architecture boundaries. Properties can be patched individually without leaking HTTP transport concerns into your domain logic.
 
@@ -46,9 +46,9 @@ Available from:
 
 - Intent.AspNetCore.Controllers.JsonPatch 1.0.0
 
-### New Blazor Sample Application
+### New Blazor AI Sample Application
 
-Explore what is possible with our new Blazor AI Sample - our new easy to try sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, demonstrates the quality and consistency of the updated Blazor AI system.
+Our new Blazor Server sample application, built almost entirely using Intent Architect's AI capabilities, gives you a ready to use, hands-on look at the quality and consistency you can expect from AI-assisted Blazor development today.
 
 ![Blazor Sample Application](images/blazor-sample.png)
 
@@ -56,35 +56,9 @@ Available from:
 
 - Intent.Blazor.Server.Sample 1.0.1
 
-### Angular Version Selection
+### Smarter Blazor Page Generation
 
-When creating a new Angular application with the `Angular Web Application` template, you can now choose which Angular version to use.
-
-The correct package versions will be automatically referenced and the appropriate default configuration applied for your application.
-
-![Angular Version Selection](images/angular-version-selection.png)
-
-Available from:
-
-- Intent Angular Web Application Template 5.0.4-pre.1
-
-### Enhanced Advanced Mapping Screen
-
-The `Advanced Mapping Screen` has been enhanced to streamline managing mappings, especially with large domain models, reducing navigation time and improving overall usability:
-
-- **Filter by mapped/unmapped status** - Independently filter source and/or target side attributes by whether they are mapped or unmapped, helping you quickly focus on the mapped/unmapped items.
-- **Filter by text** - Search and filter source and/or target attributes by text to rapidly locate specific attributes and their mappings.
-- **Performance improvements** - Optimized rendering for large numbers of attributes and mappings, ensuring smooth operation with large models.
-
-![Enhanced Advanced Mapping Screen](images/mapping-enhancements.png)
-
-Available from:
-
-- Intent Architect Client 4.6.2
-
-### Blazor AI Improvements
-
-The Blazor AI module has been enhanced to improve maintainability and accuracy of AI-generated Blazor pages. General and template-specific rules are now defined in readable Markdown files, making them easier to maintain while ensuring more consistent results. All rules and templates are fully customizable to suit your requirements and styling preferences.
+AI-generated Blazor pages are now more accurate and consistent, thanks to a new Markdown-based rule system that makes the underlying instructions easier to read, maintain, and customize. All rules and templates are fully customizable to suit your requirements and styling preferences.
 
 We are continuously updating and expanding the AI capabilities in this module, ensuring it keeps pace with evolving best practices and delivers increasingly consistent, high-quality results over time.
 
@@ -101,9 +75,31 @@ Available from:
 
 - Intent.AI.Blazor 1.0.0-pre.0
 
+### Improved Advanced Mapping Experience
 
+The `Advanced Mapping Screen` has been enhanced to streamline managing mappings, especially with large domain models, reducing navigation time and improving overall usability:
 
-### Importer upgrades
+- **Filter by mapped/unmapped status** - Independently filter source and/or target side attributes by whether they are mapped or unmapped, helping you quickly focus on the mapped/unmapped items.
+- **Filter by text** - Search and filter source and/or target attributes by text to rapidly locate specific attributes and their mappings.
+- **Performance improvements** - Optimized rendering for large numbers of attributes and mappings, ensuring smooth operation with large models.
+
+![Enhanced Advanced Mapping Screen](images/mapping-enhancements.png)
+
+Available from:
+
+- Intent Architect Client 4.6.2
+
+### Angular Version Selection
+
+When creating a new Angular application, you can now choose which Angular version to use and have the correct packages and configuration applied automatically.
+
+![Angular Version Selection](images/angular-version-selection.png)
+
+Available from:
+
+- Intent Angular Web Application Template 5.0.4-pre.1
+
+### More Accurate Importers
 
 The RDBMS and C# Importers have been enhanced to streamline the import process and maintain code fidelity, reducing manual rework and ensuring your imported models accurately reflect your source systems and services.
 
@@ -129,7 +125,7 @@ Available from:
 
 ### Client Performance and Stability Improvements
 
-In addition to the [Enhanced Advanced Mapping Screen improvements](#enhanced-advanced-mapping-screen), several general enhancements have been made to the Intent Architect Client to improve responsiveness and stability:
+In addition to the [Advanced Mapping Screen improvements](#improved-advanced-mapping-experience), several general enhancements have been made to the Intent Architect Client to improve responsiveness and stability:
 
 **Key improvements:**
 
