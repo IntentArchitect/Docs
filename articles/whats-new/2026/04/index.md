@@ -3,20 +3,20 @@
 Welcome to the April edition of What's New in Intent Architect.
 
 - Highlights
-  - **[Centralize Domain-Driven Validation](#enhanced-domain-validation)** - Model reusable validation constraints directly on domain attributes so downstream modules can apply them consistently.
-  - **[Support for JSON Patch Updates](#json-merge-patch-support)** - Create PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics for precise partial updates on your domain models.
-  - **[New Blazor Sample Application](#new-blazor-sample-application)** - A new sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, showcases the quality of the updated system.  
-  - **[Smarter Blazor Page Generation](#blazor-ai-improvements)** - The Blazor AI module now uses maintainable Markdown-based rules for more accurate and consistent results, with AI capabilities continuously updated and expanded.
-  - **[Improved Advanced Mapping Experience](#enhanced-advanced-mapping-screen)** - A number of improvements have been made to the `Advanced Mapping Screen`, making it easier to manage mappings, especially with large domain models.
-  - **[Angular Version Selection](#angular-version-selection)** - When creating an Angular application with the `Angular Web Application` template, you can now select the Angular version.  
-  - **[More Accurate Importers](#importer-upgrades)** - The RDBMS and C# Importers have been enhanced to reduce manual work and maintain code fidelity, with smarter duplicate detection for associations, additional stored procedure mapping option, as well as async/sync method preservation.
-  - **[Client Performance and Stability improvements](#client-performance-and-stability-improvements)** - Broad client updates improve responsiveness and reliability across common modeling and design activities.
+  - **[Centralize Domain-Driven Validation](#enhanced-domain-validation)** - Define validation rules once on your domain and have them automatically applied wherever they're needed.
+  - **[JSON Patch Support for REST Services](#json-merge-patch-support)** - Build update endpoints that accept targeted changes to a record, while leaving everything else exactly as-is.
+  - **[New Blazor AI Sample Application](#new-blazor-sample-application)** - Get inspiration from a complete, ready-to-run Blazor application created almost entirely by Intent Architect's AI capabilities.
+  - **[Smarter Blazor Page Generation](#blazor-ai-improvements)** - AI-generated Blazor pages are now more consistent and accurate, with improvements rolling out on a continuous basis.
+  - **[Improved Advanced Mapping Experience](#enhanced-advanced-mapping-screen)** - Finding and managing mappings is now faster and more intuitive, with new filtering options and improved performance.
+  - **[Angular Version Selection](#angular-version-selection)** - Kick off new Angular projects with the exact version you need - fully configured and ready to go.
+  - **[More Accurate Importers](#importer-upgrades)** - Get cleaner, more faithful models when importing from your database or existing code - with less rework.
+  - **[Client Performance and Stability improvements](#client-performance-and-stability-improvements)** - A range of usability improvements make working in Intent Architect smoother and more dependable.
 
 ## Update details
 
 ### Enhanced Domain Validation
 
-The new Domain Constraints module lets you model validation rules directly on domain entity attributes, centralizing validation intent in your domain model.
+The new Domain Constraints module lets you model validation rules directly on domain entity attributes, centralizing validation intent in your domain model. This allows you to specify these validations once, and have them applied in multiple places, for example, on all of your inbound DTOs.
 
 ![Domain Constraints](images/domain-constraints.png)
 
@@ -32,7 +32,7 @@ Available from:
 
 ### JSON Merge Patch Support
 
-The new JSON Patch module enables ASP.NET Core PATCH endpoints that implement RFC 7396 JSON Merge Patch semantics. This allows you to create precise partial update endpoints that correctly distinguish between omitted and explicitly-null values, ensuring accurate client intent is preserved throughout the application layer.
+The new JSON Patch module allows you to do dynamic partial update of entities using HTTP PATCH semantics. This allows you to create precise partial update endpoints that correctly distinguish between omitted and explicitly-null values, ensuring accurate client intent is preserved throughout the application layer.
 
 The module integrates seamlessly with generated Controllers, Commands, DTOs, and handlers while maintaining clean architecture boundaries. Properties can be patched individually without leaking HTTP transport concerns into your domain logic.
 
@@ -45,6 +45,16 @@ Visit the [documentation](https://docs.intentarchitect.com/articles/modules-dotn
 Available from:
 
 - Intent.AspNetCore.Controllers.JsonPatch 1.0.0
+
+### New Blazor Sample Application
+
+Explore what is possible with our new Blazor AI Sample - our new easy to try sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, demonstrates the quality and consistency of the updated Blazor AI system.
+
+![Blazor Sample Application](images/blazor-sample.png)
+
+Available from:
+
+- Intent.Blazor.Server.Sample 1.0.1
 
 ### Angular Version Selection
 
@@ -91,15 +101,7 @@ Available from:
 
 - Intent.AI.Blazor 1.0.0-pre.0
 
-### New Blazor Sample Application
 
-A new sample Blazor Server application, generated almost entirely using the enhanced AI capabilities, demonstrates the quality and consistency of the updated system.
-
-![Blazor Sample Application](images/blazor-sample.png)
-
-Available from:
-
-- Intent.Blazor.Server.Sample 1.0.1
 
 ### Importer upgrades
 
