@@ -51,6 +51,11 @@
   "ListFilesRetry": {
     "MaxAttempts": 10,
     "InitialDelaySeconds": 2.0
+  },
+  "IngestionFilter": {
+    "ExcludePatterns": [
+      "articles/whats-new"
+    ]
   }
 }
 
