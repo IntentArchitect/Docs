@@ -123,7 +123,7 @@ Available from:
 - Intent RDBMS Importer 1.0.13
 - Intent C# Importer 1.0.7
 
-### Client Performance and Stability Improvements
+### Client Performance and Stability improvements
 
 In addition to the [Advanced Mapping Screen improvements](#improved-advanced-mapping-experience), several general enhancements have been made to the Intent Architect Client to improve responsiveness and stability:
 
