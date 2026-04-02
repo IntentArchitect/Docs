@@ -71,7 +71,7 @@ Change the class-level attribute to `[IntentManaged(Mode.Merge, Signature = Mode
 
 ---
 
-### Intent Architect wants to remove my custom code from a method
+### Intent Architect wants to remove my custom code from a method (single line)
 
 **Scenario:** You want to add custom code to an Intent Architect generated method, but Intent Architect wants to remove it during the Software Factory execution.
 
@@ -79,7 +79,7 @@ Change the class-level attribute to `[IntentManaged(Mode.Merge, Signature = Mode
 
 **Cause:** The method body is fully managed (`[IntentManaged(Mode.Fully, Body = Mode.Fully)]`), and Intent Architect doesn't recognize the custom code as part of the template output.
 
-#### Solution 1: Use Method Body Merge Mode
+#### Solution 1: Use Method Body Merge Mode (Single Line)
 
 **Use when:** You are adding multiple custom lines throughout a method body, or when you want to indicate that the method is _generally_ open for extension and you anticipate it will be extended.
 
@@ -98,6 +98,44 @@ Add the `// IntentIgnore` comment above the specific line or block you want to p
 [!code-csharp[](images/statement-ignore.cs?highlight=4)]
 
 Even though the body remains in `Fully` mode, the `// IntentIgnore` comment overrides management for that specific statement.
+
+---
+
+### Intent Architect wants to remove my custom code from a method (multiple lines)
+
+**Scenario:** You want to add **multiple lines** of custom code to an Intent Architect generated method, but Intent Architect wants to remove it during the Software Factory execution.
+
+![Code Line removal](images/code-multi-line-removal.png)
+
+**Cause:** The method body is fully managed (`[IntentManaged(Mode.Fully, Body = Mode.Fully)]`), and Intent Architect doesn't recognize the custom code as part of the template output.
+
+#### Solution 1: Use Method Body Merge Mode (Multi-line)
+
+**Use when:** You are adding multiple custom lines throughout a method body, or when you want to indicate that the method is _generally_ open for extension and you anticipate it will be extended.
+
+Change the method attribute to `[IntentManaged(Mode.Fully, Body = Mode.Merge)]`. This instructs Intent Architect to merge generated code with custom code within the method body. The method signature and attributes remain fully managed.
+
+[!code-csharp[](images/method-body-merge-multi.cs?highlight=1)]
+
+#### Solution 2: Use Code Block-Level Ignore
+
+**Use when:** You want to preserve multiple consecutive lines of custom code while keeping the method body fully managed, and you want to keep the custom code alongside the generated code.
+
+Add the `// IntentIgnore` comment above a code block (enclosed in braces `{ }`) to ignore the entire block. Since attributes cannot be applied to individual statements, the comment-based approach is required.
+
+[!code-csharp[](images/statement-ignore-block.cs?highlight=4)]
+
+Even though the body remains in `Fully` mode, the `// IntentIgnore` comment overrides management for that specific code block statement.
+
+#### Solution 3: Extract to own method
+
+**Use when:** You want to preserve multiple consecutive lines of custom code while keeping the method body fully managed, and the custom code can be executed without requiring to be with the generated code.
+
+Extract the custom code into a separate method and add a single `// IntentIgnore` comment above the method invocation line.
+
+[!code-csharp[](images/custom-method-extract.cs?highlight=4,5,19-27)]
+
+Even though the body remains in `Fully` mode, the `// IntentIgnore` comment overrides management for that specific invocation statement.
 
 ---
 
