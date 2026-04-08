@@ -3,7 +3,7 @@
 Welcome to the April edition of What's New in Intent Architect.
 
 - Highlights
-  - **[Centralize Domain-Driven Validation](#centralize-domain-driven-validation)** - Define validation rules once on your domain and have them automatically applied wherever they're needed.
+  - **[Centralized Domain-Driven Validation](#centralized-domain-driven-validation)** - Define validation rules once on your domain and have them automatically applied wherever they're needed.
   - **[JSON Patch Support for REST Services](#json-patch-support-for-rest-services)** - Build update endpoints that accept targeted changes to a record, while leaving everything else exactly as-is.
   - **[New Blazor AI Sample Application](#new-blazor-ai-sample-application)** - Get inspiration from a complete, ready-to-run Blazor application created almost entirely by Intent Architect's AI capabilities.
   - **[Smarter Blazor Page Generation](#smarter-blazor-page-generation)** - AI-generated Blazor pages are now more consistent and accurate, with improvements rolling out on a continuous basis.
@@ -14,7 +14,7 @@ Welcome to the April edition of What's New in Intent Architect.
 
 ## Update details
 
-### Centralize Domain-Driven Validation
+### Centralized Domain-Driven Validation
 
 The new Domain Constraints module lets you model validation rules directly on domain entity attributes, centralizing validation intent in your domain model. This allows you to specify these validations once, and have them applied in multiple places, for example, on all of your inbound DTOs.
 
