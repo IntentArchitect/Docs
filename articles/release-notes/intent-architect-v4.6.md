@@ -3,6 +3,20 @@ uid: release-notes.intent-architect-v4.6
 ---
 # Release notes: Intent Architect version 4.6
 
+## Version 4.6.3
+
+### Improvements in 4.6.3
+
+- Improvement: The `Execute Script` dialog in each Designer now allows users to create and save multiple scripts to the versioned file system for easy sharing across the team.
+
+![Multiple scripts](images/4.6/03/multiple-scripts.png)
+
+### Fixes in 4.6.3
+
+- Fixed: The Visual Studio solution will now get named correctly when using the `Copy Application` functionality.
+- Fixed: Ignored file tracking (the *output.config.xml* file) is now copied when creating a sample application.
+- Fixed: Associations no longer show as dirty when adding a new child element to the same parent.
+
 ## Version 4.6.2
 
 ### Improvements in 4.6.2
