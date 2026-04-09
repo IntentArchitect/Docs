@@ -28,7 +28,12 @@ Visit the [documentation](https://docs.intentarchitect.com/articles/modules-comm
 
 Available from:
 
-- Intent.Metadata.Domain.Constraints 1.0.0
+- Intent.Metadata.Domain.Constraints 1.0.1
+
+Needs one of the following to be installed/updated:
+
+- Intent.Application.FluentValidation.Dtos 3.12.7
+- Intent.Application.MediatR.FluentValidation 4.10.0
 
 ### JSON Patch Support for REST Services
 
