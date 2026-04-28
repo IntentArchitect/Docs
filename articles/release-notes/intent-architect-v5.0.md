@@ -9,11 +9,30 @@ We hope that you, our users, enjoy this new release and get a step up in value t
 
 Lastly, as with our last release, this is just a stepping stone along the journey. Our roadmap and the features we plan to release over the next few months are incredibly exciting and promise huge potential. Please share your thoughts, ideas, and feedback to help us make this the development platform you've always wished for 🚀!
 
-![Intent Architect 5.0](./images/5.0/00/about-dialog.png)
+![alt text](./images/5.0/00/about-dialog.png)
 
 ---
 
-## Extenstive upgrade to AI chat systems
+
+## AI Coding Agents in the Software Factory
+
+Intent Architect now has two distinct contexts for agentic work: `modeling` and `coding`. Coding agents are built into the Software Factory Execution and provide a foundational mechanism to realize the subtle, and often sophisticated, business logic code that's required for applications to function. While deterministic code-generation systems can roll out the architecture, infrstructure and boilerplate for our application's design, the coding agents "colour in between the lines" resulting in end-to-end working sofware - massively accelerating feature development and related coding tasks.
+
+![AI Chat in SF](images/5.0/00/software-factory-ai-chat.png)
+
+A "golden path" of development that we strive to consistenly achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
+
+- **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
+
+- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful context engineering system that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
+
+- **Comprehensive AI Tooling** — supporting the coding agenst is a suite of tools that allow it to to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
+
+- **Support for standard context files** - Intent Architect coding agents have integration support for context files that you and your team are already using (e.g. `CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`, etc.). It will also search in the standard folder structure for Instruction Files and Skills. You can also configure that skills and instructions installed by Intent Architect Modules go into your preferred AI folder (e.g. `.claude`, `.github`, etc.). By default they will be dropped off in the generic `.agents` folder which is respected by most harnesses.
+
+---
+
+## Comprehensive upgrade of AI integration systems
 
 In version 4.6 of Intent Architect, we released our AI Assistant - a chat system with tooling to control Intent Architect's designers. As part of this release we've upgraded this system massively and made the system substantially more transparent, intuitive and powerful. Tools calls are now more obvious, interactive and clear. We've used colours to help the user identify reads from creates, updates and deletes made in their models. As per our last release, model changes are made in memory and not saved without the user's consent.
 
@@ -27,7 +46,7 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
 
     ![alt text](image-1.png)
 
-- **Model / File attachments** — drag-and-drop files and model elements, paste files (including images), open and select files from hard drive, directly into the chat. Attachments are passed to the
+- **Model / File attachments** — drag-and-drop files and model elements, paste files (including images), open and select files from hard drive, directly into the chat. Attachments are passed as user messages to the LLM in the appropriate format. This makes passing in Product Requirements Documents (PRDs), code files from external systems, screenshots, etc. easy and straightforward.
 
     ![alt text](image.png)
 
@@ -35,95 +54,55 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
 
     ![alt text](image-3.png)
 
+
+- **Custom Agents** - Custom Agents can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) what tools are availalble to the agent.
+
+    ![alt text](image-6.png)
+
+- **Slash Commands** - Standard to most AI development harnesses in the industry, Intent Architect offers slash command functionality. As part of this release, it offers agent switching and [skills](https://fix-this.com) invocation.
+
+    ![alt text](image-5.png)
+
 - **AI Configuration dialog** - To make it as easy as possible to get value out Intent Architect's AI capabilities we created an AI configuration dialog that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the compatible providers and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](https://fix-this.com) and how to configure [MCP Servers](https://fix-this.com) that agents in Intent Architect can use.
 
     ![alt text](image-2.png)
 
-- **Approvals system** — tools can require user approval before running.
-- **Conversation steering** — ability to redirect the agent mid-flow.
-- **Slash Commands**
-
-## AI Coding Agents in the Software Factory
-
-Coding Agents in the Software Factory provides a key mechanism to realize the subtle, and often sophisticated, business logic that's required for applications to function. While deterministic code-generation systems can roll out the architecture, infrstructure and boilerplate for our application's design, these coding agents will "colour in" between the lines. 
-
-![AI Chat in SF](images/5.0/00/software-factory-ai-chat.png)
-
-A "golden path" of development that we strive to consistenly achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
-
-- **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
-
-- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful context engineering system that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
-
-- **Comprehensive AI Tooling** — supporting the coding agenst is a suite of tools that allow it to to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
-
----
-
-## AI Agent Framework — Markdown-defined, config-driven
-
-A new agent system replacing hardcoded behaviour:
-
-- **Markdown agent definitions** (`.agents` folder) with a tool registry — agents can be authored declaratively.
-- **Slash-command picker** in chat (with `aiSlashPicker` directive, keyboard nav, "hide on blur").
-- **Skills support** — `SKILL.md` files from Copilot and Claude Code formats are discovered and invocable.
-- **Instructions support** — `.instruction.md` files loaded from `.github/instructions` or `.claude/rules`.
-- **AI rules from designer settings** — designers can contribute rules into the agent context.
-- **Plan Mode rebuilt from scratch** — new question/answer wizard ("plan-file shell tab"), a proper backend, and cleaned-up planning system. Old planning system ripped out.
-- **Agent context model** unified: `agentId`/`agentType` → `agentContext`.
-
-> **Screenshot placeholder:** _Slash-command picker showing available agents and skills._
-> `![Slash command picker](./images/slash-command-picker.png)`
-
-> **Screenshot placeholder:** _New Plan Mode question wizard._
-> `![Plan mode wizard](./images/plan-mode.png)`
+- **Plan mode rebuilt** - Version 4.6 offered a plan mode which we felt was too difficult to control and wasn't on par with other modern planning features. We therefore decided to rebuild the planning mode from scratch, adding critical tools like "Ask User Question", "Implement Plan" and "Update Todos" to help LLM perform accurately for the user. Plans are now presented as markdown files that the user can preview and edit inside of an Intent Architect tab.
 
 ---
 
 ## MCP Server (Intent Architect as MCP host)
 
-Intent Architect now exposes itself as an MCP server with a substantial tool suite:
+Intent Architect now exposes itself as an MCP server with a substantial tool suite which allows external agents to "drive" Intent Architect to meet the user's requirements. We considered this a critical capability to include as part of this release since AI tools like Claude Code and Copilot could create friction when editing code that Intent Architect is managing - something we became accutely aware of through our own usage and user feedback. The "Intent MCP" server solves this problem very effectively, giving external agents all the power they need to update the designs in Intent Architect.
 
-- **MCP server moved out of the Electron process** (VS Code compatibility) into its own process; release builds compile and ship the MCP server.
-- **Tools added/improved**: `apply_staged_file_changes`, `check_if_file_intent_managed`, `create_ai_task`, `delete_code_file`, `dotnet_build`, `dotnet_test`, `find_designer_elements`, `get_designer_*` family (model snapshot, element details, package references, diagram snapshot), `glob`, `grep`, `patch_file`, `read_file`, `write_file`, `run_software_factory`, `run_task`, `search_docs`, `search_files`, `use_skill`, `apply_change_diagram_layout`, `apply_change_model_operations`.
-- **AI Configuration dialog** — new home for MCP config (replacing the old MCP dialog), with validation and Electric Blue theming.
-- **Reliability** — DI tests for MCP tool resolution, robust solution-open flow, EPIPE fixes, weak-reference fixes, race-condition fixes, handling of missing invocation handlers, and signal-on-cancel so tools don't hang.
-- **Cross-process eventing** — `McpEventAggregator` can invoke handlers registered by SF instances; SignalR re-registration on reconnect.
-- **AnthropicCacheControlHandler** for cache-control markers on outbound messages.
+![alt text](image-8.png)
 
-> **Screenshot placeholder:** _AI Configuration dialog with MCP server list._
-> `![AI Configuration dialog](./images/ai-configuration.png)`
+_Details on how to get set up with the Intent MCP can be found in the AI Configuration dialog._
 
-> **Screenshot placeholder:** _External MCP client (e.g. Claude Code) using Intent Architect tools._
-> `![Intent Architect as MCP host](./images/mcp-host.png)`
+TODO: @Jon, maybe you want to add some additional context here?
 
 ---
 
-## Software Factory Revamp
+## Software Factory Capability Enhancement
 
-- **Layout restructured** — top-level pills moved to a left-hand sidebar; SF/task/process tabs.
-- **Codebase Explorer** — a unified tree view spanning changes and the full codebase, with filtered views.
-- **Per-change & per-folder Apply / Undo** — context-menu options on individual changes; folders can apply or undo all contained changes; folders highlight when they contain changes (and mute when empty).
-- **Override / Reset system** — users can override an SF change with manual edits, with `IsOverridden` propagated to UI.
-- **Undo committed changes** — revert codebase files to their original.
-- **Review AI changes** button, **Apply Selected** button on multi-diff, and a **floating apply button**.
-- **Multi-diff view** when more than one change is selected.
-- **Open in IDE** for diffs.
-- **Codebase files (not changes) show in "file" mode Monaco editor**, with line-through styling on deleted changes that have been applied.
-- **Build & Test buttons** in SF wired to terminal tasks with running-task counts.
-- **Tracked changes persist** — changes never disappear between runs.
-- **Binary file handling** — diffs hide binary content with a placeholder, but binaries are now applyable.
+In addtion to the integration of AI coding agents with the Software Factory Execution, a significant revamp of the software factory UI and capabilities has been added. The layout has been restructured to optimize the available real-estate to maximize the space available to coding diffs and the AI conversations. This includes adding top-level controls and status indicators to the toolbar, and a left-hand sidebar with tabs to the fundamental view and some new ones (in order from top to bottom):
 
-> **Screenshot placeholder:** _New SF sidebar layout with Codebase Explorer._
-> `![SF sidebar layout](./images/sf-sidebar.png)`
+- **Execution Output** - A window into the Software Factory Execution process that powers the deterministic code generation systems.
+- **Changes** - The staged file changes awaiting the user's confirmation before being applied to the underlying codebase. Switch to this tab with the `ctrl + shift + c` shortcut.
+- **Codebase Explorer** - A new view of the entire codebase rooted at the Output Location of the application. Changes will also be shown here. Switch to this tab with the `ctrl + shift + e` shortcut.
+- **Customizations** - A list of all cumstomizations / deviations and their approval status. Switch to this tab with the `ctrl + shift + d` shortcut.
+- **Terminal** - This new tab allows the user to create new terminal processes (e.g. Powershell on windows) and view the status of task-created terminal processes. See more information on the [Software Factory Tasks and the Terminal](https://fix-this.com). Switch to this tab with the `ctrl + shift + t` shortcut.
 
-> **Screenshot placeholder:** _Folder-level apply/undo in change tree._
-> `![Folder apply/undo](./images/folder-apply-undo.png)`
+![alt text](image-9.png)
 
-> **Screenshot placeholder:** _Multi-diff view with Apply Selected._
-> `![Multi-diff view](./images/multi-diff.png)`
+Several other enhancements and new capabilties have been added to the Software Factory Execution. Some of the these are listed below:
 
-> **Screenshot placeholder:** _Override indicator on a change._
-> `![Override indicator](./images/override-indicator.png)`
+- **Apply / Undo** - Users can undo applied files during the same Software Factory Execution run.
+- **Per file Apply** - Individual files can be applied (and undone) one at a time (`ctrl + shift + y` to apply on the selected file. `ctrl + shift + z` to undo). A context meno on folders also exists for bulk applying at the folder level.
+- **View in Designer Option** - A new context menu option which allows the user to navigate from code back to the metadata model in the designer that was responsible for generating that file.
+- **Create AI Taks** - Another new context menu option which allows the user to create a new AI Task with the selected file(s) attached.
+
+    ![alt text](image-10.png)
 
 ---
 
@@ -131,110 +110,45 @@ Intent Architect now exposes itself as an MCP server with a substantial tool sui
 
 Viewport tabs can now be popped out into independent windows:
 
-- **"Copy into New Window"** for any viewport tab.
-- Custom toolbar for popped windows; closing/focus behaviour fixed (clicking a popped window no longer steals focus to main).
-- SF dialog **maintains maximized state** when restoring main window, and **doesn't minimize** when on another monitor.
+- **"Move to New Window"** - Will pop out the current viewport tab into it's own window. This move the in-memory view into a new window which means any unsaved changes will not be lost.
+- **"Copy into New Window"** - Will load up a new copy of the viewport tab. This will not load unsave changes. Also note that saving one tab will cause the other to request to be reloaded.
 
-> **Screenshot placeholder:** _A popped-out diagram window beside the main app window._
-> `![Pop-out tab](./images/popout-tab.png)`
-
----
-
-## File Editor (Monaco)
-
-- **Monaco-based File Editor as a tab type** — view and edit single files inside Intent Architect.
-- **Enhanced syntax highlighting** via `vscode-textmate` + `vscode-oniguruma`.
-- **File watching with debounced reload** of editor contents.
-- **View Code** context-menu option that ensures SF is running first; **View in File Explorer** on files and folders.
-
-> **Screenshot placeholder:** _Monaco file editor open in a tab with syntax highlighting._
-> `![Monaco file editor](./images/file-editor.png)`
+![alt text](image-11.png)
 
 ---
 
 ## Terminal & Tasks
 
-- **node-pty terminal** integration with full task management.
-- **Terminal Tasks Service** — sidebar-integrated, supports stop/restart, reuses existing task slots, tracks running counts, and parses errors (including a dotnet error parser with detailed cards in the output tree view).
-- **`RunTaskTool`** wired to the new terminal architecture.
-- Focus management on terminal when creating/running tasks; Ctrl+C copies on selection; external links open in browser.
+To bring further convenience to developers, we've added a fully capable PTY terminal into Intent Architect, along with a flexible task configuration system. This allows developers to easily create terminal processes and configure commonly used tasks (e.g. `dotnet build`, `dotnet test`, `dotnet run`, etc.) inside of a `tasks.json` file. 
 
-> **Screenshot placeholder:** _Terminal task running with the new sidebar integration._
-> `![Terminal tasks](./images/terminal-tasks.png)`
+![alt text](image-12.png)
 
-> **Screenshot placeholder:** _Detailed error card in the output tree view._
-> `![Error card](./images/error-card.png)`
+Configured tasks have several options including whether an AI Agent should be started automatically to fix errors. This is useful for example with build tasks since coding agents may have made mistakes that need to be resolved and the automatic creation of an AI Task makes this flow seamless. Below is an example `tasks.json` file:
 
----
+![alt text](image-13.png)
 
-## File-modification Tools (for AI)
+_Access this file directly inside of Intent Architect by clicking on the `cog` icon in the Tasks display, in the top toolbar._
 
-- **`PatchFileTool`** — surgical, fuzzy-matching code patches with indentation preservation, full-file match detection, and blank-line tolerance. Extensive test coverage.
-- **`WriteFileTool`** improvements and unit tests.
-- **Formatter pipeline**: CSharpier integration for C#, dprint plugins for HTML/XML/YAML/CSS, Prettier for TypeScript (no longer forces double quotes). Roslyn-based diagnostic/indentation correction for C#.
-- **Search Code Tool → Search File Tool** with better intention output; **Grep tool** enhancements (now finds virtual folders, improved intention output) and a new **Glob tool**.
-- **`GetProjectOverviewTool`** and a **`GetPackageReferences`** tool for searching referenced packages.
+> [!NOTE]
+> The `tasks.json` file must be located in the same folder as the `.application.config` file for the application. It's also possible to install the `tasks.json` automatically via an Architecture Template.
 
 ---
 
-## Tree View & UX Polish
+## Improvements in the Designers
 
-- **Ctrl+F to filter** in SF; selected node remains visible after filter clear; highlighting in filtered tree-views.
-- **Filtering performance** improved; collapse/expand state preservation fixed.
-- **Compacted indentation**, consistent shortcuts (down/escape), generalised filtering across tree-views.
-- **Context-menu suggestions** for elements and associations.
-- **Re-parenting** of elements via `parentId` on `UpdateElementOperation`.
-- **Drag/drop** generalised via `IDragItem` and `getSelectedDragItems`.
+- **View Code context menu option** alongside the Open in IDE on elements - jumps directly to the code in the Software Factory. Does not require the Software Factory to start up completely.
+- **Filtering performance** has been imporoved across all tree-views.
+- **Filtering highlights matches** across all tree-views.
+- **Suggestions added to context menu** for elements and associations.
 - **Newly-added (unsaved) elements** indicated with a subtle faded green background; modified/dirty stay yellow.
-- Stereotype-text display now updates correctly under undo/redo.
+- **JS API**: `createAICodingTask(...)` for programmatically creating AI coding tasks in the Software Factory.
 
-> **Screenshot placeholder:** _Tree-view filter with Ctrl+F and highlighted matches._
-> `![Tree filter](./images/tree-filter.png)`
-
-> **Screenshot placeholder:** _Element added/dirty colour indicators._
-> `![Element state colours](./images/element-state-colours.png)`
-
----
-
-## Visual Polish
-
-- **About Dialog revamp** with test mode and improved update actions UI.
-- **Generic CTA button styles** unified across components; Font Awesome upgraded.
-- **Electric Blue theme accents** in AI Configuration; light-theme styling fixes; light/dark theme parity for browser windows.
-- AI chat: timeline layout, left-aligned tool calls, refined "Thinking…" indicator, model-aware attachment icons.
-- **Open in IDE** actions and stats consolidated to a single line in SF.
-- Diff stats coloured green/red for insertions/deletions.
-
-> **Screenshot placeholder:** _Revamped About dialog._
-> `![About dialog](./images/about-dialog.png)`
-
----
-
-## Linux & macOS
-
-- Fixes to the application launcher, MCP server, and SF process for **Linux** (and likely macOS).
-- New-application creation now works on Linux.
-
-> **Screenshot placeholder:** _Intent Architect running on Linux._
-> `![Linux support](./images/linux.png)`
-
----
-
-## Reliability & Infrastructure
-
-- **SF process refactor** — IPC eventing rebuilt, magical events removed, ProcessManager extracted, `SoftwareFactoryProcessService` introduced, `SoftwareFactoryChangesService` works under the MCP process.
-- **`VirtualCodebaseService`** replaces `CachingFileSystem`; reads from SF staged results before disk; serves the on-disk file for one-off (non-updatable) generated files.
-- **Conversation hydration** working properly; AI chat conversations disposed on SF shutdown.
-- **Usage tracking** rewritten as a singleton — alignment issues finally fixed.
-- **Fire-and-forget AI requests** so we don't exceed the 6-concurrent-HTTP-request browser limit.
-- **JS API**: `createAICodingTask(...)`, modeling-agent task creation, designer-element actions.
-- **EOL fix** for `.css` files compiled by less + gulp (no more spurious git diffs).
-- **Module publishing**: option to update only pre-release modules with their pre-release dependencies; updated SDK-version checker.
 
 ---
 
 ## Notable Fixes
 
+- Stereotype-text display now updates correctly under undo/redo.
 - Fixed designer scripts being unintentionally lost.
 - Fixed renamed files getting "lost".
 - Fixed advanced-mapping reordering of elements.
