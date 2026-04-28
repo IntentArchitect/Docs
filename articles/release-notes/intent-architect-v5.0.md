@@ -1,40 +1,61 @@
 ---
-uid: release-notes.intent-architect-v4.7
+uid: release-notes.intent-architect-v5.0
 ---
-# Release notes: Intent Architect version 4.7
+# Release notes: Intent Architect version 5.0
 
-We're super excited to announce perhaps the most significant release of Intent Architect in the last few years - version 4.7! This release brings the full power of AI into the heart of Intent Architect, delivering an end-to-end software development experience that allows developers to visually model sophisticated software systems into reality. Beyond the major features and enhancements, the product team has focused extensively on polish and providing a world class experience to developers.
+We're super excited to announce perhaps the most significant release of Intent Architect in the last few years - version 5.0! This release brings the full power of AI into the heart of Intent Architect, delivering an end-to-end software development experience that allows developers to visually model sophisticated software systems into reality. Beyond the major features and enhancements, the product team has focused extensively on polish and providing a world class experience to developers in as many areas as we had capacity for.
 
 We hope that you, our users, enjoy this new release and get a step up in value that remains true to the core principles that you've come to expect from us - high-quality code, consistency, clear design, complete control, etc. We thank each and every one of you for your continued support and guidance in helping us build the next generation of software engineering platforms.
 
-![Intent Architect 4.7](./images/4.7/00/about-dialog.png)
+Lastly, as with our last release, this is just a stepping stone along the journey. Our roadmap and the features we plan to release over the next few months are incredibly exciting and promise huge potential. Please share your thoughts, ideas, and feedback to help us make this the development platform you've always wished for 🚀!
+
+![Intent Architect 5.0](./images/5.0/00/about-dialog.png)
 
 ---
 
-## Complete upgrade to AI chat systems
+## Extenstive upgrade to AI chat systems
+
+In version 4.6 of Intent Architect, we released our AI Assistant - a chat system with tooling to control Intent Architect's designers. As part of this release we've upgraded this system massively and made the system substantially more transparent, intuitive and powerful. Tools calls are now more obvious, interactive and clear. We've used colours to help the user identify reads from creates, updates and deletes made in their models. As per our last release, model changes are made in memory and not saved without the user's consent.
+
+![AI Chat Upgrade](images/5.0/00/ai-chat-with-attachments2.png)
+
+_Example screenshot of the AI Modeling Assistant implementing a change to the domain._
+
+Beyond the visual enhancements and "face lift", the new AI chat systems come with several key features and enhancements:
 
 - **Conversation history & persistence** — past conversations persist, can be deleted. The status of each task (e.g. in-progress, awaiting approval, completed, etc.) is visible in the history dropdown.
-- **File attachments** — drag-and-drop and paste files (including images) into the chat. Attachments propagate from SF changes, show file/model icons, and clicking an attachment selects the matching file in the diff.
-- **Tool-call visualisation** — interactive chips for tool calls (e.g. grep, glob, file edits), composite tool-call collapsing, "modifications" lists, element icons on model-change ops, and a polished timeline with glow/fade styling.
+
+    ![alt text](image-1.png)
+
+- **Model / File attachments** — drag-and-drop files and model elements, paste files (including images), open and select files from hard drive, directly into the chat. Attachments are passed to the
+
+    ![alt text](image.png)
+
+- **Tool-call visualisation** — interactive chips for tool calls, composite tool-call collapsing, "modifications" lists, etc. This feature aims to make it clear and obvious to the user what the agent has done at each step. The chips are interactive in that the user can click them and navigate to them wherever they are in the system. Colours are used to indicate whether a change was a read (blue), create (green), update (yellow), or delete (red).
+
+    ![alt text](image-3.png)
+
+- **AI Configuration dialog** - To make it as easy as possible to get value out Intent Architect's AI capabilities we created an AI configuration dialog that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the compatible providers and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](https://fix-this.com) and how to configure [MCP Servers](https://fix-this.com) that agents in Intent Architect can use.
+
+    ![alt text](image-2.png)
+
 - **Approvals system** — tools can require user approval before running.
 - **Conversation steering** — ability to redirect the agent mid-flow.
+- **Slash Commands**
 
 ## AI Coding Agents in the Software Factory
 
-Coding Agents in the Software Factory provides a key mechanism for developers to realize the subtle and often sophisticated business logic that's required for their applications to function. This features is supported by all the necessary tools a coding agen requires to discover, analyze and implement features (e.g. grep, glob, read file, patch file, etc.)
+Coding Agents in the Software Factory provides a key mechanism to realize the subtle, and often sophisticated, business logic that's required for applications to function. While deterministic code-generation systems can roll out the architecture, infrstructure and boilerplate for our application's design, these coding agents will "colour in" between the lines. 
 
-![AI Chat in SF](images/4.7/00/software-factory-ai-chat.png)
+![AI Chat in SF](images/5.0/00/software-factory-ai-chat.png)
 
-- **AI Tasks** — an AI Tasks panel helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
-- **
-> **Screenshot placeholder:** _AI chat panel in Software Factory with a tool-call timeline visible._
-> `![AI chat in SF](./images/ai-chat-in-sf.png)`
+A "golden path" of development that we strive to consistenly achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
 
-> **Screenshot placeholder:** _Conversation history with AI-generated titles._
-> `![Conversation history](./images/conversation-history.png)`
+- **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
 
-> **Screenshot placeholder:** _Drag-and-drop file attachment into the chat._
-> `![AI chat attachments](./images/ai-chat-attachments.png)`
+- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful context engineering system that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
+
+- **Comprehensive AI Tooling** — supporting the coding agenst is a suite of tools that allow it to to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
 
 ---
 
