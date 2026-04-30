@@ -48,6 +48,7 @@ On the **modeling** side, AI agents read and modify Intent's designers — the s
 
 ### Customising agents and context
 - **[Agent Context Loading](../context-management/index.md)** — where Intent looks for agent definitions, instruction files, and skills. The `.agents/` folder under your solution and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
+- **[Custom Agents](../custom-agents/index.md)** — author your own `.agent.md` files: pick a context, choose tools, and write the system prompt that defines the agent's behaviour.
 - **[Agent Tools](../tooling/index.md)** — every tool an agent can be wired up with: file ops, designer/model edits, build/test, planning, and conversation tools.
 
 ### Connecting to MCP Servers

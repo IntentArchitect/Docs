@@ -7,15 +7,14 @@ How Intent's AI agents discover the files that shape their behavior — agent de
 
 ## The two contexts: `coding` vs `modeling`
 
-Every agent declares a `context` in its frontmatter (`coding`, `modeling`, or `both`). The context decides **which folders Intent searches** when assembling the agent's runtime context.
+Intent's AI surfaces are split across two contexts:
 
-| Context    | Root folder for context files                                |
-| ---------- | ------------------------------------------------------------ |
-| `coding`   | The application's **output folder** — the codebase Intent has generated for it |
-| `modeling` | The folder containing the **`.solution` file** — the modeling workspace |
-| `both`     | Both roots are searched                                      |
+- **`coding`** — the **AI Coding Assistant** inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), which works against an application's generated source code.
+- **`modeling`** — the **AI Modeling Assistant**, which works against the Intent designers (e.g. Domain, Services, User Interface, etc.).
 
-Modeling-time files live alongside the solution. Code-time files live alongside the generated code. An agent only sees the files for its declared context — a modeling agent will never see files in the application's output folder, and vice versa.
+Each context has its own root folder for instruction files, skills, and per-context conventions: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its declared context — a modeling agent will never see files in the application's output folder, and vice versa.
+
+> See [Custom Agents](xref:ai.custom-agents) for how an agent declares which context(s) it appears in.
 
 ---
 
@@ -72,32 +71,9 @@ These coding-side conventions match the dotfile layouts used by Claude Code, Git
 
 ## 1. Agent definitions (`*.agent.md`)
 
-These are the agents shown in the chat dropdown.
+Agents can be customized by creating `.agent.md` files (YAML frontmatter + a system-prompt body) under `{solutionFolder}/.agents/agents/`. The agent's id is the filename minus `.agent.md`; drop a file with the same id as a built-in to override it for this solution only, or use a fresh id to add a new entry to the chat dropdown.
 
-**Where they come from** (later wins on `id` collision):
-
-1. **Built-ins** — shipped with Intent.
-2. **Per-solution overrides** — `{solutionFolder}/.agents/agents/*.agent.md`.
-
-The agent's `id` is the filename minus `.agent.md`. Drop a file with the same name into `.agents/agents/` to override a built-in (for example, drop `coding.agent.md` to override the built-in `Coding` agent for that solution).
-
-### Frontmatter (YAML)
-
-```yaml
----
-name: My Agent
-description: What this agent is for
-icon: fa-magic                # optional Font Awesome icon for the dropdown
-context: [modeling]           # "coding", "modeling", or both ["coding", "modeling"]
-tools:
-  - read_file
-  - grep
-maxIterations: 8              # how many tool-call rounds the agent may take
-loopOnToolCalls: true         # whether the model is invoked again after each tool call
----
-```
-
-The markdown body becomes the agent's **system prompt** — write it as instructions for the model.
+For the full file format, frontmatter reference, tool-selection guidance, and worked examples, see **[Custom Agents](xref:ai.custom-agents)**.
 
 ---
 
@@ -198,6 +174,8 @@ There are three ways a skill becomes active for a turn:
 1. **Manifest only** — every discovered skill is listed (name + description) in the system prompt, telling the agent it *could* request the skill.
 2. **`use_skill` tool call** — the agent calls the always-available `use_skill` tool with the skill's name. The skill body (i.e. the `SKILL.md` file excluding its frontmatter) is loaded and included in the next turn.
 3. **Slash command** — if the user's chat message contains `/skill-name` (matching a discovered skill), that skill is auto-loaded for the turn — no tool call needed.
+
+    ![Slash-command picker showing agents and skills available in the AI chat](images/slash-command-picker.png)
 
 ---
 

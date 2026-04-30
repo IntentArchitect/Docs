@@ -11,5 +11,8 @@ items:
   - name: Agent Context Loading
     topicUid: ai.context-management
 
+  - name: Custom Agents
+    topicUid: ai.custom-agents
+
   - name: Agent Tools
     topicUid: ai.tooling
