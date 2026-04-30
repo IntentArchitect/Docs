@@ -16,17 +16,17 @@ Lastly, as with our last release, this is just a stepping stone along the journe
 
 ## AI Coding Agents in the Software Factory
 
-Intent Architect now has two distinct contexts for agentic work: `modeling` and `coding`. Coding agents are built into the Software Factory Execution and provide a foundational mechanism to realize the subtle, and often sophisticated, business logic code that's required for applications to function. While deterministic code-generation systems can roll out the architecture, infrstructure and boilerplate for our application's design, the coding agents "colour in between the lines" resulting in end-to-end working sofware - massively accelerating feature development and related coding tasks.
+Intent Architect now has two distinct contexts for agentic work: `modeling` and `coding`. Coding agents are built into the Software Factory Execution and provide a foundational mechanism to realize the subtle, and often sophisticated, business logic code that's required for applications to function. While deterministic code-generation systems can roll out the architecture, infrastructure and boilerplate for our application's design, the coding agents "colour in between the lines" resulting in end-to-end working software - massively accelerating feature development and related coding tasks.
 
 ![AI Chat in SF](images/5.0/00/software-factory-ai-chat.png)
 
-A "golden path" of development that we strive to consistenly achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
+A "golden path" of development that we strive to consistently achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
 
 - **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
 
 - **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful context engineering system that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
 
-- **Comprehensive AI Tooling** — supporting the coding agenst is a suite of tools that allow it to to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
+- **Comprehensive AI Tooling** — supporting the coding agents is a suite of tools that allow it to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
 
 - **Support for standard context files** - Intent Architect coding agents have integration support for context files that you and your team are already using (e.g. `CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`, etc.). It will also search in the standard folder structure for Instruction Files and Skills. You can also configure that skills and instructions installed by Intent Architect Modules go into your preferred AI folder (e.g. `.claude`, `.github`, etc.). By default they will be dropped off in the generic `.agents` folder which is respected by most harnesses.
 
@@ -55,7 +55,7 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
     ![Tool-call chips showing reads, creates and updates from an AI chat](images/5.0/00/ai-chat-tool-calls.png)
 
 
-- **Custom Agents** - Custom Agents can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) what tools are availalble to the agent.
+- **Custom Agents** - Custom Agents can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
 
     ![Custom Agents menu in the AI chat](images/5.0/00/custom-agents.png)
 
@@ -63,7 +63,7 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
 
     ![Slash commands list showing available agents and skills](images/5.0/00/slash-commands.png)
 
-- **AI Configuration dialog** - To make it as easy as possible to get value out Intent Architect's AI capabilities we created an AI configuration dialog that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the compatible providers and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](https://fix-this.com) and how to configure [MCP Servers](https://fix-this.com) that agents in Intent Architect can use.
+- **AI Configuration dialog** - To make it as easy as possible to get value out of Intent Architect's AI capabilities we created an AI configuration dialog that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the compatible providers and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](xref:tools.mcp-server) and how to configure [MCP Servers](https://fix-this.com) that agents in Intent Architect can use.
 
     ![AI Configuration dialog with provider API keys](images/5.0/00/ai-configuration-dialog.png)
 
@@ -73,7 +73,7 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
 
 ## MCP Server (Intent Architect as MCP host)
 
-Intent Architect now exposes itself as an MCP server with a substantial tool suite which allows external agents to "drive" Intent Architect to meet the user's requirements. We considered this a critical capability to include as part of this release since AI tools like Claude Code and Copilot could create friction when editing code that Intent Architect is managing - something we became accutely aware of through our own usage and user feedback. The "Intent MCP" server solves this problem very effectively, giving external agents all the power they need to update the designs in Intent Architect.
+Intent Architect now exposes itself as an MCP server with a substantial tool suite which allows external agents to "drive" Intent Architect to meet the user's requirements. We considered this a critical capability to include as part of this release since AI tools like Claude Code and Copilot could create friction when editing code that Intent Architect is managing - something we became acutely aware of through our own usage and user feedback. The "Intent MCP" server solves this problem very effectively, giving external agents all the power they need to update the designs in Intent Architect.
 
 ![Intent MCP configuration tab in the AI Configuration dialog](images/5.0/00/mcp-server-config.png)
 
@@ -85,22 +85,22 @@ TODO: @Jon, maybe you want to add some additional context here?
 
 ## Software Factory Capability Enhancement
 
-In addtion to the integration of AI coding agents with the Software Factory Execution, a significant revamp of the software factory UI and capabilities has been added. The layout has been restructured to optimize the available real-estate to maximize the space available to coding diffs and the AI conversations. This includes adding top-level controls and status indicators to the toolbar, and a left-hand sidebar with tabs to the fundamental view and some new ones (in order from top to bottom):
+In addition to the integration of AI coding agents with the Software Factory Execution, a significant revamp of the software factory UI and capabilities has been added. The layout has been restructured to optimize the available real-estate and maximize the space available to coding diffs and AI conversations. This includes adding top-level controls and status indicators to the toolbar, and a left-hand sidebar with tabs to the fundamental view and some new ones (in order from top to bottom):
 
 - **Execution Output** - A window into the Software Factory Execution process that powers the deterministic code generation systems.
 - **Changes** - The staged file changes awaiting the user's confirmation before being applied to the underlying codebase. Switch to this tab with the `ctrl + shift + c` shortcut.
 - **Codebase Explorer** - A new view of the entire codebase rooted at the Output Location of the application. Changes will also be shown here. Switch to this tab with the `ctrl + shift + e` shortcut.
-- **Customizations** - A list of all cumstomizations / deviations and their approval status. Switch to this tab with the `ctrl + shift + d` shortcut.
-- **Terminal** - This new tab allows the user to create new terminal processes (e.g. Powershell on windows) and view the status of task-created terminal processes. See more information on the [Software Factory Tasks and the Terminal](https://fix-this.com). Switch to this tab with the `ctrl + shift + t` shortcut.
+- **Customizations** - A list of all customizations / deviations and their approval status. Switch to this tab with the `ctrl + shift + d` shortcut.
+- **Terminal** - This new tab allows the user to create new terminal processes (e.g. PowerShell on Windows) and view the status of task-created terminal processes. See more information on the [Software Factory Tasks and the Terminal](https://fix-this.com). Switch to this tab with the `ctrl + shift + t` shortcut.
 
 ![Software Factory layout showing the new sidebar tabs and AI assistant](images/5.0/00/software-factory-ui.png)
 
-Several other enhancements and new capabilties have been added to the Software Factory Execution. Some of the these are listed below:
+Several other enhancements and new capabilities have been added to the Software Factory Execution. Some of these are listed below:
 
 - **Apply / Undo** - Users can undo applied files during the same Software Factory Execution run.
-- **Per file Apply** - Individual files can be applied (and undone) one at a time (`ctrl + shift + y` to apply on the selected file. `ctrl + shift + z` to undo). A context meno on folders also exists for bulk applying at the folder level.
+- **Per file Apply** - Individual files can be applied (and undone) one at a time (`ctrl + shift + y` to apply on the selected file. `ctrl + shift + z` to undo). A context menu on folders also exists for bulk applying at the folder level.
 - **View in Designer Option** - A new context menu option which allows the user to navigate from code back to the metadata model in the designer that was responsible for generating that file.
-- **Create AI Taks** - Another new context menu option which allows the user to create a new AI Task with the selected file(s) attached.
+- **Create AI Task** - Another new context menu option which allows the user to create a new AI Task with the selected file(s) attached.
 
     ![Codebase Explorer context menu with Create AI Task and View in Designer](images/5.0/00/software-factory-context-menu.png)
 
@@ -110,8 +110,8 @@ Several other enhancements and new capabilties have been added to the Software F
 
 Viewport tabs can now be popped out into independent windows:
 
-- **"Move to New Window"** - Will pop out the current viewport tab into it's own window. This move the in-memory view into a new window which means any unsaved changes will not be lost.
-- **"Copy into New Window"** - Will load up a new copy of the viewport tab. This will not load unsave changes. Also note that saving one tab will cause the other to request to be reloaded.
+- **"Move to New Window"** - Will pop out the current viewport tab into its own window. This moves the in-memory view into a new window which means any unsaved changes will not be lost.
+- **"Copy into New Window"** - Will load up a new copy of the viewport tab. This will not load unsaved changes. Also note that saving one tab will cause the other to request to be reloaded.
 
 ![Tab right-click menu with Move to New Window and Copy into New Window](images/5.0/00/popout-tabs.png)
 
@@ -137,7 +137,7 @@ _Access this file directly inside of Intent Architect by clicking on the `cog` i
 ## Improvements in the Designers
 
 - **View Code context menu option** alongside the Open in IDE on elements - jumps directly to the code in the Software Factory. Does not require the Software Factory to start up completely.
-- **Filtering performance** has been imporoved across all tree-views.
+- **Filtering performance** has been improved across all tree-views.
 - **Filtering highlights matches** across all tree-views.
 - **Suggestions added to context menu** for elements and associations.
 - **Newly-added (unsaved) elements** indicated with a subtle faded green background; modified/dirty stay yellow.
