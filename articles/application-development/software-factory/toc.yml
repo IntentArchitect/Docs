@@ -12,5 +12,8 @@ items:
   - name: About Template Output targeting
     href: about-template-output-targeting/about-template-output-targeting.md
 
+  - name: Terminal & Tasks
+    href: terminal-and-tasks/index.md
+
   - name: Troubleshooting errors
     href: troubleshooting-software-factory-errors/troubleshooting-software-factory-errors.md

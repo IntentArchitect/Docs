@@ -18,8 +18,8 @@ items:
   - name: Application development
     href: application-development/toc.yml
 
-  - name: AI
-    href: ai/toc.yml
+  - name: Integrated AI
+    href: integrated-ai/toc.yml
     topicUid: ai.overview
 
   - name: Module building
