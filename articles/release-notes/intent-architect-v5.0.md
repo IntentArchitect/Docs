@@ -24,11 +24,11 @@ A "golden path" of development that we strive to consistently achieve is one whe
 
 - **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
 
-- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful context engineering system that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
+- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful [context engineering system](xref:ai.context-management) that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
 
-- **Comprehensive AI Tooling** — supporting the coding agents is a suite of tools that allow it to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
+- **Comprehensive AI Tooling** — supporting the coding agents is a [suite of tools](xref:ai.tooling) that allow it to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
 
-- **Support for standard context files** - Intent Architect coding agents have integration support for context files that you and your team are already using (e.g. `CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`, etc.). It will also search in the standard folder structure for Instruction Files and Skills. You can also configure that skills and instructions installed by Intent Architect Modules go into your preferred AI folder (e.g. `.claude`, `.github`, etc.). By default they will be dropped off in the generic `.agents` folder which is respected by most harnesses.
+- **Support for standard context files** - Intent Architect coding agents have integration support for context files that you and your team are already using (e.g. `CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`, etc.). It will also search in the standard folder structure for [Instruction Files](xref:ai.context-management#2-instruction-files) and [Skills](xref:ai.context-management#3-skills). You can also configure that skills and instructions installed by Intent Architect Modules go into your preferred AI folder (e.g. `.claude`, `.github`, etc.). By default they will be dropped off in the generic `.agents` folder which is respected by most harnesses.
 
 ---
 
@@ -55,19 +55,19 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
     ![Tool-call chips showing reads, creates and updates from an AI chat](images/5.0/00/ai-chat-tool-calls.png)
 
 
-- **Custom Agents** - Custom Agents can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
+- **Custom Agents** - [Custom Agents](xref:ai.context-management#1-agent-definitions-agentmd) can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
 
     ![Custom Agents menu in the AI chat](images/5.0/00/custom-agents.png)
 
-- **Slash Commands** - Standard to most AI development harnesses in the industry, Intent Architect offers slash command functionality. As part of this release, it offers agent switching and [skills](https://fix-this.com) invocation.
+- **Slash Commands** - Standard to most AI development harnesses in the industry, Intent Architect offers slash command functionality. As part of this release, it offers agent switching and [skills](xref:ai.context-management#3-skills) invocation.
 
     ![Slash commands list showing available agents and skills](images/5.0/00/slash-commands.png)
 
-- **AI Configuration dialog** - To make it as easy as possible to get value out of Intent Architect's AI capabilities we created an AI configuration dialog that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the compatible providers and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](xref:tools.mcp-server) and how to configure [MCP Servers](https://fix-this.com) that agents in Intent Architect can use.
+- **AI Configuration dialog** - To make it as easy as possible to get value out of Intent Architect's AI capabilities we created an [AI configuration dialog](xref:ai.configuration) that can be launched by clicking on the `cog` icon button in the AI Assistant toolbar. This dialog lists the [compatible providers](xref:ai.configuration#1-ai-providers) and makes it easy to provide API keys to integrate with your account. It also provides details on our [Intent MCP](xref:ai.configuration#2-intent-mcp) and how to configure [MCP Servers](xref:ai.configuration#3-mcp-servers) that agents in Intent Architect can use.
 
     ![AI Configuration dialog with provider API keys](images/5.0/00/ai-configuration-dialog.png)
 
-- **Plan mode rebuilt** - Version 4.6 offered a plan mode which we felt was too difficult to control and wasn't on par with other modern planning features. We therefore decided to rebuild the planning mode from scratch, adding critical tools like "Ask User Question", "Implement Plan" and "Update Todos" to help LLM perform accurately for the user. Plans are now presented as markdown files that the user can preview and edit inside of an Intent Architect tab.
+- **Plan mode rebuilt** - Version 4.6 offered a [plan mode](xref:ai.built-in-agents#plan) which we felt was too difficult to control and wasn't on par with other modern planning features. We therefore decided to rebuild the planning mode from scratch, adding critical tools like "Ask User Question", "Implement Plan" and "Update Todos" to help LLM perform accurately for the user. Plans are now presented as markdown files that the user can preview and edit inside of an Intent Architect tab.
 
 ---
 
@@ -77,7 +77,7 @@ Intent Architect now exposes itself as an MCP server with a substantial tool sui
 
 ![Intent MCP configuration tab in the AI Configuration dialog](images/5.0/00/mcp-server-config.png)
 
-_Details on how to get set up with the Intent MCP can be found in the AI Configuration dialog._
+_Details on how to get set up with the [Intent MCP](xref:ai.configuration#2-intent-mcp) can be found in the AI Configuration dialog. For client-by-client setup snippets (Claude Code, OpenAI Codex, Copilot, etc.), see the [Intent Architect MCP Server](xref:tools.mcp-server) reference._
 
 TODO: @Jon, maybe you want to add some additional context here?
 
