@@ -5,11 +5,11 @@ items:
   - name: AI Configuration
     topicUid: ai.configuration
 
-  - name: Built-in Agents
-    topicUid: ai.built-in-agents
-
   - name: Agent Context Loading
     topicUid: ai.context-management
+    
+  - name: Built-in Agents
+    topicUid: ai.built-in-agents
 
   - name: Custom Agents
     topicUid: ai.custom-agents
