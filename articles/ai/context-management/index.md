@@ -25,7 +25,7 @@ The fastest way to understand context loading is to see the folder layouts for e
 
 ### Modeling layout
 
-A modeling agent run in the context of a solution and will read context files from the 
+A modeling agent running in the context of a solution at `~/MySolution/` will read context files in the following structure:
 
 ```
 ~/MySolution/intent
@@ -197,7 +197,7 @@ There are three ways a skill becomes active for a turn:
 
 1. **Manifest only** — every discovered skill is listed (name + description) in the system prompt, telling the agent it *could* request the skill.
 2. **`use_skill` tool call** — the agent calls the always-available `use_skill` tool with the skill's name. The skill body (i.e. the `SKILL.md` file excluding its frontmatter) is loaded and included in the next turn.
-3. **Slash command** — if the user's chat message contains `/skill-name` (matching a discovered skill), that skill is auto-loaded for the turn  — no tool call needed.
+3. **Slash command** — if the user's chat message contains `/skill-name` (matching a discovered skill), that skill is auto-loaded for the turn — no tool call needed.
 
 ---
 
