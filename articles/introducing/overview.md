@@ -179,11 +179,11 @@ html[data-theme="dark"] .ia-overview .card {
 
 # Introduction to Intent Architect
 
-Intent Architect is the first architecture-centric code automation platform for professional .NET developers.
+Intent Architect is the first architecture-centric AI code automation platform for .NET developers.
 
-It’s the platform leading .NET teams use to deliver up to 10X faster, standardize flawlessly at scale, and maintain systems with ease – using their preferred tech stack, IDE and LLM.
+It’s the platform that delivers AI-driven development speed with built-in guardrails and uncompromised quality, at any scale.
 
-It combines cutting-edge code generation systems, such as Pattern Reuse and your favorite LLM, to continuously generate clean, production-ready code driven by your architectural intention and approved design — so your code stays standardized, consistent, and easy to maintain.
+It brings design and architectural visibility to your software development processes and unlocks a single cohesive workflow to go from specification to production-ready code up to 10X faster. Architectural adherence enforced by default. Technical and cognitive debt minimized by design.
 
 ![Overview](images/ia-overview.png)
 
