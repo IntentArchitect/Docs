@@ -55,7 +55,7 @@ Beyond the visual enhancements and "face lift", the new AI chat systems come wit
     ![Tool-call chips showing reads, creates and updates from an AI chat](images/5.0/00/ai-chat-tool-calls.png)
 
 
-- **Custom Agents** - [Custom Agents](xref:ai.context-management#1-agent-definitions-agentmd) can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
+- **Custom Agents** - [Custom Agents](xref:ai.custom-agents) can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
 
     ![Custom Agents menu in the AI chat](images/5.0/00/custom-agents.png)
 
@@ -79,7 +79,6 @@ Intent Architect now exposes itself as an MCP server with a substantial tool sui
 
 _Details on how to get set up with the [Intent MCP](xref:ai.configuration#2-intent-mcp) can be found in the AI Configuration dialog. For client-by-client setup snippets (Claude Code, OpenAI Codex, Copilot, etc.), see the [Intent Architect MCP Server](xref:tools.mcp-server) reference._
 
-TODO: @Jon, maybe you want to add some additional context here?
 
 ---
 
@@ -91,7 +90,7 @@ In addition to the integration of AI coding agents with the Software Factory Exe
 - **Changes** - The staged file changes awaiting the user's confirmation before being applied to the underlying codebase. Switch to this tab with the `ctrl + shift + c` shortcut.
 - **Codebase Explorer** - A new view of the entire codebase rooted at the Output Location of the application. Changes will also be shown here. Switch to this tab with the `ctrl + shift + e` shortcut.
 - **Customizations** - A list of all customizations / deviations and their approval status. Switch to this tab with the `ctrl + shift + d` shortcut.
-- **Terminal** - This new tab allows the user to create new terminal processes (e.g. PowerShell on Windows) and view the status of task-created terminal processes. See more information on the [Software Factory Tasks and the Terminal](https://fix-this.com). Switch to this tab with the `ctrl + shift + t` shortcut.
+- **Terminal** - This new tab allows the user to create new terminal processes (e.g. PowerShell on Windows) and view the status of task-created terminal processes. See more information on the [Software Factory Tasks and the Terminal](xref:application-development.software-factory.terminal-and-tasks). Switch to this tab with the `ctrl + shift + t` shortcut.
 
 ![Software Factory layout showing the new sidebar tabs and AI assistant](images/5.0/00/software-factory-ui.png)
 
