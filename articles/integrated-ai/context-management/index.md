@@ -27,7 +27,7 @@ The fastest way to understand context loading is to see the folder layouts for e
 A modeling agent running in the context of a solution at `~/MySolution/` will read context files in the following structure:
 
 ```
-~/MySolution/intent
+~/MySolution/intent/
 └── .agents/
 │   ├── AGENTS.md                       ← always loaded into the system prompt
 │   ├── INTENT.md                       ← always loaded into the system prompt
