@@ -5,12 +5,12 @@ uid: ai.built-in-agents
 
 Intent ships with four agents in the AI chat dropdown. Each one is purpose-built for a particular kind of work - read the table to pick the right one, then read the section below for details.
 
-| Agent       | Context  | What it does                                                              | When to pick it                                                       |
-| ----------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Ask**     | modeling | Read-only Q&A over the model and codebase                                 | "Explain this", "where is X used", "how does Y work"                  |
+| Agent       | Context  | What it does                                                                 | When to pick it                                                       |
+| ----------- | -------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Ask**     | modeling | Read-only Q&A over the model and codebase                                    | "Explain this", "where is X used", "how does Y work"                  |
 | **Plan**    | modeling | Iteratively writes a plan file, asks clarifying questions, requests approval | Larger or ambiguous changes you want reviewed before any work happens |
-| **Agent**   | modeling | Designs and modifies the model directly via designer tools                | Quick model edits where the change is clear                           |
-| **Coding**  | coding   | Reads, writes, patches, and deletes source files                          | Hand-written code changes inside an application's output              |
+| **Agent**   | modeling | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
+| **Coding**  | coding   | Reads, writes, patches, and deletes source files                             | Hand-written code changes inside an application's output              |
 
 > The first three are **modeling** agents - they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](../context-management/index.md) for what that distinction means in practice.
 

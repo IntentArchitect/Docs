@@ -26,7 +26,7 @@ The fastest way to understand context loading is to see the folder layouts for e
 
 A modeling agent running in the context of a solution at `~/MySolution/` will read context files in the following structure:
 
-```
+```text
 ~/MySolution/intent/
 └── .agents/
 │   ├── AGENTS.md                       ← always loaded into the system prompt
@@ -46,7 +46,7 @@ A modeling agent running in the context of a solution at `~/MySolution/` will re
 
 A coding agent for the same solution, with the application's output at `~/MySolution/MyApp/`, will read as follows:
 
-```
+```text
 ~/MySolution/MyApp/
 ├── CLAUDE.md                           ← always loaded
 ├── AGENTS.md                           ← always loaded
@@ -81,7 +81,7 @@ For the full file format, frontmatter reference, tool-selection guidance, and wo
 
 Plain markdown files (with optional YAML frontmatter) that get injected into every turn of the agent's system prompt under an `<instructions>` block.
 
-### Modeling context - under `{solutionFolder}/.agents/`
+### Modeling context - under `<solutionFolder>.agents/`
 
 | Path                  | Glob              |
 | --------------------- | ----------------- |
@@ -118,7 +118,7 @@ applyTo:
 | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | `description`                                  | Human-readable summary                                                 |
 | `alwaysApply`                                  | If `true`, included regardless of patterns or attachments              |
-| `applyTo` / `appliesTo` / `globs` / `paths`    | Glob list - only included when a chat attachment matches one of these   |
+| `applyTo` / `appliesTo` / `globs` / `paths`    | Glob list - only included when a chat attachment matches one of these  |
 
 **Glob behavior:**
 
@@ -140,7 +140,7 @@ applyTo:
 
 Skills are bundles of focused, reusable instructions invoked on demand - for example, "use the `database-migration` skill to plan this change." Each skill lives in its own folder containing a `SKILL.md`:
 
-```
+```text
 .agents/skills/
 └── database-migration/
     ├── SKILL.md          ← required, with frontmatter
@@ -163,7 +163,7 @@ The markdown body is the instruction content that gets loaded when the skill is 
 | Context    | Folders searched (first hit per skill `name` wins)                                          |
 | ---------- | ------------------------------------------------------------------------------------------- |
 | `modeling` | `{solutionFolder}/.agents/skills/`                                                          |
-| `coding`   | `{appOutputFolder}/.claude/skills/`, `.github/skills/`, `.agents/skills/`                    |
+| `coding`   | `{appOutputFolder}/.claude/skills/`, `.github/skills/`, `.agents/skills/`                   |
 
 If the same skill name exists in multiple folders, the first one wins - so a skill in `.claude/skills/foo/` shadows one in `.agents/skills/foo/` for coding agents.
 
