@@ -53,6 +53,6 @@ Intent Architect uses [Font Awesome](https://fontawesome.com/) and enables use o
 
 ### Boxed Character
 
-This makes basic dynamic icons which are a letter with background colour of your choice:
+This makes basic dynamic icons which are a letter with background color of your choice:
 
 ![Boxed Character Icon Type](images/icon-type-boxed-character.png)

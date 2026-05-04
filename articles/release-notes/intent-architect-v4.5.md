@@ -252,7 +252,7 @@ This version of Intent Architect was rolled back due to an error which would man
 - Feature: Added `Package as Module...` option to applications in the Solution Explorer. This option opens a dialog which the user can use to package the selected application's metadata into a Module for sharing with other application (e.g. across repositories).
 - Improvement: Performance optimizations for Selectable Tree-View.
 - Improvement: Dynamic Form support for layout using `columns` field (experimental)
-- Improvement: Added `hintType` to Dynamic Form Field configurations to control the colour and icon of the hint.
+- Improvement: Added `hintType` to Dynamic Form Field configurations to control the color and icon of the hint.
 - Improvement: Added `alert` field type to Dynamic Forms.
 - Improvement: Loading spinner will no show in tree-views when expanding to display large numbers (>1000) of child elements
 

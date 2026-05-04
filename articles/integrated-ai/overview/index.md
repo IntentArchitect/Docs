@@ -11,7 +11,7 @@ Intent's AI agents operate in one of two **contexts** - **modeling** (working ag
 
 ## Deterministic generation + AI coding agents
 
-To achieve this, Intent Architect deploys both deterministic code generation and generative AI. Deterministic code generation rolls out the architecture, infrastructure, and boilerplate that flow from your design. AI coding agents *"colour in between the lines"* - implementing the business logic, edge cases, and bespoke behaviour that turn a scaffolded application into end-to-end working software. The two systems work perfectly together inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) with the AI coding agents leveraging:
+To achieve this, Intent Architect deploys both deterministic code generation and generative AI. Deterministic code generation rolls out the architecture, infrastructure, and boilerplate that flow from your design. AI coding agents *"color in between the lines"* - implementing the business logic, edge cases, and bespoke behaviour that turn a scaffolded application into end-to-end working software. The two systems work perfectly together inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) with the AI coding agents leveraging:
 
 - **Virtual Codebase** which allows the AI agents to find and inspect files that have not yet been applied to the codebase.
 - **[Context engineering](xref:ai.context-management)** ensures every agent turn is informed by the model, your instruction files, and the relevant slice of the codebase - so output conforms to your application's architecture, standards, and structure.
@@ -36,7 +36,7 @@ On the **modeling** side, AI agents read and modify Intent's designers - the sou
 - **[A full agent toolbox](xref:ai.tooling)** - file ops, designer/model edits, build & test, plan-mode tools, and conversation primitives.
 - **[Customisation options](xref:ai.context-management)** - author your own `.agent.md` files, drop in `SKILL.md` skills, and write project-wide instruction files to shape every turn.
 - **Attachments** - drag-and-drop, paste, or open PRDs, screenshots, code files, and model elements directly into the chat as conversation context.
-- **Tool-call transparency** - every read, create, update, and delete the agent performs is shown as a colour-coded interactive chip you can click to navigate straight to the affected element.
+- **Tool-call transparency** - every read, create, update, and delete the agent performs is shown as a color-coded interactive chip you can click to navigate straight to the affected element.
 
 ---
 

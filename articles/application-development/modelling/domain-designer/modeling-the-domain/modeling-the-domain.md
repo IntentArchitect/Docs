@@ -134,7 +134,7 @@ Entity `Association`s are modeled using a UML style visualization, and define th
 Visually the `Association`s communicates the following:
 
 -**Multiplicity**, the numbers above the `Association` indicate the multiplicity, 1 to Many (1 -*) in the example above.
--**Ownership**, denoted by the diamond shape, its colour indicates the type of ownership.
+-**Ownership**, denoted by the diamond shape, its color indicates the type of ownership.
 -**Navigability**, arrows on the line show navigability from one entity to another, `Order` will have a `OrderItems` property.
 
 ### Multiplicity

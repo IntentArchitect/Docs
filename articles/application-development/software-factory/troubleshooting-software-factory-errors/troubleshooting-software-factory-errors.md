@@ -35,7 +35,7 @@ In this case we can click the triangle which will open the mapping screen:
 
 ![Mapping screen with error](images/mapping-screen-with-error.png)
 
-We can see from the error that the mapping target could not be found, in this example it is because the `FavouriteColour` attribute on the `Customer` class was deleted. A solution here is to delete the field:
+We can see from the error that the mapping target could not be found, in this example it is because the `FavouriteColor` attribute on the `Customer` class was deleted. A solution here is to delete the field:
 
 ![Delete field context menu option](images/delete-field.png)
 
@@ -47,7 +47,7 @@ After doing so we can see by the red triangle above the designer tree view that 
 
 The first error on the `[update]` mapping under the `UpdateCustomerCommand` can be fixed in the same way as the `[create]` mapping above.
 
-For the `FavouriteColour` field under `CustomerDto`, the field can simply be deleted.
+For the `FavouriteColor` field under `CustomerDto`, the field can simply be deleted.
 
 In this example after doing the above actions the red triangle is now gone and we can see there are no more errors:
 

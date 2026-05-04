@@ -142,7 +142,7 @@ For example, the diagram below illustrates an association that is both behind on
 
 ### Configuration of visual elements to use JavaScript functions
 
-Visual settings for elements and associations can now be configured using JavaScript functions and therefore based on metadata available in their context. For example, we can now specify that the colour of an element's visual `[draw-path]` can be based whether a specific stereotype has been applied to that element. Note the Fill Color setting in the following screenshot.
+Visual settings for elements and associations can now be configured using JavaScript functions and therefore based on metadata available in their context. For example, we can now specify that the color of an element's visual `[draw-path]` can be based whether a specific stereotype has been applied to that element. Note the Fill Color setting in the following screenshot.
 
 ![element-visual-config-properties](images/3.2.0/element-visual-config-properties.png)
 
