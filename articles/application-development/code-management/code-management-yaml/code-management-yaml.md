@@ -35,7 +35,7 @@ Instructions are embedded directly in the YAML as comments (e.g., `# IntentIgnor
 
 ## File-Level Management Modes
 
-Due to YAML’s structure, placing `# IntentIgnore` at the top of a file creates ambiguity — does it apply to the whole file or just the first node?
+Due to YAML’s structure, placing `# IntentIgnore` at the top of a file creates ambiguity - does it apply to the whole file or just the first node?
 
 To resolve this, **file-level** instructions have been introduced:
 

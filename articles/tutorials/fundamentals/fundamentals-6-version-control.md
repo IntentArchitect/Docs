@@ -3,7 +3,7 @@ uid: tutorials.fundamentals-6-version-control
 ---
 # Fundamentals #6: Version Control with Intent Architect
 
-Learn how to manage your codebase and Intent Architect metadata in a single repository — and keep them in sync as changes are made.{: .lead }
+Learn how to manage your codebase and Intent Architect metadata in a single repository - and keep them in sync as changes are made.{: .lead }
 
 <div class="video-16x9"><iframe name="lessonVideo" src="https://www.youtube.com/embed/PBaqE1tejT8?rel=0" title="Video" allowfullscreen></iframe></div>
 

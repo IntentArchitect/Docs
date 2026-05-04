@@ -2,7 +2,7 @@
 
 Welcome to the December edition of What’s New in Intent Architect.
 
-We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular —a long-term goal we are excited to achieve. The initial release includes application setup, UI modeling and AI generated views.
+We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular -a long-term goal we are excited to achieve. The initial release includes application setup, UI modeling and AI generated views.
 
 - Highlights
   - **[Angular UI Automation](#angular-ui-automation)** – Define your pages and navigation, and let Intent Architect’s deterministic code generation, combined with AI, generate an Angular application.

@@ -37,7 +37,7 @@ When configuring the `Secured` stereotype:
 
 - **Multiple Roles**: If multiple roles are specified, the authorization check will succeed if the user belongs to any one of the listed roles. This defines a logical OR condition across the roles.
 
-- **Multiple Policies**: If multiple policies are required, the user must satisfy all specified policies for authorization to succeed. This defines a logical AND condition across the policies. To enforce multiple policies, apply the Secured stereotype multiple times—each instance specifying a different policy.
+- **Multiple Policies**: If multiple policies are required, the user must satisfy all specified policies for authorization to succeed. This defines a logical AND condition across the policies. To enforce multiple policies, apply the Secured stereotype multiple times-each instance specifying a different policy.
 
 #### Unsecured
 

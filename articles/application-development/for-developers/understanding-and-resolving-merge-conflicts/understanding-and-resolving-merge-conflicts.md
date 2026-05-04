@@ -31,7 +31,7 @@ Now you want to make a change to the `Customer`. In this example, an **IsActive*
 
 ![Modelled Customer added IsActive](./images/added-is-active.png)
 
-Now let’s assume another developer made a different change—adding an `Email` attribute to the `Customer`—and pushed it into the `development` branch.
+Now let’s assume another developer made a different change-adding an `Email` attribute to the `Customer`-and pushed it into the `development` branch.
 
 ![Modelled Customer added Email](./images/added-email.png)
 
@@ -53,7 +53,7 @@ Let’s look at `Customer.cs` as an example.
 This is a standard merge conflict that developers are accustomed to resolving. In this case, the resolution is simply to add both properties to the `Customer` class.
 
 > [!NOTE]
-> If these codebase files are **fully automated**—i.e. the code is fully generated with no customizations—it doesn’t really matter how you resolve these conflicts, as the files will be regenerated once you’ve resolved the metadata conflicts and re-run the Software Factory.
+> If these codebase files are **fully automated**-i.e. the code is fully generated with no customizations-it doesn’t really matter how you resolve these conflicts, as the files will be regenerated once you’ve resolved the metadata conflicts and re-run the Software Factory.
 
 ### Merging Intent Architect Metadata Files
 
@@ -83,7 +83,7 @@ Visually, we can locate this in Intent Architect as follows:
 
 ![Understanding the file name visually in Intent Architect](./images/understanding-filename-visually.png)
 
-In this example, you already know the nature of the conflict because the scenario was explained. However, even without that context, you could reasonably infer—from the filename alone—that both you and another developer made changes to the `Customer` entity in the `Domain` designer of the `SampleApplication` application.
+In this example, you already know the nature of the conflict because the scenario was explained. However, even without that context, you could reasonably infer-from the filename alone-that both you and another developer made changes to the `Customer` entity in the `Domain` designer of the `SampleApplication` application.
 
 Looking at the actual merge conflict, we would see the following:
 
@@ -136,7 +136,7 @@ Now that we understand what’s going on in the file, let’s revisit the merge 
 
 ![Customer Metadata Merge](./images/customer-metadata-merge.png)
 
-With a better understanding of the file, it’s clear that two attributes were added: `IsActive` (added by you) and `Email` (added by another developer), each attribute is encapsulated in a `<childElement>...</childElement>` XML element so what we need is both versions of the `<childElement>`s and their nested elements. Now you’re well positioned to resolve the conflict—by keeping both attributes.
+With a better understanding of the file, it’s clear that two attributes were added: `IsActive` (added by you) and `Email` (added by another developer), each attribute is encapsulated in a `<childElement>...</childElement>` XML element so what we need is both versions of the `<childElement>`s and their nested elements. Now you’re well positioned to resolve the conflict-by keeping both attributes.
 
 ### After Resolution, Run the Software Factory
 

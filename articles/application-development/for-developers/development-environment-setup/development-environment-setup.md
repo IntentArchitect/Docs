@@ -20,7 +20,7 @@ For more information on environmental factors that can slow down Software Factor
 
 ## Default Diff Tool
 
-Reviewing changes in Intent Architect is done through a third-party diff tool. We recommend using [Visual Studio Code](https://code.visualstudio.com/download) because it is lightweight, fast, and works directly with the underlying files—allowing for interactive editing in diff windows.
+Reviewing changes in Intent Architect is done through a third-party diff tool. We recommend using [Visual Studio Code](https://code.visualstudio.com/download) because it is lightweight, fast, and works directly with the underlying files-allowing for interactive editing in diff windows.
 
 ## User Settings
 

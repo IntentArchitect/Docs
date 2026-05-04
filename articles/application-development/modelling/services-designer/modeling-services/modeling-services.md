@@ -484,7 +484,7 @@ Suppose you are modeling a `Query` named `GetCustomersQuery`. This query would l
 1. Query the database to get a list of `Customer`s.
 2. Transform the `Customer`s to `CustomerDto`s and return the `DTO`s.
 
-The `Query Entity Action` focuses solely on step 1 — querying the database. It is unrelated to step 2, which involves transforming the data into a different return type.
+The `Query Entity Action` focuses solely on step 1 - querying the database. It is unrelated to step 2, which involves transforming the data into a different return type.
 
 When using `Query Entity Action` alongside our **CRUD** modules, these modules employ heuristic algorithms to handle the wiring for step 2 automatically.
 

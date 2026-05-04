@@ -149,7 +149,7 @@ You can now use these external services in the diagrams of the UI application.
 ## Implement Your View with AI
 
 > [!TIP]  
-> You will need to install the `Intent.AI.Blazor` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed — including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
+> You will need to install the `Intent.AI.Blazor` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/articles/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed - including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
 
 Once you are satisfied with your **View Model** design, you can use the Blazor AI accelerator to have AI generate the remaining implementation details.
 
@@ -161,7 +161,7 @@ Once you are satisfied with your **View Model** design, you can use the Blazor A
 1. Make sure you have run and applied the **Software Factory**.  
 2. Right-click on the `Component` → **Implement with AI**.  
 3. *(Optional)* Adjust the settings in the AI Prompt dialog.  
-4. Click **Done** — IA will generate and submit a prompt to the LLM (this may take a little while).  
+4. Click **Done** - IA will generate and submit a prompt to the LLM (this may take a little while).  
 5. Review the AI's proposed changes as a code diff.  
 6. Click **Apply** to accept the changes.  
 
@@ -281,7 +281,7 @@ Implications/considerations:
 
 ## Blazor AI Prompt Augment and Customization Through Templates
 
-The Blazor AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for MudBlazor, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it — the choice is yours.
+The Blazor AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for MudBlazor, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it - the choice is yours.
 
 Look in the following folder within your Intent Architect Solution:
 

@@ -3,7 +3,7 @@ uid: ai.built-in-agents
 ---
 # Built-in Agents
 
-Intent ships with four agents in the AI chat dropdown. Each one is purpose-built for a particular kind of work — read the table to pick the right one, then read the section below for details.
+Intent ships with four agents in the AI chat dropdown. Each one is purpose-built for a particular kind of work - read the table to pick the right one, then read the section below for details.
 
 | Agent       | Context  | What it does                                                              | When to pick it                                                       |
 | ----------- | -------- | ------------------------------------------------------------------------- | --------------------------------------------------------------------- |
@@ -12,7 +12,7 @@ Intent ships with four agents in the AI chat dropdown. Each one is purpose-built
 | **Agent**   | modeling | Designs and modifies the model directly via designer tools                | Quick model edits where the change is clear                           |
 | **Coding**  | coding   | Reads, writes, patches, and deletes source files                          | Hand-written code changes inside an application's output              |
 
-> The first three are **modeling** agents — they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](../context-management/index.md) for what that distinction means in practice.
+> The first three are **modeling** agents - they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](../context-management/index.md) for what that distinction means in practice.
 
 ---
 
@@ -39,7 +39,7 @@ Plan mode is for changes large enough to want a written plan before anyone touch
 
 ## Agent
 
-The default modeling agent for direct edits. It applies changes through designer tools — never by editing generated code by hand.
+The default modeling agent for direct edits. It applies changes through designer tools - never by editing generated code by hand.
 
 - **Use when:** the change is clear and you want to skip the planning step.
 - **Workflow:** Analyze → Design → Apply → Verify. It groups related operations into a single batched call where possible, then verifies the designer is rule-clean afterwards.
@@ -50,9 +50,9 @@ The default modeling agent for direct edits. It applies changes through designer
 
 ## Coding
 
-The coding agent works inside an application's output folder — reading, writing, patching, and deleting source files. It runs against the generated codebase, not the designer model.
+The coding agent works inside an application's output folder - reading, writing, patching, and deleting source files. It runs against the generated codebase, not the designer model.
 
-- **Use when:** you need hand-written code changes that aren't expressed in the model — a custom service implementation, a bug fix in a partial file, a refactor of generated extensions.
+- **Use when:** you need hand-written code changes that aren't expressed in the model - a custom service implementation, a bug fix in a partial file, a refactor of generated extensions.
 - **Behavior:** reads files before modifying them, prefers `patch_file` over full rewrites, preserves existing code style, and only invokes `run_task` / `apply_staged_file_changes` when explicitly asked to fix build/task errors.
 - **Tools:** full file/codebase toolset (`read_file`, `write_file`, `patch_file`, `delete_code_file`, `grep`, `glob`, `list_directory`, `get_project_overview`), plus `run_task`, `apply_staged_file_changes`, and `create_ai_task` for spawning follow-up coding tasks.
 
@@ -68,6 +68,6 @@ You can also add brand-new agents the same way. See [Agent Context Loading](../c
 
 ## See also
 
-- [Agent Context Loading](../context-management/index.md) — where Intent looks for agent definitions, instructions, and skills
-- [Agent Tools](../tooling/index.md) — the tools each agent can be configured with
-- [AI Configuration](../configuration/index.md) — providers, the Intent MCP server, and external MCP servers
+- [Agent Context Loading](../context-management/index.md) - where Intent looks for agent definitions, instructions, and skills
+- [Agent Tools](../tooling/index.md) - the tools each agent can be configured with
+- [AI Configuration](../configuration/index.md) - providers, the Intent MCP server, and external MCP servers

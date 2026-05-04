@@ -19,7 +19,7 @@ Welcome to the October edition of What’s New in Intent Architect.
 
 🔥 The Software Factory now supports hot restarting, reducing processing time by up to 80% after the first execution.
 
-When the Software Factory hot restarts, it no longer tears down the process—this avoids reloading DLLs and allows the CLR’s runtime optimizations to persist between executions.
+When the Software Factory hot restarts, it no longer tears down the process-this avoids reloading DLLs and allows the CLR’s runtime optimizations to persist between executions.
 
 If you aren’t already doing so, simply minimize the Software Factory to keep it alive between runs. Subsequent executions will display the message “Hot Restarting Execution 🔥” at the start of the execution log.
 
@@ -70,7 +70,7 @@ The new **External API Template** streamlines bringing external APIs into your a
 
 ![External API Template](images/external-api-template.png)
 
-When you create an application with this template, all modules required for OpenAPI import are installed and pre-configured — no manual setup needed.
+When you create an application with this template, all modules required for OpenAPI import are installed and pre-configured - no manual setup needed.
 
 ![Imported OpenAPI Document](images/imported-external.png)
 

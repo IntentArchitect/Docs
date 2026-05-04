@@ -3,16 +3,16 @@ uid: ai.context-management
 ---
 # Agent Context Loading
 
-How Intent's AI agents discover the files that shape their behavior — agent definitions, instruction files, and skills — and where each type is loaded from at runtime.
+How Intent's AI agents discover the files that shape their behavior - agent definitions, instruction files, and skills - and where each type is loaded from at runtime.
 
 ## The two contexts: `coding` vs `modeling`
 
 Intent's AI surfaces are split across two contexts:
 
-- **`coding`** — the **AI Coding Assistant** inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), which works against an application's generated source code.
-- **`modeling`** — the **AI Modeling Assistant**, which works against the Intent designers (e.g. Domain, Services, User Interface, etc.).
+- **`coding`** - the **AI Coding Assistant** inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), which works against an application's generated source code.
+- **`modeling`** - the **AI Modeling Assistant**, which works against the Intent designers (e.g. Domain, Services, User Interface, etc.).
 
-Each context has its own root folder for instruction files, skills, and per-context conventions: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its declared context — a modeling agent will never see files in the application's output folder, and vice versa.
+Each context has its own root folder for instruction files, skills, and per-context conventions: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its declared context - a modeling agent will never see files in the application's output folder, and vice versa.
 
 > See [Custom Agents](xref:ai.custom-agents) for how an agent declares which context(s) it appears in.
 
@@ -20,7 +20,7 @@ Each context has its own root folder for instruction files, skills, and per-cont
 
 ## Folder Structure
 
-The fastest way to understand context loading is to see the folder layouts for each context. Everything below is automatic — drop the right files in the right places and they're picked up.
+The fastest way to understand context loading is to see the folder layouts for each context. Everything below is automatic - drop the right files in the right places and they're picked up.
 
 ### Modeling layout
 
@@ -65,7 +65,7 @@ A coding agent for the same solution, with the application's output at `~/MySolu
     └── skills/<skill>/SKILL.md         ← listed for on-demand loading
 ```
 
-These coding-side conventions match the dotfile layouts used by Claude Code, GitHub Copilot, Cursor, and Intent — so existing repo-level guidance keeps working out of the box.
+These coding-side conventions match the dotfile layouts used by Claude Code, GitHub Copilot, Cursor, and Intent - so existing repo-level guidance keeps working out of the box.
 
 ---
 
@@ -81,7 +81,7 @@ For the full file format, frontmatter reference, tool-selection guidance, and wo
 
 Plain markdown files (with optional YAML frontmatter) that get injected into every turn of the agent's system prompt under an `<instructions>` block.
 
-### Modeling context — under `{solutionFolder}/.agents/`
+### Modeling context - under `{solutionFolder}/.agents/`
 
 | Path                  | Glob              |
 | --------------------- | ----------------- |
@@ -89,7 +89,7 @@ Plain markdown files (with optional YAML frontmatter) that get injected into eve
 | `AGENTS.md`           | *(single file)*   |
 | `INTENT.md`           | *(single file)*   |
 
-### Coding context — under the application's output folder
+### Coding context - under the application's output folder
 
 | Path                                  | Glob                  |
 | ------------------------------------- | --------------------- |
@@ -118,13 +118,13 @@ applyTo:
 | ---------------------------------------------- | ---------------------------------------------------------------------- |
 | `description`                                  | Human-readable summary                                                 |
 | `alwaysApply`                                  | If `true`, included regardless of patterns or attachments              |
-| `applyTo` / `appliesTo` / `globs` / `paths`    | Glob list — only included when a chat attachment matches one of these   |
+| `applyTo` / `appliesTo` / `globs` / `paths`    | Glob list - only included when a chat attachment matches one of these   |
 
 **Glob behavior:**
 
-- `**` — any characters, including `/`
-- `*` — any characters except `/`
-- `?` — single character except `/`
+- `**` - any characters, including `/`
+- `*` - any characters except `/`
+- `?` - single character except `/`
 
 **Applicability rules**, in order:
 
@@ -138,7 +138,7 @@ applyTo:
 
 ## 3. Skills
 
-Skills are bundles of focused, reusable instructions invoked on demand — for example, "use the `database-migration` skill to plan this change." Each skill lives in its own folder containing a `SKILL.md`:
+Skills are bundles of focused, reusable instructions invoked on demand - for example, "use the `database-migration` skill to plan this change." Each skill lives in its own folder containing a `SKILL.md`:
 
 ```
 .agents/skills/
@@ -165,15 +165,15 @@ The markdown body is the instruction content that gets loaded when the skill is 
 | `modeling` | `{solutionFolder}/.agents/skills/`                                                          |
 | `coding`   | `{appOutputFolder}/.claude/skills/`, `.github/skills/`, `.agents/skills/`                    |
 
-If the same skill name exists in multiple folders, the first one wins — so a skill in `.claude/skills/foo/` shadows one in `.agents/skills/foo/` for coding agents.
+If the same skill name exists in multiple folders, the first one wins - so a skill in `.claude/skills/foo/` shadows one in `.agents/skills/foo/` for coding agents.
 
 ### How a skill ends up in the prompt
 
 There are three ways a skill becomes active for a turn:
 
-1. **Manifest only** — every discovered skill is listed (name + description) in the system prompt, telling the agent it *could* request the skill.
-2. **`use_skill` tool call** — the agent calls the always-available `use_skill` tool with the skill's name. The skill body (i.e. the `SKILL.md` file excluding its frontmatter) is loaded and included in the next turn.
-3. **Slash command** — if the user's chat message contains `/skill-name` (matching a discovered skill), that skill is auto-loaded for the turn — no tool call needed.
+1. **Manifest only** - every discovered skill is listed (name + description) in the system prompt, telling the agent it *could* request the skill.
+2. **`use_skill` tool call** - the agent calls the always-available `use_skill` tool with the skill's name. The skill body (i.e. the `SKILL.md` file excluding its frontmatter) is loaded and included in the next turn.
+3. **Slash command** - if the user's chat message contains `/skill-name` (matching a discovered skill), that skill is auto-loaded for the turn - no tool call needed.
 
     ![Slash-command picker showing agents and skills available in the AI chat](images/slash-command-picker.png)
 
@@ -181,7 +181,7 @@ There are three ways a skill becomes active for a turn:
 
 ## Summary
 
-- **Modeling files** live under `{solutionFolder}/.agents/` — agent definitions, instructions, skills, and the always-loaded `AGENTS.md`/`INTENT.md`.
+- **Modeling files** live under `{solutionFolder}/.agents/` - agent definitions, instructions, skills, and the always-loaded `AGENTS.md`/`INTENT.md`.
 - **Coding files** live under each application's output folder, using the dotfile conventions of Claude Code, GitHub Copilot, Cursor, and Intent.
 - **Instructions without frontmatter are always loaded.** Use `applyTo` patterns when you want to scope an instruction file to particular file attachments.
 - **Skills are opt-in.** They're advertised in the prompt but only loaded when the agent explicitly requests them or the user invokes them with `/skill-name`.

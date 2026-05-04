@@ -100,7 +100,7 @@ Available from:
 
 The [SQL Server Importer.](https://docs.intentarchitect.com/articles/modules-dotnet/intent-sqlserverimporter/intent-sqlserverimporter.html) now supports a ew option in the *filter file* called `include_dependant_tables`.
 
-When this option is enabled, all qualifying tables specified in the filter — along with their dependent tables (e.g., those with foreign key relationships) — will be automatically imported.
+When this option is enabled, all qualifying tables specified in the filter - along with their dependent tables (e.g., those with foreign key relationships) - will be automatically imported.
 
 An example filter file snippet with dependent table import enabled:
 

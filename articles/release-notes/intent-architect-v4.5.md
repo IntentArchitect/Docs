@@ -481,7 +481,7 @@ The 4.5 beta is available as a side-by-side install, so you can keep your curren
 
 #### Revamped Get Started
 
-The **Get Started** process has been completely re-imagined to simplify the creation of new solutions. Users can now choose from one of the existing **Architecture Templates** or jump straight into one of the [Sample Applications](#samples-and-sample-creation). The new experience includes clearer descriptions, rich visuals, and helpful materials such as screenshots and videos — all aimed at guiding you to select the right architecture for your needs quickly and confidently.
+The **Get Started** process has been completely re-imagined to simplify the creation of new solutions. Users can now choose from one of the existing **Architecture Templates** or jump straight into one of the [Sample Applications](#samples-and-sample-creation). The new experience includes clearer descriptions, rich visuals, and helpful materials such as screenshots and videos - all aimed at guiding you to select the right architecture for your needs quickly and confidently.
 
 The new **Architecture Template** selection screen - easily browse and compare available architecture options with a more visual, intuitive layout:
 
@@ -510,7 +510,7 @@ AI-powered functionality is currently available in the [Intent.AI.AutoImplementa
 
 #### Samples and Sample Creation
 
-The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications — complete with source code.
+The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications - complete with source code.
 
 Sample Selection:
 
@@ -542,7 +542,7 @@ Furthermore, module downloads are now served directly from our CDN's infrastruct
 
 ### Custom User Settings
 
-Modules can now define **User Settings** — configuration values that are specific to an individual user and excluded from source control. This allows sensitive information, such as API keys, to be safely configured within Intent Architect without the risk of being committed to a repository.
+Modules can now define **User Settings** - configuration values that are specific to an individual user and excluded from source control. This allows sensitive information, such as API keys, to be safely configured within Intent Architect without the risk of being committed to a repository.
 
 This new capability is currently utilized by the Intent AI modules to securely store user-specific AI provider details, including API keys:
 

@@ -10,11 +10,11 @@ Intent Architect is the first architecture-centric code automation platform for 
 
 It’s the platform leading .NET teams use to deliver up to 10X faster, standardize flawlessly at scale, and maintain systems with ease – using their preferred tech stack, IDE and LLM.
 
-It combines cutting-edge code generation systems, such as Pattern Reuse and your favorite LLM, to continuously generate clean, production-ready code driven by your architectural intention and approved design — so your code stays standardized, consistent, and easy to maintain.
+It combines cutting-edge code generation systems, such as Pattern Reuse and your favorite LLM, to continuously generate clean, production-ready code driven by your architectural intention and approved design - so your code stays standardized, consistent, and easy to maintain.
 
 ## Watch a demo
 
-If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars - founder of Intent Architect - walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
 
 What's covered in this demo:
 

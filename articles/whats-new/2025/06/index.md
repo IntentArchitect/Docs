@@ -38,7 +38,7 @@ Available from:
 
 ### New Sample System
 
-The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications — complete with source code.
+The new **Sample System** makes it easy to create new Intent Architect solutions from fully functional, ready-to-run sample applications - complete with source code.
 
 ![Template Selection](images/sample-selection.png)
 

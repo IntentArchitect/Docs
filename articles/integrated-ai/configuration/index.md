@@ -56,7 +56,7 @@ For each server you can configure:
 | -------------- | -------------------------------------------------------------------------------------- |
 | **Name**       | Free-form label (e.g. `filesystem`)                                                    |
 | **Transport**  | `stdio` (launch a local command) or `http` (call a remote endpoint)                    |
-| **Command**    | *(stdio)* Executable to launch — e.g. `npx`                                             |
+| **Command**    | *(stdio)* Executable to launch - e.g. `npx`                                             |
 | **Arguments**  | *(stdio)* One per row                                                                  |
 | **Env vars**   | *(stdio)* Key/value pairs; supports `${VAR}` substitution from your environment         |
 | **URL**        | *(http)* Endpoint URL                                                                  |

@@ -17,7 +17,7 @@ Welcome to the September edition of What’s New in Intent Architect. Here’s a
 
 ### Blazor AI Module
 
-We’re excited to introduce the new Blazor AI Module, designed to work seamlessly with your existing Blazor modules. This innovation blends deterministic and non-deterministic code generation to help you build professional Blazor front ends — faster than ever.
+We’re excited to introduce the new Blazor AI Module, designed to work seamlessly with your existing Blazor modules. This innovation blends deterministic and non-deterministic code generation to help you build professional Blazor front ends - faster than ever.
 
 ![Blazor AI to generate views](images/blazor-ai.png)
 

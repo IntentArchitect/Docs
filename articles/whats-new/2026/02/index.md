@@ -73,7 +73,7 @@ When structural differences are detected, the system presents a clear list of fi
 
 ![Synchronize with Domain Entity](images/synchronize-with-domain-entity.png)
 
-This approach reduces manual maintenance, prevents contract drift as domain models evolve, and ensures application boundaries remain consistent—while keeping all changes explicit, reviewable, and under developer control.
+This approach reduces manual maintenance, prevents contract drift as domain models evolve, and ensures application boundaries remain consistent-while keeping all changes explicit, reviewable, and under developer control.
 
 Available from:
 

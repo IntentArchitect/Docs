@@ -3,7 +3,7 @@ uid: application-development.software-factory.terminal-and-tasks
 ---
 # Terminal & Tasks
 
-The Software Factory panel includes a built-in terminal and a configurable task runner. Tasks are shell commands you define once in `tasks.json` and then trigger from the toolbar — or that AI agents can run via the `run_task` tool.
+The Software Factory panel includes a built-in terminal and a configurable task runner. Tasks are shell commands you define once in `tasks.json` and then trigger from the toolbar - or that AI agents can run via the `run_task` tool.
 
 ---
 
@@ -15,7 +15,7 @@ There are two kinds of session:
 
 | Kind        | What it is                                                                                          |
 | ----------- | --------------------------------------------------------------------------------------------------- |
-| **Shell**   | An interactive shell session. Free-form — type commands and use it like any terminal.                |
+| **Shell**   | An interactive shell session. Free-form - type commands and use it like any terminal.                |
 | **Task**    | A specific task from `tasks.json`. Re-running the same task reuses its tab so you don't accumulate clutter. |
 
 ![Software Factory terminal panel showing a shell session and a Build task session](images/terminal-panel.png)
@@ -52,7 +52,7 @@ Tasks are commands you configure per-application. Each task becomes a button on 
 
 `tasks.json` lives in the **application's config folder** (next to the project metadata, alongside `.intent` and similar). The toolbar's **Edit Tasks** action will create it from a sample if it doesn't exist yet, then open it in the editor.
 
-> The file is hot-reloaded — edits made while the Software Factory view is open update the toolbar buttons immediately. No restart needed.
+> The file is hot-reloaded - edits made while the Software Factory view is open update the toolbar buttons immediately. No restart needed.
 
 ### Format
 
@@ -86,7 +86,7 @@ Tasks are commands you configure per-application. Each task becomes a button on 
 | `workingDirectory` | No       | Relative to the application's **output folder**. Defaults to `.` (the output folder root). |
 | `aiAutoFix`        | No       | See **AI Auto-Fix** below.                                                              |
 
-The task's **key** in the `tasks` object is its name — referenced by the AI `run_task` tool and used internally for state tracking.
+The task's **key** in the `tasks` object is its name - referenced by the AI `run_task` tool and used internally for state tracking.
 
 ---
 
@@ -104,7 +104,7 @@ When a task fails, **AI Auto-Fix** can hand the failure to a coding agent that a
 | Field         | Notes                                                                                                               |
 | ------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `enabled`     | Master switch for this task. If `false`, failures are just shown in the terminal and nothing further happens.        |
-| `errorParser` | How to extract structured errors from the task output. Built-in: `generic` (default — line/message heuristics) and `dotnet` (recognises `error CSxxxx:` and similar). Unknown values fall back to `generic`. |
+| `errorParser` | How to extract structured errors from the task output. Built-in: `generic` (default - line/message heuristics) and `dotnet` (recognises `error CSxxxx:` and similar). Unknown values fall back to `generic`. |
 
 After each attempt the task is re-run. If it still fails, the parsed errors are fed back to the agent for another iteration, up to a maximum of **3 attempts**.
 
@@ -113,7 +113,7 @@ After each attempt the task is re-run. If it still fails, the parsed errors are 
 
 ## Tips
 
-- **One task per concern.** A `build`, a `test`, a `lint`, a `migrate` — small, single-purpose tasks compose better than one all-in-one script.
+- **One task per concern.** A `build`, a `test`, a `lint`, a `migrate` - small, single-purpose tasks compose better than one all-in-one script.
 - **Pick the right error parser.** `dotnet` knows about `error CSxxxx:` and similar; `generic` falls back to line-and-message heuristics. Match the parser to the task's output.
 - **Use `workingDirectory` for monorepos.** If your build needs to run inside a subdirectory of the application output, set `workingDirectory` instead of `cd`-ing inside `command`.
 - **Put long-running watchers in shells, not tasks.** A task is meant to start, do a thing, and exit. Use a free-form shell for anything that lives forever (file watchers, dev servers, etc.).

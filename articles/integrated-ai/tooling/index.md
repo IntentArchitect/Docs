@@ -3,7 +3,7 @@ uid: ai.tooling
 ---
 # Agent Tools
 
-Tools are the actions an agent can take during a turn — reading files, querying the model, building a project, asking the user a question, and so on. An agent only sees the tools listed in its `tools:` frontmatter, plus the always-available `use_skill` tool.
+Tools are the actions an agent can take during a turn - reading files, querying the model, building a project, asking the user a question, and so on. An agent only sees the tools listed in its `tools:` frontmatter, plus the always-available `use_skill` tool.
 
 This document lists every built-in tool, what it does, and where it makes sense to use it.
 
@@ -46,7 +46,7 @@ This document lists every built-in tool, what it does, and where it makes sense 
 
 ## Notes on context
 
-Tools aren't tied to a specific context — `coding` and `modeling` agents can pick from the same toolbox. In practice, certain tools only make sense in certain contexts:
+Tools aren't tied to a specific context - `coding` and `modeling` agents can pick from the same toolbox. In practice, certain tools only make sense in certain contexts:
 
 - **Designer tools** (`get_designer_*`, `find_designer_elements`, `apply_change_*`, `execute_designer_element_action`, `run_software_factory`) work against the Intent model, so they belong in **modeling** agents.
 - **File-mutation tools** (`write_file`, `patch_file`, `delete_code_file`, `apply_staged_file_changes`, `dotnet_build`, `dotnet_test`, `run_task`) operate on the application's output codebase, so they belong in **coding** agents.
@@ -54,15 +54,15 @@ Tools aren't tied to a specific context — `coding` and `modeling` agents can p
 - **Conversation tools** (`ask_user_question`, `todo_update`, `use_skill`) work in any context.
 - **Plan-mode tools** (`write_plan`, `implement_plan`) are only meaningful for planning agents.
 
-> A tool's "context" is determined by which agents you list it in — there's no automatic enforcement.
+> A tool's "context" is determined by which agents you list it in - there's no automatic enforcement.
 
-Most tools require an `applicationId` parameter to identify which application's output folder or designer model to act on. Most also require a short `intention` string explaining *why* the tool is being called — this is shown to the user as a one-line summary of the action.
+Most tools require an `applicationId` parameter to identify which application's output folder or designer model to act on. Most also require a short `intention` string explaining *why* the tool is being called - this is shown to the user as a one-line summary of the action.
 
 ---
 
 ## Adding tools to an agent
 
-Tools are wired up in an agent definition's frontmatter. Only listed tools are available — and `use_skill` is always added on top:
+Tools are wired up in an agent definition's frontmatter. Only listed tools are available - and `use_skill` is always added on top:
 
 ```yaml
 ---

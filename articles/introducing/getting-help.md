@@ -55,7 +55,7 @@ You can open it by clicking the **blue question mark button in the top-right cor
 
 Clicking the help button opens the **Help dialog**, which displays relevant help topics based on your currently installed modules. This includes context-specific documentation tailored to the currently selected element and open designer. You'll also find quick links to contact support or open the main Intent Architect documentation website.
 
-You can browse through the suggested topics or use the **search box** to look up keywords. When searching, **all available documentation** is included — even topics from modules that aren’t currently installed. This makes it easy to discover additional features and functionality you might want to add to your application.
+You can browse through the suggested topics or use the **search box** to look up keywords. When searching, **all available documentation** is included - even topics from modules that aren’t currently installed. This makes it easy to discover additional features and functionality you might want to add to your application.
 
 > [!NOTE]
 > The Help dialog is **context-aware** by default, showing topics related to the currently active designer and selected elements.  

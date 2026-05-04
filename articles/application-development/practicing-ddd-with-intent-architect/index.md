@@ -178,4 +178,4 @@ public async Task Handle(AddOrderLineOrderCommand request, CancellationToken can
 
 ---
 
-This advanced example extends the concepts introduced earlier by demonstrating how to create aggregates with composite entities and expose domain operations through commands in Intent Architect—helping maintain a cohesive, rich domain model.
+This advanced example extends the concepts introduced earlier by demonstrating how to create aggregates with composite entities and expose domain operations through commands in Intent Architect-helping maintain a cohesive, rich domain model.

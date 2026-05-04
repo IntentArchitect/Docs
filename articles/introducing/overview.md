@@ -4,7 +4,7 @@ uid: introducing.overview
 
 <style>
 /* =============================================================================
-   Intent Architect Overview — Final (DocFX 2.77+ compatible)
+   Intent Architect Overview - Final (DocFX 2.77+ compatible)
    ============================================================================= */
 
 .ia-overview {
@@ -355,7 +355,7 @@ It brings design and architectural visibility to your software development proce
 
 <div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
 
-If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars — founder of Intent Architect — walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars - founder of Intent Architect - walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
 
 What's covered in this demo:
 

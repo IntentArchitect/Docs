@@ -9,7 +9,7 @@ Learn to model domain entity data and define relationships in your domain.{: .le
 
 ## Summary
 
-This video builds on the previous lesson and focuses on modeling **entity attributes** and **relationships** — including one-to-many, one-to-one, and many-to-many. It also demonstrates defining **enums** for use as attribute types.
+This video builds on the previous lesson and focuses on modeling **entity attributes** and **relationships** - including one-to-many, one-to-one, and many-to-many. It also demonstrates defining **enums** for use as attribute types.
 
 ## Chapters
 
