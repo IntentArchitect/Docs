@@ -22,11 +22,11 @@ Intent Architect now has two distinct contexts for agentic work: `modeling` and 
 
 A "golden path" of development that we strive to consistently achieve is one where the developer can describe the design of their system, run the Software Factory Execution, run all coding agents, and out the other side comes working software - perfectly architected, consistent, readable and maintainable. The following features help support this:
 
-- **Auto-created AI Tasks** — an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
+- **Auto-created AI Tasks** - an AI Tasks panel (bottom right) helps the user visualize ongoing agent activity and indicate the status of each agent's process. AI tasks can be _auto-created_ by modules (i.e. where code implementation work is detected for the file, for example as detecting a `throw new NotImplementedException(...)`), created manually by the user, or even by coding agents themselves.
 
-- **Optimized Context Engineering** — behind the coding agents is a sophisticated and powerful [context engineering system](xref:ai.context-management) that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
+- **Optimized Context Engineering** - behind the coding agents is a sophisticated and powerful [context engineering system](xref:ai.context-management) that informs coding agents on how to deal with specific files. This ensures that they conform to the architecture, standards and structure of the application.
 
-- **Comprehensive AI Tooling** — supporting the coding agents is a [suite of tools](xref:ai.tooling) that allow it to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
+- **Comprehensive AI Tooling** - supporting the coding agents is a [suite of tools](xref:ai.tooling) that allow it to discover the codebase, analyze it, and implement features within it (e.g. grep, glob, read file, patch file, etc.). The result is a harness on par with most of the capabilities offered by other AI harnesses in the market.
 
 - **Support for standard context files** - Intent Architect coding agents have integration support for context files that you and your team are already using (e.g. `CLAUDE.md`, `AGENTS.md`, `copilot-instructions.md`, etc.). It will also search in the standard folder structure for [Instruction Files](xref:ai.context-management#2-instruction-files) and [Skills](xref:ai.context-management#3-skills). You can also configure that skills and instructions installed by Intent Architect Modules go into your preferred AI folder (e.g. `.claude`, `.github`, etc.). By default they will be dropped off in the generic `.agents` folder which is respected by most harnesses.
 
@@ -42,15 +42,15 @@ _Example screenshot of the AI Modeling Assistant implementing a change to the do
 
 Beyond the visual enhancements and "face lift", the new AI chat systems come with several key features and enhancements:
 
-- **Conversation history & persistence** — past conversations persist, can be deleted. The status of each task (e.g. in-progress, awaiting approval, completed, etc.) is visible in the history dropdown.
+- **Conversation history & persistence** - past conversations persist, can be deleted. The status of each task (e.g. in-progress, awaiting approval, completed, etc.) is visible in the history dropdown.
 
     ![Conversation history dropdown in the AI Modeling Assistant](images/5.0/00/ai-chat-conversation-history.png)
 
-- **Model / File attachments** — drag-and-drop files and model elements, paste files (including images), open and select files from hard drive, directly into the chat. Attachments are passed as user messages to the LLM in the appropriate format. This makes passing in Product Requirements Documents (PRDs), code files from external systems, screenshots, etc. easy and straightforward.
+- **Model / File attachments** - drag-and-drop files and model elements, paste files (including images), open and select files from hard drive, directly into the chat. Attachments are passed as user messages to the LLM in the appropriate format. This makes passing in Product Requirements Documents (PRDs), code files from external systems, screenshots, etc. easy and straightforward.
 
     ![Files attached to an AI chat message](images/5.0/00/ai-chat-attachments-input.png)
 
-- **Tool-call visualisation** — interactive chips for tool calls, composite tool-call collapsing, "modifications" lists, etc. This feature aims to make it clear and obvious to the user what the agent has done at each step. The chips are interactive in that the user can click them and navigate to them wherever they are in the system. Colours are used to indicate whether a change was a read (blue), create (green), update (yellow), or delete (red).
+- **Tool-call visualisation** - interactive chips for tool calls, composite tool-call collapsing, "modifications" lists, etc. This feature aims to make it clear and obvious to the user what the agent has done at each step. The chips are interactive in that the user can click them and navigate to them wherever they are in the system. Colours are used to indicate whether a change was a read (blue), create (green), update (yellow), or delete (red).
 
     ![Tool-call chips showing reads, creates and updates from an AI chat](images/5.0/00/ai-chat-tool-calls.png)
 
