@@ -133,6 +133,7 @@ _Access this file directly inside of Intent Architect by clicking on the `cog` i
 ## Improvements in the Designers
 
 - **View Code context menu option** alongside the Open in IDE on elements - jumps directly to the code in the Software Factory. Does not require the Software Factory to start up completely.
+- **In-Memory changes propagated between designers** - this means that changes in one designer are instantly visible in others that have references to its packages. It's no longer a requirement to save the designer before the change is propagated. This also means that Advanced Mapping dialogs will instantly update and show the changes made to referenced elements.
 - **Filtering performance** has been improved across all tree-views.
 - **Filtering highlights matches** across all tree-views.
 - **Suggestions added to context menu** for elements and associations.
