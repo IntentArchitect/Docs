@@ -66,8 +66,8 @@ If you have worked with C# solutions before, this should look familiar to you. H
 ![Application Source Code](./images/application-source.png)
 
 > [!NOTE]
-> If you are wondering why the C# solutions / projects are generated the way they are, this has been configured in the [`Visual Studio Designer`](xref:application-development.applications-and-solutions.about-the-visual-studio-designer) or `Folder Designer` with in Intent Architect.
-> ![Visual Studio Designer configuration](./images/visual-studio-designer.png)
+> If you are wondering why the C# solutions / projects are generated the way they are, this has been configured in the [`Codebase Structure Designer`](xref:application-development.applications-and-solutions.about-the-codebase-structure-designer) or `Folder Designer` with in Intent Architect.
+> ![Codebase Structure Designer configuration](./images/codebase-structure-designer.png)
 
 ### Intent Architect Solution data
 
@@ -106,7 +106,7 @@ This Folder contains all the Metadata described in the installed `Designer`s, fo
 
 * Domain Designer
 * Services Designer
-* Visual Studio Designer
+* Codebase Structure Designer
 
 Then this folder would contain 3 sub-folders, one for each designer where each of these children would contain all the Metadata for their designer.
 
