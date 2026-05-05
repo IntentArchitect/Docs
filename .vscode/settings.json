@@ -6,6 +6,8 @@
     "**/_site": true,
     "**/.cache": true
   },
+  "github.copilot.chat.instructionsFilesLocations": ["AGENTS.md"],
+  "github.copilot.chat.useAgentsMdFile": true,
   "markdownlint.config": {
     "MD028": false,
     "MD025": {
