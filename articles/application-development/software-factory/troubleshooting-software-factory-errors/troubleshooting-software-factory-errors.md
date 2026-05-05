@@ -27,15 +27,15 @@ The bolded text on these errors can be clicked on which will cause Intent Archit
 
 Very often just looking at the element that was navigated to in the designer is enough to quickly see how to resolve the issue and prevent the same error for the next Software Factory execution.
 
-In this example it has jumped to the following and if we hover over the red triangle with the exclamation mark it has some additional information:
+In this example it has jumped to the following and if we click on the red triangle with the exclamation mark it has some additional information:
 
 ![Element with error](images/element-with-error.png)
 
-In this case we can click the triangle which will open the mapping screen:
+In this case we can click on the blue arrow which will open the mapping screen:
 
 ![Mapping screen with error](images/mapping-screen-with-error.png)
 
-We can see from the error that the mapping target could not be found, in this example it is because the `FavouriteColor` attribute on the `Customer` class was deleted. A solution here is to delete the field:
+We can see from the error that the mapping target could not be found, in this example it is because the `FavouriteColor` attribute on the `Customer` class was deleted. We can see this error message by also clicking on the red exclamation mark. A solution here is to delete the field:
 
 ![Delete field context menu option](images/delete-field.png)
 
@@ -68,3 +68,7 @@ Sometimes looking at just the error text can be enough to find a resolution your
 Errors can be copied to your clipboard by right-clicking the particular log entry and selecting the "Copy" option or using the Ctrl+C keyboard shortcut:
 
 ![Copying the error](images/copying-errors.png)
+
+Since Intent Architect version 5 you also have the option to ask AI to attempt to fix the issue if this button is available.
+
+![Try fix with AI error](images/try-fix-with-ai-errors.png)
