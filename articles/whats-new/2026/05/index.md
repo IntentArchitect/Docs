@@ -1,13 +1,13 @@
 # What's new in Intent Architect (May 2026)
 
-Welcome to the May edition of What's New in Intent Architect. This month marks the release of **Intent Architect 5.0** — perhaps the most significant release in recent years, bringing the full power of AI into the heart of the platform for an end-to-end software development experience.
+Welcome to the May edition of What's New in Intent Architect. This month marks the release of **Intent Architect 5.0**,  perhaps the most significant release in recent years, bringing the full power of AI into the heart of the platform for an end-to-end software development experience.
 
 - Highlights
   - **[AI Coding Agents in the Software Factory](#ai-coding-agents-in-the-software-factory)** - Coding agents built into the Software Factory "colour in between the lines" of your architecture, delivering end-to-end working software from your designs.
   - **[Comprehensive AI Integration Upgrade](#comprehensive-ai-integration-upgrade)** - A massively upgraded AI Assistant with conversation history, file attachments, tool-call visualisation, custom agents, slash commands, and a rebuilt plan mode.
   - **[Intent Architect as an MCP Server](#intent-architect-as-an-mcp-server)** - Expose Intent Architect's designers to external agents (Claude Code, Copilot, etc.) via a built-in MCP server, eliminating friction when AI tools work alongside Intent Architect.
   - **[Software Factory Enhancements](#software-factory-enhancements)** - A redesigned Software Factory UI with a new sidebar, codebase explorer, per-file apply/undo, and deeper AI integration.
-  - **[Terminal & Tasks](#terminal--tasks)** - A fully capable PTY terminal and task configuration system built directly into Intent Architect.
+  - **[Tasks system & In-app Terminal](#tasks-system--in-app-terminal)** - Add executable Tasks to your Software Factory like Build, Test, Run, etc.
   - **[Pop-out Tabs](#pop-out-tabs)** - Detach any viewport tab into its own independent window for multi-monitor workflows.
   - **[Designer Improvements](#designer-improvements)** - View Code navigation, improved filtering, new visual indicators for unsaved elements, and more.
   - **[Updated Module Ecosystem](#updated-module-ecosystem)** - Core modules updated to take full advantage of 5.0 features across Blazor, Angular, Unit Testing, Entities, Domain Services, Domain Eventing, Validations, CQRS, and Traditional Services.
@@ -108,7 +108,7 @@ Available from:
 
 - Intent Architect 5.0.0
 
-### Terminal & Tasks
+### Tasks system & In-app Terminal
 
 A fully capable PTY terminal is now built into Intent Architect, alongside a flexible task configuration system. Define commonly used tasks — `dotnet build`, `dotnet test`, `dotnet run`, etc. — in a `tasks.json` file located alongside your `.application.config`.
 
@@ -153,20 +153,21 @@ Available from:
 
 - Intent Architect 5.0.0
 
-### Updated Module Ecosystem
+### Updated Modules
 
 A broad set of existing modules has been updated to take full advantage of the new features introduced in Intent Architect 5.0. These updates bring improved AI coding agent support across the following areas:
 
-- **Angular**
-- **Blazor**
-- **CQRS Services**
-- **Domain Services**
-- **Domain Eventing**
-- **Entities**
-- **Traditional Services**
-- **Unit Testing**
-- **Fluent Validations**
+- Angular
+- Blazor
+- CQRS Services
+- Domain Services
+- Domain Eventing
+- Entities
+- Traditional Services
+- Unit Testing
+- Fluent Validations
 
 Available from:
 
 - Intent Architect 5.0.0
+- Relevant Module(s) Latest
