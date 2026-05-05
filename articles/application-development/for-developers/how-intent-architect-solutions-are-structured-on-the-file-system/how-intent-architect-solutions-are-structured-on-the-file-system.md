@@ -66,7 +66,7 @@ If you have worked with C# solutions before, this should look familiar to you. H
 ![Application Source Code](./images/application-source.png)
 
 > [!NOTE]
-> If you are wondering why the C# solutions / projects are generated the way they are, this has been configured in the [`Codebase Structure Designer`](xref:application-development.applications-and-solutions.about-the-codebase-structure-designer) or `Folder Designer` with in Intent Architect.
+> If you are wondering why the C# solutions / projects are generated the way they are, this has been configured in the [`Codebase Structure Designer`](xref:application-development.modelling.codebase-structure-designer) or `Folder Designer` with in Intent Architect.
 > ![Codebase Structure Designer configuration](./images/codebase-structure-designer.png)
 
 ### Intent Architect Solution data
