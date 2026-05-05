@@ -2,6 +2,11 @@
 
 This is a DocFX-based documentation site for Intent Architect, published to https://docs.intentarchitect.com/docs.
 
+## 🛠️ Tooling & Skills
+- **Skill Discovery**: All project-specific executable playbooks are located in `/.agents/skills/`.
+- **Activation**: Index all `SKILL.md` files in that directory at session start.
+- **Priority**: Skills in `/.agents/` override any global user skills in conflict.
+
 ## Architecture Overview
 
 **DocFX Static Site Generation**: The project uses DocFX 2.78.5 to convert Markdown files in `articles/` into static HTML in `_site/`. The `docfx.json` configuration defines content sources, custom templates, and post-processors.
@@ -127,6 +132,7 @@ uid: application-development.modelling.about-designers
 - `docfx.json` - DocFX configuration (content sources, templates, metadata, post-processors)
 - `articles/` - All documentation content organized by topic folders
 - `articles/*/toc.yml` - Table of contents for navigation hierarchy
+- `.agents/skills/` - Skill definitions and agent guidance files; AI agents should check here when looking for repository-specific skills or workflow instructions
 - `Template/darkerfx_custom/` - Custom DocFX theme (layout, styles, partials, plugins)
 - `azure-pipelines-doc-sync.yml` - Nightly embedding synchronization pipeline
 - `doc-sync-settings.json` - Configuration used by documentation sync tooling
