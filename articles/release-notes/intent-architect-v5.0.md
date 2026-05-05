@@ -3,11 +3,15 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
-We're super excited to announce perhaps the most significant release of Intent Architect in the last few years - version 5.0! This release brings the full power of AI into the heart of Intent Architect, delivering an end-to-end software development experience that allows developers to visually model sophisticated software systems into reality. Beyond the major features and enhancements, the product team has focused extensively on polish and providing a world class experience to developers in as many areas as we had capacity for.
+We're incredibly excited to announce perhaps the most significant release of Intent Architect in recent years - version 5.0.
 
-We hope that you, our users, enjoy this new release and get a step up in value that remains true to the core principles that you've come to expect from us - high-quality code, consistency, clear design, complete control, etc. We thank each and every one of you for your continued support and guidance in helping us build the next generation of software engineering platforms.
+This release brings the full power of AI into the heart of Intent Architect, delivering an end-to-end software development experience that allows developers to visually model sophisticated software systems into reality. Beyond the major features and enhancements, the team has focused extensively on "polish" and delivering a world-class experience across as many areas as possible.
 
-Lastly, as with our last release, this is just a stepping stone along the journey. Our roadmap and the features we plan to release over the next few months are incredibly exciting and promise huge potential. Please share your thoughts, ideas, and feedback to help us make this the development platform you've always wished for! 🚀
+We hope you enjoy this release and find real, compounding value in it - value that remains true to the core principles you've come to expect from us: high-quality code, consistency, clear design, and complete control.
+
+Thank you for your continued support and guidance in helping us build the next generation of software engineering platforms.
+
+While this is a major milestone, it is also just a stepping stone toward a much greater vision. Our roadmap over the coming months is incredibly exciting and promises significant new capabilities. Please share your thoughts, ideas, and feedback to help us make this the development platform you've always wished for. 🚀
 
 ![alt text](./images/5.0/00/about-dialog.png)
 
@@ -52,6 +56,8 @@ Beyond the visual enhancements and "face lift", the new AI chat systems comes wi
 - **Tool-call visualization** - interactive chips for tool calls, composite tool-call collapsing, "modifications" lists, etc. This feature aims to make it clear and obvious to the user what the agent has done at each step. The chips are interactive in that the user can click them and navigate to them wherever they are in the system. Colors are used to indicate whether a change was a read (blue), create (green), update (yellow), or delete (red).
 
     ![Tool-call chips showing reads, creates and updates from an AI chat](images/5.0/00/ai-chat-tool-calls.png)
+
+- **Steering** - users can send additional messages to the agent while it's mid-task without interrupting it. The new instructions are picked up on the agent's next turn, allowing the user to adjust direction, add context, or correct course without having to stop and restart the conversation.
 
 - **Custom Agents** - [Custom Agents](xref:ai.custom-agents) can be authored as `.agent.md` markdown files in the `~/intent/.agents/agents` folder. Their frontmatter can specify in which context the agent must appear (i.e. `coding` or `modeling`) and what tools are available to the agent.
 
