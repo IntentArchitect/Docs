@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v4.6
 ---
 # Release notes: Intent Architect version 4.6
 
+## Version 4.6.4
+
+### Improvements in 4.6.4
+
+- Improvement: Intent Architect will now show when a new version is available which can be installed side-by-side with the current version. For example, for major versions or when you're running a beta and a newer final release is available. In such cases automatic updates are not possible so the about dialog will direct you to the downloads page where you can manually download and install the newer version, you will also need to manually uninstall the old version should you no longer want it.
+
 ## Version 4.6.3
 
 ### Improvements in 4.6.3
