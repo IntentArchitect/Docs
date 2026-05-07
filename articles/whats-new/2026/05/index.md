@@ -10,7 +10,7 @@ Welcome to the May edition of What's New in Intent Architect. This month marks t
   - **[Tasks system & In-app Terminal](#tasks-system--in-app-terminal)** - Add executable Tasks to your Software Factory like Build, Test, Run, etc.
   - **[Pop-out Tabs](#pop-out-tabs)** - Detach any viewport tab into its own independent window for multi-monitor workflows.
   - **[Designer Improvements](#designer-improvements)** - View Code navigation, improved filtering, new visual indicators for unsaved elements, and more.
-  - **[Updated Module Ecosystem](#updated-module-ecosystem)** - Core modules updated to take full advantage of 5.0 features across Blazor, Angular, Unit Testing, Entities, Domain Services, Domain Eventing, Validations, CQRS, and Traditional Services.
+  - **[Updated Module Ecosystem](#updated-modules)** - Core modules updated to take full advantage of 5.0 features across Blazor, Angular, Unit Testing, Entities, Domain Services, Domain Eventing, Validations, CQRS, and Traditional Services.
 
 ## Update details
 
@@ -77,7 +77,7 @@ Intent Architect now exposes itself as an MCP server with a substantial tool sui
 
 ![Intent MCP configuration](../../../release-notes/images/5.0/00/mcp-server-config.png)
 
-Setup details and per-client configuration snippets (Claude Code, OpenAI Codex, Copilot, etc.) are available in the [AI Configuration dialog](xref:ai.configuration#2-intent-mcp) and the [Intent Architect MCP Server](xref:tools.mcp-server) reference.
+Setup details and per-client configuration snippets (Claude Code, OpenAI Codex, Copilot, etc.) are available in the [AI Configuration dialog](xref:ai.configuration#2-intent-mcp) and the [Intent Architect MCP Server](xref:ai.intent-mcp-server) reference.
 
 Available from:
 
