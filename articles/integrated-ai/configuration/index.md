@@ -40,9 +40,7 @@ To set up:
 
 The **Advanced** toggle reveals the raw executable path and arguments if you need to assemble a config by hand.
 
-### Intent MCP usage notes
-
-The Intent MCP server instructions tell MCP clients that they must check for the existence of a `.isln` file and if found the client must use an MCP server tool to get full Intent Architect usage instructions. This means that MCP clients should automatically get all the guidance they need to be able to effectively use Intent Architect with no additional instructions needed.
+For more details on what the Intent MCP server does and how external agents use it, see [](xref:ai.intent-mcp-server).
 
 ---
 

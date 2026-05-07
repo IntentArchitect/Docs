@@ -5,6 +5,9 @@ items:
   - name: AI Configuration
     topicUid: ai.configuration
 
+  - name: Intent MCP Server
+    topicUid: ai.intent-mcp-server
+
   - name: Agent Context Loading
     topicUid: ai.context-management
     
