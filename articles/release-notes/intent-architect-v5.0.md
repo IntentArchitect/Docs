@@ -3,6 +3,10 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
+  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/vlEwOM8nRXo?si=GnW6IaJWmn2FwLFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 We're incredibly excited to announce perhaps the most significant release of Intent Architect in recent years - version 5.0.
 
 This release brings the full power of AI into the heart of Intent Architect, delivering an end-to-end software development experience that allows developers to visually model sophisticated software systems into reality. Beyond the major features and enhancements, the team has focused extensively on "polish" and delivering a world-class experience across as many areas as possible.
