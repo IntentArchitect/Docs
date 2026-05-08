@@ -17,6 +17,10 @@ Thank you for your continued support and guidance in helping us build the next g
 
 While this is a major milestone, it is also just a stepping stone toward a much greater vision. Our roadmap over the coming months is incredibly exciting and promises significant new capabilities. Please share your thoughts, ideas, and feedback to help us make this the development platform you've always wished for. 🚀
 
+> [!TIP]
+>
+> Ready to get started? **Head to [our website](https://intentarchitect.com) and login to download it**.
+
 ![alt text](./images/5.0/00/about-dialog.png)
 
 ---
