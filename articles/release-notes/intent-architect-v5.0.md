@@ -8,6 +8,7 @@ uid: release-notes.intent-architect-v5.0
 ### Fixes in 5.0.1
 
 - Fixed: Model picker with duplicate model names (including custom models with identical IDs across providers) will now display as separate entries grouped by provider, allowing you to select the correct one.
+- Fixed: A JavaScript "operation not permitted" error would occur on startup if running Intent Architect v5 for the first time while Intent Architect v4 was still running.
 
 ---
 
