@@ -351,18 +351,19 @@ It brings design and architectural visibility to your software development proce
 
 ---
 
-## Watch a demo
+## Watch a demo of the latest features in version 5.0
 
-<div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe src="https://www.youtube.com/embed/vlEwOM8nRXo?si=QOiR0tkncDYgKxEh" title="Video" allowfullscreen></iframe></div>
 
-If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars - founder of Intent Architect - walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+Watch the Intent Architect version 5.0 new features demo – a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic code generation, and customizable coding agents together in one platform.
 
 What's covered in this demo:
 
-- What is "Pattern Reuse" actually?
-- A comprehensive introduction & demo of the platform, Intent Architect
-- Building a working, high-quality .NET application in minutes following a Clean Architecture
-- A sneak peek at how Intent Architect can leverage generative-AI to push productivity even further.
+- AI Coding Agents in the Software Factory – automatically implementing code within the guardrails of your architecture and design.
+- A full upgrade to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
+- The Intent Architect MCP Server – letting external AI tools drive Intent Architect directly.
+- The integrated Terminal & Tasks system with automatic AI error fixing.
+- A world-class Software Factory experience with a redesigned UI and per-file control.
 
 ---
 
