@@ -324,7 +324,7 @@ It brings design and architectural visibility to your software development proce
       </span>
       <div class="content">
         <strong class="card-title">Codebase Integration</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customise any generated code.</p>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
@@ -355,7 +355,7 @@ It brings design and architectural visibility to your software development proce
 
 <div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
 
-Watch the Intent Architect version 5 new features demo, a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic generation, and customizable coding agents together in one platform.
+Watch the Intent Architect version 5.0 new features demo, a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic generation, and customizable coding agents together in one platform.
 
 What's covered in this demo:
 
