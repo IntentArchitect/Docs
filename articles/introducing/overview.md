@@ -305,7 +305,7 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Non-Deterministic Code Generation(AI-Assisted)</strong>
+        <strong class="card-title">Non-Deterministic Code Generation (AI-Assisted)</strong>
         <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which can't be predefined. Performing all the necessary context engineering automatically, Intent Architect integrates with LLMs providing a prompt-less, predictable AI experience.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
