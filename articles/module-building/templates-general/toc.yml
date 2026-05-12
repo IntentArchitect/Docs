@@ -5,6 +5,9 @@ items:
 - name: Configuring a Template's default output location
   href: configuring-a-templates-default-output-location/configuring-a-templates-default-output-location.md
 
+- name: How to generate Markdown files
+  topicUid: module-building.templates-general.creating-markdown-templates
+
 - name: Resolving type names
   href: resolving-type-names/resolving-type-names.md
 
