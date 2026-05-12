@@ -353,7 +353,7 @@ It brings design and architectural visibility to your software development proce
 
 ## Watch a demo of the latest features
 
-<div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe src="https://www.youtube.com/embed/vlEwOM8nRXo?si=QOiR0tkncDYgKxEh&rel=0" title="Video" allowfullscreen></iframe></div>
 
 Watch the Intent Architect version 5.0 new features demo, a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic generation, and customizable coding agents together in one platform.
 
