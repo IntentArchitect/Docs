@@ -323,10 +323,10 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Codebase Integration</strong>
+        <strong class="card-title">Codebase Control</strong>
         <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
       </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Integration"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Control"></a>
     </div>
   </li>
 <!--  <li>

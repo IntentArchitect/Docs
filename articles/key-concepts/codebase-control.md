@@ -2,7 +2,7 @@
 uid: key-concepts.codebase-integration
 ---
 
-# Codebase integration
+# Codebase Control
 
 Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with automation.  
 

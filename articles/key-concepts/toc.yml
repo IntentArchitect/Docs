@@ -1,12 +1,12 @@
 items:
-- name: Visual Modeling
-  href: visual-modeling.md
+- name: Visual Design Tools
+  href: visual-design-tools.md
 
-- name: Deterministic Code Generation (Pattern Reuse)
-  href: deterministic-codegen.md
+- name: Architecture Enforcement
+  href: architecture-enforcement.md
 
-- name: Non-Deterministic Code Generation (AI-Assisted)
-  href: non-deterministic-codegen.md
+- name: AI Agents
+  href: ai-agents.md
 
-- name: Codebase Integration
-  href: codebase-integration.md
+- name: Codebase Control
+  href: codebase-control.md

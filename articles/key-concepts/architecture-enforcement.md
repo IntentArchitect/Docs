@@ -2,7 +2,7 @@
 uid: key-concepts.deterministic-codegen
 ---
 
-# Deterministic code generation (Pattern reuse)
+# Architecture Enforcement
 
 Intent Architect’s **Pattern Reuse** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging, or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
 

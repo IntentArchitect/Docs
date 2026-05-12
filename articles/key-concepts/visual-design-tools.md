@@ -2,7 +2,7 @@
 uid: key-concepts.visual-modeling
 ---
 
-# Visual modeling
+# Visual Design Tools
 
 Intent Architect provides **rich visual designers** for modeling applications, allowing you to express your architecture in a way that’s intuitive, precise, and always in sync with your codebase.  
 

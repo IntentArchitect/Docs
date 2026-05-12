@@ -2,7 +2,7 @@
 uid: key-concepts.non-deterministic-codegen
 ---
 
-# Non-Deterministic code generation (AI-Assisted)
+# AI Agents
 
 While Deterministic Code Generation automates predictable patterns, some parts of software development require creative, context-aware logic that can’t be fully predefined.  
 
