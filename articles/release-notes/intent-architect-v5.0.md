@@ -3,11 +3,15 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
-## Version 5.0.2
+<!-- ## Version 5.0.2
 
 ### Fixes in 5.0.2
 
 - Fixed: Templates with an overwrite mode of "once off" would never generate.
+
+### Improvements in 5.0.2
+
+- Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information. -->
 
 ## Version 5.0.1
 
