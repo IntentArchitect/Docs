@@ -3,6 +3,12 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
+## Version 5.0.2
+
+### Fixes in 5.0.2
+
+- Fixed: Templates with an overwrite mode of "once off" would never generate.
+
 ## Version 5.0.1
 
 ### Fixes in 5.0.1
