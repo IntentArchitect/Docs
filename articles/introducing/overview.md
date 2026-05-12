@@ -265,8 +265,8 @@ It brings design and architectural visibility to your software development proce
       </span>
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
-        <strong class="card-title">Visual Modeling</strong>
-        <p class="card-text">Design your systems visually. Intuitive designers make complex architectures easy to understand, turning models into living blueprints that help teams collaborate, validate, and evolve applications with confidence.</p>
+        <strong class="card-title">Visual Design Tools</strong>
+        <p class="card-text">Software development is going visual. Intent Architect's visual design tools let you create living blueprints of your system that realize directly as code, forming guardrails that minimize technical and cognitive debt by design.</p>
       </div>
       <a href="xref:key-concepts.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
@@ -283,8 +283,8 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Deterministic Code Generation (Pattern Reuse)</strong>
-        <p class="card-text">Pattern-based code generation automates the predictable parts of your system, up to 85% of your codebase. Each pattern applies proven practices, ensuring code is clean, consistent, and production-ready.</p>
+        <strong class="card-title">Architecture Enforcement</strong>
+        <p class="card-text">Guaranteed consistency and standardization, by default. Deterministic architecture enforcement systems provide strong guardrails, ensuring a consistent implementation of your design and architecture at any scale, with zero drift.</p>
       </div>
       <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
     </div>
@@ -305,8 +305,8 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Non-Deterministic Code Generation(AI-Assisted)</strong>
-        <p class="card-text">Intent Architect includes AI accelerators that automate parts of development which can't be predefined. Performing all the necessary context engineering automatically, Intent Architect integrates with LLMs providing a prompt-less, predictable AI experience.</p>
+        <strong class="card-title">AI Agents</strong>
+        <p class="card-text">Maximize the power of AI-driven development at scale. Intent Architect's context engineering systems ensure your agents execute accurately and in full conformance with your design and architecture, out-the-box. No complex setup. Just focused AI.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
@@ -324,7 +324,7 @@ It brings design and architectural visibility to your software development proce
       </span>
       <div class="content">
         <strong class="card-title">Codebase Integration</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase, via a review process. Advanced Code Integration systems keep developers in control of the code, with full transparency. </p>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customise any generated code.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Integration"></a>
     </div>
@@ -351,18 +351,19 @@ It brings design and architectural visibility to your software development proce
 
 ---
 
-## Watch a demo
+## Watch a demo of the latest features
 
 <div class="video-16x9"><iframe src="https://www.youtube.com/embed/-9ZM5QR_UQ4?rel=0" title="Video" allowfullscreen></iframe></div>
 
-If you're new to Intent Architect, the best way to understand the platform is to watch a demo. Watch this recent webinar where Gareth Baars - founder of Intent Architect - walks you through how to build enterprise-grade C# / .NET applications in a fraction of the time with Intent Architect.
+Watch the Intent Architect version 5 new features demo, a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic generation, and customizable coding agents together in one platform.
 
 What's covered in this demo:
 
-- What is "Pattern Reuse" actually?
-- A comprehensive introduction & demo of the platform, Intent Architect
-- Building a working, high-quality .NET application in minutes following a Clean Architecture
-- A sneak peek at how Intent Architect can leverage generative-AI to push productivity even further.
+- AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
+- A full upgrade to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
+- The Intent Architect MCP Server, letting external AI tools drive Intent Architect directly.
+- The integrated Terminal & Tasks system with automatic AI error fixing.
+- A world-class Software Factory experience with a redesigned UI and per-file control.
 
 ---
 
