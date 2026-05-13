@@ -4,11 +4,11 @@ uid: key-concepts.codebase-integration
 
 # Codebase Control
 
-Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with automation.  
+Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with better visibility, improved control, and automation.
 
-Unlike typical code generation tools that simply scaffold or are inflexible to customization, Intent Architect’s integration model is built around **transparency, precision, and developer choice**.  You decide which parts of your code are automated, which are hand-crafted, and how the two coexist, all with full review and traceability.
+Intent Architect is built on a simple principle: developers are always in control. No matter how much is automated, developers can always write, edit, or override any part of the codebase – directly inside Intent Architect or in their existing IDE – and the system will never get in their way.
 
-At its core, this is powered by three systems: **Code Management**, **Customization Tracking**, and **Developer-in-the-Loop Integration** through the **Software Factory**.
+This is made possible by Intent Architect’s Code Management systems, which give developers fine-grained control over what gets automated and what stays hand-crafted. From entire files down to individual methods, developers decide what the system manages and what they manage themselves – and can change that decision at any time.
 
 ---
 

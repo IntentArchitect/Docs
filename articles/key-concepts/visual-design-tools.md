@@ -4,11 +4,13 @@ uid: key-concepts.visual-modeling
 
 # Visual Design Tools
 
-Intent Architect provides **rich visual designers** for modeling applications, allowing you to express your architecture in a way that’s intuitive, precise, and always in sync with your codebase.  
+As developers spend less time writing code and more time architecting and engineering, software development is going visual to help us optimize our context engine and stay in control.
 
-By compressing information into visual formats (e.g. entity-relationship diagrams), the human mind can quickly interpret and digest it. Unlike static diagrams or external modeling tools, these designs are *live blueprints*: every change you make is reflected in the codebase. This makes Intent Architect not just a modeling environment, but a **living architectural workspace** where visualization and implementation stay continuously aligned.
+Intent Architect provides powerful visual designers for modeling applications, allowing you to express every layer of your system’s design, from domain and services to architecture, in a way that’s intuitive, precise, and always in sync with your codebase.
 
-With Intent Architect, you can design and reason about complex systems visually rather than mentally reverse-engineering structure from a codebase. It’s the difference between *seeing your architecture* and *guessing at it*.
+Visuals are a highway to the brain, and by expressing complex systems in visual formats (e.g. entity-relationship diagrams), teams can quickly interpret and reason about design and architecture that would otherwise require deep codebase immersion. Unlike static diagrams or external modeling tools, these designs are living blueprints: every change you make is reflected in the codebase, minimizing cognitive debt by design. Beyond providing visibility, they form the platform’s powerful context engine, driving all AI agents and code generation systems.
+
+With Intent Architect, you can design and reason about complex systems visually rather than reverse-engineering structure from code. It’s the difference between seeing your system’s design and guessing at it.
 
 ---
 

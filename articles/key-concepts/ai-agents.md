@@ -4,13 +4,11 @@ uid: key-concepts.non-deterministic-codegen
 
 # AI Agents
 
-While Deterministic Code Generation automates predictable patterns, some parts of software development require creative, context-aware logic that can’t be fully predefined.  
+Intent Architect brings AI agents into two distinct contexts: modeling and coding. Together, they allow teams to go from business requirements to visual designs to working, production-ready code – with developers doing the engineering and AI agents doing the heavy lifting.
 
-**Intent Architect’s AI-Assisted Code Generation** bridges that gap with **AI Accelerators**, guided tools that can implement Blazor views, service implementations, unit tests, and other non-deterministic code directly from your architectural design.
+The platform can pre-engineer all the context for the agents automatically, ensuring they execute accurately and in full conformance with your design and architecture, out-the-box. No complex context engineering setup. No excessive prompting.
 
-Unlike traditional AI coding tools that rely on hand-crafted prompts and unpredictable output, Intent Architect performs all the **context engineering** automatically. It builds structured, detailed prompts from your blueprints, ensuring that AI generation aligns with your architecture.  
-
-Developers remain fully in control: AI-suggested changes are presented as diffs allowing review, iteration, and safe application.
+The deterministic architecture enforcement system guarantees consistency across your codebase by design, while customizable AI agents take care of the rest – fully automated, developer-augmented, or manually driven – using your LLM of choice, but always within the same strong guardrails.
 
 ---
 

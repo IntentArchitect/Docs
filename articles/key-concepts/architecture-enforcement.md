@@ -4,11 +4,11 @@ uid: key-concepts.deterministic-codegen
 
 # Architecture Enforcement
 
-Intent Architect’s **Pattern Reuse** automates the predictable parts of your system, which could represent up to 85% of your codebase. Each pattern encapsulates proven practices, from domain entities to integration messaging, or anything in between, ensuring every generated line of code is clean, consistent, and production-ready.
+Codebase standardization, consistency and architectural adherence, by default. Intent Architect’s architecture enforcement system uses Modules – customizable and reusable architectural patterns – to deterministically turn your visual design intent into code, guaranteeing consistent implementation at any scale.
 
-This is **deterministic code generation**: it's fast, predictable and developer-controlled. It’s not a black box or one-time scaffolding; it’s a continuously synchronized process that evolves your codebase alongside your architectural design. Developers remain in control, reviewing all changes before applying them.
+This is deterministic code generation: faster, 100% predictable, 100% consistent and developer-controlled – ensuring your architecture stays consistent as your system and team scale, and your codebase remains easy to maintain. It’s not a black box or one-time scaffolding, it’s a continuously synchronized process that evolves your architecture alongside your design. The result is strong and consistent guardrails that minimize technical debt and codebase complexity – without the need for overly complex context engineering or onerous code review processes and systems.
 
-The result is an architecture that stays consistent, extensible, and always aligned with your intent, without sacrificing flexibility or developer ownership.
+Because any application can be configured with a completely unique set of modules, the system accommodates all the different patterns, standards, technologies, and architectures your teams follow – at any scale.
 
 ---
 
