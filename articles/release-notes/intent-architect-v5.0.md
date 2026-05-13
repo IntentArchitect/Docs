@@ -3,6 +3,19 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
+<!-- ## Version 5.0.3
+
+### Improvements in 5.0.3
+
+- Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information. -->
+
+## Version 5.0.2
+
+### Fixes in 5.0.2
+
+- Fixed: If version 5.0.1 was the first version you're running of Intent Architect v5 and v4 had been used in the past, it would always show a "data upgrade required" dialog regardless of whether all other instances of Intent Architect were closed.
+- Fixed: Templates with an overwrite mode of "once off" would never generate.
+
 ## Version 5.0.1
 
 ### Fixes in 5.0.1
