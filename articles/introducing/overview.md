@@ -181,7 +181,7 @@ html[data-theme="dark"] .ia-overview .card {
 
 Intent Architect is the first architecture-centric AI code automation platform for .NET developers.
 
-It’s the platform that delivers AI-driven development speed with built-in guardrails and uncompromised quality, at any scale.
+It’s the platform that delivers AI-driven development speed, with built-in guardrails and uncompromised quality, at any scale.
 
 It brings design and architectural visibility to your software development processes and unlocks a single cohesive workflow to go from specification to production-ready code up to 10X faster. Architectural adherence enforced by default. Technical and cognitive debt minimized by design.
 
@@ -266,7 +266,7 @@ It brings design and architectural visibility to your software development proce
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
         <strong class="card-title">Visual Design Tools</strong>
-        <p class="card-text">Software development is going visual. Intent Architect's visual design tools let you create living blueprints of your system that realize directly as code, forming guardrails that minimize technical and cognitive debt by design.</p>
+        <p class="card-text">Software development is going visual. Intent Architect's visual design tools let you create living blueprints of your system that realize directly as code, creating a powerful context engine to minimize technical and cognitive debt by design.</p>
       </div>
       <a href="xref:key-concepts.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
@@ -306,7 +306,7 @@ It brings design and architectural visibility to your software development proce
       </span>
       <div class="content">
         <strong class="card-title">AI Agents</strong>
-        <p class="card-text">Maximize the power of AI-driven development at scale. Intent Architect's context engineering systems ensure your agents execute accurately and in full conformance with your design and architecture, out-the-box. No complex setup. Just focused AI.</p>
+        <p class="card-text">Maximize the power of AI-driven development at scale. Intent Architect's customizable context engineering systems ensure your agents execute accurately and in full conformance with your design and architecture, out-the-box. No complex setup. Just focused AI.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
@@ -324,7 +324,7 @@ It brings design and architectural visibility to your software development proce
       </span>
       <div class="content">
         <strong class="card-title">Codebase Control</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously integrating your design into your codebase through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
+        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously realizing your design as code through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Control"></a>
     </div>
