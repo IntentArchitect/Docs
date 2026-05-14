@@ -3,12 +3,16 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
-<!-- ## Version 5.0.3
+## Version 5.0.3
 
-### Improvements in 5.0.3
+<!-- ### Improvements in 5.0.3
 
-- Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information. -->
+- Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information.
 
+### Fixes in 5.0.3
+
+- Fixed: Searching modelers would sometimes fail with an error about being unable to read a null value.
+ -->
 ## Version 5.0.2
 
 ### Fixes in 5.0.2
