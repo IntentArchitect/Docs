@@ -72,6 +72,6 @@ Teams can annotate, discuss, and validate decisions directly within the modeling
 
 ## Learn more
 
-- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
-- **[AI-assisted code generation](xref:key-concepts.non-deterministic-codegen)**
-- **[Codebase integration](xref:key-concepts.codebase-integration)**
+- **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
+- **[AI Agents](xref:key-concepts.non-deterministic-codegen)**
+- **[Codebase Control](xref:key-concepts.codebase-integration)**

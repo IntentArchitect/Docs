@@ -88,6 +88,6 @@ Developers review these proposed modifications as diffs before applying them. No
 
 ## Learn more
 
-- **[Visual modeling](xref:key-concepts.visual-modeling)**
-- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
-- **[AI-assisted code generation](xref:key-concepts.non-deterministic-codegen)**
+- **[Visual Design Tools](xref:key-concepts.visual-modeling)**
+- **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
+- **[AI Agents](xref:key-concepts.non-deterministic-codegen)**

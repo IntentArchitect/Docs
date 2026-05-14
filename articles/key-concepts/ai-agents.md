@@ -58,6 +58,6 @@ AI Accelerators are designed to work well out-of-the-box for most use cases (~80
 
 ## Learn more
 
-- **[Visual modeling](xref:key-concepts.visual-modeling)**
-- **[Pattern-based code generation](xref:key-concepts.deterministic-codegen)**
-- **[Codebase integration](xref:key-concepts.codebase-integration)**
+- **[Visual Design Tools](xref:key-concepts.visual-modeling)**
+- **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
+- **[Codebase Control](xref:key-concepts.codebase-integration)**

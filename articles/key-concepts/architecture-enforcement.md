@@ -78,6 +78,6 @@ Intent Architect is not a framework or runtime platform. It does not inherently 
 
 ## Learn more
 
-- **[Visual modeling](xref:key-concepts.visual-modeling)**
-- **[AI-Assisted code generation](xref:key-concepts.non-deterministic-codegen)**
-- **[Codebase integration](xref:key-concepts.codebase-integration)**
+- **[Visual Design Tools](xref:key-concepts.visual-modeling)**
+- **[AI Agents](xref:key-concepts.non-deterministic-codegen)**
+- **[Codebase Control](xref:key-concepts.codebase-integration)**
