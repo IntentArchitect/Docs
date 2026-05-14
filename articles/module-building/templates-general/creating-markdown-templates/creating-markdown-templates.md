@@ -103,7 +103,7 @@ file.WithFrontMatter(fm =>
 
 ## Adding and configuring sections
 
-Section titles are matched case-insensitively. You can pass a plain title (`"Core rules"`) or a heading-prefixed title (`"## Core rules"`) — both resolve to the same section.
+Section titles are matched case-insensitively. You can pass a plain title (`"Core rules"`) or a heading-prefixed title (`"## Core rules"`) - both resolve to the same section.
 
 ```csharp
 // Get-or-create at the end of the file
@@ -212,7 +212,7 @@ file.WithSection("Examples", section =>
         result.Apply(command);
         """, language: "csharp");
 
-    // With a title — rendered as a bold label above the fence
+    // With a title - rendered as a bold label above the fence
     section.WithCodeBlock("""
         public class CustomerDtoProfile : Profile
         {
