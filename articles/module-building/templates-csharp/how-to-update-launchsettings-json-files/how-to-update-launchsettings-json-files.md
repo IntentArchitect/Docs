@@ -7,7 +7,7 @@ The `launchSettings.json` file is managed by the `LaunchSettingsJsonTemplate`. T
 
 ---
 
-## 1. Add a Launch Profile — `LaunchProfileRegistrationRequest`
+## 1. Add a Launch Profile - `LaunchProfileRegistrationRequest`
 
 Adds a new named profile to `launchSettings.json`.
 
@@ -59,7 +59,7 @@ public override void BeforeTemplateExecution()
 
 ---
 
-## 2. Add an Environment Variable — `EnvironmentVariableRegistrationRequest`
+## 2. Add an Environment Variable - `EnvironmentVariableRegistrationRequest`
 
 Adds a key/value environment variable to one or more launch profiles.
 
@@ -99,7 +99,7 @@ ExecutionContext.EventDispatcher.Publish(
 
 ---
 
-## 3. Set the Default Launch URL Path — `DefaultLaunchUrlPathRequest`
+## 3. Set the Default Launch URL Path - `DefaultLaunchUrlPathRequest`
 
 Sets the `launchUrl` path for the default project profiles (profiles whose name ends with `.Api`).
 
@@ -131,7 +131,7 @@ public override void BeforeTemplateExecution()
 
 ---
 
-## 4. Require an HTTP Port in Application URLs — `LaunchProfileHttpPortRequired`
+## 4. Require an HTTP Port in Application URLs - `LaunchProfileHttpPortRequired`
 
 Publishing this event ensures every HTTPS-only profile gets an additional `http://localhost:{port}` entry appended to its `applicationUrl`.
 
@@ -147,7 +147,7 @@ This is useful for tooling (e.g. Docker, Aspire) that requires an explicit HTTP 
 
 ---
 
-## 5. Suppress Generation — `AddProjectPropertyEvent` with `NoDefaultLaunchSettingsFile`
+## 5. Suppress Generation - `AddProjectPropertyEvent` with `NoDefaultLaunchSettingsFile`
 
 Setting the `NoDefaultLaunchSettingsFile` MSBuild property to `true` via `AddProjectPropertyEvent` causes the template to skip generation entirely for that project.
 
