@@ -4,9 +4,9 @@ uid: key-concepts.non-deterministic-codegen
 
 # AI Agents
 
-Intent Architect brings AI agents into two distinct contexts: modeling and coding. Together, they allow teams to go from business requirements to visual designs to working, production-ready code – with developers doing the engineering and AI agents doing the heavy lifting.
+Intent Architect brings AI agents into two distinct contexts: modeling and coding. Together, they allow teams to go from business requirements to visual designs to working, production-ready code – with developers focused on engineering decisions and AI agents handling implementation.
 
-The platform can pre-engineer all the context for the agents automatically, ensuring they execute accurately and in full conformance with your design and architecture, out-the-box. No complex context engineering setup. No excessive prompting.
+The platform pre-engineers relevant context for the agents automatically, ensuring they execute accurately and in full conformance with your design and architecture – without complex setup or excessive prompting.
 
 The deterministic architecture enforcement system guarantees consistency across your codebase by design, while customizable AI agents take care of the rest – fully automated, developer-augmented, or manually driven – using your LLM of choice, but always within the same strong guardrails.
 
@@ -14,47 +14,75 @@ The deterministic architecture enforcement system guarantees consistency across 
 
 ## Key benefits
 
-- **⚙️ Non-Deterministic code automation**  
-  Use AI to generate complex logic or creative code that traditional pattern-based automation can’t predict.
+- **🚀 End-to-end automation**  
+  Modeling agents handle design, coding agents handle implementation – together covering the full development cycle from concept to code.
 
-- **🧠 Promptless, predictable AI experience**  
-  Intent Architect automatically constructs detailed prompts from your architectural model, turning AI coding into a repeatable, deterministic process.
+- **🧠 Sophisticated, customizable context engine**  
+  Intent Architect's context engineering is fully customizable to your domain and coding standards, and pre-engineered by default to ensure adherence to your visually defined design and architecture.
 
-- **🛡️ Developer-in-control workflows**  
-  Every AI-generated suggestion appears as a code diff, ensuring complete transparency and safety before applying.
+- **🤖 Fully customizable agents**  
+  Author your own agents, connect your preferred LLM, and tailor agent behavior to your specific needs.
 
-- **🔄 Choose your AI**  
-  Integrate with your preferred model(s), OpenAI, Azure OpenAI, Anthropic, or others.
+- **🔌 MCP Server for External AI Control**  
+  The Intent MCP Server allows for a flexible tooling configuration. This means external AI coding tools, like Claude Code, GitHub Copilot etc., can also drive Intent Architect directly to manage your design and architecture visually.
 
 ---
 
-## AI accelerators: context-aware Generation
+## The Golden Path
 
-Intent Architect includes several AI Accelerators, guided actions that automate tasks such as implementing Blazor views, service logic, or unit tests.
-When you run an accelerator, Intent Architect reads your design context, entities, services, dependencies, naming conventions and constructs a rich AI prompt automatically.
+The ultimate goal of Intent Architect is a development workflow where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 
-The LLM then receives all the information it needs to generate high-quality, consistent code aligned with your architecture.
+Intent Architect's AI agents make this possible in two ways. Modeling agents operate inside the visual designers, helping you translate requirements into comprehensive system designs, faster and more accurately than working manually. All model changes are made in memory and never saved without your explicit approval.
 
-As an example, by simply modeling a logical screen, i.e. give it basic details and connecting it up visually to the service you would want to interact with, Intent Architect is able to build professional UIs via an LLM in a promptless, predictable and repeatable fashion.
+Coding agents are built into the Software Factory Execution, and while the deterministic architecture enforcement system rolls out the architecture, infrastructure and boilerplate to guarantee consistency at scale, coding agents can take care of all the rest, even in one go.
 
-![UI AI Accelerators](images/blazor-ai.png)
+In practice, the workflow looks like this: describe your system's design visually with AI, run the Software Factory Execution, run the coding agents, and out the other side comes working, production-ready software. Perfectly architected, consistent, and built to your standards – at any scale.
 
-💡 You focus on goal (“Implement this service”), while Intent Architect handles the context engineering for you.
+<br>
 
-## AI with guardrails
+![Software Factory with AI coding agents](images/software-factory-ai-chat.png)
 
-Intent Architect performs structured context engineering, it builds detailed, repeatable prompts under the hood using your models and patterns, ensuring that the generated output is predictable and aligned with your design decisions. This transforms AI assistance from a creative experiment into a deterministic, repeatable process.
+---
 
-AI code generation is visualized as code diffs, ensuring developers have full transparency and control.
+## Context Engineering
 
-⚙️ Easy-to-use, deterministic AI code generation you can count on.
+The accuracy of Intent Architect's AI agents comes down to context and guardrails. Intent Architect derives this context directly from your structured visual models, giving agents precise knowledge of your design intent – automatically.
+
+Behind every coding agent is a customizable and sophisticated context engineering system that determines exactly which code files, architecture descriptions, use case intentions, and Skills are relevant for each task. Agents also have full support for standard context files your team is already using – CLAUDE.md, AGENTS.md, copilot-instructions.md and others, as well as Instruction Files – so your existing conventions, standards and workflows are respected automatically.
+
+The result is AI that executes accurately and in full conformance with your design and architecture – without excessive manual context setup or prompting.
+
+<br>
+
+![AI Modeling Assistant with context engineering](images/ai-modeling-assistant.png)
+
+---
+
+## Custom Agents and Slash Commands
+
+For teams that want to go further, Intent Architect supports fully custom agents. Authored as .agent.md markdown files, custom agents can be tailored to your domain, technology stack, or proprietary coding standards – and configured to appear in either the modeling or coding context.
+
+Slash commands make it easy to switch between agents and invoke skills directly from the chat interface, consistent with how modern AI development harnesses work. Skills can also be installed automatically via Intent Architect modules, dropping into your preferred AI folder (.claude, .github, .agents, etc.).
+
+---
+
+## The Intent MCP Server
+
+The Intent MCP Server gives teams complete flexibility in how they configure their AI tooling. Use Intent Architect's integrated agents, your own external AI coding tools, or any combination of both – all while keeping your design and architecture managed centrally and visually in Intent Architect.
+
+This means teams can use whichever tools suit them best, without conflicts between external agents and Intent Architect-managed code.
+
+Details on how to configure the Intent MCP can be found in the AI Configuration dialog (xref:ai.configuration).
+
+---
 
 ## Choose your AI
 
-You can connect Intent Architect to your preferred model provider, OpenAI, Azure OpenAI, Anthropic, or others.
-AI Accelerators are designed to work well out-of-the-box for most use cases (~80% coverage), but can be customized for specialized domains or proprietary coding styles.
+Intent Architect is designed to work with the AI providers and models your team already uses. Connect to OpenAI, Azure OpenAI, Anthropic, or other compatible providers directly from the AI Configuration dialog – which also walks you through setting up the Intent MCP Server and any additional MCP servers your agents can use.
 
-🧠 Flexibility for experts, simplicity for everyone else.
+AI agents are pre-configured to work well for most use cases, with the flexibility to customize context engineering and agent behavior for specialized domains or proprietary coding styles.
+
+---
 
 ## Learn more
 
