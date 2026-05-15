@@ -196,9 +196,10 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M19 18a3.5 3.5 0 0 0 0 -7h-1a5 4.5 0 0 0 -11 -2a4.6 4.4 0 0 0 -2.1 8.4" />
-  <path d="M12 13l0 9" />
-  <path d="M9 19l3 3l3 -3" />
+  <defs><linearGradient id="grad-get" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12"/>
+  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8 11l4 4 4-4"/>
+  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 17v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1"/>
 </svg>
       </span>
       <div class="content">
@@ -212,9 +213,8 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />
-  <path d="M7 14a6 6 0 0 0 -3 6a6 6 0 0 0 6 -3" />
-  <path d="M15 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <defs><linearGradient id="grad-qs" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-qs)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/>
 </svg>
       </span>
       <div class="content">
@@ -228,13 +228,8 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M5 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-  <path d="M9 4m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z" />
-  <path d="M5 8h4" />
-  <path d="M9 16h4" />
-  <path d="M13.803 4.56l2.184 -.53c.562 -.135 1.133 .19 1.282 .732l3.695 13.418a1.02 1.02 0 0 1 -.634 1.219l-.133 .041l-2.184 .53c-.562 .135 -1.133 -.19 -1.282 -.732l-3.695 -13.418a1.02 1.02 0 0 1 .634 -1.219l.133 -.041z" />
-  <path d="M14 9l4 -1" />
-  <path d="M16 16l3.923 -.98" />
+  <defs><linearGradient id="grad-tut" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-tut)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13"/>
 </svg>
       </span>
       <div class="content">
@@ -255,12 +250,11 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M11.933 5h-6.933v16h13v-8" />
-  <path d="M14 17h-5" />
-  <path d="M9 13h5v-4h-5z" />
-  <path d="M15 5v-2" />
-  <path d="M18 6l2 -2" />
-  <path d="M19 9h2" />
+  <defs><linearGradient id="grad-vdt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <rect x="2" y="3" width="8" height="5" rx="1" stroke="url(#grad-vdt)" fill="none" stroke-width="1.5"/>
+  <rect x="14" y="3" width="8" height="5" rx="1" stroke="url(#grad-vdt)" fill="none" stroke-width="1.5"/>
+  <rect x="8" y="16" width="8" height="5" rx="1" stroke="url(#grad-vdt)" fill="none" stroke-width="1.5"/>
+  <path stroke="url(#grad-vdt)" fill="none" stroke-width="1.5" stroke-linecap="round" d="M6 8v4h12V8M12 12v4"/>
 </svg>
       </span>
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
@@ -275,11 +269,10 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M20 11a8.1 8.1 0 0 0 -6.986 -6.918a8.095 8.095 0 0 0 -8.019 3.918" />
-  <path d="M4 13a8.1 8.1 0 0 0 15 3" />
-  <path d="M19 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-  <path d="M5 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-  <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+  <defs><linearGradient id="grad-ae" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
 </svg>
       </span>
       <div class="content">
@@ -293,15 +286,16 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M6 4m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" />
-  <path d="M12 2v2" />
-  <path d="M9 12v9" />
-  <path d="M15 12v9" />
-  <path d="M5 16l4 -2" />
-  <path d="M15 14l4 2" />
-  <path d="M9 18h6" />
-  <path d="M10 8v.01" />
-  <path d="M14 8v.01" />
+  <defs>
+    <linearGradient id="grad-ai" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient>
+    <linearGradient id="grad-ai-h" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient>
+  </defs>
+  <rect x="3" y="6" width="18" height="14" rx="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
+  <line x1="12" y1="2" x2="12" y2="6" stroke="url(#grad-ai)" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="12" cy="2" r="1.2" fill="url(#grad-ai)"/>
+  <circle cx="8.5" cy="11" r="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
+  <circle cx="15.5" cy="11" r="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
+  <path stroke="url(#grad-ai-h)" fill="none" stroke-width="1.1" stroke-linecap="round" d="M7 15.95 L17 16.05"/>
 </svg>
       </span>
       <div class="content">
@@ -315,16 +309,13 @@ It brings design and architectural visibility to your software development proce
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M12.5 16h-8.5a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v8" />
-  <path d="M7 20h4" />
-  <path d="M9 16v4" />
-  <path d="M20 21l2 -2l-2 -2" />
-  <path d="M17 17l-2 2l2 2" />
+  <defs><linearGradient id="grad-cc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-cc)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"/>
 </svg>
       </span>
       <div class="content">
         <strong class="card-title">Codebase Control</strong>
-        <p class="card-text">Intent Architect works side-by-side with your existing IDE, continuously realizing your design as code through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
+        <p class="card-text">Intent Architect works in an integrated way with your existing IDE, continuously realizing your design as code through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Control"></a>
     </div>
