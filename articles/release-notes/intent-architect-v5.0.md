@@ -3,16 +3,24 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
-## Version 5.0.3
-
-<!-- ### Improvements in 5.0.3
+<!--
+Pending:
 
 - Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information.
+-->
+
+## Version 5.0.3
+
+### Improvements in 5.0.3
+
+- Improvement: The MCP server will now provide more information to clients if they provide invalid tool call arguments which will often give them the information needed to successfully retry the call with the required data.
+- Improvement: Increased the verbosity of Intent Architect's MCP server logging. Logs are available at `%TEMP%\IntentArchitect\mcp-server` and automatically rotate after 30 days. These logs are never automatically sent to Intent Architect.
 
 ### Fixes in 5.0.3
 
-- Fixed: Searching modelers would sometimes fail with an error about being unable to read a null value.
- -->
+- Fixed: Searching within a designer would sometimes not work for especially old Intent Architect solutions.
+- Fixed: Global search (ctrl + t) would not work at all and show an error when there were any missing packages in a solution or invalid designer settings existed.
+
 ## Version 5.0.2
 
 ### Fixes in 5.0.2
