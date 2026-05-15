@@ -15,6 +15,7 @@ Pending:
 
 - Improvement: The MCP server will now provide more information to clients if they provide invalid tool call arguments which will often give them the information needed to successfully retry the call with the required data.
 - Improvement: Increased the verbosity of Intent Architect's MCP server logging. Logs are available at `%TEMP%\IntentArchitect\mcp-server` and automatically rotate after 30 days. These logs are never automatically sent to Intent Architect.
+- Fixed: Temporarily disabled the AI Modeling Agents ability to automatically create AI Tasks. These are not behaving as well as we would like, and will return in the future.
 
 ### Fixes in 5.0.3
 
