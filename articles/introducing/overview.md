@@ -185,7 +185,7 @@ It’s the platform that delivers AI-driven development speed, with built-in gua
 
 It brings design and architectural visibility to your software development processes and unlocks a single cohesive workflow to go from specification to production-ready code up to 10X faster. Architectural adherence enforced by default. Technical and cognitive debt minimized by design.
 
-![Overview](images/ia-overview.png)
+![Overview](images/Docs-v1.png)
 
 ---
 
