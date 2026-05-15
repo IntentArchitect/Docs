@@ -49,7 +49,7 @@ Controllers/
 
 ### Ensuring filters are mutually exclusive
 
-Each model instance must match **at most one** Template Output's filter. If a template's model is matched by more than one Template Output filter, the template will be registered multiple times and generate duplicate output. Design filters so they are collectively exhaustive over the cases you care about and mutually exclusive with each other.
+Each model instance must match **at most one** Template Output's filter. If a template's model is matched by more than one Template Output filter, the template will attempt to be registered multiple times causing an error in the Software Factory. Design filters so they are collectively exhaustive over the cases you care about and mutually exclusive with each other.
 
 ### Expression syntax
 
