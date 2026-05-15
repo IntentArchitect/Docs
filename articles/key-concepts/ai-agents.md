@@ -32,9 +32,7 @@ The deterministic architecture enforcement system guarantees consistency across 
 
 The ultimate goal of Intent Architect is a development workflow where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 
-Intent Architect's AI agents make this possible in two ways. Modeling agents operate inside the visual designers, helping you translate requirements into comprehensive system designs, faster and more accurately than working manually. All model changes are made in memory and never saved without your explicit approval.
-
-Coding agents are built into the Software Factory Execution, and while the deterministic architecture enforcement system rolls out the architecture, infrastructure and boilerplate to guarantee consistency at scale, coding agents can take care of all the rest, even in one go.
+Intent Architect's AI agents make this possible in two ways. Modeling agents operate inside the visual designers, helping you translate requirements into comprehensive system designs, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). And coding agents are built into the Software Factory Execution. So, while the deterministic architecture enforcement system rolls out the architecture, infrastructure and boilerplate to guarantee consistency at scale, coding agents can take care of all the rest, even in one go.
 
 In practice, the workflow looks like this: describe your system's design visually with AI, run the Software Factory Execution, run the coding agents, and out the other side comes working, production-ready software. Perfectly architected, consistent, and built to your standards – at any scale.
 
