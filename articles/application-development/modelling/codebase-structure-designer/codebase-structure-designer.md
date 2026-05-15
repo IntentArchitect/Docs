@@ -27,6 +27,75 @@ For example, if you have a domain-oriented module, when it's installed the `Temp
 
 In this way Module authors are able to target generalized logical locations for their templates as opposed to specific ones.
 
+## Registration filtering
+
+Template Outputs in the Codebase Structure designer can control where templates generate their files. The **Registration Filter** allows you to conditionally include or exclude a particular template instance from generating to a particular Template Output based on properties of the model element the template instance is running against.
+
+### Configuring the Registration Filter
+
+The Registration Filter is set via the **Template Output Settings** stereotype on a Template Output element. Select the Template Output in the designer and look for the **Registration Filter** property in the Properties panel.
+
+If the Registration Filter field is left empty, the Template Output matches all model instances (i.e., the template runs for every element of the relevant type).
+
+### Duplicating Template Outputs for conditional routing
+
+When you want different registration behaviour for different subsets of a model type, you must **duplicate the Template Output** - one copy per branch. For example, to route to different folders based on a package name, you would have two Template Outputs with the same template name but different filters:
+
+```text
+Controllers/
+  Intent.AspNetCore.Controllers.Controller   [filter: np(Operations.FirstOrDefault().InternalElement.Package.Name) == "MyApp.Services.Command"]
+  Intent.AspNetCore.Controllers.Controller   [filter: np(Operations.FirstOrDefault().InternalElement.Package.Name) == "MyApp.Services.Query"]
+```
+
+### Ensuring filters are mutually exclusive
+
+Each model instance must match **at most one** Template Output's filter. If a template's model is matched by more than one Template Output filter, the template will attempt to be registered multiple times causing an error in the Software Factory. Design filters so they are collectively exhaustive over the cases you care about and mutually exclusive with each other.
+
+### Expression syntax
+
+Registration Filters use [System.Linq.Dynamic.Core](https://dynamic-linq.net/) (Dynamic LINQ) expression syntax. The expression must evaluate to a `bool`.
+
+#### Useful operators and functions
+
+| Feature | Syntax | Description |
+| --- | --- | --- |
+| Null propagation | `np(expr)` | Returns `null` instead of throwing if any part of `expr` is `null`. Essential when navigating optional relationships. |
+| Equality | `==`, `!=` | Standard equality comparison. |
+| Logical | `&&`, `\|\|`,`!` | Boolean logic. |
+| String methods | `.StartsWith()`, `.Contains()`, `.EndsWith()` | Standard string instance methods. |
+| LINQ methods | `.Any()`, `.All()`, `.FirstOrDefault()`, `.Where()` | Standard LINQ extension methods on collections. |
+
+Full documentation for the expression language is available at: <https://dynamic-linq.net/expression-language>
+
+#### Example filters
+
+```text
+// Match only when a package has a specific name
+np(Operations.FirstOrDefault().InternalElement.Package.Name) == "MyApp.Services.Command"
+
+// Match when the element itself has a specific name prefix
+Name.StartsWith("Create")
+
+// Match when there is at least one operation with a specific tag
+np(Operations.Any(o => o.Name == "Execute"))
+```
+
+### Model instance type
+
+The expression runs against a **model instance** of the type that corresponds to the template's registered model. The type varies by Template Output name, which maps to the template's registered ID (i.e., the value of the Template Output's `Name` property matches the template's registered ID).
+
+To find the exact model type and its available properties for a given template:
+
+1. Identify the Template Output's name - this is the template ID (e.g., `Intent.AspNetCore.Controllers.Controller`).
+2. Search for that template in the source repositories, e.g.:
+   - [Intent.Modules](https://github.com/IntentArchitect/Intent.Modules)
+   - [Intent.Modules.NET](https://github.com/IntentArchitect/Intent.Modules.NET)
+3. Locate the template class and inspect its generic type parameter (e.g., `IntentTemplateBase<ControllerModel>`) - that is the model type passed to the filter expression.
+4. Inspect the model class to discover the properties and navigation paths available in the filter expression.
+
+> [!NOTE]
+> Model properties generally align with what is visible in the Intent Architect designers, but the source repositories are the authoritative reference for exact property names and navigation chains.
+
 ## See also
 
 - **[Visual Studio Module](https://docs.intentarchitect.com/articles/modules-dotnet/intent-visualstudio-projects/intent-visualstudio-projects.html)** - Extends the Codebase Structure Designer with Visual Studio concepts such as solutions and projects.
