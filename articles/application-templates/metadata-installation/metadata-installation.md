@@ -18,18 +18,9 @@ These files are expected to contain an XML representation of the metadata to ins
 
 Pressing this button will copy an XML representation of all (even unsaved) content within the designer onto your clipboard which you can then paste into the `.installation.config` file of the Module or Application Template.
 
-## Template strings
+## Template string substitution
 
-If an element's name contains template strings, then these are substituted during installation of the metadata. The following template strings are always available:
-
-|Template String|Description|
-|-|-|
-|`${solution.name}`|The Intent Architect Solution name.|
-|`${application.name}`|The Intent Architect Application name.|
-
-These template strings are commonly used for the Visual Studio designer metadata where the root element has a name of `${solution.name}` and projects have names like `${application.name}.Data.Entities`.
-
-Additionally, [Field Configuration values can be used](xref:module-building.application-templates.how-to-create-application-templates#for-metadata-installationconfig-files).
+All content of `.installation.config` files support [template string substitution](xref:module-building.application-templates.template-string-substitution), allowing values such as the solution or application name to be resolved at installation time.
 
 ## Metadata merging
 
@@ -43,7 +34,7 @@ Because Intent Architect fundamentally requires that all elements have a unique 
 
 We recommend that in your Intent Architect "Modules" Solution, you create a new Application with a name such as `<module-name>.Metadata`. In this Application install any designers which you want to export metadata from and then model the desired metadata in them as you normally would.
 
-This allows you to put [template string](#template-strings) values in element names so that the exported metadata requires no "correction" after export.
+This allows you to put [template string](xref:module-building.application-templates.template-string-substitution) values in element names so that the exported metadata requires no "correction" after export.
 
 Exporting from working Applications also has other disadvantages in that you may export additional data that you didn't intend to (for example since your original export other data was captured as necessary for the Application), or that shouldn't ideally be installed (for example it's better NOT to export and install `Template Output` elements of the Visual Studio designer as these should be managed as per [output targetting](xref:application-development.code-weaving-and-generation.about-template-output-targeting)).
 
