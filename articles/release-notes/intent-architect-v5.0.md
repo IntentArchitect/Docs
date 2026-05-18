@@ -8,6 +8,8 @@ Pending:
 
 - Feature: Can now use `camelCase`, `pascalCase` and `kebabCase` functions in `${...}` strings in architecture template installation files and metadata.
 - Feature: Added `mcpServer.executable` and `mcpServer.executableArguments` as substitutable values in `${...}` strings in architecture template installation files and metadata.
+
+- Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 -->
 
 ## Version 5.0.3
