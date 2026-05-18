@@ -6,71 +6,65 @@ uid: key-concepts.visual-modeling
 
 As developers spend less time writing code and more time architecting and engineering, software development is going visual to help us optimize our context engine and stay in control.
 
-Intent Architect provides powerful visual designers for modeling applications, allowing you to express every layer of your system’s design, from domain and services to architecture, in a way that’s intuitive, precise, and always in sync with your codebase.
+Intent Architect provides powerful visual designers for modeling applications, allowing you to express every layer of your system's design, from domain and services to architecture, in a way that's intuitive, precise, and always in sync with your codebase.
 
-Visuals are a highway to the brain, and by expressing complex systems in visual formats (e.g. entity-relationship diagrams), teams can quickly interpret and reason about design and architecture that would otherwise require deep codebase immersion. Unlike static diagrams or external modeling tools, these designs are living blueprints: every change you make is reflected in the codebase, minimizing cognitive debt by design. Beyond providing visibility, they form the platform’s powerful context engine, driving all AI agents and code generation systems.
+Visuals are a highway to the brain, and by expressing complex systems in visual formats (e.g. entity-relationship diagrams), teams can quickly interpret and reason about design and architecture that would otherwise require deep codebase immersion. Unlike static diagrams or external modeling tools, these designs are living blueprints: every change you make is reflected in the codebase, minimizing cognitive debt by design. Beyond providing visibility, they form the platform's powerful context engine, driving all AI agents and code generation systems.
 
-With Intent Architect, you can design and reason about complex systems visually rather than reverse-engineering structure from code. It’s the difference between seeing your system’s design and guessing at it.
-
----
-
-## Key benefits
-
-- **🧠 Easier comprehension of complex systems**  
-  Visualize domains, services, and relationships at a glance, no need to mentally reconstruct architecture from thousands of lines of code.
-
-- **🤝 Collaborative design and validation**  
-  Shared visual models give architects and developers a common language for discussion, review, and decision-making.
-
-- **🗺️ Living documentation**  
-  Designs are always synchronized with the codebase, what you see is a true reflection of what’s in the source, not an outdated diagram, ensures architecture stays consistent with evolving codebase.
-
-- **🚀 Reduced onboarding friction**  
-  New team members can explore and understand the system architecture visually, accelerating their ability to contribute meaningfully.
+With Intent Architect, you can design and reason about complex systems visually rather than reverse-engineering structure from code. It's the difference between seeing your system's design and guessing at it.
 
 ---
 
-## Design visually
+## Key Benefits
 
-Model your systems through Intent Architect’s visual designers, model domains, services, integrations and much more.
-Each designer helps you model your applications in a structured, intuitive way. Behind the scenes, every element you draw is represented as structured metadata, saved alongside your source code in human-readable files. You’re never disconnected from your design, it lives right inside your solution.
+- **🧭 Built for how developers work today**
 
-💡 Visual modeling turns complex systems into clear, collaborative blueprints for innovation.
+  As developers spend less time writing and internalizing code, Intent Architect's structured visual models bring design and architectural decisions to the forefront, from architectural patterns to domain entities and service contracts, to UI flows and integrations. Every developer and stakeholder shares a single, inspectable artifact for design review, discussion, and decision-making that is far easier for the human mind to process than code, eliminating suboptimal and inconsistent implementations, and minimizing technical and cognitive debt. When every developer and agent works from the same precise design, teams stay in control at any scale.
 
-### Domain modeling
+- **⚡ The Optimal Context Engine**
 
-Visual domain modeling lets you define your system’s core entities, relationships, and logic in a clear, structured way forming the base from which your applications are built.
+  Every model you create becomes part of the platform's context engine, a structured, always-current source of design intent that drives AI agents and deterministic architecture enforcement systems downstream.
 
-![Domain modeling](images/domain-modeling.png)
+- **📋 Reduced Cognitive Debt and Code Review Overhead**
 
-### Application modeling
+  A visual representation of your system that is always synchronized with your codebase gives reviewers an accurate, immediate reference point. Rather than reconstructing intent from code, teams can validate changes against the design directly, reducing code review overhead and downstream resolution times significantly.
 
-Visual application modeling defines how your system behaves, mapping services, contracts, and integrations that connect your applications into a unified flow
+---
 
-![Application modeling](images/applicaiton-modeling.png)
+## The Designers
 
-### UI modeling
+The Domain Designer lets you model your system's core entities, relationships, and data structures, the structural foundation from which your application is built. The Services Designer defines how your system behaves: use cases, contracts, and the integrations that connect your applications. The UI Designer captures user flows, screens, and data interactions from end to end.
 
-Visual UI modeling defines how users interact with your system, mapping screens, service calls, and flows that shape the end-to-end experience, with AI accelerators helping fill in the details.
+Each designer targets a different layer of your architecture. Together, they give you a complete, structured picture of your entire system at any scale.
 
-![UI Modeling](images/ui-modeling.png)
+![The Designers](images/modeling-designers-v1.png)
 
-## Living documentation
+---
 
-The visual models aren’t just diagrams, they’re true reflections of your architecture and implementation.
-When you run the Software Factory, it analyzes your design and proposes code updates to bring the solution into alignment with your modeled intent.
-Developers can review and apply these changes directly within their workflow, ensuring that architectural intent is consistently and transparently reflected in the codebase.
+## Designing with AI
 
-🔄 Think of it as "design-driven development", visual models inform code generation, and generated code maintains fidelity with the design.
+One of the most powerful ways to use the visual designers is alongside Intent Architect's AI Modeling Assistant. Rather than building designs from scratch, you describe your requirements in natural language and the AI proposes the full design within the visual environment, entities, relationships, services, and more. All changes are made in memory and never saved without your explicit approval, so you stay in full control of every design decision.
 
-## Designed for collaboration and clarity
+<br>
 
-Intent Architect’s modeling environment makes architecture a shared, inspectable artifact rather than a hidden understanding in developers’ heads.
-Teams can annotate, discuss, and validate decisions directly within the modeling environment, so architecture reviews are visual, contextual, and actionable.
+![AI Modeling Assistant](images/ai-modeling-assistant.png)
 
-👥 No more separate whiteboards or UML tools. Your architecture lives where your code lives.
+---
 
-## Learn more
+## The Context Engine
+
+When you design in Intent Architect, every element you place, an entity, a service, a relationship, is saved as structured metadata alongside your source code. Collectively, this metadata forms the platform's context engine, a precise, always-current representation of your system's design intent.
+
+This is what makes automation reliable at scale. AI coding agents and architecture enforcement systems all work from this same structured source of truth. Rather than inferring design intent from code, which is imprecise and incomplete, every downstream system works from the exact design decisions you have made, visually, in the designers. Your intent is never lost in translation.
+
+---
+
+## Living Documentation
+
+Because designs are stored as structured metadata alongside your source code, they are always synchronized with your codebase, reflecting the current state of your system's design and architecture. New team members can explore the full system architecture visually rather than reverse-engineering it from thousands of lines of code, significantly accelerating the time it takes to contribute meaningfully.
+
+---
+
+## Learn More
 
 - **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
 - **[AI Agents](xref:key-concepts.non-deterministic-codegen)**
