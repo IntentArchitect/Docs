@@ -28,13 +28,13 @@ The deterministic architecture enforcement system guarantees consistency across 
 
 ---
 
-## The Golden Path
+## The Ultimate Development Workflow
 
-The ultimate goal of Intent Architect is a development workflow where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
+The ultimate goal of Intent Architect is a development workflow we refer to as "The Golden Path", where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 
 Intent Architect's AI agents make this possible in two ways. Modeling agents operate inside the visual designers, helping you translate requirements into comprehensive system designs, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). And coding agents are built into the Software Factory Execution. So, while the deterministic architecture enforcement system rolls out the architecture, infrastructure and boilerplate to guarantee consistency at scale, coding agents can take care of all the rest, even in one go.
 
-In practice, the workflow looks like this: describe your system's design visually with AI, run the Software Factory Execution, run the coding agents, and out the other side comes working, production-ready software. Perfectly architected, consistent, and built to your standards – at any scale.
+In practice, the workflow looks like this: describe your system's design visually with AI, run the Software Factory Execution, run the coding agents, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
 
 <br>
 
@@ -56,11 +56,9 @@ The result is AI that executes accurately and in full conformance with your desi
 
 ---
 
-## Custom Agents and Slash Commands
+## Custom Agents
 
 For teams that want to go further, Intent Architect supports fully custom agents. Authored as .agent.md markdown files, custom agents can be tailored to your domain, technology stack, or proprietary coding standards – and configured to appear in either the modeling or coding context.
-
-Slash commands make it easy to switch between agents and invoke skills directly from the chat interface, consistent with how modern AI development harnesses work. Skills can also be installed automatically via Intent Architect modules, dropping into your preferred AI folder (.claude, .github, .agents, etc.).
 
 ---
 
@@ -74,7 +72,7 @@ Details on how to configure the Intent MCP can be found in the AI Configuration 
 
 ---
 
-## Choose your AI
+## Connect Your Preferred Service Provider
 
 Intent Architect is designed to work with the AI providers and models your team already uses. Connect to OpenAI, Azure OpenAI, Anthropic, or other compatible providers directly from the AI Configuration dialog – which also walks you through setting up the Intent MCP Server and any additional MCP servers your agents can use.
 
@@ -82,7 +80,7 @@ AI agents are pre-configured to work well for most use cases, with the flexibili
 
 ---
 
-## Learn more
+## Learn More
 
 - **[Visual Design Tools](xref:key-concepts.visual-modeling)**
 - **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
