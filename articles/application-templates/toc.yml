@@ -8,8 +8,14 @@ items:
   - name: How to set Module Versions
     href: how-to-set-module-versions/how-to-set-module-versions.md
 
+  - name: Installation files
+    href: installation-files/installation-files.md
+
   - name: Metadata installation
     href: metadata-installation/metadata-installation.md
+
+  - name: Template string substitution
+    href: template-string-substitution/template-string-substitution.md
 
   - name: Version Range Notation
     href: version-range-notation/version-range-notation.md

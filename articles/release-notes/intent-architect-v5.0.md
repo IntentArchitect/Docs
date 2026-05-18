@@ -6,7 +6,10 @@ uid: release-notes.intent-architect-v5.0
 <!--
 Pending:
 
-- Improvement: Added `GetMcpServerLaunchInfo()` to `ISoftwareFactoryExecutionContext` to allow modules to be able to retrieve MCP server launch information.
+- Feature: Can now use `camelCase`, `pascalCase` and `kebabCase` functions in `${...}` strings in architecture template installation files and metadata.
+- Feature: Added `mcpServer.executable` and `mcpServer.executableArguments` as substitutable values in `${...}` strings in architecture template installation files and metadata.
+
+- Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 -->
 
 ## Version 5.0.3

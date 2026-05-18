@@ -157,7 +157,7 @@ To create a Field Option, right-click a Field Configuration and use the `Add Opt
 
 #### For Metadata `.installation.config` files
 
-All Field Configuration values are available as [template strings](xref:module-building.application-templates.metadata-installation#template-strings) for use in `.installation.config` files. Use a Field Configuration's `Value` using the `${<value>}` format and it will be substituted with the user captured (or otherwise default) value. For example, for a [Field Configuration](#field-configurations) with a `Name` of `Custom Field` and a `Value` of `custom-field`:
+All Field Configuration values are available as [template strings](xref:module-building.application-templates.template-string-substitution) for use in `.installation.config` files. Use a Field Configuration's `Value` using the `${<value>}` format and it will be substituted with the user captured (or otherwise default) value. For example, for a [Field Configuration](#field-configurations) with a `Name` of `Custom Field` and a `Value` of `custom-field`:
 
 ![Field Configuration Name and Value](images/field-setting-name-and-value.png)
 
