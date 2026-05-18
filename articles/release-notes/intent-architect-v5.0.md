@@ -12,6 +12,12 @@ Pending:
 - Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 -->
 
+## Version 5.0.4
+
+### Fixes in 5.0.4
+
+- Fixed: A `Method not found` exception would sometimes occur in Angular solutions.
+
 ## Version 5.0.3
 
 ### Improvements in 5.0.3
