@@ -38,7 +38,7 @@ In practice, the workflow looks like this: describe your system's design visuall
 
 <br>
 
-![Software Factory with AI coding agents](images/software-factory-ai-chat.png)
+![Software Factory with AI coding agents](images/golden-path-v5.png)
 
 ---
 
