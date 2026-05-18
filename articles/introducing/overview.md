@@ -285,17 +285,26 @@ It brings design and architectural visibility to your software development proce
   <li>
     <div class="card">
       <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
+<svg class="landing-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.81 41.81">
   <defs>
-    <linearGradient id="grad-ai" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient>
-    <linearGradient id="grad-ai-h" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient>
+    <style>.ai25-a{stroke:url(#ai25-g1)}.ai25-a,.ai25-b,.ai25-c,.ai25-d,.ai25-e,.ai25-f,.ai25-g,.ai25-h{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}.ai25-b{stroke:url(#ai25-g5)}.ai25-c{stroke:url(#ai25-g2)}.ai25-d{stroke:url(#ai25-g4)}.ai25-e{stroke:url(#ai25-g7)}.ai25-f{stroke:url(#ai25-g0)}.ai25-g{stroke:url(#ai25-g3)}.ai25-h{stroke:url(#ai25-g6)}</style>
+    <linearGradient id="ai25-g0" x1="13.09" y1="24.39" x2="13.09" y2="7.98" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g1" x1="15.07" y1="20.94" x2="24.84" y2="4.77" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g2" x1="20.11" y1="15.68" x2="36.52" y2="15.68" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g3" x1="26.05" y1="17.34" x2="42.46" y2="33.75" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g4" x1="28.82" y1="22.8" x2="28.82" y2="39.22" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g5" x1="27.16" y1="28.73" x2="10.75" y2="45.14" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g6" x1="21.7" y1="31.41" x2="5.28" y2="31.41" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
+    <linearGradient id="ai25-g7" x1="15.82" y1="29.81" x2="-.59" y2="13.4" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
   </defs>
-  <rect x="3" y="6" width="18" height="14" rx="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
-  <line x1="12" y1="2" x2="12" y2="6" stroke="url(#grad-ai)" stroke-width="1.5" stroke-linecap="round"/>
-  <circle cx="12" cy="2" r="1.2" fill="url(#grad-ai)"/>
-  <circle cx="8.5" cy="11" r="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
-  <circle cx="15.5" cy="11" r="2" stroke="url(#grad-ai)" fill="none" stroke-width="1.5"/>
-  <path stroke="url(#grad-ai-h)" fill="none" stroke-width="1.1" stroke-linecap="round" d="M7 15.95 L17 16.05"/>
+  <path class="ai25-f" d="M22.78,22.78c0-.38.38,3.94-1.6,7.13-1.88,3.19-4.32,4.22-8.16,5.07-2.16.47-3.47,0-5.07-.56-2.35-.75-3.57-2.72-3.94-3.19s-.84-1.97-.56-3.38c.56-2.35,2.16-3.57,4.22-4.03.38,0,2.35-.56,4.03.38s2.35,1.6,3.94,1.97c1.6.47,3.19,0,3.94-.38,1.69-.66,3-2.53,3.19-3.19,0,0,0,.19,0,.19Z"/>
+  <path class="ai25-a" d="M23.44,20.91c-.28-.28,3,2.53,3.94,6.19.94,3.66.19,6.19-2.16,9.48-1.31,1.78-2.44,2.53-3.94,3.28-2.25,1.13-4.41.56-5.07.56s-1.97-.75-2.81-1.97c-1.22-1.97-1.03-3.94,0-5.91.28-.28,1.22-1.97,3.1-2.63,1.88-.56,2.81-.56,4.13-1.41s2.25-2.25,2.53-3c.75-1.69.38-3.94,0-4.5l.28-.09Z"/>
+  <path class="ai25-c" d="M22.78,19.12c-.38,0,3.94-.38,7.13,1.6,3.19,1.88,4.5,4.22,5.07,8.16.38,2.16,0,3.47-.56,5.07-.75,2.35-2.72,3.57-3.19,3.94s-1.97.84-3.38.56c-2.35-.56-3.57-2.16-4.03-4.22,0-.38-.56-2.35.38-4.03s1.6-2.35,1.97-3.94,0-3.19-.38-3.94c-.66-1.69-2.53-3-3.19-3.19,0,0,.19,0,.19,0Z"/>
+  <path class="ai25-g" d="M20.91,18.47c-.28.28,2.53-3,6.19-3.94,3.66-.94,6.19-.19,9.48,2.16,1.78,1.31,2.53,2.44,3.28,3.94,1.13,2.25.56,4.41.56,5.07s-.75,1.97-1.97,2.81c-1.97,1.22-3.94,1.03-5.91,0-.28-.28-1.97-1.22-2.63-3.1s-.56-2.81-1.41-4.13-2.25-2.25-3-2.53c-1.69-.75-3.94-.38-4.5,0l-.09-.28Z"/>
+  <path class="ai25-d" d="M19.12,19.12c0,.38-.38-3.94,1.6-7.13s4.22-4.5,8.16-5.07c2.16-.38,3.47,0,5.07.56,2.35.75,3.57,2.72,3.94,3.19s.84,1.97.56,3.38c-.56,2.35-2.16,3.57-4.22,4.03-.38,0-2.35.56-4.03-.38s-2.35-1.6-3.94-1.97-3.19,0-3.94.38c-1.69.66-3,2.53-3.19,3.19,0,0,0-.19,0-.19Z"/>
+  <path class="ai25-b" d="M18.47,20.91c.28.28-3-2.53-3.94-6.19-.84-3.66-.19-6.19,2.16-9.48,1.31-1.78,2.44-2.53,3.94-3.28,2.25-1.13,4.41-.56,5.07-.56s1.97.75,2.81,1.97c1.22,1.97,1.03,3.94,0,5.91-.28.28-1.22,1.97-3.1,2.63s-2.81.56-4.13,1.41c-1.41.84-2.25,2.25-2.53,3-.75,1.69-.38,3.94,0,4.5l-.28.09Z"/>
+  <path class="ai25-h" d="M19.12,22.78c.38,0-3.94.38-7.13-1.6s-4.5-4.22-5.07-8.16c-.38-2.16,0-3.47.56-5.07.75-2.35,2.72-3.57,3.19-3.94s1.97-.84,3.38-.56c2.35.56,3.57,2.16,4.03,4.22,0,.38.56,2.35-.38,4.03s-1.6,2.35-1.97,3.94c-.47,1.6,0,3.19.38,3.94.66,1.69,2.53,3,3.19,3.19h-.19Z"/>
+  <path class="ai25-e" d="M20.91,23.44c.28-.28-2.53,3-6.19,3.94-3.66.84-6.19.19-9.48-2.16-1.78-1.31-2.53-2.44-3.28-3.94-1.13-2.25-.56-4.41-.56-5.07s.75-1.97,1.97-2.81c1.97-1.22,3.94-1.03,5.91,0,.28.28,1.97,1.22,2.63,3.1.56,1.88.56,2.81,1.41,4.13.84,1.41,2.25,2.25,3,2.53,1.69.75,3.94.38,4.5,0l.09.28Z"/>
 </svg>
       </span>
       <div class="content">
