@@ -28,7 +28,7 @@ The deterministic architecture enforcement system guarantees consistency across 
 
 ---
 
-## The Ultimate Development Workflow
+## The AI-driven Development Workflow
 
 The ultimate goal of Intent Architect is a development workflow we refer to as "The Golden Path", where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 

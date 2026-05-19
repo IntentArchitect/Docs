@@ -18,7 +18,7 @@ With Intent Architect, you can design and reason about complex systems visually 
 
 - **🧭 Visual Control with AI-Driven Development**
 
-  As developers spend less time writing and internalizing code, Intent Architect's visual design tools bring design and architectural decisions to the forefront, from architectural patterns to domain entities and service contracts, to UI flows and integrations. Every developer and stakeholder shares a single, inspectable artifact for design review, discussion, and decision-making that is far easier for the human mind to process than code, eliminating suboptimal and inconsistent implementations, and minimizing technical and cognitive debt. When every developer and agent works from the same precise design, that realizes directly as code, teams stay in control at any scale.
+  As developers spend less time writing and internalizing code, Intent Architect's visual design tools bring design and architectural decisions to the forefront, from architectural patterns to domain entities and service contracts, to UI flows and integrations. Every developer and stakeholder shares a single, inspectable artifact for design review, discussion, and decision-making that is far easier for the human mind to process than code, eliminating suboptimal and inconsistent implementations, and minimizing technical and cognitive debt. When every developer and agent works from the same precise design, teams stay in control at any scale.
 
 - **⚡ The Optimal Context Engine**
 
