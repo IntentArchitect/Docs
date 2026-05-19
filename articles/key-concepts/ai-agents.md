@@ -72,11 +72,15 @@ Details on how to configure the Intent MCP can be found in the AI Configuration 
 
 ---
 
-## Connect Your Preferred Service Provider
+## Connect Your Preferred Provider
 
 Intent Architect is designed to work with the AI providers and models your team already uses. Connect to OpenAI, Azure OpenAI, Anthropic, or other compatible providers directly from the AI Configuration dialog – which also walks you through setting up the Intent MCP Server and any additional MCP servers your agents can use.
 
 AI agents are pre-configured to work well for most use cases, with the flexibility to customize context engineering and agent behavior for specialized domains or proprietary coding styles.
+
+<br>
+
+![AI Configuration](images/ai-configuration.png)
 
 ---
 
