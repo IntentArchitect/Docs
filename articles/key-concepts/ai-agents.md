@@ -52,7 +52,7 @@ The result is AI that executes accurately and in full conformance with your desi
 
 <br>
 
-![AI Modeling Assistant with context engineering](images/ai-modeling-assistant.png)
+![AI Modeling Assistant with context engineering](images/modeling-screen-ai-assistant-v2.png)
 
 ---
 
