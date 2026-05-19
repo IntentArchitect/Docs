@@ -8,85 +8,65 @@ Intent Architect integrates directly with your existing development workflow and
 
 Intent Architect is built on a simple principle: developers are always in control. No matter how much is automated, developers can always write, edit, or override any part of the codebase – directly inside Intent Architect or in their existing IDE – and the system will never get in their way.
 
-This is made possible by Intent Architect’s Code Management systems, which give developers fine-grained control over what gets automated and what stays hand-crafted. From entire files down to individual methods, developers decide what the system manages and what they manage themselves – and can change that decision at any time.
+This is made possible by two complementary systems: the Software Factory, which ensures every proposed change is reviewed and approved by developers before it reaches the codebase, and the Code Management system, which gives developers fine-grained control over exactly what is automated and what they manage themselves, from entire files down to individual methods, reconfigurable at any time.
 
 ---
 
-## Key benefits
+## Key Benefits
 
-- **🎚️ Architecture Opt-out model**
-  In traditional development, architecture is opt-in, it only holds if every developer rigorously follows it. Intent Architect flips that model: architecture is enforced by default through code automation, and developers explicitly opt-out when needed, with transparency.
-  This ensures high-fidelity, consistent architecture across the entire system without restricting flexibility.
+- **🔍 Full Visibility and Developer Control**
 
-- **🧩 Code Management**  
-  Customizable code automation, easily adjust which parts of your code are managed by Intent Architect and which remain developer-controlled.  
-  Fine-grained configuration, from entire files down to individual statements, ensures automation never interferes with your code.
+  Every change proposed by the architecture enforcement system or an AI coding agent is surfaced as a diff before anything is applied to the codebase. Developers review, adjust, or reject every modification, and can view or edit any part of the managed codebase at any time. Automation never acts without explicit developer approval.
 
-- **🧭 Customization tracking**  
-  Track and visualize every architectural deviation. See what’s been customized, by whom, and why bringing clarity to design evolution.
+- **🎚️ Fine-Grained Code Management**
 
-- **💻 IDE integration**  
-  Work side-by-side with your favourite IDE. Transition seamlessly from visual design to the implementation code.
+  Developers decide what is automated and what they manage themselves, from entire files down to individual methods, and that decision can be changed at any time. The system respects those boundaries completely, so automation and manual development coexist without conflict, at whatever ratio suits the task.
+
+- **📋 Architectural Adherence and Customizations**
+
+  When developers deviate from a generated pattern, those changes are tracked, attributed, and visible across the system, giving teams a clear picture of where and why the codebase diverges from the standard, as the system grows.
 
 ---
 
-## Architecture Opt-Out model, standards by default
+## The Software Factory
 
-Traditional architecture is opt-in: teams rely on every developer to follow patterns perfectly.
-Intent Architect makes architecture opt-out: standards and structure are applied automatically, and developers consciously opt out only when necessary.
-This yields consistent, high-fidelity architecture across your system, without restricting flexibility or innovation.
+Every change Intent Architect proposes, whether from the architecture enforcement system or an AI coding agent, passes through the Software Factory before touching your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
 
-### Automatic governance
+This is what keeps developers fully in control. No automation, deterministic or AI-driven, applies anything to the codebase without explicit developer approval.
 
-Here Intent Architect is highlighting architectural deviations it would like to correct, for developer review.
+<br>
 
-![Architectural governance](images/architectual-deviation.png)
+![Software Factory](images/software-factory-ai-chat.png)
 
-✅ Architectural adherence by default, spend less time policing your codebase.
+---
 
-## Code Management, customizable code generation
+## Code Management
 
-Code-automation, as used in the software industry, has two flavours: once-off (scaffolding) and continuous. Both have their place but come with trade-offs and compromises in the form of customizability and control.
+Intent Architect's Code Management system uses abstract syntax tree parsing and intelligent merge algorithms to combine developer-written code with automatically generated code, without conflict. Developers can configure any file so that they own the implementation of specific methods while the system manages the rest, or take full control of a file entirely, or hand it back to automation. Configuration is always in the developer's hands and can be changed at any time.
 
-Code-management is a unique approach to code-automation that completely avoids the typical compromises. It utilizes abstract syntax tree parsing and intelligent algorithms to merge user-written code with automatically generated code. Code-management allows developers to control the automation systems of Intent Architect from a high-level down to the granular level of the members within each managed code file (e.g. classes, fields, functions, methods, etc.).
+This is what makes continuous code generation practical at scale: automation never touches code the developer has claimed, and developers are never forced into a level of automation they did not choose.
 
-As an example, a developer may configure a C# or Java file such that they are managing the implementation of one method within a class, while Intent Architect will manage the remaining methods. They may then choose to change this configuration, perhaps deciding to take over management of the entire class or just one of the other methods. The configuration of each file is completely controlled by the developer, preventing the automation system from ever getting in the way.
+<br>
 
-![Code Management](images/code-management.png)
+![Code Management](images/customization-tracking.png)
 
 For more information, read [](xref:application-development.code-management.about-code-management).
 
-⚙️ Code Management unlocks all the advantages of code generation, without the traditional limitations.
+---
 
-## Customization tracking, transparency and auditability
+## Customization Tracking
 
-When developers intentionally deviate from generated patterns, Customization Tracking records and highlights those changes.
+When developers intentionally deviate from a generated pattern, those changes are captured and surfaced across the system. Customization Tracking shows what was changed, by whom, and how it diverges from the reference pattern, creating an audit trail of architectural decisions that stays useful as the system and team scale.
 
-Each customization shows:
+<br>
 
-- What was changed
-- Who changed it
-- When and why
-- How it diverges from the reference pattern
-
-This creates a living audit trail of architectural decisions, enabling developers to see where the system differs from standards and why.
-
-Easily visualize customizations in generated code.
-
-![Customization Tracking](images/customization-tracking.png)
+![Customization Tracking](images/customizations.png)
 
 For more information, read [](xref:application-development.software-factory.customizations-screen).
 
-🕵️‍♂️ Auditable transparency on architectural customizations, with reasoning
+---
 
-## Developer-in-the-loop workflow
-
-Every change proposed by Intent Architect passes through the Software Factory, a staging system that previews how your design will affect the codebase.
-Developers review these proposed modifications as diffs before applying them. Nothing touches your codebase without explicit consent.
-
-💡 This “staging gate” makes automation transparent and reversible.
-
-## Learn more
+## Learn More
 
 - **[Visual Design Tools](xref:key-concepts.visual-modeling)**
 - **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
