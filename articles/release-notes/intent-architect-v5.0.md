@@ -6,9 +6,11 @@ uid: release-notes.intent-architect-v5.0
 <!--
 Pending:
 
-- Feature: Can now use `camelCase`, `pascalCase` and `kebabCase` functions in `${...}` strings in architecture template installation files and metadata.
-- Feature: Added `mcpServer.executable` and `mcpServer.executableArguments` as substitutable values in `${...}` strings in architecture template installation files and metadata.
+- Improvement: AI agents and MCP clients can now manage Intent Architect modules.
+- Improvement: Can now use `camelCase`, `pascalCase` and `kebabCase` functions in `${...}` strings in architecture template installation files and metadata.
+- Improvement: Added `mcpServer.executable` and `mcpServer.executableArguments` as substitutable values in `${...}` strings in architecture template installation files and metadata.
 
+- Fixed: Performance regression in the "preparing changes" phase of the Software Factory.
 - Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 -->
 
