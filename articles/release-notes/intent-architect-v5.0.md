@@ -3,22 +3,19 @@ uid: release-notes.intent-architect-v5.0
 ---
 # Release notes: Intent Architect version 5.0
 
-<!--
-Pending:
+## Version 5.0.5
+
+### Improvements in 5.0.5
 
 - Improvement: AI agents and MCP clients can now manage Intent Architect modules.
 - Improvement: Can now use `camelCase`, `pascalCase` and `kebabCase` functions in `${...}` strings in architecture template installation files and metadata.
 - Improvement: Added `mcpServer.executable` and `mcpServer.executableArguments` as substitutable values in `${...}` strings in architecture template installation files and metadata.
 
-- Fixed: Performance regression in the "preparing changes" phase of the Software Factory.
-- Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
--->
-
-## Version 5.0.5
-
 ### Fixes in 5.0.5
 
 - Fixed: Applying a stereotype multiple times (when `allowMultipleApplies=true`) and then saving and reloading the designer would cause an element load failure with "Cannot read properties of null (reading 'name')".
+- Fixed: Performance regression in the "preparing changes" phase of the Software Factory.
+- Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 
 ## Version 5.0.4
 

@@ -45,7 +45,8 @@ Each Repository has a hyperlink (clicking on it opens up your File explorer on t
 
 Each configured Repository has a `Context` dropdown with the following options:
 
-| Name             | Description |
-|------------------|-|
-| Global           | Intent Architect will save this Repository's configuration in your operating system's user folder and it can be used in any Intent Architect Solution for your user. |
-| Current Solution | Intent Architect will save this Repository's configuration in an `intent.repositories.config` file in the same folder as the Solution's `.isln` file and it will only be used by the current Solution's Applications. |
+| Name               | Description |
+|--------------------|-|
+| Global             | Intent Architect will save this Repository's configuration in your operating system's user folder and it can be used in any Intent Architect Solution for your user. |
+| Current Solution   | Intent Architect will save this Repository's configuration in an `intent.repositories.config` file in the same folder as the Solution's `.isln` file and it will only be used by the current Solution's Applications. |
+| Exclude from "All" | Results from this repository are excluded when 'All' is chosen on the Modules Management or Application Template screens, but you can still select it directly. |
