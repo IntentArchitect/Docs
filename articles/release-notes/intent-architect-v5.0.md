@@ -14,6 +14,12 @@ Pending:
 - Fixed: (Linux) Intent Architect would regularly steal focus when being controlled by the MCP server.
 -->
 
+## Version 5.0.5
+
+### Fixes in 5.0.5
+
+- Fixed: Applying a stereotype multiple times (when `allowMultipleApplies=true`) and then saving and reloading the designer would cause an element load failure with "Cannot read properties of null (reading 'name')".
+
 ## Version 5.0.4
 
 ### Fixes in 5.0.4
