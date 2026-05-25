@@ -20,10 +20,13 @@ Write-Host "`$moduleFolderName=$moduleFolderName"
 Write-Host "`$moduleOutputFolder=$moduleOutputFolder"
 Write-Host "`$isOnBuildAgent=$isOnBuildAgent"
 
-# clone only if the destination folder doesn't already exist
-# Before this script is executed a `git clean -fdx` should be run to make sure the module is fresh
-# but if it does exists for whatever reason, a git pull is done later to get the latest
-if (-not (Test-Path -Path $moduleFolderName)) {
+# Clone if the folder doesn't exist or is missing .git (e.g. left over from a previous run
+# where .git was removed as part of cleanup)
+if (-not (Test-Path -Path "$moduleFolderName/.git")) {
+    if (Test-Path -Path $moduleFolderName) {
+        Write-Host "Removing incomplete module folder (no .git)"
+        Remove-Item -Path $moduleFolderName -Recurse -Force
+    }
     Write-Host "Cloning module repo"
     git clone $moduleRepositoryUrl
 }
@@ -34,15 +37,11 @@ cd $moduleFolderName
 $branchExists = git ls-remote --heads origin $sourceBranchName | Select-String -Pattern $sourceBranchName
 
 # either use the source branch name if it exists, or default to "development"
-if ($branchExists) {
-    Write-Host "Checkout $sourceBranchName"
-    git checkout $sourceBranchName
-    git pull
-} else {
-    Write-Host "Checkout development"
-    git checkout development
-    git pull
-}
+$branchToCheckout = if ($branchExists) { $sourceBranchName } else { "development" }
+
+Write-Host "Checkout $branchToCheckout"
+git fetch origin $branchToCheckout
+git checkout -B $branchToCheckout FETCH_HEAD
 
 # detach the folder from git so can be cleaned up
 if (Test-Path -Path .git) {
