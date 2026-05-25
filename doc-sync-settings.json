@@ -54,7 +54,7 @@
   },
   "IngestionFilter": {
     "ExcludePatterns": [
-      "articles/whats-new"
+      "src/whats-new"
     ]
   }
 }

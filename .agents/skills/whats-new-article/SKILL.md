@@ -5,7 +5,7 @@ description: "Use when writing, editing, or reviewing monthly What's New in Inte
 
 # What's New Article Skill
 
-Use this skill to create or refine monthly What's New articles under `articles/whats-new/`.
+Use this skill to create or refine monthly What's New articles under `src/whats-new/`.
 
 ## Scope
 
@@ -14,7 +14,7 @@ This skill is for:
 - New monthly What's New entries.
 - Editing an existing monthly entry for consistency.
 - Reviewing or fixing heading anchors, copy style, and release metadata.
-- Updating `articles/whats-new/toc.yml` to include the new month.
+- Updating `src/whats-new/toc.yml` to include the new month.
 
 This skill is not for:
 
@@ -23,7 +23,7 @@ This skill is not for:
 
 ## Canonical structure
 
-Follow this structure in each month file (`articles/whats-new/YYYY/MM/index.md`):
+Follow this structure in each month file (`src/whats-new/YYYY/MM/index.md`):
 
 1. H1 title:
    - `# What's new in Intent Architect (Month YYYY)`
@@ -60,7 +60,7 @@ Follow this structure in each month file (`articles/whats-new/YYYY/MM/index.md`)
 
 ## Images and media
 
-- Store monthly images under `articles/whats-new/YYYY/MM/images/`.
+- Store monthly images under `src/whats-new/YYYY/MM/images/`.
 - Use descriptive alt text.
 - Keep screenshots relevant to the section they support.
 - Do not invent image filenames or paths.
@@ -85,7 +85,7 @@ Available from:
 
 When adding a new month:
 
-- Update `articles/whats-new/toc.yml`.
+- Update `src/whats-new/toc.yml`.
 - Keep newest months at the top.
 - Keep year groups in descending chronological order.
 - Preserve existing structure and indentation.

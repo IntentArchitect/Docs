@@ -257,8 +257,8 @@ ModelManifest.xml
 .vscode/
 .intent/
 
-# Nothing in the articles folder should ever be ignored
-!articles/**
+# Nothing in the src folder should ever be ignored
+!src/**
 
 # Jetbrains...
 .idea/

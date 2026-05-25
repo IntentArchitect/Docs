@@ -1,8 +1,8 @@
 param(
     [Parameter(Mandatory=$true)]
-    [string]$RootPath,          # e.g. E:\Intent.Docs\articles
+    [string]$RootPath,          # e.g. E:\Intent.Docs\src
     [Parameter(Mandatory=$true)]
-    [string]$BaseUrl,           # e.g. https://docs.intentarchitect.com/articles
+    [string]$BaseUrl,           # e.g. https://docs.intentarchitect.com/
     [string]$OutputFile
 )
 

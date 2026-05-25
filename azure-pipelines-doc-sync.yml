@@ -39,4 +39,4 @@ steps:
       pwsh: true
       script: |
         dotnet tool install DocSyncEngine --add-source $(vstsFeedUrl) --global
-        docsync ingest -i "$(Build.SourcesDirectory)/articles" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
+        docsync ingest -i "$(Build.SourcesDirectory)/src" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)

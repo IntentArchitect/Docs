@@ -9,11 +9,11 @@ This is a DocFX-based documentation site for Intent Architect, published to http
 
 ## Architecture Overview
 
-**DocFX Static Site Generation**: The project uses DocFX 2.78.5 to convert Markdown files in `articles/` into static HTML in `_site/`. The `docfx.json` configuration defines content sources, custom templates, and post-processors.
+**DocFX Static Site Generation**: The project uses DocFX 2.78.5 to convert Markdown files in `src/` into static HTML in `_site/`. The `src/docfx.json` configuration defines content sources, custom templates, and post-processors. All DocFX source content lives under `src/` so that repository tooling files (scripts, CI config, agent instructions) at the repo root are never published.
 
-**Multi-Repository Documentation Merge**: Module documentation is automatically pulled from three separate GitHub repositories (Intent.Modules, Intent.Modules.NET, Intent.Modules.Importers) via Azure Pipelines. The `PipelineScripts/merge-repo-docs.ps1` script finds all `README.md` files in module repositories (specifically in `/docs` folders), transforms them into the appropriate folder structure under `articles/modules-*`, and generates corresponding `toc.yml` files.
+**Multi-Repository Documentation Merge**: Module documentation is automatically pulled from three separate GitHub repositories (Intent.Modules, Intent.Modules.NET, Intent.Modules.Importers) via Azure Pipelines. The `PipelineScripts/merge-repo-docs.ps1` script finds all `README.md` files in module repositories (specifically in `/docs` folders), transforms them into the appropriate folder structure under `src/modules-*`, and generates corresponding `toc.yml` files.
 
-**Template and Post-Processing Customization**: The site uses the custom DocFX template at `Template/darkerfx_custom/` together with DocFX's `ExtractSearchIndex` post-processor configured in `docfx.json`.
+**Template and Post-Processing Customization**: The site uses the custom DocFX template at `src/Template/darkerfx_custom/` together with DocFX's `ExtractSearchIndex` post-processor configured in `src/docfx.json`.
 
 ## Developer Workflows
 
@@ -125,15 +125,15 @@ uid: application-development.modelling.about-designers
 
 **Branch-Based Deployments**: Non-`master`/`development` branches deploy to pre-production storage with branch name as container prefix for preview environments.
 
-**Embedding Sync Pipeline**: `azure-pipelines-doc-sync.yml` runs on a nightly schedule for `master` and syncs `articles/` content into the OpenAI embedding store using `DocSyncEngine`.
+**Embedding Sync Pipeline**: `azure-pipelines-doc-sync.yml` runs on a nightly schedule for `master` and syncs `src` content into the OpenAI embedding store using `DocSyncEngine`.
 
 ## Key Files & Directories
 
-- `docfx.json` - DocFX configuration (content sources, templates, metadata, post-processors)
-- `articles/` - All documentation content organized by topic folders
-- `articles/*/toc.yml` - Table of contents for navigation hierarchy
-- `.agents/skills/` - Skill definitions and agent guidance files; AI agents should check here when looking for repository-specific skills or workflow instructions
+- `src/docfx.json` - DocFX configuration (content sources, templates, metadata, post-processors)
+- `src/` - All documentation content organized by topic folders
+- `src/*/toc.yml` - Table of contents for navigation hierarchy
 - `Template/darkerfx_custom/` - Custom DocFX theme (layout, styles, partials, plugins)
+- `.agents/skills/` - Skill definitions and agent guidance files; AI agents should check here when looking for repository-specific skills or workflow instructions
 - `azure-pipelines-doc-sync.yml` - Nightly embedding synchronization pipeline
 - `doc-sync-settings.json` - Configuration used by documentation sync tooling
 - `guidelines.md` - Content authoring rules (required reading before contributions)

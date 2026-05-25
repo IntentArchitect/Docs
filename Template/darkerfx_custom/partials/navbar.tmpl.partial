@@ -11,6 +11,7 @@
       {{>partials/logo}}
     </div>
     <div class="collapse navbar-collapse" id="navbar">
+      <ul class="navbar-nav"></ul>
       <form class="navbar-form navbar-right" role="search" id="search">
         <div class="form-group">
           <div class="input-group">

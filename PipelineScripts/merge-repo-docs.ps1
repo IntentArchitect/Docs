@@ -60,8 +60,8 @@ $files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" |
 $numberOfFiles = $files.Count
 Write-Host "Number of files found: $numberOfFiles"
 
-# switch to the articles folder
-cd "articles"
+# switch to the src folder
+cd "src"
 
 # create the toc file for the module folder
 New-Item -Path $moduleOutputFolder -ItemType Directory -Force
@@ -78,8 +78,8 @@ foreach ($file in $files) {
         # strip out the # from the header, to be left with the module name
         $moduleName = $firstHeader -replace '^#\s*', ''  
         
-        # here we are in the "articles" folder of "Docs". Append the module destination folder
-        # example, c:\temp\docs\articles\modules-dotnet
+        # here we are in the "src" folder of "Docs". Append the module destination folder
+        # example, c:\temp\docs\src\modules-dotnet
         $destinationRepoFolder = Join-Path -Path (Get-Location) -ChildPath $moduleFolderName
         
         # To lower the module name and replace the "." with "-"
@@ -126,7 +126,7 @@ foreach ($file in $files) {
     }
 }    
 
-cd..
+cd ../..
 
 if (Test-Path -Path $moduleFolderName) {
     Write-Host "Removing '$moduleFolderName'"

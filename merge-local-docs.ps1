@@ -33,8 +33,8 @@ function Process-ModuleFolder {
     $numberOfFiles = $files.Count
     Write-Host "Number of files found: $numberOfFiles"
 
-    # switch to the articles folder
-    cd "articles"
+    # switch to the src folder
+    cd "src"
 
     # create the toc file for the module folder
     $tocPath = Join-Path -Path $moduleOutputFolder -ChildPath "toc.yml"
@@ -49,7 +49,7 @@ function Process-ModuleFolder {
             # strip out the # from the header, to be left with the module name
             $moduleName = $firstHeader -replace '^#\s*', ''  
             
-            # here we are in the "articles" folder of "Docs". Append the module destination folder
+            # here we are in the "src" folder of "Docs". Append the module destination folder
             $destinationRepoFolder = Join-Path -Path (Get-Location) -ChildPath $moduleOutputFolder
             
             # To lower the module name and replace the "." with "-"
@@ -94,7 +94,7 @@ function Process-ModuleFolder {
         }
     }
 
-    cd ..
+    cd ../..
 }
 
 # Process both module folders

@@ -1,0 +1,68 @@
+{
+  "build": {
+    "markdownEngineName": "markdig",
+    "markdownEngineProperties": {
+      "markdigExtensions": [
+        "attributes",
+        "advanced"
+      ]
+    },
+    "content": [
+      {
+        "files": [
+          "**.md",
+          "**/toc.yml"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**",
+          "readme.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "favicon.ico",
+          "logo.svg",
+          "images/**",
+          "videos/**",
+          "**/images/**",
+          "**/videos/**"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**",
+          "readme.md"
+        ]
+      }
+    ],
+    "dest": "../_site",
+    "globalMetadata": {
+      "_disableToc": false,
+      "_appTitle": "Intent Architect",
+      "_enableSearch": true,
+      "_appLogoPath": "images/logo.png",
+      "_appLogoPathDark": "images/logo-dark.png",
+      "_appFaviconPath": "favicon.ico",
+      "_appFooter": "<span>Copyright © 2017-<script type=\"text/javascript\">document.write((new Date()).getFullYear());</script>, Intent Architect Holdings Ltd</span>\n<!-- Google tag (gtag.js) -->\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-GWP11LTGRN\"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-GWP11LTGRN');\n</script>"
+    },
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+      "default",
+      "../Template/darkerfx_custom"
+    ],
+    "postProcessors": [
+      "ExtractSearchIndex"
+    ],
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "sitemap": {
+      "baseUrl": "https://docs.intentarchitect.com",
+      "priority": 0.5,
+      "changefreq": "weekly"
+    }
+  }
+}

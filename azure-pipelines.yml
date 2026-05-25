@@ -81,8 +81,18 @@ steps:
     displayName: 'dotnet tool install docfx'
 
   - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)/docfx.json
+      dotnet docfx $(Build.SourcesDirectory)/src/docfx.json
     displayName: 'run docfx'
+
+  - pwsh: |
+      ./PipelineScripts/export-agent-markdown.ps1 `
+        -SourceRoot 'src' `
+        -OutRoot '_site/docs-md' `
+        -UseAbsoluteLinks `
+        -BaseUrl 'https://docs.intentarchitect.com/docs-md/' `
+        -RootLlmsTxtPath '_site/llms.txt' `
+        -FailOnUnresolvedXref
+    displayName: 'Export agent Markdown documentation'
 
   - task: AzureCLI@2
     displayName: 'Pre-production storage sync'
@@ -103,3 +113,4 @@ steps:
       scriptLocation: 'inlineScript'
       inlineScript: |
         az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
+

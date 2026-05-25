@@ -55,3 +55,29 @@ _tools/DocFX/docfx.exe docfx.json
 #### Troubleshooting
 
 If there is a strange build error, try completely deleting the `obj` folder. This folder only contains build artifacts, the worst that can happen from its deletion is that the next build may take a little longer.
+
+## Build AI-Agent Markdown Documentation
+
+To generate Markdown documentation for AI agents (ChatGPT, Claude, Copilot, RAG crawlers, etc.):
+
+```cmd
+./_build_agent_markdown.ps1
+```
+
+This creates `_site/docs-md/` — a clean Markdown mirror of the documentation with DocFX `xref:` links resolved to normal Markdown links. The existing DocFX HTML build (`_site/`) is not affected.
+
+To generate publish-ready absolute links (suitable for CI):
+
+```cmd
+./PipelineScripts/export-agent-markdown.ps1 `
+  -OutRoot "_site/docs-md" `
+  -UseAbsoluteLinks `
+  -BaseUrl "https://docs.intentarchitect.com/docs-md/" `
+  -FailOnUnresolvedXref
+```
+
+The exporter generates these entry-point files in `_site/docs-md/`:
+
+- `llms.txt` — machine-readable index for AI agents
+- `index.md` — human-readable entry point
+- `toc.md`   — flat table of contents
