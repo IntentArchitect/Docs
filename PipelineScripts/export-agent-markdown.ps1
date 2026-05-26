@@ -92,12 +92,6 @@ function Get-OutputPath {
 
     $relative = $absSource.Substring($absRoot.Length).TrimStart([char]'\', [char]'/')
 
-    # Normalise to forward slashes for consistent prefix matching
-    $relFwd = $relative.Replace('\', '/')
-    if ($relFwd.StartsWith("src/", [System.StringComparison]::OrdinalIgnoreCase)) {
-        $relative = $relFwd.Substring("src/".Length)
-    }
-
     return [System.IO.Path]::Combine($absOut, $relative)
 }
 
@@ -751,7 +745,7 @@ New-Item -ItemType Directory -Path $absOutRoot -Force | Out-Null
 
 Write-Host "Phase 1: Building UID map..."
 
-$absArticlesRoot = [System.IO.Path]::Combine($absSourceRoot, "src")
+$absArticlesRoot = $absSourceRoot
 
 $allMdFiles = Get-ChildItem -Path $absArticlesRoot -Filter "*.md" -Recurse
 
