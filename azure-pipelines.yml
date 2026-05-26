@@ -84,6 +84,9 @@ steps:
       dotnet docfx $(Build.SourcesDirectory)/src/docfx.json
     displayName: 'run docfx'
 
+  - pwsh: ./_remove-404-from-sitemap.ps1
+    displayName: 'Remove 404.html from sitemap'
+
   - pwsh: |
       ./PipelineScripts/export-agent-markdown.ps1 `
         -SourceRoot 'src' `
