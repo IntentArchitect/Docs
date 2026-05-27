@@ -16,3 +16,4 @@ uid: release-notes.intent-architect-v5.1
   - Entries are collapsed by default and can be clicked on to expand them to update their details.
 
 - Improvement: The Software Factory's "duplicate output location" error is now surfaced as a structured card with clickable element chips, copyable IDs, and an AI-assisted fix when both occurrences share a template.
+- Improvement: The Software Factory's "Package reference" error is surfaced as a structured card with clickable element chips, copyable IDs.
