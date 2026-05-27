@@ -4,8 +4,9 @@ description: "Introduction to Intent Architect — the AI code automation platfo
 ---
 
 <script>
-  if (window.location.pathname.slice(-1) === '/') {
-    history.replaceState(null, '', window.location.pathname + 'index.html' + window.location.search + window.location.hash);
+  if (!window.location.pathname.endsWith('.html')) {
+    var p = window.location.pathname.replace(/\/?$/, '/');
+    history.replaceState(null, '', p + 'index.html' + window.location.search + window.location.hash);
   }
 </script>
 
