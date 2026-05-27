@@ -3,6 +3,12 @@ uid: index
 description: "Introduction to Intent Architect — the AI code automation platform for .NET — with links to getting started, key concepts, and a demo of the latest features."
 ---
 
+<script>
+  if (window.location.pathname.slice(-1) === '/') {
+    history.replaceState(null, '', window.location.pathname + 'index.html' + window.location.search + window.location.hash);
+  }
+</script>
+
 <style>
 /* =============================================================================
    Intent Architect Overview - Final (DocFX 2.77+ compatible)
