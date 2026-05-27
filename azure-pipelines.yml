@@ -94,12 +94,21 @@ steps:
           }
       }
 
+      if ($syncTarget -eq "production") {
+          $agentMarkdownBaseUrl = "https://docs.intentarchitect.com/docs-md/"
+      } elseif ($blobSubfolder) {
+          $agentMarkdownBaseUrl = "https://doc-pre.intentarchitect.com/$blobSubfolder/docs-md/"
+      } else {
+          $agentMarkdownBaseUrl = "https://doc-pre.intentarchitect.com/docs-md/"
+      }
+
       Write-Host "##vso[task.setvariable variable=triggeredByPipeline]$trigPipeline"
       Write-Host "##vso[task.setvariable variable=triggeredByBranch]$trigBranch"
       Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$trigBranchName"
       Write-Host "##vso[task.setvariable variable=moduleBranchName]$moduleBranchName"
       Write-Host "##vso[task.setvariable variable=syncTarget]$syncTarget"
       Write-Host "##vso[task.setvariable variable=blobSubfolder]$blobSubfolder"
+      Write-Host "##vso[task.setvariable variable=agentMarkdownBaseUrl]$agentMarkdownBaseUrl"
     displayName: 'Determine and Set Variables for Triggered Pipeline'
 
   - pwsh: |
@@ -109,6 +118,7 @@ steps:
       Write-Host "Module Branch Name:       $(moduleBranchName)"
       Write-Host "Sync Target:              $(syncTarget)"
       Write-Host "Blob Subfolder:           $(blobSubfolder)"
+      Write-Host "Agent Markdown Base URL:  $(agentMarkdownBaseUrl)"
     displayName: 'Output pipeline variables'
 
   # For module-triggered builds, check out the matching docs branch (falls back to development)
@@ -152,7 +162,7 @@ steps:
         -SourceRoot 'src' `
         -OutRoot '_site/docs-md' `
         -UseAbsoluteLinks `
-        -BaseUrl 'https://docs.intentarchitect.com/docs-md/' `
+        -BaseUrl '$(agentMarkdownBaseUrl)' `
         -RootLlmsTxtPath '_site/llms.txt' `
         -RootLlmsFullTxtPath '_site/llms-full.txt' `
         -FailOnUnresolvedXref
