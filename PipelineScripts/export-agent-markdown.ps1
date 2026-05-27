@@ -413,6 +413,97 @@ function Convert-HtmlLinksInText {
 }
 
 # ---------------------------------------------------------------------------
+# Convert-IframeEmbeds
+#   Replaces HTML iframe embeds with plain Markdown links so LLMs see readable
+#   content instead of raw HTML. YouTube embeds become watch links; unrecognised
+#   iframes are removed entirely.
+# ---------------------------------------------------------------------------
+function Convert-IframeEmbeds {
+    param([string] $Text)
+
+    $ytWatch = 'https://www.youtube.com/watch?v='
+
+    # DocFX video alert: > [!Video https://www.youtube.com/embed/VIDEO_ID...]
+    $Text = [regex]::Replace(
+        $Text,
+        '>\s*\[!Video\s+https://www\.youtube\.com/embed/([A-Za-z0-9_-]+)[^\]]*\]',
+        { param($m) "[Watch video on YouTube](${ytWatch}$($m.Groups[1].Value))" },
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+    )
+
+    # Div-wrapped YouTube iframe: <div ...><iframe ... src="...embed/ID..." ...></iframe></div>
+    $Text = [regex]::Replace(
+        $Text,
+        '<div[^>]*>\s*<iframe[^>]+src="[^"]*youtube\.com/embed/([A-Za-z0-9_-]+)[^"]*"[^>]*>(?:.*?</iframe>)?\s*</div>',
+        { param($m) "[Watch video on YouTube](${ytWatch}$($m.Groups[1].Value))" },
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline
+    )
+
+    # Standalone YouTube iframe: <iframe ... src="...embed/ID..." ...></iframe>
+    $Text = [regex]::Replace(
+        $Text,
+        '<iframe[^>]+src="[^"]*youtube\.com/embed/([A-Za-z0-9_-]+)[^"]*"[^>]*>(?:.*?</iframe>)?',
+        { param($m) "[Watch video on YouTube](${ytWatch}$($m.Groups[1].Value))" },
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline
+    )
+
+    # Remaining div+iframe (non-YouTube) — remove entirely
+    $Text = [regex]::Replace(
+        $Text,
+        '<div[^>]*>\s*<iframe[^>]*>(?:.*?</iframe>)?\s*</div>',
+        '',
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline
+    )
+
+    # Remaining bare iframes — remove entirely
+    $Text = [regex]::Replace(
+        $Text,
+        '<iframe[^>]*>(?:.*?</iframe>)?',
+        '',
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase -bor [System.Text.RegularExpressions.RegexOptions]::Singleline
+    )
+
+    # YouTube embed links (chapter navigation): rewrite embed URLs to watch URLs with timestamps
+    $Text = [regex]::Replace(
+        $Text,
+        '\[([^\]]+)\]\(https://www\.youtube\.com/embed/([A-Za-z0-9_-]+)([^)]*)\)',
+        {
+            param($m)
+            $linkText   = $m.Groups[1].Value
+            $videoId    = $m.Groups[2].Value
+            $query      = $m.Groups[3].Value
+            $startMatch = [regex]::Match($query, '[?&]start=(\d+)')
+            $watchUrl   = "https://www.youtube.com/watch?v=$videoId"
+            if ($startMatch.Success -and $startMatch.Groups[1].Value -ne '0') {
+                $watchUrl += "&t=$($startMatch.Groups[1].Value)"
+            }
+            return "[$linkText]($watchUrl)"
+        },
+        [System.Text.RegularExpressions.RegexOptions]::IgnoreCase
+    )
+
+    return $Text
+}
+
+# ---------------------------------------------------------------------------
+# Remove-InlineAttributes
+#   Strips DocFX inline attribute syntax that is meaningless outside
+#   a DocFX build: link attributes [text](url){...} and paragraph class
+#   markers {: .classname } / {: #id }.
+# ---------------------------------------------------------------------------
+function Remove-InlineAttributes {
+    param([string] $Text)
+
+    # Inline link attributes: [text](url){...}
+    $Text = [regex]::Replace($Text, '(\]\([^)]+\))\{[^}]+\}', '$1')
+
+    # Paragraph/block class attributes: {: .classname } or {: #id }
+    $Text = [regex]::Replace($Text, '\{:[^}]+\}', '')
+
+    return $Text
+}
+
+# ---------------------------------------------------------------------------
 # Remove-InlineCodeSpans / Restore-InlineCodeSpans
 #   Temporarily replace `inline code` with opaque tokens so that xref and
 #   HTML-link rewriting does not touch content inside backtick spans.
@@ -497,8 +588,10 @@ function Convert-MarkdownFile {
             $ic      = Remove-InlineCodeSpans -Text $text
             $text    = $ic.Text
 
-            $text    = Convert-XrefsInText     -Text $text -FromOutputFile $OutputFile
-            $text    = Convert-HtmlLinksInText -Text $text
+            $text    = Convert-XrefsInText      -Text $text -FromOutputFile $OutputFile
+            $text    = Convert-HtmlLinksInText  -Text $text
+            $text    = Convert-IframeEmbeds     -Text $text
+            $text    = Remove-InlineAttributes  -Text $text
 
             $text    = Restore-InlineCodeSpans -Text $text -Placeholders $ic.Placeholders
 
@@ -708,11 +801,19 @@ function Write-LlmsFullTxt {
 # Write-AgentIndex
 # ---------------------------------------------------------------------------
 function Write-AgentIndex {
-    $outFile = [System.IO.Path]::Combine([System.IO.Path]::GetFullPath($OutRoot), "index.md")
+    $outFile  = [System.IO.Path]::Combine([System.IO.Path]::GetFullPath($OutRoot), "index.md")
 
-    # Check whether a useful index.md was already copied from source.
-    # The source index.md in this repository is a bare JS redirect with no
-    # meaningful Markdown content, so we always generate a fresh agent index.
+    # Process src/index.agent.md into index.md — the LLM-facing overview entry point.
+    # src/index.md (the browser landing page) is skipped from the main loop and never
+    # reaches docs-md/; src/index.agent.md is the clean-markdown twin used here instead.
+    $agentSrc = [System.IO.Path]::Combine($script:AbsDocfxSrc, "index.agent.md")
+    if (Test-Path $agentSrc) {
+        Convert-MarkdownFile -SourceFile $agentSrc -OutputFile $outFile
+        if ($VerboseLogging) { Write-Host "  Generated: $outFile (from index.agent.md)" }
+        return
+    }
+
+    # Fallback: index.agent.md absent; write minimal navigation stub.
     $content = @"
 ---
 title: Intent Architect Documentation
@@ -725,14 +826,12 @@ This is the AI-agent-friendly Markdown version of the Intent Architect documenta
 ## Entry Points
 
 - [Table of Contents](toc.md)
-- [Articles](articles/)
 - [XRef Map](xrefmap.yml)
 
 Use these Markdown files instead of scraping the HTML documentation site.
 "@
-
     [System.IO.File]::WriteAllText($outFile, $content, $Utf8NoBom)
-    if ($VerboseLogging) { Write-Host "  Generated: $outFile" }
+    if ($VerboseLogging) { Write-Host "  Generated: $outFile (fallback stub)" }
 }
 
 # ---------------------------------------------------------------------------
@@ -745,8 +844,7 @@ function Write-AgentToc {
     $mdFiles = Get-ChildItem -Path $absOut -Filter "*.md" -Recurse |
         Where-Object {
             $_.FullName -ne $outFile -and
-            $_.Name     -ne "index.md" -and
-            $_.Name     -ne "toc.md"
+            $_.Name     -notin @("index.md", "toc.md")
         } |
         Sort-Object FullName
 
@@ -800,20 +898,39 @@ function Write-RootLlmsTxt {
     $optionalLines = [System.Collections.Generic.List[string]]::new()
     $seenUrls      = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 
+    $sectionDescriptions = @{
+        'Overview'                = 'What Intent Architect is and how it works'
+        'Getting started'         = 'Installation, setup, and quick start guide'
+        'Key Concepts'            = 'Core concepts: modules, designers, software factory, and code management'
+        'Tutorials'               = 'Step-by-step tutorials for building applications with Intent Architect'
+        'Application development' = 'Working with designers, the software factory, and code management day-to-day'
+        'AI in Intent Architect'  = 'Built-in AI agents, MCP server integration, and AI-assisted development'
+        'Module building'         = 'Creating, packaging, and publishing custom Intent Architect modules'
+        'Application Templates'   = 'Building reusable templates for bootstrapping new applications'
+        'Tools'                   = 'CLI tools: Software Factory CLI, Module Server, and Packager'
+        'Getting help'            = 'Support resources, community forums, and feedback channels'
+        'Modules (Common)'        = 'Pre-built modules for cross-platform patterns and utilities'
+        'Modules (Importers)'     = 'Modules for importing existing codebases and schemas into Intent Architect'
+        'Modules (.NET)'          = 'Pre-built modules for .NET application patterns and integrations'
+    }
+
     foreach ($s in $sections) {
         $url = Resolve-SectionUrl -Section $s -DocsMdUrl $docsMdUrl -AbsOutRoot $absOutRoot
         if (-not $url -or -not $seenUrls.Add($url)) { continue }
+        $desc = $sectionDescriptions[$s.Name]
+        $line = if ($desc) { "- [$($s.Name)]($url): $desc" } else { "- [$($s.Name)]($url)" }
         if ($s.Href -match 'release-notes|whats-new') {
-            $optionalLines.Add("- [$($s.Name)]($url)")
+            $optionalLines.Add($line)
         }
         else {
-            $docLines.Add("- [$($s.Name)]($url)")
+            $docLines.Add($line)
         }
     }
 
+    $docLines.Add("- [Full article index](${docsMdUrl}toc.md): Alphabetical index linking every documentation article")
+
     $optionalLines.Add("- [Full documentation — single file for large-context LLMs](${htmlBaseUrl}llms-full.txt)")
     $optionalLines.Add("- [Documentation index](${docsMdUrl}index.md)")
-    $optionalLines.Add("- [Table of contents](${docsMdUrl}toc.md)")
 
     $docSection      = [string]::Join([System.Environment]::NewLine, $docLines)
     $optionalSection = [string]::Join([System.Environment]::NewLine, $optionalLines)
@@ -933,9 +1050,21 @@ Write-Host "Phase 1: Building UID map..."
 
 $absArticlesRoot = $absSourceRoot
 
+# Source root files handled specially by Write-AgentIndex / skipped from export:
+# - index.md       → browser landing page; uid registers in Phase 1 for xref resolution,
+#                    but skipped in Phase 2 (Write-AgentIndex writes clean content instead).
+# - index.agent.md → LLM overview source; skipped in Phase 2 (Write-AgentIndex reads it
+#                    and writes the output to index.md).
+# - 404.md         → browser error page; skipped in both phases.
+$srcRootIndexMd      = [System.IO.Path]::Combine($script:AbsDocfxSrc, "index.md")
+$srcRootIndexAgentMd = [System.IO.Path]::Combine($script:AbsDocfxSrc, "index.agent.md")
+$srcRoot404Md        = [System.IO.Path]::Combine($script:AbsDocfxSrc, "404.md")
+
 $allMdFiles = Get-ChildItem -Path $absArticlesRoot -Filter "*.md" -Recurse
 
 foreach ($file in $allMdFiles) {
+    if ($file.FullName -eq $srcRoot404Md) { continue }
+
     $meta       = Get-MarkdownMetadata -FilePath $file.FullName
     $outputPath = Get-OutputPath -SourcePath $file.FullName
 
@@ -967,6 +1096,8 @@ $allFiles = Get-ChildItem -Path $absArticlesRoot -Recurse |
     Where-Object { -not $_.PSIsContainer }
 
 foreach ($file in $allFiles) {
+    if ($file.FullName -in @($srcRootIndexMd, $srcRootIndexAgentMd, $srcRoot404Md)) { continue }
+
     $ext        = $file.Extension.ToLower()
     $outputPath = Get-OutputPath -SourcePath $file.FullName
 

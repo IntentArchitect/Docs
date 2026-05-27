@@ -108,6 +108,13 @@ uid: application-development.modelling.about-designers
   _An example showing a Domain Designer with a modelled domain._
   ```
 
+### LLM Index File
+
+- `src/index.agent.md` is the clean-markdown counterpart to `src/index.md`, used by the agent export pipeline as `_site/docs-md/index.md` (the "Overview" entry in `llms.txt`).
+- It is excluded from DocFX HTML publishing via `src/docfx.json`.
+- **Keep in sync**: when updating the intro text, key concept descriptions, or demo section in `src/index.md`, reflect those changes in `src/index.agent.md`.
+- Use `xref:` links (same as all other articles); the export script resolves them to absolute URLs.
+
 ### Markdown Formatting
 - **Tables**: Use VS Code command "Evenly distribute selected table" (Ctrl+Shift+P) for formatting
 - **Code blocks**: Specify language for syntax highlighting (```csharp, ```yaml, etc.)
@@ -130,6 +137,7 @@ uid: application-development.modelling.about-designers
 ## Key Files & Directories
 
 - `src/docfx.json` - DocFX configuration (content sources, templates, metadata, post-processors)
+- `src/index.agent.md` - LLM-facing markdown index (clean twin of `src/index.md`). When `src/index.md` content or product narrative changes, update this file to match.
 - `src/` - All documentation content organized by topic folders
 - `src/*/toc.yml` - Table of contents for navigation hierarchy
 - `Template/darkerfx_custom/` - Custom DocFX theme (layout, styles, partials, plugins)

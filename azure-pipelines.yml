@@ -150,23 +150,8 @@ steps:
       dotnet tool install docfx --version 2.78.5
     displayName: 'dotnet tool install docfx'
 
-  - pwsh: |
-      dotnet docfx $(Build.SourcesDirectory)/src/docfx.json
-    displayName: 'run docfx'
-
-  - pwsh: ./_remove-404-from-sitemap.ps1
-    displayName: 'Remove 404.html from sitemap'
-
-  - pwsh: |
-      ./PipelineScripts/export-agent-markdown.ps1 `
-        -SourceRoot 'src' `
-        -OutRoot '_site/docs-md' `
-        -UseAbsoluteLinks `
-        -BaseUrl '$(agentMarkdownBaseUrl)' `
-        -RootLlmsTxtPath '_site/llms.txt' `
-        -RootLlmsFullTxtPath '_site/llms-full.txt' `
-        -FailOnUnresolvedXref
-    displayName: 'Export agent Markdown documentation'
+  - pwsh: ./_build.ps1 -BaseUrl '$(agentMarkdownBaseUrl)' -FailOnUnresolvedXref
+    displayName: 'Build documentation'
 
   - pwsh: |
       $root = '$(Build.SourcesDirectory)/_site'

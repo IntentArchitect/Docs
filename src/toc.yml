@@ -17,6 +17,7 @@ items:
 
   - name: Application development
     href: application-development/toc.yml
+    topicUid: application-development.applications-and-solutions.about-applications
 
   - name: AI in Intent Architect
     href: integrated-ai/toc.yml

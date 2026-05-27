@@ -16,7 +16,8 @@
         "exclude": [
           "obj/**",
           "_site/**",
-          "readme.md"
+          "readme.md",
+          "**/index.agent.md"
         ]
       }
     ],
