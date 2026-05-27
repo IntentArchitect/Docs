@@ -14,6 +14,8 @@ param(
     [bool]$isOnBuildAgent = $($env:TF_BUILD -eq "True")
 )
 
+$ErrorActionPreference = "Stop"
+
 Write-Host "`$sourceBranchName=$sourceBranchName"
 Write-Host "`$moduleRepositoryUrl=$moduleRepositoryUrl"
 Write-Host "`$moduleFolderName=$moduleFolderName"

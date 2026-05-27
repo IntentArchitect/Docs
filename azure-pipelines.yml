@@ -10,13 +10,25 @@ resources:
   pipelines:
   - pipeline: 'ModulesCommonPipeline'
     source: 'Modules'
-    trigger: true
+    trigger:
+      branches:
+        include:
+        - development
+        - development-*
   - pipeline: 'ModulesImportersPipeline'
     source: 'Modules.Importers'
-    trigger: true
+    trigger:
+      branches:
+        include:
+        - development
+        - development-*
   - pipeline: 'ModulesDotNetPipeline'
     source: 'Modules.NET'
-    trigger: true
+    trigger:
+      branches:
+        include:
+        - development
+        - development-*
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -36,45 +48,93 @@ steps:
 
   # calculate the repo and branch which triggered this pipeline
   - powershell: |
+      $trigPipeline = ""
+      $trigBranch = ""
+
       if ("$(Resources.TriggeringAlias)" -eq "ModulesCommonPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
-          
-          $branchName = "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+          $trigPipeline = "Modules"
+          $trigBranch = "$(resources.pipeline.ModulesCommonPipeline.sourceBranch)"
       }
       elseif ("$(Resources.TriggeringAlias)" -eq "ModulesImportersPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.Importers"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesImportersPipeline.sourceBranch)"
-          
-          $branchName = "$(resources.pipeline.ModulesImportersPipeline.sourceBranch)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+          $trigPipeline = "Modules.Importers"
+          $trigBranch = "$(resources.pipeline.ModulesImportersPipeline.sourceBranch)"
       }
       elseif ("$(Resources.TriggeringAlias)" -eq "ModulesDotNetPipeline") {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Modules.NET"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
-          
-          $branchName = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+          $trigPipeline = "Modules.NET"
+          $trigBranch = "$(resources.pipeline.ModulesDotNetPipeline.sourceBranch)"
       }
       else {
-          Write-Host "##vso[task.setvariable variable=triggeredByPipeline]Docs"
-          Write-Host "##vso[task.setvariable variable=triggeredByBranch]$(Build.SourceBranchName)"
-          
-          $branchName = "$(Build.SourceBranchName)" -replace '^refs/heads/', ''
-          Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$branchName"
+          $trigPipeline = "Docs"
+          $trigBranch = "$(Build.SourceBranchName)"
       }
+
+      $trigBranchName = $trigBranch -replace '^refs/heads/', ''
+
+      # Branch to pass to each module repo clone (merge-repo-docs.ps1 handles per-repo fallback to development)
+      $moduleBranchName = if ($trigBranchName -in @("master", "development")) { "development" } else { $trigBranchName }
+
+      # Determine whether to sync to production or pre-production, and which subfolder
+      if ($trigPipeline -eq "Docs") {
+          if ($trigBranchName -eq "master") {
+              $syncTarget = "production"
+              $blobSubfolder = ""
+          } else {
+              # development or development-* docs push goes to pre-production staging
+              $syncTarget = "preprod"
+              $blobSubfolder = $trigBranchName
+          }
+      } else {
+          # Module pipeline triggered this build
+          if ($trigBranchName -eq "development") {
+              $syncTarget = "production"
+              $blobSubfolder = ""
+          } else {
+              $syncTarget = "preprod"
+              $blobSubfolder = $trigBranchName
+          }
+      }
+
+      Write-Host "##vso[task.setvariable variable=triggeredByPipeline]$trigPipeline"
+      Write-Host "##vso[task.setvariable variable=triggeredByBranch]$trigBranch"
+      Write-Host "##vso[task.setvariable variable=triggeredByBranchNameOnly]$trigBranchName"
+      Write-Host "##vso[task.setvariable variable=moduleBranchName]$moduleBranchName"
+      Write-Host "##vso[task.setvariable variable=syncTarget]$syncTarget"
+      Write-Host "##vso[task.setvariable variable=blobSubfolder]$blobSubfolder"
     displayName: 'Determine and Set Variables for Triggered Pipeline'
 
   - pwsh: |
-      Write-Host "Triggered By Pipeline: $(triggeredByPipeline)"
-      Write-Host "Triggered By Branch: $(triggeredByBranch)"
+      Write-Host "Triggered By Pipeline:    $(triggeredByPipeline)"
+      Write-Host "Triggered By Branch:      $(triggeredByBranch)"
       Write-Host "Triggered By BranchNameOnly: $(triggeredByBranchNameOnly)"
+      Write-Host "Module Branch Name:       $(moduleBranchName)"
+      Write-Host "Sync Target:              $(syncTarget)"
+      Write-Host "Blob Subfolder:           $(blobSubfolder)"
     displayName: 'Output pipeline variables'
+
+  # For module-triggered builds, check out the matching docs branch (falls back to development)
+  - pwsh: |
+      if ("$(triggeredByPipeline)" -ne "Docs") {
+          $target = "$(triggeredByBranchNameOnly)"
+          $docsBranch = "development"
+
+          if ($target -ne "development") {
+              $remoteRefs = git ls-remote --heads origin $target 2>&1
+              if ($remoteRefs -match "refs/heads/$([regex]::Escape($target))") {
+                  $docsBranch = $target
+              } else {
+                  Write-Host "Branch '$target' not found in docs repo, falling back to 'development'"
+              }
+          }
+
+          Write-Host "Checking out docs branch: $docsBranch"
+          git fetch origin $docsBranch
+          git checkout $docsBranch
+      }
+    displayName: 'Checkout correct docs branch'
 
   - template: PipelineScripts/templates/merge-modules.steps.yml
     parameters:
-      branchName: development
+      branchName: $(moduleBranchName)
 
   - pwsh: |
       dotnet tool install docfx --version 2.78.5
@@ -97,23 +157,29 @@ steps:
         -FailOnUnresolvedXref
     displayName: 'Export agent Markdown documentation'
 
+  - pwsh: |
+      $root = '$(Build.SourcesDirectory)/_site'
+      $files = Get-ChildItem -Path $root -Recurse -File
+      Write-Host "Total files in _site: $($files.Count)"
+      $files | ForEach-Object { $_.FullName.Substring($root.Length + 1) } | Sort-Object
+    displayName: 'List contents to sync'
+
   - task: AzureCLI@2
     displayName: 'Pre-production storage sync'
-    condition: and(succeeded(), ne(variables['triggeredByBranch'], 'master'), ne(variables['triggeredByBranch'], 'refs/heads/master'), ne(variables['triggeredByBranch'], 'development'), ne(variables['triggeredByBranch'], 'refs/heads/development'))
+    condition: and(succeeded(), eq(variables['syncTarget'], 'preprod'))
     inputs:
       azureSubscription: 'Intent Architect Azure Resource Group'
       scriptType: 'pscore'
       scriptLocation: 'inlineScript'
       inlineScript: |
-        az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(triggeredByBranchNameOnly)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
+        az storage blob sync -s '$(Build.SourcesDirectory)/_site' -d '$(blobSubfolder)/' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.preprod.storageAccountName)' --account-key '$(intentarchitect.preprod.storageAccountKey)' --delete-destination 'true'
 
   - task: AzureCLI@2
     displayName: 'Production storage sync'
-    condition: and(succeeded(), or(eq(variables['triggeredByBranch'], 'master'), eq(variables['triggeredByBranch'], 'refs/heads/master'), eq(variables['triggeredByBranch'], 'development'), eq(variables['triggeredByBranch'], 'refs/heads/development')))
+    condition: and(succeeded(), eq(variables['syncTarget'], 'production'))
     inputs:
       azureSubscription: 'Intent Architect Azure Resource Group'
       scriptType: 'pscore'
       scriptLocation: 'inlineScript'
       inlineScript: |
         az storage blob sync -s '$(Build.SourcesDirectory)/_site' --container '$(intentarchitect.storageContainer)' --account-name '$(intentarchitect.storageAccountName)' --account-key '$(intentarchitect.storageAccountKey)' --delete-destination 'true'
-
