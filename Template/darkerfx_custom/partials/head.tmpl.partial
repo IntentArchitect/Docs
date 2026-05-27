@@ -7,7 +7,12 @@
   <meta name="viewport" content="width=device-width">
   <meta name="title" content="{{#title}}{{title}}{{/title}}{{^title}}{{>partials/title}}{{/title}} {{#_appTitle}}| {{_appTitle}} {{/_appTitle}}">
   <meta name="generator" content="docfx {{_docfxVersion}}">
-  {{#_description}}<meta name="description" content="{{_description}}">{{/_description}}
+    {{#description}}<meta name="description" content="{{description}}">{{/description}}
+    {{#_noindex}}<meta name="searchOption" content="noindex">{{/_noindex}}
+    {{#_enableSearch}}<meta property="docfx:rel" content="{{_rel}}">{{/_enableSearch}}
+    {{#_enableNewTab}}<meta property="docfx:newtab" content="true">{{/_enableNewTab}}
+  <meta property="docfx:navrel" content="{{_navRel}}">
+  <meta property="docfx:tocrel" content="{{_tocRel}}">
   <!-- CUSTOM BEGIN -->
   <link rel="stylesheet" href="{{_rel}}styles/featherlight.min.css" />
   <!-- CUSTOM END -->
@@ -18,10 +23,5 @@
   <!-- CUSTOM BEGIN -->
   <link rel="stylesheet" href="{{_rel}}styles/custom.css">
   <!-- CUSTOM END -->
-  <meta property="docfx:navrel" content="{{_navRel}}">
-  <meta property="docfx:tocrel" content="{{_tocRel}}">
-  {{#_noindex}}<meta name="searchOption" content="noindex">{{/_noindex}}
-    {{#_enableSearch}}<meta property="docfx:rel" content="{{_rel}}">{{/_enableSearch}}
-    {{#_enableNewTab}}<meta property="docfx:newtab" content="true">{{/_enableNewTab}}
     {{#_mdPath}}<link rel="alternate" type="text/markdown" href="{{_rel}}docs-md/{{_mdPath}}">{{/_mdPath}}
 </head>
