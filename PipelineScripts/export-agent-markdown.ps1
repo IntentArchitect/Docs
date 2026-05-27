@@ -517,6 +517,110 @@ function Convert-MarkdownFile {
 }
 
 # ---------------------------------------------------------------------------
+# Get-TocSections  (parses src/toc.yml for llms.txt section generation)
+# ---------------------------------------------------------------------------
+function Get-TocSections {
+    $tocPath = [System.IO.Path]::Combine($script:AbsDocfxSrc, "toc.yml")
+    if (-not (Test-Path $tocPath)) {
+        return [System.Collections.Generic.List[hashtable]]::new()
+    }
+
+    $lines    = [System.IO.File]::ReadAllLines($tocPath, $Utf8NoBom)
+    $sections = [System.Collections.Generic.List[hashtable]]::new()
+    $current  = $null
+
+    foreach ($line in $lines) {
+        if ($line -match '^\s*-\s+name:\s+(.+)$') {
+            $current = @{ Name = $Matches[1].Trim().Trim('"').Trim("'"); Href = ''; TopicUid = ''; TopicHref = '' }
+            $sections.Add($current)
+        }
+        elseif ($null -ne $current) {
+            if ($line -match '^\s+href:\s+(.+)$')      { $current.Href      = $Matches[1].Trim() }
+            if ($line -match '^\s+topicUid:\s+(.+)$')  { $current.TopicUid  = $Matches[1].Trim() }
+            if ($line -match '^\s+topicHref:\s+(.+)$') { $current.TopicHref = $Matches[1].Trim() }
+        }
+    }
+
+    return $sections
+}
+
+# ---------------------------------------------------------------------------
+# Resolve-SectionUrl  (resolves a toc section to a docs-md URL)
+# ---------------------------------------------------------------------------
+function Resolve-SectionUrl {
+    param([hashtable] $Section, [string] $DocsMdUrl, [string] $AbsOutRoot)
+
+    $base   = $DocsMdUrl.TrimEnd('/')
+    $srcOut = $script:AbsOutDocfxSrc
+
+    # URL prefix for content relative to the docs-md root (e.g. "src/" or "")
+    $srcUrlPfx = if ($srcOut -ne $AbsOutRoot) {
+        $srcOut.Substring($AbsOutRoot.Length).TrimStart('\', '/').Replace('\', '/') + '/'
+    } else { '' }
+
+    # 1. topicUid → UidMap lookup (OutputPath is already the full absolute path)
+    if ($Section.TopicUid -and $script:UidMap.ContainsKey($Section.TopicUid)) {
+        $entry   = $script:UidMap[$Section.TopicUid]
+        $relPath = $entry.OutputPath.Substring($AbsOutRoot.Length).TrimStart('\', '/').Replace('\', '/')
+        return "$base/$relPath"
+    }
+
+    # 2. topicHref → strip fragment, resolve under docfx src output
+    if ($Section.TopicHref) {
+        $mdPath   = ($Section.TopicHref -replace '#.*$', '').Trim()
+        $fullPath = [System.IO.Path]::Combine($srcOut, $mdPath.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
+        if (Test-Path $fullPath) { return "$base/$srcUrlPfx$mdPath" }
+    }
+
+    # 3. href: folder/toc.yml → find landing page by naming convention
+    if ($Section.Href -match '^(.+)/toc\.yml$') {
+        $folder = $Matches[1]
+        foreach ($candidate in @("$folder/$folder.md", "$folder/overview.md")) {
+            $fullPath = [System.IO.Path]::Combine($srcOut, $candidate.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
+            if (Test-Path $fullPath) { return "$base/$srcUrlPfx$candidate" }
+        }
+    }
+
+    # 4. href: direct .md file
+    if ($Section.Href -match '\.md') {
+        $mdPath   = ($Section.Href -replace '#.*$', '').Trim()
+        $fullPath = [System.IO.Path]::Combine($srcOut, $mdPath.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
+        if (Test-Path $fullPath) { return "$base/$srcUrlPfx$mdPath" }
+    }
+
+    # 5. href: folder/toc.yml → read section's toc.yml and use first resolvable entry
+    if ($Section.Href -match '^(.+)/toc\.yml$') {
+        $folder     = $Matches[1]
+        $subTocPath = [System.IO.Path]::Combine(
+            $script:AbsDocfxSrc,
+            $folder.Replace('/', [System.IO.Path]::DirectorySeparatorChar), "toc.yml")
+        if (Test-Path $subTocPath) {
+            foreach ($subLine in [System.IO.File]::ReadAllLines($subTocPath, $Utf8NoBom)) {
+                if ($subLine -match '^\s+topicUid:\s+(.+)$') {
+                    $uid = $Matches[1].Trim()
+                    if ($script:UidMap.ContainsKey($uid)) {
+                        $entry   = $script:UidMap[$uid]
+                        $relPath = $entry.OutputPath.Substring($AbsOutRoot.Length).TrimStart('\', '/').Replace('\', '/')
+                        return "$base/$relPath"
+                    }
+                }
+                if ($subLine -match '^\s+href:\s+(\S+\.md)\s*$') {
+                    $relMd    = $Matches[1].Trim()
+                    $fullPath = [System.IO.Path]::Combine(
+                        $srcOut, $folder.Replace('/', [System.IO.Path]::DirectorySeparatorChar),
+                        $relMd.Replace('/', [System.IO.Path]::DirectorySeparatorChar))
+                    if (Test-Path $fullPath) {
+                        return "$base/$srcUrlPfx$($folder -replace '\\','/')/$($relMd -replace '\\','/')"
+                    }
+                }
+            }
+        }
+    }
+
+    return $null
+}
+
+# ---------------------------------------------------------------------------
 # Get-LlmsTxtHref  (internal helper for llms.txt generation)
 # ---------------------------------------------------------------------------
 function Get-LlmsTxtHref {
@@ -680,12 +784,9 @@ function Write-AgentToc {
 function Write-RootLlmsTxt {
     param([string] $OutputPath)
 
-    # Derive base URLs
     $docsMdUrl = if ($BaseUrl) { $BaseUrl.TrimEnd('/') + '/' } `
                  else          { "https://docs.intentarchitect.com/docs-md/" }
 
-    # Strip the path component to get the domain root
-    # e.g. https://docs.intentarchitect.com/docs-md/ -> https://docs.intentarchitect.com/
     $htmlBaseUrl = if ($BaseUrl) {
         $uri = [System.Uri]$BaseUrl
         "$($uri.Scheme)://$($uri.Host)/"
@@ -693,25 +794,42 @@ function Write-RootLlmsTxt {
         "https://docs.intentarchitect.com/"
     }
 
+    $absOutRoot    = [System.IO.Path]::GetFullPath($OutRoot)
+    $sections      = Get-TocSections
+    $docLines      = [System.Collections.Generic.List[string]]::new()
+    $optionalLines = [System.Collections.Generic.List[string]]::new()
+    $seenUrls      = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
+
+    foreach ($s in $sections) {
+        $url = Resolve-SectionUrl -Section $s -DocsMdUrl $docsMdUrl -AbsOutRoot $absOutRoot
+        if (-not $url -or -not $seenUrls.Add($url)) { continue }
+        if ($s.Href -match 'release-notes|whats-new') {
+            $optionalLines.Add("- [$($s.Name)]($url)")
+        }
+        else {
+            $docLines.Add("- [$($s.Name)]($url)")
+        }
+    }
+
+    $optionalLines.Add("- [Full documentation — single file for large-context LLMs](${htmlBaseUrl}llms-full.txt)")
+    $optionalLines.Add("- [Documentation index](${docsMdUrl}index.md)")
+    $optionalLines.Add("- [Table of contents](${docsMdUrl}toc.md)")
+
+    $docSection      = [string]::Join([System.Environment]::NewLine, $docLines)
+    $optionalSection = [string]::Join([System.Environment]::NewLine, $optionalLines)
+
     $content = @"
 # Intent Architect
 
 > Intent Architect is a platform for designing software applications and automatically generating production-quality code using customizable, modular blueprints. It lets teams capture architecture decisions as reusable modules and apply them consistently across projects.
 
-## Documentation
+## Docs
 
-The Intent Architect documentation is available in two formats:
+$docSection
 
-- HTML documentation (human-friendly): $htmlBaseUrl
-- Markdown documentation (AI-agent-friendly): $docsMdUrl
+## Optional
 
-## AI-Agent Documentation
-
-For best results when answering questions about Intent Architect, use the Markdown documentation rather than scraping the HTML site.
-
-- [Documentation index](${docsMdUrl}index.md)
-- [Table of contents](${docsMdUrl}toc.md)
-- [Full documentation — single file for large-context LLMs](${htmlBaseUrl}llms-full.txt)
+$optionalSection
 "@
 
     $absOutputPath = [System.IO.Path]::GetFullPath($OutputPath)
@@ -772,6 +890,23 @@ function Write-ExportSummary {
 
 $absSourceRoot = [System.IO.Path]::GetFullPath($SourceRoot)
 $absOutRoot    = [System.IO.Path]::GetFullPath($OutRoot)
+
+# Directory containing DocFX source content (.md files, toc.yml).
+# When $SourceRoot is the repo root ("."): content is in $SourceRoot/src.
+# When $SourceRoot is already the src folder ("src"): content is at $SourceRoot.
+$script:AbsDocfxSrc = if (Test-Path ([System.IO.Path]::Combine($absSourceRoot, "src", "toc.yml"))) {
+    [System.IO.Path]::Combine($absSourceRoot, "src")
+} else {
+    $absSourceRoot
+}
+
+# Output folder that mirrors the DocFX source content within $OutRoot.
+$script:AbsOutDocfxSrc = if ($script:AbsDocfxSrc -ne $absSourceRoot) {
+    $rel = $script:AbsDocfxSrc.Substring($absSourceRoot.Length).TrimStart('\', '/')
+    [System.IO.Path]::Combine($absOutRoot, $rel)
+} else {
+    $absOutRoot
+}
 
 if ($UseAbsoluteLinks -and -not $BaseUrl) {
     Write-Error "-UseAbsoluteLinks requires -BaseUrl to be specified."

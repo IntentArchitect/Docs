@@ -23,6 +23,7 @@
     "resource": [
       {
         "files": [
+          "robots.txt",
           "favicon.ico",
           "logo.svg",
           "images/**",
