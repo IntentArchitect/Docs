@@ -154,6 +154,7 @@ steps:
         -UseAbsoluteLinks `
         -BaseUrl 'https://docs.intentarchitect.com/docs-md/' `
         -RootLlmsTxtPath '_site/llms.txt' `
+        -RootLlmsFullTxtPath '_site/llms-full.txt' `
         -FailOnUnresolvedXref
     displayName: 'Export agent Markdown documentation'
 

@@ -47,7 +47,8 @@ param(
     [string] $SourceRoot        = ".",
     [string] $OutRoot           = "_site/docs-md",
     [string] $BaseUrl           = "",
-    [string] $RootLlmsTxtPath   = "",
+    [string] $RootLlmsTxtPath     = "",
+    [string] $RootLlmsFullTxtPath = "",
     [switch] $UseAbsoluteLinks,
     [switch] $StripDocfxFrontMatter,
     [switch] $FailOnUnresolvedXref,
@@ -556,6 +557,50 @@ The source documentation is authored in Markdown and published in this folder wi
 }
 
 # ---------------------------------------------------------------------------
+# Write-LlmsFullTxt
+#   Concatenates all processed Markdown files into a single llms-full.txt,
+#   returning the content string so the caller can also write it to the
+#   domain root without re-reading the files.
+# ---------------------------------------------------------------------------
+function Write-LlmsFullTxt {
+    $absOut  = [System.IO.Path]::GetFullPath($OutRoot)
+    $outFile = [System.IO.Path]::Combine($absOut, "llms-full.txt")
+
+    $mdFiles = Get-ChildItem -Path $absOut -Filter "*.md" -Recurse |
+        Where-Object { $_.Name -notin @("index.md", "toc.md") } |
+        Sort-Object FullName
+
+    $sb = [System.Text.StringBuilder]::new()
+    [void]$sb.AppendLine("# Intent Architect - Complete Documentation")
+    [void]$sb.AppendLine("")
+    [void]$sb.AppendLine("> This file contains the complete Intent Architect documentation concatenated into a single document for use by LLMs with large context windows.")
+    [void]$sb.AppendLine("")
+
+    foreach ($file in $mdFiles) {
+        $relPath = $file.FullName.Substring($absOut.Length).TrimStart([char]'\', [char]'/').Replace('\', '/')
+        $content = [System.IO.File]::ReadAllText($file.FullName, $Utf8NoBom)
+        $content = Remove-YamlFrontmatter -Content $content
+        $content = $content.Trim()
+
+        if ($content) {
+            [void]$sb.AppendLine("")
+            [void]$sb.AppendLine("---")
+            [void]$sb.AppendLine("")
+            [void]$sb.AppendLine("<!-- Source: $relPath -->")
+            [void]$sb.AppendLine("")
+            [void]$sb.Append($content)
+            [void]$sb.AppendLine("")
+        }
+    }
+
+    $fullContent = $sb.ToString()
+    [System.IO.File]::WriteAllText($outFile, $fullContent, $Utf8NoBom)
+    if ($VerboseLogging) { Write-Host "  Generated: $outFile" }
+
+    return $fullContent
+}
+
+# ---------------------------------------------------------------------------
 # Write-AgentIndex
 # ---------------------------------------------------------------------------
 function Write-AgentIndex {
@@ -666,6 +711,7 @@ For best results when answering questions about Intent Architect, use the Markdo
 
 - [Documentation index](${docsMdUrl}index.md)
 - [Table of contents](${docsMdUrl}toc.md)
+- [Full documentation — single file for large-context LLMs](${htmlBaseUrl}llms-full.txt)
 "@
 
     $absOutputPath = [System.IO.Path]::GetFullPath($OutputPath)
@@ -698,9 +744,14 @@ function Write-ExportSummary {
     Write-Host "  Unresolved XRefs:          $($script:UnresolvedXrefs.Count)"
     Write-Host "  Output index:              $absOut\index.md"
     Write-Host "  Output llms.txt:           $absOut\llms.txt"
+    Write-Host "  Output llms-full.txt:      $absOut\llms-full.txt"
     if ($RootLlmsTxtPath) {
         $absRoot = [System.IO.Path]::GetFullPath($RootLlmsTxtPath)
         Write-Host "  Domain-root llms.txt:      $absRoot"
+    }
+    if ($RootLlmsFullTxtPath) {
+        $absRootFull = [System.IO.Path]::GetFullPath($RootLlmsFullTxtPath)
+        Write-Host "  Domain-root llms-full.txt: $absRootFull"
     }
 
     if ($script:UnresolvedXrefs.Count -gt 0) {
@@ -811,10 +862,24 @@ Write-Host "Phase 3: Generating supplementary files..."
 Write-AgentLlmsTxt
 Write-AgentIndex
 Write-AgentToc
+$fullContent = Write-LlmsFullTxt
 
-if ($RootLlmsTxtPath) {
-    Write-Host "Phase 4: Writing domain-root llms.txt..."
-    Write-RootLlmsTxt -OutputPath $RootLlmsTxtPath
+if ($RootLlmsTxtPath -or $RootLlmsFullTxtPath) {
+    Write-Host "Phase 4: Writing domain-root llms files..."
+
+    if ($RootLlmsTxtPath) {
+        Write-RootLlmsTxt -OutputPath $RootLlmsTxtPath
+    }
+
+    if ($RootLlmsFullTxtPath) {
+        $absRootFull = [System.IO.Path]::GetFullPath($RootLlmsFullTxtPath)
+        $rootFullDir = [System.IO.Path]::GetDirectoryName($absRootFull)
+        if ($rootFullDir -and -not (Test-Path $rootFullDir)) {
+            New-Item -ItemType Directory -Path $rootFullDir -Force | Out-Null
+        }
+        [System.IO.File]::WriteAllText($absRootFull, $fullContent, $Utf8NoBom)
+        if ($VerboseLogging) { Write-Host "  Generated: $absRootFull" }
+    }
 }
 
 # ---------------------------------------------------------------------------
