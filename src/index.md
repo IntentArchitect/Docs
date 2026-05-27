@@ -1,5 +1,5 @@
 ---
-uid: introducing.overview
+uid: index
 description: "Introduction to Intent Architect — the AI code automation platform for .NET — with links to getting started, key concepts, and a demo of the latest features."
 ---
 
@@ -182,11 +182,11 @@ html[data-theme="dark"] .ia-overview .card {
 
 Intent Architect is the first architecture-centric AI code automation platform for .NET developers.
 
-It’s the platform that delivers AI-driven development speed, with built-in guardrails and uncompromised quality, at any scale.
+It's the platform that delivers AI-driven development speed, with built-in guardrails and uncompromised quality, at any scale.
 
 It brings design and architectural visibility to your software development processes and unlocks a single cohesive workflow to go from specification to production-ready code up to 10X faster. Architectural adherence enforced by default. Technical and cognitive debt minimized by design.
 
-![Overview](images/docs-landing-page-v1.png)
+![Overview](introducing/images/docs-landing-page-v1.png)
 
 ---
 

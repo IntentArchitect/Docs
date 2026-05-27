@@ -36,4 +36,4 @@ You’ve just built a complete, architecture-aligned application with clean, det
 ## Next steps
 
 - Continue to **[Fundamentals #2: Introduction to Domain Modeling](xref:tutorials.fundamentals-2-intro-to-domain-modeling)**  
-- Learn more about **[How It Works](xref:introducing.overview#key-concepts)**  
+- Learn more about **[How It Works](xref:index#key-concepts)**  

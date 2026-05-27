@@ -1,7 +1,7 @@
 items:
 
   - name: Overview
-    topicUid: introducing.overview
+    topicUid: index
 
   - name: Getting started
     href: introducing/toc.yml
