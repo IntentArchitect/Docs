@@ -43,7 +43,7 @@ steps:
   # checkout the branch docs repo
   - checkout: self
     persistCredentials: 'true'
-    fetchDepth: '1'
+    fetchDepth: '0'  # full history required for DocFX to populate sitemap lastmod from git commit dates
     displayName: 'Checkout Docs branch'
 
   # calculate the repo and branch which triggered this pipeline
