@@ -1,3 +1,6 @@
+---
+uid: whats-new.2026.05
+---
 # What's new in Intent Architect (May 2026)
 
 Welcome to the May edition of What's New in Intent Architect. This month marks the release of **Intent Architect 5.0**,  perhaps the most significant release in recent years, bringing the full power of AI into the heart of the platform for an end-to-end software development experience.

@@ -12,7 +12,7 @@ Intent ships with four agents in the AI chat dropdown. Each one is purpose-built
 | **Agent**   | modeling | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
 | **Coding**  | coding   | Reads, writes, patches, and deletes source files                             | Hand-written code changes inside an application's output              |
 
-> The first three are **modeling** agents - they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](../context-management/index.md) for what that distinction means in practice.
+> The first three are **modeling** agents - they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](xref:ai.context-management) for what that distinction means in practice.
 
 ---
 
@@ -62,12 +62,12 @@ The coding agent works inside an application's output folder - reading, writing,
 
 You can override any built-in by dropping a file with the same id (filename minus `.agent.md`) into your solution's `.agents/agents/` folder. For example, dropping a `coding.agent.md` there will replace the built-in **Coding** agent for that solution only.
 
-You can also add brand-new agents the same way. See [Agent Context Loading](../context-management/index.md#1-agent-definitions-agentmd) for the file format.
+You can also add brand-new agents the same way. See [Agent Context Loading](xref:ai.context-management#1-agent-definitions-agentmd) for the file format.
 
 ---
 
 ## See also
 
-- [Agent Context Loading](../context-management/index.md) - where Intent looks for agent definitions, instructions, and skills
-- [Agent Tools](../tooling/index.md) - the tools each agent can be configured with
-- [AI Configuration](../configuration/index.md) - providers, the Intent MCP server, and external MCP servers
+- [Agent Context Loading](xref:ai.context-management) - where Intent looks for agent definitions, instructions, and skills
+- [Agent Tools](xref:ai.tooling) - the tools each agent can be configured with
+- [AI Configuration](xref:ai.configuration) - providers, the Intent MCP server, and external MCP servers

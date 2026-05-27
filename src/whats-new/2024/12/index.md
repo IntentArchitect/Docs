@@ -1,3 +1,6 @@
+---
+uid: whats-new.2024.12
+---
 # What's new in Intent Architect (December 2024)
 
 Welcome to the 2024 Christmas edition of highlights of What's New in Intent Architect.

@@ -1,3 +1,6 @@
+---
+uid: whats-new.2024.09
+---
 # What's new in Intent Architect (September 2024)
 
 Welcome to the September 2024 edition of What's New in Intent Architect.

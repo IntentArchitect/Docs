@@ -1,3 +1,6 @@
+---
+uid: whats-new.2024.10
+---
 # What's new in Intent Architect (October 2024)
 
 Welcome to the October 2024 edition of highlights of What's New in Intent Architect.

@@ -23,7 +23,7 @@ To achieve this, Intent Architect deploys both deterministic code generation and
 
 On the **modeling** side, AI agents read and modify Intent's designers - the source of truth from which all generated code flows. Rather than asking AI to write code directly, you can describe a feature, drop in a PRD or screenshot, and have the agent shape the model itself. Every change is staged in-memory and only persisted with your explicit approval, so model changes are transparent at every step of the way. Modeling agents are backed by:
 
-- **[Powerful Tooling](../tooling/index.md)** that modeling agents can use to discover, read, analyze and modify the designs of your system. There are also tools to interact with you (e.g. to ask clarifying questions where the requirements are ambiguous).
+- **[Powerful Tooling](xref:ai.tooling)** that modeling agents can use to discover, read, analyze and modify the designs of your system. There are also tools to interact with you (e.g. to ask clarifying questions where the requirements are ambiguous).
 - **[Designer-specific context](xref:ai.context-management)** - modeling agents work from live snapshots of your designers and diagrams, layered with per-solution guidance (`AGENTS.md`, `INTENT.md`, and any instruction files under `.agents/`) so your naming conventions, architectural rules, and project knowledge are applied to every change.
 - **[Plan mode](xref:ai.built-in-agents#plan)** - for larger or ambiguous changes, the agent iteratively writes a markdown plan, asks clarifying questions, and waits for your sign-off before touching the model.
 
@@ -43,13 +43,13 @@ On the **modeling** side, AI agents read and modify Intent's designers - the sou
 ## Documentation
 
 ### Getting started
-- **[AI Configuration](../configuration/index.md)** - connect to your AI provider (OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint), expose Intent as an MCP server, and add external MCP servers per solution.
-- **[Built-in Agents](../built-in-agents/index.md)** - what **Ask**, **Plan**, **Agent**, and **Coding** each do, and when to pick which.
+- **[AI Configuration](xref:ai.configuration)** - connect to your AI provider (OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint), expose Intent as an MCP server, and add external MCP servers per solution.
+- **[Built-in Agents](xref:ai.built-in-agents)** - what **Ask**, **Plan**, **Agent**, and **Coding** each do, and when to pick which.
 
 ### Customising agents and context
-- **[Agent Context Loading](../context-management/index.md)** - where Intent looks for agent definitions, instruction files, and skills. The `.agents/` folder under your solution and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
-- **[Custom Agents](../custom-agents/index.md)** - author your own `.agent.md` files: pick a context, choose tools, and write the system prompt that defines the agent's behaviour.
-- **[Agent Tools](../tooling/index.md)** - every tool an agent can be wired up with: file ops, designer/model edits, build/test, planning, and conversation tools.
+- **[Agent Context Loading](xref:ai.context-management)** - where Intent looks for agent definitions, instruction files, and skills. The `.agents/` folder under your solution and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
+- **[Custom Agents](xref:ai.custom-agents)** - author your own `.agent.md` files: pick a context, choose tools, and write the system prompt that defines the agent's behaviour.
+- **[Agent Tools](xref:ai.tooling)** - every tool an agent can be wired up with: file ops, designer/model edits, build/test, planning, and conversation tools.
 
 ### Connecting to MCP Servers
 - **[External MCP Servers](xref:ai.configuration#3-mcp-servers)** - give this solution's coding agents extra tools by wiring in external MCP servers (filesystem, GitHub, your own internal tools, etc.). Configuration is stored per-solution in `.agents/mcp.json` and supports both `stdio` (launch a local command) and `http` (call a remote endpoint) transports, with `${VAR}` substitution for secrets pulled from your environment. Each server has its own enable/disable toggle and live connection status, so you can park entries without deleting them.
@@ -66,10 +66,10 @@ On the **modeling** side, AI agents read and modify Intent's designers - the sou
 
 | You want to…                                                   | Go to                                                                                                   |
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Plug in your OpenAI / Anthropic / Azure key                    | [AI Configuration → AI Providers](../configuration/index.md#1-ai-providers)                             |
-| Use Intent from Claude Code / Copilot / Cursor                 | [AI Configuration → Intent MCP](../configuration/index.md#2-intent-mcp)                                 |
-| Add an MCP server (filesystem, GitHub, etc.) for coding agents | [AI Configuration → MCP Servers](../configuration/index.md#3-mcp-servers)                               |
-| Pick the right agent for a task                                | [Built-in Agents](../built-in-agents/index.md)                                                          |
-| Drop a project-wide instruction file                           | [Agent Context Loading → Instruction files](../context-management/index.md#2-instruction-files)         |
-| Write a custom agent for this solution                         | [Agent Context Loading → Agent definitions](../context-management/index.md#1-agent-definitions-agentmd) |
-| Understand what tools an agent has                             | [Agent Tools](../tooling/index.md)                                                                      |
+| Plug in your OpenAI / Anthropic / Azure key                    | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
+| Use Intent from Claude Code / Copilot / Cursor                 | [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp)                                 |
+| Add an MCP server (filesystem, GitHub, etc.) for coding agents | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
+| Pick the right agent for a task                                | [Built-in Agents](xref:ai.built-in-agents)                                                          |
+| Drop a project-wide instruction file                           | [Agent Context Loading → Instruction files](xref:ai.context-management#2-instruction-files)         |
+| Write a custom agent for this solution                         | [Agent Context Loading → Agent definitions](xref:ai.context-management#1-agent-definitions-agentmd) |
+| Understand what tools an agent has                             | [Agent Tools](xref:ai.tooling)                                                                      |

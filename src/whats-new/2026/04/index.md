@@ -1,3 +1,6 @@
+---
+uid: whats-new.2026.04
+---
 # What's new in Intent Architect (April 2026)
 
 Welcome to the April edition of What's New in Intent Architect.

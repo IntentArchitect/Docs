@@ -1,3 +1,6 @@
+---
+uid: whats-new.2025.09
+---
 # What's new in Intent Architect (September 2025)
 
 Welcome to the September edition of What’s New in Intent Architect. Here’s a roundup of the latest updates and improvements designed to make your development experience faster, cleaner, and more productive.
@@ -115,7 +118,7 @@ Available from:
 
 ### AutoMapper and MediatR commercial version settings
 
-Following up on our [July 2025 announcement](../07/index.md#automapper-and-mediatr-going-commercial), both the `Intent.Application.AutoMapper` (version 5.3.0+) and `Intent.Application.MediatR` (version 4.5.0+) modules have been updated with new settings that give you full control over which versions of these popular NuGet packages to use in your applications.
+Following up on our [July 2025 announcement](xref:whats-new.2025.07#automapper-and-mediatr-going-commercial), both the `Intent.Application.AutoMapper` (version 5.3.0+) and `Intent.Application.MediatR` (version 4.5.0+) modules have been updated with new settings that give you full control over which versions of these popular NuGet packages to use in your applications.
 
 You can now choose whether to lock the versions of AutoMapper and MediatR to those prior to their commercial editions, or proceed with the latest commercial versions while accepting their respective licenses. This flexibility ensures that your projects can adapt to your organization's licensing preferences and requirements. For more details about the commercial transition, read Jimmy Bogard's announcement [here](https://www.jimmybogard.com/automapper-and-mediatr-commercial-editions-launch-today/).
 

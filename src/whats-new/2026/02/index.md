@@ -1,3 +1,6 @@
+---
+uid: whats-new.2026.02
+---
 <script>
 if (location.hash == "#integrated-ai-chat") {
   window.location = window.location.hash = "#integrated-ai-assistant";

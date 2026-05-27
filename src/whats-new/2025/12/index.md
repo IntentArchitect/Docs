@@ -1,3 +1,6 @@
+---
+uid: whats-new.2025.12
+---
 # What's new in Intent Architect (December 2025)
 
 Welcome to the December edition of What’s New in Intent Architect.
