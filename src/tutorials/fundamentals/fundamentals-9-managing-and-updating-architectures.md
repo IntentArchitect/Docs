@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-9-managing-and-updating-architectures
+description: "Video tutorial: install, update, and manage architecture modules in Intent Architect, with best practices for applying changes during development."
 ---
 # Fundamentals #9: Managing and Updating Architectures
 

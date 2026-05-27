@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.4
+description: "Intent Architect 4.4 release notes: Solution References for cross-app metadata, Advanced Mapping parent override support, and whitespace-agnostic diffing."
 ---
 # Release notes: Intent Architect version 4.4
 

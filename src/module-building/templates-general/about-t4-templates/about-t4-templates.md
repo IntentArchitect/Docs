@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.about-t4-templates
+description: "An introduction to T4 text templates as a code-generation option in Intent Architect modules, covering text blocks, control blocks, and key syntax."
 ---
 # About T4 Templates
 

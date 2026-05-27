@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-2-intro-to-domain-modeling
+description: "Video tutorial covering domain modeling in Intent Architect, including entity attributes, one-to-many and many-to-many relationships, and defining enums."
 ---
 # Fundamentals #2: Introduction to Domain Modeling
 

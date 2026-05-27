@@ -1,5 +1,6 @@
 ---
 uid: tools.roslyn-weaver-sanitizer
+description: "Reference for the RoslynWeaver Sanitizer CLI, which strips Intent code management attributes and NuGet package references from a Visual Studio solution."
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

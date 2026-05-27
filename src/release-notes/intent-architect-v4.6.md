@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.6
+description: "Intent Architect 4.6 release notes: side-by-side version notifications, saveable designer scripts, updated LLM provider support, and bug fixes."
 ---
 # Release notes: Intent Architect version 4.6
 

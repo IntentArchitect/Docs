@@ -1,5 +1,6 @@
 ---
 uid: getting-started.take-a-tour
+description: "A tour of Intent Architect's core concepts: Applications, Modules, Designers, Software Factory Execution, and Solutions, with screenshots."
 ---
 
 # Take a tour

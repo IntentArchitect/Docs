@@ -1,5 +1,6 @@
 ---
 uid: ai.context-management
+description: "How Intent AI agents discover agent definitions, instruction files, and skills at runtime, covering context folder layouts and applicability rules."
 ---
 # Agent Context Loading
 

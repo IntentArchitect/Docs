@@ -1,5 +1,6 @@
 ---
 uid: getting-started.get-the-application
+description: "Instructions for creating an Intent Architect account, downloading the installer, and getting the application running on your machine."
 ---
 
 # Get Intent Architect

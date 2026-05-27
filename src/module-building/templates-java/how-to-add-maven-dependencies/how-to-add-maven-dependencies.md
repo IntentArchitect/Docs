@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-java.how-to-add-nuget-dependencies-csharp
+description: "How to declare Maven dependencies in a Java template using AddDependency so the Software Factory adds the required entries to pom.xml."
 ---
 # How to add Maven dependencies
 

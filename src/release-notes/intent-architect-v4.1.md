@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.1
+description: "Release notes for Intent Architect 4.1, adding application rename with file synchronization, service proxy mapping improvements, and designer stability fixes."
 ---
 
 # Release notes: Intent Architect version 4.1

@@ -1,5 +1,6 @@
 ---
 uid: tutorials.building-an-application
+description: "Tutorial: build a simplified eShopOnContainers app with Intent Architect, covering domain modeling, CRUD services, database setup, and JWT security."
 ---
 # Tutorial: Building an Application with Intent Architect
 

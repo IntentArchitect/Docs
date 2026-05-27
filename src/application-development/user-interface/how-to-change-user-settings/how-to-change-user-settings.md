@@ -1,5 +1,6 @@
 ---
 uid: application-development.user-interface.how-to-change-user-settings
+description: "How to access and configure user settings in Intent Architect: theme, update preferences, default application location, diff tool, and preferred IDE."
 ---
 # How to change user settings
 

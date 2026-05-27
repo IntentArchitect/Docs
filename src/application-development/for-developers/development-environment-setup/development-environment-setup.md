@@ -1,5 +1,6 @@
 ---
 uid: application-development.development-environment-setup
+description: "Recommended development environment setup for Intent Architect, covering long path support, anti-virus whitelisting, diff tool selection, and user settings."
 ---
 
 # Intent Architect Development Environment Setup

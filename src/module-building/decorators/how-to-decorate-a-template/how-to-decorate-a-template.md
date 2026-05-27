@@ -1,5 +1,6 @@
 ---
 uid: module-building.decorators.how-to-decorate-a-template
+description: "Guide to creating a Decorator contract and implementing a Decorator that injects content into an existing template, with a data annotation validation example."
 ---
 # How to decorate a Template
 

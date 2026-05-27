@@ -1,5 +1,6 @@
 ---
 uid: module-building.tutorial-advanced-mapping
+description: "Tutorial for setting up an advanced mapping configuration between a CQRS Command and a Domain Entity, with corresponding template code generation."
 ---
 # Tutorial: Advanced Mapping
 

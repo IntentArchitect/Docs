@@ -1,5 +1,6 @@
 ---
 uid: tools.software-factory-cli
+description: "Reference for the Software Factory CLI .NET tool, used in CI/CD pipelines to run the Software Factory and verify or apply outstanding code generation changes."
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD060 -->

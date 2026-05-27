@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.domain-designer.modeling-the-domain
+description: "Step-by-step guide to modeling a domain in Intent Architect, covering diagrams, entities, attributes, associations, constructors, and operations."
 ---
 # Modeling the Domain
 

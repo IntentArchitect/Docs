@@ -1,5 +1,6 @@
 ---
 uid: module-building.about-the-module-builder
+description: "Overview of Intent.ModuleBuilder: a designer for authoring Intent Architect modules including templates, designers, decorators, and stereotypes."
 ---
 # About the Module Builder
 

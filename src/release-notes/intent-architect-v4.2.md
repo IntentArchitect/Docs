@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.2
+description: "Intent Architect 4.2 release notes: cross-platform deviation hash fixes, renamed deviation log files for Git compatibility, and association deletion fixes."
 ---
 
 # Release notes: Intent Architect version 4.2

@@ -1,5 +1,6 @@
 ---
 uid: ai.tooling
+description: "Every built-in tool for Intent Architect AI agents: file operations, designer model tools, build and test tools, and conversation primitives."
 ---
 # Agent Tools
 

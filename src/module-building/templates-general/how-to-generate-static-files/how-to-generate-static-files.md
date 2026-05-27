@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.how-to-generate-static-files
+description: "How to use a Static Content Template to bundle and distribute multiple static files in a module, with keyword substitution and binary file support."
 ---
 # How to generate static files
 

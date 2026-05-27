@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-csharp
+description: "Reference for controlling C# code management in Intent Architect using RoslynWeaver attributes such as IntentManaged, IntentIgnore, and DefaultIntentManaged."
 ---
 # C# Code Management
 

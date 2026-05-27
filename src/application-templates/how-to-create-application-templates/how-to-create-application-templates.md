@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-templates.how-to-create-application-templates
+description: "How to build an Application Template using the Intent Application Template Builder, covering Groups, Components, Modules, and configurable Settings."
 remark: Used (https://library.kissclipart.com/20180903/wje/kissclipart-electronic-component-icon-clipart-electronic-compo-d2f1e79cc4feba0f.png) for icon in demo
 ---
 # How to create Application Templates

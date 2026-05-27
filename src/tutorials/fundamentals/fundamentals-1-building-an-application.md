@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-1-building-an-application
+description: "Video tutorial introducing Intent Architect and demonstrating how to set up a Clean Architecture solution and generate an end-to-end CRUD use case."
 ---
 # Fundamentals #1: Building Your First Application with Intent Architect
 

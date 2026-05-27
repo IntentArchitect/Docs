@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v5.1
+description: "Intent Architect 5.1 release notes: overhauled Asset Repository screen with drag-and-drop reordering and per-repository exclusion from global searches."
 ---
 # Release notes: Intent Architect version 5.1
 

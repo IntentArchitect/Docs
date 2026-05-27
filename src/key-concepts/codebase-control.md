@@ -1,5 +1,6 @@
 ---
 uid: key-concepts.codebase-integration
+description: "How Intent Architect keeps developers in control through Software Factory diff review, Code Management, and Customization Tracking for deviations."
 ---
 
 # Codebase Control

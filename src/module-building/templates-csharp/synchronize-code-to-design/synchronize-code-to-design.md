@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.synchronize-code-to-design
+description: "How to implement ISynchronizeCSharpCodeToModel in a C# template so user edits to generated files are reflected back as model changes in designers."
 ---
 # Synchronize code to design (C#)
 

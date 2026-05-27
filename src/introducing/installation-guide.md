@@ -1,5 +1,6 @@
 ---
 uid: introducing.installation-guide
+description: "Installation instructions for Intent Architect on Windows, macOS, and Linux, with inotify troubleshooting for Linux and long-path recommendations for Windows."
 ---
 
 # Installation guide

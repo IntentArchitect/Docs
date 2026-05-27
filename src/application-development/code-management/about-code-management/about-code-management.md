@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-management.about-code-management
+description: "Code management controls which codebase parts are tool-managed vs developer-managed in Intent Architect, using AST parsing and merge logic."
 ---
 # About Code-Management
 

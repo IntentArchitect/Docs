@@ -1,5 +1,6 @@
 ---
 uid: application-development.sdlc-best-practices
+description: "SDLC best practices for Intent Architect teams: version control, pull requests, CI/CD, module upgrade strategy, and dev environment setup."
 ---
 
 # Software Development Life Cycle (SDLC) Best Practices for Intent Architect Users

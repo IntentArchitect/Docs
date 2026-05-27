@@ -1,5 +1,6 @@
 ---
 uid: application-development.understanding-and-resolving-merge-conflicts
+description: "How to understand and resolve merge conflicts in Intent Architect metadata XML files, with a step-by-step example mapping file structure to designer elements."
 ---
 # Understanding and resolving merge conflicts involving Intent Architect metadata files
 

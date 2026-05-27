@@ -1,5 +1,6 @@
 ---
 uid: release-notes.version-3-1
+description: "Release notes for Intent Architect 3.1, covering new Software Factory keyboard shortcuts, enhanced Designer Macro JavaScript API, and bug fixes."
 ---
 # Release notes: Intent Architect version 3.1
 

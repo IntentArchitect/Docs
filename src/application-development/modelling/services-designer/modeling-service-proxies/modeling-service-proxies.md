@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.proxy-designer.proxy-designer
+description: "Covers modeling Service Proxies in Intent Architect, enabling strongly typed HTTP clients to be generated for services defined in other applications."
 ---
 # Modeling Service Proxies
 

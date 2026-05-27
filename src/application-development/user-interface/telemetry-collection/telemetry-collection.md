@@ -1,5 +1,6 @@
 ---
 uid: application-development.user-interface.telemetry-collection
+description: "Intent Architect's telemetry collection: what usage and error data is gathered to improve the product, and what sensitive information is never collected."
 ---
 # Telemetry collection
 

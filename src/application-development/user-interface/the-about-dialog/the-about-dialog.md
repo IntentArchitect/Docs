@@ -1,5 +1,6 @@
 ---
 uid: application-development.user-interface.the-about-dialog
+description: "The About Dialog in Intent Architect: displays the current version, license information, and update notifications with links to release notes."
 ---
 # The About Dialog
 

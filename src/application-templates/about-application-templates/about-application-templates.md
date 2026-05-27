@@ -1,5 +1,6 @@
 ---
 uid: application-templates.overview
+description: "Application Templates pre-configure Modules and Metadata for new Intent Architect Applications, enabling teams to bootstrap from a standard starting point."
 ---
 # About Application Templates
 

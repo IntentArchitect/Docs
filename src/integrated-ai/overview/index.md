@@ -1,5 +1,6 @@
 ---
 uid: ai.overview
+description: "Intent Architect's integrated AI combines deterministic code generation with modeling and coding agents. Links to configuration, built-in agents, and tooling."
 ---
 # AI in Intent Architect
 

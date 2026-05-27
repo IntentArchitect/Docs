@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.services-designer.invoking-http-endpoints
+description: "Shows how to model Perform Invocation relationships in the Services Designer so Intent Architect generates strongly typed HTTP proxy clients between services."
 ---
 # Invoking HTTP Endpoints
 

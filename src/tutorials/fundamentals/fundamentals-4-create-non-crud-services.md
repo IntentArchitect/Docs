@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-4-create-non-crud-service
+description: "Video tutorial demonstrating how to design non-CRUD services in Intent Architect for complex, application-specific scenarios requiring custom implementation."
 ---
 # Fundamentals #4: Creating non-CRUD Services
 

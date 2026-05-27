@@ -1,5 +1,6 @@
 ---
 uid: getting-started.welcome
+description: "Intent Architect: architecture-centric code automation for .NET teams. Covers pattern reuse, visual modelling, code management, and supported technologies."
 ---
 
 # Welcome

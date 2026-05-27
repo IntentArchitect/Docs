@@ -1,5 +1,6 @@
 ---
 uid: module-building.tutorial-create-a-template.install-and-run-the-module
+description: "Tutorial step covering how to create a test application, install a locally-built module into it, and verify the template output via the Software Factory."
 ---
 # Install and run the Module
 

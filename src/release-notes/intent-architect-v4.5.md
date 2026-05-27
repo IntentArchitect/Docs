@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.5
+description: "Intent Architect 4.5 release notes: System Suggestions dialog, default OpenAI API key for AI features, and designer and Software Factory improvements."
 ---
 # Release notes: Intent Architect version 4.5
 

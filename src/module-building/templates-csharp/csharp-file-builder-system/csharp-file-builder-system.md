@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.csharp-file-builder-system
+description: "Guide to the C# File Builder System: fluent builder API for constructing C# files with type safety, IntelliSense, and Factory Extension support."
 ---
 # C# File Builder System
 

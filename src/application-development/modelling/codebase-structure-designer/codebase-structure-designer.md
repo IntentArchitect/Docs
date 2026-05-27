@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.codebase-structure-designer
+description: "Describes the Codebase Structure Designer, controlling folder layout and file-system placement of generated outputs using Template Outputs and Output Anchors."
 ---
 # Codebase Structure Designer
 

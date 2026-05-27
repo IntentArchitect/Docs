@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-model-nuget-dependencies-csharp
+description: "How to declare NuGet package dependencies in a module so the Software Factory automatically installs the correct package versions per .NET target framework."
 ---
 
 # How to Model NuGet Dependencies (C#)

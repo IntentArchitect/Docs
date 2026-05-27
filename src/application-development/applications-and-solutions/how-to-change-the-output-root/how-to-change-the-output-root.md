@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.how-to-change-the-output-root
+description: "How to change the Root Output Location of an Intent Architect Application by updating the Relative Output Location setting in the Application Settings screen."
 ---
 # How to change the output root
 

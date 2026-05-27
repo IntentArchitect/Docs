@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-templates.version-range-notation
+description: "The interval notation used by Intent Architect for version compatibility ranges: square brackets for inclusive bounds and parentheses for exclusive bounds."
 ---
 # Version Range Notation
 

@@ -1,5 +1,6 @@
 ---
 uid: release-notes.version-3-3
+description: "Intent Architect 3.3 release notes: performance for multi-element selection, CLI error handling fixes, and scripting API corrections."
 ---
 # Release notes: Intent Architect version 3.3
 

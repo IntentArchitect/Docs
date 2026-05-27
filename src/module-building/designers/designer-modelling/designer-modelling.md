@@ -1,5 +1,6 @@
 ---
 uid: module-building.designers.designer-modelling
+description: "Reference for Module Builder designer elements, including Element Settings, Association Types, Package Types, mapping configuration, and context menus."
 ---
 # Designer Modelling
 

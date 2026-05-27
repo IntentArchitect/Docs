@@ -1,5 +1,6 @@
 ---
 uid: key-concepts.visual-modeling
+description: "Intent Architect's Domain, Services, and UI Designers produce living blueprints serving as context for AI agents and deterministic code generation."
 ---
 
 # Visual Design Tools

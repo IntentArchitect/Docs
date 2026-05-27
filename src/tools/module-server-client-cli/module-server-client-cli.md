@@ -1,5 +1,6 @@
 ---
 uid: tools.module-server-client-cli
+description: "Reference for the Module Server Client CLI .NET tool, used to upload modules and application templates to a Module Server and manage their listing status."
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

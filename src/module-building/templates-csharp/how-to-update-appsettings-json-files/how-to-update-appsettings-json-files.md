@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-update-appsettings-json-files
+description: "How to add or merge configuration entries into appsettings.json from a template or factory extension using the ApplyAppSetting extension method."
 ---
 # How to Update `appsettings.json` Files
 

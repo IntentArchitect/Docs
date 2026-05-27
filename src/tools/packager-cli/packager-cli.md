@@ -1,5 +1,6 @@
 ---
 uid: tools.packager-cli
+description: "Reference for the Intent Packager CLI .NET tool, used to package Intent Architect applications into distributable .imod module files."
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

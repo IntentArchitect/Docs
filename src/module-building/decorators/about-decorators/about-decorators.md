@@ -1,5 +1,6 @@
 ---
 uid: module-building.decorators.about-decorators
+description: "The Decorator mechanism in Intent Architect: inject content at hook points in a template from modules that have no direct dependency on that template."
 ---
 # About Decorators
 

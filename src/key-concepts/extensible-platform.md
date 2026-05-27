@@ -1,5 +1,6 @@
 ---
 uid: key-concepts.extensible-platform
+description: "Intent Architect's extensible platform building blocks: Modules, Designers, Templates, Factory Extensions, Migrations, and Accelerators."
 ---
 
 # Extensible Platform

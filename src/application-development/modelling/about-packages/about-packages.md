@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.about-packages
+description: "Packages are file system containers for Intent Architect designer metadata, covering creating packages, cross-package references, and the Is External flag."
 ---
 # About Packages
 

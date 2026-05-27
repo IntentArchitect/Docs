@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.services-designer.modeling-services
+description: "Introduces the Services Designer and how to model services using the CQRS or Traditional Service paradigm, including how to expose them as HTTP endpoints."
 ---
 # Modeling Services
 

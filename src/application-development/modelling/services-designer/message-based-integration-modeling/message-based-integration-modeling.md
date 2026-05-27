@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.services-designer.message-based-integration-modeling
+description: "How to model event-driven integration in the Services Designer using Integration Events and Integration Commands for asynchronous inter-service communication."
 ---
 # Message-Based Integration Modeling
 

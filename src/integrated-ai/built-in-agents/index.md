@@ -1,5 +1,6 @@
 ---
 uid: ai.built-in-agents
+description: "Intent Architect's four built-in AI agents — Ask, Plan, Agent, and Coding — covering what each does, when to use it, and which tools it can access."
 ---
 # Built-in Agents
 

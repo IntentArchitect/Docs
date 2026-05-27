@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.how-do-i-bind-designer-models-to-templates
+description: "How to data-bind designer models to templates in the Module Builder, choosing between Single File and File Per Model generation modes."
 ---
 
 # Data-binding Designer Models to Templates

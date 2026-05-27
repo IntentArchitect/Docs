@@ -1,5 +1,6 @@
 ---
 uid: module-building.designer-extensions.about-designer-extensions
+description: "Designer Extensions let you add element types and behaviours to an existing designer without copying it, so base designer updates are inherited automatically."
 ---
 # About Designer Extensions
 

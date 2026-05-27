@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.practical-code-management-examples
+description: "Practical C# code management examples showing how to preserve custom methods, protect statements, extend method chains, and override generated code."
 ---
 
 # Practical C# Code Management Examples

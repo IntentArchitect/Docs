@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.0
+description: "Release notes for Intent Architect 4.0, featuring designer performance improvements, Software Factory CLI enhancements, and hardware acceleration settings."
 ---
 
 # Release notes: Intent Architect version 4.0

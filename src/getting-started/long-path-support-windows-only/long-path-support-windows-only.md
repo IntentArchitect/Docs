@@ -1,5 +1,6 @@
 ---
 uid: application-development.getting-started.long-path-support-windows-only
+description: "Explains how to enable Windows long path support via PowerShell or registry, and how to configure Git and GitHub Desktop to avoid filename-too-long errors."
 comment: This is not in TOC.
 ---
 # Enable Long Path Support (Windows only)

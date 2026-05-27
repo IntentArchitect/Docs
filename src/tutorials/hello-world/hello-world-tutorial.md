@@ -1,5 +1,6 @@
 ---
 uid: tutorials.hello-world-tutorial
+description: "Introductory tutorial: create an Intent Architect application, model a domain and services, generate code, and run the resulting ASP.NET Core API."
 ---
 # The "Hello World" tutorial
 

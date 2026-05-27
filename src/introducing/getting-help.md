@@ -1,5 +1,6 @@
 ---
 uid: getting-help
+description: "All the ways to get help with Intent Architect: in-app help, the documentation site, email and GitHub support, in-app feedback, and module release notes."
 ---
 
 # Getting help: Reference & resources

@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-settings
+description: "How to create and consume Application and User Settings in modules, covering settings groups, field types, and reading values in templates and extensions."
 ---
 # Application Settings
 

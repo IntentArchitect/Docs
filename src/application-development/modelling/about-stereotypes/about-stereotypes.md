@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.about-stereotypes
+description: "Explains how Stereotypes extend designer element vocabulary in Intent Architect, enabling technology or domain-specific metadata to be attached to elements."
 ---
 # About Stereotypes
 

@@ -1,5 +1,6 @@
 ---
 uid: module-building.tutorial-create-a-template.create-a-template-introduction
+description: "Introduction to the tutorial series on building Intent Architect modules and templates, covering concepts, prerequisites, and the module-building process."
 ---
 # Tutorial: Create a Template
 

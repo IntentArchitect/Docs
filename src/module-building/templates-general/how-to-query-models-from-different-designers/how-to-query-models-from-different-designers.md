@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.how-to-query-models-from-different-designers
+description: "How to configure a template to query models from any designer by installing the relevant metadata module and selecting the designer and model type."
 ---
 # How to query models from different designers
 

@@ -1,5 +1,6 @@
 ---
 uid: application-development.user-interface.how-to-use-the-change-icon-dialogue
+description: "How to use the Change Icon Dialogue in Intent Architect to assign icons via image import, URL, Font Awesome, or boxed character."
 ---
 # How to use the Change Icon Dialogue
 

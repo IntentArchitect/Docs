@@ -1,5 +1,6 @@
 ---
 uid: module-building.stereotypes.how-to-use-stereotypes
+description: "How to create Stereotype Definitions, add properties, query values using generated extension methods, and apply them in Intent Architect designers."
 ---
 # How to use Stereotypes
 

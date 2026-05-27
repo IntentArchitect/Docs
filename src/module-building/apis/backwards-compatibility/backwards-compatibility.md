@@ -1,5 +1,6 @@
 ---
 uid: module-building.apis.backwards compatibility
+description: "How Intent Architect handles backwards compatibility for module APIs: breaking changes are categorised, communicated, and mitigated for platform and modules."
 ---
 # Backwards compatibility for module building APIs
 

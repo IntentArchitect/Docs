@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.configuring-a-templates-default-output-location
+description: "How to configure a template's Role and Default Location so Intent Architect places its Template Output in the correct project folder on installation."
 ---
 # Configuring a Template's default output location
 

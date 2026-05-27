@@ -1,5 +1,6 @@
 ---
 uid: module-building.stereotypes.about-stereotype-definitions
+description: "Reference for Stereotype Definitions: target mode, apply mode, property types (text box, checkbox, select, lookup), and display/validation configuration."
 remarks: |
     Might need to link a "package" article to the phrase "are accessible" to explain how to reference packages with stereotypes.
     Also one might need to explain how to write functions for Display Text fields.

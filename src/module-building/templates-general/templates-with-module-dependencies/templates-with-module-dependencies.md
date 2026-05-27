@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.templates-with-external-module-dependencies
+description: "How to declare hard and soft dependencies between modules, ensuring dependent modules are auto-installed at the correct minimum version."
 ---
 
 # Creating Templates with External Module Dependencies

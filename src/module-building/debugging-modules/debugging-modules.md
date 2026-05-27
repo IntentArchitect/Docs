@@ -1,5 +1,6 @@
 ---
 uid: module-building.debugging-modules
+description: "How to attach a debugger to the Software Factory Execution process when developing Intent Architect modules, enabling breakpoints to be hit in module code."
 ---
 # Debugging Modules
 

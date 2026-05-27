@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.how-to-manage-repositories
+description: "How to add, configure, and order Asset Repositories in Intent Architect so Modules and Application Templates can be discovered from official or local sources."
 ---
 # How to manage Repositories
 

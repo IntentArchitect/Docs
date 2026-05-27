@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-template-output-targeting
+description: "How Output Targeting works in Intent Architect: Template Outputs in designers determine where generated files are written during Software Factory execution."
 ---
 # About Template Output Targeting
 

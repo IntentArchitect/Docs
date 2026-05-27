@@ -1,5 +1,6 @@
 ---
 uid: module-building.module-manifest
+description: "Reference for the .imodspec module manifest file, covering all supported tags, dependency installation attributes, and an annotated complete manifest example."
 ---
 # Module Manifest (.imodspec)
 

@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-add-custom-to-cs-projects
+description: "How to add custom MSBuild configuration to C# project files from a Factory Extension by loading, modifying, and saving the csproj XML."
 ---
 
 # How to add custom configuration to C# projects

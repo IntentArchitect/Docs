@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.resolving-type-names
+description: "How to use GetTypeName and AddTypeSource in templates to correctly resolve type names, using directives, and project references across generated files."
 todo: |
     - Once we start generating docs from XML document comments in C# files, where applicable below we should hyperlink directly to the methods.
 ---

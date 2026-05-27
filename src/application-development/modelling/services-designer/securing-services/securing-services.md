@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.services-designer.securing-services
+description: "How to secure service endpoints in Intent Architect using Secured and Unsecured stereotypes, including configuring roles, policies, and security definitions."
 ---
 # Modeling Service Security
 

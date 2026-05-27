@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.about-modules
+description: "Modules are the building blocks of pattern reuse in Intent Architect, generating code files for architectural patterns with versioning and dependencies."
 ---
 # About Modules
 

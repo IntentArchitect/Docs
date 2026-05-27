@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-add-project-dependencies-csharp
+description: "How to add C# project references from templates, either automatically via type resolution, by role, or with an explicit path."
 ---
 # How to add project dependencies (C#)
 

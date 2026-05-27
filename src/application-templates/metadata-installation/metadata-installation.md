@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-templates.metadata-installation
+description: "How Intent Architect installs Designer metadata from .installation.config files when a Template or Module is applied, including merging rules and a tutorial."
 ---
 # Metadata installation
 

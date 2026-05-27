@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-add-nuget-dependencies-csharp
+description: "How to declare NuGet dependencies in a C# template using AddNugetDependency so the Software Factory automatically adds the required PackageReference."
 ---
 # How to add NuGet dependencies (C#)
 

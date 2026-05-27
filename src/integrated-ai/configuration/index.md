@@ -1,5 +1,6 @@
 ---
 uid: ai.configuration
+description: "The AI Configuration dialog: connect LLM providers (OpenAI, Anthropic, Azure, Gemini, Ollama), expose Intent as an MCP server, and add external MCP servers."
 ---
 # AI Configuration
 

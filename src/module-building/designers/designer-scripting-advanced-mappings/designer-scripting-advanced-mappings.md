@@ -1,5 +1,6 @@
 ---
 uid: module-building.designers.designer-scripting-advanced-mappings
+description: "How to programmatically create Invocation, Data, and Filter advanced mappings between designer elements, with examples for commands, queries, and collections."
 ---
 
 # Designer Scripting: Advanced Mappings

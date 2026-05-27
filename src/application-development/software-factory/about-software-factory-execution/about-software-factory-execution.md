@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.about-software-factory-execution
+description: "Software Factory Execution runs installed modules against designer metadata to produce staged codebase changes for developers to review before accepting."
 ---
 # About Software Factory Execution
 

@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.how-do-i-access-designer-models
+description: "How to access and use designer metadata models (such as ClassModel or AttributeModel) inside Intent Architect templates for code generation."
 ---
 
 # How to Access Designer Models in Templates?

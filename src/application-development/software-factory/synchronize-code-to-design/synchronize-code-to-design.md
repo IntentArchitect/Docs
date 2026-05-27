@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.synchronize-code-to-design
+description: "How Intent Architect synchronizes manual code changes back into the designer, keeping models up to date when developers modify generated files in their IDE."
 ---
 # Synchronize code to design
 

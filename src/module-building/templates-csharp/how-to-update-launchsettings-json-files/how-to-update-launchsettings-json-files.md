@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-update-launchsettings-json-files
+description: "How to add launch profiles and environment variables to launchSettings.json from a template by publishing events via IApplicationEventDispatcher."
 ---
 # How to update `launchSettings.json` files
 

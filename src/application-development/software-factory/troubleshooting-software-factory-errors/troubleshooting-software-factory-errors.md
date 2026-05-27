@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.troubleshooting-software-factory-errors
+description: "How to diagnose and resolve Software Factory errors, including element errors from invalid designer modelling and general execution failures."
 ---
 # Troubleshooting Software Factory errors
 

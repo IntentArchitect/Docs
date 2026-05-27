@@ -1,5 +1,6 @@
 ---
 uid: module-building.module-installation
+description: "How to install dependency modules in the Module Builder using metadata-only, and how the version override setting controls imodspec and csproj versions."
 ---
 # Module Installation
 

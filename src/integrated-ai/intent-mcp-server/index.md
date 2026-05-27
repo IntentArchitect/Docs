@@ -1,5 +1,6 @@
 ---
 uid: ai.intent-mcp-server
+description: "How the Intent MCP server lets external AI agents like Claude Code and Copilot drive Intent's designers directly, with an end-to-end worked example."
 ---
 # Intent MCP Server
 

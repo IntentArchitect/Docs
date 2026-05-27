@@ -1,5 +1,6 @@
 ---
 uid: module-building.designers.designer-scripting
+description: "Intent Architect designer scripting API for automating modelling tasks: ad-hoc scripts, event handlers, context menu scripts, and bulk element creation."
 ---
 
 # Designer Scripting

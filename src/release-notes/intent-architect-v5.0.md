@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v5.0
+description: "Intent Architect 5.0 release notes: MCP server support for AI agent control of Intent Architect, plus Software Factory performance and stability improvements."
 ---
 # Release notes: Intent Architect version 5.0
 

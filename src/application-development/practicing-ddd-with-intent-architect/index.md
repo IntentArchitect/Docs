@@ -1,5 +1,6 @@
 ---
 uid: application-development.practicing-ddd-with-intent-architect
+description: "How to apply DDD in Intent Architect: rich domain modeling with private setters, constructors, operations, and CQRS service mappings."
 ---
 
 # Practicing DDD (Domain Driven Design) with Intent Architect

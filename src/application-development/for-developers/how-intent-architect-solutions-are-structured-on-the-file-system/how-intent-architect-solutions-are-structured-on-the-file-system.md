@@ -1,5 +1,6 @@
 ---
 uid: application-development.development-environment.how-intent-architect-solutions-are-structured-on-the-file-system
+description: "Explains the folder structure Intent Architect creates on the file system, covering the intent folder, application metadata, module cache, and generated code."
 ---
 # How Intent Architect Solutions are structured on the File System
 

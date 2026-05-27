@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-8-encapsulating-domain-logic
+description: "Video tutorial introducing rich domain modeling by adding operations and constructors to domain entities to encapsulate business logic and invariants."
 ---
 # Fundamentals #8: Encapsulating Business Logic in the Domain
 

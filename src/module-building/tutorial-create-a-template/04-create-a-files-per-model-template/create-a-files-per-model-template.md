@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates.tutorial-create-a-template.create-a-files-per-model-template
+description: "Tutorial step covering how to create a File Per Model template that generates a C# class for each entity modelled in the Domain Designer."
 ---
 # Create a "Files Per Model" template
 

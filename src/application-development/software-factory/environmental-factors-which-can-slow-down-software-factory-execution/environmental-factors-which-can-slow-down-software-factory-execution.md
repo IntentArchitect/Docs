@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.environmental-factors-which-can-slow-down-software-factory-execution
+description: "Environmental factors that can slow down Software Factory execution, such as antivirus interference, with guidance on exclusions and Windows Dev Drive."
 ---
 # Environmental factors which can slow down Software Factory execution
 

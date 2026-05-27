@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-razor
+description: "How to control code management for Razor files using Intent.Code.Weaving.Razor, including management modes, MoveHere and Skip instructions, and node matching."
 ---
 # Razor Code Management
 

@@ -1,5 +1,6 @@
 ---
 uid: release-notes.version-3-2
+description: "Release notes for Intent Architect 3.2, with fixes for module installation, imported metadata placement, script context menus, and designer settings."
 ---
 # Release notes: Intent Architect version 3.2
 

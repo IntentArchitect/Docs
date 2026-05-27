@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.about-designers
+description: "Designers in Intent Architect provide visual modelling of domain entities, services, eventing, and UI structure, driven by installed module configuration."
 ---
 # About Designers
 

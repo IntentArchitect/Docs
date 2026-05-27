@@ -1,5 +1,6 @@
 ---
 uid: module-building.tutorial-create-a-template.create-the-module-and-a-template
+description: "Tutorial step covering how to create a Module Builder application, add a Single File C# template, and run the Software Factory to generate the module project."
 ---
 # Create a Module and Template
 

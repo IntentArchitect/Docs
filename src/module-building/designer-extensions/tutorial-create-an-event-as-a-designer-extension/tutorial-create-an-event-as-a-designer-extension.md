@@ -1,5 +1,6 @@
 ---
 uid: module-building.designer-extensions.tutorial-create-an-event-as-a-designer-extension
+description: "Tutorial: build a Designer Extension module that adds a Domain Event element type and a Has Domain Event stereotype to the existing Domain Designer."
 ---
 # Tutorial: Create an Event as a Designer Extension
 

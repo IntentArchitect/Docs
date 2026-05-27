@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-5-customizing-code
+description: "Video tutorial on Intent Architect code management: using Fully, Ignore, and Merge tags to preserve customizations while keeping automation active."
 ---
 # Fundamentals #5: Customizing Code with Code Management
 

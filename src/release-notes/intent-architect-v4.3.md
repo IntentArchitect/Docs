@@ -1,5 +1,6 @@
 ---
 uid: release-notes.intent-architect-v4.3
+description: "Intent Architect 4.3 release notes: multi-select in Dynamic Forms, improved VS designer validation, and module installation performance fixes."
 ---
 # Release notes: Intent Architect version 4.3
 

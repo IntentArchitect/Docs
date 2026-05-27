@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.open-in-ide
+description: "Explains how to open generated files associated with a designer element directly in your IDE, and how Intent Architect detects the preferred IDE to use."
 ---
 # Open in IDE
 

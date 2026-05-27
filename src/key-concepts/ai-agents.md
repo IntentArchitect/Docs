@@ -1,5 +1,6 @@
 ---
 uid: key-concepts.non-deterministic-codegen
+description: "How Intent Architect AI agents automate the development cycle, covering context engineering, custom agents, and the Intent MCP Server."
 ---
 
 # AI Agents

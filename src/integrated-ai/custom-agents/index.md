@@ -1,5 +1,6 @@
 ---
 uid: ai.custom-agents
+description: "How to create custom AI agents for Intent Architect using .agent.md files, covering frontmatter fields, tool selection, system prompt authoring, and examples."
 ---
 # Custom Agents
 

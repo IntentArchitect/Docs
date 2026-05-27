@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-6-version-control
+description: "Video tutorial showing how to store application code and Intent Architect XML metadata in Git, with tips for avoiding and resolving merge conflicts."
 ---
 # Fundamentals #6: Version Control with Intent Architect
 

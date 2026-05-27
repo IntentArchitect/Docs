@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-7-settings-migration
+description: "Video tutorial on using Application Settings to switch the database provider from in-memory to SQLite and create EF Core migrations."
 ---
 # Fundamentals #7: Application Settings and Migrating to SQLite
 

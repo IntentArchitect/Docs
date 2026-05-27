@@ -1,5 +1,6 @@
 ---
 uid: application-development.modelling.type-definitions
+description: "How to reference existing codebase types in Intent Architect designers using Type Definitions, avoiding the need to redefine complex types such as enums."
 ---
 # Type Definitions
 

@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.customizations-screen
+description: "The Customizations screen tracks files that deviate from default template output, letting teams review, approve, and annotate those deviations."
 ---
 # The Software Factory Customizations screen
 

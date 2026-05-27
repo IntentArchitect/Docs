@@ -1,5 +1,6 @@
 ---
 uid: introducing.overview
+description: "Introduction to Intent Architect — the AI code automation platform for .NET — with links to getting started, key concepts, and a demo of the latest features."
 ---
 
 <style>

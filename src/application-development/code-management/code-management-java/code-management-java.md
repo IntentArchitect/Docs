@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-java
+description: "Reference for Java code management in Intent Architect using annotations such as @IntentIgnore, @IntentIgnoreBody, @IntentMerge, and @IntentManageClass."
 ---
 # Java Code Management
 

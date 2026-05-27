@@ -1,5 +1,6 @@
 ---
 uid: module-building.module-distribution
+description: "How to distribute Intent Architect modules via a self-hosted Module Server or file-system repository, with versioning practices and the .imod artifact."
 ---
 # Distributing your Modules to others
 

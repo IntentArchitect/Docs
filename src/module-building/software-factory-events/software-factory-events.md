@@ -1,5 +1,6 @@
 ---
 uid: module-building.software-factory-events.software-factory-events
+description: "How modules communicate in a decoupled way using Software Factory events, with examples of subscribing to events and publishing them via the EventDispatcher."
 ---
 # Software factory events
 

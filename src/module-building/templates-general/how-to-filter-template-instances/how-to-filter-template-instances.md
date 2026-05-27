@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-general.how-to-filter-templates
+description: "How to filter which model instances produce template outputs by customising the GetModels method in a File Per Model template registration."
 tags:
     - Metadata
     - Binding

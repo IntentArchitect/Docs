@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-10-essential-tips-and-tricks
+description: "Video tutorial covering practical Intent Architect shortcuts including tab navigation, undo/redo, Search Everywhere, Find Usages, and the help topic system."
 ---
 # Fundamentals #10: Essential Tips and Tricks
 

@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.about-csharp-templates
+description: "Overview of C# template types (Single File, File Per Model, Custom), generated file structure, and conveniences for namespaces, NuGet, and using directives."
 remark: We could move the first NOTE on what a Template is to the parent page once the Parent page is done being setup.
 ---
 # About C# Templates

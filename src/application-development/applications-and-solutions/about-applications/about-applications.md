@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.about-applications
+description: "An Application in Intent Architect defines a scope of code files to automate, composed of installed Modules, Designers, and configuration settings."
 ---
 # About Applications
 

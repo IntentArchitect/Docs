@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-json
+description: "How to control code management for JSON files using the Intent.Code.Weaving.Json module, with IntentFully, IntentMerge, and IntentIgnore comment instructions."
 ---
 # JSON Code Management
 

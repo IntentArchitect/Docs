@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.git-and-scm-guidance
+description: "Guidance on which Intent Architect files to commit or ignore in source control, including .gitignore config and formats designed to minimise merge conflicts."
 ---
 # Git and SCM guidance
 

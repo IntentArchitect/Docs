@@ -1,5 +1,6 @@
 ---
 uid: tools.module-server
+description: "Intent Architect Module Server Docker image reference: configuration, local setup, Azure App Service deployment, and SQL Server schema migration."
 ---
 # Module Server
 

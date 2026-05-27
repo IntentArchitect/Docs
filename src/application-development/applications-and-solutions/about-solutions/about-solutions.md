@@ -1,5 +1,6 @@
 ---
 uid: application-development.applications-and-solutions.about-solutions
+description: "A Solution is a container for Intent Architect Applications, represented by an .isln file, with tools for organizing and managing module updates."
 ---
 # About Solutions
 

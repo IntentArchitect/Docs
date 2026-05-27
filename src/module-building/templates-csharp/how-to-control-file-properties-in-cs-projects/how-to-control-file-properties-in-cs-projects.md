@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-control-file-properties-in-cs-projects
+description: "How to control a file's MSBuild item entry in a .csproj, including item type, copy behaviour, embedded resources, and dependent-upon relationships."
 ---
 # How to control file properties in C# projects
 

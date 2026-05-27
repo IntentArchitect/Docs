@@ -1,5 +1,6 @@
 ---
 uid: release-notes.version-3-4
+description: "Release notes for Intent Architect 3.4, introducing Application Template default settings, an improved Output Location UI, and fixes for element copying."
 ---
 # Release notes: Intent Architect version 3.4
 

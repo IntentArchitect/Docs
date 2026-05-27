@@ -1,5 +1,6 @@
 ---
 uid: introducing.quickstart
+description: "A 15-minute quick start: create a Clean Architecture .NET solution in Intent Architect, run the Software Factory, and explore the generated code."
 ---
 
 # Quick start: Build your first application

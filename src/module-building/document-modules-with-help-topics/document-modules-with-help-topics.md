@@ -1,5 +1,6 @@
 ---
 uid: module-building.help-topic-documentation
+description: "How to add context-aware Help Topics to a module so users can access module documentation from within the Intent Architect application built-in Help feature."
 ---
 # Document Modules with Help Topics
 

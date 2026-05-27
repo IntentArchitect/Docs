@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-yaml
+description: "How to control YAML code management using Intent.Code.Weaving.Yaml, with IntentFully, IntentMerge, and IntentIgnore comment instructions."
 ---
 # YAML Code Management
 

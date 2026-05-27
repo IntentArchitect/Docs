@@ -1,5 +1,6 @@
 ---
 uid: application-development.software-factory.terminal-and-tasks
+description: "The built-in terminal and task runner in the Software Factory panel: define tasks in tasks.json and run them from the toolbar or via AI agents."
 ---
 # Terminal & Tasks
 

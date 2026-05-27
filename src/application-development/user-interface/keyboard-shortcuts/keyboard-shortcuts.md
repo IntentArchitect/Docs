@@ -1,5 +1,6 @@
 ---
 uid: application-development.user-interface.keyboard-shortcuts
+description: "Keyboard shortcuts available in Intent Architect designers, including opening the shortcuts legend with Ctrl+. and tips for rapidly creating elements."
 ---
 <!-- Workaround to align the column widths consistently -->
 <style>

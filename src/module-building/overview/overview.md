@@ -1,5 +1,6 @@
 ---
 uid: module-building.overview
+description: "Overview of module building in Intent Architect: development roles, the ecosystem, metadata, code generation, designers, stereotypes, and factory extensions."
 ---
 # Overview
 

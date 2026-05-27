@@ -1,5 +1,6 @@
 ---
 uid: application-development.ai-assistant
+description: "Intent Architect's AI Assistant lets you ask questions about your workspace, propose design changes, and run multi-step agent tasks using popular LLMs."
 ---
 
 # AI Assistant

@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-csharp.how-to-disable-auto-formatting
+description: "How to disable automatic code formatting for a C# template by setting AutoFormat to false in DefineFileConfig."
 ---
 # How to disable auto-formatting for C# templates
 

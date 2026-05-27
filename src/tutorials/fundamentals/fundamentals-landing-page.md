@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-landing-page
+description: "Landing page for the Intent Architect Fundamentals video series, covering ten lessons from building a first application through to essential tips and tricks."
 ---
 # Intent Architect Fundamentals
 

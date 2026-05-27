@@ -1,5 +1,6 @@
 ---
 uid: module-building.templates-java.how-to-add-application-properties
+description: "How to add entries to a Java application.properties file from a template using the ApplyApplicationProperty extension method."
 ---
 # How to add `application.properties` entries
 

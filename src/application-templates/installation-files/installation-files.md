@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-templates.installation-files
+description: "How Application Templates copy files to a target location using File Installation Rules, including available target options and template string substitution."
 ---
 # Installation files
 

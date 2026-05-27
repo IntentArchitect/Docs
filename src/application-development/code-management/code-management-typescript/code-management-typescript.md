@@ -1,5 +1,6 @@
 ---
 uid: application-development.code-weaving-and-generation.about-code-management-typescript
+description: "Reference for TypeScript code management in Intent Architect using decorators or comments such as @IntentIgnore, @IntentMerge, and @IntentManageClass."
 ---
 # TypeScript Code Management
 

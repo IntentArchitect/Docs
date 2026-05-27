@@ -1,5 +1,6 @@
 ---
 uid: module-building.additional-tools.software-factory-extensions
+description: "How to write Software Factory Extensions: hook into lifecycle phases, discover templates from other modules, run processes, and add cross-cutting concerns."
 ---
 # Software Factory Extensions
 

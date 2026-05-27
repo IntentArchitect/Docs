@@ -1,5 +1,6 @@
 ---
 uid: key-concepts.deterministic-codegen
+description: "How Intent Architect Modules translate visual design intent into consistent, predictable code across a codebase without lock-in."
 ---
 
 # Architecture Enforcement

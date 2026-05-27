@@ -1,5 +1,6 @@
 ---
 uid: tutorials.fundamentals-3-create-crud-service
+description: "Video tutorial showing how to create CRUD services in Intent Architect, map data between service contracts and the domain model, and implement pagination."
 ---
 # Fundamentals #3: Creating CRUD Services
 

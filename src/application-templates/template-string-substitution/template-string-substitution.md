@@ -1,5 +1,6 @@
 ---
 uid: module-building.application-templates.template-string-substitution
+description: "The \${...} template string syntax for Application Template installation files: built-in values, Field Configuration values, and case-conversion functions."
 ---
 # Template string substitution
 
