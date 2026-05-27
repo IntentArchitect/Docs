@@ -5,11 +5,11 @@ items:
 
   - name: Getting started
     href: introducing/toc.yml
-    topicHref: introducing/overview.md#getting-started
+    topicHref: index.md#getting-started
 
   - name: Key Concepts
     href: key-concepts/toc.yml
-    topicHref: introducing/overview.md#key-concepts
+    topicHref: index.md#key-concepts
 
   - name: Tutorials
     href: tutorials/toc.yml
