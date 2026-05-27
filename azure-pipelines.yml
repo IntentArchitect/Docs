@@ -118,7 +118,7 @@ steps:
           $docsBranch = "development"
 
           if ($target -ne "development") {
-              $remoteRefs = git ls-remote --heads origin $target 2>&1
+              $remoteRefs = git ls-remote --heads origin $target
               if ($remoteRefs -match "refs/heads/$([regex]::Escape($target))") {
                   $docsBranch = $target
               } else {
@@ -127,7 +127,7 @@ steps:
           }
 
           Write-Host "Checking out docs branch: $docsBranch"
-          git fetch origin $docsBranch
+          git fetch --progress origin $docsBranch
           git checkout $docsBranch
       }
     displayName: 'Checkout correct docs branch'

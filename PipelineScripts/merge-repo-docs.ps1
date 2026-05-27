@@ -30,7 +30,7 @@ if (-not (Test-Path -Path "$moduleFolderName/.git")) {
         Remove-Item -Path $moduleFolderName -Recurse -Force
     }
     Write-Host "Cloning module repo"
-    git clone $moduleRepositoryUrl
+    git clone --progress $moduleRepositoryUrl
 }
 
 cd $moduleFolderName
@@ -42,7 +42,7 @@ $branchExists = git ls-remote --heads origin $sourceBranchName | Select-String -
 $branchToCheckout = if ($branchExists) { $sourceBranchName } else { "development" }
 
 Write-Host "Checkout $branchToCheckout"
-git fetch origin $branchToCheckout
+git fetch --progress origin $branchToCheckout
 git checkout -B $branchToCheckout FETCH_HEAD
 
 # detach the folder from git so can be cleaned up
