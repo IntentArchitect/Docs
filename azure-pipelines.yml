@@ -55,7 +55,6 @@ pool:
   - 'ImageOverride -equals ubuntu-latest'
 
 steps:
-
   - checkout: self
     displayName: 'Checkout Docs'
     path: s  # explicit path keeps $(Build.SourcesDirectory) stable with multi-repo checkout

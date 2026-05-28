@@ -3,12 +3,30 @@ trigger: none
 pr: none
 
 schedules:
-- cron: '0 8 * * *'
-  displayName: 'Daily docs sync at 10am SAST (10:00 UTC)'
+- cron: '0 0 * * *'
+  displayName: 'Daily docs sync at 2am SAST (00:00 UTC)'
   branches:
     include:
     - master
   always: true
+
+resources:
+  repositories:
+  - repository: modulesCommon
+    type: github
+    name: IntentArchitect/Intent.Modules
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
+  - repository: modulesImporters
+    type: github
+    name: IntentArchitect/Intent.Modules.Importers
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
+  - repository: modulesNet
+    type: github
+    name: IntentArchitect/Intent.Modules.NET
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -22,12 +40,27 @@ pool:
 
 steps:
   - checkout: self
+    displayName: 'Checkout Docs'
+    path: s  # explicit path keeps $(Build.SourcesDirectory) stable with multi-repo checkout
     fetchDepth: '1'
-    displayName: 'Checkout Docs branch'
+    persistCredentials: 'true'
+
+  - checkout: modulesCommon
+    displayName: 'Checkout Intent.Modules'
+    path: s/Intent.Modules
+    fetchDepth: 1
+
+  - checkout: modulesImporters
+    displayName: 'Checkout Intent.Modules.Importers'
+    path: s/Intent.Modules.Importers
+    fetchDepth: 1
+
+  - checkout: modulesNet
+    displayName: 'Checkout Intent.Modules.NET'
+    path: s/Intent.Modules.NET
+    fetchDepth: 1
 
   - template: PipelineScripts/templates/merge-modules.steps.yml
-    parameters:
-      branchName: development
 
   # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
   - task: NuGetAuthenticate@1
