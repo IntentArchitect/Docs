@@ -4,6 +4,12 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 ---
 # Release notes: Intent Architect version 5.0
 
+## Version 5.0.6
+
+### Fixes in 5.0.6
+
+- Fixed: Some module migrations would fail due to stale cached data being returned by the persistence SDK under certain circumstances.
+
 ## Version 5.0.5
 
 ### Improvements in 5.0.5
