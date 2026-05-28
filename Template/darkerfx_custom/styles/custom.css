@@ -12,7 +12,8 @@ Contains custom CSS and also CSS Overrides based on all the other CSS files.
         display: none !important;
     }
 
-    p.card-text {
+    
+    .card-text {
         text-align: left;
     }
 
