@@ -29,6 +29,22 @@ resources:
         include:
         - development
         - development-*
+  repositories:
+  - repository: modulesCommon
+    type: github
+    name: IntentArchitect/Intent.Modules
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
+  - repository: modulesImporters
+    type: github
+    name: IntentArchitect/Intent.Modules.Importers
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
+  - repository: modulesNet
+    type: github
+    name: IntentArchitect/Intent.Modules.NET
+    endpoint: 'IntentSoftware'
+    ref: refs/heads/development
 
 variables:
   - group: 'Pipeline Agent Pool Names'
@@ -40,11 +56,26 @@ pool:
 
 steps:
 
-  # checkout the branch docs repo
   - checkout: self
-    persistCredentials: 'true'
+    displayName: 'Checkout Docs'
+    path: s  # explicit path keeps $(Build.SourcesDirectory) stable with multi-repo checkout
     fetchDepth: '0'  # full history required for DocFX to populate sitemap lastmod from git commit dates
-    displayName: 'Checkout Docs branch'
+    persistCredentials: 'true'
+
+  - checkout: modulesCommon
+    displayName: 'Checkout Intent.Modules'
+    path: s/Intent.Modules
+    fetchDepth: 1
+
+  - checkout: modulesImporters
+    displayName: 'Checkout Intent.Modules.Importers'
+    path: s/Intent.Modules.Importers
+    fetchDepth: 1
+
+  - checkout: modulesNet
+    displayName: 'Checkout Intent.Modules.NET'
+    path: s/Intent.Modules.NET
+    fetchDepth: 1
 
   # calculate the repo and branch which triggered this pipeline
   - powershell: |
@@ -121,30 +152,47 @@ steps:
       Write-Host "Agent Markdown Base URL:  $(agentMarkdownBaseUrl)"
     displayName: 'Output pipeline variables'
 
-  # For module-triggered builds, check out the matching docs branch (falls back to development)
+  # Switch each repo to the correct feature branch when a non-development branch is in play.
+  # Checkouts above land on the default branch; this step corrects them if a matching branch exists.
   - pwsh: |
+      # Docs repo — only needed for module-triggered feature-branch builds
       if ("$(triggeredByPipeline)" -ne "Docs") {
           $target = "$(triggeredByBranchNameOnly)"
-          $docsBranch = "development"
-
           if ($target -ne "development") {
-              $remoteRefs = git ls-remote --heads origin $target
-              if ($remoteRefs -match "refs/heads/$([regex]::Escape($target))") {
-                  $docsBranch = $target
-              } else {
-                  Write-Host "Branch '$target' not found in docs repo, falling back to 'development'"
+              try {
+                  Invoke-RestMethod "https://api.github.com/repos/$(Build.Repository.Name)/branches/$target" | Out-Null
+                  git -C "$(Build.SourcesDirectory)" fetch --depth=1 origin $target
+                  git -C "$(Build.SourcesDirectory)" checkout -B $target FETCH_HEAD
+                  Write-Host "Switched docs repo to '$target'"
+              } catch {
+                  Write-Host "Branch '$target' not found in docs repo, using default checkout"
               }
           }
-
-          Write-Host "Checking out docs branch: $docsBranch"
-          git fetch --progress origin $docsBranch
-          git checkout $docsBranch
       }
-    displayName: 'Checkout correct docs branch'
+
+      # Module repos
+      function Switch-RepoBranch($repoPath, $repoName, $branch) {
+          if ($branch -eq "development") {
+              Write-Host "${repoName}: using default checkout"
+              return
+          }
+          try {
+              Invoke-RestMethod "https://api.github.com/repos/IntentArchitect/$repoName/branches/$branch" | Out-Null
+              git -C $repoPath fetch --depth=1 origin $branch
+              git -C $repoPath checkout -B $branch FETCH_HEAD
+              Write-Host "Switched $repoName to '$branch'"
+          } catch {
+              Write-Host "Branch '$branch' not found in $repoName, using default checkout"
+          }
+      }
+
+      $branch = "$(moduleBranchName)"
+      Switch-RepoBranch "$(Build.SourcesDirectory)/Intent.Modules.NET"        "Intent.Modules.NET"        $branch
+      Switch-RepoBranch "$(Build.SourcesDirectory)/Intent.Modules"            "Intent.Modules"            $branch
+      Switch-RepoBranch "$(Build.SourcesDirectory)/Intent.Modules.Importers"  "Intent.Modules.Importers"  $branch
+    displayName: 'Switch repos to correct branches'
 
   - template: PipelineScripts/templates/merge-modules.steps.yml
-    parameters:
-      branchName: $(moduleBranchName)
 
   - pwsh: |
       dotnet tool install docfx --version 2.78.5

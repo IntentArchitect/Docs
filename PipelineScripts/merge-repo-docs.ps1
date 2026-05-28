@@ -1,69 +1,30 @@
-# This script should be executed from the root folder of the "Docs" repo
-# Example execution: .\PipelineScripts\merge-repo-docs.ps1 "development-4.4x" "https://github.com/IntentArchitect/Intent.Modules.NET.git" "Intent.Modules.NET" "modules-dotnet" 0
+# This script should be executed from the root folder of the "Docs" repo.
+# The module repo must already be checked out at $moduleFolderName before calling this.
+# Example execution: .\PipelineScripts\merge-repo-docs.ps1 "Intent.Modules.NET" "modules-dotnet"
 
 param(
-    # The source branch name
-    [string]$sourceBranchName,
-    # The module repo URL
-    [string]$moduleRepositoryUrl,
-    # The default folder in which the module will be cloned into
+    # The folder containing the already-checked-out module repo (relative to docs root)
     [string]$moduleFolderName,
-    # The  name of the folder in docs where the files from the modules repo should be placed
-    [string]$moduleOutputFolder,
-    # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml#system-variables-devops-services
-    [bool]$isOnBuildAgent = $($env:TF_BUILD -eq "True")
+    # The name of the folder in docs/src where the files should be placed
+    [string]$moduleOutputFolder
 )
 
 $ErrorActionPreference = "Stop"
 
-Write-Host "`$sourceBranchName=$sourceBranchName"
-Write-Host "`$moduleRepositoryUrl=$moduleRepositoryUrl"
 Write-Host "`$moduleFolderName=$moduleFolderName"
 Write-Host "`$moduleOutputFolder=$moduleOutputFolder"
-Write-Host "`$isOnBuildAgent=$isOnBuildAgent"
 
-# Clone if the folder doesn't exist or is missing .git (e.g. left over from a previous run
-# where .git was removed as part of cleanup)
-if (-not (Test-Path -Path "$moduleFolderName/.git")) {
-    if (Test-Path -Path $moduleFolderName) {
-        Write-Host "Removing incomplete module folder (no .git)"
-        Remove-Item -Path $moduleFolderName -Recurse -Force
-    }
-    Write-Host "Cloning module repo"
-    git clone --progress $moduleRepositoryUrl
-}
-
-cd $moduleFolderName
-
-# Check the remote to see if a branch exists which matches the source branch
-$branchExists = git ls-remote --heads origin $sourceBranchName | Select-String -Pattern $sourceBranchName
-
-# either use the source branch name if it exists, or default to "development"
-$branchToCheckout = if ($branchExists) { $sourceBranchName } else { "development" }
-
-Write-Host "Checkout $branchToCheckout"
-git fetch --progress origin $branchToCheckout
-git checkout -B $branchToCheckout FETCH_HEAD
-
-# detach the folder from git so can be cleaned up
-if (Test-Path -Path .git) {
-     Remove-Item -Recurse -Force .git
-}
-
-# get the full module path for later use. This is where the repo was cloned to
-$fullModulePath = (Get-Location).Path
-cd ..
+$fullModulePath = (Resolve-Path $moduleFolderName).Path
 
 # get all "README.md" files in a docs folder under the module folder name and order them by the fullname
-$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" | 
+$files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" |
     Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' } |
     Sort-Object FullName
 
 $numberOfFiles = $files.Count
 Write-Host "Number of files found: $numberOfFiles"
 
-# switch to the src folder
-cd "src"
+Set-Location "src"
 
 # create the toc file for the module folder
 New-Item -Path $moduleOutputFolder -ItemType Directory -Force
@@ -78,12 +39,8 @@ foreach ($file in $files) {
     if ($firstHeader) {
 
         # strip out the # from the header, to be left with the module name
-        $moduleName = $firstHeader -replace '^#\s*', ''  
-        
-        # here we are in the "src" folder of "Docs". Append the module destination folder
-        # example, c:\temp\docs\src\modules-dotnet
-        $destinationRepoFolder = Join-Path -Path (Get-Location) -ChildPath $moduleFolderName
-        
+        $moduleName = $firstHeader -replace '^#\s*', ''
+
         # To lower the module name and replace the "." with "-"
         $destinationModuleFolderName = $moduleName.ToLower() -replace '\.', '-'
         $destinationModuleFileName = "$destinationModuleFolderName.md"
@@ -126,11 +83,6 @@ foreach ($file in $files) {
     } else {
         Write-Host "No header found - skipping file"
     }
-}    
-
-cd ../..
-
-if (Test-Path -Path $moduleFolderName) {
-    Write-Host "Removing '$moduleFolderName'"
-    Remove-Item -Path "$moduleFolderName" -Recurse -Force
 }
+
+Set-Location ..
