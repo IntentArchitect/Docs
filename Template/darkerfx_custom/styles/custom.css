@@ -12,8 +12,8 @@ Contains custom CSS and also CSS Overrides based on all the other CSS files.
         display: none !important;
     }
 
-    p {
-  text-align: left;
+    p.card-text {
+        text-align: left;
     }
 
     /* Adjust paddings for small screens */
