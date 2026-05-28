@@ -5,6 +5,29 @@ Contains custom CSS and also CSS Overrides based on all the other CSS files.
 
 */
 
+/* Mobile-only overrides */
+@media (max-width: 768px) {
+    /* Hide specific elements like the right-rail/affix on mobile */
+    .side-affix {
+        display: none !important;
+    }
+
+    /* Adjust paddings for small screens */
+    .article {
+        padding: 10px !important;
+    }
+
+    /* Adjust font sizes for small screens 
+    h1 {
+        font-size: 1.5rem !important;
+    } */
+
+    /* Make the Table of Contents easier to view on phones 
+    .navbar-collapse .navbar-nav {
+        margin-top: 0;
+    } */
+}
+
 :root,
 body.theme-dark {
     --theme-code-block-default: #CCC;
