@@ -62,7 +62,14 @@ steps:
 
   - template: PipelineScripts/templates/merge-modules.steps.yml
 
-  # Required for entry in NuGet.Config that is generated as part of 'dotnet pack'.
+  - pwsh: |
+      dotnet tool install docfx --version 2.78.5
+    displayName: 'dotnet tool install docfx'
+
+  - pwsh: ./_build.ps1 -FailOnUnresolvedXref
+    displayName: 'Build documentation'
+    
+    # Required for entry in NuGet.Config used by dotnet tool install for the DocSyncEngine
   - task: NuGetAuthenticate@1
 
   - task: PowerShell@2
@@ -72,4 +79,4 @@ steps:
       pwsh: true
       script: |
         dotnet tool install DocSyncEngine --add-source $(vstsFeedUrl) --global
-        docsync ingest -i "$(Build.SourcesDirectory)/src" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
+        docsync ingest -i "$(Build.SourcesDirectory)/_site/docs-md" --store $(OpenAiEmbeddingStoreId) --concurrency 4 --plain-output --api-key $(OpenAiEmbeddingsKey)
