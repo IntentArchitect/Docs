@@ -23,6 +23,41 @@ This is a DocFX-based documentation site for Intent Architect, published to http
 2. **Build and serve**: `.\_build_and_serve.ps1` - Opens browser to http://localhost:8080/
 3. **Build only**: `.\_build.ps1`
 
+### Visual Testing with Playwright
+
+The `.mcp.json` at the repo root configures a Playwright MCP server (using Edge) that lets you take browser screenshots to verify layout and styling changes.
+
+**Workflow:**
+
+1. Check whether the dev server is already running by trying to navigate to `http://localhost:8080`. If the site loads, the server is up — skip to step 3.
+
+2. Start the dev server. `_build_and_serve.ps1` **blocks the terminal** (it keeps serving until Ctrl+C). Run it in the background via Bash:
+
+   ```bash
+   ./_build_and_serve.ps1 &
+   ```
+
+   Wait a few seconds for the server to start, then verify `http://localhost:8080` responds.
+
+3. If the server is already running and you've made CSS/template changes, rebuild without restarting the server:
+
+   ```powershell
+   .\_build.ps1
+   ```
+
+   The dev server picks up the new `_site/` output automatically.
+
+4. Use the Playwright MCP tools to take screenshots at different viewport widths:
+   - Navigate: `mcp__playwright__browser_navigate` → `http://localhost:8080`
+   - Resize: `mcp__playwright__browser_resize` (e.g. `width: 1100`, `width: 768`, `width: 390`)
+   - Screenshot: `mcp__playwright__browser_take_screenshot`
+
+**Key viewport widths to check for layout changes:**
+
+- `≥ 992px` — three-column layout (left TOC + content + right "IN THIS ARTICLE")
+- `768px–991px` — two-column (left TOC + content, right sidebar hidden)
+- `≤ 768px` — single-column mobile (both sidebars hidden, text justified)
+
 ### Merge Module Documentation Locally
 
 Use `.\merge-local-docs.ps1 "C:\path\to\modules-common" "C:\path\to\modules-dotnet" "modules-common" "modules-dotnet"` to test merging docs from local module repositories before pushing.

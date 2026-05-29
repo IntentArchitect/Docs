@@ -228,7 +228,16 @@ div#breadcrumb {
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 992px) {
+    .article.grid-right .col-md-2 {
+        width: 267px;
+    }
+    .article.grid-right .col-md-10 {
+        width: calc(100% - 267px);
+    }
+}
+
+@media screen and (max-width: 768px) {
     p {
         text-align: justify;
     }
@@ -258,6 +267,7 @@ div#breadcrumb {
 @media only screen and (max-width: 768px) {
     .article.grid-right {
         margin-left: 0;
+        margin-right: 0;
     }
 }
 /* 

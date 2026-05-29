@@ -263,3 +263,6 @@ ModelManifest.xml
 # Jetbrains...
 .idea/
 .claude/settings.local.json
+
+# Playwright MCP session artifacts (snapshots, console logs)
+.playwright-mcp/
