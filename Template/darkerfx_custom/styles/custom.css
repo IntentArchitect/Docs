@@ -237,11 +237,6 @@ div#breadcrumb {
     }
 }
 
-@media screen and (max-width: 768px) {
-    p {
-        text-align: justify;
-    }
-}
 
 @media (min-width: 768px) {
     .container {
