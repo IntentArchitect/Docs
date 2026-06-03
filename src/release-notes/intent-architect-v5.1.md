@@ -179,6 +179,23 @@ Switching format is straightforward. When you change the setting, Intent Archite
 
 ---
 
+## Inline code-management code lenses on diffs
+
+Reviewing what the Software Factory wants to change just got a lot more powerful. When a pending change would overwrite code you've hand-edited, you no longer have to drop into your IDE and hand-write a code-management instruction to protect your work. Intent Architect now renders inline **code-management lenses** directly above each changed region in the Software Factory's diff view, so you can resolve the deviation right where you see it.
+
+![Intent Ignore and Intent Merge code lenses above a diff hunk](./images/5.1/00/code-management-lenses.png)
+
+Two actions are offered per change hunk:
+
+- **Intent Ignore** marks that region to be ignored by Intent's code management, so the Software Factory preserves your manual edit and won't try to overwrite it again - the per-hunk equivalent of tagging the code with an "ignore" instruction, without leaving the diff.
+- **Intent Merge** switches the region to merge mode, so Intent keeps managing the surrounding structure while reconciling its generated output with your changes rather than replacing them wholesale.
+
+Click a lens and Intent Architect applies the instruction to the code element covering that change, re-runs the diff, and confirms with a toast - the change you were about to lose simply drops off the pending list.
+
+The lenses appear wherever a weaver exposes code-management actions for the file type (for example, `.cs` files when the Roslyn Weaver is installed), and hunks that only touch the code-management instructions themselves are skipped automatically. Prefer a cleaner diff? Toggle them off at any time via **Code Management Lenses** in the diff view's options menu - your preference is remembered.
+
+---
+
 ## The Asset Repository screen, overhauled
 
 The Asset Repository management screen has had a long-overdue overhaul:
@@ -196,13 +213,12 @@ The Asset Repository management screen has had a long-overdue overhaul:
 - Improvement: **See the current Git repository and branch in the status bar**, refreshed automatically.
 - Improvement: **Search Everywhere now finds in-memory (unsaved) elements**, so newly added elements are discoverable before you save.
 - Improvement: Module installation from the **Template tab now supports minimum dependency versions**.
-- Improvement: New **`Ignore` and `Merge` actions** added to Intent's code-management options.
 - Improvement: **Convert existing metadata** when changing an application's persistence format (or during a rename).
 - Improvement: Popped-out windows and modal dialogs now open on the **same display as the main window**, for a smoother multi-monitor experience.
 - Improvement: **Save and loading indicators** added to tabs and diff views for clearer feedback during longer operations.
 - Improvement: A **flexible toolbar** now gracefully handles overflow when space is tight.
 - Improvement: **MCP / AI tooling** - new `get_application_settings` and `update_application_settings` tools let agents read and update application settings (including the persistence format); designer element search now matches on values as well as field names; and diagram snapshots return richer element detail.
-- Improvement: Diff views support per-file editing and saving, inline vs side-by-side and word-wrap toggles (remembered across sessions), reveal-in-explorer, and a toggle for showing Intent code-management lenses.
+- Improvement: Diff views support per-file editing and saving, inline vs side-by-side and word-wrap toggles (remembered across sessions), and reveal-in-explorer.
 
 ## Fixes in 5.1.0
 
