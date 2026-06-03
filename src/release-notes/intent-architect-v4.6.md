@@ -4,6 +4,12 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 ---
 # Release notes: Intent Architect version 4.6
 
+## Version 4.6.5
+
+### Fixes in 4.6.5
+
+- Fixed: Updated URL for Intent Architect endpoint to avoid possible disruption in functionality.
+
 ## Version 4.6.4
 
 ### Improvements in 4.6.4
