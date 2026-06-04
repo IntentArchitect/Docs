@@ -13,6 +13,7 @@ Welcome to the June edition of What's New in Intent Architect. This month marks 
   - **[Inline Code-Management Lenses on Diffs](#inline-code-management-lenses-on-diffs)** - Resolve code-management decisions — Intent Ignore or Intent Merge — directly in the diff view, without leaving Intent Architect.
   - **[Generating and Augmenting Markdown Files](#generating-and-augmenting-markdown-files)** - New Markdown template support lets modules generate and augment Markdown files, including AI skill and instruction files.
   - **[AI Modelling Agent Improvements](#ai-modelling-agent-improvements)** - General improvements to the AI Modelling Agent for more accurate and reliable design modelling in Intent Architect.
+  - **[Mapperly Module Enhancements](#mapperly-module-enhancements)** - Advanced mapping scenarios now supported in the Mapperly module, bringing it closer to parity with the AutoMapper implementation.
 
 ## Update details
 
@@ -145,3 +146,13 @@ Many of our modules have been upgraded to provide improved context engineering, 
 Available from:
 
 - Various Modules (in particular Designer and Metadata Modules)
+
+### Mapperly Module Enhancements
+
+The Mapperly module has received a significant set of enhancements aimed at bringing more advanced mapping scenarios to parity with the AutoMapper module implementation, for deterministic implementaion scenarios. Teams who chose Mapperly for its source-generated, allocation-free mappings can now handle a broader range of real-world patterns without needing to fall back to manual mapping code.
+
+The Mapperly module now also provides AI guidance in the form of Skills, resulting in more predictable AI implementations. 
+
+Available from:
+
+- Intent.Application.Dtos.Mapperly 1.1.2
