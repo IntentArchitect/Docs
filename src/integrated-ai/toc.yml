@@ -19,3 +19,6 @@ items:
 
   - name: Agent Tools
     topicUid: ai.tooling
+
+  - name: AI Data Privacy
+    topicUid: ai.data-privacy
