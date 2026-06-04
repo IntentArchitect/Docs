@@ -39,15 +39,13 @@ Intent Architect now integrates leading agent CLIs directly via the **Agent Clie
 - **OpenAI Codex** - available as a first-class ACP agent.
 - **GitHub Copilot CLI** - bring Copilot's agent into Intent Architect's chat.
 
-These run as managed subprocesses that Intent Architect starts and cleans up for you, so there are no orphaned processes left behind between runs.
-
 ### Sign in with GitHub Copilot
 
-You can now **sign in with GitHub Copilot** using a secure OAuth device flow - no API key required - and route requests through your existing Copilot subscription. A streamlined **SSO re-authorization** path means that when an organization session lapses, Intent Architect deep-links you straight to the right sign-in page instead of forcing a full re-login. Your token is stored encrypted and never exposed to the UI layer.
+You can now **sign in with GitHub Copilot** using a secure OAuth device flow - no API key required - and route requests through your existing Copilot subscription. A streamlined **SSO re-authorization** path means that when an organization session lapses, Intent Architect deep-links you straight to the right sign-in page instead of forcing a full re-login. Your token is stored encrypted and never directly exposed.
 
 ### A redesigned AI configuration experience
 
-The **AI Configuration dialog** has been refreshed with a cleaner segmented layout and expandable provider cards. Each provider now shows a clear status (Configured, Unconfigured, unsaved edits, or Disabled), and you can **toggle any provider off** without deleting its credentials. The provider list now spans Intent Architect, OpenAI, Anthropic, Azure OpenAI, Google Gemini, OpenRouter, OpenAI-compatible endpoints, Ollama, GitHub Copilot, and the Claude Code, Codex and Copilot CLI agents.
+The **AI Configuration dialog** has been refreshed with a cleaner segmented layout and expandable provider cards. Each provider now shows a clear status (configured, unconfigured, unsaved edits, or disabled), and you can **toggle any provider off** without deleting its credentials. The provider list now spans Intent Architect, OpenAI, Anthropic, Azure OpenAI, Google Gemini, OpenRouter, OpenAI-compatible endpoints, Ollama, GitHub Copilot, and the Claude Code, Codex and Copilot CLI agents.
 
 ![The redesigned AI configuration dialog](./images/5.1/00/ai-configuration-redesign.png)
 
@@ -76,9 +74,9 @@ Intent Architect now ships with a complete **Source Control** experience, so you
 
 ![The Source Control tab in the Software Factory](./images/5.1/00/git-source-control-tab.png)
 
-At a glance, you can now:
+At a high level, you can now:
 
-- **See your changes at a glance** - separate, independently-scrolling **Working** and **Staged** trees, each file annotated with a VS Code-style icon and a colour-coded status (Added, Modified, Deleted, Renamed, Untracked, Conflicted). Toggle between a folder-grouped tree and a flat list, with your preference remembered per solution.
+- **See your changes at a glance** - separate, independently-scrolling **Working** and **Staged** trees, each file annotated with icons and a colour-coded status (Added, Modified, Deleted, Renamed, Untracked, Conflicted). Toggle between a folder-grouped tree and a flat list, with your preference remembered per solution.
 - **Stage, unstage and discard** files individually, in multi-selections, or in bulk (`Stage all`, `Unstage all`, `Discard all`) - with a confirmation guard on discards.
 - **Commit** with a dedicated message box (`Ctrl+Enter` to commit), with support for **amending** the previous commit. If nothing is staged, Intent Architect offers to stage-and-commit all working changes for you.
 - **Generate a commit message with AI** - click the magic-wand button and Intent Architect drafts a commit message from your pending diff and drops it into the input for you to review and tweak. It never commits on your behalf.
@@ -87,17 +85,17 @@ At a glance, you can now:
 
 ![Working and staged changes with commit box](./images/5.1/00/git-changes-and-commit.png)
 
-### Visual history and powerful commit actions
+### Visual history and commit context aware actions
 
 The Source Control tab includes a **visual commit graph** with branch, HEAD and remote decorations, infinite-scroll paging, and an expandable per-commit file list. A **Show all branches** toggle switches between the current branch and the full graph.
 
-Right-click any commit for a full set of actions: **cherry-pick**, **revert**, **merge**, **switch/checkout**, **rebase**, **create branch at this commit**, and copy the SHA or message. File rows offer **revert to this (or the previous) revision**. When a merge or rebase pauses for conflicts, a persistent inline bar guides you through **Continue / Skip / Abort** - and that state survives a refresh or restart.
+Right-click any commit for a full set of actions: **cherry-pick**, **revert**, **merge**, **switch/checkout**, **rebase**, **create branch at this commit**, and copy the SHA or message. File rows offer **revert to this (or the previous) revision**. When a merge or rebase pauses for conflicts, a persistent inline bar guides you through **Continue / Skip / Abort**.
 
 ![Visual commit graph with history actions](./images/5.1/00/git-history-graph.png)
 
 ### Always know where you are
 
-The status bar at the bottom of the window now shows your **current repository and branch**, refreshed automatically.
+The status bar at the bottom-right of the main window now shows your **current repository and branch**, refreshed automatically.
 
 And because HEAD can move from anywhere - the terminal, an external IDE, another Git client - Intent Architect now watches your repository's `HEAD` and refreshes its change indicators automatically, so what you see is always in sync with reality.
 
@@ -230,3 +228,4 @@ The Asset Repository management screen has had a long-overdue overhaul:
 - Fixed: A null reference error could occur on a first install (for example in Windows Sandbox).
 - Fixed: An XML serialization issue affecting the `output.cache` file.
 - Fixed: An asset repository excluded from "All" could still be used when selected indirectly.
+- Fixed: The `run_software_factory` MCP tool would sometimes incorrectly report 0 changes.

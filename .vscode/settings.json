@@ -38,6 +38,7 @@
     "Structs",
     "Swashbuckle",
     "Triggerable",
-    "typeref"
+    "typeref",
+    "unconfigured"
   ]
 }
