@@ -72,6 +72,8 @@ Intent Architect now supports **OAuth 2.1 for remote MCP servers**. When an HTTP
 
 Intent Architect now ships with a complete **Source Control** experience, so you can manage your repository without leaving the platform. It lives as a new **Source Control** tab inside the Software Factory, sitting alongside Console, Changes, Codebase Explorer, Customizations and Terminal.
 
+![The Source Control tab in the Software Factory](./images/5.1/00/git-source-control-tab.png)
+
 At a high level, you can now:
 
 - **See your changes at a glance** - separate, independently-scrolling **Working** and **Staged** trees, each file annotated with icons and a colour-coded status (Added, Modified, Deleted, Renamed, Untracked, Conflicted). Toggle between a folder-grouped tree and a flat list, with your preference remembered per solution.
