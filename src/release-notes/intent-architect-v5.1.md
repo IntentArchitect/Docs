@@ -72,8 +72,6 @@ Intent Architect now supports **OAuth 2.1 for remote MCP servers**. When an HTTP
 
 Intent Architect now ships with a complete **Source Control** experience, so you can manage your repository without leaving the platform. It lives as a new **Source Control** tab inside the Software Factory, sitting alongside Console, Changes, Codebase Explorer, Customizations and Terminal.
 
-![The Source Control tab in the Software Factory](./images/5.1/00/git-source-control-tab.png)
-
 At a high level, you can now:
 
 - **See your changes at a glance** - separate, independently-scrolling **Working** and **Staged** trees, each file annotated with icons and a colour-coded status (Added, Modified, Deleted, Renamed, Untracked, Conflicted). Toggle between a folder-grouped tree and a flat list, with your preference remembered per solution.
@@ -191,6 +189,10 @@ Two actions are offered per change hunk:
 Click a lens and Intent Architect applies the instruction to the code element covering that change, re-runs the diff, and confirms with a toast - the change you were about to lose simply drops off the pending list.
 
 The lenses appear wherever a weaver exposes code-management actions for the file type (for example, `.cs` files when the Roslyn Weaver is installed), and hunks that only touch the code-management instructions themselves are skipped automatically. Prefer a cleaner diff? Toggle them off at any time via **Code Management Lenses** in the diff view's options menu - your preference is remembered.
+
+> [!NOTE]
+>
+> Requires version `4.11.0-pre.0` or higher of the `Intent.OutputManager.RoslynWeaver` module to be installed for lenses to show.
 
 ---
 
