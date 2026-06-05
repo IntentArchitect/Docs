@@ -7,7 +7,7 @@ Welcome to the June edition of What's New in Intent Architect. This month marks 
 
 - Highlights
   - **[More AI providers, more ways to work](#more-ai-providers-more-ways-to-work)** - Claude Code, GitHub Copilot CLI, and OpenAI Codex join as first-class agent integrations, alongside a redesigned AI configuration experience and a pop-out AI chat with a live Changes panel.
-  - **[Model-level change tracking & diffing in the designers](#model-level-change-tracking--diffing)** - See exactly what has changed in your designers — field by field — and choose what to compare against: your last save or your last Git commit.
+  - **[Model-level change tracking & diffing in the designers](#model-level-change-tracking--diffing-in-the-designers)** - See exactly what has changed in your designers — field by field — and choose what to compare against: your last save or your last Git commit.
   - **[Git source control, built in](#git-source-control-built-in)** - Manage your repository without leaving Intent Architect: stage, commit, push, pull, and browse a visual commit history with full context-aware actions.
   - **[Cleaner metadata on disk](#a-cleaner-metadata-format-yaml--v3)** - A new opt-in YAML / V3 persistence format produces fewer files, less diff noise, and calmer pull requests.
   - **[Inline code-management lenses on diffs](#inline-code-management-lenses-on-diffs)** - Resolve code-management decisions — Intent Ignore or Intent Merge — directly in the diff view, without leaving Intent Architect.
