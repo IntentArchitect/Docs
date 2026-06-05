@@ -6,6 +6,8 @@ description: "How to add launch profiles and environment variables to launchSett
 
 The `launchSettings.json` file is managed by the `LaunchSettingsJsonTemplate`. Template authors can influence its output by publishing events/requests via the `IApplicationEventDispatcher`. This document describes each available mechanism.
 
+If you are looking for the Codebase Structure / Visual Studio modeling setup for environment-specific `appsettings` files, see [](xref:application-development.modelling.codebase-structure-designer).
+
 ---
 
 ## 1. Add a Launch Profile - `LaunchProfileRegistrationRequest`

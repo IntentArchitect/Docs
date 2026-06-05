@@ -18,6 +18,27 @@ As long as Module authors ensure that their templates use the default of suggest
 
 Initial placement of `Template Output`s are controlled by [Output Anchors](#output-anchors). Once an `Output Template` is placed, its location within your codebase structure is not changed when a module is updated or reinstalled, this is to allow users to customize their codebase structure without a module update undoing it. To force a `Template Output` to be re-placed at its default location you will need to completely uninstall and then install the module again.
 
+## Runtime Environments
+
+When you are using the Visual Studio concepts in Codebase Structure, you can add `Runtime Environment` elements under a project to tell Intent Architect which environment-specific configuration files should be generated.
+
+To add one:
+
+1. Right-click the relevant project in the Codebase Structure designer.
+2. Select **Add Runtime Environment**.
+3. Give the environment a name such as `Dev`, `Prod` or `Tst`.
+
+![Add Runtime Environment](images/runtime-environments.png)
+
+Each `Runtime Environment` you model allows Intent Architect to generate a matching environment-specific `appsettings` file alongside the base `appsettings.json` file.
+
+![Generated appsettings files](images/appsettings-generation.png)
+
+This is also what template authors rely on when they call APIs such as `ApplyAppSetting(..., runtimeEnvironment: "Prod")`. The `runtimeEnvironment` value must match a modeled `Runtime Environment` element on the target project, otherwise the request will not be applied to an environment-specific file.
+
+> [!NOTE]
+> If you are configuring environment-specific `appsettings` output from a template or factory extension, see [](xref:module-building.templates-csharp.how-to-update-appsettings-json-files) for the code-side usage.
+
 ## Output Anchors
 
 `Output Anchor`s are arbitrary tags used to control the initial placement of a [Template Outputs](#template-outputs) at the time Modules are being installed or updated.

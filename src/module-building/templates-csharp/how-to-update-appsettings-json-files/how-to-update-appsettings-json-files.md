@@ -122,7 +122,9 @@ Executing this method after the previous above example, your `appsettings.json` 
 
 ## Environment specific appsettings.json files
 
-To enable Intent Architect to generate separate `appsettings.json` files for each environment, you must configure the `runtime environments` in the *Visual Studio Designer*.
+To enable Intent Architect to generate separate `appsettings.json` files for each environment, you must configure the `runtime environments` in the Codebase Structure / Visual Studio modeling experience.
+
+See [](xref:application-development.modelling.codebase-structure-designer) for where to add `Runtime Environment` elements and how they affect generated files.
 
 ![Runtime environments](images/runtime-environments.png)
 
