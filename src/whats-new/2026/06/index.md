@@ -6,18 +6,18 @@ uid: whats-new.2026.06
 Welcome to the June edition of What's New in Intent Architect. This month marks the release of **Intent Architect 5.1**, which turns its focus to the moment that matters most in an AI-native workflow: **change**. Where 5.0 brought AI into the heart of the platform, 5.1 is about *seeing, understanding, and controlling* the changes flowing through your solution — from the model in your designers, to the code in your codebase, to the commits in your repository.
 
 - Highlights
-  - **[Expanded AI Provider Support](#expanded-ai-provider-support)** - Claude Code, GitHub Copilot CLI, and OpenAI Codex join as first-class agent integrations, alongside a redesigned AI configuration experience and a pop-out AI chat with a live Changes panel.
-  - **[Model-Level Change Tracking & Diffing](#model-level-change-tracking--diffing)** - See exactly what has changed in your designers — field by field — and choose what to compare against: your last save or your last Git commit.
-  - **[Built-in Git Source Control](#git-source-control-built-in)** - Manage your repository without leaving Intent Architect: stage, commit, push, pull, and browse a visual commit history with full context-aware actions.
-  - **[Cleaner Metadata on Disk](#a-cleaner-metadata-format-yaml--v3)** - A new opt-in YAML / V3 persistence format produces fewer files, less diff noise, and calmer pull requests.
-  - **[Inline Code-Management Lenses on Diffs](#inline-code-management-lenses-on-diffs)** - Resolve code-management decisions — Intent Ignore or Intent Merge — directly in the diff view, without leaving Intent Architect.
-  - **[Generating and Augmenting Markdown Files](#generating-and-augmenting-markdown-files)** - New Markdown template support lets modules generate and augment Markdown files, including AI skill and instruction files.
-  - **[AI Modelling Agent Improvements](#ai-modelling-agent-improvements)** - General improvements to the AI Modelling Agent for more accurate and reliable design modelling in Intent Architect.
-  - **[Mapperly Module Enhancements](#mapperly-module-enhancements)** - Advanced mapping scenarios now supported in the Mapperly module, bringing it closer to parity with the AutoMapper implementation.
+  - **[More AI providers, more ways to work](#more-ai-providers-more-ways-to-work)** - Claude Code, GitHub Copilot CLI, and OpenAI Codex join as first-class agent integrations, alongside a redesigned AI configuration experience and a pop-out AI chat with a live Changes panel.
+  - **[Model-level change tracking & diffing in the designers](#model-level-change-tracking--diffing)** - See exactly what has changed in your designers — field by field — and choose what to compare against: your last save or your last Git commit.
+  - **[Git source control, built in](#git-source-control-built-in)** - Manage your repository without leaving Intent Architect: stage, commit, push, pull, and browse a visual commit history with full context-aware actions.
+  - **[Cleaner metadata on disk](#a-cleaner-metadata-format-yaml--v3)** - A new opt-in YAML / V3 persistence format produces fewer files, less diff noise, and calmer pull requests.
+  - **[Inline code-management lenses on diffs](#inline-code-management-lenses-on-diffs)** - Resolve code-management decisions — Intent Ignore or Intent Merge — directly in the diff view, without leaving Intent Architect.
+  - **[Generating and augmenting Markdown files](#generating-and-augmenting-markdown-files)** - New Markdown template support lets modules generate and augment Markdown files, including AI skill and instruction files.
+  - **[AI modelling agent improvements](#ai-modelling-agent-improvements)** - General improvements to the AI Modelling Agent for more accurate and reliable design modelling in Intent Architect.
+  - **[Mapperly module enhancements](#mapperly-module-enhancements)** - Advanced mapping scenarios now supported in the Mapperly module, bringing it closer to parity with the AutoMapper implementation.
 
 ## Update details
 
-### Expanded AI Provider Support
+### More AI providers, more ways to work
 
 5.0 brought AI into the platform; 5.1 dramatically widens the set of providers and agents you can bring with you.
 
@@ -37,7 +37,7 @@ Available from:
 
 - Intent Architect 5.1.0
 
-### Model-Level Change Tracking & Diffing
+### Model-level change tracking & diffing in the designers
 
 Knowing *that* an element has changed is useful. Knowing *what* changed — which field, from what value, to what value — is transformative. That distinction is what model-level diffing delivers.
 
@@ -64,7 +64,7 @@ Available from:
 
 - Intent Architect 5.1.0
 
-### Git Source Control, Built In
+### Git source control, built in
 
 Software development is fundamentally a collaborative activity built around change. Yet until now, managing that change — staging files, writing commit messages, reviewing history — meant switching out of Intent Architect and into another tool. 5.1 closes that gap with a complete Git source control experience built directly into the Software Factory.
 
@@ -82,7 +82,7 @@ Available from:
 
 - Intent Architect 5.1.0
 
-### A Cleaner Metadata Format: YAML & V3
+### A cleaner metadata format: YAML & V3
 
 Every time Intent Architect updates your designs, it writes those changes to disk as metadata — and those files end up in pull requests. In teams working on large solutions, metadata churn can make PRs noisy and merge conflicts frustratingly common.
 
@@ -102,7 +102,7 @@ Available from:
 
 - Intent Architect 5.1.0
 
-### Inline Code-Management Lenses on Diffs
+### Inline code-management lenses on diffs
 
 When the Software Factory wants to overwrite code you've hand-edited, you've always had options for protecting that work — but they required dropping into your IDE and hand-writing a code-management instruction. That friction disappears in 5.1.
 
@@ -122,7 +122,7 @@ Available from:
 
 - Intent Architect 5.1.0
 
-### Generating and Augmenting Markdown Files
+### Generating and augmenting Markdown files
 
 Modules can now generate and augment Markdown files using the new `MarkdownFile` builder, available through the [Creating Markdown Templates](xref:module-building.templates-general.creating-markdown-templates) templating method. This opens up new capabilities for generating AI context files such as agent skill definitions and coding instructions alongside your application's source code, as well as composing and extending them based on your architectural intent.
 
@@ -139,7 +139,7 @@ Available from:
 
 - Intent.ModuleBuilder 3.18.6
 
-### AI Modelling Agent Improvements
+### AI modelling agent improvements
 
 Many of our modules have been upgraded to provide improved context engineering, make the AI Modelling Agent more predictable and better at producing more accurate and consistent designs when modelling out application architecture in Intent Architect. These refinements improve how the agent interprets requirements, navigates designer contexts, and applies model changes — reducing the need for manual corrections after an agent run.
 
@@ -147,7 +147,7 @@ Available from:
 
 - Various Modules (in particular Designer and Metadata Modules)
 
-### Mapperly Module Enhancements
+### Mapperly module enhancements
 
 The Mapperly module has received a significant set of enhancements aimed at bringing more advanced mapping scenarios to parity with the AutoMapper module implementation, for deterministic implementaion scenarios. Teams who chose Mapperly for its source-generated, allocation-free mappings can now handle a broader range of real-world patterns without needing to fall back to manual mapping code.
 
