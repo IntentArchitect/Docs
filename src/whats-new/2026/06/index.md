@@ -8,7 +8,7 @@ Welcome to the June edition of What's New in Intent Architect. This month marks 
 - Highlights
   - **[More AI providers, more ways to work](#more-ai-providers-more-ways-to-work)** - Claude Code, GitHub Copilot CLI, and OpenAI Codex join as first-class agent integrations, alongside a redesigned AI configuration experience and a pop-out AI chat with a live Changes panel.
   - **[Model-level change tracking & diffing in the designers](#model-level-change-tracking--diffing-in-the-designers)** - See exactly what has changed in your designers — field by field — and choose what to compare against: your last save or your last Git commit.
-  - **[Git source control, built in](#git-source-control-built-in)** - Manage your repository without leaving Intent Architect: stage, commit, push, pull, and browse a visual commit history with full context-aware actions.
+  - **[Git source control, built in](#git-source-control-built-in)** - Manage your repository without leaving Intent Architect: stage, commit, push, pull, and browse a visual commit history.
   - **[Cleaner metadata on disk](#a-cleaner-metadata-format-yaml--v3)** - A new opt-in YAML / V3 persistence format produces fewer files, less diff noise, and calmer pull requests.
   - **[Inline code-management lenses on diffs](#inline-code-management-lenses-on-diffs)** - Resolve code-management decisions — Intent Ignore or Intent Merge — directly in the diff view, without leaving Intent Architect.
   - **[Generating and augmenting Markdown files](#generating-and-augmenting-markdown-files)** - New Markdown template support lets modules generate and augment Markdown files, including AI skill and instruction files.
@@ -19,7 +19,7 @@ Welcome to the June edition of What's New in Intent Architect. This month marks 
 
 ### More AI providers, more ways to work
 
-5.0 brought AI into the platform; 5.1 dramatically widens the set of providers and agents you can bring with you.
+5.0 brought AI into the platform; 5.1 widens the set of providers and agents you can bring with you.
 
 **Agent CLI integrations** — Claude Code, OpenAI Codex and GitHub Copilot CLI are now first-class participants via the Agent Client Protocol (ACP). Claude Code brings selectable models, large-context options for big codebases, reasoning-effort levels, and Claude Code's native permission system. Each CLI agent runs in its own managed process; Intent Architect handles the lifecycle.
 
@@ -39,7 +39,7 @@ Available from:
 
 ### Model-level change tracking & diffing in the designers
 
-Knowing *that* an element has changed is useful. Knowing *what* changed — which field, from what value, to what value — is transformative. That distinction is what model-level diffing delivers.
+AI is accelerating system development faster than ever, making it increasingly difficult to understand how it's changing. Visual diffing lets you see exactly how your system has changed, making it simple to internalize and investigate your solutions evolution.
 
 Changed elements are now marked with a coloured bar in the tree gutter. Click it to open a model diff popover listing every field-level change as a tidy `before → after` table: renamed properties, retyped attributes, edited comments, changed mappings, added or removed stereotypes, and more. A diff overview ruler down the right edge of the tree gives a bird's-eye view of where the changes are, so you can click to jump straight to them — much like a code editor's minimap.
 
@@ -66,7 +66,7 @@ Available from:
 
 ### Git source control, built in
 
-Software development is fundamentally a collaborative activity built around change. Yet until now, managing that change — staging files, writing commit messages, reviewing history — meant switching out of Intent Architect and into another tool. 5.1 closes that gap with a complete Git source control experience built directly into the Software Factory.
+No one enjoys breaking their flow to switch tools. With 5.1, core Git source control capabilities are now built into the Software Factory, making it easier to manage changes without leaving Intent Architect. The result is a more seamless development experience with fewer interruptions and less context switching
 
 The Source Control tab shows your working and staged changes side by side, each file annotated with its status (Added, Modified, Deleted, Renamed, Untracked, Conflicted). Stage or unstage files individually, in multi-selections, or in bulk — with a confirmation guard on discards. Commit with a dedicated message box, or click the magic-wand to have AI draft a commit message from your pending diff, ready for you to review and tweak before it touches anything.
 
