@@ -68,6 +68,32 @@ Intent Architect now supports **OAuth 2.1 for remote MCP servers**. When an HTTP
 
 ---
 
+## MCP tooling improvements
+
+5.1 significantly expands the breadth and reliability of the MCP tooling surface that external AI agents can use when connected to Intent Architect.
+
+### New tools
+
+- **`get_staged_file_diffs`** — Returns unified diffs of currently staged codebase files so that coding agents can reason about exactly what has changed without reading each file in full.
+- **`get_application_settings`** / **`update_application_settings`** — Lets agents read and update application settings, including the new persistence format.
+- **`get_designer_script_api`** — Describes the scripting API available in a given designer.
+- **`run_designer_script`** — Executes a script inside a designer, enabling agents to perform bulk model manipulations programmatically.
+
+### Tool improvements
+
+- **`get_designer_schema`** now produces a significantly more compact response: critical data is returned first, stereotype definitions have been split into a separate `get_designer_stereotype_definitions` call, and overall token usage is substantially reduced. This was particularly important for agents such as Codex that enforce hard limits on response size.
+- **`find_designer_elements`** now matches on property *values* as well as field names, making in-model searches more thorough.
+- **`get_designer_diagram`** (diagram snapshots) now returns richer element metadata alongside the visual layout, giving agents more context per call.
+
+### Reliability and configuration
+
+- **Timeout prevention**: Long-running MCP calls no longer time out due to a background-throttling issue in the MCP server host; throttling has been disabled so processing stays responsive.
+- **Software Factory errors surfaced to agents**: When a Software Factory run triggered via an MCP tool call encounters an error, the failure is now propagated back through the tool response so the agent can diagnose and attempt to resolve the problem autonomously.
+- **MCP elicitation**: The Intent Architect MCP server can now prompt the user for input mid-session using the MCP `elicit` protocol — for example, asking which solution to open when the agent hasn't specified one.
+- **Configuration presets**: New one-click presets for **Kiro** and **Codex** are available in the MCP Servers configuration tab; selecting one generates the correct MCP JSON snippet ready to paste into your agent's configuration file.
+
+---
+
 ## Git source control, built in
 
 Intent Architect now ships with a complete **Source Control** experience, so you can manage your repository without leaving the platform. It lives as a new **Source Control** tab inside the Software Factory, sitting alongside Console, Changes, Codebase Explorer, Customizations and Terminal.
@@ -219,7 +245,6 @@ The Asset Repository management screen has had a long-overdue overhaul:
 - Improvement: Popped-out windows and modal dialogs now open on the **same display as the main window**, for a smoother multi-monitor experience.
 - Improvement: **Save and loading indicators** added to tabs and diff views for clearer feedback during longer operations.
 - Improvement: A **flexible toolbar** now gracefully handles overflow when space is tight.
-- Improvement: **MCP / AI tooling** - new `get_application_settings` and `update_application_settings` tools let agents read and update application settings (including the persistence format); designer element search now matches on values as well as field names; and diagram snapshots return richer element detail.
 - Improvement: Diff views support per-file editing and saving, inline vs side-by-side and word-wrap toggles (remembered across sessions), and reveal-in-explorer.
 
 ## Fixes in 5.1.0
