@@ -39,7 +39,7 @@ Available from:
 
 ### Model-level change tracking & diffing in the designers
 
-AI is accelerating system development faster than ever, making it increasingly difficult to understand how it's changing. Visual diffing lets you see exactly how your system has changed, making it simple to internalize and investigate your solutions evolution.
+As AI accelerates development, understanding what's changed becomes just as important as making changes. Visual diffing lets you compare your solution against Git commits, your working tree, or unsaved changes, making it easy to investigate and internalize its evolution.
 
 Changed elements are now marked with a coloured bar in the tree gutter. Click it to open a model diff popover listing every field-level change as a tidy `before → after` table: renamed properties, retyped attributes, edited comments, changed mappings, added or removed stereotypes, and more. A diff overview ruler down the right edge of the tree gives a bird's-eye view of where the changes are, so you can click to jump straight to them — much like a code editor's minimap.
 
