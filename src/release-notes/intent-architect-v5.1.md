@@ -127,7 +127,7 @@ And because HEAD can move from anywhere - the terminal, an external IDE, another
 
 ---
 
-## Model-level change tracking & diffing in the designers
+## Visual change tracking & comparison in the designers
 
 One of the most requested capabilities is finally here: Intent Architect can now show you **exactly what has changed in your model**, right in the designer tree - and let you choose **what to compare against**.
 
