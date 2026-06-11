@@ -361,17 +361,17 @@ It brings design and architectural visibility to your software development proce
 
 ## Watch a demo of the latest features
 
-<div class="video-16x9"><iframe src="https://www.youtube.com/embed/vlEwOM8nRXo?si=QOiR0tkncDYgKxEh&rel=0" title="Video" allowfullscreen></iframe></div>
+<div class="video-16x9"><iframe src="https://www.youtube.com/embed/zOeaQ3aSLnE?si=BRT641Tl_fZB-wJ-" title="Video" allowfullscreen></iframe></div>
 
-Watch the Intent Architect version 5.0 new features demo, a focused walkthrough of what's new in perhaps the most significant release in recent years. Gareth Baars, founder of Intent Architect, walks you through the upgraded AI-powered capabilities that bring visual modeling, deterministic generation, and customizable coding agents together in one platform.
+Watch the Intent Architect version 5.1 new features demo - focused on seeing, understanding, and controlling the changes flowing through your solution. Gareth Baars, founder of Intent Architect, also shares some of his recent findings around AI-assisted development and expands on how Intent Architect fits into the evolving landscape of software engineering and AI.
 
 What's covered in this demo:
 
-- AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
-- A full upgrade to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
-- The Intent Architect MCP Server, letting external AI tools drive Intent Architect directly.
-- The integrated Terminal & Tasks system with automatic AI error fixing.
-- A world-class Software Factory experience with a redesigned UI and per-file control.
+- Additional AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
+- Further upgrades to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
+- MCP Server enhancements, letting external AI tools drive Intent Architect directly.
+- New direct Git integration in the Software Factory and Git hsitory change management
+- New metadata persistence formats
 
 ---
 
