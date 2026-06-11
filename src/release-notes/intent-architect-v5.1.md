@@ -4,12 +4,22 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 ---
 # Release notes: Intent Architect version 5.1
 
-<!--
-NOTE FOR AUTHOR: The image paths referenced below (under ./images/5.1/00/) still need
-screenshots captured. Use --docs-mode / frameless 720p capture per guidelines.md, mark up
-with Azure Blue (#06C4FF), and confirm both light and dark themes where relevant.
-Remove or repoint any image line that won't have a screenshot before publishing.
--->
+## Version 5.1.1
+
+## Improvements in 5.1.1
+
+- Improvement: **Conversation compaction** — Conversations can now be manually compacted from the AI chat panel, trimming oversized tool results from the history view and reducing context consumption on long sessions, while retaining the full conversation data.
+- Improvement: **Large text attachments** are now materialized to disk rather than held in memory, reducing memory pressure on conversations with large attached files.
+- Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed — exactly as they would be for a manual install.
+- Improvement: **Enhanced scripting in the designer** — argument handling in designer context methods has been improved and logging for `run_designer_script` execution is more detailed.
+
+## Fixes in 5.1.1
+
+- Fixed: The Asset Repositories dialog would duplicate application/solution context repositories after re-opening the dialog and pressing "Save and Close".
+- Fixed: A `"repository path '<path>' is not owned by current user"` Git error could occur in certain environments.
+- Fixed: Removals from `.cs` files in merge mode would not be picked up on Software Factory hot restarts.
+- Fixed: Non-recursive glob patterns in the MCP `grep`/`glob` tools missed files in subdirectories.
+- Fixed: The Software Factory's formatted output cache (`.previous` files) was not correctly initialized when absent, and could be incorrectly overwritten when unchanged, leading to unnecessary re-processing.
 
 ## Version 5.1.0
 
