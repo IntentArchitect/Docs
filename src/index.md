@@ -370,7 +370,7 @@ What's covered in this demo:
 - Additional AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
 - Further upgrades to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
 - MCP Server enhancements, letting external AI tools drive Intent Architect directly.
-- New direct Git integration in the Software Factory and Git hsitory change management
+- New direct Git integration in the Software Factory and Git history change management
 - New metadata persistence formats
 
 ---
