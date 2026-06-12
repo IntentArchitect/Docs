@@ -514,7 +514,7 @@ This opens the `Service Operation Mapping` dialog, where you can:
 ### Processing Actions
 
 > [!WARNING]  
-> This is an experimental feature and likely to change in the future
+> This feature is experimental, unsupported, and NOT recommended for use. It is likely to change or be removed in the future.
 
 **Add Processing Action** allows you configure additional implementation details through additional mappings. These mappings are able to link any existing **actions** together.
 
