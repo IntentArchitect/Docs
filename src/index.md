@@ -363,15 +363,16 @@ It brings design and architectural visibility to your software development proce
 
 <div class="video-16x9"><iframe src="https://www.youtube.com/embed/zOeaQ3aSLnE?si=BRT641Tl_fZB-wJ-" title="Video" allowfullscreen></iframe></div>
 
-Watch the Intent Architect version 5.1 new features demo - focused on seeing, understanding, and controlling the changes flowing through your solution. Gareth Baars, founder of Intent Architect, also shares some of his recent findings around AI-assisted development and expands on how Intent Architect fits into the evolving landscape of software engineering and AI.
+Watch the Intent Architect version 5.1 new-features demo.
+
+Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around more controlled and consistent AI-driven development, especially at scale, and expands on how Intent Architect fits into this evolving landscape.
 
 What's covered in this demo:
-
 - Additional AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
-- Further upgrades to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
 - MCP Server enhancements, letting external AI tools drive Intent Architect directly.
-- New direct Git integration in the Software Factory and Git history change management
-- New metadata persistence formats
+- Further upgrades to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
+- New direct Git integration in the Software Factory, removing the need to tab out of Intent Architect.
+- New metadata persistence formats including new versions of XML and YAML which strip out redundant fields or properties, making metadata more human readable.
 
 ---
 
