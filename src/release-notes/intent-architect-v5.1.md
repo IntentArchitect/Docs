@@ -20,6 +20,7 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Fixed: Removals from `.cs` files in merge mode would not be picked up on Software Factory hot restarts.
 - Fixed: Non-recursive glob patterns in the MCP `grep`/`glob` tools missed files in subdirectories.
 - Fixed: The Software Factory's formatted output cache (`.previous` files) was not correctly initialized when absent, and could be incorrectly overwritten when unchanged, leading to unnecessary re-processing.
+- Fix: For Visual Studio solutions SLNX is added to the list.
 
 ## Version 5.1.0
 
