@@ -8,10 +8,11 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 
 ## Improvements in 5.1.1
 
-- Improvement: **Conversation compaction** — Conversations can now be manually compacted from the AI chat panel, trimming oversized tool results from the history view and reducing context consumption on long sessions, while retaining the full conversation data.
+- Improvement: **Kiro ACP agent support** - Kiro's CLI can now be used by Intent Architect from the AI assistant panes.
+- Improvement: **Conversation compaction** - Conversations can now be manually compacted from the AI chat panel, trimming oversized tool results from the history view and reducing context consumption on long sessions, while retaining the full conversation data.
 - Improvement: **Large text attachments** are now materialized to disk rather than held in memory, reducing memory pressure on conversations with large attached files.
-- Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed — exactly as they would be for a manual install.
-- Improvement: **Enhanced scripting in the designer** — argument handling in designer context methods has been improved and logging for `run_designer_script` execution is more detailed.
+- Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed - exactly as they would be for a manual install.
+- Improvement: **Enhanced scripting in the designer** - argument handling in designer context methods has been improved and logging for `run_designer_script` execution is more detailed.
 
 ## Fixes in 5.1.1
 
@@ -85,10 +86,10 @@ Intent Architect now supports **OAuth 2.1 for remote MCP servers**. When an HTTP
 
 ### New tools
 
-- **`get_staged_file_diffs`** — Returns unified diffs of currently staged codebase files so that coding agents can reason about exactly what has changed without reading each file in full.
-- **`get_application_settings`** / **`update_application_settings`** — Lets agents read and update application settings, including the new persistence format.
-- **`get_designer_script_api`** — Describes the scripting API available in a given designer.
-- **`run_designer_script`** — Executes a script inside a designer, enabling agents to perform bulk model manipulations programmatically.
+- **`get_staged_file_diffs`** - Returns unified diffs of currently staged codebase files so that coding agents can reason about exactly what has changed without reading each file in full.
+- **`get_application_settings`** / **`update_application_settings`** - Lets agents read and update application settings, including the new persistence format.
+- **`get_designer_script_api`** - Describes the scripting API available in a given designer.
+- **`run_designer_script`** - Executes a script inside a designer, enabling agents to perform bulk model manipulations programmatically.
 
 ### Tool improvements
 
@@ -100,7 +101,7 @@ Intent Architect now supports **OAuth 2.1 for remote MCP servers**. When an HTTP
 
 - **Timeout prevention**: Long-running MCP calls no longer time out due to a background-throttling issue in the MCP server host; throttling has been disabled so processing stays responsive.
 - **Software Factory errors surfaced to agents**: When a Software Factory run triggered via an MCP tool call encounters an error, the failure is now propagated back through the tool response so the agent can diagnose and attempt to resolve the problem autonomously.
-- **MCP elicitation**: The Intent Architect MCP server can now prompt the user for input mid-session using the MCP `elicit` protocol — for example, asking which solution to open when the agent hasn't specified one.
+- **MCP elicitation**: The Intent Architect MCP server can now prompt the user for input mid-session using the MCP `elicit` protocol - for example, asking which solution to open when the agent hasn't specified one.
 - **Configuration presets**: New one-click presets for **Kiro** and **Codex** are available in the MCP Servers configuration tab; selecting one generates the correct MCP JSON snippet ready to paste into your agent's configuration file.
 
 ---
