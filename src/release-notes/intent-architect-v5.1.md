@@ -19,6 +19,7 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Improvement: **Rules of AI tools** are now exposed to ACP/MCP clients so agents can discover how to use each most effectively.
 - Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed.
 - Improvement: Comments in stereotype and property editors now display only the summary (text before the first delimiter line), keeping the UI uncluttered when comments include extended detail.
+- Improvement: `get_status` and `get_applications` MCP tools now also include application descriptions in their results.
 
 ## Fixes in 5.1.1
 
