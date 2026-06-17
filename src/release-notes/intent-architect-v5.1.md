@@ -8,20 +8,29 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 
 ## Improvements in 5.1.1
 
-- Improvement: **Kiro ACP agent support** - Kiro's CLI can now be used by Intent Architect from the AI assistant panes.
-- Improvement: **Conversation compaction** - Conversations can now be manually compacted from the AI chat panel, trimming oversized tool results from the history view and reducing context consumption on long sessions, while retaining the full conversation data.
-- Improvement: **Large text attachments** are now materialized to disk rather than held in memory, reducing memory pressure on conversations with large attached files.
-- Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed - exactly as they would be for a manual install.
-- Improvement: **Enhanced scripting in the designer** - argument handling in designer context methods has been improved and logging for `run_designer_script` execution is more detailed.
+- Improvement: **Kiro** is now a supported ACP agent — bring Amazon's Kiro agent into Intent Architect's AI chat alongside Claude Code, Codex and Copilot.
+- Improvement: **AI tool call inputs and outputs** can now be opened in read-only editor tabs directly from the chat panel, making it easy to inspect what an AI agent sent or received without leaving Intent Architect.
+- Improvement: **AI chat attachments now survive conversation reloads** — attachments are persisted with the conversation so that clicking a chip after reloading opens the file (text in a read-only editor tab, images and binaries in the OS default app).
+- Improvement: **Conversation compaction** — conversations can now be manually compacted from the AI chat panel, trimming oversized tool results from the history view and reducing context consumption on long sessions, while retaining the full conversation data.
+- Improvement: **Auto-reload designer** — when the underlying metadata files change on disk (e.g. after a `git pull`), a designer that has no unsaved changes will now automatically reload. If there are unsaved changes, Intent Architect still prompts you.
+- Improvement: **AI scripting API substantially expanded** — many new and improved methods for `run_designer_script`: `getSpecialization()`, `getProperties()` and `getName()` on stereotypes; `getId()` on elements; improved type resolution including specialization filtering; package-level lookups; enhanced mapping capabilities and `createAdvancedMapping` for associations; improved `lookupByPath` resolution; better error messaging throughout.
+- Improvement: **AI tools can now manage designer tab visibility** — a new `bringToFront` option pans visuals into view, and designer tabs can be loaded in the background without being activated.
+- Improvement: **`get_status` MCP tool** now treats `workingDirectory` as optional and always reports all open solutions.
+- Improvement: **Rules of AI tools** are now exposed to ACP/MCP clients so agents can discover how to use each most effectively.
+- Improvement: **MCP module installation and uninstallation** now routes through the same safe system used by the UI, so designer saves are prompted and Software Factories are shut down and restarted as needed.
+- Improvement: Comments in stereotype and property editors now display only the summary (text before the first delimiter line), keeping the UI uncluttered when comments include extended detail.
 
 ## Fixes in 5.1.1
 
 - Fixed: The Asset Repositories dialog would duplicate application/solution context repositories after re-opening the dialog and pressing "Save and Close".
 - Fixed: A `"repository path '<path>' is not owned by current user"` Git error could occur in certain environments.
 - Fixed: Removals from `.cs` files in merge mode would not be picked up on Software Factory hot restarts.
+- Fixed: The currently selected file could become de-selected when hot-restarting the Software Factory.
 - Fixed: Non-recursive glob patterns in the MCP `grep`/`glob` tools missed files in subdirectories.
-- Fixed: The Software Factory's formatted output cache (`.previous` files) was not correctly initialized when absent, and could be incorrectly overwritten when unchanged, leading to unnecessary re-processing.
-- Fix: For Visual Studio solutions SLNX is added to the list.
+- Fixed: The terminal was not rendering certain glyphs properly (e.g. Claude Code's UI would not display correctly).
+- Fixed: Visual Studio `.slnx` solution files were not included in the solution file list.
+- Fixed: The app could sometimes get stuck on the splash screen on launch.
+- Fixed: The app would always not close correctly when using the updater's "Restart Now" button.
 
 ## Version 5.1.0
 
