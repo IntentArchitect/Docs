@@ -4,6 +4,25 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 ---
 # Release notes: Intent Architect version 5.1
 
+## Version 5.1.2
+
+## Improvements in 5.1.2
+
+- Improvement: Google Gemini is no longer restricted to read-only.
+- Improvement: The list of available AI models is now provided by our server, so the catalog can be refreshed without an application update.
+- Improvement: AI scripting API expanded further — `run_designer_script` now supports create/read/update/delete of stereotype definitions, adds a `getThisElementsEnd()` method on associations, has `getSpecialization()` report the association type, and includes association IDs and optional paths in its error reporting for clearer diagnostics.
+- Improvement: Additional script paths can now be included for scripts run by the `run_designer_script` tool.
+- Improvement: The `get_status` MCP tool now includes designer data, along with instructions for LLMs to check designer rules.
+- Improvement: An option to open Intent Architect's logs folder has been added to the user menu under a "Help" sub-menu.
+- Improvement: Logs now include source context, making support diagnostics easier to trace.
+
+## Fixes in 5.1.2
+
+- Fixed: A solution opened by launching Intent Architect with an `.isln` path argument was not added to the recent solutions list.
+- Fixed: For some kinds of errors from LLM provider endpoints, no error would be shown in the chat.
+- Fixed: A null reference exception could occur when updating an application description via the MCP server.
+- Fixed: Some validation was missing from the stereotype and property definition editors.
+
 ## Version 5.1.1
 
 ## Improvements in 5.1.1
