@@ -15,6 +15,12 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Improvement: The `get_status` MCP tool now includes designer data, along with instructions for LLMs to check designer rules.
 - Improvement: An option to open Intent Architect's logs folder has been added to the user menu under a "Help" sub-menu.
 - Improvement: Logs now include source context, making support diagnostics easier to trace.
+- Improvement: AI tools for creating new solutions and applications.
+- Improvement: The scripting API now supports adding and removing package references, and a new `list_available_package_references` AI tool lets agents discover what's available.
+- Improvement: Large AI chat attachments are now classified (specification, log, tabular or generic) and presented accordingly, while preserving on-demand access to the full content.
+- Improvement: The AI scripting API now provides file paths on demand rather than returning the full API up front, reducing token usage.
+- Improvement: The Software Factory CLI now retries failed HTTP requests up to 5 times with progressively longer delays, making it more robust in hosted CI/CD environments where socket disconnections have been observed.
+- Improvement: The Software Factory now logs the source of its line-ending configuration, to help investigate differences between environments.
 
 ## Fixes in 5.1.2
 
@@ -22,6 +28,9 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Fixed: For some kinds of errors from LLM provider endpoints, no error would be shown in the chat.
 - Fixed: A null reference exception could occur when updating an application description via the MCP server.
 - Fixed: Some validation was missing from the stereotype and property definition editors.
+- Fixed: Modules Management tabs would sometimes appear transparent, showing the content of other tabs behind them.
+- Fixed: "Open in IDE" / "View Code" items would sometimes not appear on context menus until at least one change had been applied in the Software Factory.
+- Fixed: An exception could be thrown when an invalid `.git` directory was found.
 
 ## Version 5.1.1
 
