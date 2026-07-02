@@ -13,6 +13,8 @@ Welcome to the July 2026 edition of highlights of What's New in Intent Architect
 
 ### NServiceBus Module
 
+![NService Bus Sample](images/nservice-bus-sample.png)
+
 The `Intent.Eventing.NServiceBus` module integrates [NServiceBus](https://particular.net/nservicebus) as a message broker for publishing and subscribing to integration events and commands in .NET applications.
 
 **Key features:**
