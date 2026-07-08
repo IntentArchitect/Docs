@@ -4,6 +4,28 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 ---
 # Release notes: Intent Architect version 5.1
 
+## Version 5.1.3
+
+## Improvements in 5.1.3
+
+- Improvement: ACP agents now show context window usage when available.
+- Improvement: The "Ask Question" tool is now also exposed to ACP agents, enabling user-friendly presentation of questions in the AI chat area.
+- Improvement: The MCP server now waits for module restoration to complete before returning from the `open_solution` tool.
+- Improvement: The MCP Server configuration screen now shows a "Fix" button when there is no `.mcp.json` file, or when it is not correctly configured for the running version of Intent Architect; it also adds a `.gitignore` entry for the file, since Intent Architect installation paths are typically user- or machine-specific.
+- Improvement: A `.mcp.json` file is now created automatically when creating an application.
+- Improvement: A dialog now appears when a solution is opened without a correctly configured `.mcp.json` file and an option to fix or ignore it for the future.
+- Improvement: To reduce confusion in LLMs, designer scripting API basic mapping functions have been renamed with a `Basic` prefix (`setBasicMapping`, `isBasicMapped`, `getBasicMapping`, `clearBasicMapping`); the previous names still work for backward compatibility.
+
+## Fixes in 5.1.3
+
+- Fixed: A false "Generic type argument is required" validation error on the source end of associations declared on a generic element.
+- Fixed: When creating solutions and applications via MCP tools, they would return before modules had finished downloading and installing; the tools now return only once everything is complete.
+- Fixed: Using Ctrl + T for "Search Everywhere" wouldn't work from inside the AI Chat pane.
+- Fixed: Leading new lines in the AI chat window would cause a misaligned overlap of text.
+- Fixed: An exception would occur in the MCP server when multiple instances of Intent Architect had the exact same solution path opened.
+- Fixed: "Handler already registered" errors could occur in designers.
+- Fixed: Some ACP agents were incorrectly reported as available even when not actually installed.
+
 ## Version 5.1.2
 
 ## Improvements in 5.1.2
