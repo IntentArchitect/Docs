@@ -263,6 +263,25 @@ Whatever comments you put on your Blazor `Component` will also be included in th
 
 ---
 
+## Updating Styling from a New `design.md`
+
+As part of the default Blazor templates, a `design.md` file is generated alongside your application. It documents the out-of-the-box style sheet - colors, typography, spacing and component conventions - and is automatically included as context whenever the AI generates a **View**. This is what keeps styling consistent across all your AI-generated pages.
+
+If your design changes (e.g., a new brand palette, updated component variants, or a refreshed style guide), you don't need to touch each `Component` individually. Instead:
+
+1. Replace the existing `design.md` with your updated version.
+2. Run an **AI Task** with an instruction such as:  
+   *"A new `design.md` is available - update the stylesheets with the new design values."*  
+   A dedicated skill picks up on this, extracts what's required from `design.md`, and updates the relevant CSS files accordingly.
+3. Review the proposed changes as a code diff and click **Apply**.
+
+Because styling is centralized in the CSS files rather than duplicated per `Component`, this single AI Task updates styling application-wide - there is no need to run it against each Page or Dialog separately.
+
+> [!NOTE]  
+> Because `design.md` is included automatically as AI prompt context, any *new* Views you generate after replacing it will already reflect the updated design. The AI Task above is only needed to retrofit the CSS for styling that was already generated before the change.
+
+---
+
 ## Try to Keep Your ViewModel Managed
 
 In this approach you have used both deterministic and non-deterministic code generation.  
