@@ -76,7 +76,7 @@ The `Intent.Application.Wolverine` module adds Wolverine as a CQRS dispatcher fo
 
 Available from:
 
-- Intent.Application.Wolverine 1.0.0-pre.4
-- Intent.Application.Wolverine.DomainEvents 1.0.0-pre.2
+- Intent.Application.Wolverine 1.0.0-pre.5
+- Intent.Application.Wolverine.DomainEvents 1.0.0-pre.3
 - Intent.Application.Wolverine.FluentValidation 1.0.0-pre.3
 - Intent.Application.CQRS.CRUD 1.0.0-pre.3
