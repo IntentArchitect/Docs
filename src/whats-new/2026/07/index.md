@@ -7,8 +7,10 @@ Welcome to the July 2026 edition of highlights of What's New in Intent Architect
 
 - Highlights
   - **[NServiceBus Module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
+  - **[Blazor Enhancements](#blazor-enhancements)** – Design.md-driven theming with light/dark mode support, refreshed out-of-the-box styling, better dialog support, component support, and a range of generation quality improvements across the Blazor module set.
   - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
   - **[Wolverine CQRS Dispatcher](#wolverine-cqrs-dispatcher)** – Adds Wolverine as a drop-in CQRS dispatcher alternative to MediatR for ASP.NET Core apps, carrying over the same middleware, validation, domain event, and CRUD support.
+  - **[Preserved Comments in appsettings.json](#preserved-comments-in-appsettingsjson)** – Comments in `appsettings.json` are no longer stripped out when running the Software.
 
 ## Update details
 
@@ -80,3 +82,33 @@ Available from:
 - Intent.Application.Wolverine.DomainEvents 1.0.0-pre.3
 - Intent.Application.Wolverine.FluentValidation 1.0.0-pre.3
 - Intent.Application.CQRS.CRUD 1.0.0-pre.3
+
+### Preserved Comments in appsettings.json
+
+The Software Factory now preserves comments in `appsettings.json` and related JSON configuration files when regenerating them, so annotations you've added are no longer stripped out on every run.
+
+Available from:
+
+- Intent.Modules.VisualStudio.Projects 4.1.3
+
+### Blazor Enhancements
+
+The Blazor module set has received a round of improvements spanning theming, layout, and code generation quality.
+
+**Key features:**
+
+- **Design.md-driven theming** – Out-of-the-box styling is now generated from a `design.md` specification, with restructured CSS tokens for easier customization
+- **Light and dark mode support** – Generated applications now support both themes out of the box
+- **Improved AI/modelling context** – Domain package references are automatically added to the UI designer, and modelling context is now included from the template for a consistent experience whether or not you're using auto-generated AI tasks
+- **Component modelling** – Model reusable Components, and compose a Page or another Component from them, giving you a way to build and reuse UI building blocks across your application
+- **Explicit `Dialog` stereotype** – Components can now be marked with a `Dialog` stereotype, aligning with how the `Page` stereotype already works
+- **Safer `Show Dialog` selection** – The `Show Dialog` context menu now only allows selecting components that have the `Dialog` stereotype applied
+- **Decoupled layout components** – `ThemeToggle`, `AppUserMenu`, and `NavLinks` are now standalone components decoupled from `Intent.Modules.Blazor.Authentication`, so layouts work correctly across `InteractiveServer` and `InteractiveWebAssembly` render modes
+
+Available from:
+
+- Intent.Modules.Blazor 2.0.1
+- Intent.Modules.Blazor.Components.MudBlazor 2.0.1
+- Intent.Modules.Blazor.Wasm 1.1.1
+- Intent.Modules.Modelers.UI.Core 1.0.3
+- Intent.Modules.Modelers.UI 1.1.3
