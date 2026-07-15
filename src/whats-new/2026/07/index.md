@@ -8,6 +8,7 @@ Welcome to the July 2026 edition of highlights of What's New in Intent Architect
 - Highlights
   - **[NServiceBus Module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
   - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
+  - **[Wolverine CQRS Dispatcher](#wolverine-cqrs-dispatcher)** – Adds Wolverine as a drop-in CQRS dispatcher alternative to MediatR for ASP.NET Core apps, carrying over the same middleware, validation, domain event, and CRUD support.
 
 ## Update details
 
@@ -59,3 +60,23 @@ Apply the `Visual Studio Solution Options` stereotype to your solution element a
 Available from:
 
 - Intent.Modules.VisualStudio.Projects 4.1.3
+
+### Wolverine CQRS Dispatcher
+
+![Wolverine Logo](images/wolverine-logo.png)
+
+The `Intent.Application.Wolverine` module adds Wolverine as a CQRS dispatcher for command and query handling, carrying over the same middleware, validation, domain event, and CRUD handler-body support already available for MediatR — a drop-in option for ASP.NET Core applications wanting to try it out.
+
+**Key features:**
+
+- Generated middleware pipeline for authorization, validation, unit-of-work, logging, performance, and unhandled exceptions
+- Domain event dispatch through Wolverine's `IMessageBus`
+- FluentValidation validators generated per command and query
+- CRUD handler bodies generated from modelled Domain Interactions via the transport-agnostic `Intent.Application.CQRS.CRUD` module
+
+Available from:
+
+- Intent.Application.Wolverine 1.0.0-pre.4
+- Intent.Application.Wolverine.DomainEvents 1.0.0-pre.2
+- Intent.Application.Wolverine.FluentValidation 1.0.0-pre.3
+- Intent.Application.CQRS.CRUD 1.0.0-pre.3
