@@ -8,7 +8,7 @@ Welcome to the July 2026 edition of highlights of What's New in Intent Architect
 - Highlights
   - **[NServiceBus Module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
   - **[Blazor Enhancements](#blazor-enhancements)** – Design.md-driven theming with light/dark mode support, refreshed out-of-the-box styling, better dialog support, component support, and a range of generation quality improvements across the Blazor module set.
-  - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
+  <!-- - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format. -->
   - **[Wolverine CQRS Dispatcher](#wolverine-cqrs-dispatcher)** – Adds Wolverine as a drop-in CQRS dispatcher alternative to MediatR for ASP.NET Core apps, carrying over the same middleware, validation, domain event, and CRUD support.
   - **[Preserved Comments in appsettings.json](#preserved-comments-in-appsettingsjson)** – Comments in `appsettings.json` are no longer stripped out when running the Software.
 
@@ -41,6 +41,7 @@ Available from:
 
 - Intent.Eventing.NServiceBus 1.0.0
 
+<!---
 ### SLNX Support for Visual Studio Solutions
 
 The Visual Studio Projects module now supports generating modern XML-based `.slnx` solution files introduced in Visual Studio 2022 and .NET 10, providing an alternative to the traditional `.sln` format.
@@ -62,6 +63,7 @@ Apply the `Visual Studio Solution Options` stereotype to your solution element a
 Available from:
 
 - Intent.Modules.VisualStudio.Projects 4.1.3
+-->
 
 ### Wolverine CQRS Dispatcher
 
