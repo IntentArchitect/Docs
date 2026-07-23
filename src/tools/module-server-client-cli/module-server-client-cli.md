@@ -46,14 +46,25 @@ Tool 'intent.moduleserver.client.cli' (version 'x.x.x') was successfully install
 |`--version`      |Show version information|
 |`-?, -h, --help` |Show help and usage information|
 
+## Authentication
+
+Every command requires exactly one of the following authentication options to be specified:
+
+|Option                          |Description|
+|--------------------------------|-----------|
+|`--api-key <apiKey>`            |The API key to use to authenticate the request.|
+|`--access-token, --oat <token>` |The organization access token to use to authenticate the request.|
+
+If neither option is specified, the tool exits with an error.
+
 ## Commands
 
-|Command                                                                 |Description|
-|------------------------------------------------------------------------|-----------|
-|`upload-module <serverUrl> <apiKey> <path>`                             |Upload a module .imod file.|
-|`upload-application-template <serverUrl> <apiKey> <path>`               |Upload an application template .iat file.|
-|`list-module-version <serverUrl> <apiKey> <moduleId> <moduleVersion>`   |Updates a module to be listed (not hidden from searches). |
-|`unlist-module-version <serverUrl> <apiKey> <moduleId> <moduleVersion>` |Updates a module version to be unlisted (hidden from searches).|
+|Command                                                        |Description|
+|---------------------------------------------------------------|-----------|
+|`upload-module <serverUrl> <path>`                             |Upload a module .imod file.|
+|`upload-application-template <serverUrl> <path>`               |Upload an application template .iat file.|
+|`list-module-version <serverUrl> <moduleId> <moduleVersion>`   |Updates a module to be listed (not hidden from searches).|
+|`unlist-module-version <serverUrl> <moduleId> <moduleVersion>` |Updates a module version to be unlisted (hidden from searches).|
 
 ## upload-module command
 
@@ -62,7 +73,7 @@ Upload a module .imod file.
 ### upload-module usage
 
 ```bash
-module-server-client-cli upload-module [<serverUrl> [<apiKey> [<path>]]] [options]
+module-server-client-cli upload-module [<serverUrl> [<path>]] [options]
 ```
 
 ### upload-module arguments
@@ -70,16 +81,18 @@ module-server-client-cli upload-module [<serverUrl> [<apiKey> [<path>]]] [option
 |Argument    |Description|
 |------------|-----------|
 |`serverUrl` |The module server's https address.|
-|`apiKey`    |The API key to use to authenticate the request.|
 |`path`      |The path of the file to upload.|
 
 ### upload-module options
 
-|Option           |Description|
-|-----------------|-----------|
-|`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
-|`--unlisted`     |The module version should be unlisted (hidden from searches).|
-|`-?, -h, --help` |Show help and usage information|
+|Option                          |Description|
+|--------------------------------|-----------|
+|`--force`                       |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`--unlisted`                    |The module version should be unlisted (hidden from searches).|
+|`--api-key <apiKey>`            |The API key to use to authenticate the request.|
+|`--access-token, --oat <token>` |The organization access token to use to authenticate the request.|
+|`--organization-id <guid>`      |Organization id to which access will be restricted.|
+|`-?, -h, --help`                |Show help and usage information|
 
 ## upload-application-template command
 
@@ -88,7 +101,7 @@ Upload an application template .iat file.
 ### upload-application-template usage
 
 ```bash
-module-server-client-cli upload-application-template [<serverUrl> [<apiKey> [<path>]]] [options]
+module-server-client-cli upload-application-template [<serverUrl> [<path>]] [options]
 ```
 
 ### upload-application-template arguments
@@ -96,24 +109,26 @@ module-server-client-cli upload-application-template [<serverUrl> [<apiKey> [<pa
 |Argument    |Description|
 |------------|-----------|
 |`serverUrl` |The module server's https address.|
-|`apiKey`    |The API key to use to authenticate the request.|
 |`path`      |The path of the file to upload.|
 
 ### upload-application-template options
 
-|Option           |Description|
-|-----------------|-----------|
-|`--force`        |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
-|`-?, -h, --help` |Show help and usage information|
+|Option                          |Description|
+|--------------------------------|-----------|
+|`--force`                       |If there is already an item with the same identifier and version then this option can be used force it to be overwritten.|
+|`--api-key <apiKey>`            |The API key to use to authenticate the request.|
+|`--access-token, --oat <token>` |The organization access token to use to authenticate the request.|
+|`--organization-id <guid>`      |Organization id to which access will be restricted.|
+|`-?, -h, --help`                |Show help and usage information|
 
-## list-module-version
+## list-module-version command
 
 Updates a module to be listed (not hidden from searches).
 
 ### list-module-version usage
 
 ```bash
-module-server-client-cli list-module-version [<serverUrl> [<apiKey> [<moduleId> [<moduleVersion>]]]] [options]
+module-server-client-cli list-module-version [<serverUrl> [<moduleId> [<moduleVersion>]]] [options]
 ```
 
 ### list-module-version arguments
@@ -121,24 +136,25 @@ module-server-client-cli list-module-version [<serverUrl> [<apiKey> [<moduleId> 
 |Argument        |Description|
 |----------------|-----------|
 |`serverUrl`     |The module server's https address.|
-|`apiKey`        |The API key to use to authenticate the request.|
 |`moduleId`      |The identifier or full name of the module.|
 |`moduleVersion` |The version of the module.|
 
 ### list-module-version options
 
-|Option           |Description|
-|-----------------|-----------|
-|`-?, -h, --help` |Show help and usage information|
+|Option                          |Description|
+|--------------------------------|-----------|
+|`--api-key <apiKey>`            |The API key to use to authenticate the request.|
+|`--access-token, --oat <token>` |The organization access token to use to authenticate the request.|
+|`-?, -h, --help`                |Show help and usage information|
 
-## unlist-module-version
+## unlist-module-version command
 
 Updates a module version to be unlisted (hidden from searches).
 
 ### unlist-module-version usage
 
 ```bash
-module-server-client-cli unlist-module-version [<serverUrl> [<apiKey> [<moduleId> [<moduleVersion>]]]] [options]
+module-server-client-cli unlist-module-version [<serverUrl> [<moduleId> [<moduleVersion>]]] [options]
 ```
 
 ### unlist-module-version arguments
@@ -146,12 +162,13 @@ module-server-client-cli unlist-module-version [<serverUrl> [<apiKey> [<moduleId
 |Argument        |Description|
 |----------------|-----------|
 |`serverUrl`     |The module server's https address.|
-|`apiKey`        |The API key to use to authenticate the request.|
 |`moduleId`      |The identifier or full name of the module.|
 |`moduleVersion` |The version of the module.|
 
 ### unlist-module-version options
 
-|Option           |Description|
-|-----------------|-----------|
-|`-?, -h, --help` |Show help and usage information|
+|Option                          |Description|
+|--------------------------------|-----------|
+|`--api-key <apiKey>`            |The API key to use to authenticate the request.|
+|`--access-token, --oat <token>` |The organization access token to use to authenticate the request.|
+|`-?, -h, --help`                |Show help and usage information|

@@ -6,5 +6,7 @@
         
     },
     // https://github.com/DavidAnson/markdownlint/blob/v0.23.1/doc/Rules.md#md013
-    "MD013": false
+    "MD013": false,
+    // https://github.com/DavidAnson/markdownlint/blob/main/doc/md060.md
+    "MD060": false
 }
