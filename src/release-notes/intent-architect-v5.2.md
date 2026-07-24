@@ -10,15 +10,17 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 >
 > Version 5.2 is still in pre-release. These release notes are a work in progress and subject to change before the final release.
 
-Where 5.1 was about *seeing* change, 5.2 is about *reviewing, trusting and driving* it. This release sharpens Intent Architect into a calmer, more unified workspace and doubles down on the AI-native workflow that ties your model, your code and your repository together.
+We're very excited to announce the release of Intent Architect version 5.2. This release is a major upgrade, and the first version the platform which we, the Intent Architect team, now use exclusively for our fully agentic development of the platform and modules!
 
-A big part of that is the new **Changes Review** tab - a single place to review everything about to land in your codebase (Software Factory output *and* your own hand-written customizations) before you commit, with inline diffs, deviation approvals and links back to the requirements that motivated each change. Around it, the whole UI has been **simplified and unified**, Git gains real **merge, conflict and worktree** support, and the Software Factory learns a new **write-through mode** for a tighter generate-and-go loop.
+Where 5.1 was about *seeing* change, 5.2 is about *reviewing, trusting and driving* it. This release expands on our foundation of quality guardrails, architectural adherence, fully integrated agentic systems, and authoritative design specifications, and sharpens Intent Architect into a simpler, more unified workspace and doubles down on the AI-native workflow that ties your model, your code and your repository together. The result is a control plane for fully agentic software development that gives teams assurance of quality, visibility and clarity in a world where codebases are increasingly "black-boxed" - while dramatically simplifying and streamlining the validation, review and traceability bottlenecks.
+
+To support this, 5.2 introduces several new capabilities, such as the the new **Changes Review** tab - a single place to review everything that has historically landed in your Git, or about to land in your codebase before you commit. It summarizes model changes, Software Factory output and customizations with inline diffs, deviation approvals and traceability links back to the requirements that motivated each change. Around it, the whole UI has been **simplified and unified**, Git gains real **merge, conflict and worktree** support, and the Software Factory now supports a new **write-through mode** for a tighter generate-and-go loop.
 
 On the AI side, 5.2 introduces **Spec-Driven Development (Beta)** with genuine requirement-to-code traceability, an **AI-driven C# import** that reverse-engineers existing code into your designer model, and a new generation of **AI agent orchestration** built on sub-agents.
 
 As always, the team has also poured significant effort into polish, performance and the hundreds of small details that add up to a world-class experience.
 
-We hope you love it. Thank you for your continued support and feedback - it directly shapes where we take the platform next. 🚀
+We hope you enjoy this version. Thank you for your continued support and feedback as we pioneer the future of software development with you 🚀
 
 > [!TIP]
 >
@@ -37,19 +39,28 @@ We hope you love it. Thank you for your continued support and feedback - it dire
 
 ![The unified Changes panel](./images/5.2/00/unified-changes-panel.png)
 
+### One workspace: terminals, code and Software Factories
+
+The shell also pulls the pieces you used to hunt for into the same workspace:
+
+- **Terminals are now first-class editor tabs.** Each session opens, reorders and closes like any other tab and can be popped out into its own window, file paths and line numbers in the output are clickable, and you can drag-and-drop files into a terminal. Under the hood the terminal moved to **xterm v6** and **ConPTY on Windows**, so agent CLIs and other TUIs render correctly.
+- **A new Codebase Explorer** in the sidebar browses each application's generated files across all of its output roots - with background indexing for large codebases, inline rename / delete and add-folder actions, and Git-status overlays on files and folders.
+- **A persistent Software Factories window** replaces the old "Run multiple Software Factories" dialog, listing every application's Software Factory with its live status and per-row run / stop / pop-out / refresh controls, Run All / Stop All actions, and the option to **attach a debugger** to a run when developing a module.
+
 ---
 
 ## Review your changes with confidence: the Changes Review tab
 
-Generating code is only half the story - the other half is *knowing exactly what's about to change, and why, before it becomes a commit*. The new **Changes Review** tab is built for precisely that.
+Generating code is only half the story - the other half is *knowing exactly what's about to change, and why, before it becomes a commit*. Then downstream we have the similar questions such as, *what changed between these commits? Why were these changes made?*. The new **Changes Review** tab is built for precisely that.
 
 ![The Changes Review tab](./images/5.2/00/changes-review-tab.png)
+_An example of the Changes Review for the worktree against the git HEAD._
 
-### Everything that's about to change, in one tree
+### Everything that's changed or about to change, in one tree
 
 Changes Review presents a **nested, drill-in change tree** that brings together everything pending for your codebase:
 
-- **Software Factory output** - the files the generator wants to create, modify or delete.
+- **Software Factory output** - the files the generator created, modified or deleted.
 - **Your customizations** - hand-written code the Software Factory has detected as diverging from what it would generate.
 - **Deviations** - regions where your manual edits, or AI/ignored-mode changes, differ from the generated baseline.
 
@@ -93,6 +104,7 @@ Git operations now work correctly inside **linked worktrees and submodules** - a
 
 - A new **history view mode** with folder-tree grouping makes it easier to see what a commit touched.
 - A **create-branch popover** lets you branch off without dropping to the terminal.
+- **Everyday Git actions** - undo last commit, delete a branch, `git reset` and amend-commit editing - are now built in.
 - **Git diff tabs** now support the same preview / double-click-to-pin behaviour as the rest of the app.
 
 ### A self-healing change baseline
@@ -186,6 +198,10 @@ AI agents can now **run your configured build/test/run tasks** directly, includi
 - Improvement: **Search Everywhere** now always favours results from non-external packages over external ones when both are available.
 - Improvement: The **AI chat conversation list** has been reworked into a shared search / filter / sort toolbar for quicker navigation of long histories.
 - Improvement: **"Open in IDE"** now offers a dropdown to select which IDE to use.
+- Improvement: **A Markdown preview for `.md` files** renders syntax highlighting, YAML front-matter as a table and task-list checkboxes, with a user-selectable font size - toggle it with **Ctrl+Shift+V** or a double-click.
+- Improvement: **Press F5 / Shift+F5 in the editor** to run the current application's Software Factory.
+- Improvement: **The model diff popover now shows who changed what**, attributing each changed element to the developer, commit and date that last touched it, with a clickable commit link and an "Uncommitted" marker for working-tree edits.
+- Improvement: **Diff views** gain a "Hide unchanged lines" toggle, per-language word-wrap preferences, a dirty-diff change gutter, and Reveal-in-Codebase / Open / Create-AI-Task actions plus drag-into-chat from diff tabs and Source Control rows.
 - Improvement: The AI scripting API's `lookupByPath` resolution has been improved with an editable-first, reference-inclusive fallback, for more reliable element lookups from scripts.
 
 ## Fixes in 5.2.0
@@ -194,6 +210,7 @@ AI agents can now **run your configured build/test/run tasks** directly, includi
 - Fixed: Software Factories would sometimes not show as completed when a run produced no changes.
 - Fixed: An AI agent could attempt to write staged changes to a Software Factory that had errored.
 - Fixed: A deleted mapping would still persist its `mappedEnds` in the metadata.
+- Fixed: Illegal XML characters - introduced via paste, AI-generated content or imports - could corrupt a model file so it failed to load; such characters are now stripped at every layer.
 - Fixed: Git History model-centric diffs would not show domain elements when comparing two historical commits.
 - Fixed: The Reasoning Effort chip (Low / Medium / High / Extra High / Max) in the ACP Agent Settings popup would reset between sessions.
 - Fixed: Renamed-file diffs showed a blank original-content pane.
