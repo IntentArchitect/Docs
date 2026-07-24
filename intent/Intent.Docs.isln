@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<solution id="d2871a29-34c1-4f22-8e6c-d0922453eea1">
+  <name>Intent.Docs</name>
+  <version>3.3.0</version>
+  <icon>./img/logo-blue.svg</icon>
+  <iconType>UrlImagePath</iconType>
+  <metadataRelativePath>Intent.Metadata</metadataRelativePath>
+  <modulesCacheRelativePath>.cache/modules</modulesCacheRelativePath>
+  <applications />
+  <folders>
+    <folder path=".." />
+  </folders>
+</solution>
