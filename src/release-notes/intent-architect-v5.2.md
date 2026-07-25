@@ -28,24 +28,23 @@ We hope you enjoy this version. Thank you for your continued support and feedbac
 
 ---
 
-## A simplified, unified interface
+## A simplified, unified UI
 
-5.2 steps back and asks a simple question: *when you're working, how many places do you have to look?* The answer in 5.2 is "fewer".
-
-- **One unified Changes panel.** The Software Factory's separate change views have been consolidated into a single, aggregated **Changes** tree, so generated changes, customizations and deviations all live in one place rather than being scattered across panels.
-- **VS Code-style preview tabs.** Single-clicking a file opens it in a reusable *preview* tab; double-click (or edit) **pins** it. This keeps your tab bar from filling up as you skim through diffs and files - exactly the behaviour you're used to from your editor.
-- **A refreshed create-solution / create-application experience** with a cleaner layout, better spacing and clearer flow.
-- **Consistent, quieter chrome.** Close buttons, hover affordances, pill and badge colours, and light/dark theming have been reworked across the Git, Changes Review, Specs and AI Chat surfaces so the app reads as one coherent system.
+As part of 5.2, we've overhaulded the UI into a simplified and unified experience for the user. This release no longer has separate Software Factory dialogs with separate AI Assistants (i.e. "Modeling" and "Coding" AI Assistants) - a paradigm that could create confusion at times and required unnecessary user intervention. Instead 5.2 offers an additional set of side panels which unify the Software Factory changes, Codebases, Customizations (Devitions), and Source Control across applications in the solution.
 
 ![The unified Changes panel](./images/5.2/00/unified-changes-panel.png)
 
-### One workspace: terminals, code and Software Factories
+As part of this simplification of the UI, we've added the following:
 
-The shell also pulls the pieces you used to hunt for into the same workspace:
-
-- **Terminals are now first-class editor tabs.** Each session opens, reorders and closes like any other tab and can be popped out into its own window, file paths and line numbers in the output are clickable, and you can drag-and-drop files into a terminal. Under the hood the terminal moved to **xterm v6** and **ConPTY on Windows**, so agent CLIs and other TUIs render correctly.
+- **Software Factory and Tasks controls in main toolbar.** The Software Factory And Tasks avaialble for the current application is inferred from which tab is currently in focus.
+- **Unified Software Factory Changes panel.** The Software Factory's separate change views have been consolidated into a single, aggregated **Changes** tree, so generated changes across separate applications and Software Factories all live in one place rather than being scattered across separate dialogs.
+- **Single AI Assistant.** Ask anything and drive all changes from the single AI Assistant window. Coding agents for specific applications are now dispatched as sub-agents from the main _solution wide_ agent.
 - **A new Codebase Explorer** in the sidebar browses each application's generated files across all of its output roots - with background indexing for large codebases, inline rename / delete and add-folder actions, and Git-status overlays on files and folders.
-- **A persistent Software Factories window** replaces the old "Run multiple Software Factories" dialog, listing every application's Software Factory with its live status and per-row run / stop / pop-out / refresh controls, Run All / Stop All actions, and the option to **attach a debugger** to a run when developing a module.
+- **File Diff and Editor tabs** allowing the user to see files and changes directly in the main window.
+- **Preview tabs.** Single-clicking a file opens it in a reusable *preview* tab; double-click (or edit) **pins** it. This keeps your tab bar from filling up as you skim through diffs and files - exactly the behaviour you're used to in other editors.
+- **Collapsible side panels.** Main window and designer side-panels can now be collapsed, allowing real-estate to be optimized for the task at hand.
+- **Terminals are now first-class tabs.** Each session opens, reorders and closes like any other tab and can be popped out into its own window, file paths and line numbers in the output are clickable, and you can drag-and-drop files into a terminal. Under the hood the terminal moved to **xterm v6** and **ConPTY on Windows**, so agent CLIs and other TUIs render correctly.
+
 
 ---
 
