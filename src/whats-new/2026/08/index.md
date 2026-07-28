@@ -116,6 +116,10 @@ The Blazor module set has received a round of improvements spanning theming, lay
 - **Safer `Show Dialog` selection** – The `Show Dialog` context menu now only allows selecting components that have the `Dialog` stereotype applied
 - **Decoupled layout components** – `ThemeToggle`, `AppUserMenu`, and `NavLinks` are now standalone components decoupled from `Intent.Modules.Blazor.Authentication`, so layouts work correctly across `InteractiveServer` and `InteractiveWebAssembly` render modes
 
+![UI Designer enhancements](images/blazor-ui-designer.png)
+
+![Default home page design](images/blazor-home-page.png)
+
 Available from:
 
 - Intent.Modules.Blazor 2.0.1
