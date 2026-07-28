@@ -3,7 +3,7 @@ uid: whats-new.2026.08
 ---
 # What's new in Intent Architect (August 2026)
 
-Welcome to the August edition of What's New in Intent Architect. This month brings the release of **Intent Architect 5.2** — a major upgrade that shifts the focus from *seeing* change (5.1) to *reviewing, trusting and driving* it, with a simplified unified workspace, a new Changes Review tab, robust Git merge and worktree support, Spec-Driven Development (Beta), and much more. `appsettings.json`.
+Welcome to the August edition of What's New in Intent Architect. This month brings the release of **Intent Architect 5.2** — a major upgrade that shifts the focus from *seeing* change (5.1) to *reviewing, trusting and driving* it, with a simplified unified workspace, a new Changes Review tab, robust Git merge and worktree support, Spec-Driven Development (Beta), and much more. 
 
 Read the [full 5.2 release notes](xref:release-notes.intent-architect-v5.2) for complete details on everything covered below.
 
@@ -15,9 +15,9 @@ Read the [full 5.2 release notes](xref:release-notes.intent-architect-v5.2) for 
   - **[Git: merge, conflicts and worktrees](#git-merge-conflicts-and-worktrees)** – Guided merge and rebase conflict resolution, first-class linked worktree and submodule support, and a richer commit history.
   - **[Import existing C# into your model](#import-existing-c-into-your-model)** – An AI-driven importer reverse-engineers existing C# code into your designer model, turning legacy codebases into a starting point.
   - **[Wolverine CQRS Dispatcher](#wolverine-cqrs-dispatcher)** – Adds Wolverine as a drop-in CQRS dispatcher alternative to MediatR for ASP.NET Core apps, carrying over the same middleware, validation, domain event, and CRUD support. 
-  - **[Blazor Enhancements](#blazor-enhancements)** – Design.md-driven theming with light/dark mode support, refreshed out-of-the-box styling, better dialog support, component support, and a range of generation quality improvements across the Blazor module set.
-  - **[NServiceBus Module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
-  - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
+  - **[Blazor enhancements](#blazor-enhancements)** – Design.md-driven theming with light/dark mode support, refreshed out-of-the-box styling, better dialog modeling support, component modeling support, and a range of generation quality improvements across the Blazor module set.
+  - **[NServiceBus module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
+  - **[SLNX Support for Visual Studio solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
   - **[Preserved Comments in appsettings.json](#preserved-comments-in-appsettingsjson)** – Comments in `appsettings.json` are no longer stripped out when running the Software.
 
 ## Update details
@@ -36,7 +36,7 @@ Available from:
 
 ### Review changes with confidence: the Changes Review tab
 
-Knowing exactly what's about to change, whats important to review and seeing visually how it affects the system design before it becomes a commit is now possible with the new **Changes Review** tab. It brings Software Factory output, AI / hand-written changes and deviations together into a single drill-in tree with inline diffs, lets you approve deviations without leaving the review, and links each change back to the requirement that motivated it.
+Knowing exactly what's about to change, what's important to review and seeing visually how it affects the system design before it becomes a commit is now possible with the new **Changes Review** tab. It brings Software Factory output, AI / hand-written changes and deviations together into a single drill-in tree with inline diffs, lets you approve deviations without leaving the review, and links each change back to the requirement that motivated it.
 
 ![The Changes Review tab](../../../release-notes/images/5.2/00/changes-review-tab.png)
 
