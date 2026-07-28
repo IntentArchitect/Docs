@@ -1,0 +1,115 @@
+---
+uid: whats-new.2026.07
+---
+# What's new in Intent Architect (August 2026)
+
+Welcome to the August 2026 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
+
+- Highlights
+  - **[Wolverine CQRS Dispatcher](#wolverine-cqrs-dispatcher)** – Adds Wolverine as a drop-in CQRS dispatcher alternative to MediatR for ASP.NET Core apps, carrying over the same middleware, validation, domain event, and CRUD support. 
+  - **[Blazor Enhancements](#blazor-enhancements)** – Design.md-driven theming with light/dark mode support, refreshed out-of-the-box styling, better dialog support, component support, and a range of generation quality improvements across the Blazor module set.
+  - **[NServiceBus Module](#nservicebus-module)** – Integrates NServiceBus as a message broker for publishing and subscribing to integration events and commands with multi-transport support.
+  - **[SLNX Support for Visual Studio Solutions](#slnx-support-for-visual-studio-solutions)** – Generate modern XML-based `.slnx` solution format for Visual Studio 2022 17.10 and .NET 10, replacing the traditional `.sln` format.
+  - **[Preserved Comments in appsettings.json](#preserved-comments-in-appsettingsjson)** – Comments in `appsettings.json` are no longer stripped out when running the Software.
+
+## Update details
+
+### Wolverine CQRS Dispatcher
+
+![Wolverine Logo](images/wolverine-logo.png)
+
+The `Intent.Application.Wolverine` module adds Wolverine as a CQRS dispatcher for command and query handling, carrying over the same middleware, validation, domain event, and CRUD handler-body support already available for MediatR — a drop-in option for ASP.NET Core applications wanting to try it out.
+
+**Key features:**
+
+- Generated middleware pipeline for authorization, validation, unit-of-work, logging, performance, and unhandled exceptions
+- Domain event dispatch through Wolverine's `IMessageBus`
+- FluentValidation validators generated per command and query
+- CRUD handler bodies generated from modelled Domain Interactions via the transport-agnostic `Intent.Application.CQRS.CRUD` module
+
+Available from:
+
+- Intent.Application.Wolverine 1.0.0
+- Intent.Application.Wolverine.DomainEvents 1.0.0
+- Intent.Application.Wolverine.FluentValidation 1.0.0
+- Intent.Application.CQRS.CRUD 1.0.0
+
+### Blazor Enhancements
+
+The Blazor module set has received a round of improvements spanning theming, layout, and code generation quality.
+
+**Key features:**
+
+- **Design.md-driven theming** – Out-of-the-box styling is now generated from a `design.md` specification, with restructured CSS tokens for easier customization
+- **Light and dark mode support** – Generated applications now support both themes out of the box
+- **Improved AI/modelling context** – Domain package references are automatically added to the UI designer, and modelling context is now included from the template for a consistent experience whether or not you're using auto-generated AI tasks
+- **Component modelling** – Model reusable Components, and compose a Page or another Component from them, giving you a way to build and reuse UI building blocks across your application
+- **Explicit `Dialog` stereotype** – Components can now be marked with a `Dialog` stereotype, aligning with how the `Page` stereotype already works
+- **Safer `Show Dialog` selection** – The `Show Dialog` context menu now only allows selecting components that have the `Dialog` stereotype applied
+- **Decoupled layout components** – `ThemeToggle`, `AppUserMenu`, and `NavLinks` are now standalone components decoupled from `Intent.Modules.Blazor.Authentication`, so layouts work correctly across `InteractiveServer` and `InteractiveWebAssembly` render modes
+
+Available from:
+
+- Intent.Modules.Blazor 2.0.1
+- Intent.Modules.Blazor.Components.MudBlazor 2.0.1
+- Intent.Modules.Blazor.Wasm 1.1.1
+- Intent.Modules.Modelers.UI.Core 1.0.3
+- Intent.Modules.Modelers.UI 1.1.3
+
+
+### NServiceBus Module
+
+![NService Bus Sample](images/nservice-bus-sample.png)
+
+The `Intent.Eventing.NServiceBus` module integrates [NServiceBus](https://particular.net/nservicebus) as a message broker for publishing and subscribing to integration events and commands in .NET applications.
+
+**Key features:**
+
+- Modeling Integration Events and Integration Commands in the Services Designer
+- Support for multiple transport technologies:
+  - Learning Transport (file-based, ideal for development)
+  - RabbitMQ
+  - Azure Service Bus
+  - Amazon SQS
+  - SQL Server
+- NServiceBus endpoint configuration generation with automatic dependency injection wiring
+- SQL Persistence transactional outbox (with EF Core shared connection)
+- Command routing and message handler generation
+- Multi-broker coexistence support via the **NServiceBus** stereotype
+- .NET 8/9 and .NET 10+ host registration
+
+The module simplifies distributed messaging patterns by handling transport configuration, serialization, recoverability policies, and message routing—allowing you to focus on your business logic.
+
+Available from:
+
+- Intent.Eventing.NServiceBus 1.0.0
+
+### SLNX Support for Visual Studio Solutions
+
+The Visual Studio Projects module now supports generating modern XML-based `.slnx` solution files introduced in Visual Studio 2022 and .NET 10, providing an alternative to the traditional `.sln` format.
+
+**Benefits of `.slnx` format:**
+
+- **Simpler to read and diff** – Human-readable XML structure
+- **No GUIDs** – Removes cryptic GUID identifiers
+- **No configuration-platform boilerplate** – Eliminates redundant build configuration entries
+- **More maintainable** – Easier to understand and manage in version control
+
+**How to use:**
+
+Apply the `Visual Studio Solution Options` stereotype to your solution element and set the `Solution File Format` property to `XML Solution (.slnx)`. When you run the Software Factory, it will generate the new format and automatically remove the old `.sln` file.
+
+> [!NOTE]
+> The `.slnx` format requires Visual Studio 2022 17.10 or later, or the .NET 10 SDK.
+
+Available from:
+
+- Intent.Modules.VisualStudio.Projects 4.1.5
+
+### Preserved Comments in appsettings.json
+
+The Software Factory now preserves comments in `appsettings.json` and related JSON configuration files when regenerating them, so annotations you've added are no longer stripped out on every run.
+
+Available from:
+
+- Intent.Modules.VisualStudio.Projects 4.1.3
