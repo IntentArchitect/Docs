@@ -116,9 +116,17 @@ The Blazor module set has received a round of improvements spanning theming, lay
 - **Safer `Show Dialog` selection** – The `Show Dialog` context menu now only allows selecting components that have the `Dialog` stereotype applied
 - **Decoupled layout components** – `ThemeToggle`, `AppUserMenu`, and `NavLinks` are now standalone components decoupled from `Intent.Modules.Blazor.Authentication`, so layouts work correctly across `InteractiveServer` and `InteractiveWebAssembly` render modes
 
+#### Designing UI Components and Dialogs
+
 ![UI Designer enhancements](images/blazor-ui-designer.png)
 
+Model reusable Components and compose Pages, Dialogs or other Components from them to build and reuse UI building blocks across your application, with improved Dialog support.
+
+#### Design.md-driven Styling and Theming
+
 ![Default home page design](images/blazor-home-page.png)
+
+Out-of-the-box styling is now generated from a `design.md` specification with restructured CSS tokens for easier customization. Generated applications support both light and dark modes with a refreshed default design.
 
 Available from:
 
