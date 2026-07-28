@@ -30,13 +30,13 @@ We hope you enjoy this version. Thank you for your continued support and feedbac
 
 ## A simplified, unified UI
 
-As part of 5.2, we've overhaulded the UI into a simplified and unified experience for the user. This release no longer has separate Software Factory dialogs with separate AI Assistants (i.e. "Modeling" and "Coding" AI Assistants) - a paradigm that could create confusion at times and required unnecessary user intervention. Instead 5.2 offers an additional set of side panels which unify the Software Factory changes, Codebases, Customizations (Devitions), and Source Control across applications in the solution.
+As part of 5.2, we've overhauled the UI into a simplified and unified experience for the user. This release no longer has separate Software Factory dialogs with separate AI Assistants (i.e. "Modeling" and "Coding" AI Assistants) - a paradigm that could create confusion at times and required unnecessary user intervention. Instead 5.2 offers an additional set of side panels which unify the Software Factory changes, Codebases, Customizations (Deviations), and Source Control across applications in the solution.
 
 ![The unified Changes panel](./images/5.2/00/unified-changes-panel.png)
 
 As part of this simplification of the UI, we've added the following:
 
-- **Software Factory and Tasks controls in main toolbar.** The Software Factory And Tasks avaialble for the current application is inferred from which tab is currently in focus.
+- **Software Factory and Tasks controls in main toolbar.** The Software Factory And Tasks available for the current application is inferred from which tab is currently in focus.
 - **Unified Software Factory Changes panel.** The Software Factory's separate change views have been consolidated into a single, aggregated **Changes** tree, so generated changes across separate applications and Software Factories all live in one place rather than being scattered across separate dialogs.
 - **Single AI Assistant.** Ask anything and drive all changes from the single AI Assistant window. Coding agents for specific applications are now dispatched as sub-agents from the main _solution wide_ agent.
 - **A new Codebase Explorer** in the sidebar browses each application's generated files across all of its output roots - with background indexing for large codebases, inline rename / delete and add-folder actions, and Git-status overlays on files and folders.
