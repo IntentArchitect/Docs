@@ -85,6 +85,10 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 
 ## Version 5.1.0
 
+<div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
+  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/zOeaQ3aSLnE?si=5y3iV2tkkfKVDCHt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
 Hot on the heels of 5.0, version 5.1 turns its attention to the moment that matters most for an AI-native development platform: **change**. Where 5.0 brought AI into the heart of Intent Architect, 5.1 is about *seeing, understanding, and controlling* the changes flowing through your solution - from the model in your designers, to the code in your codebase, to the commits in your repository.
 
 This release introduces **first-class Git source control** inside Intent Architect, a **model-level change-tracking and diffing system** that shows exactly what's changed in your designs (and against which baseline), a major **expansion of supported AI providers** including Claude Code, GitHub Copilot and Codex, and a new, more compact **YAML / V3 metadata persistence format** designed to make your on-disk metadata cleaner and your pull requests dramatically quieter.

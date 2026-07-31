@@ -57,7 +57,7 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 - Fixed: Model picker with duplicate model names (including custom models with identical IDs across providers) will now display as separate entries grouped by provider, allowing you to select the correct one.
 - Fixed: A JavaScript "operation not permitted" error would occur on startup if running Intent Architect v5 for the first time while Intent Architect v4 was still running.
 
----
+## Version 5.0.0
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
   <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/vlEwOM8nRXo?si=GnW6IaJWmn2FwLFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
