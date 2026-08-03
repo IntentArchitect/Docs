@@ -41,7 +41,7 @@ _Example showing both Open AI and Anthropic models available when both are confi
 
 ## Daily Budget
 
-So that all new users of Intent Architect are able to get a sense of what the AI Assistant is capable of, by default they have access to 150 completely free daily credits. This free limit resets daily at midnight UTC.
+So that all new users of Intent Architect are able to get a sense of what the AI Assistant is capable of, by default they have access to 500 completely free daily credits. This free limit resets daily at midnight UTC.
 
 No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
 

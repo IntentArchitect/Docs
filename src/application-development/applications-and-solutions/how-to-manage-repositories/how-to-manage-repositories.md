@@ -12,7 +12,7 @@ There are a few ways to locate the Repository Management dialog.
 
 ### Profile Menu
 
-From any screen within Intent Architect, click on the top right Profile menu and select `Repository Management`.
+From any screen within Intent Architect, click on the top right Profile menu and select `Manage Repositories`.
 
 ![Profile Menu](images/menu-manage-repositories.png)
 
