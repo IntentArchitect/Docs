@@ -187,11 +187,11 @@ html[data-theme="dark"] .ia-overview .card {
 
 # Introduction to Intent Architect
 
-Intent Architect is the first architecture-centric AI code automation platform for .NET developers.
+Intent Architect is the first control plane for agentic .NET software development.
 
-It's the platform that delivers AI-driven development speed, with built-in guardrails and uncompromised quality, at any scale.
+It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale delivery system – using their preferred LLMs and AI-coding harnesses.
 
-It brings design and architectural visibility to your software development processes and unlocks a single cohesive workflow to go from specification to production-ready code up to 10X faster. Architectural adherence enforced by default. Technical and cognitive debt minimized by design.
+It brings reliable architectural guardrails, authoritative design blueprints, and advanced change-review tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality.
 
 ![Overview](introducing/images/docs-landing-page-v1.png)
 
@@ -267,8 +267,8 @@ It brings design and architectural visibility to your software development proce
       </span>
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
-        <strong class="card-title">Visual Design Tools</strong>
-        <p class="card-text">Software development is going visual. Intent Architect's visual design tools let you create living blueprints of your system that realize directly as code, creating a powerful context engine to minimize technical and cognitive debt by design.</p>
+        <strong class="card-title">Authoritative Design Blueprints</strong>
+        <p class="card-text">Condense validation and comprehension to a fraction of the time to minimize risk and sustain AI-driven velocity. Create living blueprints of your system design, that track code changes as they happen, and add advanced change-review tools to alleviate the bottlenecks of agentic coding.</p>
       </div>
       <a href="xref:key-concepts.visual-modeling" aria-label="Visual Modeling"></a>
     </div>
@@ -284,8 +284,8 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Architecture Enforcement</strong>
-        <p class="card-text">Guaranteed consistency and standardization, by default. Deterministic architecture enforcement systems provide strong guardrails, ensuring a consistent implementation of your design and architecture at any scale, with zero drift.</p>
+        <strong class="card-title">Architectural Guardrails</strong>
+        <p class="card-text">Guaranteed architectural adherence and consistency across teams and systems. Deterministic guardrails scale effortlessly to make AI-driven development more reliable without the need for constant validation – while deviations are automatically flagged to keep you in full control.</p>
       </div>
       <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
     </div>
@@ -316,8 +316,8 @@ It brings design and architectural visibility to your software development proce
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">AI Agents</strong>
-        <p class="card-text">Maximize the power of AI-driven development at scale. Intent Architect's customizable context engineering systems ensure your agents execute accurately and in full conformance with your design and architecture, out-the-box. No complex setup. Just focused AI.</p>
+        <strong class="card-title">AI Agents / Tools</strong>
+        <p class="card-text">Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
     </div>
@@ -332,7 +332,7 @@ It brings design and architectural visibility to your software development proce
       </span>
       <div class="content">
         <strong class="card-title">Codebase Control</strong>
-        <p class="card-text">Intent Architect works in an integrated way with your existing IDE, continuously realizing your design as code through a transparent review process. Developers stay in full control, with complete visibility and the freedom to customize any generated code.</p>
+        <p class="card-text">No matter the configuration you choose, you stay in full control with complete visibility and direct access to the entire codebase. Developers that work directly in the platform work in an integrated way with their existing IDE / coding harness.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Control"></a>
     </div>
