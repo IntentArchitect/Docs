@@ -362,19 +362,20 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 ## Watch a demo of the latest features
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
-  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/bGofnbPQV8k?si=98znkTEDcWzad2n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/bGofnbPQV8k?si=EAVqpiut4fVwkf_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Watch the Intent Architect version 5.1 new-features demo.
+Watch the Intent Architect version 5.2 new-features demo.
 
-Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around more controlled and consistent AI-driven development, especially at scale, and expands on how Intent Architect fits into this evolving landscape.
+Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around reviewing, trusting, and managing changes in an agentic development workflow, and expands on how Intent Architect gives teams enhanced control in this evolving landscape.
 
 What's covered in this demo:
-- Additional AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
-- MCP Server enhancements, letting external AI tools drive Intent Architect directly.
-- Further upgrades to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
-- New direct Git integration in the Software Factory, removing the need to tab out of Intent Architect.
-- New metadata persistence formats including new versions of XML and YAML which strip out redundant fields or properties, making metadata more human readable.
+- New traceability features for reviewing commits, giving teams visibility and clarity even as codebases become increasingly "black-boxed".
+- Enhanced change-review features to better support agentic development, making it easy to prioritize and optimize code-review processes.
+- Specification change tracking, surfacing exactly how your authoritative design specifications evolve over time.
+- A simplified, unified UI that brings your model, your code, and your repository together in a single, streamlined workspace.
+- A new Git Source Control panel and Changes Review tab, so you can see and review everything flowing through your solution without tabbing out.
+- The new Specifications panel and Spec-Driven Development (SDD) system (Beta), turning design specifications into a control plane for fully agentic software development.
 
 ---
 
