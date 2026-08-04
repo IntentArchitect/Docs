@@ -1,12 +1,12 @@
 items:
-- name: Visual Design Tools
-  href: visual-design-tools.md
+- name: Authoritative Design Blueprints
+  href: authoritative-design-blueprints.md
 
-- name: Architecture Enforcement
-  href: architecture-enforcement.md
+- name: Architectural Guardrails
+  href: architectural-guardrails.md
 
-- name: AI Agents
-  href: ai-agents.md
+- name: AI Agents / Tools
+  href: ai-agents-tools.md
 
 - name: Codebase Control
   href: codebase-control.md

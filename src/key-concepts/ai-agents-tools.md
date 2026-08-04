@@ -3,13 +3,15 @@ uid: key-concepts.non-deterministic-codegen
 description: "How Intent Architect AI agents automate the development cycle, covering context engineering, custom agents, and the Intent MCP Server."
 ---
 
-# AI Agents
+# AI Agents / Tools
 
-Intent Architect brings AI agents into two distinct contexts: modeling and coding. Together, they allow teams to go from business requirements to visual designs to working, production-ready code – with developers focused on engineering decisions and AI agents handling implementation.
+Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform. Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Intent Architect allows teams to go from requirements to visual designs to working, production-ready code – with full traceability – developers focused on engineering decisions, AI agents handling implementation.
 
-The platform pre-engineers relevant context for the agents automatically, ensuring they execute accurately and in full conformance with your design and architecture – without complex setup or excessive prompting.
+Intent Architect's own skills are bridged into each agent's native skill discovery – so your existing setup is respected rather than replaced. And the platform pre-engineers relevant context automatically, ensuring agents execute within the guardrails and in full conformance with your design and architecture, without complex setup or excessive validation.
 
-The deterministic architecture enforcement system guarantees consistency across your codebase by design, while customizable AI agents take care of the rest – fully automated, developer-augmented, or manually driven – using your LLM of choice, but always within the same strong guardrails.
+Agents can work like a team rather than a single conversation, dispatching focused sub-agents for isolated pieces of work so a large feature gets implemented wave by wave. They can also run your build and test tasks, and self-correct when those report errors.
+
+Teams choose how much they hand over – fully automated, developer-augmented, or manually driven.
 
 ---
 

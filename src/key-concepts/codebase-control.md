@@ -5,11 +5,11 @@ description: "How Intent Architect keeps developers in control through Software 
 
 # Codebase Control
 
-Intent Architect integrates directly with your existing development workflow and IDE, augmenting your current development experience with better visibility, improved control, and automation.
+No matter the configuration you choose, you stay in full control with complete visibility and direct access to the entire codebase. Developers always work in an integrated way with their existing IDE / coding harness.
 
-Intent Architect is built on a simple principle: developers are always in control. No matter how much is automated, developers can always write, edit, or override any part of the codebase – directly inside Intent Architect or in their existing IDE – and the system will never get in their way.
+Intent Architect is built on a simple principle: developers stay in control, no matter how much is handed to agents. As agents write more of the codebase, control shifts from writing code to governing what gets written – and that is what these systems are built for.
 
-This is made possible by two complementary systems: the Software Factory, which ensures every proposed change is reviewed and approved by developers before it reaches the codebase, and the Code Management system, which gives developers fine-grained control over exactly what is automated and what they manage themselves, from entire files down to individual methods, reconfigurable at any time.
+Changes Review surfaces everything that touched the codebase – generated output, agent- and developer-written code, and deviations from the architecture – and flags exactly what needs your attention. Inline diffs show what changed in the code, model-centric diffs show what it means for the design, and each change is attributed to whoever made it. Where a change traces back to a requirement, that link is surfaced too, so reviewers can see why it exists.
 
 ---
 
