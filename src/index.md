@@ -367,7 +367,7 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 
 Watch the Intent Architect version 5.2 new-features demo.
 
-Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around reviewing, trusting, and managing changes in an agentic development workflow, and expands on how Intent Architect gives teams enhanced control in this evolving landscape.
+Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around validating, trusting, and managing changes in an agentic development workflow, and expands on how Intent Architect gives teams enhanced control in this evolving landscape.
 
 What's covered in this demo:
 - New traceability features for reviewing commits, giving teams visibility and clarity even as codebases become increasingly "black-boxed".

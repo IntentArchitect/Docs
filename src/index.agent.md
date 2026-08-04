@@ -26,15 +26,20 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 
 ## Watch a Demo
 
-[Watch video on YouTube](https://www.youtube.com/watch?v=vlEwOM8nRXo)
+[Watch video on YouTube](https://www.youtube.com/watch?v=bGofnbPQV8k)
 
-Watch the Intent Architect version 5.0 new features demo — a focused walkthrough of the most significant release in recent years. What's covered:
+Watch the Intent Architect version 5.2 new-features demo.
 
-- AI Coding Agents in the Software Factory, automatically implementing code within the guardrails of your architecture and design.
-- A full upgrade to the AI Modeling Assistant, with file attachments, conversation history, and tool-call visualization.
-- The Intent Architect MCP Server, letting external AI tools drive Intent Architect directly.
-- The integrated Terminal & Tasks system with automatic AI error fixing.
-- A world-class Software Factory experience with a redesigned UI and per-file control.
+Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around validating, trusting, and managing changes in an agentic development workflow, and expands on how Intent Architect gives teams enhanced control in this evolving landscape.
+
+What's covered in this demo:
+
+- New traceability features for reviewing commits, giving teams visibility and clarity even as codebases become increasingly "black-boxed".
+- Enhanced change-review features to better support agentic development, making it easy to prioritize and optimize code-review processes.
+- Specification change tracking, surfacing exactly how your authoritative design specifications evolve over time.
+- A simplified, unified UI that brings your model, your code, and your repository together in a single, streamlined workspace.
+- A new Git Source Control panel and Changes Review tab, so you can see and review everything flowing through your solution without tabbing out.
+- The new Specifications panel and Spec-Driven Development (SDD) system (Beta), turning design specifications into a control plane for fully agentic software development.
 
 ## Next Steps
 
