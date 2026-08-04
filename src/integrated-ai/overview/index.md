@@ -8,36 +8,35 @@ Intent Architect has deeply integrated AI capabilities that operate inside the a
 
 ![AI Modeling Assistant working alongside the Domain Designer](images/ai-modeling-assistant.png)
 
-Intent's AI agents operate in one of two **contexts** - **modeling** (working against the designers) or **coding** (working inside an application's generated source code) - each with its own agents, tools, and context files.
+Intent's AI presents a **single chat interface** where you work with your designs, describe features, and guide development. Behind the scenes, when coding tasks need to be delegated, the system automatically hands off to a dedicated coding agent. You don't need to think about this distinction—it just works.
 
-## Deterministic generation + AI coding agents
+## Deterministic generation + AI
 
-To achieve this, Intent Architect deploys both deterministic code generation and generative AI. Deterministic code generation rolls out the architecture, infrastructure, and boilerplate that flow from your design. AI coding agents *"color in between the lines"* - implementing the business logic, edge cases, and bespoke behaviour that turn a scaffolded application into end-to-end working software. The two systems work perfectly together inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) with the AI coding agents leveraging:
+To achieve this, Intent Architect deploys both deterministic code generation and generative AI. Deterministic code generation rolls out the architecture, infrastructure, and boilerplate that flow from your design. When coding tasks need to be implemented, the AI automatically handles them—whether that's through your conversation or delegated in the background. These systems work together inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), leveraging:
 
-- **Virtual Codebase** which allows the AI agents to find and inspect files that have not yet been applied to the codebase.
+- **Virtual Codebase** which allows the AI to find and inspect files that have not yet been applied to the codebase, and to delegate implementation work as needed.
 - **[Context engineering](xref:ai.context-management)** ensures every agent turn is informed by the model, your instruction files, and the relevant slice of the codebase - so output conforms to your application's architecture, standards, and structure.
-- **[Auto-created AI Tasks](xref:release-notes.intent-architect-v5.0#ai-coding-agents-in-the-software-factory)** detect implementation work for you (e.g. an unimplemented method) and queue it up so coding agents can pick it up immediately.
 
 ![AI Coding Assistant implementing a use case in the Software Factory](images/ai-coding-assistant.png)
 
-## AI-driven Modeling
+## Model-first development
 
-On the **modeling** side, AI agents read and modify Intent's designers - the source of truth from which all generated code flows. Rather than asking AI to write code directly, you can describe a feature, drop in a PRD or screenshot, and have the agent shape the model itself. Every change is staged in-memory and only persisted with your explicit approval, so model changes are transparent at every step of the way. Modeling agents are backed by:
+In your single chat interface, you work with Intent's designers - the source of truth from which all generated code flows. Rather than asking AI to write code directly, you can describe a feature, drop in a PRD or screenshot, and have the AI shape the model itself. When implementation work is needed, it happens automatically and transparently. Every change is staged in-memory and only persisted with your explicit approval, so model changes are transparent at every step of the way. Your interactions are backed by:
 
-- **[Powerful Tooling](xref:ai.tooling)** that modeling agents can use to discover, read, analyze and modify the designs of your system. There are also tools to interact with you (e.g. to ask clarifying questions where the requirements are ambiguous).
-- **[Designer-specific context](xref:ai.context-management)** - modeling agents work from live snapshots of your designers and diagrams, layered with per-solution guidance (`AGENTS.md`, `INTENT.md`, and any instruction files under `.agents/`) so your naming conventions, architectural rules, and project knowledge are applied to every change.
-- **[Plan mode](xref:ai.built-in-agents#plan)** - for larger or ambiguous changes, the agent iteratively writes a markdown plan, asks clarifying questions, and waits for your sign-off before touching the model.
+- **[Powerful Tooling](xref:ai.tooling)** that reads, analyzes, and modifies the designs of your system. The AI can also interact with you (e.g. to ask clarifying questions where the requirements are ambiguous) and handle implementation tasks automatically.
+- **[Designer-specific context](xref:ai.context-management)** - the AI works from live snapshots of your designers and diagrams, layered with per-solution guidance (`AGENTS.md`, `INTENT.md`, and any instruction files under `.agents/`) so your naming conventions, architectural rules, and project knowledge are applied to every change.
+- **[Plan mode](xref:ai.built-in-agents#plan)** - for larger or ambiguous changes, iterative markdown planning with clarifying questions and your explicit approval before any changes are made.
 
 ![Plan mode showing an iterative markdown plan in the AI Modeling Assistant](images/ai-plan-mode.png)
 
 ## What ships out of the box
 
-- **[Four built-in agents](xref:ai.built-in-agents)** - `Ask` (read-only Q&A), `Plan` (iterative planning with approval), `Agent` (direct model edits), and `Coding` (source-code edits).
+- **A single, powerful chat interface** - work with your designers, describe features, and guide development without worrying about which agent is handling which task.
 - **[Pluggable providers](xref:ai.configuration#1-ai-providers)** - OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint. Bring your own key.
-- **[A full agent toolbox](xref:ai.tooling)** - file ops, designer/model edits, build & test, plan-mode tools, and conversation primitives.
+- **[A full toolbox](xref:ai.tooling)** - file ops, designer/model edits, build & test, plan-mode tools, and conversation primitives—all transparently available to the AI.
 - **[Customisation options](xref:ai.context-management)** - author your own `.agent.md` files, drop in `SKILL.md` skills, and write project-wide instruction files to shape every turn.
 - **Attachments** - drag-and-drop, paste, or open PRDs, screenshots, code files, and model elements directly into the chat as conversation context.
-- **Tool-call transparency** - every read, create, update, and delete the agent performs is shown as a color-coded interactive chip you can click to navigate straight to the affected element.
+- **Tool-call transparency** - every read, create, update, and delete the AI performs is shown as a color-coded interactive chip you can click to navigate straight to the affected element.
 
 ---
 
@@ -45,7 +44,7 @@ On the **modeling** side, AI agents read and modify Intent's designers - the sou
 
 ### Getting started
 - **[AI Configuration](xref:ai.configuration)** - connect to your AI provider (OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint), expose Intent as an MCP server, and add external MCP servers per solution.
-- **[Built-in Agents](xref:ai.built-in-agents)** - what **Ask**, **Plan**, **Agent**, and **Coding** each do, and when to pick which.
+- **[Using the AI Chat](xref:ai.built-in-agents)** - get started with the single chat interface for working with your designs and implementation.
 
 ### Customising agents and context
 - **[Agent Context Loading](xref:ai.context-management)** - where Intent looks for agent definitions, instruction files, and skills. The `.agents/` folder under your solution and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
@@ -69,8 +68,8 @@ On the **modeling** side, AI agents read and modify Intent's designers - the sou
 | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Plug in your OpenAI / Anthropic / Azure key                    | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
 | Use Intent from Claude Code / Copilot / Cursor                 | [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp)                                 |
-| Add an MCP server (filesystem, GitHub, etc.) for coding agents | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
-| Pick the right agent for a task                                | [Built-in Agents](xref:ai.built-in-agents)                                                          |
+| Add an MCP server (filesystem, GitHub, etc.) to your AI        | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
+| Get started with the AI chat interface                         | [Using the AI Chat](xref:ai.built-in-agents)                                                        |
 | Drop a project-wide instruction file                           | [Agent Context Loading → Instruction files](xref:ai.context-management#2-instruction-files)         |
-| Write a custom agent for this solution                         | [Agent Context Loading → Agent definitions](xref:ai.context-management#1-agent-definitions-agentmd) |
-| Understand what tools an agent has                             | [Agent Tools](xref:ai.tooling)                                                                      |
+| Customize how the AI works for your solution                   | [Agent Context Loading → Agent definitions](xref:ai.context-management#1-agent-definitions-agentmd) |
+| See what capabilities the AI has available                     | [Agent Tools](xref:ai.tooling)                                                                      |

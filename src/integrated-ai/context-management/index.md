@@ -6,26 +6,28 @@ description: "How Intent AI agents discover agent definitions, instruction files
 
 How Intent's AI agents discover the files that shape their behavior - agent definitions, instruction files, and skills - and where each type is loaded from at runtime.
 
-## The two contexts: `coding` vs `modeling`
+## Contexts: `coding` vs `modeling`
 
-Intent's AI surfaces are split across two contexts:
+Behind the scenes, Intent's AI operates in two contexts that load different instruction files and skills:
 
-- **`coding`** - the **AI Coding Assistant** inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), which works against an application's generated source code.
-- **`modeling`** - the **AI Modeling Assistant**, which works against the Intent designers (e.g. Domain, Services, User Interface, etc.).
+- **`modeling`** - works with Intent designers (Domain, Services, User Interface, etc.) and delegates to the coding context when implementation work is needed.
+- **`coding`** - handles the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) and works against an application's generated source code.
 
-Each context has its own root folder for instruction files, skills, and per-context conventions: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its declared context - a modeling agent will never see files in the application's output folder, and vice versa.
+You interact with a single chat interface where the modeling agent handles your requests and automatically delegates coding tasks to the coding context. As a developer, you don't need to think about this distinction—you just describe what you want in one place.
 
-> See [Custom Agents](xref:ai.custom-agents) for how an agent declares which context(s) it appears in.
+Each context has its own root folder for instruction files and skills: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its context - a modeling-context agent will never see files in the application's output folder, and vice versa.
+
+> See [Custom Agents](xref:ai.custom-agents) for how an agent declares which context(s) it operates in.
 
 ---
 
 ## Folder Structure
 
-The fastest way to understand context loading is to see the folder layouts for each context. Everything below is automatic - drop the right files in the right places and they're picked up.
+Context files are organized by where they apply: instruction files and skills for modeling tasks live alongside your solution, while code-time files live in your application output folders. Everything below is automatic - drop the right files in the right places and they're picked up.
 
-### Modeling layout
+### Modeling context files
 
-A modeling agent running in the context of a solution at `~/MySolution/` will read context files in the following structure:
+Files that guide the AI when working with Intent designers (at `~/MySolution/intent/`):
 
 ```text
 ~/MySolution/intent/
@@ -43,9 +45,9 @@ A modeling agent running in the context of a solution at `~/MySolution/` will re
 └── MySolution.isln                     ← the `.isln` file for the solution
 ```
 
-### Coding layout
+### Coding context files
 
-A coding agent for the same solution, with the application's output at `~/MySolution/MyApp/`, will read as follows:
+Files that guide the AI when handling implementation work (in your application output folder at `~/MySolution/MyApp/`):
 
 ```text
 ~/MySolution/MyApp/
@@ -182,7 +184,8 @@ There are three ways a skill becomes active for a turn:
 
 ## Summary
 
-- **Modeling files** live under `{solutionFolder}/.agents/` - agent definitions, instructions, skills, and the always-loaded `AGENTS.md`/`INTENT.md`.
-- **Coding files** live under each application's output folder, using the dotfile conventions of Claude Code, GitHub Copilot, Cursor, and Intent.
+- **You interact with a single chat interface.** Behind the scenes, the modeling agent delegates to the coding context when implementation is needed—but you don't need to think about that distinction.
+- **Modeling context files** live under `{solutionFolder}/.agents/` - agent definitions, instructions, skills, and the always-loaded `AGENTS.md`/`INTENT.md`.
+- **Coding context files** live under each application's output folder, using the dotfile conventions of Claude Code, GitHub Copilot, Cursor, and Intent.
 - **Instructions without frontmatter are always loaded.** Use `applyTo` patterns when you want to scope an instruction file to particular file attachments.
 - **Skills are opt-in.** They're advertised in the prompt but only loaded when the agent explicitly requests them or the user invokes them with `/skill-name`.
