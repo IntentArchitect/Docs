@@ -107,6 +107,8 @@ The same command for installation (`dotnet tool install Intent.SoftwareFactory.C
 |------------------------------------------------------------------|-----------|
 |`apply-pending-changes <username> <password> <isln-path>`         |Runs the Software Factory and applies any outstanding changes.|
 |`ensure-no-outstanding-changes <username> <password> <isln-path>` |Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.|
+|`update-modules <username> <password> <isln-path>`                |Installs, updates, downgrades, or ensures the installation of one or more modules.|
+|`uninstall-modules <username> <password> <isln-path>`             |Uninstalls one or more modules.|
 
 ## apply-pending-changes command
 
@@ -131,7 +133,7 @@ intent-cli apply-pending-changes <username> <password> <isln-path> [options]
 |Option                                                |Description|
 |------------------------------------------------------|-----------|
 |`--application-id <application-id>`                   |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
-|`--attach-debugger`                                   |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
+|`--attach-debugger`                                   |The CLI will pause at startup giving you chance to attach a .NET debugger.|
 |`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Some continuous integration environments watch output for \"commands\" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetErrorLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Some continuous integration environments watch output for \"commands\" for logging of warnings. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetWarningLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`-?, -h, --help`                                      |Show help and usage information|
@@ -159,12 +161,123 @@ intent-cli ensure-no-outstanding-changes <username> <password> <isln-path> [opti
 |Option                                                      |Description|
 |------------------------------------------------------------|-----------|
 |`--application-id <application-id>`                         |The Id of the Intent Architect application. If unspecified then all applications found in the .isln will be run.|
-|`--attach-debugger`                                         |The Software Factory will pause at startup giving you chance to attach a .NET debugger.|
+|`--attach-debugger`                                         |The CLI will pause at startup giving you chance to attach a .NET debugger.|
 |`--check-deviations, --check-for-unapproved-customizations` |Whether to also check for any unapproved [customizations](xref:application-development.software-factory.customizations-screen).|
 |`--continue-on-error`                                       |Whether Software Factory execution should continue to run for other applications when an error is encountered.|
 |`--error-logging-command <error-logging-command>`           |Command to use for logging an error. Some continuous integration environments watch output for \"commands\" for logging of errors. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetErrorLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`--warning-logging-command <warning-logging-command>`       |Command to use for logging a warning. Some continuous integration environments watch output for \"commands\" for logging of warnings. Will be automatically configured when the process is detected to be running on the following kinds of build servers:<br/>- Azure Pipelines: By default applies \"{GetWarningLoggingCommand(CiType.AzurePipelines)}\" (see <https://learn.microsoft.com/azure/devops/pipelines/scripts/logging-commands#logissue-log-an-error-or-warning>)<br/><br/>See the documentation on Serilog.Expressions ExpressionTemplate for formatting options: <https://github.com/serilog/serilog-expressions#formatting-with-expressiontemplate>"|
 |`-?, -h, --help`                                            |Show help and usage information|
+
+## update-modules command
+
+Installs, updates, downgrades, or ensures the installation of one or more modules, reusing the same underlying module installation infrastructure as the Intent Architect desktop application (so migrations, template output installation, and dependency resolution all happen exactly as they would interactively).
+
+This command only updates module configuration/versions, it does not run the Software Factory afterwards. Chain it with [`apply-pending-changes`](#apply-pending-changes-command) if you also want generated code updated.
+
+### update-modules usage
+
+```bash
+intent-cli update-modules <username> <password> <isln-path> --module <module> [options]
+```
+
+### update-modules arguments
+
+|Argument      |Description|
+|--------------|-----------|
+|`<username>`  |Username for an active Intent Architect account. If you're using an Organization Access Token (OAT), use "token", see [below](#do-i-have-to-use-the-credentials-of-a-user-license) for more information.|
+|`<password>`  |Password for the Intent Architect account. If a password is causing a "response file not found" error see [below](#the-command-fails-with-a-response-file-not-found-value-error) for more information and a workaround.|
+|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
+
+### update-modules options
+
+|Option                                     |Description|
+|--------------------------------------------|-----------|
+|`--module <module>`                         |**Required.** A module to install/update/ensure-installed, in the form `Id[@version-token]`, where `version-token` is `latest`, `pre` (latest including pre-releases), an exact version, or omitted entirely. See [module version tokens](#update-modules-module-version-tokens) below. Repeatable.|
+|`--module-repository <module-repository>`   |The full address of the module repository to resolve modules and versions from. If unspecified, all configured repositories are considered.|
+|`--application-id <application-id>`         |The Id of the Intent Architect application. Repeatable. If unspecified then all applications found in the .isln are targeted.|
+|`--only-if-installed`                       |Restrict named (non-wildcard) `--module` entries to applications where that module is already installed, leaving it untouched everywhere else.|
+|`--attach-debugger`                         |The CLI will pause at startup giving you chance to attach a .NET debugger.|
+|`-?, -h, --help`                            |Show help and usage information|
+
+### update-modules module version tokens
+
+Each `--module` value is parsed as `Id[@version-token]`:
+
+|Form                    |Meaning|
+|-------------------------|-------|
+|`Id@latest`             |Install/update to the latest stable release.|
+|`Id@pre`                |Install/update to the latest version, including pre-releases.|
+|`Id@1.2.3`              |Install/update to this exact version. If it's lower than what's installed this is a downgrade; the semantics are otherwise identical.|
+|`Id`                    |Bare id, no version token: installs `@latest` if the module isn't already installed, otherwise leaves it unchanged.|
+|`*@latest` / `*@pre`    |Wildcard: every module currently installed in the targeted application(s), resolved to the latest release/pre-release respectively. Cannot be combined with any other `--module` entry in the same invocation, run the command twice if you need a wildcard update plus a specific pin.|
+
+If a module's highest version can't be found (for example, because it's been de-listed, a de-listed module can still be downloaded directly, it just won't surface in a version search) and the module is already installed, a warning is printed and it's left at its currently installed version. If it isn't installed anywhere it's targeted, there's nothing to fall back to and the command fails.
+
+### update-modules examples
+
+Install or update a specific module to the latest release, across every application in the solution:
+
+```bash
+intent-cli update-modules -- "user@example.com" "@Password1" "./intent-solution.isln" --module "Intent.AspNetCore@latest"
+```
+
+Pin a specific module to an exact version (this is a downgrade if the version is lower than what's installed) in one application only:
+
+```bash
+intent-cli update-modules --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" -- "user@example.com" "@Password1" "./intent-solution.isln" --module "Intent.AspNetCore@5.2.1"
+```
+
+Update every currently-installed module (across every application) to the latest pre-release:
+
+```bash
+intent-cli update-modules -- "user@example.com" "@Password1" "./intent-solution.isln" --module "*@pre"
+```
+
+## uninstall-modules command
+
+Uninstalls one or more modules, reusing the same underlying module installation infrastructure as the Intent Architect desktop application.
+
+This command only updates module configuration, it does not run the Software Factory afterwards. Chain it with [`apply-pending-changes`](#apply-pending-changes-command) if you also want generated code updated.
+
+### uninstall-modules usage
+
+```bash
+intent-cli uninstall-modules <username> <password> <isln-path> --module <module-id> [options]
+```
+
+### uninstall-modules arguments
+
+|Argument      |Description|
+|--------------|-----------|
+|`<username>`  |Username for an active Intent Architect account. If you're using an Organization Access Token (OAT), use "token", see [below](#do-i-have-to-use-the-credentials-of-a-user-license) for more information.|
+|`<password>`  |Password for the Intent Architect account. If a password is causing a "response file not found" error see [below](#the-command-fails-with-a-response-file-not-found-value-error) for more information and a workaround.|
+|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
+
+### uninstall-modules options
+
+|Option                                     |Description|
+|--------------------------------------------|-----------|
+|`--module <module-id>`                      |**Required.** The Id of a module to uninstall. Does not take a version token. Repeatable.|
+|`--module-repository <module-repository>`   |The full address of the module repository to resolve modules and versions from. If unspecified, all configured repositories are considered.|
+|`--application-id <application-id>`         |The Id of the Intent Architect application. Repeatable. If unspecified then all applications found in the .isln are targeted. An application that doesn't have a given module installed is skipped for that module.|
+|`--remove-dependencies`                     |Also remove dependency modules that are not used by any other installed module.|
+|`--force`                                   |Force-uninstall a module even if other installed modules still depend on it.|
+|`--attach-debugger`                         |The CLI will pause at startup giving you chance to attach a .NET debugger.|
+|`-?, -h, --help`                            |Show help and usage information|
+
+### uninstall-modules examples
+
+Uninstall a module (and any of its now-unused dependencies) from every application in the solution:
+
+```bash
+intent-cli uninstall-modules -- "user@example.com" "@Password1" "./intent-solution.isln" --module "Intent.AspNetCore.Swashbuckle" --remove-dependencies
+```
+
+Force-uninstall a module from one application, even if other installed modules still depend on it:
+
+```bash
+intent-cli uninstall-modules --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" -- "user@example.com" "@Password1" "./intent-solution.isln" --module "Intent.AspNetCore.Swashbuckle" --force
+```
 
 ## FAQ
 
