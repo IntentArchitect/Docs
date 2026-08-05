@@ -69,6 +69,6 @@ For more information, read [](xref:application-development.software-factory.cust
 
 ## Learn More
 
-- **[Visual Design Tools](xref:key-concepts.visual-modeling)**
-- **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
-- **[AI Agents](xref:key-concepts.non-deterministic-codegen)**
+- **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
+- **[Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
+- **[AI Agents / Tools](xref:key-concepts.non-deterministic-codegen)**

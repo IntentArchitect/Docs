@@ -65,6 +65,6 @@ Because designs are stored as structured metadata alongside your source code, th
 
 ## Learn More
 
-- **[Architecture Enforcement](xref:key-concepts.deterministic-codegen)**
-- **[AI Agents](xref:key-concepts.non-deterministic-codegen)**
+- **[Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
+- **[AI Agents / Tools](xref:key-concepts.non-deterministic-codegen)**
 - **[Codebase Control](xref:key-concepts.codebase-integration)**
