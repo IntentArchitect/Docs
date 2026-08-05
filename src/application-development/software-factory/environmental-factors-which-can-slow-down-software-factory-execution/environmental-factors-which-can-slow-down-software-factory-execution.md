@@ -44,6 +44,6 @@ To avoid this interference, consider adding some or all of the following exclusi
 - In the settings window, scroll down to the "Exclusions" section. Here, you will find options to add exclusions for files, folders, file types, and process exclusions.
   ![Add or Remove exclusions](images/add-or-remove-exclusions.png)
 - Add Exclusions:
-  - For Folders: Click on "Add or remove exclusions" under the "Folders" section. In the window that opens, click on "Add an exclusion," then browse to the folder you want to exclude (e.g. `C:\Program Files\Intent Architect v4` or `C:\Dev`) and select it. Click "Select Folder" and then "OK."
+  - For Folders: Click on "Add or remove exclusions" under the "Folders" section. In the window that opens, click on "Add an exclusion," then browse to the folder you want to exclude (e.g. `C:\Program Files\Intent Architect v5` or `C:\Dev`) and select it. Click "Select Folder" and then "OK."
   - For Processes: Click on "Add an exclusion" under the "Processes" section. Type the name of the process you want to exclude (e.g. `Intent.SoftwareFactory.Host.exe`) and click "Add."
 - After adding the exclusions, you will be prompted to confirm. Click "OK" to save your changes.

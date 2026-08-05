@@ -6,12 +6,12 @@ description: "How Output Targeting works in Intent Architect: Template Outputs i
 
 ## Overview
 
-`Output Targeting` refers to how Intent Architect determines where a Template's output should be placed on the file system during the software execution through configuration within designers and the template itself.
+`Output Targeting` refers to how Intent Architect determines where a Template's output should be placed on the file system during software execution through configuration within the Codebase Structure designer and the template itself.
 
-Some designers (such as the `Folders` and `Visual Studio` designers) support "Output Configuration" which lets Intent Architect know during module installation that `Template Output`s should be placed in it. The Software Factory Execution uses these `Template Outputs` to determine the output paths for template instances.
+The `Codebase Structure` designer supports "Output Configuration" which lets Intent Architect know during module installation where `Template Output`s should be placed. The Software Factory Execution uses these `Template Outputs` to determine the output paths for template instances.
 
 ![Output Config Template Output](images/output-config-template-output-side-by-side.png)
-_Example features both a Folder (left) and Visual Studio (right) designer layout with Template Output items highlighted_
+_Example showing Template Output items in the Codebase Structure designer_
 
 ## Template Outputs
 
@@ -19,11 +19,11 @@ _Example features both a Folder (left) and Visual Studio (right) designer layout
 
 ## Unassigned Template Output
 
-Some designers (such as the Visual Studio designer) will show unassigned Template Outputs in red:
+The Codebase Structure designer will show unassigned Template Outputs in red:
 
 ![Unassigned Template in Output Configuration Designer](images/output-config-vs-unassigned-template.png)
 
-Running the Software Factory while these template are unassigned will result in errors during the execution about there being unassigned templates.
+Running the Software Factory while these templates are unassigned will result in errors during execution about there being unassigned templates.
 
 Module authors can control where their "Template Output"s should be placed by default during module installation so that things work automatically, this is covered in this [article](xref:module-building.templates-general.configuring-a-templates-default-output-location).
 

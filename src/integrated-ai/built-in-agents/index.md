@@ -1,19 +1,29 @@
 ---
 uid: ai.built-in-agents
-description: "Intent Architect's four built-in AI agents — Ask, Plan, Agent, and Coding — covering what each does, when to use it, and which tools it can access."
+description: "Intent Architect's built-in AI agents — Ask, Plan, and Agent for modeling work, plus the Coding sub-agent for delegated implementation tasks."
 ---
 # Built-in Agents
 
-Intent ships with four agents in the AI chat dropdown. Each one is purpose-built for a particular kind of work - read the table to pick the right one, then read the section below for details.
+Intent ships with three agents in the AI chat dropdown for modeling work, plus a **Coding** sub-agent that handles delegated implementation tasks automatically. Pick the right chat agent for your task, then read the section below for details.
 
-| Agent       | Context  | What it does                                                                 | When to pick it                                                       |
-| ----------- | -------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Ask**     | modeling | Read-only Q&A over the model and codebase                                    | "Explain this", "where is X used", "how does Y work"                  |
-| **Plan**    | modeling | Iteratively writes a plan file, asks clarifying questions, requests approval | Larger or ambiguous changes you want reviewed before any work happens |
-| **Agent**   | modeling | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
-| **Coding**  | coding   | Reads, writes, patches, and deletes source files                             | Hand-written code changes inside an application's output              |
+| Agent       | What it does                                                                 | When to pick it                                                       |
+| ----------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Agent**   | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
+| **Ask**     | Read-only Q&A over the model and codebase                                    | "Explain this", "where is X used", "how does Y work"                  |
+| **Plan**    | Iteratively writes a plan file, asks clarifying questions, requests approval | Larger or ambiguous changes you want reviewed before any work happens |
 
-> The first three are **modeling** agents - they operate on Intent designers (which are the source of truth). **Coding** operates on a generated application's source code. See [Agent Context Loading](xref:ai.context-management) for what that distinction means in practice.
+**Coding** is a sub-agent used internally for delegated coding tasks - you don't select it directly. When a qualifying Agent needs to implement code changes, they automatically delegate to the Coding agent. See [Agent Context Loading](xref:ai.context-management) to understand how modeling and coding contexts work behind the scenes.
+
+---
+
+## Agent
+
+The default modeling agent for direct edits. It applies changes through designer tools - never by editing generated code by hand.
+
+- **Use when:** the change is clear and you want to skip the planning step.
+- **Workflow:** Analyze → Design → Apply → Verify. It groups related operations into a single batched call where possible, then verifies the designer is rule-clean afterwards.
+- **Software Factory:** can run the Software Factory when needed. In "Bypass all permissions" mode it will run directly; otherwise it will ask for permission before running.
+- **Tools:** model and diagram inspection, model search, `apply_change_model_operations`, `apply_change_diagram_layout`, `execute_designer_element_action`, plus read-only code tools.
 
 ---
 
@@ -38,22 +48,11 @@ Plan mode is for changes large enough to want a written plan before anyone touch
 
 ---
 
-## Agent
+## Coding (sub-agent)
 
-The default modeling agent for direct edits. It applies changes through designer tools - never by editing generated code by hand.
+The Coding agent is a sub-agent that the Agent can delegate to when implementation work is needed. It works inside an application's output folder - reading, writing, patching, and deleting source files. You don't select it directly; it's invoked automatically when coding tasks are delegated.
 
-- **Use when:** the change is clear and you want to skip the planning step.
-- **Workflow:** Analyze → Design → Apply → Verify. It groups related operations into a single batched call where possible, then verifies the designer is rule-clean afterwards.
-- **Won't:** run the Software Factory unless you explicitly ask it to. (Use the Software Factory panel, or ask explicitly.)
-- **Tools:** model and diagram inspection, model search, `apply_change_model_operations`, `apply_change_diagram_layout`, `execute_designer_element_action`, plus read-only code tools.
-
----
-
-## Coding
-
-The coding agent works inside an application's output folder - reading, writing, patching, and deleting source files. It runs against the generated codebase, not the designer model.
-
-- **Use when:** you need hand-written code changes that aren't expressed in the model - a custom service implementation, a bug fix in a partial file, a refactor of generated extensions.
+- **What it does:** handles hand-written code changes that aren't expressed in the model - custom service implementations, bug fixes in partial files, refactors of generated extensions, and other implementation work.
 - **Behavior:** reads files before modifying them, prefers `patch_file` over full rewrites, preserves existing code style, and only invokes `run_task` / `apply_staged_file_changes` when explicitly asked to fix build/task errors.
 - **Tools:** full file/codebase toolset (`read_file`, `write_file`, `patch_file`, `delete_code_file`, `grep`, `glob`, `list_directory`, `get_project_overview`), plus `run_task`, `apply_staged_file_changes`, and `create_ai_task` for spawning follow-up coding tasks.
 

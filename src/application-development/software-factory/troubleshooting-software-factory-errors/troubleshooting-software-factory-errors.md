@@ -36,19 +36,11 @@ In this case we can click on the blue arrow which will open the mapping screen:
 
 ![Mapping screen with error](images/mapping-screen-with-error.png)
 
-We can see from the error that the mapping target could not be found, in this example it is because the `FavouriteColor` attribute on the `Customer` class was deleted. We can see this error message by also clicking on the red exclamation mark. A solution here is to delete the field:
+We can see from the error that the source mapping could not be found, in this example it is because `PhoneNumbers` is not a valid attribute on the entity (it is `PhoneNumber`). We can see this error message by also clicking on the red exclamation mark. A solution here is to rename the mapping value:
 
-![Delete field context menu option](images/delete-field.png)
+![Rename field](images/rename-field.png)
 
 We can then press _DONE_ on the dialogue to apply the changes.
-
-After doing so we can see by the red triangle above the designer tree view that there is at least one more error still, we can click the red triangle to select all elements with errors:
-
-![The red triangle above the tree view](images/red-triangle-above-tree-view.png)
-
-The first error on the `[update]` mapping under the `UpdateCustomerCommand` can be fixed in the same way as the `[create]` mapping above.
-
-For the `FavouriteColor` field under `CustomerDto`, the field can simply be deleted.
 
 In this example after doing the above actions the red triangle is now gone and we can see there are no more errors:
 

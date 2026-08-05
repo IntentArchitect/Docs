@@ -33,16 +33,20 @@ The Integrated IA Assistant has 3 different modes:
 
 ## Multiple Provider Integration
 
-The Integrated AI Assistant can also be connected to the most popular AI providers (e.g. Open AI, Azure Open AI, Anthropic, Gemini, etc.). This can be done simply by specifying an API Key for the relevant provider in the [User Settings](https://docs.intentarchitect.com/modules-common/intent-common-ai/intent-common-ai.html#user-settings).
+The Integrated AI Assistant can be connected to the most popular AI providers (e.g. OpenAI, Azure OpenAI, Anthropic, Gemini, OpenRouter, Ollama, and more). This is configured in the **AI Configuration** dialog - open the AI chat window and click the settings icon to access the **AI Providers** tab.
+
+For detailed setup instructions for each provider, see [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers).
 
 ![Multiple Provider Integration](images/ai-assistant-multiple-providers.png)
 
-_Example showing both Open AI and Anthropic models available when both are configured._
+_Example showing both OpenAI and Anthropic models available when both are configured._
 
 ## Daily Budget
 
-So that all new users of Intent Architect are able to get a sense of what the AI Assistant is capable of, by default they have access to 500 completely free daily credits. This free limit resets daily at midnight UTC.
+By default, new users have access to 500 completely free daily credits through Intent Architect's built-in Intent Architect provider. This free limit resets daily at midnight UTC.
 
-No API Key is required to access these free credits, however adding your own Open AI API Key in the User Settings will remove the limit completely and no longer access Open AI through the Intent Architect organization's account. We also understand that some organizations would want this option disabled, which can be done by emailing this request to <support@intentarchitect.com>.
+No API key is required to use these free credits. However, you can connect your own LLM provider (OpenAI, Anthropic, Azure OpenAI, etc.) in the **AI Configuration** dialog to remove the daily limit and use your own quota. For setup instructions, see [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers).
+
+If you'd like to disable the free daily credits option, you can email this request to <support@intentarchitect.com>.
 
 ![AI Assistant Daily Budget](images/ai-assistant-daily-budget.png)
