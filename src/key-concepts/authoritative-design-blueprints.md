@@ -15,17 +15,17 @@ Visuals are a highway to the brain, and by expressing complex systems in visual 
 
 ## Key Benefits
 
-- **🧭 Visual Control with AI-Driven Development**
+- **📋 Condensed validation and comprehension**
 
-  As developers spend less time writing and internalizing code, Intent Architect's visual design tools bring design and architectural decisions to the forefront, from architectural patterns to domain entities and service contracts, to UI flows and integrations. Every developer and stakeholder shares a single, inspectable artifact for design review, discussion, and decision-making that is far easier for the human mind to process than code, eliminating suboptimal and inconsistent implementations, and minimizing technical and cognitive debt. When every developer and agent works from the same precise design, teams stay in control at any scale.
+  As agents write more and more code, comprehensive code review becomes the delivery constraint, while approving output without adequate scrutiny pushes technical debt, cognitive debt, and latent quality risk downstream. Intent Architect's extensible designers give you an aggregated, model-centric view of your design that's always synchronized with your code, so you stay in control of what matters most, without deep code immersion. Model-centric diffs highlight codebase-related changes as they happen, and advanced Change Review features prioritize files for review, streamlining the validation and comprehension process so teams can safely sustain AI-driven delivery speed.
 
-- **⚡ The Optimal Context Engine**
+- **🔗 End-to-end traceability from requirement to code**
 
-  Every model you create becomes part of the platform's context engine, a structured, always-current source of design intent that drives AI agents and deterministic architecture enforcement systems downstream.
+  As development becomes increasingly specification-driven, the relationship between requirements and code becomes primary. With Intent Architect, traceability links are recorded from each requirement to the model elements and files that implement it, and flow through to Change Review. You can quickly establish that implementations match intent, and trace any change back to the requirement that drove it, without reconstructing either from code.
 
-- **📋 Reduced Cognitive Debt and Code Review Overhead**
+- **⚡ A precise context engine for agents and guardrails**
 
-  A visual representation of your system that is always synchronized with your codebase gives reviewers an accurate, immediate reference point. Rather than reconstructing intent from code, teams can validate changes against the design directly, reducing code review overhead and downstream resolution times significantly.
+  Design decisions are difficult to infer from code, which shows what was built but not which choices were intentional or what they were meant to enforce. In Intent Architect every design decision is captured in the model and stored as structured metadata alongside your source code, forming an always-current representation of intent that both AI agents and the deterministic guardrail system operate from. Agents execute against the design as modelled rather than as interpreted, and are provided with task context up front rather than inferring it from the codebase, so implementations conform to the approved design by default.
 
 ---
 
@@ -53,7 +53,7 @@ One of the most powerful ways to use the visual designers is alongside Intent Ar
 
 When you design in Intent Architect, every element you place, an entity, a service, a relationship, is saved as structured metadata alongside your source code. Collectively, this metadata forms the platform's context engine, a precise, always-current representation of your system's design intent.
 
-This is what makes automation reliable at scale. AI coding agents and architecture enforcement systems all work from this same structured source of truth. Rather than inferring design intent from code, which is imprecise and incomplete, every downstream system works from the exact design decisions you have made, visually, in the designers. Your intent is never lost in translation.
+This is what makes automation reliable at scale. AI coding agents and the deterministic guardrail system all work from this same structured source of truth. Rather than inferring design intent from code, which is imprecise and incomplete, every downstream system works from the exact design decisions you have made, visually, in the designers. Your intent is never lost in translation.
 
 ---
 
