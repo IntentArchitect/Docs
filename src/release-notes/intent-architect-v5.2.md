@@ -4,6 +4,42 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
+## Version 5.2.1
+
+## Improvements in 5.2.1
+
+- Improvement: Cursor (via the `cursor-agent` CLI) is now available as an ACP agent, with its own provider icon and model list.
+- Improvement: Existing specification documents - such as BMAD PRDs, in both v4 and v6 formats - can now be imported into and integrated with the Spec-Driven Development system.
+- Improvement: The Specs panel now offers sorting options, with the chosen sort order remembered across sessions.
+- Improvement: Intent Architect's skills are now also discovered in the repository root, are loaded with their directory made explicit to the agent, and support substitution of Claude variables.
+- Improvement: An "Open" action has been added to Source Control rows and working-directory diff tabs, for opening the editable working file rather than its diff.
+- Improvement: The repository root can now be opened in the operating system's file explorer.
+- Improvement: Pinned solutions on the Home screen no longer count towards the recent-solutions limit, and that limit has been raised to 50.
+- Improvement: The Home screen's recent solutions are now grouped under collapsible "Pinned" and "Other" headings.
+- Improvement: Custom AI models can now be flagged to explicitly turn reasoning off, for models which refuse to combine tool calling with a reasoning effort.
+- Improvement: AI conversation persistence is now crash-safe and multi-instance safe - assistant narration is saved as it happens, history and index files are written atomically under a cross-process lock, and a conversation already open in another instance opens read-only with a Retry option.
+- Improvement: ACP conversations now restore their context window usage gauge on reload, and reloaded tool calls report an honest status - interrupted, failed or cancelled - instead of always appearing to have succeeded.
+
+## Fixes in 5.2.1
+
+- Fixed: Changes Review failed outright on a repository with no commits, and "Review changes in this commit" was unavailable on a repository's very first commit.
+- Fixed: Concurrent Claude Code cold starts could race to refresh the shared OAuth credentials and log the user out mid-task; cold starts are now serialized machine-wide and any remaining authentication failure is explained in the chat instead of surfacing as a raw `-32603` error.
+- Fixed: Resuming an ACP conversation could fail with a `-32603` error when the reasoning effort was applied before the model, and a resumed conversation could silently drop the selected Reasoning Effort.
+- Fixed: A refused ACP configuration value showed the turn as failed while the agent carried on running the turn and editing files invisibly.
+- Fixed: Reverting a `*.deviations.log.xml` file wouldn't restore its deviations, because the output cache still reported every file as current.
+- Fixed: A broken package reference - pointing at a `.pkg.config` file no longer on disk - would crash the Package Reference Manager dialog for the whole application; broken references are now flagged with a warning and can be unloaded.
+- Fixed: "Open Solution in IDE" reported "Unable to locate sln/slnx file" when the solution file was generated outside the application's output folder.
+- Fixed: New Terminal silently fell back to Windows PowerShell 5.1 when PowerShell 7 was installed from the Microsoft Store.
+- Fixed: The last line of terminal output, and the terminal pane's scrollbar, could be clipped.
+- Fixed: Rendered markdown tables - in the AI chat, Markdown preview and sub-agent reports - used a larger font than the surrounding text and ignored the preview pane's font size setting.
+- Fixed: Context menu submenus would open or close as the mouse merely brushed past an item; a hover-intent delay is now applied.
+- Fixed: Heavy AI chat activity in one Git worktree could push another worktree's conversation history off the list.
+- Fixed: An inline rename in progress could silently revert a name or type that had been set by a script.
+- Fixed: Explicitly mapping an untyped association or an unresolvable element could fail with a "Cannot read properties of undefined" error; a notice is now shown instead.
+- Fixed: A dialog resolved before it had finished being shown - reachable through fast keyboard-driven use - could deadlock permanently.
+- Fixed: The custom model group label in the AI configuration would fall back to a raw provider id for an ACP agent with no models in the server registry yet.
+- Fixed: Opening the AI Configuration or User Settings dialogs through the UI automation API would hang until the dialog was closed.
+
 ## Version 5.2.0
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
