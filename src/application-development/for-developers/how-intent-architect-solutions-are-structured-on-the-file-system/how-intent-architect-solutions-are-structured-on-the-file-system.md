@@ -4,75 +4,46 @@ description: "Explains the folder structure Intent Architect creates on the file
 ---
 # How Intent Architect Solutions are structured on the File System
 
-This article covers how Intent Architect solutions are structured on you local file system.
+This article covers how Intent Architect solutions are structured on your local file system.
 
-## How Intent Architect solutions are structured
+## Overview
 
 Intent Architect solutions are created in two separate steps:
 
 1. **Solution Creation** - Creates the solution structure with the `intent` folder and all solution-level configuration
 2. **Application Creation** - Applications are then added to the solution as separate steps
 
-When you create an Intent Architect solution, it creates many folders and files related to the solution, at a high level there are a few concepts you should be aware of.
+---
 
-### Creating a Solution
+## Creating a Solution
 
 The solution creation wizard allows you to specify the following settings:
 
 ![Solution configuration](./images/default-solution-setup.png)
 
-The main settings we will be concerned with here are:
+The main settings you'll provide are:
 
-* Solution Name
-* Location
+* **Location** - where the solution folder will be created
+* **Solution Name** - the name of the solution
 
-### Folder structure basics
-
-When you create a solution, Intent Architect creates a folder `{Location}\{Solution Name}`, which will contain all solution-related content. Initially, this folder will contain:
+When you proceed through the wizard, Intent Architect creates a folder structure: `{Location}\{Solution Name}`. This folder will contain:
 
 * The `intent` folder - containing all solution-level configuration and Intent Architect data
-
-When you add applications to the solution, an additional folder is created for each application:
-
-* `{Application Name}` folder - contains the full source code for that application
-
-The `intent` folder contains all data related to this specific solution, this includes:
-
-* Solution / Application settings, Intent Architect configuration information.
-* Designer Metadata, all designer related data, i.e. domain models, service models, etc.
-* Module manifests, details on what specific modules, (and their versions) are being used.
-
-The `{Application Name}` folder contains the full source code for the application. In the context of a .Net application, this would be:
-
-* Visual Studio solution file
-* Various `CSProj` files and their related artifacts.
-
-> [!NOTE]
-> Every additional Application you add to your Intent Architect solution will add an additional folder to the solution root, with that application's source code in it.
+* The `.isln` file - the solution file that you double-click to open the solution in Intent Architect
 
 ### The Intent Architect solution file (`.isln`)
 
-The Intent Architect solution file, `.isln` file extension, is the entry point file for your Intent Architect solution, very analogous to a Visual Studio solution file. Double-clicking this file will open the solution in Intent Architect. When you create a new Solution within Intent Architect it will create an `isln` file for you in the following location:
+The Intent Architect solution file (`.isln` file extension) is the entry point for your solution, very analogous to a Visual Studio solution file. When you create a solution, Intent Architect creates an `.isln` file at the following location:
 
-```csharp
+```text
 {Location}\{Solution Name}\intent\{Solution Name}.isln
 ```
 
-### Solution folder structure
+Double-clicking this file will open the solution in Intent Architect.
 
-When you create a new Intent Architect solution and proceed through the wizard, Intent Architect will create a folder structure as follows:
+---
 
-![Parent Folder Structure](./images/intent-solution-layout.png)
-
-The folder structure is created inline with your selected options, i.e. `{Location}\{Solution Name}`. Within this folder, you will initially find:
-
-* `intent` - this folder contains all the Intent Architect data for this solution.
-
-When you add applications to your solution, additional folders are created for each application:
-
-* `{Application Name}` - this folder contains the source code for that application.
-
-### Creating and Adding Applications
+## Creating and Adding Applications
 
 After you have created a solution, you can add applications to it. When you add an application to your solution, Intent Architect will:
 
@@ -81,6 +52,43 @@ After you have created a solution, you can add applications to it. When you add 
 3. Generate the initial project structure based on your selected application template
 
 Each application is independent and can have its own technology stack, architecture, and design specifications. You can add multiple applications to a single solution, and each will have its own folder at the solution root.
+
+---
+
+## Solution Folder Structure
+
+Once you've created your solution and added applications to it, the overall folder structure looks like this:
+
+![Parent Folder Structure](./images/intent-solution-layout.png)
+
+The structure follows your selected options: `{Location}\{Solution Name}`. Within this folder, you'll find:
+
+* `intent` - this folder contains all the Intent Architect data for this solution (including the `.isln` file)
+* `{Application Name}` folders - one for each application you've added, containing the source code for that application
+
+### Folder structure basics
+
+When you create a solution, Intent Architect creates a folder `{Location}\{Solution Name}` which contains all solution-related content. Initially:
+
+* The `intent` folder contains all solution-level configuration and Intent Architect data
+
+When you add applications to the solution:
+
+* Each `{Application Name}` folder contains the full source code for that application
+
+The `intent` folder contains:
+
+* Solution / Application settings and Intent Architect configuration information
+* Designer Metadata - all designer related data (domain models, service models, etc.)
+* Module manifests - details on what specific modules and their versions are being used
+
+Each `{Application Name}` folder contains the full source code for the application. In a .NET application, this includes:
+
+* Visual Studio solution file (`{ApplicationName}.sln`)
+* Various `CSProj` files and their related artifacts
+
+> [!NOTE]
+> Every additional Application you add to your Intent Architect solution will add an additional folder to the solution root, with that application's source code in it.
 
 ### Application source code
 

@@ -13,9 +13,9 @@ _Example use of the AI assistant to create a simple e-commerce domain. The agent
 
 ## Overview Video
 
-Our Version 4.6 release video has a great overview of using the AI Assistant, the below embedded video is set to start at the exact point of the overview of the AI Assistant:
+Our Version 5.2 release video has an example of using the AI Assistant, the below embedded video is set to start at the exact point where the AI Assistant is used to model a use case end to end.
 
-> [!Video https://www.youtube.com/embed/HRnq-xn7Y38?si=SG1Fm08GHVz4ycz5&amp;start=227]
+> [!Video https://www.youtube.com/embed/bGofnbPQV8k?si=98znkTEDcWzad2n&amp;start=165]
 
 ## Opening the AI Assistant
 

@@ -35,9 +35,9 @@ Teams choose how much they hand over – fully automated, developer-augmented, o
 
 The ultimate goal of Intent Architect is a development workflow we refer to as "The Golden Path", where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 
-Intent Architect's AI agents make this possible in two ways. Modeling agents operate inside the visual designers, helping you translate requirements into comprehensive system designs, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). And coding agents are built into the Software Factory Execution. So, while the deterministic architecture enforcement system rolls out the architecture, infrastructure and boilerplate to guarantee consistency at scale, coding agents can take care of all the rest, even in one go.
+Intent Architect's AI agent makes this possible by combining design and implementation in a single workflow. The agent helps you translate requirements into comprehensive system designs directly in the visual designers, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). When implementation work is needed, the agent automatically delegates to the coding agent, which handles the hand-written code while the deterministic architecture enforcement system rolls out the architecture, infrastructure, and boilerplate to guarantee consistency at scale.
 
-In practice, the workflow looks like this: describe your system's design visually with AI, run the Software Factory Execution, run the coding agents, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
+In practice, the workflow looks like this: describe your system's design visually with AI in a single chat interface, run the Software Factory Execution, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
 
 <br>
 

@@ -33,7 +33,7 @@ Changes Review surfaces everything that touched the codebase – generated outpu
 
 Every change Intent Architect proposes, whether from the architecture enforcement system or an AI coding agent, passes through the Software Factory before touching your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
 
-This is what keeps developers fully in control. No automation, deterministic or AI-driven, applies anything to the codebase without explicit developer approval.
+This is what keeps developers fully in control. By default, no automation applies anything to the codebase without explicit developer approval. However, developers can optionally enable "Bypass all permissions" mode to allow the AI agent to run the Software Factory and apply changes automatically if they prefer a fully autonomous workflow. The choice is always yours – configure the level of automation that suits your team and task.
 
 <br>
 
