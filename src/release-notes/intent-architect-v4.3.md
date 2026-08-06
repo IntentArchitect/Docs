@@ -141,7 +141,7 @@ On all top-level metadata elements, there now exists an option to `Open in IDE` 
 
 ![Open in IDE Option](images/4.3/open-in-ide-context-menu-option.png)
 
-For more information refer to [](xref:application-development.modelling.open-in-ide) article.
+For more information refer to [](xref:application-development.modelling.viewing-code) article.
 
 #### Tiles control type in Dynamic Forms
 

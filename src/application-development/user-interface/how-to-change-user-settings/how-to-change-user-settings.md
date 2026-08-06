@@ -29,4 +29,4 @@ Intent Architect supports the use of any Diff tool that can be executed from the
 
 ## Preferred IDE
 
-The IDE to use when using the [Open in IDE](xref:application-development.modelling.open-in-ide) context menu option from within designers.
+The IDE to use when using the [Open in IDE](xref:application-development.modelling.viewing-code) context menu option from within designers.
