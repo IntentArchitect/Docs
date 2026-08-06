@@ -15,7 +15,7 @@ Visuals are a highway to the brain, and by expressing complex systems in visual 
 
 ## Key Benefits
 
-- **📋 Condensed validation and comprehension**
+- **📋 Condensed validation and comprehension to alleviate bottlenecks**
 
   As agents write more and more code, comprehensive code review becomes the delivery constraint, while approving output without adequate scrutiny pushes technical debt, cognitive debt, and latent quality risk downstream. Intent Architect's extensible designers give you an aggregated, model-centric view of your design that's easy to comprehend and always true to the underlying codebase, so you stay in control of what matters most. In addition, model-centric diffs highlight codebase-related changes as they happen, and advanced Change Review features prioritize files for review, streamlining the validation and comprehension process so teams can safely sustain AI-driven delivery speed.
 

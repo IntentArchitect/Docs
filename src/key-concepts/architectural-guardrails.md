@@ -23,7 +23,7 @@ Because any application can be configured with a completely unique set of module
 
   Agents can generate a framework upgrade or a convention change across a system, but the cost of doing so scales with the system: every affected service produces its own diff, every diff has to be individually validated, and consistency across all of them is never guaranteed due to AI's probabilistic nature. A single service that drifts becomes permanent inconsistency that every subsequent change has to accommodate. Because the pattern is encoded once in a Module, updating or swapping that Module propagates the change across every application of the pattern in a single pass. So, regardless of the number of services, the work and the review are the same, and the result is achieved significantly faster and guaranteed to be consistent.
 
-- **🛠️ Modules authored and adapted with AI**
+- **🛠️ AI-assisted module building and customization**
 
   Module development is AI-assisted, so architectural patterns can be altered and evolved with minimal investment. Aligning a Module with your team's standards, accommodating an existing convention, or adapting a pattern as your architecture evolves is an efficient and streamlined process. Guardrails therefore remain accurate to the architecture they enforce, and evolve at the pace the team does.
 

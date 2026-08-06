@@ -5,7 +5,7 @@ description: "How Intent Architect AI agents automate the development cycle, cov
 
 # AI Agents / Tools
 
-Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform. Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Intent Architect allows teams to go from requirements to visual designs to working, production-ready code – with full traceability – developers focused on engineering decisions, AI agents handling implementation.
+Leverage your existing context engineering setup and preferred AI-coding harness and service provider via the Intent MCP, or drive agents directly in the platform – and add the control you need to scale agentic development safely and reliably. Intent Architect allows teams to go from requirements to visual designs to working, production-ready code, with full traceability. Developers focus on engineering decisions and AI agents handle implementation.
 
 Intent Architect's own skills are bridged into each agent's native skill discovery – so your existing setup is respected rather than replaced. And the platform pre-engineers relevant context automatically, ensuring agents execute within the guardrails and in full conformance with your design and architecture, without complex setup or excessive validation.
 
@@ -17,17 +17,17 @@ Teams choose how much they hand over – fully automated, developer-augmented, o
 
 ## Key benefits
 
-- **🚀 End-to-end automation**  
-  Modeling agents handle design, coding agents handle implementation – together covering the full development cycle from concept to code.
+- **🎯 Agents that conform to your design and architecture by default**
 
-- **🧠 Sophisticated, customizable context engine**  
-  Intent Architect's context engineering is fully customizable to your domain and coding standards, and pre-engineered by default to ensure adherence to your visually defined design and architecture.
+  Agents stay within the lines drawn by your system and architectural designs, executing accurately and in full conformance with the approved design. Design models supply context on every turn rather than agents having to infer it from the codebase. This reduces the need for excessive context engineering, prompting and validating to keep agents aligned.
 
-- **🤖 Fully customizable agents**  
-  Author your own agents, connect your preferred LLM, and tailor agent behavior to your specific needs.
+- **📝 Specifications delivered as verified, traceable code**
 
-- **🔌 MCP Server for External AI Control**  
-  The Intent MCP Server allows for a flexible tooling configuration. This means external AI coding tools, like Claude Code, GitHub Copilot etc., can also drive Intent Architect directly to manage your design and architecture visually.
+  Leverage Spec-Driven Development (SDD) features and agentically drive business requirements through design specifications to production-ready code, with full traceability. Requirements are captured as precise, testable user stories, realized through an approved design expressed as changes to your model, and verified against their acceptance criteria once implemented. Traceability links flow through to Changes Review, so reviewers see the requirement behind every change.
+
+- **🧰 Any model or coding harness, without re-engineering your setup**
+
+  Teams can leverage their existing harness, models and context engineering and add the governance tools needed to scale agentic coding safely and reliably. The Intent MCP Server exposes Intent Architect's tools to external agents, so a team can continue working in their existing harnesses. Alternatively, agents are driven directly in the platform, where Claude Code, Codex, Copilot and Kiro are first-class participants via the Agent Client Protocol, alongside OpenAI, Anthropic, Azure OpenAI, Gemini and any OpenAI-compatible endpoint. The context files in your existing repository (e.g. `AGENTS.md`, `CLAUDE.md`, `.cursor/rules`, Copilot instruction files, etc.) are loaded automatically, and Intent Architect's own skills are bridged into each agent's native skill discovery. The result is more control with the tooling the team already runs.
 
 ---
 
@@ -35,7 +35,7 @@ Teams choose how much they hand over – fully automated, developer-augmented, o
 
 The ultimate goal of Intent Architect is a development workflow we refer to as "The Golden Path", where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
 
-Intent Architect's AI agent makes this possible by combining design and implementation in a single workflow. The agent helps you translate requirements into comprehensive system designs directly in the visual designers, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). When implementation work is needed, the agent automatically delegates to the coding agent, which handles the hand-written code while the deterministic architecture enforcement system rolls out the architecture, infrastructure, and boilerplate to guarantee consistency at scale.
+Intent Architect's AI presents a single chat interface where design and implementation are handled in one workflow. The agent helps you translate requirements into comprehensive system designs directly in the visual designers, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). When implementation work is needed, it is dispatched to a coding sub-agent that handles the hand-written code, while the deterministic guardrail system rolls out the architecture, infrastructure, and boilerplate to guarantee consistency at scale.
 
 In practice, the workflow looks like this: describe your system's design visually with AI in a single chat interface, run the Software Factory Execution, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
 
