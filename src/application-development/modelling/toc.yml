@@ -20,8 +20,8 @@ items:
   - name: Codebase Structure Designer
     href: codebase-structure-designer/codebase-structure-designer.md
 
-  - name: Open in IDE
-    href: open-in-ide/open-in-ide.md
+  - name: Viewing Code
+    href: viewing-code/viewing-code.md
 
   - name: Type Definitions
     href: type-definitions/type-definitions.md

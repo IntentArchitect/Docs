@@ -117,10 +117,7 @@ public class GetCustomerByIdCommandHandler : IRequestHandler<GetCustomerByIdComm
     [IntentManaged(Mode.Fully, Body = Mode.Fully)]
     public async Task Handle(GetCustomerByIdCommand request, CancellationToken cancellationToken)
     {
-        var result = await _customersService.GetCustomerByIdAsync(new GetCustomerByIdQuery
-        {
-            Id = request.Id
-        }, cancellationToken);
+        var result = await _customersService.GetCustomerByIdAsync(request.Id, cancellationToken);
     }
 }
 ```

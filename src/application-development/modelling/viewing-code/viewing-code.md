@@ -1,10 +1,24 @@
 ---
-uid: application-development.modelling.open-in-ide
-description: "Explains how to open generated files associated with a designer element directly in your IDE, and how Intent Architect detects the preferred IDE to use."
+uid: application-development.modelling.viewing-code
+description: "Explains how to view generated files associated with a designer element either in your IDE or directly in Intent Architect, and how Intent Architect detects the preferred IDE to use."
 ---
-# Open in IDE
+# Viewing Code
 
-Intent Architect designers can open generated files associated with a particular element by right-clicking on it:
+Intent Architect designers can display generated files associated with a particular element by right-clicking on it. There are two options available:
+
+## View Code in Intent Architect
+
+View the file directly within Intent Architect in a code viewer:
+
+![View Code context menu option](images/view-code-context-menu-option.png)
+
+The code viewer displays the generated file with syntax highlighting:
+
+![View Code result](images/view-code-result.png)
+
+## Open in IDE
+
+Open the generated files associated with a designer element in your preferred IDE:
 
 ![Open in IDE context menu option](images/open-in-ide-context-menu-option.png)
 
@@ -15,14 +29,16 @@ In the screenshot above there are 4 files which Intent Architect determined are 
 > Intent Architect will not show or update the list of files associated with an element until [Software Factory](xref:application-development.software-factory.about-software-factory-execution) changes have been applied.
 >
 > The list of associated files is stored in an application's `.intent` folder which [should not be committed into source control management systems (such as Git)](xref:application-development.applications-and-solutions.git-and-scm-guidance#folders-which-should-always-be-ignored), so if you've just checked out a repository or recently pulled changes into your branch, re-run the Software Factory and apply changes to ensure your local list is fully up to date.
+
 > [!NOTE]
 >
 > If you already have the Visual Studio Solution open in your IDE, "Open In IDE" will open the file in that IDE instance.
+
 > [!NOTE]
 >
 > If your IDE is running as Administrator your Intent Architect will also need to be running as Administrator for it to discover the running instance.
 
-## How does Intent Architect choose which IDE to use to open the file?
+## How does Intent Architect choose which IDE to use?
 
 The IDE to use is controlled by the "Preferred IDE" option in [user settings](xref:application-development.user-interface.how-to-change-user-settings) which by default is set to "Auto":
 

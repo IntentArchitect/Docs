@@ -14,7 +14,9 @@ Clicking on a file in the list shows a diff by default comparing the unmerged te
 
 Editing and saving the file in the right pane will trigger re-running the code merging for that particular file allowing fixing of customizations without having to open the file through in a different editor (such as your IDE).
 
-Customizations can be approved by right-clicking it and selecting "Approve customization" which will also record who approved the customization and when. To see when a customization was approved, you can hover over the name in the "Approved by" column and read the tooltip which shows.
+Customizations can be approved by right-clicking it and selecting "Approve customization" which will also record who approved the customization and when. To see when a customization was approved, hover over the file in the list and read the tooltip showing approval details.
+
+![Approval Details](images/customization-approval.png)
 
 If the particular customization(s) for the file changes, the approval is revoked, approvals can also be manually revoked using the context menu.
 

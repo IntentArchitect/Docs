@@ -60,7 +60,7 @@ You are a modeling agent specialised in designing HTTP APIs…
 | `name`            | string                                        | yes      | Display name shown in the chat dropdown                                                              |
 | `description`     | string                                        | yes      | One-line summary shown beside the name                                                               |
 | `icon`            | string                                        | no       | A [Font Awesome](https://fontawesome.com/v6/icons/) class (e.g. `fa-magic`); shown next to the name  |
-| `context`         | `coding` \| `modeling` \| list of either      | yes      | Which context the agent operates in - see [The two contexts](xref:ai.context-management#the-two-contexts-coding-vs-modeling) |
+| `context`         | `coding` \| `modeling` \| list of either      | yes      | Which context the agent operates in |
 | `tools`           | string list                                   | yes      | Tool ids the agent can call - see [Agent Tools](xref:ai.tooling). The `use_skill` tool is always added implicitly |
 | `maxIterations`   | number                                        | no       | Max tool-call rounds before the agent stops on its own (default `8`)                                 |
 | `loopOnToolCalls` | boolean                                       | no       | Whether the model is re-invoked after each tool call (default `true`)                                |
@@ -132,7 +132,7 @@ You never modify the model - your tools are read-only by design.
 
 ### Example 2 - Overriding the built-in Coding agent
 
-`coding.agent.md` (replaces the shipped [Coding agent](xref:ai.built-in-agents#coding) for this solution):
+`coding.agent.md` (replaces the shipped [Coding agent](xref:ai.built-in-agents#coding-sub-agent) for this solution):
 
 ```yaml
 ---

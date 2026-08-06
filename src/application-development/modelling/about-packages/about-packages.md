@@ -10,7 +10,7 @@ Designers can reference any number of Packages and Packages can reference other 
 
 ![Example of a designer with packages](images/example-of-designer-with-packages.png)
 
-_In the example in the picture above, the `Domain` Designer has two Packages loaded/referenced, `Invoicing.Domain` and `Invoicing.AdditionalEntities`._
+_In the example in the picture above, the `Domain` Designer has two Packages loaded/referenced, `SampleApplication.Domain` and `SampleApplication.AdditionalEntities`._
 
 ## Creating new or adding existing Packages to a designer
 
@@ -24,7 +24,7 @@ When "adding an existing package" a Designer reference is created which is refer
 
 Before a type or element in one package can refer to or use types or elements in another package, it requires a reference to the package containing the type or element, otherwise the element or type will not be available for selection.
 
-As an example, in the screenshot above the `Invoicing.AdditionalEntities` package has a `BaseEntity` inside of it. If we were to try use it for inheritance from the `Invoicing.Domain` package, it is not on the list of items which can be selected:
+As an example, in the screenshot above the `SampleApplication.AdditionalEntities` package has a `BaseEntity` inside of it. If we were to try use it for inheritance from the `SampleApplication.Domain` package, it is not on the list of items which can be selected:
 
 ![BaseEntity not available for selection](images/base-entity-not-available-for-selection.png)
 
@@ -32,13 +32,13 @@ To make it available for selection we need to add a reference to the other packa
 
 ![The Add Package Reference... option](images/add-package-reference-option.png)
 
-Then ensure the package you want referenced is checked, in this case `Invoicing.AdditionalEntities`, and then press `OK`:
+Then ensure the package you want referenced is checked, in this case `SampleApplication.AdditionalEntities`, and then press `OK`:
 
 ![Package Reference Manager](images/package-reference-manager.png)
 
-The `Invoicing.AdditionalEntities` package is now present if you were to expand the `References` node:
+The `SampleApplication.AdditionalEntities` package is now present if you were to expand the `References` node:
 
-![The "Invoicing.AdditionalEntities" package now visible under References](images/package-now-visible-under-references.png)
+![The "SampleApplication.AdditionalEntities" package now visible under References](images/package-now-visible-under-references.png)
 
 And BaseEntity can now be selected as an option for inheritance:
 
