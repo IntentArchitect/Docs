@@ -19,7 +19,7 @@ Teams choose how much they hand over – fully automated, developer-augmented, o
 
 - **🎯 Agents that conform to your design and architecture by default**
 
-  Agents stay within the lines drawn by your system and architectural designs, executing accurately and in full conformance with the approved design. Design models supply context on every turn rather than agents having to infer it from the codebase. This reduces the need for excessive context engineering, prompting and validating to keep agents aligned.
+  Agents stay within the lines drawn by your system and architectural designs, executing accurately and in full conformance. Design models supply context on every turn rather than agents having to infer it from the codebase. This reduces the need for excessive context engineering, prompting and validating to keep agents aligned.
 
 - **📝 Specifications delivered as verified, traceable code**
 

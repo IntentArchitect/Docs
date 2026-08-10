@@ -9,23 +9,23 @@ No matter the configuration you choose, you stay in full control with complete v
 
 Intent Architect is built on a simple principle: developers stay in control, no matter how much is handed to agents. As agents write more of the codebase, control shifts from writing code to governing what gets written – and that is what these systems are built for.
 
-Changes Review surfaces everything that touched the codebase – generated output, agent- and developer-written code, and deviations from the architecture – and flags exactly what needs your attention. Inline diffs show what changed in the code, model-centric diffs show what it means for the design, and each change is attributed to whoever made it. Where a change traces back to a requirement, that link is surfaced too, so reviewers can see why it exists.
+Change Review surfaces everything that touched the codebase – generated output, agent- and developer-written code, and deviations from the architecture – and flags exactly what needs your attention. Inline diffs show what changed in the code, model-centric diffs show what it means for the design, and each change is attributed to whoever made it. Where a change traces back to a requirement, that link is surfaced too, so reviewers can see why it exists.
 
 ---
 
-## Key Benefits
+## Key benefits
 
-- **🔍 Full Visibility and Developer Control**
+- **🔍 Streamline code reviews and remain in control as review volume grows**
 
-  Every change proposed by the architecture enforcement system or an AI coding agent is surfaced as a diff before anything is applied to the codebase. Developers review, adjust, or reject every modification, and can view or edit any part of the managed codebase at any time. Automation never acts without explicit developer approval.
+  Code reviews stay effective and manageable as the volume of agent-written code grows. Changes Review raises Requires Attention flags, prioritizes files for review, and presents inline diffs alongside model-centric diffs, so developers see code change in conjunction with its effect on the design. Teams sustain review discipline and accountability at scale.
 
-- **🎚️ Fine-Grained Code Management**
+- **🎚️ Precise control over the architectural boundaries for agentic development**
 
-  Developers decide what is automated and what they manage themselves, from entire files down to individual methods, and that decision can be changed at any time. The system respects those boundaries completely, so automation and manual development coexist without conflict, at whatever ratio suits the task.
+  Architectural adherence remains easy to enforce as teams scale up agentic coding. Code Management systems give developers full control over the boundaries between the guardrails and agent- or developer-managed code, from entire files down to individual methods. Agents always stay within these boundaries so teams can scale agentic development without giving up structure, consistency and quality.
 
-- **📋 Architectural Adherence and Customizations**
+- **🛡️ Architectural governance by exception, not constant review**
 
-  When developers deviate from a generated pattern, those changes are tracked, attributed, and visible across the system, giving teams a clear picture of where and why the codebase diverges from the standard, as the system grows.
+  Guardrails scale better as they are managed by exception rather than constant review. Architectural deviations or customizations are flagged for approval directly in Changes Review. Customization Tracking captures what was changed, by whom, and how it diverges from the guardrails, giving teams a clear record of where and why the codebase departs from the standard as the system scales.
 
 ---
 
