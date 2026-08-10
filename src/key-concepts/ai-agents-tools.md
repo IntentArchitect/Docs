@@ -7,11 +7,11 @@ description: "How Intent Architect AI agents automate the development cycle, cov
 
 Leverage your existing context engineering setup and preferred AI-coding harness and service provider via the Intent MCP, or drive agents directly in the platform – and add the control you need to scale agentic development safely and reliably. Intent Architect allows teams to go from requirements to visual designs to working, production-ready code, with full traceability. Developers focus on engineering decisions and AI agents handle implementation.
 
-Intent Architect's own skills are bridged into each agent's native skill discovery – so your existing setup is respected rather than replaced. And the platform pre-engineers relevant context automatically, ensuring agents execute within the guardrails and in full conformance with your design and architecture, without complex setup or excessive validation.
+Intent Architect's own skills are bridged into each agent's native skill discovery – so your existing setup is respected rather than replaced. And the platform pre-engineers relevant context automatically, ensuring agents execute within the guardrails and in full conformance with your design and architecture, without overly complex context engineering or excessive validation.
 
-Agents can work like a team rather than a single conversation, dispatching focused sub-agents for isolated pieces of work so a large feature gets implemented wave by wave. They can also run your build and test tasks, and self-correct when those report errors.
+Spec-Driven Development features drive requirements through design to implemented code, with traceability maintained end to end. Reviewers can always establish what a change is for and where it came from.
 
-Teams choose how much they hand over – fully automated, developer-augmented, or manually driven.
+Teams ultimately choose how much they hand over – fully agentic, developer-augmented, or even manually driven.
 
 ---
 
