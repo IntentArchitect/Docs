@@ -4,6 +4,54 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
+## Version 5.2.2
+
+<!-- Generated from publish/client/5.2.1..release/5.2.x, up to commit e3d94fea96956c05a38733329c2e75b99ebe488d (no publish tag yet) -->
+
+## Improvements in 5.2.2
+
+- Improvement: AI chat's model picker now lets you mark models as favourites, which persist across sessions and are pinned to the top of the picker.
+- Improvement: The Source Control History view and each designer's History dialog can now search commits across the whole repository, not just the ones already loaded.
+- Improvement: History gained branch-level push and rename actions, without dropping to the terminal.
+- Improvement: Folder rows in the Changes and Codebase panels now offer subtree-wide actions - Apply All, Keep All, Undo All and Un-ignore All.
+- Improvement: "Resolve with AI" for merge/rebase conflicts now opens its own AI conversation, shows a spinner while it works, and lets you switch back to that conversation by clicking the busy button again.
+- Improvement: AI-generated commit messages now use `gpt-5-mini` and take the branch name and existing commit style into account.
+- Improvement: The Changes Review tab now refreshes automatically when reopened.
+- Improvement: A "warn on unreviewed changes" option can now prompt you before committing files that haven't been reviewed.
+- Improvement: Added `Ctrl + W` to close the current tab and `Ctrl + Shift + W` to close all tabs.
+- Improvement: The Software Factory Changes panel now highlights each application and shows its icon next to its output location.
+- Improvement: Git diff tabs now offer a rendered Markdown preview for `.md` files, matching the preview available elsewhere.
+- Improvement: Changes Review now warns when an application's code-management directives predate version 5.0.0, since the deterministic/custom split can't be trusted until the module is updated.
+- Improvement: The AI chat model picker now shows each provider's own icon instead of a generic chip icon for every row.
+- Improvement: Source Control rows now offer an "Add to .gitignore" submenu - this file, all files of this extension, this file's folder, or any folder with this name.
+- Improvement: Image files are now recognized and supported in AI chat and Git views.
+
+## Fixes in 5.2.2
+
+- Fixed: The ACP context-usage gauge could stay pinned at a flat 100% for models whose live usage report started conservative before correcting itself.
+- Fixed: Intent Architect's own metadata files and designer folders could appear as changes in the tracked change baseline; they're now excluded.
+- Fixed: Retrying a failed AI-chat turn always resent the original message verbatim, even when the turn had already made progress - it now asks the agent to continue from where it left off.
+- Fixed: Two concurrent modal dialogs - such as the `.mcp.json` suggestion racing an install prompt - could leave one waiting forever with a phantom "reply was never sent" error.
+- Fixed: Git reset showed an incorrect warning.
+- Fixed: The scrollbar in designers, tree and diff views was overly transparent, and highlighted or modified lines showed inconsistent alpha blurring across themes.
+- Fixed: Answered-question tab titles were not visible in dark mode for the Ask Question tool.
+- Fixed: Confirm / Info / Warn / Error dialogs, in-page and standalone, could be mis-sized - clipping long messages or leaving dead space for short ones, with lopsided footer padding - and could take about a second to appear; they now size to their content, show immediately, and have even padding.
+- Fixed: "Mutation" dialogs, such as rename or create, could be dismissed by clicking outside, discarding whatever had been entered.
+- Fixed: The app could start in a stale AI mode instead of Agent mode.
+- Fixed: A deviation approval could be silently revoked, or a stale approval wrongly kept, because it also checked the file's raw hash instead of the deviation hash alone.
+- Fixed: Viewing an AI conversation in one Git worktree locked it for every other worktree or instance of the same solution, since they share one Solution ID.
+- Fixed: A refused AI turn, immediately after starting a new one, could leave the composer stuck on "Thinking…" forever.
+- Fixed: Claude Code could repeatedly show "OAuth session expired and could not be refreshed" with no way to recover; Intent Architect now automatically attempts to re-authenticate and tells you to run `claude /login` if that fails.
+- Fixed: Auto-summarization for ACP conversations could fail with a 404 error on `gpt-5.1-mini` on every turn.
+- Fixed: Switching branches with an external Git client while Intent Architect was open could leave designers and the Software Factory out of sync until a full reload; file-change reactions now wait until Git finishes writing, with a bar to reload, dismiss or resolve with AI in the meantime.
+- Fixed: Clicking Cancel on the "Stop tracking?" prompt, after adding a pattern to `.gitignore`, still wrote the pattern; Cancel now aborts the whole action.
+- Fixed: `grep` and other file/search and spec tools could hang for a coding sub-agent due to a slow per-file cross-process round trip; they now run in-process, cutting a ~28,000-file grep from potentially never returning to about 10 seconds.
+- Fixed: The Changes Review tab's deterministic/custom split relied on a git-ignored local log, so a fresh clone, CI checkout or teammate's machine showed everything as 100% Custom; classification is now captured in per-commit records committed to the repository.
+- Fixed: An unresponsive Intent Architect instance could add up to 5 seconds to every MCP call from every client on the machine - even calls targeting a different solution - with no eviction; health checks and process lifetimes are now bounded so a dead instance stops slowing everything else down.
+- Fixed: The generated-files inventory (`managed-files.xml`) could retain phantom entries for files no template produces anymore, until an unrelated delete happened to be committed.
+- Fixed: Running the Software Factory from two Intent Architect instances against the same checked-out folder at once could let both proceed and clobber each other instead of the second one stopping with a clear "already running" message.
+- Fixed: Unticking a module's Installation Settings checkbox and choosing Reinstall silently did nothing, and installing a dependent module could OR the setting back on regardless; settings changes now stick, with a warning when dependent modules are affected.
+
 ## Version 5.2.1
 
 ## Improvements in 5.2.1
