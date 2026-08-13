@@ -31,13 +31,13 @@ Teams ultimately choose how much they hand over – fully agentic, developer-aug
 
 ---
 
-## The AI-driven Development Workflow
+## The Agentic Development Workflow
 
-The ultimate goal of Intent Architect is a development workflow we refer to as "The Golden Path", where the developer can focus almost entirely on engineering and design decisions, and the platform takes care of the rest.
+Intent Architect enables an end-to-end agentic development workflow, where developers can focus almost entirely on engineering and design decisions, and agents take care of the rest.
 
-Intent Architect's AI presents a single chat interface where design and implementation are handled in one workflow. The agent helps you translate requirements into comprehensive system designs directly in the visual designers, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). When implementation work is needed, it is dispatched to a coding sub-agent that handles the hand-written code, while the deterministic guardrail system rolls out the architecture, infrastructure, and boilerplate to guarantee consistency at scale.
+For developers that choose to drive their agentic workflow from within Intent Architect, the platform presents a single AI chat interface (integrated with your preferred harness and LLM) where design and implementation are handled in one workflow. The agent helps you translate requirements into comprehensive system designs directly in the visual designers, faster and more accurately than working manually (all model changes are made in memory and never saved without your explicit approval). When implementation work is needed, it is dispatched to a coding sub-agent that handles the custom coding, while the Software Factory rolls out the architecture, infrastructure, and boilerplate deterministically to guarantee consistency at scale.
 
-In practice, the workflow looks like this: describe your system's design visually with AI in a single chat interface, run the Software Factory Execution, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
+In practice, the workflow looks like this: confirm your system's design visually in a single chat interface, run the Software Factory and AI coding tasks, and out the other side comes working, production-ready software. Well architected, consistent, and built to your standards, at any scale.
 
 <br>
 
