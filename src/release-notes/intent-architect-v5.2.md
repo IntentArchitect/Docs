@@ -4,9 +4,58 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
-## Version 5.2.2
+## Version 5.2.3
 
-<!-- Generated from publish/client/5.2.1..publish/client/5.2.2 -->
+<!-- Generated from publish/client/5.2.2..publish/client/5.2.3-pre.0 -->
+
+## Improvements in 5.2.3
+
+- Improvement: The Source Control view now supports git stash - stash, apply, pop and drop - with stashes shown in the commit graph and a combined Commit/Stash button.
+
+  ![Git stash drop down option](images/5.2.x/stash-1.png)
+
+  ![Git stash options](images/5.2.x/stash-2.png)
+
+  ![Git stash existing options](images/5.2.x/stash-3.png)
+
+- Improvement: Opening a folder without an existing solution file now opens it as a workspace immediately; the `.isln` file is only created when you explicitly choose "Create solution", and the Home screen's "Open a folder" and "Clone a repository" tiles are available again.
+
+  ![Open Folder option on home screen](images/5.2.x/open-folder-option.png)
+
+  ![An opened folder](images/5.2.x/open-folder-view.png)
+
+- Improvement: Modules are now automatically restored when `modules.config` or the module cache changes outside Intent Architect - e.g. `git pull`/`checkout`/`reset`/`clean`, or another window - instead of leaving designers running against stale or missing modules until reopened.
+- Improvement: Tree views such as Solution Explorer now show a sticky header of ancestor rows as you scroll, so the folder path you're inside stays visible and clickable.
+- Improvement: OpenCode is now available as an ACP agent, with its model list discovered live from your own `opencode` install.
+- Improvement: When an external MCP client (not the in-app AI chat or an ACP agent) triggers a tool that opens a dialog, the call now fails immediately instead of hanging forever waiting for a human who isn't there to click it; a background tab blocked on an open dialog now pulses in the tab strip until focused.
+- Improvement: The Properties pane can now be hidden and shown via `F4` or a new toolbar button, and can be collapsed by dragging it small, matching other panels.
+- Improvement: The Choose Icon and Create Solution dialogs now open as their own windows instead of in-page overlays, so they're no longer clipped when opened over other modal windows.
+- Improvement: Markdown preview tabs now restore your exact scroll position when reopened.
+- Improvement: The tabs list menu now supports `Ctrl`/`Cmd` + Click to close a tab, with a hint showing the platform-specific modifier.
+- Improvement: The AI chat action row now collapses the permission-mode chip to an icon when space is tight, keeping the agent and model picker labels visible.
+- Improvement: Spec items opened as file tabs now show a friendly title instead of the underlying file path.
+- Improvement: Spec/plan tools' `contents` parameter has been renamed to `content` for consistency.
+
+## Fixes in 5.2.3
+
+- Fixed: Discarding a file could fail to remove it from the index when it didn't exist in HEAD, e.g. in a freshly initialized repository or a linked/junction directory.
+- Fixed: Bumping a module's version could mark package-reference designer tabs as having unsaved changes with nothing to save.
+- Fixed: The Comment editor in the Properties pane could overflow the pane's right edge once the scrollbar appeared.
+- Fixed: Updating modules across a whole solution could peg CPU in every open window; large module operations now show a "File operations in progress" bar while designers wait for the filesystem to settle.
+- Fixed: Agent tools that wait on a human decision - Ask Question, tool/plan approval, elicitation, spec phase advance - could fail after about 10 minutes with "The user did not answer the questions", even though the user hadn't answered yet.
+- Fixed: Shell keyboard shortcuts such as `Ctrl + S`, `Ctrl + Shift + Y` and `Ctrl + Tab` could stop working after clicking inside a diff editor, e.g. its gutter revert arrows.
+- Fixed: Freshly created, unsaved AI conversations could vanish from the list when switching the current chat, if the repository or branch couldn't yet be determined.
+- Fixed: In light mode, tree view scrollbars had no visible track, making the thumb hard to see and the scroll extent unclear.
+- Fixed: Filtering a tree view didn't scroll to show the matching results.
+- Fixed: Steering messages sent with attachments (pasted text or images) mid-turn could fail to route them, losing the attachment.
+- Fixed: `rebase --continue`/`--skip` could hang waiting on an interactive editor instead of running headless; failures are now classified as conflicts, unstaged changes or a timeout with a clearer message.
+- Fixed: An ACP agent session could start with the wrong working directory if no solution was open yet.
+- Fixed: MCP calls such as `get_applications` could fail permanently with "Client didn't provide a result" after the main window's connection dropped and reconnected, until Intent Architect was restarted.
+- Fixed: Starting two Intent Architect instances at the same time could crash one of them with a port-already-in-use error.
+- Fixed: Module restore could fail almost immediately on a transient file lock, such as an antivirus scan or another Intent Architect instance, instead of waiting and retrying.
+- Fixed: A dialog opened from a designer script (`dialogService.confirm/info/warn/error`) or from automation tooling could stay invisible until unrelated UI activity happened to trigger it.
+
+## Version 5.2.2
 
 ## Improvements in 5.2.2
 

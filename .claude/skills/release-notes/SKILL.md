@@ -108,6 +108,9 @@ Match the most recent version sections in the file — the style has evolved, so
 - Internal AI **prompt/steering** tweaks that don't change a user-visible capability ("Further steering around creating new applications", "Update GetFullInstructions …").
 - Vague or cosmetic one-liners with no discernible user impact ("Fix this.", "Fix this colour.", "Apply outstanding changes.", "Small tweak to display", "More apt emoji for branch").
 - ILMerge/assembly-isolation and other packaging plumbing.
+- **Fixes for bugs introduced by a feature added in the same tag range.** If a "Fixed:" commit resolves a regression in code that a different commit *within this same `from..to` range* introduced (check the feature commit's message/diff, not just chronological order — a fix can land before or after the feature commit in `git log`, and squashed/rebased history can reorder them), no shipped version ever had the bug, so it isn't user-facing. Don't add a separate Fixed bullet for it. Fold the fix silently into the feature's Improvement description only if it materially changes what to say the feature does; otherwise just drop it. Still report it in your skip summary, with the feature commit it belongs to.
+  - Example: a commit adds a new sticky tree-view header, and a later commit in the same range fixes that header's right-click handling — skip the fix, keep only the Improvement bullet for the header.
+  - Contrast with a fix that touches code from a *previous* release (i.e. code not introduced within this range) — that's a real user-facing Fixed bullet even if it happens to land in a commit next to a new feature.
 
 **Consolidate:** when several commits form one theme (e.g. multiple ACP-context or `.mcp.json`-configuration commits), write one bullet per distinct user-facing outcome rather than one per commit.
 
