@@ -6,11 +6,14 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.2
 
-<!-- Generated from publish/client/5.2.1..release/5.2.x, up to commit e3d94fea96956c05a38733329c2e75b99ebe488d (no publish tag yet) -->
+<!-- Generated from publish/client/5.2.1..publish/client/5.2.2 -->
 
 ## Improvements in 5.2.2
 
 - Improvement: AI chat's model picker now lets you mark models as favourites, which persist across sessions and are pinned to the top of the picker.
+
+  ![AI Favourites Feature](images/5.2.x/ai-model-favourites.png)
+
 - Improvement: The Source Control History view and each designer's History dialog can now search commits across the whole repository, not just the ones already loaded.
 - Improvement: History gained branch-level push and rename actions, without dropping to the terminal.
 - Improvement: Folder rows in the Changes and Codebase panels now offer subtree-wide actions - Apply All, Keep All, Undo All and Un-ignore All.
@@ -48,9 +51,11 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Fixed: `grep` and other file/search and spec tools could hang for a coding sub-agent due to a slow per-file cross-process round trip; they now run in-process, cutting a ~28,000-file grep from potentially never returning to about 10 seconds.
 - Fixed: The Changes Review tab's deterministic/custom split relied on a git-ignored local log, so a fresh clone, CI checkout or teammate's machine showed everything as 100% Custom; classification is now captured in per-commit records committed to the repository.
 - Fixed: An unresponsive Intent Architect instance could add up to 5 seconds to every MCP call from every client on the machine - even calls targeting a different solution - with no eviction; health checks and process lifetimes are now bounded so a dead instance stops slowing everything else down.
-- Fixed: The generated-files inventory (`managed-files.xml`) could retain phantom entries for files no template produces anymore, until an unrelated delete happened to be committed.
 - Fixed: Running the Software Factory from two Intent Architect instances against the same checked-out folder at once could let both proceed and clobber each other instead of the second one stopping with a clear "already running" message.
 - Fixed: Unticking a module's Installation Settings checkbox and choosing Reinstall silently did nothing, and installing a dependent module could OR the setting back on regardless; settings changes now stick, with a warning when dependent modules are affected.
+- Fixed: MCP's `create_solution` could target the wrong Intent Architect instance when both a home-screen instance and a solution-open instance were running, and `get_architecture_details` could 404 because it only searched the currently selected repository instead of every configured one.
+- Fixed: MCP's `get_status` could throw and kill the tool call outright when scanning into a permission-denied folder, with no depth or time limit on the scan; the scan now skips inaccessible folders and is bounded.
+- Fixed: The Changes panel could silently drop changes located outside every codebase root instead of showing them.
 
 ## Version 5.2.1
 
