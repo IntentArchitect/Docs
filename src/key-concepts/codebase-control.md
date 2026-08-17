@@ -43,7 +43,7 @@ This helps to keep developers in control. By default, no code gets written witho
 
 ## Code Management
 
-Intent Architect uses abstract syntax tree parsing and intelligent merge algorithms to combine agent- or developer-written code with Module generated code, without conflict. Developers can configure what code is managed by Modules at any granularity, from a single method implementation up to an entire file, and hand it back to the Modules at any point. Configuration is always in the developer's hands and can be changed at any time.
+Intent Architect uses abstract syntax tree parsing and intelligent merge algorithms to combine agent- or developer-written code with Module generated code, without conflict. Developers can configure what code is managed by Modules at any granularity, from a single method implementation up to an entire file. Configuration is always in the developer's hands and can be changed at any time.
 
 This is part of what makes the architectural guardrails work at scale: developers are in full control of the architectural boundaries and what code is managed by the Modules, agents or themselves.
 
@@ -57,7 +57,7 @@ For more information, read [](xref:application-development.code-management.about
 
 ## Customization Tracking
 
-When developers intentionally deviate from a generated pattern, those changes are captured and surfaced across the system. Customization Tracking shows what was changed, by whom, and how it diverges from the reference pattern, creating an audit trail of architectural decisions that stays useful as the system and team scale.
+When developers or agents intentionally deviate from a generated pattern, i.e., the architectural guardrails or Module managed code, those changes are captured and surfaced across the system. Customization Tracking shows what was changed, by whom, and how it diverges from the reference pattern or Module, creating an audit trail of architectural decisions that remain valuable as the system and team scale.
 
 <br>
 
