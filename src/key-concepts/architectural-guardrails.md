@@ -51,7 +51,7 @@ The deterministic guardrail system is particularly well-suited to managing:
 
 <br>
 
-Intent Architect offers a library of over 100 pre-built Modules covering the most popular .NET architectural patterns and technologies, giving teams immediate access to community-tested, best-practice implementations. For teams with custom standards or specialized domains, the platform offers a powerful Module-building ecosystem, where architectural patterns can easily be authored by your architects, giving you complete control over what is automated as part of your architecture, and how it is implemented – and how it evolves.
+Intent Architect offers a library of over 100 pre-built Modules covering the most popular .NET architectural patterns and technologies, giving teams immediate access to community-tested, best-practice implementations. For teams with custom standards or specialized domains, the platform offers a powerful Module-building ecosystem, where architectural patterns can quickly and easily be authored by leveraging AI, giving you complete control over your architecture and how it is implemented – and how it evolves.
 
 <br>
 

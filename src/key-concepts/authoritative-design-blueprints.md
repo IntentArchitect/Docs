@@ -41,7 +41,7 @@ Each designer targets a different layer of your architecture. Together, they giv
 
 ## Designing with AI
 
-One of the most powerful ways to use the visual designers is alongside Intent Architect's AI Modeling Assistant. Rather than building designs from scratch, you describe your requirements in natural language and the AI proposes the full design within the visual environment, entities, relationships, services, and more. All changes are made in memory and never saved without your explicit approval, so you stay in full control of every design decision.
+One of the most powerful ways to use the visual designers is with AI. Rather than building designs from scratch, you describe your requirements in natural language (or simply upload a specification) and the AI agent proposes the full design within the visual environment, entities, relationships, services, and more. All changes are made in memory and never saved without your explicit approval, so you stay in full control of every design decision.
 
 <br>
 
@@ -53,13 +53,13 @@ One of the most powerful ways to use the visual designers is alongside Intent Ar
 
 When you design in Intent Architect, every element you place, an entity, a service, a relationship, is saved as structured metadata alongside your source code. Collectively, this metadata forms the platform's context engine, a precise, always-current representation of your system's design intent.
 
-This is what makes automation reliable at scale. AI coding agents and the deterministic guardrail system all work from this same structured source of truth. Rather than inferring design intent from code, which is imprecise and incomplete, every downstream system works from the exact design decisions you have made, visually, in the designers. Your intent is never lost in translation.
+This is what makes agentic development more reliable at scale. AI coding agents all generate code from this same structured source of truth. Rather than inferring design intent from code, which is imprecise and incomplete, every downstream system works from the exact design decisions you have made, visually, in the designers. Your intent is never lost in translation.
 
 ---
 
 ## Living Documentation
 
-Because designs are stored as structured metadata alongside your source code, they are always synchronized with your codebase, reflecting the current state of your system's design and architecture. New team members can explore the full system architecture visually rather than reverse-engineering it from thousands of lines of code, significantly accelerating the time it takes to contribute meaningfully.
+Because designs are stored as structured metadata alongside your source code, they are always synchronized with your codebase, reflecting the current state of your system's design and architecture. New team members can explore the full system architecture visually rather than reverse-engineering it from thousands of lines of code, significantly accelerating the time it takes to validate/comprehend the current state of the system and contribute meaningfully.
 
 ---
 
