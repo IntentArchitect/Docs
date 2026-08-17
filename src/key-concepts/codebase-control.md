@@ -31,9 +31,9 @@ Change Review surfaces everything that touched the codebase – deterministicall
 
 ## The Software Factory
 
-Every change Intent Architect proposes, whether from the architecture enforcement system or an AI coding agent, passes through the Software Factory before touching your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
+Every change, whether Module or agent driven, passes through the Software Factory before touching your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
 
-This is what keeps developers fully in control. By default, no automation applies anything to the codebase without explicit developer approval. However, developers can optionally enable "Bypass all permissions" mode to allow the AI agent to run the Software Factory and apply changes automatically if they prefer a fully autonomous workflow. The choice is always yours – configure the level of automation that suits your team and task.
+This helps to keep developers in control. By default, no code gets written without explicit developer approval. However, developers can optionally enable "Bypass all permissions" mode to allow AI agents to run the Software Factory and apply changes automatically if they prefer a fully autonomous workflow. The choice is always yours – configure the level of control that suits your team and task.
 
 <br>
 
@@ -43,9 +43,9 @@ This is what keeps developers fully in control. By default, no automation applie
 
 ## Code Management
 
-Intent Architect's Code Management system uses abstract syntax tree parsing and intelligent merge algorithms to combine developer-written code with automatically generated code, without conflict. Developers can configure any file so that they own the implementation of specific methods while the system manages the rest, or take full control of a file entirely, or hand it back to automation. Configuration is always in the developer's hands and can be changed at any time.
+Intent Architect uses abstract syntax tree parsing and intelligent merge algorithms to combine agent- or developer-written code with Module generated code, without conflict. Developers can configure what code is managed by Modules at any granularity, from a single method implementation up to an entire file, and hand it back to the Modules at any point. Configuration is always in the developer's hands and can be changed at any time.
 
-This is what makes continuous code generation practical at scale: automation never touches code the developer has claimed, and developers are never forced into a level of automation they did not choose.
+This is part of what makes the architectural guardrails work at scale: developers are in full control of the architectural boundaries and what code is managed by the Modules, agents or themselves.
 
 <br>
 
