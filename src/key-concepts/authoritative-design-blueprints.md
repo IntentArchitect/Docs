@@ -19,9 +19,9 @@ Visuals are a highway to the brain, and by expressing complex systems in visual 
 
   As agents write more and more code, comprehensive code review becomes the delivery constraint, while approving output without adequate scrutiny pushes technical debt, cognitive debt, and latent quality risk downstream. Intent Architect's extensible designers give you an aggregated, model-centric view of your design specification that's easy to comprehend and always true to the underlying codebase, so you stay in control of what matters most. In addition, model-centric diffs highlight codebase-related changes as they happen, and advanced Change Review features prioritize files for review, streamlining the validation and comprehension process so teams can safely sustain AI-driven delivery speed.
 
-- **🔗 End-to-end traceability from requirement to code**
+- **🗺️ Authoritative design blueprints bring design decisions to the forefront**
 
-  As development becomes increasingly specification-driven, the relationship between requirements and code becomes primary. With Intent Architect, traceability links are recorded from each requirement to the model elements and files that implement it, and flow through to Change Review. You can quickly establish that implementations match intent, and trace any change back to the requirement that drove it, without reconstructing either from code.
+  The design and architecture are explicit and visible to the entire team, rather than implicit in the code. The blueprints generated in Intent Architect are living design specifications, that realize directly as code, and therefore always accurately represent what's implemented - agentically or otherwise. This means design and architectural decisions are better and made faster, changes are made with more confidence, and issues are resolved quicker.
 
 - **⚡ A precise context engine for agents and guardrails**
 
