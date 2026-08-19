@@ -46,36 +46,13 @@ Intent Architect supports AI-assisted workflows using customer-configured AI pro
 - Provider credentials are stored locally on the customer machine.
 - Data handling for those requests is governed by the selected provider and the customer's agreement with that provider.
 
-This architecture means Intent Architect is not, by default, a central processor or long-term store of AI prompts, files, or outputs for bring-your-own-provider use. See [](xref:ai.data-privacy) for detail.
+This architecture means Intent Architect is not a central processor or long-term store of AI prompts, files, or outputs for bring-your-own-provider use.
+
+The one exception is the optional **trial AI credits** offered to customers who are not yet set up with their own provider. Those requests are routed through OpenRouter with Zero Data Retention applied to supported models. Trial credits exist so the features can be evaluated; configuring your own provider is the intended configuration. See [](xref:ai.data-privacy) for detail.
 
 ## Data classification model
 
-For security and governance purposes, the following distinction is important.
-
-### Customer project content
-
-Customer project content includes:
-
-- Source code.
-- Design models.
-- Project files.
-- Generated code.
-- Prompts, AI inputs, and AI outputs.
-- Customer business documents and development artefacts.
-
-Customer project content generally remains within customer-controlled environments.
-
-### Operational service data
-
-Operational service data includes:
-
-- Account and licensing data.
-- Technical product telemetry.
-- Crash and error diagnostics.
-- Service-operation metadata.
-- Update and module retrieval metadata.
-
-Operational service data is separate from customer project content.
+Two categories drive the security model: **customer project content**, which remains within customer-controlled environments, and **operational service data**, which is processed by supporting services. Both are defined in [Data categories](xref:security-privacy.overview#data-categories).
 
 ## Data flow summary
 
@@ -115,8 +92,9 @@ Intent Architect supporting services are hosted using:
 
 - **Microsoft Azure** - Johannesburg, South Africa.
 - **Cloudflare CDN** - Europe.
+- **Mixpanel** - Europe (product telemetry and analytics).
 
-Customer project content is generally not hosted by Intent Architect. Data residency for AI requests depends on the provider and endpoint selected by the customer. See [](xref:security-privacy.hosting-and-data-residency).
+Customer project content is not hosted by Intent Architect. Data residency for AI requests depends on the provider and endpoint selected by the customer. See [](xref:security-privacy.hosting-and-data-residency).
 
 ## Data separation and isolation
 
@@ -138,42 +116,16 @@ Telemetry and diagnostics may be associated with a **pseudonymous identifier** s
 
 ## Telemetry and crash diagnostics
 
-### Nature of telemetry
+Intent Architect collects technical telemetry and crash diagnostics as part of product operation and support. Representative examples include authentication events, feature access events, process execution events, usage and behaviour signals, performance and reliability indicators, and software exceptions and crash details. For the metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
 
-Intent Architect collects technical telemetry and crash diagnostics as part of product operation and support.
+Telemetry and crash reporting collect **technical and operational information only**. They do not collect customer project content: source code, design models, project files, customer business documents, or prompts and AI outputs.
 
-Examples include:
+Telemetry may include a pseudonymous identifier associated with an account, user, or installation context, used for operational and support purposes.
 
-- User authentication/login events.
-- Feature access events.
-- Process execution events.
-- Product usage and behaviour signals.
-- Performance/reliability indicators.
-- Software exceptions, errors, and crash details.
+> [!NOTE]
+> Telemetry cannot be disabled.
 
-For the specific metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
-
-### Scope limitations
-
-Telemetry and crash reporting are intended to collect **technical and operational information**, not customer project content.
-
-They do not intentionally collect customer project content such as:
-
-- Source code.
-- Design models.
-- Project files.
-- Customer business documents.
-- Prompts or AI outputs from standard bring-your-own-provider workflows.
-
-### Retention
-
-Telemetry and crash diagnostics are retained for long-term product support, reliability analysis, usage analysis, and historical troubleshooting.
-
-This data is retained **indefinitely**, subject to deletion on request where appropriate.
-
-### User linkage
-
-Telemetry may include a pseudonymous identifier associated with an account, user, or installation context. This identifier is used for technical and operational purposes and is not intended to represent customer project content.
+Retention varies by data category - see [Retention](xref:security-privacy.privacy-notice#retention) in the Privacy Notice.
 
 ## AI security considerations
 
@@ -201,7 +153,17 @@ In standard bring-your-own-provider use:
 
 ## Credential handling
 
-AI provider credentials configured for use within Intent Architect are stored **locally on the user's machine**.
+AI provider credentials configured for use within Intent Architect are stored **locally on the user's machine**. They are never transmitted to Intent Architect's supporting services.
+
+<!--
+TODO: this section needs the specific storage mechanism filled in before it will satisfy a security review.
+Reviewers consistently ask: which store, and is it encrypted at rest? Confirm and state one of:
+  - the OS credential store (Windows Credential Manager / DPAPI, macOS Keychain), or
+  - an encrypted file under the user profile (state the algorithm and where the key comes from), or
+  - a plaintext configuration file (state it plainly, and note the file location so customers can apply their own controls).
+Left as a comment rather than a published note - a visible "we can't say how we store your API keys"
+reads worse to a reviewer than any of the honest answers above.
+-->
 
 Customers remain responsible for:
 
@@ -221,6 +183,62 @@ The security posture for those services should be understood as:
 - Data-at-rest protections for hosted supporting services are provided through the underlying hosted infrastructure and service architecture where applicable.
 
 If a customer requires a deeper control-level breakdown of encryption or infrastructure safeguards, that information should be provided separately where available.
+
+## Network endpoints
+
+Intent Architect contacts a small number of endpoints during normal operation. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
+
+<!-- TODO: confirm the endpoints and purposes below and replace the placeholders. This table is one of the
+     most frequently requested items for a desktop tool in an enterprise environment, and it also
+     demonstrates the local-first claim concretely - the list is short, and none of it carries project content. -->
+
+| Endpoint                    | Purpose                                | Required                          |
+| --------------------------- | -------------------------------------- | --------------------------------- |
+| `TODO`                      | Licence activation and validation       | Yes                               |
+| `TODO`                      | Update checks and product downloads     | Yes                               |
+| `TODO`                      | Module registry and module downloads    | Yes                               |
+| `TODO`                      | Telemetry and crash diagnostics         | Yes                               |
+| Your configured AI provider | AI features                             | Only if AI features are used      |
+
+AI provider endpoints depend entirely on the provider the customer configures, and are not fixed by Intent Architect.
+
+## Offline use
+
+Intent Architect can be used offline for a limited period. Licence validation requires periodic connectivity, and after that window elapses a successful revalidation is needed before use can continue.
+
+<!-- TODO: state the actual offline grace period (e.g. "up to N days between successful licence validations")
+     and what the user sees when it expires. -->
+
+Module downloads, update checks, and AI features require connectivity at the time they are used. Local modelling, code generation, and editing do not.
+
+## Compliance certifications
+
+Intent Architect does **not** currently hold ISO 27001, SOC 2, or equivalent third-party security certifications.
+
+Our assurance position rests on the product's architecture rather than on certification of a hosted platform: because Intent Architect does not host customer project content, the assets that a certification of our environment would cover are limited to operational service data, and the certifications of the underlying infrastructure providers apply to that hosting. Microsoft Azure and Cloudflare each maintain their own certifications for the infrastructure they provide - see [](xref:security-privacy.third-party-services-and-sub-processors).
+
+Customers whose procurement process requires a completed security questionnaire can request one - see [Security inquiries](#security-inquiries).
+
+## Security contact and vulnerability reporting
+
+Security researchers and customers who believe they have found a vulnerability in Intent Architect should report it to <support@intentarchitect.com> rather than disclosing it publicly, so that it can be investigated and addressed.
+
+Please include enough detail to reproduce the issue. We will acknowledge reports and keep the reporter informed of progress toward a fix.
+
+<!-- TODO: confirm whether a dedicated security@intentarchitect.com alias should be used instead of support@,
+     and whether a target acknowledgement window (e.g. 3 business days) can be committed to. -->
+
+## Incident notification
+
+Where Intent Architect becomes aware of a security incident affecting operational service data, we will investigate, take steps to contain and remediate the issue, and notify affected customers without undue delay, together with the information needed for them to assess their own obligations.
+
+<!-- TODO: sample wording - confirm and adjust. Points typically expected by reviewers:
+       - the notification window you are willing to commit to (e.g. "within 72 hours of becoming aware"),
+       - who is notified (account/licence contact, technical contact),
+       - the channel used (email to the account contact),
+       - whether a post-incident report is provided on request.
+     Note that because customer project content is not hosted by Intent Architect, an incident in our
+     services cannot expose customer source code or models - worth stating explicitly once confirmed. -->
 
 ## Customer responsibilities
 

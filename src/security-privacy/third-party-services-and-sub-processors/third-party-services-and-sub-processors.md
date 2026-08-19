@@ -24,7 +24,7 @@ Intent Architect does **not** use a hosted multi-tenant workspace for customer p
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- | --------------------------- |
 | **Microsoft Azure** | Hosting of Intent Architect supporting services, including licensing, validation, service APIs, telemetry/crash-related services, update-related services, and account services | Account data, licensing records, technical telemetry, crash/error diagnostics, service-operation metadata                                     | Johannesburg, South Africa                                 | Cloud infrastructure provider |
 | **Cloudflare**      | Content delivery and network edge services for public-facing delivery and distribution                                                                                        | Request metadata, delivery logs, network/edge service data, content delivery metadata                                                        | Europe                                                     | CDN and network services provider |
-| **Mixpanel**        | Product telemetry and analytics                                                                                                                                               | Technical product usage events, feature access events, process execution events, product metrics, pseudonymous identifiers, operational analytics data | Subject to Mixpanel service configuration and contractual terms | Analytics provider          |
+| **Mixpanel**        | Product telemetry and analytics                                                                                                                                               | Technical product usage events, feature access events, process execution events, product metrics, pseudonymous identifiers, operational analytics data | Europe                                                     | Analytics provider          |
 | **Stripe**          | Payment processing, where customers elect to use card-based payment                                                                                                           | Billing/contact/payment transaction data, payment-related metadata, commercial transaction information                                        | Subject to Stripe service configuration and contractual terms | Payment processor           |
 | **Xero**            | Billing, invoicing, and accounting administration associated with customer relationships                                                                                       | Customer/company contact details, billing details, invoice records, transaction records, commercial/accounting information                    | Subject to Xero service configuration and contractual terms | Accounting and invoicing provider |
 
@@ -62,7 +62,7 @@ Intent Architect supports **bring-your-own-provider** AI integrations. In these 
 
 Because these providers are chosen by the customer, they are generally best understood as **customer-selected third parties**, rather than default Intent Architect sub-processors for standard product operation.
 
-Potential providers may include, depending on customer configuration:
+Providers include, depending on customer configuration:
 
 - OpenAI
 - Anthropic
@@ -74,36 +74,26 @@ Potential providers may include, depending on customer configuration:
 
 In these configurations:
 
-- Intent Architect does not centrally host customer AI traffic as part of normal bring-your-own-provider operation.
+- Intent Architect does not host or route customer AI traffic. Requests go from the customer's machine directly to the configured provider.
 - Data handling, retention, residency, and model-use terms for AI requests are governed by the selected provider and the customer's agreement with that provider.
 
-If Intent Architect offers any provider-backed AI access, credits, or managed routing as part of a separate service feature, the applicable provider path for that feature should be assessed separately - see [](xref:ai.data-privacy).
+### Trial AI credits
+
+For customers who are not yet set up with their own AI provider, Intent Architect offers a small allocation of **trial AI credits** so the AI features can be evaluated. This is entirely optional and is not the intended long-term configuration - customers are expected to configure their own provider.
+
+When trial credits are used, requests are routed through **OpenRouter**, where Intent Architect has applied **Zero Data Retention (ZDR)** to all supported models. In this path OpenRouter acts as an Intent Architect sub-processor rather than a customer-selected provider. Models without ZDR fall under the underlying provider's standard data policy, and the distinction is shown in the model selection list. See [](xref:ai.data-privacy) for the detail.
+
+Customers whose governance policies do not permit third-party AI routing can request to have this feature disabled for their account and configure their own provider instead.
 
 ## Categories of data not processed by default supporting services
 
-Intent Architect's default supporting services are **not intended to host customer project content** such as:
-
-- Source code.
-- Design models.
-- Project files.
-- Generated code.
-- Customer business documents.
-- Prompts and AI outputs from bring-your-own-provider usage.
-
-Such content ordinarily remains under customer control in customer-managed environments unless the customer deliberately transmits it to a third-party provider.
+Intent Architect's supporting services do not host customer project content - see [Customer project content](xref:security-privacy.overview#data-categories). That content stays under customer control in customer-managed environments unless the customer deliberately transmits it to a third-party provider.
 
 ## Telemetry and crash diagnostics
 
-The operational data processed by Intent Architect supporting services and analytics providers may include:
+The operational data processed by Intent Architect supporting services and analytics providers is technical in nature - product usage and feature access events, process execution events, performance indicators, exceptions and crash diagnostics, and a pseudonymous identifier used to associate events with an account or installation.
 
-- User login/authentication events.
-- Feature access events.
-- Product process execution events.
-- Technical usage and behaviour events.
-- Exception, error, and crash diagnostics.
-- Pseudonymous identifiers used to associate operational events with an account, installation, or user context.
-
-This operational data is technical in nature and is separate from customer project content. See [](xref:application-development.user-interface.telemetry-collection).
+These are representative examples rather than an exhaustive inventory. For the metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
 
 ## Commercial and billing data
 

@@ -4,6 +4,19 @@ description: "Intent Architect's Privacy Notice: what information is processed, 
 ---
 # Privacy Notice
 
+> [!NOTE]
+> Last updated: TODO - set this date whenever the notice changes.
+
+## Who we are
+
+<!-- TODO: fill in the legal entity name and registered address. A privacy notice that does not name the
+     controller is the first thing a legal or procurement reviewer flags, because they cannot tell which
+     entity they would be contracting with or complaining about. Name + address + email is sufficient. -->
+
+**TODO - legal entity name**, of TODO - registered address, is the controller of the personal information described in this notice.
+
+For any question about this notice, or to make a privacy request, email <support@intentarchitect.com>.
+
 ## Introduction
 
 This Privacy Notice explains how Intent Architect handles information in connection with the Intent Architect product, related services, and associated commercial and support interactions.
@@ -16,35 +29,13 @@ This notice applies to:
 - Licensing and account-related services.
 - Update and module delivery services.
 - Telemetry and crash/error reporting.
-- Website, portal, and support interactions, where applicable.
+- Portal and support interactions, where applicable.
+
+Cookies and website analytics are covered by the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com) rather than by this notice.
 
 ## Important distinction: project content vs operational service data
 
-For clarity, Intent Architect distinguishes between the following.
-
-### Customer project content
-
-This includes:
-
-- Source code.
-- Design models.
-- Project files.
-- Generated code.
-- Prompts, AI inputs, and AI outputs.
-- Customer business documents and development artefacts.
-
-Customer project content is generally processed and stored **within the customer's own environment** and is not hosted by Intent Architect as part of normal product operation.
-
-### Operational service data
-
-This includes:
-
-- Account and licensing information.
-- Technical telemetry and product usage events.
-- Crash and error diagnostics.
-- Update/module retrieval metadata.
-- Service-operation metadata.
-- Support correspondence, where applicable.
+Intent Architect distinguishes between **customer project content**, which stays within the customer's own environment and is not hosted by us, and **operational service data**, which we process to operate and support the product. Both are defined in [Data categories](xref:security-privacy.overview#data-categories).
 
 This notice primarily concerns **operational service data** and other information processed in connection with operating and supporting the product.
 
@@ -74,7 +65,9 @@ This may include technical and behavioural product-usage information such as:
 - Product version, environment, and technical usage metrics.
 - Operational events needed to support, analyse, and improve the product.
 
-This telemetry is technical in nature and is **not intended to include customer project content**. See [](xref:application-development.user-interface.telemetry-collection) for the specific metrics collected.
+These are representative of the nature of the telemetry collected rather than an exhaustive inventory. The telemetry is technical in nature and does **not include customer project content**. See [](xref:application-development.user-interface.telemetry-collection) for the metrics collected.
+
+Telemetry cannot be disabled.
 
 ### Crash and error diagnostics
 
@@ -108,18 +101,11 @@ Where customers contact us, we may process:
 - Commercial and procurement communications.
 - Other information voluntarily provided in the course of the relationship.
 
-## Information we do not intentionally collect as part of normal product telemetry
+## Information we do not collect through product telemetry
 
-Intent Architect's telemetry and crash reporting are **not intended to collect customer project content** such as:
+Intent Architect's telemetry and crash reporting do **not** collect customer project content - source code, design models, project files, generated code, customer business documents, or prompts and AI outputs.
 
-- Source code.
-- Design models.
-- Project files.
-- Generated code.
-- Customer business documents.
-- Prompts or AI outputs from standard bring-your-own-provider AI usage.
-
-Customer project content ordinarily remains under customer control in customer-managed environments unless the customer deliberately transmits it to a third-party provider.
+Customer project content remains under customer control in customer-managed environments unless the customer deliberately transmits it to a third-party provider.
 
 ## How we use information
 
@@ -154,7 +140,9 @@ Intent Architect supports **bring-your-own-provider** AI usage. When a customer 
 - The provider selected by the customer determines where that information is processed and what retention or model-use terms apply.
 - Those interactions are governed by the customer's relationship with the chosen provider.
 
-Intent Architect itself does not normally store or host that AI interaction content as part of standard bring-your-own-provider operation.
+Intent Architect itself does not store or host that AI interaction content in bring-your-own-provider operation.
+
+Customers who are not yet set up with their own AI provider can optionally use a small allocation of **trial AI credits** to evaluate the AI features. Those requests are routed through OpenRouter, where Intent Architect has applied Zero Data Retention to all supported models. Trial credits are optional and are not the intended long-term configuration. See [](xref:ai.data-privacy).
 
 > [!NOTE]
 > Customers should independently assess any AI provider they choose to use.
@@ -188,33 +176,46 @@ Intent Architect supporting services are hosted using:
 
 As a result, some operational service data may be processed outside the customer's country.
 
+South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU, UK, or other regions with transfer restrictions is processed in South Africa, that transfer is made under appropriate safeguards.
+
+<!-- TODO: name the transfer mechanism (e.g. Standard Contractual Clauses, UK IDTA) and replace the sentence
+     above. This is asked for by name in most DPA reviews, and the same TODO exists in
+     security-privacy.hosting-and-data-residency - keep the two consistent. -->
+
 AI-related processing may also occur outside the customer's country depending on the provider and endpoint chosen by the customer.
 
-Because Intent Architect is a locally installed application, customer project content ordinarily remains within the customer's own environment unless deliberately transmitted elsewhere.
+Because Intent Architect is a locally installed application, customer project content remains within the customer's own environment unless deliberately transmitted elsewhere.
 
 ## Retention
 
-We retain different categories of information for different purposes.
+Different categories of information are retained for different periods.
 
-### Customer project content
+| Category                                       | Retention                                                                                                                     |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Customer project content                       | Not retained by Intent Architect - it stays in customer-managed environments.                                                  |
+| Product usage analytics held in Mixpanel        | Retained under Mixpanel's standard data retention period, currently 2 years, after which events age out.                        |
+| Account, licensing, and commercial records       | Retained for the duration of the customer relationship and afterwards where needed for legal, accounting, and record-keeping purposes. Deleted on request where no such obligation applies. |
+| Aggregate product metrics held in our own services | Retained indefinitely. These are product-level metrics with no personal information attached - for example counts, durations, and volumes used for long-term reliability and performance analysis. |
+| Crash and error diagnostics                     | Retained for troubleshooting and reliability analysis.                                                                         |
 
-Intent Architect does not normally host customer project content as part of standard product operation. Such content generally remains in customer-managed environments.
+<!-- TODO: two gaps to close here.
+     1. Confirm the Mixpanel plan's actual retention period (stated above as 2 years) - if the plan differs, correct it.
+     2. Crash/error diagnostics has no period stated. If a period exists, state it. If it is genuinely unbounded,
+        say so and say why it is necessary, because "indefinite" without a stated purpose is what fails a
+        storage-limitation (GDPR Art. 5(1)(e)) check. If the diagnostics carry no personal information,
+        state that instead - that answers the question outright, as with the aggregate metrics row above. -->
 
-### Operational service data
-
-Operational service data, including technical telemetry and crash diagnostics, is retained for product operation, long-term reliability analysis, support, troubleshooting, security, and product improvement purposes.
-
-Technical telemetry and crash diagnostics are retained indefinitely, subject to deletion on request where appropriate.
-
-Account, licensing, support, and commercial records may be retained for as long as reasonably necessary for product operation, business administration, legal compliance, dispute handling, and legitimate record-keeping purposes.
+The distinction that matters for most reviews is that indefinite retention applies only to aggregate, non-personal product metrics. Information that identifies a person or an account is either tied to the customer relationship or ages out.
 
 ## Data subject rights and requests
 
 Depending on applicable law, individuals may have rights to request access, correction, deletion, restriction, objection, or portability in relation to personal information processed about them.
 
-Requests may be submitted through Intent Architect's support or commercial contact channels - see [](xref:getting-help). We may request reasonable information to verify identity and assess the scope of the request before actioning it.
+Requests may be submitted by email to <support@intentarchitect.com>, or through Intent Architect's other support and commercial contact channels - see [](xref:getting-help). We may request reasonable information to verify identity and assess the scope of the request before actioning it.
 
 Where information is retained for legal, security, accounting, or legitimate operational reasons, we may retain certain records as permitted or required by applicable law.
+
+Individuals who are not satisfied with how we have handled a request also have the right to lodge a complaint with their local data protection supervisory authority.
 
 ## Security
 
@@ -229,14 +230,14 @@ Customers remain responsible for securing their own endpoints, repositories, sto
 
 ## Trial, termination, and continued customer control
 
-Because Intent Architect does not normally host customer project content, customer project files, code, and models remain under the customer's control during and after any trial or commercial relationship.
+Because Intent Architect does not host customer project content, customer project files, code, and models remain under the customer's control during and after any trial or commercial relationship.
 
-Following termination or expiry of a trial or service relationship, operational service data may continue to be retained in accordance with this notice unless deletion is requested and actioned where appropriate.
+Following termination or expiry of a trial or service relationship, operational service data continues to be retained in accordance with the [Retention](#retention) table above unless deletion is requested and actioned where appropriate.
 
 ## Changes to this notice
 
-We may update this Privacy Notice from time to time to reflect changes in the product, supporting services, legal requirements, or operational practices. The latest version should be treated as the current statement of our practices unless otherwise agreed in writing.
+We may update this Privacy Notice from time to time to reflect changes in the product, supporting services, legal requirements, or operational practices. The date at the top of this notice indicates when it was last changed, and the latest version should be treated as the current statement of our practices unless otherwise agreed in writing.
 
 ## Contact
 
-For questions about this Privacy Notice, data handling, or privacy-related requests, customers may contact Intent Architect through the appropriate support, commercial, or account management channels - see [](xref:getting-help).
+For questions about this Privacy Notice, data handling, or privacy-related requests, email <support@intentarchitect.com>, or use any of the channels listed in [](xref:getting-help).
