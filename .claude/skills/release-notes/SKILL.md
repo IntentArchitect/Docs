@@ -90,6 +90,12 @@ Match the most recent version sections in the file — the style has evolved, so
 - **One line per bullet**, concise and user-facing. Lead with the value/behavior, not the implementation.
 - **Backticks** for tool names, API methods, file names and code: `run_designer_script`, `.mcp.json`, `get_status`, `getBasicMapping()`.
 - **"Fixed:" bullets describe the problem** that existed (what the user experienced), in past tense — e.g. "Fixed: Using Ctrl + T … wouldn't work from inside the AI Chat pane."
+- **No root causes or implementation reasons.** Commit bodies love "...because X", "...due to Y", "...since the code did Z instead of W" — that's for the commit, not the release note. State the observable symptom and, where it helps a reader recognize the situation, the relevant repro conditions (when it happened, what triggered it) — never the internal mechanism that caused it.
+  - Bad: "Fixed: The panel showed stale data for 2 seconds after a git operation, because most handlers never invalidated the status cache."
+  - Good: "Fixed: The panel could show stale data for up to two seconds after most git operations."
+  - Bad: "Fixed: A turn could be reported as completed early due to the heartbeat watchdog sealing it prematurely while the LLM client was still awaiting a cancellation token it didn't recognize."
+  - Good: "Fixed: An AI turn could be reported as "Completed" while it was still actually running."
+  - Repro conditions are fine to keep when they're user-observable, not internal: "...when focus was inside a diff editor" or "...when both a home-screen instance and a solution-open instance were running" describe *when a user would see it*, not *why the code did it*.
 - Keep product, tool and module names accurate. Preserve existing capitalization (e.g. "Software Factory", "Solution Explorer", "ACP", "MCP").
 - Rewrite raw commit subjects into reader-facing prose. Don't paste a commit subject verbatim if it reads like a developer note.
 
@@ -124,5 +130,6 @@ Before finishing:
 - New section placed newest-first, heading uses the plain patch version (no `-pre`).
 - Improvements and Fixes subsections present (non-empty ones only), correct prefixes.
 - Bullets are plain-text, one line, backticked where appropriate, and read as user-facing.
+- No bullet explains *why* the bug happened (no "because...", "due to...", "since the code...") — only the symptom and, if useful, the user-observable conditions that triggered it.
 - Internal/vague commits excluded — and reported to the user with reasons.
 - Re-read the file top before editing to respect any hand-edits.

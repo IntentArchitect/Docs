@@ -6,7 +6,7 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.3
 
-<!-- Generated from publish/client/5.2.2..publish/client/5.2.3-pre.0 -->
+<!-- Generated from publish/client/5.2.2..publish/client/5.2.3-pre.2 -->
 
 ## Improvements in 5.2.3
 
@@ -14,15 +14,11 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
   ![Git stash drop down option](images/5.2.x/stash-1.png)
 
-  ![Git stash options](images/5.2.x/stash-2.png)
-
-  ![Git stash existing options](images/5.2.x/stash-3.png)
+  ![Git stash existing options](images/5.2.x/stash-2.png)
 
 - Improvement: Opening a folder without an existing solution file now opens it as a workspace immediately; the `.isln` file is only created when you explicitly choose "Create solution", and the Home screen's "Open a folder" and "Clone a repository" tiles are available again.
 
   ![Open Folder option on home screen](images/5.2.x/open-folder-option.png)
-
-  ![An opened folder](images/5.2.x/open-folder-view.png)
 
 - Improvement: Modules are now automatically restored when `modules.config` or the module cache changes outside Intent Architect - e.g. `git pull`/`checkout`/`reset`/`clean`, or another window - instead of leaving designers running against stale or missing modules until reopened.
 - Improvement: Tree views such as Solution Explorer now show a sticky header of ancestor rows as you scroll, so the folder path you're inside stays visible and clickable.
@@ -35,14 +31,34 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Improvement: The AI chat action row now collapses the permission-mode chip to an icon when space is tight, keeping the agent and model picker labels visible.
 - Improvement: Spec items opened as file tabs now show a friendly title instead of the underlying file path.
 - Improvement: Spec/plan tools' `contents` parameter has been renamed to `content` for consistency.
+- Improvement: Search boxes in Solution Explorer, the Deviations and Codebase Explorer trees, and the Specs panel are now tucked behind a toolbar magnifier icon instead of a permanent row, and no longer stay filtered across restarts.
+- Improvement: The Specs panel's Import action is now a menu, letting you choose between sweeping the whole workspace or scanning a single folder.
+- Improvement: The Specs panel's redundant Review button has been removed - the same artifacts are already reachable from the phase chips.
+- Improvement: `run_software_factory` now excludes ignored files from its Changes list (reporting how many were excluded), and new `list_ignored_files` / `set_is_ignored` MCP tools let an AI agent read and manage the ignore list without an active run.
+- Improvement: Spec import can now link a single existing document as a requirements/design/tasks artifact, instead of only importing or copying a whole folder.
+- Improvement: The Specs panel now offers a "Name it first" option for creating a new spec - naming and creating the folder before drafting requirements - alongside "Describe it in chat".
+- Improvement: Each spec card now has a "⋯" menu for spec-wide options: toggling auto-approve phase gates and refreshing that spec's state from disk.
+- Improvement: The Codebase Explorer's right-click menu now offers "New File..." and "New Folder..." on folder rows.
+- Improvement: The AI chat's history button now pulses to draw attention when a background conversation is awaiting your approval or has completed.
+- Improvement: SVG files now open in rendered preview by default, with a one-click toggle to edit them as text.
+- Improvement: In the AI chat's "Ask a question" wizard, pressing Enter in a free-text "Other" field now submits it, matching option selection.
+- Improvement: Messages sent while an AI conversation is compacting are now queued and applied in order instead of being dropped, with dimmed previews shown while they wait.
+- Improvement: The `read_spec` tool can now be called with no slug to list every spec in the solution with its phase and progress, so an agent can resolve the right spec instead of guessing its slug.
+- Improvement: Discarding, staging, unstaging or resolving conflicts on multiple files in Source Control is now batched into a single operation instead of one per file, making bulk actions much faster.
+- Improvement: A tool call's "intention" text is now hidden once its chip already shows the same information (e.g. reading a file), reducing duplicate text in the AI chat.
+- Improvement: The "nothing open" shortcuts help now also lists shell-wide shortcuts (Toggle Side Panel, Solution Explorer, Codebase, Source Control, Changes, New Terminal), and switches to a two-column layout on wider windows.
+- Improvement: Native todo-list tool calls are now persisted as proper checklist chips so they survive a conversation reload, and OpenCode's native `todowrite` calls are recognized directly, with descriptive titles shown verbatim.
+- Improvement: The AI chat model picker can now be searched, and opened directly via a `/model` command.
+- Improvement: The AI assistant sidebar toggle shortcut changed from `Ctrl + Shift + B` to `Ctrl + Alt + B`.
+- Improvement: Clicking a write-plan pill in AI chat now opens the plan in the shell's regular reusable preview tab instead of a separate pinned tab.
+- Improvement: Toggling a model on or off (or "toggle all") in AI model settings now saves immediately, with a spinner, instead of requiring a separate Save step.
 
 ## Fixes in 5.2.3
 
 - Fixed: Discarding a file could fail to remove it from the index when it didn't exist in HEAD, e.g. in a freshly initialized repository or a linked/junction directory.
 - Fixed: Bumping a module's version could mark package-reference designer tabs as having unsaved changes with nothing to save.
-- Fixed: The Comment editor in the Properties pane could overflow the pane's right edge once the scrollbar appeared.
-- Fixed: Updating modules across a whole solution could peg CPU in every open window; large module operations now show a "File operations in progress" bar while designers wait for the filesystem to settle.
-- Fixed: Agent tools that wait on a human decision - Ask Question, tool/plan approval, elicitation, spec phase advance - could fail after about 10 minutes with "The user did not answer the questions", even though the user hadn't answered yet.
+- Fixed: Updating modules across a whole and very large solution could peg CPU in every open window; large module operations now show a "File operations in progress" bar while designers wait for the filesystem to settle.
+- Fixed: Agent tools that wait on a human decision - Ask Question, tool/plan approval, elicitation, spec phase advance - could fail after about 10 minutes with "The user did not answer the questions".
 - Fixed: Shell keyboard shortcuts such as `Ctrl + S`, `Ctrl + Shift + Y` and `Ctrl + Tab` could stop working after clicking inside a diff editor, e.g. its gutter revert arrows.
 - Fixed: Freshly created, unsaved AI conversations could vanish from the list when switching the current chat, if the repository or branch couldn't yet be determined.
 - Fixed: In light mode, tree view scrollbars had no visible track, making the thumb hard to see and the scroll extent unclear.
@@ -50,10 +66,28 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Fixed: Steering messages sent with attachments (pasted text or images) mid-turn could fail to route them, losing the attachment.
 - Fixed: `rebase --continue`/`--skip` could hang waiting on an interactive editor instead of running headless; failures are now classified as conflicts, unstaged changes or a timeout with a clearer message.
 - Fixed: An ACP agent session could start with the wrong working directory if no solution was open yet.
-- Fixed: MCP calls such as `get_applications` could fail permanently with "Client didn't provide a result" after the main window's connection dropped and reconnected, until Intent Architect was restarted.
+- Fixed: MCP calls such as `get_applications` could fail permanently with "Client didn't provide a result" after a computer resumed from sleep, until Intent Architect was restarted.
 - Fixed: Starting two Intent Architect instances at the same time could crash one of them with a port-already-in-use error.
 - Fixed: Module restore could fail almost immediately on a transient file lock, such as an antivirus scan or another Intent Architect instance, instead of waiting and retrying.
 - Fixed: A dialog opened from a designer script (`dialogService.confirm/info/warn/error`) or from automation tooling could stay invisible until unrelated UI activity happened to trigger it.
+- Fixed: A designer-script dialog (`confirm`/`lookupFromOptions`) triggered by an AI agent - including ACP agents and the in-app chat, not just an external MCP client - could hang instead of surfacing as an answerable question.
+- Fixed: An AI chat turn cancelled for a reason other than the user pressing Stop (e.g. a resend pre-empting it) could be reported as silently completed with no reply, instead of surfacing as an error - sometimes stalling repeatedly mid `ask_user_question`.
+- Fixed: A retry notice for a failed AI turn could overwrite an already-rendered answer from an earlier turn instead of just replacing the in-progress message.
+- Fixed: Switching the AI chat's permission mode (e.g. to "Bypass all permissions") while a sub-agent was running left that sub-agent stuck on its old mode, still prompting for approval.
+- Fixed: Keyboard focus could land in the wrong place when popping out or closing the AI chat window.
+- Fixed: The Changes panel's "Hide unchanged ignored" option didn't actually hide ignored files that hadn't drifted, in both staged and write-through modes.
+- Fixed: Ignoring or unignoring a file in the Changes tree could restart the running Software Factory task.
+- Fixed: When an ACP agent switched into or out of Plan Mode on its own, the AI chat's UI could fall out of sync with the agent's actual mode.
+- Fixed: Deleting a spec could leave an empty ghost folder that reappeared as a blank card on reload.
+- Fixed: Updating modules (`update-modules --module '*@latest'`, or the AI's `install_or_update_modules`) could silently reset an already-installed module's settings back to defaults, and could silently downgrade a module pinned above the currently installed version.
+- Fixed: Saving global user preferences from one window could revert changes another window had just saved.
+- Fixed: Starting an AI modeling task from a script (`createAIModelingTask`) was not working.
+- Fixed: Saving Application Settings on a large solution was disproportionately slow and could crash.
+- Fixed: The Agent process could leave child processes running after exit, or hang or report stale connection state around a deliberate restart.
+- Fixed: An AI turn could be prematurely sealed and reported as "Completed" by its heartbeat watchdog while still actually running; such turns are now shown as "Lost contact" and can be resumed.
+- Fixed: Leaving a solution for the Home screen could leave Software Factory host processes running in the background, holding module DLL locks indefinitely.
+- Fixed: Shell sidebar-panel shortcuts (`Ctrl+Shift+E/C/G/D`, `` Ctrl+` ``, `Ctrl+B`) could stop working when focus was inside a designer, terminal, or Monaco editor.
+- Fixed: A terminal tab's friendly shell name could be overwritten by a raw executable-path title shortly after opening.
 
 ## Version 5.2.2
 
@@ -90,20 +124,20 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Fixed: Confirm / Info / Warn / Error dialogs, in-page and standalone, could be mis-sized - clipping long messages or leaving dead space for short ones, with lopsided footer padding - and could take about a second to appear; they now size to their content, show immediately, and have even padding.
 - Fixed: "Mutation" dialogs, such as rename or create, could be dismissed by clicking outside, discarding whatever had been entered.
 - Fixed: The app could start in a stale AI mode instead of Agent mode.
-- Fixed: A deviation approval could be silently revoked, or a stale approval wrongly kept, because it also checked the file's raw hash instead of the deviation hash alone.
-- Fixed: Viewing an AI conversation in one Git worktree locked it for every other worktree or instance of the same solution, since they share one Solution ID.
+- Fixed: A deviation approval could be silently revoked when unrelated parts of the file changed, even though the approved deviation itself hadn't - or a stale approval could be wrongly kept.
+- Fixed: Viewing an AI conversation in one Git worktree locked it for every other worktree or instance of the same solution.
 - Fixed: A refused AI turn, immediately after starting a new one, could leave the composer stuck on "Thinking…" forever.
 - Fixed: Claude Code could repeatedly show "OAuth session expired and could not be refreshed" with no way to recover; Intent Architect now automatically attempts to re-authenticate and tells you to run `claude /login` if that fails.
 - Fixed: Auto-summarization for ACP conversations could fail with a 404 error on `gpt-5.1-mini` on every turn.
 - Fixed: Switching branches with an external Git client while Intent Architect was open could leave designers and the Software Factory out of sync until a full reload; file-change reactions now wait until Git finishes writing, with a bar to reload, dismiss or resolve with AI in the meantime.
 - Fixed: Clicking Cancel on the "Stop tracking?" prompt, after adding a pattern to `.gitignore`, still wrote the pattern; Cancel now aborts the whole action.
-- Fixed: `grep` and other file/search and spec tools could hang for a coding sub-agent due to a slow per-file cross-process round trip; they now run in-process, cutting a ~28,000-file grep from potentially never returning to about 10 seconds.
-- Fixed: The Changes Review tab's deterministic/custom split relied on a git-ignored local log, so a fresh clone, CI checkout or teammate's machine showed everything as 100% Custom; classification is now captured in per-commit records committed to the repository.
+- Fixed: `grep` and other file/search and spec tools could hang indefinitely for a coding sub-agent; they now run in-process, cutting a ~28,000-file grep from potentially never returning to about 10 seconds.
+- Fixed: The Changes Review tab's deterministic/custom split showed everything as 100% Custom on a fresh clone, a CI checkout, or a teammate's machine; classification is now captured in per-commit records committed to the repository.
 - Fixed: An unresponsive Intent Architect instance could add up to 5 seconds to every MCP call from every client on the machine - even calls targeting a different solution - with no eviction; health checks and process lifetimes are now bounded so a dead instance stops slowing everything else down.
 - Fixed: Running the Software Factory from two Intent Architect instances against the same checked-out folder at once could let both proceed and clobber each other instead of the second one stopping with a clear "already running" message.
 - Fixed: Unticking a module's Installation Settings checkbox and choosing Reinstall silently did nothing, and installing a dependent module could OR the setting back on regardless; settings changes now stick, with a warning when dependent modules are affected.
-- Fixed: MCP's `create_solution` could target the wrong Intent Architect instance when both a home-screen instance and a solution-open instance were running, and `get_architecture_details` could 404 because it only searched the currently selected repository instead of every configured one.
-- Fixed: MCP's `get_status` could throw and kill the tool call outright when scanning into a permission-denied folder, with no depth or time limit on the scan; the scan now skips inaccessible folders and is bounded.
+- Fixed: MCP's `create_solution` could target the wrong Intent Architect instance when both a home-screen instance and a solution-open instance were running, and `get_architecture_details` could 404 for a repository other than the currently selected one.
+- Fixed: MCP's `get_status` could throw and kill the tool call outright when scanning into a permission-denied folder, or hang scanning a very large or deep folder tree; the scan now skips inaccessible folders and is time-bounded.
 - Fixed: The Changes panel could silently drop changes located outside every codebase root instead of showing them.
 
 ## Version 5.2.1
@@ -126,9 +160,9 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 - Fixed: Changes Review failed outright on a repository with no commits, and "Review changes in this commit" was unavailable on a repository's very first commit.
 - Fixed: Concurrent Claude Code cold starts could race to refresh the shared OAuth credentials and log the user out mid-task; cold starts are now serialized machine-wide and any remaining authentication failure is explained in the chat instead of surfacing as a raw `-32603` error.
-- Fixed: Resuming an ACP conversation could fail with a `-32603` error when the reasoning effort was applied before the model, and a resumed conversation could silently drop the selected Reasoning Effort.
+- Fixed: Resuming an ACP conversation could fail with a `-32603` error, and a resumed conversation could silently drop the selected Reasoning Effort.
 - Fixed: A refused ACP configuration value showed the turn as failed while the agent carried on running the turn and editing files invisibly.
-- Fixed: Reverting a `*.deviations.log.xml` file wouldn't restore its deviations, because the output cache still reported every file as current.
+- Fixed: Reverting a `*.deviations.log.xml` file wouldn't restore its deviations.
 - Fixed: A broken package reference - pointing at a `.pkg.config` file no longer on disk - would crash the Package Reference Manager dialog for the whole application; broken references are now flagged with a warning and can be unloaded.
 - Fixed: "Open Solution in IDE" reported "Unable to locate sln/slnx file" when the solution file was generated outside the application's output folder.
 - Fixed: New Terminal silently fell back to Windows PowerShell 5.1 when PowerShell 7 was installed from the Microsoft Store.
