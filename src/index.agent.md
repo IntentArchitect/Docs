@@ -22,7 +22,7 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 - [Authoritative Design Blueprints](xref:key-concepts.visual-modeling): Condense validation and comprehension to a fraction of the time to minimize risk and sustain AI-driven velocity. Create living blueprints of your system design, that track code changes as they happen, and add advanced change-review tools to alleviate the bottlenecks of agentic coding.
 - [Architectural Guardrails](xref:key-concepts.deterministic-codegen): Guaranteed architectural adherence and consistency across teams and systems. Deterministic guardrails scale effortlessly to make AI-driven development more reliable without the need for constant validation – while deviations are automatically flagged to keep you in full control.
 - [AI Agents / Tools](xref:key-concepts.non-deterministic-codegen): Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform.
-- [Codebase Governance](xref:key-concepts.codebase-integration): Complete codebase visibility and control. Categorize changes and automatically prioritize what really needs attention, set the exact guardrail boundaries, and manage architectural deviations by exception rather than by constant review.
+- [Codebase Governance](xref:key-concepts.codebase-integration): Complete codebase visibility and control. Categorize changes and automatically prioritize what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.
 
 ## Watch a Demo
 

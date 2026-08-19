@@ -332,7 +332,7 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
       </span>
       <div class="content">
         <strong class="card-title">Codebase Governance</strong>
-        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what really needs attention, set the exact guardrail boundaries, and manage architectural deviations by exception rather than by constant review.</p>
+        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
     </div>
