@@ -19,11 +19,11 @@ AI usage in Intent Architect is **bring-your-own-provider** by default. When AI 
 | Question                                            | Short answer                                                                                                                                 | Detail                                                       |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | Does my source code leave my machine?               | Not to Intent Architect. Only to an AI provider you configure, for the AI requests you make.                                                  | [](xref:security-privacy.hosting-and-data-residency)         |
-| Where is my data stored?                             | Project content: your machines and repositories. Operational data: Azure Johannesburg, with CDN and analytics in Europe.                      | [](xref:security-privacy.hosting-and-data-residency)         |
+| Where is my data stored?                             | Project content: your machines and repositories. Operational data: Azure Johannesburg, with CDN and analytics in Europe and support cases in the US.                      | [](xref:security-privacy.hosting-and-data-residency)         |
 | Do you train AI models on my code?                   | No. Intent Architect does not train models on customer content. Your chosen AI provider's terms govern their own use of requests you send it.  | [](xref:ai.data-privacy)                                     |
-| Who are your sub-processors?                          | Microsoft Azure, Cloudflare, Mixpanel, Google Analytics (websites only), Stripe, Xero.                                                         | [](xref:security-privacy.third-party-services-and-sub-processors) |
+| Who are your sub-processors?                          | Microsoft Azure, Cloudflare, Mixpanel, Google Analytics (websites only), Monday.com, Stripe, Xero.                                                         | [](xref:security-privacy.third-party-services-and-sub-processors) |
 | Can I turn telemetry off?                             | No. Telemetry is technical and operational only, and cannot be disabled.                                                                      | [](xref:application-development.user-interface.telemetry-collection) |
-| How do I request deletion of my data?                 | Email <support@intentarchitect.com>.                                                                                                          | [](xref:security-privacy.privacy-notice#data-subject-rights-and-requests) |
+| How do I request deletion of my data?                 | [Contact us](#contact-us) and we will action it.                                                                                              | [](xref:security-privacy.privacy-notice#data-subject-rights-and-requests) |
 | Do you hold ISO 27001 or SOC 2 certification?         | No. Our assurance position rests on the local-first architecture rather than certification of a hosted platform.                              | [](xref:security-privacy.security-overview#compliance-certifications) |
 | Can developers work offline?                          | Yes, for up to 5 days before a licence revalidation is required.                                                                              | [](xref:security-privacy.security-overview#offline-use)      |
 
@@ -33,7 +33,7 @@ Two categories run through all of these documents, and the distinction is centra
 
 **Customer project content** - source code, design models, project files, generated code, customer business documents, and the prompts, inputs, and outputs used with AI features. This stays in your environment: on developer machines, in your storage, and in your source control. Intent Architect does not host it.
 
-**Operational service data** - account and licensing records, technical product telemetry, crash and error diagnostics, update and module retrieval metadata, and billing and support records. This is processed by Intent Architect supporting services and the providers listed in [](xref:security-privacy.third-party-services-and-sub-processors).
+**Operational service data** - account and licensing records, technical product telemetry, crash and error diagnostics, and billing and support records. This is processed by Intent Architect supporting services and the providers listed in [](xref:security-privacy.third-party-services-and-sub-processors).
 
 ## Core principles
 
@@ -62,6 +62,7 @@ Intent Architect supporting services are hosted using:
 - **Microsoft Azure** - Johannesburg, South Africa.
 - **Cloudflare CDN** - Europe.
 - **Mixpanel** - Europe.
+- **Monday.com** - United States (support and customer success cases).
 
 Because AI usage is customer-configured, AI-related data residency depends on the provider and region selected by the customer. See [](xref:security-privacy.hosting-and-data-residency) for the full breakdown.
 
@@ -77,3 +78,14 @@ Customers conducting internal security, privacy, AI governance, or procurement r
 - [](xref:application-development.user-interface.telemetry-collection)
 
 These documents describe our operating model, data categories, supporting service providers, AI integration model, and regional considerations in more detail.
+
+## Contact us
+
+For any question relating to security, privacy, or data handling, contact <support@intentarchitect.com>.
+
+This includes:
+
+- Security and privacy questions. 
+- Data residency and data protection requirements.
+- Requests to access, correct, or delete personal information.
+- Reports of a suspected security vulnerability.

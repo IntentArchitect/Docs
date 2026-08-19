@@ -4,8 +4,6 @@ description: "Intent Architect's security posture: a local-first desktop archite
 ---
 # Security Overview
 
-## Executive summary
-
 Intent Architect is a **locally installed software development tool** used by developers on customer-managed workstations. It is architecturally similar to a desktop IDE rather than a hosted SaaS application.
 
 The core security characteristic of Intent Architect is that **customer project content remains primarily within the customer's own environment**. Source code, design models, project files, generated code, and related development assets remain on the developer's machine and/or in the customer's own repositories and storage systems unless the customer deliberately transmits data to an external service they have configured, such as an AI provider.
@@ -48,7 +46,7 @@ Intent Architect supports AI-assisted workflows using customer-configured AI pro
 
 This architecture means Intent Architect is not a central processor or long-term store of AI prompts, files, or outputs for bring-your-own-provider use.
 
-The one exception is the optional **free AI credits** offered to customers who are not yet set up with their own provider. On that path Intent Architect applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider. These credits exist so the features can be evaluated, configuring your own provider is the intended configuration, and the feature can be disabled for customers who do not want it available. See [](xref:ai.data-privacy) for detail.
+The same holds for the optional **free AI credits** available to customers who are not yet set up with their own provider: requests still go from the customer's machine to the provider, and Intent Architect does not store the prompts, context, or responses. On that path Intent Architect also applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider either. The difference is that the provider relationship is Intent Architect's rather than the customer's, so the customer is not selecting the provider or the region. Credits are optional, can be disabled for customers who do not want them available, and configuring your own provider remains the intended configuration. See [](xref:ai.data-privacy) for detail.
 
 ## Data classification model
 
@@ -111,7 +109,7 @@ This means:
 
 Operational service data handled by supporting services is separate from customer project content and is limited to the categories required to operate, support, and improve the product.
 
-Telemetry and diagnostics may be associated with a **pseudonymous identifier** such as a GUID-based account, user, or installation identifier for operational and support purposes.
+Telemetry and diagnostics may be associated with a **pseudonymous identifier** such as a GUID-based account or user for operational and support purposes.
 
 ## Telemetry and crash diagnostics
 
@@ -120,9 +118,6 @@ Intent Architect collects technical telemetry and crash diagnostics as part of p
 Telemetry and crash reporting collect **technical and operational information only**. They do not collect customer project content: source code, design models, project files, customer business documents, or prompts and AI outputs.
 
 Telemetry may include a pseudonymous identifier associated with an account, user, or installation context, used for operational and support purposes.
-
-> [!NOTE]
-> Telemetry cannot be disabled.
 
 Retention varies by data category - see [Retention](xref:security-privacy.privacy-notice#retention) in the Privacy Notice.
 
@@ -211,7 +206,7 @@ Customers whose procurement process requires a completed security questionnaire 
 
 ## Security contact and vulnerability reporting
 
-Security researchers and customers who believe they have found a vulnerability in Intent Architect should report it to <support@intentarchitect.com> rather than disclosing it publicly, so that it can be investigated and addressed.
+Security researchers and customers who believe they have found a vulnerability in Intent Architect should report it to us rather than disclosing it publicly, so that it can be investigated and addressed - see [Contact us](xref:security-privacy.overview#contact-us).
 
 Please include enough detail to reproduce the issue. We will acknowledge reports and keep the reporter informed of progress toward a fix.
 
@@ -219,7 +214,7 @@ Please include enough detail to reproduce the issue. We will acknowledge reports
 
 Where Intent Architect becomes aware of a security incident affecting operational service data, we will investigate, take steps to contain and remediate the issue, and notify affected customers by email to the account contact without undue delay and in any event within **72 hours** of becoming aware of it, together with the information needed for them to assess their own obligations.
 
-The scope of any such incident is bounded by what our services hold. Because Intent Architect does not host customer project content, an incident affecting Intent Architect's supporting services **cannot expose customer source code, design models, or project files** - those assets are never in our custody. Customers do not send project assets to us as part of normal support.
+The scope of any such incident is bounded by what our services hold. Because Intent Architect does not host customer project content, an incident affecting Intent Architect's supporting services **cannot expose customer source code, design models, or project files** - those assets are never in our custody.
 
 ## Customer responsibilities
 
@@ -250,4 +245,4 @@ Customers conducting internal security, governance, or data-protection reviews m
 - Retention and deletion handling for operational service data.
 - Third-party supporting service providers.
 
-See [](xref:getting-help) for contact channels.
+See [Contact us](xref:security-privacy.overview#contact-us).

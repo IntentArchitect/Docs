@@ -1,10 +1,8 @@
 ---
 uid: security-privacy.third-party-services-and-sub-processors
-description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Google Analytics, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
+description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Google Analytics, Monday.com, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
 ---
 # Third-Party Services and Sub-processors
-
-## Overview
 
 Intent Architect is a **locally installed software development tool**. As part of delivering, operating, and supporting the product and related commercial processes, we use a limited number of third-party service providers.
 
@@ -13,10 +11,10 @@ This document identifies third parties that may process **operational service da
 For clarity:
 
 - **Customer project content** means source code, design models, project files, prompts, AI inputs/outputs, generated code, and other materials belonging to a customer's software project.
-- **Operational service data** means account data, licensing records, technical product telemetry, crash diagnostics, and update/module delivery metadata.
+- **Operational service data** means account data, licensing records, technical product telemetry, and crash diagnostics.
 - **Commercial and billing data** means customer contact details, company details, billing records, invoices, and payment-related information associated with the commercial relationship.
 
-Intent Architect does **not** use a hosted multi-tenant workspace for customer project content as part of normal product operation. Customer project content generally remains on customer-managed machines and repositories unless the customer elects to send data to a separately configured third-party service, such as an AI provider.
+None of these providers receive customer project content. It stays on customer-managed machines and repositories, unless the customer configures an AI provider and sends data to it.
 
 ## Third-party providers used by Intent Architect
 
@@ -26,6 +24,7 @@ Intent Architect does **not** use a hosted multi-tenant workspace for customer p
 | **Cloudflare**      | Content delivery and network edge services for public-facing delivery and distribution                                                                                        | Request metadata, delivery logs, network/edge service data, content delivery metadata                                                        | Europe                                                     | CDN and network services provider |
 | **Mixpanel**        | Product telemetry and analytics                                                                                                                                               | Technical product usage events, feature access events, process execution events, product metrics, pseudonymous identifiers, operational analytics data | Europe                                                     | Analytics provider          |
 | **Google Analytics** | Usage analytics for the Intent Architect public website and documentation site                                                                                                 | Page and article views, referrer, browser and device metadata, approximate location derived from IP address, cookie/measurement identifiers                    | Subject to Google service configuration and contractual terms | Website analytics provider  |
+| **Monday.com**      | Customer success and support case management                                                                                                                                   | Customer and contact names, business email addresses, company details, and the content of support and customer success interactions             | United States                                              | Support case management provider |
 | **Stripe**          | Payment processing, where customers elect to use card-based payment                                                                                                           | Billing/contact/payment transaction data, payment-related metadata, commercial transaction information                                        | Subject to Stripe service configuration and contractual terms | Payment processor           |
 | **Xero**            | Billing, invoicing, and accounting administration associated with customer relationships                                                                                       | Customer/company contact details, billing details, invoice records, transaction records, commercial/accounting information                    | Subject to Xero service configuration and contractual terms | Accounting and invoicing provider |
 
@@ -53,6 +52,12 @@ Mixpanel is used for technical product telemetry and analytics relating to produ
 - Google Analytics
 
 Google Analytics is used to measure visitor activity on the public Intent Architect website and this documentation site. It relates to **website visitors**, not to use of the installed product, and does not process customer project content or product telemetry. Cookie handling for these sites is described in the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com).
+
+### Customer success and support providers
+
+- Monday.com
+
+Monday.com is used to manage support and customer success cases, and is hosted in the United States. It processes contact details and the content of the interactions customers have with us, which is separate from product telemetry and from customer project content.
 
 ### Commercial and billing providers
 
@@ -120,4 +125,4 @@ Intent Architect may update its third-party providers from time to time as opera
 
 ## Contact
 
-For questions regarding third-party processing, hosting, analytics, billing, or data categories, customers may request additional information through Intent Architect's commercial or support contact channels - see [](xref:getting-help).
+For questions regarding third-party processing, hosting, analytics, billing, or data categories, see [Contact us](xref:security-privacy.overview#contact-us).

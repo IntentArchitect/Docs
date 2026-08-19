@@ -1,10 +1,8 @@
 ---
 uid: security-privacy.hosting-and-data-residency
-description: "Where Intent Architect data is processed and stored: customer project content stays local, supporting services are hosted in Azure Johannesburg with CDN and analytics in Europe, and AI residency follows the provider you configure."
+description: "Where Intent Architect data is processed and stored: customer project content stays local, supporting services are hosted in Azure Johannesburg with CDN and analytics in Europe and support cases in the US, and AI residency follows the provider you configure."
 ---
 # Hosting & Data Residency
-
-## Overview
 
 Intent Architect is a **locally installed software development tool**. It runs on customer-managed developer workstations and is architecturally comparable to other desktop development tools and IDEs.
 
@@ -56,24 +54,25 @@ Customers who are not yet set up with their own AI provider can optionally use a
 | Crash/error diagnostics                  | Intent Architect supporting services                  | Microsoft Azure Johannesburg, South Africa |
 | Product telemetry and analytics          | Intent Architect supporting services and Mixpanel     | Azure Johannesburg and Mixpanel Europe     |
 | Update/module delivery traffic           | Intent Architect supporting services and CDN          | Azure Johannesburg and Cloudflare Europe   |
+| Support and customer success cases        | Monday.com                                            | United States                              |
 | AI prompts, inputs, outputs, and context | Customer-configured AI provider                       | Controlled by selected provider/endpoint   |
 
 ## International data transfers
 
-Operational service data may be processed in **South Africa** (Azure Johannesburg) and in **Europe** (Cloudflare CDN and Mixpanel), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
+Operational service data may be processed in **South Africa** (Azure Johannesburg), **Europe** (Cloudflare CDN and Mixpanel), and the **United States** (Monday.com support cases), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
 
-Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. The data described above is operational service data only - account and licensing records, telemetry, and diagnostics.
+Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. The data described above is operational service data only - account and licensing records, telemetry, diagnostics, and support correspondence.
 
-If you have specific data residency requirements, [get in touch](xref:getting-help) and we are happy to discuss them.
+If you have specific data residency requirements, we are happy to discuss them - see [Contact us](xref:security-privacy.overview#contact-us).
 
 ## Telemetry and crash diagnostics
 
 Intent Architect collects technical telemetry and crash diagnostics to operate and support the product. This data is technical and operational in nature - product usage, feature access, process execution, product behaviour, and software errors - and does not include customer project content such as source code, design models, project files, prompts, AI outputs, or generated solution content.
 
-Telemetry and diagnostics may be linked to a **pseudonymous identifier** (for example, a GUID-based user or installation identifier) for service operation and support purposes. Telemetry cannot be disabled.
+Telemetry and diagnostics may be linked to a **pseudonymous identifier** for service operation and support purposes. Telemetry cannot be disabled.
 
 For the metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
 
 ## Further information
 
-Intent Architect can provide additional information on request regarding categories of operational service data processed, the AI integration model, supporting service providers, and retention and deletion handling. See [](xref:getting-help) for contact channels.
+Intent Architect can provide additional information on request regarding categories of operational service data processed, the AI integration model, supporting service providers, and retention and deletion handling - see [Contact us](xref:security-privacy.overview#contact-us).

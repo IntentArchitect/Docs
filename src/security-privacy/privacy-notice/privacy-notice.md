@@ -21,8 +21,6 @@ This notice applies to:
 - Telemetry and crash/error reporting.
 - Portal and support interactions, where applicable.
 
-Cookies and visitor analytics for the Intent Architect website and this documentation site are covered by the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com) rather than by this notice. Those sites use Google Analytics to measure visitor activity.
-
 ## Important distinction: project content vs operational service data
 
 Intent Architect distinguishes between **customer project content**, which stays within the customer's own environment and is not hosted by us, and **operational service data**, which we process to operate and support the product. Both are defined in [Data categories](xref:security-privacy.overview#data-categories).
@@ -37,21 +35,16 @@ We may process the following categories of information.
 
 This may include:
 
-- Name and contact details.
-- Organisation/company name.
-- Account identifiers.
-- Licence/subscription information.
-- Authentication-related records.
-- Commercial and support records associated with an account.
+- Name, business email address, and other contact details.
+- Organisation or company name.
+- Licence and subscription details.
 
 ### Technical telemetry and product usage data
 
 This may include technical and behavioural product-usage information such as:
 
 - User login or authentication events.
-- Feature access events.
-- Process execution events.
-- Product usage and behaviour signals.
+- Feature usage events.
 - Product version, environment, and technical usage metrics.
 - Operational events needed to support, analyse, and improve the product.
 
@@ -64,16 +57,7 @@ Telemetry cannot be disabled.
 This may include:
 
 - Exception and error information.
-- Stack traces.
-- Failure events.
 - Technical diagnostic context required to investigate and resolve product issues.
-
-### Update, module, and service-delivery metadata
-
-This may include:
-
-- Requests for updates or modules.
-- Download/delivery metadata.
 
 ### AI configuration and AI-related usage
 
@@ -109,17 +93,13 @@ We use information for the following purposes:
 - To maintain security, prevent abuse, and protect the integrity of our services.
 - To meet legal, regulatory, accounting, and contractual obligations.
 
-## Legal/processing basis
+## Legal basis for processing
 
-To the extent applicable, we process information where necessary for one or more of the following reasons:
+Where data protection law requires a legal basis for processing, ours are:
 
-- To perform a contract or take steps related to a contract.
-- To operate and support the product and related services.
-- For legitimate business interests, including product security, reliability, support, and improvement.
-- To comply with legal obligations.
-- On the basis of consent where consent is specifically required.
-
-Where local law applies additional requirements, those requirements will govern.
+- **Performance of a contract** - providing, activating, and validating licences, administering accounts, and providing support.
+- **Legitimate interests** - product telemetry, crash diagnostics, product stability and reliability, security, and product improvement.
+- **Legal obligation** - accounting, tax, and other statutory record-keeping.
 
 ## AI features and third-party AI providers
 
@@ -138,23 +118,11 @@ Customers who are not yet set up with their own AI provider can optionally use a
 
 ## Sharing and third parties
 
-We may share or make information available to third-party providers involved in operating and delivering Intent Architect-related services.
+Operational service data is handled by the service providers we use to run the product - hosting, content delivery, analytics, support case management, payment, and accounting. They process it only to provide those services to us, and only to the extent needed to do so. Each provider, and what it processes, is listed in [](xref:security-privacy.third-party-services-and-sub-processors).
 
-These may include:
+We may also disclose information to professional advisers, regulators, or authorities where required by law.
 
-- Infrastructure hosting providers.
-- Content delivery/network service providers.
-- Service providers involved in licensing, delivery, diagnostics, or account-related operations.
-- Professional advisers, regulators, or authorities where required.
-
-For Intent Architect supporting services, relevant providers may include:
-
-- **Microsoft Azure** for hosted supporting services.
-- **Cloudflare** for content delivery/network services.
-- **Mixpanel** for product usage analytics/telemetry.
-- **Google Analytics** for website and documentation site visitor analytics.
-
-Where a customer uses a separately configured AI provider, that provider processes the data the customer chooses to send to it. See [](xref:security-privacy.third-party-services-and-sub-processors) for the full list.
+Where a customer configures their own AI provider, that provider processes the data the customer chooses to send it, under the customer's own agreement with that provider.
 
 ## International processing and transfers
 
@@ -163,10 +131,11 @@ Intent Architect supporting services are hosted using:
 - **Microsoft Azure** - Johannesburg, South Africa.
 - **Cloudflare CDN** - Europe.
 - **Mixpanel** - Europe.
+- **Monday.com** - United States (support and customer success cases).
 
 As a result, some operational service data may be processed outside the customer's country.
 
-The information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, and diagnostics - not customer project content, which never leaves the customer's environment. Our agreements with these providers include their standard data protection terms.
+The information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, diagnostics, and support correspondence - not customer project content, which never leaves the customer's environment. Our agreements with these providers include their standard data protection terms.
 
 Customers with specific data residency or data protection requirements are welcome to discuss these with us - see [Contact](#contact).
 
@@ -190,13 +159,9 @@ The distinction that matters for most reviews is that indefinite retention appli
 
 ## Data subject rights and requests
 
-Depending on applicable law, individuals may have rights to request access, correction, deletion, restriction, objection, or portability in relation to personal information processed about them.
+Individuals can ask us to access, correct, or delete the personal information we hold about them, and depending on where they are, may have further rights such as restriction, objection, or portability. Requests can be made as described in [Contact us](xref:security-privacy.overview#contact-us).
 
-Requests may be submitted by email to <support@intentarchitect.com>, or through Intent Architect's other support and commercial contact channels - see [](xref:getting-help). We may request reasonable information to verify identity and assess the scope of the request before actioning it.
-
-Where information is retained for legal, security, accounting, or legitimate operational reasons, we may retain certain records as permitted or required by applicable law.
-
-Individuals who are not satisfied with how we have handled a request may also be able to raise the matter with the data protection regulator in their own country, where one exists.
+We may ask for enough information to confirm identity and understand what is being requested. Where we are required to keep particular records - for accounting or other legal obligations, for example - we will explain that when we respond.
 
 ## Security
 
@@ -223,4 +188,4 @@ We may update this Privacy Notice from time to time to reflect changes in the pr
 
 Intent Architect is sold and supported by **Intent Software (Pty) Ltd** (registration number 2016/167861/07), of 21 Doveton Road, Parktown, Johannesburg, Gauteng, South Africa. That entity is the one customers contract with and is responsible for the information described in this notice.
 
-For questions about this Privacy Notice, data handling, or privacy-related requests, email <support@intentarchitect.com>, or use any of the channels listed in [](xref:getting-help).
+For questions about this Privacy Notice, data handling, or privacy-related requests, see [Contact us](xref:security-privacy.overview#contact-us).
