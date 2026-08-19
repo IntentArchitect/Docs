@@ -73,7 +73,6 @@ The following may be processed by Intent Architect supporting services:
 - Account and licensing records.
 - Technical telemetry and usage events.
 - Crash/error diagnostics.
-- Service-operation metadata.
 
 ### AI provider processing
 
@@ -239,7 +238,7 @@ This local-first architecture gives customers direct control over the most sensi
 
 Because Intent Architect does not host customer project content, customer project files, code, and models remain in customer-controlled environments during and after the commercial relationship.
 
-Hosted supporting services may continue to hold operational service data such as licensing/account records, telemetry, crash diagnostics, and service-operation metadata, subject to applicable retention practices and deletion requests.
+Hosted supporting services may continue to hold operational service data such as licensing/account records, telemetry, and crash diagnostics, subject to applicable retention practices and deletion requests.
 
 ## Security inquiries
 

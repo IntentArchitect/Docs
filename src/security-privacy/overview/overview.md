@@ -33,7 +33,7 @@ Two categories run through all of these documents, and the distinction is centra
 
 **Customer project content** - source code, design models, project files, generated code, customer business documents, and the prompts, inputs, and outputs used with AI features. This stays in your environment: on developer machines, in your storage, and in your source control. Intent Architect does not host it.
 
-**Operational service data** - account and licensing records, technical product telemetry, crash and error diagnostics, update and module retrieval metadata, service-operation metadata, and billing and support records. This is processed by Intent Architect supporting services and the providers listed in [](xref:security-privacy.third-party-services-and-sub-processors).
+**Operational service data** - account and licensing records, technical product telemetry, crash and error diagnostics, update and module retrieval metadata, and billing and support records. This is processed by Intent Architect supporting services and the providers listed in [](xref:security-privacy.third-party-services-and-sub-processors).
 
 ## Core principles
 

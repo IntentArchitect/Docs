@@ -60,11 +60,11 @@ Customers who are not yet set up with their own AI provider can optionally use a
 
 ## International data transfers
 
-Operational service data may be processed in **South Africa** (Azure Johannesburg) and in **Europe** (Cloudflare CDN and Mixpanel). AI-related data is processed in whatever region is used by the customer's selected AI provider.
+Operational service data may be processed in **South Africa** (Azure Johannesburg) and in **Europe** (Cloudflare CDN and Mixpanel), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
 
-South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU or UK is processed in South Africa, appropriate transfer safeguards are applied through the customer's subscription agreement - see [](xref:security-privacy.privacy-notice#international-processing-and-transfers).
+Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. The data described above is operational service data only - account and licensing records, telemetry, and diagnostics.
 
-Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. Customers with region-specific residency requirements should assess both Intent Architect's supporting service locations and the location of any AI provider they choose to use.
+If you have specific data residency requirements, [get in touch](xref:getting-help) and we are happy to discuss them.
 
 ## Telemetry and crash diagnostics
 

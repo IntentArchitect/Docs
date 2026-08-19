@@ -74,7 +74,6 @@ This may include:
 
 - Requests for updates or modules.
 - Download/delivery metadata.
-- Service access logs and operational request information.
 
 ### AI configuration and AI-related usage
 
@@ -167,9 +166,9 @@ Intent Architect supporting services are hosted using:
 
 As a result, some operational service data may be processed outside the customer's country.
 
-South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU or UK is processed in South Africa, appropriate transfer safeguards are applied through the subscription agreement customers enter into. Customers who require confirmation of the specific transfer terms that apply to them, or a separate data processing agreement, can request this - see [Contact](#contact). The data protection agreements we hold with our own infrastructure providers likewise incorporate the Standard Contractual Clauses.
+The information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, and diagnostics - not customer project content, which never leaves the customer's environment. Our agreements with these providers include their standard data protection terms.
 
-The volume of personal information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, and diagnostics - not customer project content, which never leaves the customer's environment.
+Customers with specific data residency or data protection requirements are welcome to discuss these with us - see [Contact](#contact).
 
 AI-related processing may also occur outside the customer's country depending on the provider and endpoint chosen by the customer.
 
@@ -197,7 +196,7 @@ Requests may be submitted by email to <support@intentarchitect.com>, or through 
 
 Where information is retained for legal, security, accounting, or legitimate operational reasons, we may retain certain records as permitted or required by applicable law.
 
-Individuals who are not satisfied with how we have handled a request also have the right to lodge a complaint with their local data protection supervisory authority.
+Individuals who are not satisfied with how we have handled a request may also be able to raise the matter with the data protection regulator in their own country, where one exists.
 
 ## Security
 
@@ -222,6 +221,6 @@ We may update this Privacy Notice from time to time to reflect changes in the pr
 
 ## Contact
 
-Intent Architect is provided, sold, and supported by **Intent Architect Holdings Ltd**, which is responsible for the information described in this notice.
+Intent Architect is sold and supported by **Intent Software (Pty) Ltd** (registration number 2016/167861/07), of 21 Doveton Road, Parktown, Johannesburg, Gauteng, South Africa. That entity is the one customers contract with and is responsible for the information described in this notice.
 
 For questions about this Privacy Notice, data handling, or privacy-related requests, email <support@intentarchitect.com>, or use any of the channels listed in [](xref:getting-help).
