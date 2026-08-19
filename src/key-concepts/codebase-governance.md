@@ -17,7 +17,7 @@ In addition, Change Review features help teams quickly understand what changed �
 
 - **🔍 Streamline code reviews and stay in control as review volume grows**
 
-  Code reviews stay effective and manageable as the volume of agent-written code grows. Changes Review raises Requires Attention flags, prioritizes files for review, and presents inline diffs alongside model-centric diffs, so developers see code change in conjunction with its effect on the design. Teams sustain review discipline and accountability at scale.
+  Code reviews stay effective and manageable as the volume of agent-written code grows. Changes Review flags what Needs Attention, prioritizes files for review, and presents inline diffs alongside model-centric diffs, so developers see code changes in conjunction with their effect on the design. Teams sustain review discipline and remain accountable as they scale agentic coding.
 
 - **🎚️ Precise control over the architectural boundaries for agentic development**
 
