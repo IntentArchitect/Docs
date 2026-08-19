@@ -3,7 +3,7 @@ uid: key-concepts.codebase-integration
 description: "How Intent Architect keeps developers in control through Software Factory diff review, Code Management, and Customization Tracking for deviations."
 ---
 
-# Codebase Control
+# Codebase Governance
 
 No matter how you incorporate Intent Architect into your agentic development workflow, you stay in full control with complete visibility and direct access to the entire codebase.
 
@@ -29,11 +29,28 @@ In addition, Change Review features help teams quickly understand what changed �
 
 ---
 
+## Changes Review
+
+Changes Review is a code review system built for agentic development, where the volume of change is amplified beyond what conventional review processes can practically handle. It is a single place to review everything that has landed in the codebase, or is about to land before it is committed.
+
+A Needs Attention section surfaces the files that actually require review, and a nested, drill-in change tree categorizes every changed file as fully Module generated, Module generated with customizations, or entirely custom code written by agents (or developers). Each file expands to reveal its diff inline, complete with collapsible summaries and line-level add and remove statistics.
+
+Reviewers can also click through to the models affected by a change or commit, where the platform highlights the model diffs. This shows how code changes affected the design across the domain and service models, rather than only what changed in the files.
+
+Deviations are approved directly in the review, so the customization is recorded as intentional and the Software Factory stops flagging it. Linked requirements are surfaced on a change, so reviewers can establish what it is for without leaving the diff.
+
+<br>
+
+![Changes Review](images/changes-review.png)
+_An example of the Changes Review for the working tree against the Git HEAD._
+
+---
+
 ## The Software Factory
 
-Every change, whether Module or agent driven, passes through the Software Factory before touching your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
+Every change, whether Module or agent driven, passes through the Software Factory before it lands in your codebase. Changes are surfaced as clear diffs, giving developers the opportunity to review, adjust, or reject any modification before it is applied.
 
-This helps to keep developers in control. By default, no code gets written without explicit developer approval. However, developers can optionally enable "Bypass all permissions" mode to allow AI agents to run the Software Factory and apply changes automatically if they prefer a fully autonomous workflow. The choice is always yours – configure the level of control that suits your team and task.
+Teams choose how the output lands. By default it is staged for review and applied on approval. Write-through mode applies it immediately for a tighter generate-and-go loop, and every run is checkpointed against the change baseline, so changes remain tracked, reviewable and revertible after the fact. Developers can also enable "Bypass all permissions" mode to let AI agents run the Software Factory unattended. The choice is always yours – configure the level of control that suits your team and task.
 
 <br>
 
@@ -49,7 +66,7 @@ This is part of what makes the architectural guardrails work at scale: developer
 
 <br>
 
-![Code Management](images/customization-tracking.png)
+![Code Management](images/code-management-example.png)
 
 For more information, read [](xref:application-development.code-management.about-code-management).
 
@@ -57,7 +74,7 @@ For more information, read [](xref:application-development.code-management.about
 
 ## Customization Tracking
 
-When developers or agents intentionally deviate from a generated pattern, i.e., the architectural guardrails or Module managed code, those changes are captured and surfaced across the system. Customization Tracking shows what was changed, by whom, and how it diverges from the reference pattern or Module, creating an audit trail of architectural decisions that remain valuable as the system and team scale.
+When developers or agents intentionally deviate from a generated pattern, i.e., the architectural guardrails or Module managed code, those changes are captured and surfaced across the system. Customization Tracking shows what was changed and how it diverges from the reference pattern or Module, creating an audit trail of architectural decisions that remain valuable as the system and team scale.
 
 <br>
 

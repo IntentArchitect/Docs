@@ -91,4 +91,4 @@ AI agents are pre-configured to work well for most use cases, with the flexibili
 
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
 - **[Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
-- **[Codebase Control](xref:key-concepts.codebase-integration)**
+- **[Codebase Governance](xref:key-concepts.codebase-integration)**

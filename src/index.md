@@ -331,10 +331,10 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Codebase Control</strong>
-        <p class="card-text">No matter the configuration you choose, you stay in full control with complete visibility and direct access to the entire codebase. Developers that work directly in the platform work in an integrated way with their existing IDE / coding harness.</p>
+        <strong class="card-title">Codebase Governance</strong>
+        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what really needs attention, set the exact guardrail boundaries, and manage architectural deviations by exception rather than by constant review.</p>
       </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Control"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
     </div>
   </li>
 <!--  <li>

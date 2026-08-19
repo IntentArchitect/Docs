@@ -8,5 +8,5 @@ items:
 - name: AI Agents / Tools
   href: ai-agents-tools.md
 
-- name: Codebase Control
-  href: codebase-control.md
+- name: Codebase Governance
+  href: codebase-governance.md
