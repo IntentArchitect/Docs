@@ -1,6 +1,6 @@
 ---
 uid: security-privacy.third-party-services-and-sub-processors
-description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
+description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Google Analytics, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
 ---
 # Third-Party Services and Sub-processors
 
@@ -25,6 +25,7 @@ Intent Architect does **not** use a hosted multi-tenant workspace for customer p
 | **Microsoft Azure** | Hosting of Intent Architect supporting services, including licensing, validation, service APIs, telemetry/crash-related services, update-related services, and account services | Account data, licensing records, technical telemetry, crash/error diagnostics, service-operation metadata                                     | Johannesburg, South Africa                                 | Cloud infrastructure provider |
 | **Cloudflare**      | Content delivery and network edge services for public-facing delivery and distribution                                                                                        | Request metadata, delivery logs, network/edge service data, content delivery metadata                                                        | Europe                                                     | CDN and network services provider |
 | **Mixpanel**        | Product telemetry and analytics                                                                                                                                               | Technical product usage events, feature access events, process execution events, product metrics, pseudonymous identifiers, operational analytics data | Europe                                                     | Analytics provider          |
+| **Google Analytics** | Usage analytics for the Intent Architect public website and documentation site                                                                                                 | Page and article views, referrer, browser and device metadata, approximate location derived from IP address, cookie/measurement identifiers                    | Subject to Google service configuration and contractual terms | Website analytics provider  |
 | **Stripe**          | Payment processing, where customers elect to use card-based payment                                                                                                           | Billing/contact/payment transaction data, payment-related metadata, commercial transaction information                                        | Subject to Stripe service configuration and contractual terms | Payment processor           |
 | **Xero**            | Billing, invoicing, and accounting administration associated with customer relationships                                                                                       | Customer/company contact details, billing details, invoice records, transaction records, commercial/accounting information                    | Subject to Xero service configuration and contractual terms | Accounting and invoicing provider |
 
@@ -46,6 +47,12 @@ These providers support analysis of product usage and behaviour:
 - Mixpanel
 
 Mixpanel is used for technical product telemetry and analytics relating to product usage, feature access, process execution, and operational behaviour. This telemetry is separate from customer project content.
+
+### Website analytics providers
+
+- Google Analytics
+
+Google Analytics is used to measure visitor activity on the public Intent Architect website and this documentation site. It relates to **website visitors**, not to use of the installed product, and does not process customer project content or product telemetry. Cookie handling for these sites is described in the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com).
 
 ### Commercial and billing providers
 
@@ -77,11 +84,11 @@ In these configurations:
 - Intent Architect does not host or route customer AI traffic. Requests go from the customer's machine directly to the configured provider.
 - Data handling, retention, residency, and model-use terms for AI requests are governed by the selected provider and the customer's agreement with that provider.
 
-### Trial AI credits
+### Free AI credits
 
-For customers who are not yet set up with their own AI provider, Intent Architect offers a small allocation of **trial AI credits** so the AI features can be evaluated. This is entirely optional and is not the intended long-term configuration - customers are expected to configure their own provider.
+For customers who are not yet set up with their own AI provider, Intent Architect offers a small allocation of **free AI credits** so the AI features can be evaluated. This is entirely optional and is not the intended long-term configuration - customers are expected to configure their own provider.
 
-When trial credits are used, requests are routed through **OpenRouter**, where Intent Architect has applied **Zero Data Retention (ZDR)** to all supported models. In this path OpenRouter acts as an Intent Architect sub-processor rather than a customer-selected provider. Models without ZDR fall under the underlying provider's standard data policy, and the distinction is shown in the model selection list. See [](xref:ai.data-privacy) for the detail.
+**Zero Data Retention** is applied to all supported models on this path, meaning request and response content is not stored by the model provider. Models for which zero retention is not available fall under the underlying provider's standard data policy, and the distinction is shown in the model selection list. See [](xref:ai.data-privacy) for the detail.
 
 Customers whose governance policies do not permit third-party AI routing can request to have this feature disabled for their account and configure their own provider instead.
 

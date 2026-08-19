@@ -21,11 +21,11 @@ AI usage in Intent Architect is **bring-your-own-provider** by default. When AI 
 | Does my source code leave my machine?               | Not to Intent Architect. Only to an AI provider you configure, for the AI requests you make.                                                  | [](xref:security-privacy.hosting-and-data-residency)         |
 | Where is my data stored?                             | Project content: your machines and repositories. Operational data: Azure Johannesburg, with CDN and analytics in Europe.                      | [](xref:security-privacy.hosting-and-data-residency)         |
 | Do you train AI models on my code?                   | No. Intent Architect does not train models on customer content. Your chosen AI provider's terms govern their own use of requests you send it.  | [](xref:ai.data-privacy)                                     |
-| Who are your sub-processors?                          | Microsoft Azure, Cloudflare, Mixpanel, Stripe, Xero.                                            | [](xref:security-privacy.third-party-services-and-sub-processors) |
+| Who are your sub-processors?                          | Microsoft Azure, Cloudflare, Mixpanel, Google Analytics (websites only), Stripe, Xero.                                                         | [](xref:security-privacy.third-party-services-and-sub-processors) |
 | Can I turn telemetry off?                             | No. Telemetry is technical and operational only, and cannot be disabled.                                                                      | [](xref:application-development.user-interface.telemetry-collection) |
 | How do I request deletion of my data?                 | Email <support@intentarchitect.com>.                                                                                                          | [](xref:security-privacy.privacy-notice#data-subject-rights-and-requests) |
 | Do you hold ISO 27001 or SOC 2 certification?         | No. Our assurance position rests on the local-first architecture rather than certification of a hosted platform.                              | [](xref:security-privacy.security-overview#compliance-certifications) |
-| Can developers work offline?                          | Yes, for a limited period before a licence revalidation is required.                                                                          | [](xref:security-privacy.security-overview#offline-use)      |
+| Can developers work offline?                          | Yes, for up to 5 days before a licence revalidation is required.                                                                              | [](xref:security-privacy.security-overview#offline-use)      |
 
 ## Data categories
 
@@ -49,7 +49,7 @@ Customer project content and operational service data are handled differently an
 
 Intent Architect does not require a single mandated AI provider. Customers choose which provider, endpoint, and credentials to use, which means AI processing can be aligned to internal security and governance policies. See [](xref:ai.configuration) for how providers are configured.
 
-For customers who are not yet AI-enabled, a small allocation of optional **trial AI credits** is available so the features can be evaluated before committing to a provider. This is not the intended long-term configuration; see [](xref:ai.data-privacy).
+For customers who are not yet AI-enabled, a small allocation of optional **free AI credits** is available so the features can be evaluated before committing to a provider. This is not the intended long-term configuration; see [](xref:ai.data-privacy).
 
 ### Limited supporting services
 

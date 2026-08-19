@@ -48,7 +48,7 @@ Intent Architect supports AI-assisted workflows using customer-configured AI pro
 
 This architecture means Intent Architect is not a central processor or long-term store of AI prompts, files, or outputs for bring-your-own-provider use.
 
-The one exception is the optional **trial AI credits** offered to customers who are not yet set up with their own provider. Those requests are routed through OpenRouter with Zero Data Retention applied to supported models. Trial credits exist so the features can be evaluated; configuring your own provider is the intended configuration. See [](xref:ai.data-privacy) for detail.
+The one exception is the optional **free AI credits** offered to customers who are not yet set up with their own provider. On that path Intent Architect applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider. These credits exist so the features can be evaluated, configuring your own provider is the intended configuration, and the feature can be disabled for customers who do not want it available. See [](xref:ai.data-privacy) for detail.
 
 ## Data classification model
 
@@ -153,17 +153,15 @@ In standard bring-your-own-provider use:
 
 ## Credential handling
 
-AI provider credentials configured for use within Intent Architect are stored **locally on the user's machine**. They are never transmitted to Intent Architect's supporting services.
+AI provider credentials configured for use within Intent Architect are stored **locally on the developer's machine, encrypted at rest**. They are never transmitted to Intent Architect's supporting services.
 
-<!--
-TODO: this section needs the specific storage mechanism filled in before it will satisfy a security review.
-Reviewers consistently ask: which store, and is it encrypted at rest? Confirm and state one of:
-  - the OS credential store (Windows Credential Manager / DPAPI, macOS Keychain), or
-  - an encrypted file under the user profile (state the algorithm and where the key comes from), or
-  - a plaintext configuration file (state it plainly, and note the file location so customers can apply their own controls).
-Left as a comment rather than a published note - a visible "we can't say how we store your API keys"
-reads worse to a reviewer than any of the honest answers above.
--->
+Encryption uses Electron's [`safeStorage`](https://www.electronjs.org/docs/latest/api/safe-storage) API, which delegates to the operating system's own credential protection:
+
+- **Windows** - DPAPI, keyed to the logged-in Windows user account.
+- **macOS** - Keychain Services.
+- **Linux** - the available secret service (for example `libsecret` with GNOME Keyring or KWallet).
+
+Because the encryption key is held by the operating system and bound to the user account, a credential stored by one user cannot be decrypted by another user on the same machine, and copying the stored file to another machine does not make it readable.
 
 Customers remain responsible for:
 
@@ -188,26 +186,19 @@ If a customer requires a deeper control-level breakdown of encryption or infrast
 
 Intent Architect contacts a small number of endpoints during normal operation. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
 
-<!-- TODO: confirm the endpoints and purposes below and replace the placeholders. This table is one of the
-     most frequently requested items for a desktop tool in an enterprise environment, and it also
-     demonstrates the local-first claim concretely - the list is short, and none of it carries project content. -->
+| Endpoint                    | Purpose                                                                          | Required                     |
+| --------------------------- | -------------------------------------------------------------------------------- | ---------------------------- |
+| `*.intentarchitect.com`     | Licence activation and validation, update checks, module registry and downloads, in-app help | Yes                          |
+| `api-eu.mixpanel.com`       | Telemetry and analytics                                                           | Yes                          |
+| Your configured AI provider | AI features                                                                       | Only if AI features are used |
 
-| Endpoint                    | Purpose                                | Required                          |
-| --------------------------- | -------------------------------------- | --------------------------------- |
-| `TODO`                      | Licence activation and validation       | Yes                               |
-| `TODO`                      | Update checks and product downloads     | Yes                               |
-| `TODO`                      | Module registry and module downloads    | Yes                               |
-| `TODO`                      | Telemetry and crash diagnostics         | Yes                               |
-| Your configured AI provider | AI features                             | Only if AI features are used      |
+AI provider endpoints depend entirely on the provider the customer configures, and are not fixed by Intent Architect. Customers using a self-hosted module server will also need to reach that server's own address.
 
-AI provider endpoints depend entirely on the provider the customer configures, and are not fixed by Intent Architect.
+None of these endpoints carry customer project content.
 
 ## Offline use
 
-Intent Architect can be used offline for a limited period. Licence validation requires periodic connectivity, and after that window elapses a successful revalidation is needed before use can continue.
-
-<!-- TODO: state the actual offline grace period (e.g. "up to N days between successful licence validations")
-     and what the user sees when it expires. -->
+Intent Architect can be used offline for **up to 5 days**. Licence validation requires periodic connectivity, and once 5 days have elapsed since the last successful validation, Intent Architect needs to reconnect and revalidate before use can continue.
 
 Module downloads, update checks, and AI features require connectivity at the time they are used. Local modelling, code generation, and editing do not.
 
@@ -225,20 +216,11 @@ Security researchers and customers who believe they have found a vulnerability i
 
 Please include enough detail to reproduce the issue. We will acknowledge reports and keep the reporter informed of progress toward a fix.
 
-<!-- TODO: confirm whether a dedicated security@intentarchitect.com alias should be used instead of support@,
-     and whether a target acknowledgement window (e.g. 3 business days) can be committed to. -->
-
 ## Incident notification
 
-Where Intent Architect becomes aware of a security incident affecting operational service data, we will investigate, take steps to contain and remediate the issue, and notify affected customers without undue delay, together with the information needed for them to assess their own obligations.
+Where Intent Architect becomes aware of a security incident affecting operational service data, we will investigate, take steps to contain and remediate the issue, and notify affected customers by email to the account contact without undue delay and in any event within **72 hours** of becoming aware of it, together with the information needed for them to assess their own obligations.
 
-<!-- TODO: sample wording - confirm and adjust. Points typically expected by reviewers:
-       - the notification window you are willing to commit to (e.g. "within 72 hours of becoming aware"),
-       - who is notified (account/licence contact, technical contact),
-       - the channel used (email to the account contact),
-       - whether a post-incident report is provided on request.
-     Note that because customer project content is not hosted by Intent Architect, an incident in our
-     services cannot expose customer source code or models - worth stating explicitly once confirmed. -->
+The scope of any such incident is bounded by what our services hold. Because Intent Architect does not host customer project content, an incident affecting Intent Architect's supporting services **cannot expose customer source code, design models, or project files** - those assets are never in our custody. Customers do not send project assets to us as part of normal support.
 
 ## Customer responsibilities
 
@@ -253,9 +235,9 @@ Because Intent Architect is a locally installed development tool, customers rema
 
 This local-first architecture gives customers direct control over the most sensitive project assets.
 
-## Trial, termination, and continued customer control
+## Termination and continued customer control
 
-Because Intent Architect does not normally host customer project content, customer project files, code, and models remain in customer-controlled environments during and after any trial or commercial relationship.
+Because Intent Architect does not host customer project content, customer project files, code, and models remain in customer-controlled environments during and after the commercial relationship.
 
 Hosted supporting services may continue to hold operational service data such as licensing/account records, telemetry, crash diagnostics, and service-operation metadata, subject to applicable retention practices and deletion requests.
 

@@ -5,17 +5,7 @@ description: "Intent Architect's Privacy Notice: what information is processed, 
 # Privacy Notice
 
 > [!NOTE]
-> Last updated: TODO - set this date whenever the notice changes.
-
-## Who we are
-
-<!-- TODO: fill in the legal entity name and registered address. A privacy notice that does not name the
-     controller is the first thing a legal or procurement reviewer flags, because they cannot tell which
-     entity they would be contracting with or complaining about. Name + address + email is sufficient. -->
-
-**TODO - legal entity name**, of TODO - registered address, is the controller of the personal information described in this notice.
-
-For any question about this notice, or to make a privacy request, email <support@intentarchitect.com>.
+> Last updated: 19 August 2026.
 
 ## Introduction
 
@@ -31,7 +21,7 @@ This notice applies to:
 - Telemetry and crash/error reporting.
 - Portal and support interactions, where applicable.
 
-Cookies and website analytics are covered by the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com) rather than by this notice.
+Cookies and visitor analytics for the Intent Architect website and this documentation site are covered by the privacy and cookie notices published on the [Intent Architect website](https://intentarchitect.com) rather than by this notice. Those sites use Google Analytics to measure visitor activity.
 
 ## Important distinction: project content vs operational service data
 
@@ -142,7 +132,7 @@ Intent Architect supports **bring-your-own-provider** AI usage. When a customer 
 
 Intent Architect itself does not store or host that AI interaction content in bring-your-own-provider operation.
 
-Customers who are not yet set up with their own AI provider can optionally use a small allocation of **trial AI credits** to evaluate the AI features. Those requests are routed through OpenRouter, where Intent Architect has applied Zero Data Retention to all supported models. Trial credits are optional and are not the intended long-term configuration. See [](xref:ai.data-privacy).
+Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. Intent Architect applies **Zero Data Retention** to all supported models on this path, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
 
 > [!NOTE]
 > Customers should independently assess any AI provider they choose to use.
@@ -162,7 +152,8 @@ For Intent Architect supporting services, relevant providers may include:
 
 - **Microsoft Azure** for hosted supporting services.
 - **Cloudflare** for content delivery/network services.
-- **Mixpanel** for usage analytics/telemetry.
+- **Mixpanel** for product usage analytics/telemetry.
+- **Google Analytics** for website and documentation site visitor analytics.
 
 Where a customer uses a separately configured AI provider, that provider processes the data the customer chooses to send to it. See [](xref:security-privacy.third-party-services-and-sub-processors) for the full list.
 
@@ -176,11 +167,9 @@ Intent Architect supporting services are hosted using:
 
 As a result, some operational service data may be processed outside the customer's country.
 
-South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU, UK, or other regions with transfer restrictions is processed in South Africa, that transfer is made under appropriate safeguards.
+South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU or UK is processed in South Africa, appropriate transfer safeguards are applied through the subscription agreement customers enter into. Customers who require confirmation of the specific transfer terms that apply to them, or a separate data processing agreement, can request this - see [Contact](#contact). The data protection agreements we hold with our own infrastructure providers likewise incorporate the Standard Contractual Clauses.
 
-<!-- TODO: name the transfer mechanism (e.g. Standard Contractual Clauses, UK IDTA) and replace the sentence
-     above. This is asked for by name in most DPA reviews, and the same TODO exists in
-     security-privacy.hosting-and-data-residency - keep the two consistent. -->
+The volume of personal information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, and diagnostics - not customer project content, which never leaves the customer's environment.
 
 AI-related processing may also occur outside the customer's country depending on the provider and endpoint chosen by the customer.
 
@@ -190,22 +179,15 @@ Because Intent Architect is a locally installed application, customer project co
 
 Different categories of information are retained for different periods.
 
-| Category                                       | Retention                                                                                                                     |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Customer project content                       | Not retained by Intent Architect - it stays in customer-managed environments.                                                  |
-| Product usage analytics held in Mixpanel        | Retained under Mixpanel's standard data retention period, currently 2 years, after which events age out.                        |
-| Account, licensing, and commercial records       | Retained for the duration of the customer relationship and afterwards where needed for legal, accounting, and record-keeping purposes. Deleted on request where no such obligation applies. |
-| Aggregate product metrics held in our own services | Retained indefinitely. These are product-level metrics with no personal information attached - for example counts, durations, and volumes used for long-term reliability and performance analysis. |
-| Crash and error diagnostics                     | Retained for troubleshooting and reliability analysis.                                                                         |
+| Category                                           | Retention                                                                                                                                                                                                                    |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Customer project content                           | Not retained by Intent Architect - it stays in customer-managed environments.                                                                                                                                                 |
+| Product usage analytics held in Mixpanel            | Retained in accordance with Mixpanel's standard data retention policy for our plan, after which events age out. The current period can be confirmed on request.                                                                |
+| Account, licensing, and commercial records           | Retained for the duration of the customer relationship, and afterwards where needed for legal, accounting, and record-keeping purposes. Deleted on request where no such obligation applies.                                    |
+| Aggregate product metrics held in our own services | Retained indefinitely. These are product-level metrics with no personal information attached - for example counts, durations, and volumes used for long-term reliability and performance analysis.                              |
+| Crash and error diagnostics                        | Retained indefinitely for troubleshooting and long-term reliability analysis. These are technical records - exception details, stack traces, and environment information. They do not contain usernames or other personal information, and are associated only with the pseudonymous identifier described above. |
 
-<!-- TODO: two gaps to close here.
-     1. Confirm the Mixpanel plan's actual retention period (stated above as 2 years) - if the plan differs, correct it.
-     2. Crash/error diagnostics has no period stated. If a period exists, state it. If it is genuinely unbounded,
-        say so and say why it is necessary, because "indefinite" without a stated purpose is what fails a
-        storage-limitation (GDPR Art. 5(1)(e)) check. If the diagnostics carry no personal information,
-        state that instead - that answers the question outright, as with the aggregate metrics row above. -->
-
-The distinction that matters for most reviews is that indefinite retention applies only to aggregate, non-personal product metrics. Information that identifies a person or an account is either tied to the customer relationship or ages out.
+The distinction that matters for most reviews is that indefinite retention applies only to technical and aggregate records. Information that identifies a person or an account is tied to the customer relationship or ages out.
 
 ## Data subject rights and requests
 
@@ -228,16 +210,18 @@ Intent Architect's security model is shaped by its local-first architecture:
 
 Customers remain responsible for securing their own endpoints, repositories, storage environments, and approved third-party integrations. See [](xref:security-privacy.security-overview).
 
-## Trial, termination, and continued customer control
+## Termination and continued customer control
 
-Because Intent Architect does not host customer project content, customer project files, code, and models remain under the customer's control during and after any trial or commercial relationship.
+Because Intent Architect does not host customer project content, customer project files, code, and models remain under the customer's control during and after the commercial relationship.
 
-Following termination or expiry of a trial or service relationship, operational service data continues to be retained in accordance with the [Retention](#retention) table above unless deletion is requested and actioned where appropriate.
+Following termination or expiry of a service relationship, operational service data continues to be retained in accordance with the [Retention](#retention) table above unless deletion is requested and actioned where appropriate.
 
 ## Changes to this notice
 
 We may update this Privacy Notice from time to time to reflect changes in the product, supporting services, legal requirements, or operational practices. The date at the top of this notice indicates when it was last changed, and the latest version should be treated as the current statement of our practices unless otherwise agreed in writing.
 
 ## Contact
+
+Intent Architect is provided, sold, and supported by **Intent Architect Holdings Ltd**, which is responsible for the information described in this notice.
 
 For questions about this Privacy Notice, data handling, or privacy-related requests, email <support@intentarchitect.com>, or use any of the channels listed in [](xref:getting-help).

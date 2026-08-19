@@ -43,9 +43,9 @@ Intent Architect does not host or route this traffic. Accordingly:
 - AI data residency depends on the **provider, endpoint, and region selected by the customer**.
 - Any transfer, processing, storage, retention, or model-use policy for AI requests is governed by the customer's agreement and configuration with that provider.
 
-### Trial AI credits
+### Free AI credits
 
-Customers who are not yet set up with their own AI provider can optionally use a small allocation of **trial AI credits** to evaluate the AI features. This path is the exception to the above: requests are routed through **OpenRouter**, where Intent Architect has applied Zero Data Retention to all supported models. Customers whose policies do not permit third-party AI routing can simply configure their own provider instead. See [](xref:ai.data-privacy).
+Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. On this path Intent Architect applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
 
 ## Data residency summary by category
 
@@ -62,9 +62,7 @@ Customers who are not yet set up with their own AI provider can optionally use a
 
 Operational service data may be processed in **South Africa** (Azure Johannesburg) and in **Europe** (Cloudflare CDN and Mixpanel). AI-related data is processed in whatever region is used by the customer's selected AI provider.
 
-South Africa is not the subject of an EU adequacy decision. Where operational service data relating to customers in the EU, UK, or other regions with transfer restrictions is processed in South Africa, that transfer is made under appropriate safeguards.
-
-<!-- TODO: confirm and name the transfer mechanism in place (e.g. Standard Contractual Clauses / UK IDTA) and replace the sentence above with the specific instrument. Reviewers routinely ask for this by name. -->
+South Africa is not the subject of an EU adequacy decision. Where operational service data relating to individuals in the EU or UK is processed in South Africa, appropriate transfer safeguards are applied through the customer's subscription agreement - see [](xref:security-privacy.privacy-notice#international-processing-and-transfers).
 
 Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. Customers with region-specific residency requirements should assess both Intent Architect's supporting service locations and the location of any AI provider they choose to use.
 
