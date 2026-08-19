@@ -66,7 +66,7 @@ This is part of what makes the architectural guardrails work at scale: developer
 
 <br>
 
-![Code Management](images/code-management-example.png)
+![Code Management](images/customization-tracking.png)
 
 For more information, read [](xref:application-development.code-management.about-code-management).
 
