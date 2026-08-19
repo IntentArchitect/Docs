@@ -14,7 +14,7 @@ Intent Architect runs locally on your machine, no cloud dependencies, no lock-in
 
 ### 1️⃣ Create an account
 
-If you haven't yet done so, [create an account](https://intentarchitect.com/#/register).
+If you haven't yet done so, [create an account](https://intentarchitect.com/signup).
 
 ### 2️⃣ Download
 
