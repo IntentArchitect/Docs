@@ -31,6 +31,10 @@ items:
     topicUid: application-templates.overview
     href: application-templates/toc.yml
 
+  - name: Security & privacy
+    href: security-privacy/toc.yml
+    topicUid: security-privacy.overview
+
   - name: Tools
     href: tools/toc.yml
 

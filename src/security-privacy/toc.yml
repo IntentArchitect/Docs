@@ -3,20 +3,19 @@ items:
     topicUid: security-privacy.overview
 
   - name: Hosting & data residency
-    topicUid: security-privacy.overview
+    topicUid: security-privacy.hosting-and-data-residency
 
   - name: Security overview
-    topicUid: security-privacy.overview
+    topicUid: security-privacy.security-overview
 
   - name: Privacy notice
-    topicUid: security-privacy.overview
+    topicUid: security-privacy.privacy-notice
 
   - name: Third-party services and sub-processors
-    topicUid: security-privacy.overview
+    topicUid: security-privacy.third-party-services-and-sub-processors
 
   - name: AI data privacy
     topicUid: ai.data-privacy
 
   - name: Telemetry collection
     topicUid: application-development.user-interface.telemetry-collection
-
