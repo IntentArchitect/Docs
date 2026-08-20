@@ -258,6 +258,23 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
+  <defs><linearGradient id="grad-ae" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
+  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
+</svg>
+      </span>
+      <div class="content">
+        <strong class="card-title">Architectural Guardrails</strong>
+        <p class="card-text">Guaranteed architectural adherence and consistency across teams and systems. Deterministic guardrails scale effortlessly to make AI-driven development more reliable without the need for constant validation – while deviations are automatically flagged to keep you in full control.</p>
+      </div>
+      <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
   <defs><linearGradient id="grad-vdt" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
   <rect x="2" y="3" width="8" height="5" rx="1" stroke="url(#grad-vdt)" fill="none" stroke-width="1.5"/>
   <rect x="14" y="3" width="8" height="5" rx="1" stroke="url(#grad-vdt)" fill="none" stroke-width="1.5"/>
@@ -277,17 +294,15 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-ae" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
+  <defs><linearGradient id="grad-cc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-cc)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"/>
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Architectural Guardrails</strong>
-        <p class="card-text">Guaranteed architectural adherence and consistency across teams and systems. Deterministic guardrails scale effortlessly to make AI-driven development more reliable without the need for constant validation – while deviations are automatically flagged to keep you in full control.</p>
+        <strong class="card-title">Codebase Governance</strong>
+        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
       </div>
-      <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
     </div>
   </li>
   <li>
@@ -320,21 +335,6 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
         <p class="card-text">Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
-    </div>
-  </li>
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-cc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-cc)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Codebase Governance</strong>
-        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
-      </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
     </div>
   </li>
 <!--  <li>
