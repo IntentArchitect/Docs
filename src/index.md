@@ -1,6 +1,6 @@
 ---
 uid: index
-description: "Introduction to Intent Architect — the AI code automation platform for .NET — with links to getting started, key concepts, and a demo of the latest features."
+description: "Introduction to Intent Architect — the control plane for agentic .NET development — with links to getting started, key concepts, and a demo of the latest features."
 ---
 
 <script>
@@ -189,9 +189,9 @@ html[data-theme="dark"] .ia-overview .card {
 
 Intent Architect is the first control plane for agentic .NET software development.
 
-It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale delivery system – using their preferred LLMs and AI-coding harnesses.
+It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale delivery system, using their preferred service providers and coding harnesses.
 
-It brings reliable architectural guardrails, authoritative design blueprints, and advanced change-review tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality and accountability.
+It brings reliable architectural guardrails, authoritative design blueprints, and advanced governance tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality and accountability.
 
 ![Overview](introducing/images/docs-landing-page-v1.png)
 
