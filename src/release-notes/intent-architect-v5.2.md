@@ -2,26 +2,51 @@
 uid: release-notes.intent-architect-v5.2
 description: "Intent Architect 5.2 release notes: a simplified, unified interface; the new Changes Review tab with deviation approvals and Git conflict, worktree and merge enhancements; Spec-Driven Development (Beta) with end-to-end requirement traceability; Software Factory write-through mode; AI-driven import of existing C# into your model; and sub-agent orchestration for AI agents."
 ---
+<style>
+.release-note-highlight-image {
+  max-width: min(550px, 100%) !important;
+  margin: 0;
+}
+.release-note-highlight-image-l {
+  max-width: min(800px, 100%) !important;
+  margin: 0;
+}
+</style>
 # Release notes: Intent Architect version 5.2
 
 ## Version 5.2.3
 
 <!-- Generated from publish/client/5.2.2..publish/client/5.2.3-pre.2 -->
 
+## Highlights in 5.2.3
+
+### Open a folder or clone a repository directly
+
+![Open Folder option on home screen](images/5.2.x/open-folder-option.png){.release-note-highlight-image}
+
+You can now open a folder or clone repository without an existing solution file.
+
+### Git stash support
+
+![Git stash support](images/5.2.x/stash.png){.release-note-highlight-image-l}
+
+The Source Control view now supports git stash - stash, apply, pop and drop - with stashes shown in the commit graph and a combined Commit/Stash button.
+
+### Sticky ancestor rows in tree views
+
+![Sticky ancestor rows in tree views](images/5.2.x/treeview-sticky-rows.png){.release-note-highlight-image-l}
+
+Tree views such as Solution Explorer now show a sticky header of ancestor rows as you scroll, so the folder path you're inside stays visible and clickable.
+
+### Search in the AI chat model picker
+
+![Search in the AI chat model picker](images/5.2.x/ai-model-picker-search.png){.release-note-highlight-image}
+
+The AI chat model picker can now be searched, and opened directly via a `/model` command.
+
 ## Improvements in 5.2.3
 
-- Improvement: The Source Control view now supports git stash - stash, apply, pop and drop - with stashes shown in the commit graph and a combined Commit/Stash button.
-
-  ![Git stash drop down option](images/5.2.x/stash-1.png)
-
-  ![Git stash existing options](images/5.2.x/stash-2.png)
-
-- Improvement: Opening a folder without an existing solution file now opens it as a workspace immediately; the `.isln` file is only created when you explicitly choose "Create solution", and the Home screen's "Open a folder" and "Clone a repository" tiles are available again.
-
-  ![Open Folder option on home screen](images/5.2.x/open-folder-option.png)
-
 - Improvement: Modules are now automatically restored when `modules.config` or the module cache changes outside Intent Architect - e.g. `git pull`/`checkout`/`reset`/`clean`, or another window - instead of leaving designers running against stale or missing modules until reopened.
-- Improvement: Tree views such as Solution Explorer now show a sticky header of ancestor rows as you scroll, so the folder path you're inside stays visible and clickable.
 - Improvement: OpenCode is now available as an ACP agent, with its model list discovered live from your own `opencode` install.
 - Improvement: When an external MCP client (not the in-app AI chat or an ACP agent) triggers a tool that opens a dialog, the call now fails immediately instead of hanging forever waiting for a human who isn't there to click it; a background tab blocked on an open dialog now pulses in the tab strip until focused.
 - Improvement: The Properties pane can now be hidden and shown via `F4` or a new toolbar button, and can be collapsed by dragging it small, matching other panels.
@@ -48,7 +73,6 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Improvement: A tool call's "intention" text is now hidden once its chip already shows the same information (e.g. reading a file), reducing duplicate text in the AI chat.
 - Improvement: The "nothing open" shortcuts help now also lists shell-wide shortcuts (Toggle Side Panel, Solution Explorer, Codebase, Source Control, Changes, New Terminal), and switches to a two-column layout on wider windows.
 - Improvement: Native todo-list tool calls are now persisted as proper checklist chips so they survive a conversation reload, and OpenCode's native `todowrite` calls are recognized directly, with descriptive titles shown verbatim.
-- Improvement: The AI chat model picker can now be searched, and opened directly via a `/model` command.
 - Improvement: The AI assistant sidebar toggle shortcut changed from `Ctrl + Shift + B` to `Ctrl + Alt + B`.
 - Improvement: Clicking a write-plan pill in AI chat now opens the plan in the shell's regular reusable preview tab instead of a separate pinned tab.
 - Improvement: Toggling a model on or off (or "toggle all") in AI model settings now saves immediately, with a spinner, instead of requiring a separate Save step.
@@ -91,11 +115,15 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.2
 
+## Highlights in 5.2.2
+
+### "Favourite" models
+
+  ![AI Favourites Feature](images/5.2.x/ai-model-favourites.png){.release-note-highlight-image}
+
+AI chat's model picker now lets you mark models as favourites, which persist across sessions and are pinned to the top of the picker.
+
 ## Improvements in 5.2.2
-
-- Improvement: AI chat's model picker now lets you mark models as favourites, which persist across sessions and are pinned to the top of the picker.
-
-  ![AI Favourites Feature](images/5.2.x/ai-model-favourites.png)
 
 - Improvement: The Source Control History view and each designer's History dialog can now search commits across the whole repository, not just the ones already loaded.
 - Improvement: History gained branch-level push and rename actions, without dropping to the terminal.
