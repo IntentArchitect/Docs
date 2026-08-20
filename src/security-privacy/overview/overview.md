@@ -4,32 +4,28 @@ description: "How Intent Architect's local-first architecture shapes security an
 ---
 # Security & Privacy Overview
 
-Intent Architect is primarily a **locally installed software development tool / IDE**, architecturally comparable to tools such as Visual Studio Code, JetBrains Rider, or Cursor, rather than a hosted SaaS platform.
-
-That distinction matters for security, privacy, and data governance.
+Intent Architect is primarily a **locally installed software development tool / IDE**, architecturally comparable to tools such as Visual Studio Code, JetBrains Rider, or Cursor.
 
 Customer project content - including source code, design models, project files, generated code, prompts, inputs, and outputs - generally remains on the developer's machine and in the customer's own source control and storage systems. Intent Architect does **not** operate a hosted cloud workspace that ingests or stores customer project content as part of normal product use.
 
 Intent Architect does operate a limited set of supporting services for product operation, including licensing, update checks, module distribution, telemetry, crash/error reporting, analytics, and account-related services. These services process **operational service data**, which is separate from customer project content.
 
-AI usage in Intent Architect is **bring-your-own-provider** by default. When AI features are used, requests go from the developer's machine directly to the AI provider configured by the customer. This allows customers to align AI use with their own governance, security, residency, and provider approval requirements.
+AI usage in Intent Architect is **bring-your-own-provider** by default, aside from the optional free AI credits covered below. When AI features are used, requests go from the developer's machine directly to the AI provider configured by the customer. This allows customers to align AI use with their own governance, security, residency, and provider approval requirements.
 
 ## Quick answers
 
 | Question                                            | Short answer                                                                                                                                 | Detail                                                       |
 | --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| Does my source code leave my machine?               | Not to Intent Architect. Only to an AI provider you configure, for the AI requests you make.                                                  | [](xref:security-privacy.hosting-and-data-residency)         |
+| Does my source code leave my machine?               | Not to Intent Architect. Only to an AI provider you configure, or to your own configured source control, if you use one.                                                  | [](xref:security-privacy.hosting-and-data-residency)         |
 | Where is my data stored?                             | Project content: your machines and repositories. Operational data: Azure Johannesburg, with CDN and analytics in Europe and support cases in the US.                      | [](xref:security-privacy.hosting-and-data-residency)         |
 | Do you train AI models on my code?                   | No. Intent Architect does not train models on customer content. Your chosen AI provider's terms govern their own use of requests you send it.  | [](xref:ai.data-privacy)                                     |
 | Who are your sub-processors?                          | Microsoft Azure, Cloudflare, Mixpanel, Google Analytics (websites only), Monday.com, Stripe, Xero.                                                         | [](xref:security-privacy.third-party-services-and-sub-processors) |
 | Can I turn telemetry off?                             | No. Telemetry is technical and operational only, and cannot be disabled.                                                                      | [](xref:application-development.user-interface.telemetry-collection) |
 | How do I request deletion of my data?                 | [Contact us](#contact-us) and we will action it.                                                                                              | [](xref:security-privacy.privacy-notice#data-subject-rights-and-requests) |
-| Do you hold ISO 27001 or SOC 2 certification?         | No. Our assurance position rests on the local-first architecture rather than certification of a hosted platform.                              | [](xref:security-privacy.security-overview#compliance-certifications) |
+| Do you hold ISO 27001 or SOC 2 certification?         | No. Intent Architect has no hosted platform to certify; the underlying infrastructure providers hold their own certifications.                              | [](xref:security-privacy.security-overview#compliance-certifications) |
 | Can developers work offline?                          | Yes, for up to 5 days before a licence revalidation is required.                                                                              | [](xref:security-privacy.security-overview#offline-use)      |
 
 ## Data categories
-
-Two categories run through all of these documents, and the distinction is central to how Intent Architect is operated and assessed.
 
 **Customer project content** - source code, design models, project files, generated code, customer business documents, and the prompts, inputs, and outputs used with AI features. This stays in your environment: on developer machines, in your storage, and in your source control. Intent Architect does not host it.
 
@@ -39,11 +35,11 @@ Two categories run through all of these documents, and the distinction is centra
 
 ### Local-first by design
 
-Intent Architect is designed as a locally installed development tool. Customer project content remains primarily within customer-controlled environments rather than being stored in a shared hosted Intent platform.
+Intent Architect is designed as a locally installed development tool. Customer project content stays primarily within customer-controlled environments; Intent Architect has no shared hosted platform to store it in.
 
 ### Separation of project content and operational data
 
-Customer project content and operational service data are handled differently and are described separately throughout this section - see [Data categories](#data-categories) above.
+Customer project content and operational service data are handled differently, as described throughout this section (see [Data categories](#data-categories) above).
 
 ### Customer-controlled AI provider selection
 
@@ -64,7 +60,7 @@ Intent Architect supporting services are hosted using:
 - **Mixpanel** - Europe.
 - **Monday.com** - United States (support and customer success cases).
 
-Because AI usage is customer-configured, AI-related data residency depends on the provider and region selected by the customer. See [](xref:security-privacy.hosting-and-data-residency) for the full breakdown.
+AI-related data residency depends on the provider and region the customer selects. See [](xref:security-privacy.hosting-and-data-residency) for the full breakdown.
 
 ## Available trust documentation
 

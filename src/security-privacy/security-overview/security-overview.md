@@ -4,7 +4,7 @@ description: "Intent Architect's security posture: a local-first desktop archite
 ---
 # Security Overview
 
-Intent Architect is a **locally installed software development tool** used by developers on customer-managed workstations. It is architecturally similar to a desktop IDE rather than a hosted SaaS application.
+Intent Architect is a **locally installed software development tool** used by developers on customer-managed workstations. Architecturally, it is a desktop IDE, not a hosted SaaS application.
 
 The core security characteristic of Intent Architect is that **customer project content remains primarily within the customer's own environment**. Source code, design models, project files, generated code, and related development assets remain on the developer's machine and/or in the customer's own repositories and storage systems unless the customer deliberately transmits data to an external service they have configured, such as an AI provider.
 
@@ -34,7 +34,7 @@ Intent Architect uses a limited number of hosted supporting services for product
 - Crash/error reporting.
 - Account/web-related services.
 
-These services process operational service data rather than customer project content as part of normal product operation.
+These services process operational service data only.
 
 ### AI integration model
 
@@ -46,11 +46,11 @@ Intent Architect supports AI-assisted workflows using customer-configured AI pro
 
 This architecture means Intent Architect is not a central processor or long-term store of AI prompts, files, or outputs for bring-your-own-provider use.
 
-The same holds for the optional **free AI credits** available to customers who are not yet set up with their own provider: requests still go from the customer's machine to the provider, and Intent Architect does not store the prompts, context, or responses. On that path Intent Architect also applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider either. The difference is that the provider relationship is Intent Architect's rather than the customer's, so the customer is not selecting the provider or the region. Credits are optional, can be disabled for customers who do not want them available, and configuring your own provider remains the intended configuration. See [](xref:ai.data-privacy) for detail.
+The same holds for the optional **free AI credits** available to customers who are not yet set up with their own provider. Intent Architect issues an API key for this path, so requests go directly from the customer's machine to the provider, not through Intent Architect's own servers, and Intent Architect does not store the prompts, context, or responses. On that path Intent Architect also applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider either. The difference is that Intent Architect holds the provider relationship here, not the customer, so the customer isn't the one selecting the provider or region. Credits are optional, can be disabled for customers who do not want them available, and configuring your own provider remains the intended configuration. See [](xref:ai.data-privacy) for detail.
 
 ## Data classification model
 
-Two categories drive the security model: **customer project content**, which remains within customer-controlled environments, and **operational service data**, which is processed by supporting services. Both are defined in [Data categories](xref:security-privacy.overview#data-categories).
+**Customer project content** remains within customer-controlled environments; **operational service data** is processed by supporting services. Both are defined in [Data categories](xref:security-privacy.overview#data-categories).
 
 ## Data flow summary
 
@@ -97,7 +97,7 @@ Customer project content is not hosted by Intent Architect. Data residency for A
 
 ### Separation of project content
 
-Intent Architect's primary isolation model is architectural: customer project content remains in the customer's own environment rather than being pooled into a shared Intent-hosted development workspace.
+Customer project content stays in the customer's own environment; there is no shared Intent-hosted workspace for it to pool into.
 
 This means:
 
@@ -119,7 +119,7 @@ Telemetry and crash reporting collect **technical and operational information on
 
 Telemetry may include a pseudonymous identifier associated with an account, user, or installation context, used for operational and support purposes.
 
-Retention varies by data category - see [Retention](xref:security-privacy.privacy-notice#retention) in the Privacy Notice.
+Retention varies by data category. See [Retention](xref:security-privacy.privacy-notice#retention) in the Privacy Notice.
 
 ## AI security considerations
 
@@ -155,7 +155,7 @@ Encryption uses Electron's [`safeStorage`](https://www.electronjs.org/docs/lates
 - **macOS** - Keychain Services.
 - **Linux** - the available secret service (for example `libsecret` with GNOME Keyring or KWallet).
 
-Because the encryption key is held by the operating system and bound to the user account, a credential stored by one user cannot be decrypted by another user on the same machine, and copying the stored file to another machine does not make it readable.
+The encryption key is held by the operating system and bound to the user account. As a result, a credential stored by one user cannot be decrypted by another user on the same machine, and copying the stored file to another machine does not make it readable.
 
 Customers remain responsible for:
 
@@ -174,21 +174,21 @@ The security posture for those services should be understood as:
 - Communications with hosted supporting services and third-party providers are expected to use standard encrypted transport protocols.
 - Data-at-rest protections for hosted supporting services are provided through the underlying hosted infrastructure and service architecture where applicable.
 
-If a customer requires a deeper control-level breakdown of encryption or infrastructure safeguards, that information should be provided separately where available.
+Customers who require a deeper control-level breakdown of encryption or infrastructure safeguards can request it - see [Security inquiries](#security-inquiries).
 
-## Network endpoints
+## Network hosts
 
-Intent Architect contacts a small number of endpoints during normal operation. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
+Intent Architect contacts a small number of hosts during normal operation. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
 
-| Endpoint                    | Purpose                                                                          | Required                     |
+| Host                        | Purpose                                                                          | Required                     |
 | --------------------------- | -------------------------------------------------------------------------------- | ---------------------------- |
 | `*.intentarchitect.com`     | Licence activation and validation, update checks, module registry and downloads, in-app help | Yes                          |
 | `api-eu.mixpanel.com`       | Telemetry and analytics                                                           | Yes                          |
 | Your configured AI provider | AI features                                                                       | Only if AI features are used |
 
-AI provider endpoints depend entirely on the provider the customer configures, and are not fixed by Intent Architect. Customers using a self-hosted module server will also need to reach that server's own address.
+AI provider hosts depend entirely on the provider the customer configures, and are not fixed by Intent Architect. Customers using a self-hosted module server will also need to reach that server's own address.
 
-None of these endpoints carry customer project content.
+None of these hosts carry customer project content.
 
 ## Offline use
 
@@ -200,13 +200,13 @@ Module downloads, update checks, and AI features require connectivity at the tim
 
 Intent Architect does **not** currently hold ISO 27001, SOC 2, or equivalent third-party security certifications.
 
-Our assurance position rests on the product's architecture rather than on certification of a hosted platform: because Intent Architect does not host customer project content, the assets that a certification of our environment would cover are limited to operational service data, and the certifications of the underlying infrastructure providers apply to that hosting. Microsoft Azure and Cloudflare each maintain their own certifications for the infrastructure they provide - see [](xref:security-privacy.third-party-services-and-sub-processors).
+Intent Architect does not host customer project content, so any certification of our environment would only ever cover operational service data. The certifications of the underlying infrastructure providers apply to that hosting instead. Microsoft Azure and Cloudflare each maintain their own certifications for the infrastructure they provide - see [](xref:security-privacy.third-party-services-and-sub-processors).
 
-Customers whose procurement process requires a completed security questionnaire can request one - see [Security inquiries](#security-inquiries).
+Customers whose procurement process requires a completed security questionnaire can request one. See [Security inquiries](#security-inquiries).
 
 ## Security contact and vulnerability reporting
 
-Security researchers and customers who believe they have found a vulnerability in Intent Architect should report it to us rather than disclosing it publicly, so that it can be investigated and addressed - see [Contact us](xref:security-privacy.overview#contact-us).
+Security researchers and customers who believe they have found a vulnerability in Intent Architect should [contact us](xref:security-privacy.overview#contact-us) privately to report it, rather than disclosing it publicly, so it can be investigated and addressed.
 
 Please include enough detail to reproduce the issue. We will acknowledge reports and keep the reporter informed of progress toward a fix.
 
@@ -214,11 +214,11 @@ Please include enough detail to reproduce the issue. We will acknowledge reports
 
 Where Intent Architect becomes aware of a security incident affecting operational service data, we will investigate, take steps to contain and remediate the issue, and notify affected customers by email to the account contact without undue delay and in any event within **72 hours** of becoming aware of it, together with the information needed for them to assess their own obligations.
 
-The scope of any such incident is bounded by what our services hold. Because Intent Architect does not host customer project content, an incident affecting Intent Architect's supporting services **cannot expose customer source code, design models, or project files** - those assets are never in our custody.
+The scope of any such incident is bounded by what our services hold. Intent Architect does not host customer project content. An incident affecting our supporting services therefore cannot expose customer source code, design models, or project files.
 
 ## Customer responsibilities
 
-Because Intent Architect is a locally installed development tool, customers remain responsible for many of the core controls around their project content, including:
+As a locally installed development tool, Intent Architect leaves customers responsible for many of the core controls around their project content, including:
 
 - Workstation security.
 - Endpoint hardening.
@@ -231,7 +231,7 @@ This local-first architecture gives customers direct control over the most sensi
 
 ## Termination and continued customer control
 
-Because Intent Architect does not host customer project content, customer project files, code, and models remain in customer-controlled environments during and after the commercial relationship.
+Customer project files, code, and models remain in customer-controlled environments during and after the commercial relationship, since Intent Architect never hosts that content.
 
 Hosted supporting services may continue to hold operational service data such as licensing/account records, telemetry, and crash diagnostics, subject to applicable retention practices and deletion requests.
 

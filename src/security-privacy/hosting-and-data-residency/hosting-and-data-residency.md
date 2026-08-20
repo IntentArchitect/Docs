@@ -32,7 +32,7 @@ These services process **operational service data**, not customer project conten
 
 ## AI features and data residency
 
-Intent Architect's AI capability is **bring-your-own-provider** by default.
+Intent Architect's AI capability is **bring-your-own-provider** by default, aside from the optional free AI credits covered below.
 
 When a customer uses AI features, prompts and context are sent from the customer's machine to the AI provider the customer has configured. Depending on the feature and task, that data may include prompts and conversation history, attached context files, model and design snapshots, and file contents read from the local codebase for the requested task.
 
@@ -43,7 +43,7 @@ Intent Architect does not host or route this traffic. Accordingly:
 
 ### Free AI credits
 
-Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. On this path Intent Architect applies **Zero Data Retention** to all supported models, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
+Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. Intent Architect issues an API key for this path, and requests go directly from the customer's machine to the AI provider - they do not pass through Intent Architect's own servers. Intent Architect also applies **Zero Data Retention** to all supported models on this path, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
 
 ## Data residency summary by category
 
@@ -61,13 +61,13 @@ Customers who are not yet set up with their own AI provider can optionally use a
 
 Operational service data may be processed in **South Africa** (Azure Johannesburg), **Europe** (Cloudflare CDN and Mixpanel), and the **United States** (Monday.com support cases), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
 
-Because Intent Architect is a locally installed tool, customer project content remains in the customer's own environment unless the customer chooses to transmit it to an external provider. The data described above is operational service data only - account and licensing records, telemetry, diagnostics, and support correspondence.
+The data described above is operational service data only: account and licensing records, telemetry, diagnostics, and support correspondence. See [Data categories](xref:security-privacy.overview#data-categories) for what that excludes.
 
-If you have specific data residency requirements, we are happy to discuss them - see [Contact us](xref:security-privacy.overview#contact-us).
+If you have specific data residency requirements, [contact us](xref:security-privacy.overview#contact-us) to discuss them.
 
 ## Telemetry and crash diagnostics
 
-Intent Architect collects technical telemetry and crash diagnostics to operate and support the product. This data is technical and operational in nature - product usage, feature access, process execution, product behaviour, and software errors - and does not include customer project content such as source code, design models, project files, prompts, AI outputs, or generated solution content.
+Intent Architect collects technical telemetry and crash diagnostics to operate and support the product. This data is technical and operational in nature (product usage, feature access, process execution, product behaviour, and software errors) and does not include customer project content such as source code, design models, project files, prompts, AI outputs, or generated solution content.
 
 Telemetry and diagnostics may be linked to a **pseudonymous identifier** for service operation and support purposes. Telemetry cannot be disabled.
 
@@ -75,4 +75,4 @@ For the metrics collected, see [](xref:application-development.user-interface.te
 
 ## Further information
 
-Intent Architect can provide additional information on request regarding categories of operational service data processed, the AI integration model, supporting service providers, and retention and deletion handling - see [Contact us](xref:security-privacy.overview#contact-us).
+For additional information on categories of operational service data processed, the AI integration model, supporting service providers, or retention and deletion handling, [contact us](xref:security-privacy.overview#contact-us).

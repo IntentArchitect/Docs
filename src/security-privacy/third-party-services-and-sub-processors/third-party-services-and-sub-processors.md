@@ -72,7 +72,7 @@ Stripe is used where customers elect to use card-based payment processing. Xero 
 
 Intent Architect supports **bring-your-own-provider** AI integrations. In these cases, prompts, inputs, outputs, and contextual data are sent from the customer's machine to the AI provider the customer selects and configures.
 
-Because these providers are chosen by the customer, they are generally best understood as **customer-selected third parties**, rather than default Intent Architect sub-processors for standard product operation.
+As these providers are chosen by the customer, they are best understood as **customer-selected third parties** rather than default Intent Architect sub-processors.
 
 Providers include, depending on customer configuration:
 
@@ -91,7 +91,7 @@ In these configurations:
 
 ### Free AI credits
 
-For customers who are not yet set up with their own AI provider, Intent Architect offers a small allocation of **free AI credits** so the AI features can be evaluated. This is entirely optional and is not the intended long-term configuration - customers are expected to configure their own provider.
+For customers who are not yet set up with their own AI provider, Intent Architect offers a small allocation of **free AI credits** so the AI features can be evaluated. Intent Architect issues an API key for this path, and requests go directly from the customer's machine to the AI provider - they do not pass through Intent Architect's own servers. This is entirely optional; customers are expected to move to their own configured provider over time.
 
 **Zero Data Retention** is applied to all supported models on this path, meaning request and response content is not stored by the model provider. Models for which zero retention is not available fall under the underlying provider's standard data policy, and the distinction is shown in the model selection list. See [](xref:ai.data-privacy) for the detail.
 
@@ -99,13 +99,13 @@ Customers whose governance policies do not permit third-party AI routing can req
 
 ## Categories of data not processed by default supporting services
 
-Intent Architect's supporting services do not host customer project content - see [Customer project content](xref:security-privacy.overview#data-categories). That content stays under customer control in customer-managed environments unless the customer deliberately transmits it to a third-party provider.
+Intent Architect's supporting services do not host customer project content. That content stays under customer control unless deliberately sent to a third-party provider. See [Customer project content](xref:security-privacy.overview#data-categories).
 
 ## Telemetry and crash diagnostics
 
 The operational data processed by Intent Architect supporting services and analytics providers is technical in nature - product usage and feature access events, process execution events, performance indicators, exceptions and crash diagnostics, and a pseudonymous identifier used to associate events with an account or installation.
 
-These are representative examples rather than an exhaustive inventory. For the metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
+These are representative examples, not a complete inventory. For the metrics collected, see [](xref:application-development.user-interface.telemetry-collection).
 
 ## Commercial and billing data
 

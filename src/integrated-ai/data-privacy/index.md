@@ -35,7 +35,7 @@ OpenRouter documents how this is enforced at <https://openrouter.ai/docs/guides/
 
 ### Frontier model exception
 
-ZDR cannot currently be applied to frontier models (e.g. the latest GPT-4o or Claude 3.5 Sonnet variants) because those providers do not offer a zero-retention tier for their newest releases. When you select a frontier model via the Intent Architect built-in provider, requests are handled under that provider's standard data policy rather than ZDR.
+ZDR cannot currently be applied to frontier models (e.g. from Anthropic and OpenAI) because those providers do not offer a zero-retention tier for their newest releases. When you select a frontier model via the Intent Architect built-in provider, requests are handled under that provider's standard data policy rather than ZDR.
 
 > [!NOTE]
 > The distinction is visible in the UI: models that have ZDR applied display a **green shield icon** next to their name in the model selection list. If no shield is shown, the model does not have ZDR active and the provider's standard data handling policy applies.

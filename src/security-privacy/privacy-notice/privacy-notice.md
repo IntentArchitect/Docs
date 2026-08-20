@@ -48,7 +48,7 @@ This may include technical and behavioural product-usage information such as:
 - Product version, environment, and technical usage metrics.
 - Operational events needed to support, analyse, and improve the product.
 
-These are representative of the nature of the telemetry collected rather than an exhaustive inventory. The telemetry is technical in nature and does **not include customer project content**. See [](xref:application-development.user-interface.telemetry-collection) for the metrics collected.
+These are representative examples, not a complete inventory, of the telemetry collected. The telemetry is technical in nature and does **not include customer project content**. See [](xref:application-development.user-interface.telemetry-collection) for the metrics collected.
 
 Telemetry cannot be disabled.
 
@@ -111,7 +111,7 @@ Intent Architect supports **bring-your-own-provider** AI usage. When a customer 
 
 Intent Architect itself does not store or host that AI interaction content in bring-your-own-provider operation.
 
-Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. Intent Architect applies **Zero Data Retention** to all supported models on this path, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
+Customers who are not yet set up with their own AI provider can optionally use a small allocation of **free AI credits** to evaluate the AI features. Intent Architect issues an API key for this path, and requests go directly from the customer's machine to the AI provider - they do not pass through Intent Architect's own servers. Intent Architect also applies **Zero Data Retention** to all supported models on this path, so request and response content is not stored by the model provider. The feature is optional and can be disabled for customers who do not want it available. See [](xref:ai.data-privacy).
 
 > [!NOTE]
 > Customers should independently assess any AI provider they choose to use.
@@ -135,13 +135,11 @@ Intent Architect supporting services are hosted using:
 
 As a result, some operational service data may be processed outside the customer's country.
 
-The information involved is limited: the data crossing borders is operational service data - account and licensing records, telemetry, diagnostics, and support correspondence - not customer project content, which never leaves the customer's environment. Our agreements with these providers include their standard data protection terms.
+The information involved is limited. The data crossing borders is operational service data only: account and licensing records, telemetry, diagnostics, and support correspondence. Customer project content never leaves the customer's environment. Our agreements with these providers include their standard data protection terms.
 
-Customers with specific data residency or data protection requirements are welcome to discuss these with us - see [Contact](#contact).
+Customers with specific data residency or data protection requirements are welcome to [contact us](#contact) to discuss them.
 
 AI-related processing may also occur outside the customer's country depending on the provider and endpoint chosen by the customer.
-
-Because Intent Architect is a locally installed application, customer project content remains within the customer's own environment unless deliberately transmitted elsewhere.
 
 ## Retention
 
@@ -155,7 +153,7 @@ Different categories of information are retained for different periods.
 | Aggregate product metrics held in our own services | Retained indefinitely. These are product-level metrics with no personal information attached - for example counts, durations, and volumes used for long-term reliability and performance analysis.                              |
 | Crash and error diagnostics                        | Retained indefinitely for troubleshooting and long-term reliability analysis. These are technical records - exception details, stack traces, and environment information. They do not contain usernames or other personal information, and are associated only with the pseudonymous identifier described above. |
 
-The distinction that matters for most reviews is that indefinite retention applies only to technical and aggregate records. Information that identifies a person or an account is tied to the customer relationship or ages out.
+Indefinite retention applies only to technical and aggregate records; information that identifies a person or an account is tied to the customer relationship or ages out.
 
 ## Data subject rights and requests
 
@@ -176,7 +174,7 @@ Customers remain responsible for securing their own endpoints, repositories, sto
 
 ## Termination and continued customer control
 
-Because Intent Architect does not host customer project content, customer project files, code, and models remain under the customer's control during and after the commercial relationship.
+Customer project files, code, and models remain under the customer's control during and after the commercial relationship, since Intent Architect never hosts that content.
 
 Following termination or expiry of a service relationship, operational service data continues to be retained in accordance with the [Retention](#retention) table above unless deletion is requested and actioned where appropriate.
 
