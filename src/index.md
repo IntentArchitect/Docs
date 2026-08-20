@@ -62,6 +62,9 @@ description: "Introduction to Intent Architect — the control plane for agentic
   box-shadow: 0 6px 16px rgba(0,0,0,.15);
 }
 .ia-overview .card > .content { flex: 1 1 auto; min-width: 0; }
+/* Equal-height cards: each row's cards match the tallest in that row */
+.ia-overview .cards-grid > li { display: flex; }
+.ia-overview .cards-grid > li > .card { width: 100%; height: 100%; }
 
 /* Icons */
 .ia-overview .icon {
@@ -300,7 +303,7 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
       </span>
       <div class="content">
         <strong class="card-title">Codebase Governance</strong>
-        <p class="card-text">Complete codebase visibility and control. Categorize changes and automatically prioritize what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
+        <p class="card-text">Complete codebase visibility and control. Prioritize files for review and automatically focus on what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
       </div>
       <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
     </div>
