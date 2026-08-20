@@ -10,10 +10,10 @@ This article will show you how you can use Intent Architect to rapidly build pro
 
 How this works at a high level is as follows:
 
-- Design and generate your **View Model**s. This includes aspects like which Services to interact with and where UI navigations are going.  
+- Design and generate your **View Model**s. This includes aspects like which Services to interact with and where UI navigations are going. This _can_ be done manually, but the recommended approach is to ask the `Intent Architect AI Assistant` to model for you.
   ![Model View Model](./images/basic-viewmodel-design.png)
 
-- Use our "Implement with AI" accelerator to get the LLM of your choice to build the **View** in a "prompt-less" fashion. Intent Architect handles the context engineering and manages the LLM interactions on your behalf. The results can be reviewed as a code diff of what the LLM proposes, similar to a regular **Software Factory** execution.  
+- Ask the AI to implement your pages. If you asked the AI to model your **View Model**s in the step above, the implementation will happen automatically. Alternatively, if you modeled your **View Model**s manually, you can ask the AI to generate the **View** implementation. Intent Architect handles the context engineering and manages the LLM interactions on your behalf.
   ![AI Generates View](./images/ai-review.png)
 
 - Review and validate the code. As always when dealing with LLMs, you will want to review and validate the code. By their nature LLMs are non-deterministic, but with a little bit of luck you should end up with a screen similar to this:  
@@ -35,18 +35,29 @@ To start, create a Blazor Application in Intent Architect.
 
 ### How to Model Pages
 
+There are two approaches to model pages: using the AI Assistant (recommended) or manually in the UI Designer.
+
+#### Using the AI Assistant (Recommended)
+
+Ask the `Intent Architect AI Assistant` to add/model your pages. Describe what pages you need and their purpose, and the AI will create them for you with the appropriate structure, navigations and service interactions.
+
+![AI Add Pages](./images/ai-add-pages.png)
+
+#### Manual Approach
+
 1. Add a `Page` to a diagram in the **UI Designer**.  
 2. Name the `Page`, typically describing its function (e.g., `CustomerSearch` or `CustomerAdd`).  
-3. *Optional*: Adjust the route in the property pane.  
-
-![Page Added](./images/add-page.png)
-
-To quickly add your page to the `Sider Menu`, use the **Add to Sider Menu** suggestion.  
-![Add to Sider Menu](./images/add-to-sider-menu.png)
+3. _Optional_: Adjust the route in the property pane.  
 
 ### Adding Route parameters to your page
 
-If your page requires **Route Parameters** (e.g., `customers/edit/{customerId}`), you can model these as follows:
+If your page requires **Route Parameters** (e.g., `customers/edit/{customerId}`), you have two options:
+
+#### Using the AI Assistant - Page Route
+
+If you ask the `Intent Architect AI Assistant` to model pages that need route parameters, it will automatically add them for you. Based on the implied context (the services the page interacts with) the route parameters can usually be inferred, however you can also describe the page and its parameters in your request, and the AI will model them accordingly or ask clarifying questions.
+
+#### Manual Approach - Page Route
 
 1. Right-click on the `Page` → **Add Property**.  
 2. Name the property (e.g., `CustomerId`) and set its type (e.g., `Guid`).  
@@ -60,10 +71,17 @@ The page route will automatically update based on the route parameters.
 
 ### How to Model a Dialog
 
-1. Add a `Page` to a diagram in the **UI Designer**.  
-2. Name the `Page`, suffixed with the word **Dialog** (e.g., `CustomerAddDialog`).  
+There are two approaches to model dialogs: using the AI Assistant (recommended) or manually in the UI Designer.
 
-![Dialog Added](./images/add-dialog.png)
+#### Using the AI Assistant (Recommended) - Dialog
+
+Ask the `Intent Architect AI Assistant` to add and model your dialogs. Describe what dialogs you need and their purpose, and the AI will create them for you with the appropriate structure and service interactions. If your dialog requires parameterization, the AI will automatically handle adding and configuring the necessary route parameters for you.
+
+![AI Add Dialogs](./images/ai-add-dialogs.png)
+
+#### Manual Approach - Dialog
+
+1. Add a `Dialog` to a diagram in the **UI Designer**, using the `New Dialog` context menu option.
 
 If your dialog requires parameterization, you can model that as follows:
 
@@ -75,56 +93,110 @@ If your dialog requires parameterization, you can model that as follows:
 
 ---
 
+### How to Model a Reusable Component
+
+There are two approaches to model reusable components: using the AI Assistant (recommended) or manually in the UI Designer.
+
+#### Using the AI Assistant (Recommended) - Component
+
+Ask the `Intent Architect AI Assistant` to add and model your reusable components. Describe what components you need and their purpose, and the AI will create them for you with the appropriate structure and service interactions.
+
+#### Manual Approach - Component
+
+1. Add a `Component` to a diagram in the **UI Designer**.  
+2. Name the `Component`, typically describing its function (e.g., `AddressComponent` or `HeaderComponent`).  
+
+If your component requires parameters or properties, you can model those by:
+
+1. Right-click on the **Component** → **Add Property**.  
+2. Name the property and set its type.  
+3. Apply any relevant stereotypes using **F3** if needed.  
+
+---
+
 ### How to Model UI Navigations
 
-1. Right-click on the `Component` (Page, Dialog, Component) → **Add Operation**.  
-2. Name your operation (e.g., `AddNewCustomer`).  
-3. Right-click on the operation → **Navigate to Page** or **Show Dialog**.  
-4. Connect the navigation to the destination by left-clicking the destination.  
+UI navigations define how users move between pages in your application. Intent Architect supports two types of navigations: direct page navigations and dialog interactions.
+
+#### Page Navigations
+
+1. Right-click on the `Page` → **Add Navigation**.  
+2. Select the destination `Page` from the dropdown or create the connection visually in the diagram using the arrow tool.
 
 ![Navigations Modeled](./images/navigation.png)
 
-If your `Component` has `Route Parameters`, a mapping dialog will open for you to bind those parameters. Typically you would simply add these parameters to your navigation `Operation`.  
+Route parameter mappings are handled automatically by the LLM during implementation, so you don't need to configure explicit mappings when your destination `Page` has `Route Parameters`.
 
-![Map Route Parameters](./images/map-route-parameters.png)
+#### Show Dialogs
+
+1. Right-click on the `Page` or `Dialog` → **Show Dialog**.  
+2. Select the `Dialog` you want to display from the dropdown or create the connection visually in the diagram using the arrow tool.
+
+![Dialogs Modeled](./images/show-dialog.png)
+
+Similar to page navigations, parameter mappings for dialogs are automatically configured by the LLM during implementation, even when your `Dialog` has `Route` or `Binding Parameters`.
+
+---
+
+### How to Model Component Composition
+
+Component composition allows you to reuse UI components within pages, dialogs, or other components. This promotes consistency and reduces duplication across your UI.
+
+1. Right-click on the `Page`, `Dialog`, or `Component` → **Add Component**.  
+2. Select the reusable `Component` you want to compose from the dropdown or use the arrow tool to create the composition visually in the diagram.
+3. *(Optional)* Add guidance in the `Comment` section of the composition to instruct the LLM on how the component should be placed or configured.
+
+![Component Modeled](./images/add-component.png)
+
+---
+
+### Modeling Layout/Menus
+
+Layouts define the overall structure and navigation menus of your application. Pages can be exposed in menus (sidebar, header, footer) by creating navigations from the layout to those pages.
+
+#### Using the AI Assistant (Recommended) - Menu
+
+When you ask the AI Assistant to model your application, it will automatically:
+
+- Identify which pages should appear in menus based on their names and purposes
+- Create navigations from the Main Layout to appropriate pages
+- Prompt you to confirm if certain pages should be navigable from the main layout
+
+If you want to control where a menu item appears (in which menu section), you can add guidance in the `Comment` section of the navigation (e.g., "show in sidebar").
+
+![Menu Context](./images/menu-context.png)
+
+#### Manual Approach - Menu
+
+To add a page to the application menus:
+
+1. Right-click on the **Main Layout** → **Add Navigation**.
+2. Select the `Page` you want to expose in the menu.
+3. *(Optional)* Add guidance in the `Comment` section of the navigation to specify which menu section it should appear in (e.g., "sider", "header", "footer").
+
+The LLM will use this context to correctly place the menu item during view implementation.
 
 ---
 
 ### Modeling Service Interactions
 
-UI `Component`s interact with services to retrieve data and to affect change on the system. This is how we model this behaviour.
+UI `Component`s interact with backend services to retrieve data and perform operations. Intent Architect simplifies this by automatically linking components to appropriate services based on context.
 
-1. On the `Component`'s suggestions, click the `Call Backend Service` suggestion.  
-2. On the **Add to Diagram** dialog select the service endpoint you want to call.  
+#### Using the AI Assistant (Recommended) - Services
+
+When you ask the AI Assistant to model your pages, dialogs, or components, it will automatically identify and link to the relevant backend services based on the page name and description. The AI handles all mapping, property creation, and model definition configuration for you.
+
+#### Manual Approach - Services
+
+If you're modeling service interactions manually:
+
+1. Right-click on the `Component` → **Call Backend Service**.
+2. Select the service endpoint you want to call from the **Add to Diagram** dialog.
+
+All the complex setup—such as creating the appropriate `Model Definition`s, configuring property mappings, and handling the data flow between queries and commands—is handled automatically by the LLM when you ask it to implement your views. You simply need to express your intent by linking the component to the services it should use.
 
 > [!NOTE]  
-> If you are not seeing the Services you want to call, [add a package reference to the `Service Package` which contains those Services in the UI Designer](#connecting-your-ui-components-to-services-in-other-applications).
-
-![Call Backend Service to Fetch Data](./images/call-backend-service-fetch.png)
-
-Depending on the nature of the service being invoked, the default setup is slightly different:
-
-- For `Query`s: the result is added to the `Component` as a property, and request parameters are modeled as `Operation` parameters.  
-- For `Command`s: a corresponding `Model Definition` is created, based on the command, and added to the `Component`. This model is mapped to the command for invocation. Typically for `Command`s you want a separate model which may have additional view concerns.
-
-#### Pages using a Query and Command
-
-For pages that use both a `Query` and a `Command` (for example, an Edit Page with a `Query` to retrieve the record by Id and a `Command` to update it), there is some additional configuration required.
-
-When you use the `Call Backend Service` suggestion and select both the `Query` and `Command`, two properties are created:
-
-- A property to store the response from the `Query` (this will be of type `Dto`)
-- A property to store the information to be passed to the `Command` and bound to the UI controls (this will be of type `Model Definition`)
-
-Perform the following steps to ensure the correct end-to-end data flow. Instead of having the data returned from the `Query` populate the `Dto`, it should populate the `Model Definition`:
-
-- On the `Call Service Operation Action` to the **GetByIdQuery** (the dashed line between the page and the `Query`), right-click and select `Map Response`.
-- In the right panel, delete the `Dto` property completely (including its mappings), and then configure the mappings from the response on the left-hand side to the `Model Definition` on the right-hand side.
-
-This ensures that the data returned from the `Query` call is stored in the `Model Definition` property, which is then bound to the UI controls and used when invoking the update `Command`.
-
-Here is an example of what the `Query` mapping should look like after being updated. Instead of the response being mapped to a `Dto`, it is mapped to the model.
-![Update Mapping Example](images/update-mapping.png)
+> If you are not seeing the Services you want to call, [add a package reference to the `Service Package` which contains those Services in the UI Designer](#connecting-your-ui-components-to-services-in-other-applications).  
 
 ---
 
@@ -132,9 +204,13 @@ Here is an example of what the `Query` mapping should look like after being upda
 
 When modeling service invocations, you may want to connect to Services defined in applications beyond your UI application.
 
-To use these services in your UI application:
+The `Connect to Service` functionality is available on the UI Package, which provides a quick way to reference available services.
 
-1. In the `User Interface Designer`, under the `User Interface Package`, right-click `References` → **Add a Package Reference**.  
+![Connect to Service](./images/connect-to-service.png)
+
+You can also manually configure a package reference:
+
+1. In the **UI Designer**, under the **UI Package**, right-click **References** → **Add a Package Reference**.  
 2. In the `Package Reference Manager` dialog, select the package containing the Services (e.g., `OtherApplication.Services`).  
 
 ![Add Package Reference](./images/add-package-reference.png)
@@ -148,97 +224,95 @@ You can now use these external services in the diagrams of the UI application.
 
 ## Implement Your View with AI
 
+Once you have modeled your **View Model** (pages, dialogs, components, navigations, and service interactions), you can ask the AI Assistant to implement your views.
+
+### Automatic Implementation
+
+When you ask the AI Assistant to model and implement your UI, it will automatically generate the view implementation based on:
+
+- Your modeled information (service invocations, navigations, properties)
+- Any guidance in the `Comment` sections of your components
+- Your prompt instructions
+
+The AI processes all this context to generate the appropriate Blazor code.
+
+### Explicit Implementation
+
+If a page wasn't automatically implemented, or if you want to regenerate a view, you can ask the AI Assistant to implement it:
+
+1. Ask the AI Assistant to implement your page, dialog, or component (e.g., "Implement the CustomerSearch page").
+2. *(Optional)* Provide any additional context you feel might be relevant.
+
+![Implement with AI](./images/ai-implementation.png)
+
 > [!TIP]  
-> You will need to install the `Intent.AI.Blazor` module and connect Intent Architect to an LLM API of your choice. Ensure that the required [User Settings](https://docs.intentarchitect.com/modules-common/intent-common-ai/intent-common-ai.html#user-settings) have been completed - including a valid API key for your selected AI provider. The time and accuracy of the AI prompt results will vary depending on your provider and model. Try a few and find the combination which works best for your preferred workflow.
-
-Once you are satisfied with your **View Model** design, you can use the Blazor AI accelerator to have AI generate the remaining implementation details.
-
-> [!NOTE]  
-> Don't forget to apply your **Software Factory** before running AI prompts, as the generated code is input/context for the AI.
-
-### Generate Your View with AI
-
-1. Make sure you have run and applied the **Software Factory**.  
-2. Right-click on the `Component` → **Implement with AI**.  
-3. *(Optional)* Adjust the settings in the AI Prompt dialog.  
-4. Click **Done** - IA will generate and submit a prompt to the LLM (this may take a little while).  
-5. Review the AI's proposed changes as a code diff.  
-6. Click **Apply** to accept the changes.  
-
-![Implement with AI](./images/implement-ai-dialog.png)
-
-> [!NOTE]  
-> AI by its nature is non-deterministic. While we put a lot of effort into making this interaction as predictable as possible, results will vary. Test the results and make changes as desired.
+> AI by its nature is non-deterministic — results will vary based on the context and randomness in the LLM. Review the generated code, test it, and make adjustments as needed. If you're not satisfied with the results, try regenerating with adjusted prompts or by providing additional guidance in component comments.
 
 ---
 
-### Common Compilation Issues (with MudBlazor)
+## Implement Your Menu with AI
 
-The AI does not always get it right, even when guided explicitly. Here are a few common compilation issues you may run into.
+Once you have modeled your **Main Layout** (either using the AI Assistant or manually), you can ask the AI Assistant to implement the updated menu and layout.
 
-#### Non-nullable Model Fields
+The AI will automatically generate the menu/layout implementation based on:
 
-Certain MudBlazor components expect nullable bindings. For example, `MudDatePicker` requires a `DateTime?`. If it gets bound to a `DateTime` on your model you will get the error:  
+- Your modeled information (service invocations, navigations, properties)
+- Any guidance in the `Comment` sections of your components
+- Your prompt instructions
 
-``` console
-Argument 2: cannot convert from 'Microsoft.AspNetCore.Components.EventCallback<System.DateTime>' to 'Microsoft.AspNetCore.Components.EventCallback'
-```
+When the AI Assistant models a page and confirms it is navigable from the menu, it will typically auto-regenerate and reconcile the menu based on your model. If you want to manually trigger a menu implementation update, you can ask the AI Assistant to do so:
 
-To resolve this issue, make the corresponding properties on the model nullable, ideally in Intent Architect, and run the **Software Factory**.  
-
-If the field is required on the service contract, it still will be. We are only changing the model, and the AI should have configured the component as required based on the contract, so the value will be populated when form validation passes.  
-
-![Nullable Model Property](./images/nullable-model.png)
-
-#### The Missing `T=""`
-
-Sometimes the AI generates code like this, which does not compile:
-
-```csharp
-@if (context.IsActive)
-{
-    <MudChip Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">Active</MudChip>
-}
-else
-{
-    <MudChip Color="Color.Error" Variant="Variant.Filled" Size="Size.Small">Inactive</MudChip>
-}
-```
-
-Error:  
-
-```console
-The type of component 'MudChip' cannot be inferred based on the values provided. Consider specifying the type arguments directly using the following attributes: 'T'.
-```
-
-**Fix:** Simply add `T="string"` into the `MudChip` components.
+![Implement the menu](./images/ai-implementation-menu.png)
 
 ---
 
-### Improving the Results of AI
+## Compilation Issues
 
-Hopefully you are getting good consistent results "out of the box" with the AI Prompt, but there are several things you can do to tweak/improve the results even further.
+When modeling is done through the AI Assistant, it will run the **Software Factory** to apply changes and build your application as part of the process to ensure there are no compilation issues. If any issues are detected, the AI Assistant will automatically investigate and make the required code updates to resolve them.
 
-#### Additional User Prompt Context
+If the AI Assistant doesn't automatically resolve an issue, you can paste the error details, stack trace, or a screenshot of the error into the AI Assistant and ask it to resolve the problem.
 
-You typically don't have to provide additional context to the LLM, but if you find it frequently making the same mistakes or you need to give it more guidance (e.g., how to refactor code it previously generated), you can provide extra instructions in the AI dialog. Examples:
+---
 
-- "Ensure buttons/actions exist for the new navigations I added."  
-- "Refresh the grid if the add customer dialog closes successfully."  
-- "Ensure you have controls for adding and removing addresses."  
+## Improving the Results of AI
 
-#### Using a Template
+The AI Assistant can generate high-quality code out of the box, but following these practices will help you get even better results and reduce the need for manual revisions.
 
-You can select a template to further guide the AI. These templates contain:  
+### Use Descriptive Page and Component Names
 
-- Additional rules and guidance for the AI  
-- Sample implementations  
+The AI uses naming conventions to understand what you're building. Instead of generic names like `Page1` or `Component1`, use descriptive names that clearly indicate the purpose:
 
-![Select a Template](./images/select-a-template.png)
+**Good Examples:**
+- `CustomerSearch` — AI recognizes this as a search/list page
+- `CustomerAdd` — AI recognizes this as a form for adding a customer
+- `CustomerEdit` — AI recognizes this as an edit page with fetch and update logic
+- `AddressInput` — AI recognizes this as a reusable component for address input
 
-There are several pre-configured MudBlazor templates for various types of Pages and Dialogs. These templates are also designed to automatically select the correct template based on your `Component` naming convention (this can be adjusted as required).
+**Why it matters:** The AI uses these naming conventions to automatically select the appropriate skill/template and create the correct structure (queries, commands, navigation, etc.) without needing additional guidance. This alone can eliminate many manual fixes.
 
-| Template                | Keywords                             |
+### Add Helpful Comments to Components
+
+Comments on your components are included in the AI prompt and help guide code generation. Use them to provide context and specific requirements:
+
+**Examples:**
+- On a search page: *"Display customers in a data grid with sorting and filtering. Allow users to click a row to edit or delete the customer."*
+- On an edit dialog: *"Load the customer details and allow updates to name, email, and phone number. Disable the ID field."*
+- On a component: *"Reusable component for selecting a date range. Should have a start date and end date picker. Include validation to ensure start date is before end date."*
+- On a navigation: *"Show this menu item in the sidebar under 'Admin'."*
+
+**Why it matters:** Comments guide the AI on:
+- Features to include
+- Validation rules
+- UI placement and behavior
+- Business logic requirements
+
+This reduces iterations and helps the AI generate code closer to your requirements on the first try.
+
+### Using Skills and Samples
+
+Intent Architect provides out-of-the-box skills with associated sample files for implementing common UI patterns. These pre-configured skills are found in the `.agents` folder and help guide the AI Assistant:
+
+| Skill                   | Used for                             |
 |-------------------------|--------------------------------------|
 | Page - Search Entity    | search, find, list, lookup           |
 | Page - Add Entity       | add, create, new, insert, register   |
@@ -247,19 +321,19 @@ There are several pre-configured MudBlazor templates for various types of Pages 
 | Dialog - Add Entity     | dialog, add, create, new, insert     |
 | Dialog - Edit Entity    | dialog, edit, update, modify, change |
 
-> [!NOTE]  
-> [These templates can easily be customized, extended or replaced](#blazor-ai-prompt-augment-and-customization-through-templates). They could even be changed to work for a completely different component library.
+The AI automatically selects the best skill based on your naming conventions. You can also [customize or create your own skills](#customizing-or-creating-your-own-skills) for your specific needs.
 
-#### Giving It an Example
+### Provide Additional Prompt Context
 
-If you already have an example of a similar screen to the one you are trying to create, you can simply select it in the **Example Components**. This will submit code associated with that `Component` to guide the AI.
+You typically don't need to provide additional context, but if the AI is making the same mistakes or you need more specific guidance, you can provide extra instructions when prompting. Examples:
 
-#### Blazor Component Comments
+- *"Ensure buttons/actions exist for the new navigations I added."*
+- *"Refresh the grid if the add customer dialog closes successfully."*
+- *"Ensure you have controls for adding and removing addresses."*
 
-Whatever comments you put on your Blazor `Component` will also be included in the prompt. This can be used for persistent, instance-based prompting context. For example:  
+### Reference Existing Examples
 
-- "The page does the following and has X, Y, Z features."  
-- "Ensure the customer grid refreshes when a dialog closes."  
+If you already have a similar screen you want the new one to be based on, you can tell the AI Assistant to use it as a reference. You can even attach the razor/cs file as an attachment to the prompt for concrete guidance about style and structure.
 
 ---
 
@@ -269,11 +343,10 @@ As part of the default Blazor templates, a `design.md` file is generated alongsi
 
 If your design changes (e.g., a new brand palette, updated component variants, or a refreshed style guide), you don't need to touch each `Component` individually. Instead:
 
-1. Replace the existing `design.md` with your updated version.
-2. Run an **AI Task** with an instruction such as:  
+1. Replace the existing `design.md` with your updated version or include it as an attachment to the prompt.
+2. Give the AI Assistant a prompt such as:  
    *"A new `design.md` is available - update the stylesheets with the new design values."*  
    A dedicated skill picks up on this, extracts what's required from `design.md`, and updates the relevant CSS files accordingly.
-3. Review the proposed changes as a code diff and click **Apply**.
 
 Because styling is centralized in the CSS files rather than duplicated per `Component`, this single AI Task updates styling application-wide - there is no need to run it against each Page or Dialog separately.
 
@@ -282,213 +355,35 @@ Because styling is centralized in the CSS files rather than duplicated per `Comp
 
 ---
 
-## Try to Keep Your ViewModel Managed
+## Customizing or Creating your own skills
 
-In this approach you have used both deterministic and non-deterministic code generation.  
+Intent Architect comes with pre-configured templates and samples for common UI patterns (search pages, add dialogs, etc.). You can either customize these existing skills or create your own entirely new skills to tailor the AI-driven code generation to your specific needs.
 
-- Everything you modeled will be generated deterministically through the **Software Factory** in the **ViewModel** (e.g., `MyComponent.razor.cs`).  
-- The AI/LLM will generate the code in the **View** (e.g., `MyComponent.razor`), and may augment or change some code in the **ViewModel**.  
+### Customizing Existing Skills
 
-Implications/considerations:  
+If you want to modify an existing skill or sample implementation:
 
-- The **ViewModel** runs in *Merge* mode by default. This means both systems can operate there smoothly.  
-- If the AI changes deterministic code in the **ViewModel**, the Software Factory may not be able to automatically merge the changes and may attempt to undo or duplicate code blocks.  
-- Ideally, you can refactor the code and/or add explicit [**Code Management**](xref:application-development.code-management.about-code-management) instructions to the point where Intent Architect can merge code automatically.  
-- If not possible, you may need to add an `IntentIgnore`.  
+1. Locate the skill in the `.agents` folder within your Intent Architect application.
+2. Update the skill files (markdown guidance and code samples).
+3. Once you've customized a skill, Intent Architect will recognize it as a custom version and will no longer attempt to overwrite it with default updates.
 
----
+This allows you to maintain your customizations across Intent Architect updates while still benefiting from other new features.
 
-## Blazor AI Prompt Augment and Customization Through Templates
+### Creating Your Own Skills
 
-The Blazor AI prompting can be further extended through **AI Prompt Templates**. Out of the box these come pre-configured for MudBlazor, but the system is simple and extensible. Embrace it, extend it, or completely re-configure it - the choice is yours.
+You can create completely custom skills from scratch by:
 
-Look in the following folder within your Intent Architect Solution:
+1. Using the existing skill structure as a template in the `.agents` folder.
+2. Creating a new folder for your skill with your skill definition file and sample implementations.
+3. Following the same structure as the pre-configured templates.
+4. Once created, your custom skills will automatically be available to the AI Assistant when generating views.
 
-```cmd
-.\Intent\AI.Prompt.Templates\{application name}\Intent.Blazor.AI
-```
+This approach allows you to:
 
-You will find:  
+- Enforce your organization's UI patterns and conventions
+- Provide specific guidance for complex components
+- Maintain consistency across all AI-generated code
+- Reuse solutions for common UI scenarios in your application
 
-- `prompt-config.json` (prompt configuration)  
-- Folders containing sample code files for the various templates  
-
-![AI Prompt Config Folder](./images/ai-prompt-folder.png)
-
----
-
-### Prompt Overview
-
-The main prompt (`prompt.md`) is a readable markdown file, which can be adjusted to suite your specific rules and requirements.
-
-This file contains the generic rules, limitations and instructions for the prompt, including:
-
-- Component Libraries rules
-- Styling guides and rules
-- Rules for when and how to modify existing code
-- Rules for navigation between components
-
-#### Template Specific Prompt
-
-Each template also has its own markdown file (e.g. `add-entity.md`) which contain any additional template specific rules to be passed to the LLM.
-
-### JSON Schema Overview
-
-The `prompt-config.json` file defines templates which define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
-
-#### 1. `metadata`
-
-The `metadata` block provides **contextual information** that is injected into the AI prompt. This ensures generated code aligns with your project’s dependencies and conventions.
-
-```json
-"metadata": {
-  "component-library": {
-    "name": "MudBlazor",
-    "version": "8.10.0"
-  }
-}
-```
-
-#### 2. `templates`
-
-Templates define **reusable AI prompt blueprints** for common scenarios (e.g., Search Page, Add Dialog). They include:  
-
-- **id** → Unique identifier  
-- **name** → Human-friendly label  
-- **description** → What the template does  
-- **applicability** → Keywords that help Intent Architect pick the most appropriate template  
-- **template-folder** → The folder containing sample files  
-- **metadata** → Template-specific context  
-
-##### Example Template: *Search Entity Page*
-
-```json
-{
-  "id": "SearchEntity",
-  "name": "Page - Search Entity",
-  "description": "Search Entity",
-  "applicability": {
-    "key-words": [
-      { "word": "search", "weight": 3 },
-      { "word": "list", "weight": 3 }
-    ]
-  },
-  "template-folder": "SearchEntity"
-}
-```
-
----
-
-### Example Template Types
-
-The schema already defines several templates:
-
-- **Page Templates**  
-  - `SearchEntity` → Generates search/listing pages  
-  - `AddEntity` → Generates entity creation pages  
-  - `EditEntity` → Generates entity update pages  
-  - `ViewEntity` → Generates read-only entity views  
-
-- **Dialog Templates**  
-  - `AddEntityDialog` → Generates dialogs for adding entities  
-  - `EditEntityDialog` → Generates dialogs for editing entities  
-
-Each template includes its **own rules** to ensure compliance with MudBlazor and project conventions.
-
----
-
-### Extending Configuration
-
-To extend the configuration:  
-
-To extend the configuration:  
-
-1. **Add new rules** in `prompt.md` (global) or under a specific `template` markdown.  
-2. **Create a new template** in `prompt-config.json` by adding an object under `templates`.  
-   - Define keywords under `applicability`.  
-   - Specify a `template-folder` with an example implementation.  
-
-#### Example A: Bulk Import Entities
-
-The entry in `prompt-config.json`:
-
-```json
-{
-  "id": "BulkImportEntities",
-  "name": "Page - Bulk Import Entities",
-  "description": "Upload a CSV/Excel file, preview parsed rows, validate, and commit in bulk.",
-  "applicability": {
-    "key-words": [
-      { "word": "import", "weight": 3 },
-      { "word": "upload", "weight": 3 },
-      { "word": "bulk", "weight": 3 },
-      { "word": "csv", "weight": 2 },
-      { "word": "excel", "weight": 2 },
-      { "word": "batch", "weight": 2 }
-    ]
-  },
-  "template-folder": "BulkImportEntities",
-  "metadata": {}
-}
-```
-
-Examples rules defined in `bulk-import-entities.md`:
-
-```markdown
-### Form generation rules
-- Provide a file input and a server-side parse action. Reuse existing parse, validate, and commit methods where available.
-- Render a preview table with paging and basic filtering using `MudTable` or `MudDataGrid`.
-- Use official enum values for component parameters. Do not use raw strings.
-
-### Save behavior
-- Surface row-level validation messages using `Func<T, IEnumerable<string>>` validators.
-- Disable `Commit` until there are no blocking validation errors.
-- Show success and error toasts/dialogs using existing notification services where present.
-```
-
-##### Example B: Upsert Template
-
-The entry in `prompt-config.json`:
-
-```json
-{
-  "id": "AddOrUpdateEntity",
-  "name": "Page - AddOrUpdate Entity",
-  "description": "Create a new entity or update an existing one, using a single page flow (upsert).",
-  "applicability": {
-    "key-words": [
-      { "word": "add", "weight": 3 },
-      { "word": "create", "weight": 3 },
-      { "word": "new", "weight": 2 },
-      { "word": "insert", "weight": 2 },
-      { "word": "register", "weight": 2 },
-      { "word": "update", "weight": 3 },
-      { "word": "edit", "weight": 3 },
-      { "word": "modify", "weight": 2 },
-      { "word": "change", "weight": 2 },
-      { "word": "upsert", "weight": 3 },
-      { "word": "save", "weight": 2 }
-    ]
-  },
-  "template-folder": "AddOrUpdateEntity",
-  "metadata": {}
-}
-```
-
-Examples rules defined in `add-or-update-entity.md`:
-
-```markdown
-### General behavior
-- Reuse existing backing methods if present (e.g., SaveEntityAsync, UpdateEntityAsync, LoadEntityAsync). Do not invent new ones if appropriate methods already exist.
-- If an Id or key is present in the model or route, treat the page as Update; otherwise treat as Add.
-
-### Form generation rules
-- Use MudForm and consistent variants/density/margins across all inputs.
-- For MudBlazor generics (MudSelect, MudRadioGroup, MudChipSet, MudSwitch), always declare T explicitly.
-- When binding to inputs that accept nullable values (e.g., MudSelect, MudDatePicker), update the backing model property to be nullable.
-- Validation delegates must match Func<T, IEnumerable<string>>.
-- Always use official enum values for component parameters (no raw strings).
-```
-
-
-✅ With this setup, you can tailor AI prompt behavior, enforce conventions, and event using a different blazor component library
+> [!TIP]  
+> Start by copying an existing skill template and modifying it to fit your needs. This ensures you follow the correct structure and format that the AI will understand.
