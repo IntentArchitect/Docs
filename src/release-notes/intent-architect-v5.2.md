@@ -4,11 +4,9 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
-## Version 5.2.3
+## Version 5.2.4
 
-<!-- Generated from publish/client/5.2.2..publish/client/5.2.3-pre.2 -->
-
-## Highlights in 5.2.3
+## Highlights in 5.2.4
 
 ### Open a folder or clone a repository directly
 
@@ -40,7 +38,7 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 
 ![OpenCode now supported](images/5.2.x/open-code.png)
 
-## Improvements in 5.2.3
+## Improvements in 5.2.4
 
 - Improvement: Modules are now automatically restored when `modules.config` or the module cache changes outside Intent Architect - e.g. `git pull`/`checkout`/`reset`/`clean`, or another window - instead of leaving designers running against stale or missing modules until reopened.
 - Improvement: When an external MCP client (not the in-app AI chat or an ACP agent) triggers a tool that opens a dialog, the call now fails immediately instead of hanging forever waiting for a human who isn't there to click it; a background tab blocked on an open dialog now pulses in the tab strip until focused.
@@ -71,7 +69,7 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 - Improvement: Clicking a write-plan pill in AI chat now opens the plan in the shell's regular reusable preview tab instead of a separate pinned tab.
 - Improvement: Toggling a model on or off (or "toggle all") in AI model settings now saves immediately, with a spinner, instead of requiring a separate Save step.
 
-## Fixes in 5.2.3
+## Fixes in 5.2.4
 
 - Fixed: Discarding a file could fail to remove it from the index when it didn't exist in HEAD, e.g. in a freshly initialized repository or a linked/junction directory.
 - Fixed: Bumping a module's version could mark package-reference designer tabs as having unsaved changes with nothing to save.
@@ -106,6 +104,10 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 - Fixed: Leaving a solution for the Home screen could leave Software Factory host processes running in the background, holding module DLL locks indefinitely.
 - Fixed: Shell sidebar-panel shortcuts (`Ctrl+Shift+E/C/G/D`, `` Ctrl+` ``, `Ctrl+B`) could stop working when focus was inside a designer, terminal, or Monaco editor.
 - Fixed: A terminal tab's friendly shell name could be overwritten by a raw executable-path title shortly after opening.
+
+## Version 5.2.3
+
+This release was unlisted immediately.
 
 ## Version 5.2.2
 
