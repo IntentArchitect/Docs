@@ -14,7 +14,7 @@ Intent Architect does operate a limited set of supporting cloud services for pro
 
 ### Local-first application model
 
-Intent Architect is installed and executed locally on customer-managed devices. Normal use of the product involves:
+Intent Architect is installed and executed locally on customer-managed devices. Typical use of the product involves:
 
 - Opening and editing local project files.
 - Creating and maintaining design models.
@@ -102,7 +102,6 @@ Customer project content stays in the customer's own environment; there is no sh
 This means:
 
 - Customer code and project files remain under customer endpoint and repository controls.
-- Project content is not co-mingled in a central Intent-hosted project store as part of normal operation.
 - Customers retain control over where project content is stored and how it is secured.
 
 ### Separation of operational service data
@@ -123,27 +122,14 @@ Retention varies by data category. See [Retention](xref:security-privacy.privacy
 
 ## AI security considerations
 
-### Bring-your-own-provider control model
-
 Intent Architect's default AI model is customer-controlled configuration. Customers select:
 
 - The AI provider.
-- The endpoint/region.
-- The credentials used.
 - The provider relationship and contractual posture.
 
 This allows customers to align AI usage with their own governance, data residency, and model-usage requirements. See [](xref:ai.configuration).
 
-### Intent Architect's role
-
-In standard bring-your-own-provider use:
-
-- Intent Architect does not operate a general-purpose hosted repository for prompts and outputs.
-- Intent Architect does not centrally store customer project content associated with those requests as part of normal operation.
-- The applicable data-handling terms are those of the selected provider.
-
-> [!NOTE]
-> Customers with strict AI governance requirements should review the selected provider's retention, training, logging, regional processing, and security terms separately.
+Intent Architect's role in an AI request is to assemble it on the developer's machine and send it to the configured provider. It is not a party to the exchange after that: the request does not pass through Intent Architect's supporting services, and no prompt, attached context, or response is stored by Intent Architect. Data handling for the request content is governed by the provider's own terms.
 
 ## Credential handling
 
@@ -178,7 +164,7 @@ Customers who require a deeper control-level breakdown of encryption or infrastr
 
 ## Network hosts
 
-Intent Architect contacts a small number of hosts during normal operation. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
+Intent Architect contacts a small number of hosts. Customers running locked-down or proxied developer environments can use the following for firewall and proxy allow-listing.
 
 | Host                        | Purpose                                                                          | Required                     |
 | --------------------------- | -------------------------------------------------------------------------------- | ---------------------------- |
