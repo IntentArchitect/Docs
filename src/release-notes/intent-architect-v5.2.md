@@ -4,6 +4,33 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
+## Version 5.2.5
+
+## Improvements in 5.2.5
+
+- Improvement: The AI chat's slash-command picker now also lists an ACP agent's own commands - its built-ins plus every skill it discovers itself, including nested `.claude/skills` folders - grouped under the agent's name (e.g. "Claude Code").
+- Improvement: Folder-only workspaces (opened without a solution) now default to the Codebase panel instead of Solution Explorer, unless you've already picked another panel yourself, and show their files immediately instead of after a delay.
+- Improvement: AI code tools can now read and edit files that live outside any application's output folder but inside an opened folder workspace.
+- Improvement: Dialogs such as Ctrl+Tab and Search Everywhere, and background tabs, are now pre-warmed and show a loading spinner while their view boots, instead of appearing blank or opening cold.
+- Improvement: The stash dialog now defaults to "Stage all before stashing" instead of "Include untracked".
+
+## Fixes in 5.2.5
+
+- Fixed: Installing a module while another application's Software Factory (or its own install-time migration) was still running could corrupt the target application's packages, or leave the module recorded as installed with no settings ever written.
+- Fixed: An automated save (e.g. `run_software_factory`, `record_spec_traceability`, module install/uninstall) could hang forever waiting on a confirmation dialog nobody could click, when a diagram had a stale "lost visual" error left over from an unrelated earlier retry.
+- Fixed: When a solution file changed outside the app (e.g. `git pull`, another window, or a hand-edit), Intent Architect fully reopened the workspace - re-running migration prompts and rebuilding every tab - even for a minor change like a renamed application.
+- Fixed: Creating a solution inside an open folder workspace closed and reopened the whole workspace instead of adopting it in place, discarding UI state and preferences.
+- Fixed: A corrupted solution-preferences or user-data file could be silently overwritten instead of preserved for recovery, and concurrent saves from multiple windows could revert each other's changes.
+- Fixed: The titlebar close button could reload the window instead of closing it, if clicked while a reload triggered by something else (e.g. a module auto-install) was still in progress.
+- Fixed: After an in-place auto-update restarted Intent Architect, MCP calls such as `open_solution`/`create_solution` could launch a redundant duplicate instance instead of reconnecting to the one already running.
+- Fixed: A GitHub Copilot ACP tool result could be dropped as a UI-only "ACP update handling failed" banner instead of being shown, making the turn look stalled.
+- Fixed: AI chat's Retry always resent the original message verbatim, even when the failed turn had already made progress and should have been asked to continue instead.
+- Fixed: A long AI answer that repeated the same heading across multiple sections could be wrongly flagged as runaway repeated text and discarded.
+- Fixed: A stash could render as a plain in-line commit in the Git graph instead of branching correctly from its base commit.
+- Fixed: The popped-out AI chat window's scrollbars could be hidden behind panel drag handles, and its splitters and spacing didn't match the main window's.
+- Fixed: Items in the toolbar's overflow menu could show their icon stacked above the label instead of beside it, with the wrong icon colour.
+- Fixed: Clicking an inline action button in the Changes tree (e.g. stage, discard) could also select the row and open its diff.
+
 ## Version 5.2.4
 
 ## Highlights in 5.2.4
