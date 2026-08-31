@@ -13,6 +13,8 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Improvement: AI code tools can now read and edit files that live outside any application's output folder but inside an opened folder workspace.
 - Improvement: Dialogs such as Ctrl+Tab and Search Everywhere, and background tabs, are now pre-warmed and show a loading spinner while their view boots, instead of appearing blank or opening cold.
 - Improvement: The stash dialog now defaults to "Stage all before stashing" instead of "Include untracked".
+- Improvement: The Git History graph now shows a stash's full dangling commit chain back to its nearest still-reachable ancestor, instead of dropping the stash whenever that ancestor wasn't already loaded.
+- Improvement: Added Qwen3 Coder Next, Qwen3.8 27B and GLM-5.3 to the OpenRouter model registry, and retagged DeepSeek V4 Pro to the 0813 snapshot.
 
 ## Fixes in 5.2.5
 
@@ -30,6 +32,18 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Fixed: The popped-out AI chat window's scrollbars could be hidden behind panel drag handles, and its splitters and spacing didn't match the main window's.
 - Fixed: Items in the toolbar's overflow menu could show their icon stacked above the label instead of beside it, with the wrong icon colour.
 - Fixed: Clicking an inline action button in the Changes tree (e.g. stage, discard) could also select the row and open its diff.
+- Fixed: A packaged ACP agent bridge could fail to refresh when a newer nightly or beta build was installed, leaving an outdated bridge in place.
+- Fixed: Approving a deviation, updating its notes, or a mid-run recompute only updated the deviations log, not the change tracking file - files could then show as changed with no edits until the next full Software Factory run caught up.
+- Fixed: `Intent.McpServer.exe` could peg CPU usage at around 50% while a solution remained open.
+- Fixed: Renaming an application could fail with "Access to the path is denied" while its Software Factory was running.
+- Fixed: A GitHub Copilot ACP `apply_patch` tool call could crash the update handling and cascade into a false "Last run failed" state.
+- Fixed: Reinstalling a module while another application's Software Factory was still running against it could corrupt the module cache or fail with a locked-file error.
+- Fixed: Reading a module's `.imodspec` file while it was locked by another process could show a misleading "not well-formed" error.
+- Fixed: Turning on "Auto-approve phase gates" for a spec already idle at a phase boundary didn't resume it until the next manual Start/Approve click.
+- Fixed: Applying staged Software Factory changes (Apply All) could intermittently restart the Software Factory run partway through.
+- Fixed: A duplicate-check race in template lookup could throw an unrelated "Sequence contains no elements" error instead of the intended message.
+- Fixed: A slow Software Factory operation could block every other AI tool call (e.g. `get_file_diffs`, `read_file`, `patch_file`) for its entire duration instead of running independently.
+- Fixed: `GlobTool`/`GrepTool` calls that omitted the `path` parameter could crash instead of defaulting to the workspace root.
 
 ## Version 5.2.4
 
