@@ -4,6 +4,13 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 ---
 # Release notes: Intent Architect version 5.2
 
+## Version 5.2.6
+
+## Fixes in 5.2.6
+
+- Fixed: `intent-cli`'s `update-modules` and `uninstall-modules` commands could fail immediately with a Win32Exception instead of running module migrations.
+- Fixed: Software Factory could crash with an unhandled IOException during "Processing changed file diffs" while writing a staged deviation.
+
 ## Version 5.2.5
 
 ## Improvements in 5.2.5
