@@ -18,7 +18,7 @@ $fullModulePath = (Resolve-Path $moduleFolderName).Path
 
 # get all "README.md" files in a docs folder under the module folder name and order them by the fullname
 $files = Get-ChildItem -Path "$fullModulePath" -Recurse -Filter "README.md" |
-    Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' } |
+    Where-Object { $_.DirectoryName -replace '\\', '/' -match '/docs$' -and $_.FullName -notmatch 'Modules\.Archived' } |
     Sort-Object FullName
 
 $numberOfFiles = $files.Count
