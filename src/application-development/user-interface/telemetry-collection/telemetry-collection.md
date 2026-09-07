@@ -17,6 +17,7 @@ Intent Architect collects only basic statistical and error data, including:
 - **Application Name** - The specific Intent Architect application in use.
 - **Account Identifier** - The identifier of the current user account.
 - **Errors** - Errors/exceptions which occur in Intent Architect itself.
+- **AI Usage Metrics** - Purely metrics on usage, used only to track usage against your free daily AI credits.
 
 ## What data is NOT collected?
 
@@ -24,6 +25,7 @@ Intent Architect prioritizes user privacy and ensures that no proprietary or sen
 
 - **Element Names** - The names of modeled elements, services, classes, or any other defined types.
 - **Generated or Written Code** - Any source code, whether automatically generated or manually written, remains entirely private and is never sent through telemetry.
+- **AI Chat Content** - The AI usage we send to our server is purely metrics on usage and only for the purpose of tracking free AI usage. It does NOT include any actual content of the chat itself. It's not sent when you use your own API key.
 
 ## Why is telemetry important?
 
