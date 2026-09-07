@@ -25,9 +25,10 @@ Intent Architect prioritizes user privacy and ensures that no proprietary or sen
 
 - **Element Names** - The names of modeled elements, services, classes, or any other defined types.
 - **Generated or Written Code** - Any source code, whether automatically generated or manually written, remains entirely private and is never sent through telemetry.
-- **AI Chat Content** - The AI usage we send to our server is purely metrics on usage and only for the purpose of tracking free AI usage. It does NOT include any actual content of the chat itself. It's not sent when you use your own API key.
+- **AI Chat Content** - The AI usage we send to our server is purely metrics on usage and only for the purpose of tracking free AI usage. It does NOT include any actual content of the chat itself.
+- **Usage metrics on your AI provider** - Any usage on your own AI provider subscription or API keys will not be recorded by Intent Architect.
 
-## Why is telemetry important?
+## What are the benefits of telemetry collection?
 
 Telemetry data allows the Intent Architect team to:
 
