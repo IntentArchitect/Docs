@@ -26,25 +26,27 @@ Alongside those, this release also tightens up Spec-Driven Development's traceab
 
 Running more than one agent at a time used to mean one Intent Architect window per agent, each tied to a single solution and a single checkout, with no shared view of what was happening. Manage Agents is a new top-level window, reachable from the Home screen, that owns every agent conversation across every repository and solution on your machine.
 
-<!-- image: The Manage Agents window, with the conversation board, chat and right panel -->
+![The Manage Agents button on the home screen](images/5.3.x/manage-agents-button.png)
+
+![The Manage Agents window, with the conversation board, chat and right panel](images/5.3.x/manage-agents-shell.png)
 
 ### The board
 
 Conversations are grouped by repository, with each row naming the checkout it ran in, its branch or worktree, and the uncommitted churn of that checkout, so you can see how much work a task actually produced before opening it. Rows carry a status indicator for running, waiting on a human, or unread, and order by run activity rather than save time. You can group by repository or by time, filter, sort, collapse, drag groups into your own order, file conversations into custom groups, rename a row inline with `F2`, mark rows read, and archive the ones you're done with. The list holds still while your pointer is over it, and `Ctrl + N` starts a new chat.
 
-<!-- image: The conversation board grouped by repository, showing churn badges and status indicators -->
+![The conversation board grouped by repository, showing churn badges and status indicators](images/5.3.x/manage-agents-conversation-list.png)
 
 ### Each agent in its own checkout
 
 Before a conversation starts, the composer lets you choose where the agent will run: a folder, a branch, and optionally an isolated Git worktree cut just for that conversation, on a session branch you can name yourself. The worktree is created on the first turn and can be released - along with its session branch, once merged - from the row's "Archive and Delete Worktree" action. Worktrees live under a configurable `~/.worktrees` root. Approving a plan can also cut a worktree at that moment and move the plan document into it, so implementation starts on a clean branch rather than on top of whatever you happened to be doing.
 
-<!-- image: The composer's dispatch chips - folder, branch, worktree and solution -->
+![The composer's dispatch chips - folder, branch, worktree and solution](images/5.3.x/composer-dispatch-chips.png)
 
 ### A real workspace around the chat
 
 The window is not just a chat list. The centre hosts a tab strip scoped per conversation - the chat itself plus designers, files, diffs, terminals, Git and Change Review tabs - so each task keeps its own tabs, and can be split into two side-by-side columns. The right panel is a configurable set of the solution shell's own panels: Software Factory Changes, Source Control, Codebase Explorer and Specifications, all pointed at the selected conversation's own folder and solution. `Ctrl + T` Search Everywhere, `Ctrl + Tab`, `Ctrl + W`, `Ctrl + Shift + W`, Back/Forward, Tasks and "Open in IDE" work here as they do in a solution window, and Software Factory runs can be launched, watched and opened directly.
 
-<!-- image: The Manage Agents window with a designer open beside the chat and Source Control in the right panel -->
+![The Manage Agents window with a designer open beside the chat and Source Control in the right panel](images/5.3.x/agents-shell-conversation-tab-well.png)
 
 ### A single window for all your work tasks
 
@@ -56,19 +58,19 @@ The point of hosting all of this here is that a task dispatched from this window
 
 Neither Git source control (5.1) nor Change Review (5.2) covered what happens once a change becomes a pull request and required switching to a browser. 5.3 extends the same review experience out to the pull request itself, across GitHub, Azure DevOps, GitLab and Bitbucket Cloud.
 
-<!-- image: The Pull Requests list in the Git tab, showing state glyphs and host branding -->
+![The Pull Requests list in the Git tab, showing state glyphs and host branding](images/5.3.x/pr-intro.png)
 
 ### AI review, posted to the pull request itself
 
 An AI review can now be run directly on a pull request. It reuses the same review engine as Change Review, over the pull request's actual merge-base...head range. Findings land as a pending review draft rather than being posted one at a time - you read, edit or drop each one and submit the whole review yourself, with staged comments shown in the Conversation timeline and counted in its badge until they're submitted. A re-run skips anything already flagged, including on threads that have since been resolved - repeated reviews turning into a pile of duplicate comments is the reason this kind of feature usually gets turned off, so avoiding that was a deliberate constraint, not an afterthought. AI can also draft the pull request's title and description, in a short "simple" style or a longer, diagram-capable "rich" one; descriptions and comments are written and previewed through the same document viewer covered below.
 
-<!-- image: AI review staged as a pending draft, with findings ready to submit -->
+![AI review staged as a pending draft, with findings ready to submit](images/5.3.x/pr-staged-review-feedback.png)
 
 ### Conflicts and keeping branches in sync
 
 Pull request conflicts can now be resolved in an isolated, throwaway worktree instead of your own checkout, with resolved files reflected live in Change Review as they're written. An "Update branch" action on the pull request merges or rebases in the base branch first when that's needed, switching between "Update branch from `<base>`" and "Resolve conflicts" depending on which state it's actually in. Inline comment threads can now also be anchored to a file line or a model element directly inside Change Review, with reply, resolve and nested-thread rollups.
 
-<!-- image: Resolving pull request conflicts in an isolated worktree -->
+![Resolving pull request conflicts in an isolated worktree](images/5.3.x/pr-resolve-conflict.png)
 
 ---
 
@@ -76,11 +78,11 @@ Pull request conflicts can now be resolved in an isolated, throwaway worktree in
 
 Plans, specs and pull request descriptions previously rendered as plain Markdown, with a single `<ModelDiagram>` block standing in for any kind of visual content, regardless of what it was actually meant to show. It's been replaced with purpose-built MDX blocks - DataModel, ApiEndpoint, Wireframe, Canvas and ModelChanges - alongside the existing Mermaid diagrams, so an agent writing a plan can show a concrete data model or API surface directly instead of describing one in prose.
 
-<!-- image: A DataModel block rendered inline in a plan document -->
+![A DataModel block rendered inline in a plan document](images/5.3.x/mdx-datamodel.png)
 
 The document viewer itself, now shared by plans, specs and pull request content, also gained split and word-level diffs, adjustable zoom, image rendering, blockquotes styled as info callouts, and an inline error message when a Mermaid diagram fails to parse instead of a silent blank. MDX and Mermaid content is now validated before a plan can be submitted for approval, so a plan whose diagram wouldn't render is sent back to the agent to fix rather than reaching you broken. Any Mermaid, Wireframe, Canvas or Diagram block can be maximized into a full-pane, pan-and-zoom overlay at its own true size, independent of the document's font zoom - zooming the surrounding text doesn't make a dense diagram any more legible, so the diagram now scales on its own.
 
-<!-- image: A maximized diagram in the document viewer's pan-and-zoom overlay -->
+![A maximized diagram in the document viewer's pan-and-zoom overlay](images/5.3.x/mdx-diagram.png)
 
 ---
 
@@ -98,7 +100,7 @@ Spec-Driven Development can now also detect, import and stay in sync with specs 
 
 Connecting an AI agent to Intent Architect's MCP server used to mean a single, generic prompt about a missing or misconfigured `.mcp.json` file - the same message regardless of which agent you were using, with no way to tell what was actually connected. The Intent MCP tab in AI Configuration replaces that with one row per supported agent (Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro, OpenCode), grouped by whether it's detected on your machine, each with a live Repo/User connection status and a one-click Connect (or Connect all). Connect also copies Intent's built-in skills and rules into that agent's own native folders - `.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on - rather than a Claude Code-only side channel, and an agent Intent Architect couldn't detect on your machine can be enabled and connected anyway instead of only linking its install guide. Preferences for dismissed notifications now persist through the shell, so the dialog won't keep reopening about an agent you've already told it to leave alone.
 
-<!-- image: The Intent MCP tab listing per-agent connection rows -->
+![The Intent MCP tab listing per-agent connection rows](images/5.3.x/intent-mcp-configuration-dialog.png)
 
 ---
 
