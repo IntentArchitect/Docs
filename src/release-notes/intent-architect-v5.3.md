@@ -4,6 +4,12 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
+## Version 5.3.1
+
+### Fixes in 5.3.1
+
+- macOS: Claude Code and other ACP installations would sometimes not be detected.
+
 ## Version 5.3.0
 
 5.3's headline changes are all about the same problem: an agentic workflow only works if you can see what agents are doing, and judge what they've done. This release addresses that at the three points where it matters most - running a fleet of agents, reading a plan before it's built, and reviewing the change that finally gets merged.
@@ -104,7 +110,7 @@ Connecting an AI agent to Intent Architect's MCP server used to mean a single, g
 
 ---
 
-## Improvements in 5.3.0
+### Improvements in 5.3.0
 
 - Improvement: The AI chat composer now supports on-device streaming voice input - press the mic button or `Ctrl + I` (`Cmd + I` on macOS) to dictate, with live interim transcription and punctuation and casing emitted by the model itself; recording stops automatically when you send. Transcription runs entirely on your machine, behind a one-time model download of around 255 MB.
 - Improvement: The AI chat composer now supports `@` mentions - typing `@` opens a search over designer model elements and codebase files, and picking one inserts a highlighted `@Name` token linked two-way to its attachment chip, so editing the token away removes the attachment with it.
@@ -161,7 +167,7 @@ Connecting an AI agent to Intent Architect's MCP server used to mean a single, g
 - Improvement: The Specs panel's "Draft requirements" now hands the composer a prefilled `/sdd-requirements` command for you to review and send, instead of starting the turn itself; the other phases still start immediately.
 - Improvement: Each supported agent now gets its own AI context and instructions folder matching its real discovery convention, instead of several agents sharing one `.agents` folder.
 
-## Fixes in 5.3.0
+### Fixes in 5.3.0
 
 - Fixed: Pressing Stop could leave a conversation flipping back to "busy" or "asking a question" in the history list after you'd already moved on to another chat.
 - Fixed: Switching a conversation into Plan mode mid-turn had no real effect - the agent acknowledged the mode and then edited files anyway.

@@ -6,14 +6,14 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.6
 
-## Fixes in 5.2.6
+### Fixes in 5.2.6
 
 - Fixed: `intent-cli`'s `update-modules` and `uninstall-modules` commands could fail immediately with a Win32Exception instead of running module migrations.
 - Fixed: Software Factory could crash with an unhandled IOException during "Processing changed file diffs" while writing a staged deviation.
 
 ## Version 5.2.5
 
-## Improvements in 5.2.5
+### Improvements in 5.2.5
 
 - Improvement: The AI chat's slash-command picker now also lists an ACP agent's own commands - its built-ins plus every skill it discovers itself, including nested `.claude/skills` folders - grouped under the agent's name (e.g. "Claude Code").
 - Improvement: Folder-only workspaces (opened without a solution) now default to the Codebase panel instead of Solution Explorer, unless you've already picked another panel yourself, and show their files immediately instead of after a delay.
@@ -23,7 +23,7 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Improvement: The Git History graph now shows a stash's full dangling commit chain back to its nearest still-reachable ancestor, instead of dropping the stash whenever that ancestor wasn't already loaded.
 - Improvement: Added Qwen3 Coder Next, Qwen3.8 27B and GLM-5.3 to the OpenRouter model registry, and retagged DeepSeek V4 Pro to the 0813 snapshot.
 
-## Fixes in 5.2.5
+### Fixes in 5.2.5
 
 - Fixed: Installing a module while another application's Software Factory (or its own install-time migration) was still running could corrupt the target application's packages, or leave the module recorded as installed with no settings ever written.
 - Fixed: An automated save (e.g. `run_software_factory`, `record_spec_traceability`, module install/uninstall) could hang forever waiting on a confirmation dialog nobody could click, when a diagram had a stale "lost visual" error left over from an unrelated earlier retry.
@@ -54,7 +54,7 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.4
 
-## Highlights in 5.2.4
+### Highlights in 5.2.4
 
 ### Open a folder or clone a repository directly
 
@@ -86,7 +86,7 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 
 ![OpenCode now supported](images/5.2.x/open-code.png)
 
-## Improvements in 5.2.4
+### Improvements in 5.2.4
 
 - Improvement: Modules are now automatically restored when `modules.config` or the module cache changes outside Intent Architect - e.g. `git pull`/`checkout`/`reset`/`clean`, or another window - instead of leaving designers running against stale or missing modules until reopened.
 - Improvement: When an external MCP client (not the in-app AI chat or an ACP agent) triggers a tool that opens a dialog, the call now fails immediately instead of hanging forever waiting for a human who isn't there to click it; a background tab blocked on an open dialog now pulses in the tab strip until focused.
@@ -117,7 +117,7 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 - Improvement: Clicking a write-plan pill in AI chat now opens the plan in the shell's regular reusable preview tab instead of a separate pinned tab.
 - Improvement: Toggling a model on or off (or "toggle all") in AI model settings now saves immediately, with a spinner, instead of requiring a separate Save step.
 
-## Fixes in 5.2.4
+### Fixes in 5.2.4
 
 - Fixed: Discarding a file could fail to remove it from the index when it didn't exist in HEAD, e.g. in a freshly initialized repository or a linked/junction directory.
 - Fixed: Bumping a module's version could mark package-reference designer tabs as having unsaved changes with nothing to save.
@@ -159,7 +159,7 @@ This release was unlisted immediately.
 
 ## Version 5.2.2
 
-## Highlights in 5.2.2
+### Highlights in 5.2.2
 
 ### "Favourite" models
 
@@ -167,7 +167,7 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 
 ![AI Favourites Feature](images/5.2.x/ai-model-favourites.png)
 
-## Improvements in 5.2.2
+### Improvements in 5.2.2
 
 - Improvement: The Source Control History view and each designer's History dialog can now search commits across the whole repository, not just the ones already loaded.
 - Improvement: History gained branch-level push and rename actions, without dropping to the terminal.
@@ -184,7 +184,7 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 - Improvement: Source Control rows now offer an "Add to .gitignore" submenu - this file, all files of this extension, this file's folder, or any folder with this name.
 - Improvement: Image files are now recognized and supported in AI chat and Git views.
 
-## Fixes in 5.2.2
+### Fixes in 5.2.2
 
 - Fixed: The ACP context-usage gauge could stay pinned at a flat 100% for models whose live usage report started conservative before correcting itself.
 - Fixed: Intent Architect's own metadata files and designer folders could appear as changes in the tracked change baseline; they're now excluded.
@@ -214,7 +214,7 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 
 ## Version 5.2.1
 
-## Improvements in 5.2.1
+### Improvements in 5.2.1
 
 - Improvement: Cursor (via the `cursor-agent` CLI) is now available as an ACP agent, with its own provider icon and model list.
 - Improvement: Existing specification documents - such as BMAD PRDs, in both v4 and v6 formats - can now be imported into and integrated with the Spec-Driven Development system.
@@ -228,7 +228,7 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 - Improvement: AI conversation persistence is now crash-safe and multi-instance safe - assistant narration is saved as it happens, history and index files are written atomically under a cross-process lock, and a conversation already open in another instance opens read-only with a Retry option.
 - Improvement: ACP conversations now restore their context window usage gauge on reload, and reloaded tool calls report an honest status - interrupted, failed or cancelled - instead of always appearing to have succeeded.
 
-## Fixes in 5.2.1
+### Fixes in 5.2.1
 
 - Fixed: Changes Review failed outright on a repository with no commits, and "Review changes in this commit" was unavailable on a repository's very first commit.
 - Fixed: Concurrent Claude Code cold starts could race to refresh the shared OAuth credentials and log the user out mid-task; cold starts are now serialized machine-wide and any remaining authentication failure is explained in the chat instead of surfacing as a raw `-32603` error.
@@ -433,7 +433,7 @@ AI agents can now **run your configured build/test/run tasks** directly, includi
 
 ---
 
-## Improvements in 5.2.0
+### Improvements in 5.2.0
 
 - Improvement: **The AI diagram-layout tools** (`apply_change_diagram_layout` and `get_designer_diagram_snapshot`) now report the actual post-layout geometry back to the agent, flag node overlaps and crowding with a collision-checked single-node move to resolve each, surface auto-sized nodes (whose size is content-driven and must not be set), and fan out associations that share a target edge so their auto-routed lines no longer stack.
 - Improvement: **When the AI assistant is blocked waiting for your input**, the relevant Intent Architect window now "seeks attention" (flashing in the Windows taskbar or bouncing the macOS dock) so you notice it needs you.
@@ -447,7 +447,7 @@ AI agents can now **run your configured build/test/run tasks** directly, includi
 - Improvement: **Diff views** gain a "Hide unchanged lines" toggle, per-language word-wrap preferences, a dirty-diff change gutter, and Reveal-in-Codebase / Open / Create-AI-Task actions plus drag-into-chat from diff tabs and Source Control rows.
 - Improvement: The AI scripting API's `lookupByPath` resolution has been improved with an editable-first, reference-inclusive fallback, for more reliable element lookups from scripts.
 
-## Fixes in 5.2.0
+### Fixes in 5.2.0
 
 - Fixed: A false-positive where freshly-generated `.csproj` files would show up as Customizations.
 - Fixed: Software Factories would sometimes not show as completed when a run produced no changes.
