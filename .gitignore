@@ -266,3 +266,28 @@ ModelManifest.xml
 
 # Playwright MCP session artifacts (snapshots, console logs)
 .playwright-mcp/
+
+# Intent dropped skills
+/.claude/skills/address-pr-review/SKILL.md
+/.claude/skills/authoring-rich-documents/references/canvas.md
+/.claude/skills/authoring-rich-documents/references/wireframe.md
+/.claude/skills/authoring-rich-documents/SKILL.md
+/.claude/skills/changing-the-model/SKILL.md
+/.claude/skills/creating-applications/SKILL.md
+/.claude/skills/exploring-the-model/SKILL.md
+/.claude/skills/generating-and-applying-code/SKILL.md
+/.claude/skills/managing-tasks/SKILL.md
+/.claude/skills/resolve-destructive-changes/SKILL.md
+/.claude/skills/review-changes/SKILL.md
+/.claude/skills/sdd-design/SKILL.md
+/.claude/skills/sdd-enrich-spec/SKILL.md
+/.claude/skills/sdd-heal/SKILL.md
+/.claude/skills/sdd-implement/SKILL.md
+/.claude/skills/sdd-implement-wave/SKILL.md
+/.claude/skills/sdd-record-traceability/SKILL.md
+/.claude/skills/sdd-requirements/SKILL.md
+/.claude/skills/sdd-tasks/SKILL.md
+/.claude/skills/sdd-trace-reconcile/SKILL.md
+/.claude/skills/sdd-verify/SKILL.md
+/.claude/skills/using-code-tools/SKILL.md
+/.claude/skills/working-with-modules/SKILL.md
