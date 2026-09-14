@@ -4,6 +4,58 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
+## Version 5.3.2
+
+### Improvements in 5.3.2
+
+- Improvement: A new Gather Diagnostics action on an AI conversation's row menu collects that conversation's chat file, agent log and MCP logs into a single zip, and MCP log files are now named per conversation so they can be attributed to the chat that produced them.
+- Improvement: File names an AI reply mentions - `Program.cs`, `src/Ordering/OrderService.cs:42` - now render as clickable links with a file-type icon, opening the file in the inline viewer at the referenced line.
+- Improvement: A Software Factory run started from the Agents window is now tied to the conversation that started it - its taskbar entry names the chat, folder and branch, and two runs of the same application in different worktrees no longer share an Output tab or restart each other.
+- Improvement: A row on the Agents board now shows the branch its checkout is on right now, updating when you switch branches, instead of the branch the conversation was last saved on.
+- Improvement: Archiving a conversation no longer waits for its worktree handles to be released before returning.
+- Improvement: Spec-Driven Development gained an explicit verification phase between implementation and done, and ticking the last task moves a spec into it mechanically, whether it was ticked from the Specs panel, the chat or an MCP tool.
+- Improvement: A new "Show whitespace changes" toggle in the diff toolbar shows or hides indentation-only differences, remembered as a preference.
+- Improvement: A new "Double-click to edit" option in the diff options menu lets you stop a double-click in a rendered Markdown preview from flipping the pane back to the editor, so selecting a word no longer loses the rendered view.
+- Improvement: Rows in an item-list stereotype property, and options in a stereotype property definition, can now be re-ordered by dragging a grip.
+- Improvement: The scripting API gained item-list stereotype property support - `isItemList()`, `getItems()`, `addItem()`, `removeItem()`, `clearItems()` and `moveItem()`, plus `moveTo()` on an item handle.
+- Improvement: `get_designer_schema` now reports authored stereotype metadata - property hints, item-list row types and their properties, and a resolved list of what a stereotype applies to - instead of leaving an agent to guess it from a module's raw XML.
+- Improvement: Designer-modifying AI tools (`run_designer_script`, `apply_change_diagram_layout`) gained an optional `saveOnSuccess` flag that saves the designer once the change succeeds.
+- Improvement: `get_file_diffs` now distinguishes "no staged change for this file" from "no Software Factory run could be consulted", naming whether none was running or the run had not reached staging.
+- Improvement: `uninstall_modules` now decides the whole batch before writing anything - modules that cannot be removed come back named with what blocks them while the rest are still uninstalled - and gained a `force` option.
+
+### Fixes in 5.3.2
+
+- Fixed: An idle Intent Architect window could spend significant CPU core and GPU time animating the unread indicators on the Chats list.
+- Fixed: Running terminal and tasks could cause high CPU usage on the main renderer thread and sometimes make it unresponsive.
+- Fixed: A long-running watch task such as `tsc -w` or `dotnet watch` got progressively more expensive the longer it ran.
+- Fixed: Subscriptions and timers belonging to closed Software Factory sessions, module tasks and AI chats were never released, so a long-running session accumulated background work - in particular after closing a chat while a task was still running.
+- Fixed: A reopened AI conversation lost its name and reverted to showing its opening prompt.
+- Fixed: Pressing "New chat" in the Agents window discarded whatever had been typed into the composer but not yet sent.
+- Fixed: A chat filed under one repository could be pointed at a sibling worktree's solution, silently working against the wrong model or failing outright once that worktree had been deleted.
+- Fixed: A conversation hosted by the Agents window could report that no solution was open, leaving it and its sub-agents unable to reach the model's designers.
+- Fixed: All four module tools failed for any conversation dispatched from the Agents window, and module search returned an empty list rather than an error.
+- Fixed: A tool call made while Intent Architect was busy - typically just after `create_application` - could be answered with "no Intent Architect solution is open", stopping the run to ask you to open a solution that already was.
+- Fixed: The Agents window's "Open solution" chip could fail with a path-does-not-exist error when the conversation's solution was pinned to a folder rather than to the `.isln` file.
+- Fixed: The Specs panel could be gated out in the Agents window for a conversation that had not run yet.
+- Fixed: After approving a plan cut a new worktree, the Changes panel could keep showing the previous solution.
+- Fixed: A chat parked on a question could have its agent subprocess killed about 21 minutes later, leaving it stuck on "Thinking…" and disconnected from Intent Architect's MCP server.
+- Fixed: An AI agent could be told that a Software Factory run had succeeded and the codebase was clean while the run was still generating.
+- Fixed: A `run_software_factory` call could answer with the previous run's results instead of the run it had just triggered, and a run that was accepted but never started polled for the full timeout instead of reporting a stall.
+- Fixed: `apply_staged_file_changes` reported success for requested files it had not written; each one now comes back with a reason such as already applied, ignored or not pending.
+- Fixed: A Software Factory run that logged an error but still reached staging served on-disk content to the AI file-reading tools, even though the same changes showed as reviewable in the UI.
+- Fixed: Software Factory reads for applications sharing an output root could attribute a served change to the wrong application.
+- Fixed: `uninstall_modules` could remove several of the requested modules and then fail part-way through, naming modules it had just removed as the blockers.
+- Fixed: Creating a solution or an application stalled for about ten seconds.
+- Fixed: Starting Intent Architect with a saved AI provider API key could raise a "No handler registered in electron" error dialog.
+- Fixed: On a loaded machine, an Intent Architect instance that was slow to answer one connection attempt became invisible to every MCP server on the machine until it was restarted, so tools such as `create_solution` timed out.
+- Fixed: Folders in the Software Factory Changes tree reopened after approving a change, switching view or revealing a row.
+- Fixed: Mermaid diagrams could intermittently render collapsed or blank, particularly when the pane was off-screen or several diagrams on a page reused the same node ids.
+- Fixed: A `<FileRef>` chip carrying a line number opened the file at the top instead of at that line.
+- Fixed: A plan or spec document could report correct `<FileRef>` and `<FileTree>` paths as dead links for files it records as removed, while renamed files were never checked at all.
+- Fixed: The author, reviewers and comment authors on an Azure DevOps pull request always fell back to an initial instead of showing their profile picture.
+- Fixed: An AI review or fix started from the pull request band could run from a folder inside the repository rather than the repository root.
+- Fixed: macOS: native confirm and alert dialogs could clip their last line.
+
 ## Version 5.3.1
 
 ### Fixes in 5.3.1
