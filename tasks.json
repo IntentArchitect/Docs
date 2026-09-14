@@ -1,0 +1,37 @@
+{
+    // SOLUTION tasks. This file sits at the workspace root, so these are the tasks that belong to the
+    // repository as a whole rather than to one application — a full build, the test suite, a watcher.
+    // They appear in the Software Factory toolbar alongside the active application's own tasks, and in
+    // the Agents shell for every conversation working in this folder.
+    //
+    // "workingDirectory" is relative to this file's folder. Each key under "tasks" is the task name.
+    // Supported error parsers: "generic", "dotnet".
+    "tasks": {
+        "docs-build": {
+            "label": "Docs Build",
+            "icon": "fa-book",
+            "command": "pwsh -File ./_build.ps1",
+            "workingDirectory": "."
+        },
+        "docs-serve": {
+            "label": "Docs Serve",
+            "icon": "fa-globe",
+            "command": "pwsh -File ./_build_and_serve.ps1",
+            "workingDirectory": ".",
+            "isBackground": true,
+            "readyPattern": "Press Ctrl\\+C to shut down"
+        },
+        "install-tools": {
+            "label": "Install Tools",
+            "icon": "fa-globe",
+            "command": "pwsh -File ./_install_tools.ps1",
+            "workingDirectory": "."
+        }
+
+        // Everything an application tasks.json supports works here too — compound tasks ("dependsOn"
+        // plus an optional "dependsOrder" of "parallel" or "sequence"), background watchers
+        // ("isBackground" with a "readyPattern" / "errorPattern" / "beginsPattern"), and "hidden" for a
+        // task only meant to run as a compound's child. A compound's "dependsOn" resolves within THIS
+        // file only — it cannot name an application's task.
+    }
+}
