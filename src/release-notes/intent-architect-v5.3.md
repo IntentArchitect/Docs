@@ -10,9 +10,6 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 - Improvement: A new Gather Diagnostics action on an AI conversation's row menu collects that conversation's chat file, agent log and MCP logs into a single zip, and MCP log files are now named per conversation so they can be attributed to the chat that produced them.
 - Improvement: File names an AI reply mentions - `Program.cs`, `src/Ordering/OrderService.cs:42` - now render as clickable links with a file-type icon, opening the file in the inline viewer at the referenced line.
-- Improvement: A Software Factory run started from the Agents window is now tied to the conversation that started it - its taskbar entry names the chat, folder and branch, and two runs of the same application in different worktrees no longer share an Output tab or restart each other.
-- Improvement: A row on the Agents board now shows the branch its checkout is on right now, updating when you switch branches, instead of the branch the conversation was last saved on.
-- Improvement: Archiving a conversation no longer waits for its worktree handles to be released before returning.
 - Improvement: Spec-Driven Development gained an explicit verification phase between implementation and done, and ticking the last task moves a spec into it mechanically, whether it was ticked from the Specs panel, the chat or an MCP tool.
 - Improvement: A new "Show whitespace changes" toggle in the diff toolbar shows or hides indentation-only differences, remembered as a preference.
 - Improvement: A new "Double-click to edit" option in the diff options menu lets you stop a double-click in a rendered Markdown preview from flipping the pane back to the editor, so selecting a word no longer loses the rendered view.
@@ -20,11 +17,14 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Improvement: The scripting API gained item-list stereotype property support - `isItemList()`, `getItems()`, `addItem()`, `removeItem()`, `clearItems()` and `moveItem()`, plus `moveTo()` on an item handle.
 - Improvement: `get_designer_schema` now reports authored stereotype metadata - property hints, item-list row types and their properties, and a resolved list of what a stereotype applies to - instead of leaving an agent to guess it from a module's raw XML.
 - Improvement: Designer-modifying AI tools (`run_designer_script`, `apply_change_diagram_layout`) gained an optional `saveOnSuccess` flag that saves the designer once the change succeeds.
-- Improvement: `get_file_diffs` now distinguishes "no staged change for this file" from "no Software Factory run could be consulted", naming whether none was running or the run had not reached staging.
 - Improvement: `uninstall_modules` now decides the whole batch before writing anything - modules that cannot be removed come back named with what blocks them while the rest are still uninstalled - and gained a `force` option.
 
 ### Fixes in 5.3.2
 
+- Fixed: `get_file_diffs` now distinguishes "no staged change for this file" from "no Software Factory run could be consulted", naming whether none was running or the run had not reached staging.
+- Fixed: A Software Factory run started from the Agents window is now tied to the conversation that started it - its taskbar entry names the chat, folder and branch, and two runs of the same application in different worktrees no longer share an Output tab or restart each other.
+- Fixed: A row on the Agents board now shows the branch its checkout is on right now, updating when you switch branches, instead of the branch the conversation was last saved on.
+- Fixed: Archiving a conversation no longer waits for its worktree handles to be released before returning.
 - Fixed: An idle Intent Architect window could spend significant CPU core and GPU time animating the unread indicators on the Chats list.
 - Fixed: Running terminal and tasks could cause high CPU usage on the main renderer thread and sometimes make it unresponsive.
 - Fixed: A long-running watch task such as `tsc -w` or `dotnet watch` got progressively more expensive the longer it ran.
