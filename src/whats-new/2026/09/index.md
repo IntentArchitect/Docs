@@ -92,25 +92,27 @@ Available from:
 
 ### Module Builder AI Skills
 
-AI agents are perfectly capable of building Intent Architect modules — provided they know how modules are actually meant to be built. Left to general knowledge they invent plausible-looking patterns that don't match how Intent Architect works, and the time you save is spent correcting them.
+![AI Skills](images/ai-skills-logo.png)
 
-The `Intent.ModuleBuilder.AI.Skills` module drops a curated, always-up-to-date set of AI agent skill and instruction files into a `.agents/` folder in the repo it's installed in, so an agent working in that repo starts with the conventions rather than guessing at them. It generates no C# and has no designer model dependency — install it once in a dedicated application and control where the files land via that application's Output Location setting.
+The `Intent.ModuleBuilder.AI.Skills` module drops a curated, always-up-to-date set of AI agent skill and instruction files into a `.agents/` folder in the repo it's installed in, so an AI assistant working in that repo has the knowledge it needs to build Intent Architect modules correctly. It generates no C# and has no designer model dependency — install it once in a dedicated application and control where the files land via that application's Output Location setting.
 
 **Key features:**
 
-- Skill files covering module-building end to end: `file-builder-expert`, `intent-mapping-architect`, `intent-metadata-consumer`, `intent-domain-interactions-expert`, `intent-module-orchestrator`, `add-association-type`, `add-designer-extension`, `add-module-migration`, `architecture-templates`, `module-building-strategies`, `module-debugging`, `module-docs`, `module-versioning`, `module-svg-icon`, and `module-element-icons`
+- Skill files covering module-building end to end: `file-builder-expert`, `intent-mapping-architect`, `intent-metadata-consumer`, `intent-module-orchestrator`, `module-building-strategies`, `module-debugging`, ... and more
 - Instruction files for choosing the right exception type and for recurring template-authoring pitfalls (NuGet dependency registration, filename stability, naming conflicts, package version drift)
 - Bundled content is always overwritten on install or update, so every consuming repo stays standardized on the same skill set
 
+Visit the [documentation](https://docs.intentarchitect.com/modules-common/intent-modulebuilder-ai-skills/intent-modulebuilder-ai-skills.html) to learn more.
+
 Available from:
 
-- Intent.ModuleBuilder.AI.Skills 1.0.2-pre.1
+- Intent.ModuleBuilder.AI.Skills 1.0.2
 
 ### Wolverine Eventing Module
 
-Message broker choice is increasingly a licensing decision as much as a technical one, and teams moving off a commercially licensed bus have had few modelled alternatives. The `Intent.Eventing.Wolverine` module integrates [WolverineFx](https://wolverine.netlify.app/) as a message broker for publishing and subscribing to integration events and commands in .NET applications — a fully MIT-licensed option, with a documented migration path so moving an existing MassTransit application doesn't have to be a big-bang rewrite.
+![Wolverine Logo](images/wolverine-logo.png)
 
-This is distinct from the Wolverine CQRS Dispatcher introduced in August — that module wires Wolverine as your in-process command/query dispatcher, while this one handles eventing across process boundaries; the two share a single `UseWolverine` registration and are commonly installed together.
+The `Intent.Eventing.Wolverine` module integrates [WolverineFx](https://wolverine.netlify.app/) as a message broker for publishing and subscribing to integration events and commands in .NET applications — a fully MIT-licensed option for teams migrating off a commercially licensed bus such as MassTransit. This is distinct from the Wolverine CQRS Dispatcher introduced in August — that module wires Wolverine as your in-process command/query dispatcher, while this one handles eventing across process boundaries; the two share a single `UseWolverine` registration and are commonly installed together.
 
 **Key features:**
 
@@ -120,9 +122,11 @@ This is distinct from the Wolverine CQRS Dispatcher introduced in August — tha
 - Configurable Error Handling Policies (`Retry`, `RetryWithCooldown`, `ScheduleRetry`) with automatic dead-lettering
 - A dedicated MassTransit-to-Wolverine migration guide, including a setting-equivalence table and a staged, side-by-side migration path for large applications
 
+Visit the [documentation](https://docs.intentarchitect.com/modules-dotnet/intent-eventing-wolverine/intent-eventing-wolverine.html) to learn more.
+
 Available from:
 
-- Intent.Eventing.Wolverine 1.0.0-pre.1
+- Intent.Eventing.Wolverine 1.0.0
 
 ### Integration Testing Enhancements
 
