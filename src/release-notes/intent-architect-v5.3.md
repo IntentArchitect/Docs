@@ -26,7 +26,7 @@ The ask-a-question and plan-approval cards can now be collapsed to a single head
 
 ![Collapse the ask question card](images/5.3.x/collapse-ask-question.png)
 
-#### Automatic detect and hyperlinking of file paths
+#### Automatic detection and hyperlinking of file paths
 
 File names in previewed `.md` and `.mdx` files or mentioned in an AI reply - `Program.cs`, `src/Ordering/OrderService.cs:42` - now render as clickable links with a file-type icon, opening the file in the inline viewer at the referenced line.
 
@@ -34,8 +34,27 @@ File names in previewed `.md` and `.mdx` files or mentioned in an AI reply - `Pr
 
 ![File opened on correct line](images/5.3.x/file-opened-from-hyperlink.png)
 
+### Update of Metadata Persistence Format for new applications
+
+New applications now use `V3 (XML)` as their Metadata Persistence Format by default. Although this format has been available since 5.1.0, we have now made it the default as the Change Review tab requires the newer format to properly show element type changes (e.g. from `int` to `long`) properly whereas without the new format it falls back to showing guid values. Furthermore, adoption of versions >= 5.1.0 is now such that others users on your repository will be unlikely to encounter issues of having too old a version of Intent Architect to work with applications.
+
+Other benefits of the newer format:
+
+- **More compact** - The XML will omit empty elements and some concepts are now stored as a single composite element instead of as multiple discrete ones.
+- **Nests associations under elements** - This prevents noise during git commits, particularly `<order />` values changing in multiple different association files from an action such as adding an attribute to a class.
+- **Persists type names** - Allows type names to show in places various places (such as the Change Review tab mentioned above).
+
+For teams wishing to switch existing applications over it can be done so from the Settings tab:
+
+![Settings tab showing changing of persistence format](images/5.3.x/change-persistence-format.png)
+
+> [!NOTE]
+>
+> Due to the once-off large commit this can create, it is recommended to do this as a stand-alone commit/PR and to coordinate the change with other users to avoid merge conflicts.
+
 ### Other improvements in 5.3.2
 
+- Improvement: The default "metadata persistence format" for new application is now `V3 (XML)`.
 - Improvement: A new "Keep All" action on the Changes panel accepts everything a conversation has changed so far and starts tracking again from there, without touching the files.
 - Improvement: A pull, rebase or merge that git refuses because the working tree is dirty now offers "Stash & retry", which re-runs the operation with `--autostash`.
 - Improvement: A finished conversation's row on the Agents board stays emphasised for as long as that conversation still has tabs open.
