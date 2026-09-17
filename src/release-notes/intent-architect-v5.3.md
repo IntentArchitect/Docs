@@ -38,8 +38,6 @@ File names in previewed `.md` and `.mdx` files or mentioned in an AI reply - `Pr
 
 - Improvement: A new "Keep All" action on the Changes panel accepts everything a conversation has changed so far and starts tracking again from there, without touching the files.
 - Improvement: A pull, rebase or merge that git refuses because the working tree is dirty now offers "Stash & retry", which re-runs the operation with `--autostash`.
-- Improvement: XML, `.csproj` and other MSBuild files are re-indented using the indentation and line endings the file already uses, rather than a fixed width that rewrote the whole file.
-- Improvement: The AI resolve action on a merge-conflict row is now only offered while that file still needs resolving, leaving the section's own control to show progress.
 - Improvement: A finished conversation's row on the Agents board stays emphasised for as long as that conversation still has tabs open.
 - Improvement: The designer diagram gained `Ctrl` + `0` to reset its zoom, and its tips now name the keyboard shortcut alongside `Ctrl` + wheel.
 - Improvement: A new Gather Diagnostics action on an AI conversation's row menu collects that conversation's chat file, agent logs, Software Factory logs and MCP logs into a single zip - including from sessions that ran before the last restart, trimmed to that conversation's own window - and MCP log files are now named per conversation so they can be attributed to the chat that produced them.
@@ -54,6 +52,7 @@ File names in previewed `.md` and `.mdx` files or mentioned in an AI reply - `Pr
 
 ### Fixes in 5.3.2
 
+- Fixed: XML, `.csproj` and other MSBuild files are re-indented using the indentation and line endings the file already uses, rather than a fixed width that rewrote the whole file.
 - Fixed: `get_file_diffs` now distinguishes "no staged change for this file" from "no Software Factory run could be consulted", naming whether none was running or the run had not reached staging.
 - Fixed: A Software Factory run started from the Agents window is now tied to the conversation that started it - its taskbar entry names the chat, folder and branch, and two runs of the same application in different worktrees no longer share an Output tab or restart each other.
 - Fixed: A row on the Agents board now shows the branch its checkout is on right now, updating when you switch branches, instead of the branch the conversation was last saved on.
