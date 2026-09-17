@@ -6,10 +6,43 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 ## Version 5.3.2
 
-### Improvements in 5.3.2
+### Highlights in 5.2.4
 
-- Improvement: A new Gather Diagnostics action on an AI conversation's row menu collects that conversation's chat file, agent log and MCP logs into a single zip, and MCP log files are now named per conversation so they can be attributed to the chat that produced them.
-- Improvement: File names an AI reply mentions - `Program.cs`, `src/Ordering/OrderService.cs:42` - now render as clickable links with a file-type icon, opening the file in the inline viewer at the referenced line.
+#### Conversation categorization
+
+Conversations on the Agents board can be given one of six built-in categories from the row menu, shown as a coloured chip on the row and remembered with the board layout.
+
+![Conversation categorization](images/5.3.x/categorize-chat.png)
+
+#### Application-wide UI zoom
+
+A new app-wide UI zoom, with `Ctrl` + `+` / `-` / `0`, an entry in the account menus and a row in User Settings, scales the whole application including designer tabs, the AI chat panel and dialogs.
+
+![Application-wide UI zoom](images/5.3.x/app-wide-ui-zoom.png)
+
+#### Collapse ask question and approve plan cards
+
+The ask-a-question and plan-approval cards can now be collapsed to a single header row, so the transcript behind them stays readable while the gate stays live.
+
+![Collapse the ask question card](images/5.3.x/collapse-ask-question.png)
+
+#### Automatic detect and hyperlinking of file paths
+
+File names in previewed `.md` and `.mdx` files or mentioned in an AI reply - `Program.cs`, `src/Ordering/OrderService.cs:42` - now render as clickable links with a file-type icon, opening the file in the inline viewer at the referenced line.
+
+![Hyperlinked file name](images/5.3.x/hyperlinked-file-name.png)
+
+![File opened on correct line](images/5.3.x/file-opened-from-hyperlink.png)
+
+### Other improvements in 5.3.2
+
+- Improvement: A new "Keep All" action on the Changes panel accepts everything a conversation has changed so far and starts tracking again from there, without touching the files.
+- Improvement: A pull, rebase or merge that git refuses because the working tree is dirty now offers "Stash & retry", which re-runs the operation with `--autostash`.
+- Improvement: XML, `.csproj` and other MSBuild files are re-indented using the indentation and line endings the file already uses, rather than a fixed width that rewrote the whole file.
+- Improvement: The AI resolve action on a merge-conflict row is now only offered while that file still needs resolving, leaving the section's own control to show progress.
+- Improvement: A finished conversation's row on the Agents board stays emphasised for as long as that conversation still has tabs open.
+- Improvement: The designer diagram gained `Ctrl` + `0` to reset its zoom, and its tips now name the keyboard shortcut alongside `Ctrl` + wheel.
+- Improvement: A new Gather Diagnostics action on an AI conversation's row menu collects that conversation's chat file, agent logs, Software Factory logs and MCP logs into a single zip - including from sessions that ran before the last restart, trimmed to that conversation's own window - and MCP log files are now named per conversation so they can be attributed to the chat that produced them.
 - Improvement: Spec-Driven Development gained an explicit verification phase between implementation and done, and ticking the last task moves a spec into it mechanically, whether it was ticked from the Specs panel, the chat or an MCP tool.
 - Improvement: A new "Show whitespace changes" toggle in the diff toolbar shows or hides indentation-only differences, remembered as a preference.
 - Improvement: A new "Double-click to edit" option in the diff options menu lets you stop a double-click in a rendered Markdown preview from flipping the pane back to the editor, so selecting a word no longer loses the rendered view.
@@ -31,13 +64,10 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: Subscriptions and timers belonging to closed Software Factory sessions, module tasks and AI chats were never released, so a long-running session accumulated background work - in particular after closing a chat while a task was still running.
 - Fixed: A reopened AI conversation lost its name and reverted to showing its opening prompt.
 - Fixed: Pressing "New chat" in the Agents window discarded whatever had been typed into the composer but not yet sent.
-- Fixed: A chat filed under one repository could be pointed at a sibling worktree's solution, silently working against the wrong model or failing outright once that worktree had been deleted.
-- Fixed: A conversation hosted by the Agents window could report that no solution was open, leaving it and its sub-agents unable to reach the model's designers.
+- Fixed: Various issues around new or existing chats using incorrect context - the solution, repository, branch or folder a chat was pointed at, and the instruction files and skills its turns could reach.
 - Fixed: All four module tools failed for any conversation dispatched from the Agents window, and module search returned an empty list rather than an error.
 - Fixed: A tool call made while Intent Architect was busy - typically just after `create_application` - could be answered with "no Intent Architect solution is open", stopping the run to ask you to open a solution that already was.
-- Fixed: The Agents window's "Open solution" chip could fail with a path-does-not-exist error when the conversation's solution was pinned to a folder rather than to the `.isln` file.
 - Fixed: The Specs panel could be gated out in the Agents window for a conversation that had not run yet.
-- Fixed: After approving a plan cut a new worktree, the Changes panel could keep showing the previous solution.
 - Fixed: A chat parked on a question could have its agent subprocess killed about 21 minutes later, leaving it stuck on "Thinking…" and disconnected from Intent Architect's MCP server.
 - Fixed: An AI agent could be told that a Software Factory run had succeeded and the codebase was clean while the run was still generating.
 - Fixed: A `run_software_factory` call could answer with the previous run's results instead of the run it had just triggered, and a run that was accepted but never started polled for the full timeout instead of reporting a stall.
@@ -54,6 +84,23 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: A plan or spec document could report correct `<FileRef>` and `<FileTree>` paths as dead links for files it records as removed, while renamed files were never checked at all.
 - Fixed: The author, reviewers and comment authors on an Azure DevOps pull request always fell back to an initial instead of showing their profile picture.
 - Fixed: An AI review or fix started from the pull request band could run from a folder inside the repository rather than the repository root.
+- Fixed: When something would prefill the chat composer over text you had already typed, Intent Architect now asks whether to keep both, overwrite it or keep what you wrote.
+- Fixed: The changes panel on each AI conversation now properly lists the files and designer elements that conversation has changed since it started, nested under their parents with tallies, and opens each one as a diff against the state it began from.
+- Fixed: Opening a worktree conversation with a plan waiting for approval drew the "Implement in a separate worktree" option and then removed it, resizing the card.
+- Fixed: When an agent resumed after a background task finished, the conversation appended another "Completed" row every 30 seconds and the resumed work was not saved.
+- Fixed: Approving a deviation left the file it writes invisible to Source Control until the next git operation, so a commit taken in between left it out.
+- Fixed: A module restore in one worktree could raise "Underlying metadata files have changed" on a dirty designer tab belonging to an unrelated worktree.
+- Fixed: Opening a Module Builder designer in a freshly cloned solution before its first module restore had started loaded the designer with every module-supplied package unresolved, and it stayed that way until restart.
+- Fixed: A designer script's `dialogService.confirm` never reached the MCP client when more than one solution was open, leaving the script waiting on a prompt that appeared nowhere.
+- Fixed: At display scaling other than 100%, embedded views such as designer tabs and the AI chat panel were mis-sized and could cover the panel's border, and own-window dialogs opened unscaled and too small.
+- Fixed: A dialog could pull Intent Architect to the foreground while you were working in another application.
+- Fixed: Turning on "Auto-approve phase gates" for a spec still in Requirements draft discarded whatever had been typed into the composer.
+- Fixed: "View Code" on a designer element did nothing when the designer had been opened from the Agents window.
+- Fixed: Clicking a file or model reference chip in a plan or spec document did nothing in the Agents window, and a chip naming its application by name rather than by id was a dead click in the solution window too.
+- Fixed: Opening a folder rather than a solution showed no Changes Review, and reviews for two different repositories shared a single tab.
+- Fixed: The repositories list and its pinned repository could ping-pong between open windows.
+- Fixed: Icon slots in MDX wireframes and diagrams drew an empty dashed square instead of the named icon.
+- Fixed: macOS: the system microphone permission prompt appeared during startup, whether or not voice input was ever used; it is now asked for the first time you use voice input.
 - Fixed: macOS: native confirm and alert dialogs could clip their last line.
 
 ## Version 5.3.1

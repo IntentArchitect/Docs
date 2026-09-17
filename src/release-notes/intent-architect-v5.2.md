@@ -56,31 +56,31 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ### Highlights in 5.2.4
 
-### Open a folder or clone a repository directly
+#### Open a folder or clone a repository directly
 
 You can now open a folder or clone repository without an existing solution file.
 
 ![Open Folder option on home screen](images/5.2.x/open-folder-option.png)
 
-### Git stash support
+#### Git stash support
 
 The Source Control view now supports git stash - stash, apply, pop and drop - with stashes shown in the commit graph and a combined Commit/Stash button.
 
 ![Git stash support](images/5.2.x/stash.png)
 
-### Sticky ancestor rows in tree views
+#### Sticky ancestor rows in tree views
 
 Tree views such as Solution Explorer now show a sticky header of ancestor rows as you scroll, so the folder path you're inside stays visible and clickable.
 
 ![Sticky ancestor rows in tree views](images/5.2.x/treeview-sticky-rows.png)
 
-### Search in the AI chat model picker
+#### Search in the AI chat model picker
 
 The AI chat model picker can now be searched, and opened directly via a `/model` command.
 
 ![Search in the AI chat model picker](images/5.2.x/ai-model-picker-search.png)
 
-### OpenCode now supported
+#### OpenCode now supported
 
 OpenCode is now available as an ACP agent, with its model list discovered live from your own `opencode` install.
 
