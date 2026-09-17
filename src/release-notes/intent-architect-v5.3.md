@@ -6,7 +6,7 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 ## Version 5.3.2
 
-### Highlights in 5.2.4
+### Highlights in 5.3.2
 
 #### Conversation categorization
 
