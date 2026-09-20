@@ -4,6 +4,30 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
+## Version 5.3.3
+
+### Improvements in 5.3.3
+
+- Improvement: A new popover on a locked chat's dispatch summary shows where that agent is actually running - working directory, repository and source repository roots, branch, the anchor root its built-in skills were restored into, its ACP session and provider ids, and its history file - each row copyable and revealable, rather than only being readable out of a Gather Diagnostics zip.
+
+### Fixes in 5.3.3
+
+- Fixed: An auto-hyperlinked file reference carrying a line range, such as `WizardAutomation.ts:6-13`, now links and reveals the whole range instead of only its start line.
+- Fixed: A Software Factory run's message stream no longer runs through the main window, so the application stays responsive while a large application generates.
+- Fixed: A chat's dispatch chip and its settled branch now follow the branch its checkout is on, updating when the branch changes - including when an AI run checks one out.
+- Fixed: A chat could report "Lost contact with the agent" and stop updating while its turn was still running and completing in the background; most likely with agents that send a message before the turn gets under way, such as Claude Code on Haiku.
+- Fixed: On Windows, changes made by a sub-agent were not recorded against the conversation that dispatched it, so a run that used sub-agents could fail to save, warn about data loss on a designer tab, and leave the Software Factory refusing to run against it.
+- Fixed: For a conversation started from the Agents window, `get_file_diffs` could report files as unchanged although a Software Factory run had just staged changes to them, and could answer from a different checkout that shares application ids, such as a worktree and the repository it was cut from. It now also reports `no_solution_context` rather than quietly reading the file from disk.
+- Fixed: The Git views could keep showing the previous state after a merge or cherry-pick stopped with conflicts, or after a commit that left HEAD on the same branch.
+- Fixed: Designers in one worktree could pick up package state belonging to a sibling worktree of the same repository.
+- Fixed: In the Git history, a commit carrying several branch or tag labels could squeeze the checked-out or HEAD indicator out of view.
+- Fixed: An autostash that could not be reapplied when a rebase or merge finished - on continue, skip, commit or abort - was not reported, leaving changes stashed without saying so.
+- Fixed: The "Stash & retry" and retry buttons could stop responding once the panel refreshed after the operation.
+- Fixed: `Ctrl` + `+` / `-` / `0` did not zoom the application when focus was in the chat composer, a prompt or an approval card.
+- Fixed: An AI run started to resolve a merge conflict did not use the conversation's chosen model or its worktree folder.
+- Fixed: The New Application wizard and `create_application` could place a new application's generated code in the wrong folder - ignoring an architecture template's explicit `<workspaceRoot>`, anchoring one level too deep for a solution that is not inside an `intent` folder, and following the Metadata Location when that was moved.
+- Fixed: Adding or removing a repository could leave a window's repository list or its pinned repository showing the previous set.
+
 ## Version 5.3.2
 
 ### Highlights in 5.3.2
