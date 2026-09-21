@@ -8,9 +8,9 @@ Welcome to the September edition of What's New in Intent Architect. This month b
 Read the [full 5.3 release notes](xref:release-notes.intent-architect-v5.3) for complete details on everything covered below.
 
 - Highlights
-  - **[Manage Agents](#manage-agents)** – Supervising several agents at once shouldn't mean juggling windows and fighting over one working directory. Every agent conversation across every repository now lives in one place, each able to run in its own isolated checkout.
-  - **[Pull request reviews without leaving Intent Architect](#pull-request-reviews-without-leaving-intent-architect)** – A review that moves to a browser loses exactly the context that tells you which changes matter and which are routine generated output. Pull requests can now be reviewed, discussed and merged with the model still in view.
-  - **[Plans and specs that show, not just tell](#plans-and-specs-that-show-not-just-tell)** – Approving a plan written in prose means finding out only afterwards whether the implementation matched what you pictured. Plans can now render the actual data model, API surface or screen being proposed.
+  - **[Easily manage concurrent agents](#easily-manage-concurrent-agents)** – Supervising several agents at once shouldn't mean juggling windows and fighting over one working directory. Every agent conversation across every repository now lives in one place, each able to run in its own isolated checkout.
+  - **[Enriched pull requests, simplified code review](#enriched-pull-requests-simplified-code-review)** – A review that moves to a browser loses exactly the context that tells you which changes matter and which are routine generated output. Pull requests can now be reviewed, discussed and merged with the model still in view.
+  - **[Rich visual plans & specs are easier to review (MDX support)](#rich-visual-plans--specs-are-easier-to-review-mdx-support)** – Approving a plan written in prose means finding out only afterwards whether the implementation matched what you pictured. Plans can now render the actual data model, API surface or screen being proposed.
   - **[Traceability you can trust](#traceability-you-can-trust)** – Traceability is only worth having if it's true. Spec-Driven Development now verifies links against Git rather than taking an agent's word for what it changed.
   - **[One-click setup for your AI agent of choice](#one-click-setup-for-your-ai-agent-of-choice)** – Getting an agent talking to Intent Architect was a guessing game with no way to tell what was actually connected. Now it's a visible connection status and a button.
 
@@ -22,7 +22,7 @@ Read the [full 5.3 release notes](xref:release-notes.intent-architect-v5.3) for 
 
 ## Update details
 
-### Manage Agents
+### Easily manage concurrent agents
 
 Handing work to several agents at once only pays off if you can actually supervise them. Until now an AI conversation belonged to the solution window it was started in, so running three tasks meant three windows, each pinned to one solution and one checkout — with nothing anywhere that showed you what was running, what had finished, and what was sitting blocked waiting on an answer from you. Agents also had to share a single working directory, so parallel tasks trod on each other's changes.
 
@@ -34,7 +34,7 @@ Available from:
 
 - Intent Architect 5.3.0
 
-### Pull request reviews without leaving Intent Architect
+### Enriched pull requests, simplified code review
 
 Change Review (5.2) made it possible to judge a change by what it does to your system design, not just by its diff. But the moment a change became a pull request, reviewing it meant falling back to your host's web diff — raw XML and generated code, with none of the model visuals, deviation classifications or severity flags. For a change an AI agent produced, that context is precisely what separates the handful of decisions worth arguing about from the routine generated output around them. Losing it pushed teams back toward reviewing code they couldn't fully judge.
 
@@ -46,7 +46,7 @@ Available from:
 
 - Intent Architect 5.3.0
 
-### Plans and specs that show, not just tell
+### Rich visual plans & specs are easier to review (MDX support)
 
 The value of reviewing a plan before it's implemented lies in catching the misunderstanding early. That only works if the plan conveys what's actually going to be built — and prose, or a single generic diagram block, too often doesn't. You read a description, agreed with it, and discovered whether your picture matched the agent's after the code was written.
 
