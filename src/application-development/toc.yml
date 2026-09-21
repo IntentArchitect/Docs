@@ -14,6 +14,10 @@ items:
     href: software-factory/toc.yml
     topicUid: application-development.software-factory.about-software-factory-execution
 
+  - name: Change Review
+    href: change-review/toc.yml
+    topicUid: application-development.change-review
+
   - name: Code Management
     href: code-management/toc.yml
     topicUid: application-development.code-management.about-code-management

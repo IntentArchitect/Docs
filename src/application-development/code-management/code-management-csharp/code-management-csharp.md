@@ -479,11 +479,9 @@ This will instruct Intent Architect where to place the `using` directives within
 | Default                  | All using directives will be placed at the top of the C# file.         |
 | Move to inside namespace | All using directives will be placed within the scope of a `namespace`. |
 
-### Code Management in C# Project files
+## Code Management in C# Project files
 
-Intent Architect automatically manages NuGet packages and will install the minimum required version of a NuGet package to ensure that a module will function as expected and generate the correct code.
-
-If additional NuGet packages are manually `added` to the csproj file, or a NuGet package is `upgraded` to a later version than Intent Architect is expecting, the references and versions will not be altered by the Software Factory execution.
+Intent Architect automatically manages NuGet packages in `.csproj` files. Each module declares the packages its generated code depends on along with a minimum required version, and the Software Factory ensures the referenced version is always **at least** that version, upgrading the reference where it is lower. It will never downgrade a package, and packages which you added to the csproj file yourself are left alone.
 
 There may be some use cases where Intent Architect will want to alter the referenced packages (such as `removing` unused references, or `upgrading` a package to the minimum required version), but you would like Intent Architect to ignore these changes.
 
@@ -494,6 +492,9 @@ The `IntentIgnore` attribute can be used in the csproj file to instruct Intent A
     <PackageReference IntentIgnore="true" Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
 </ItemGroup>
 ```
+
+> [!WARNING]
+> An ignored package reference is excluded from the minimum version enforcement described above, so a module which requires a later version of that package will no longer be able to upgrade it. If you pin a version below what an installed module requires, the code it generates may not compile.
 
 ## Frequently asked questions
 
