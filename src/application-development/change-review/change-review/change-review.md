@@ -194,7 +194,7 @@ A pull request review adds the following:
 - **Conflict resolution** in a temporary copy of the repository that is discarded afterwards, so your own working folder is left alone. Files appear in the review as they are resolved.
 - **Merge, update branch, close and reopen**, without leaving Intent Architect.
 
-Supported hosts are GitHub, Azure DevOps, GitLab and Bitbucket Cloud.
+Supported hosts are GitHub, Azure DevOps, GitLab and Bitbucket Cloud. See [](xref:application-development.pull-requests) for the whole pull request surface - connecting to a host, the list, creating one, the conversation, and merging.
 
 <!-- A pull request open in Change Review, showing the Conversation / Change Review sub-tabs,
      the PR head card and a staged AI review finding. -->
@@ -232,6 +232,7 @@ This is what `/sdd-verify` runs against. Requirement-side coverage can only see 
 
 ## Related articles
 
+- [](xref:application-development.pull-requests) - reviewing, discussing and merging a pull request on GitHub, Azure DevOps, GitLab or Bitbucket Cloud.
 - [](xref:application-development.file-classifications) - the classification and severity labels that drive the Needs attention filter.
 - [](xref:application-development.software-factory.customizations-screen) - the Software Factory screen that manages the same customization approvals, with notes.
 - [](xref:application-development.code-management.about-code-management) - how Intent Architect decides which regions of a file are yours and which are its own.
