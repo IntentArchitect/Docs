@@ -1,0 +1,9 @@
+items:
+  - name: AI Assistant
+    href: ai-assistant/index.md
+
+  - name: Manage Agents
+    href: manage-agents/manage-agents.md
+
+  - name: Spec-Driven Development
+    href: spec-driven-development/spec-driven-development.md
