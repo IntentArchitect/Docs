@@ -1,4 +1,7 @@
 items:
+  - name: AI Assistant
+    href: ai-assistant/index.md
+
   - name: Manage Agents
     href: manage-agents/manage-agents.md
 

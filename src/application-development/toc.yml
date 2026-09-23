@@ -1,7 +1,4 @@
 items:
-  - name: AI Assistant
-    topicUid: application-development.ai-assistant
-
   - name: AI-Assisted Development
     href: ai-assisted-development/toc.yml
     topicUid: application-development.spec-driven-development
