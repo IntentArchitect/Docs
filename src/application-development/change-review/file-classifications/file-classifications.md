@@ -107,11 +107,21 @@ Hand-written files are classified by applying the **Custom File Classification**
 Globs are evaluated against each file's path **relative to the element the stereotype is applied to**, and follow `.gitignore`-style rules:
 
 - One pattern per line.
+- **Multiple patterns are OR'd** - a file qualifies if it matches *any* of them.
 - A line beginning with `#` is a comment.
 - A line beginning with `!` negates.
 - The last matching line wins.
 
 So a rule on your API project of:
+
+```text
+**/*.cs
+**/*.sql
+```
+
+classifies every hand-written C# file **and** every hand-written SQL file in that project - each line widens the set of qualifying files, so there is no need to fold them into a single expression.
+
+Order only starts to matter once you negate. Because the last matching line wins, a `!` line carves an exception out of the patterns above it:
 
 ```text
 **/*.cs
