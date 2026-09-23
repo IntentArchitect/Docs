@@ -56,7 +56,7 @@ node_modules/
 
 ### Improvements in 5.3.3
 
-- Improvement: A "Custom File Classification" stereotype set on a Solution Folder, folder or project now applies to the templates that qualify under it.
+- Improvement: A "Custom File Classification" stereotype set on a Solution Folder, folder or project now applies to the custom files that qualify under it.
 - Improvement: Built-in skills and rules can declare `intent-updates` frontmatter to opt out of automated restores, and the ones you have modified yourself are now surfaced.
 - Improvement: A module restore that could not fetch modules now names them at the root of the console and in the Software Factory's error, instead of quietly opening designers with element types missing.
 - Improvement: `data-icon` in an MDX wireframe now resolves against the full Lucide icon set rather than a curated list of 57, so any valid icon name renders.
