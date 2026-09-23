@@ -51,15 +51,16 @@ Customers who are not yet set up with their own AI provider can optionally use a
 | ---------------------------------------- | ---------------------------------------------------- | ------------------------------------------ |
 | Customer project content                 | Customer-managed machines, repositories, and storage  | Controlled by customer                     |
 | Account and licensing data               | Intent Architect supporting services                  | Microsoft Azure Johannesburg, South Africa |
-| Crash/error diagnostics                  | Intent Architect supporting services                  | Microsoft Azure Johannesburg, South Africa |
+| Crash/error diagnostics                  | Intent Architect supporting services, with alerts to Slack | Azure Johannesburg, South Africa, and Slack United States |
 | Product telemetry and analytics          | Intent Architect supporting services and Mixpanel     | Azure Johannesburg and Mixpanel Europe     |
 | Update/module delivery traffic           | Intent Architect supporting services and CDN          | Azure Johannesburg and Cloudflare Europe   |
 | Support and customer success cases        | Monday.com                                            | United States                              |
+| Operational alerting and support triage  | Slack                                                | United States                              |
 | AI prompts, inputs, outputs, and context | Customer-configured AI provider                       | Controlled by selected provider/endpoint   |
 
 ## International data transfers
 
-Operational service data may be processed in **South Africa** (Azure Johannesburg), **Europe** (Cloudflare CDN and Mixpanel), and the **United States** (Monday.com support cases), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
+Operational service data may be processed in **South Africa** (Azure Johannesburg), **Europe** (Cloudflare CDN and Mixpanel), and the **United States** (Monday.com support cases and Slack operational alerts), which may be outside the customer's own country. AI-related data is processed in whatever region is used by the customer's selected AI provider.
 
 The data described above is operational service data only: account and licensing records, telemetry, diagnostics, and support correspondence. See [Data categories](xref:security-privacy.overview#data-categories) for what that excludes.
 

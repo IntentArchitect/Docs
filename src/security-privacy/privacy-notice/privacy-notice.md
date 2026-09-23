@@ -5,7 +5,7 @@ description: "Intent Architect's Privacy Notice: what information is processed, 
 # Privacy Notice
 
 > [!NOTE]
-> Last updated: 19 August 2026.
+> Last updated: 23 September 2026.
 
 ## Introduction
 
@@ -132,6 +132,7 @@ Intent Architect supporting services are hosted using:
 - **Cloudflare CDN** - Europe.
 - **Mixpanel** - Europe.
 - **Monday.com** - United States (support and customer success cases).
+- **Slack** - United States (operational alerting and support triage).
 
 As a result, some operational service data may be processed outside the customer's country.
 

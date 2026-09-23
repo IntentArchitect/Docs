@@ -1,6 +1,6 @@
 ---
 uid: security-privacy.third-party-services-and-sub-processors
-description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Google Analytics, Monday.com, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
+description: "The third-party providers Intent Architect uses - Azure, Cloudflare, Mixpanel, Google Analytics, Monday.com, Slack, Stripe, and Xero - what data each processes, and how customer-selected AI providers differ from default sub-processors."
 ---
 # Third-Party Services and Sub-processors
 
@@ -23,10 +23,11 @@ None of these providers receive customer project content. It stays on customer-m
 | **Microsoft Azure** | Hosting of Intent Architect supporting services, including licensing, validation, service APIs, telemetry/crash-related services, update-related services, and account services | Account data, licensing records, technical telemetry, crash/error diagnostics                                     | Johannesburg, South Africa                                 | Cloud infrastructure provider |
 | **Cloudflare**      | Content delivery and network edge services for public-facing delivery and distribution                                                                                        | Request metadata, delivery logs, network/edge service data, content delivery metadata                                                        | Europe                                                     | CDN and network services provider |
 | **Mixpanel**        | Product telemetry and analytics                                                                                                                                               | Technical product usage events, feature access events, process execution events, product metrics, pseudonymous identifiers, operational analytics data | Europe                                                     | Analytics provider          |
-| **Google Analytics** | Usage analytics for the Intent Architect public website and documentation site                                                                                                 | Page and article views, referrer, browser and device metadata, approximate location derived from IP address, cookie/measurement identifiers                    | Subject to Google service configuration and contractual terms | Website analytics provider  |
-| **Monday.com**      | Customer success and support case management                                                                                                                                   | Customer and contact names, business email addresses, company details, and the content of support and customer success interactions             | United States                                              | Support case management provider |
+| **Google Analytics** | Usage analytics for the Intent Architect public website and documentation site                                                                                               | Page and article views, referrer, browser and device metadata, approximate location derived from IP address, cookie/measurement identifiers                    | Subject to Google service configuration and contractual terms | Website analytics provider  |
+| **Monday.com**      | Customer success and support case management                                                                                                                                  | Customer and contact names, business email addresses, company details, and the content of support and customer success interactions             | United States                                              | Support case management provider |
+| **Slack**           | Internal operational alerting and support triage                                                                                                                              | User and organisation names, pseudonymous identifiers, technical crash/error diagnostics and stack traces | United States                                              | Operational alerting provider |
 | **Stripe**          | Payment processing, where customers elect to use card-based payment                                                                                                           | Billing/contact/payment transaction data, payment-related metadata, commercial transaction information                                        | Subject to Stripe service configuration and contractual terms | Payment processor           |
-| **Xero**            | Billing, invoicing, and accounting administration associated with customer relationships                                                                                       | Customer/company contact details, billing details, invoice records, transaction records, commercial/accounting information                    | Subject to Xero service configuration and contractual terms | Accounting and invoicing provider |
+| **Xero**            | Billing, invoicing, and accounting administration associated with customer relationships                                                                                      | Customer/company contact details, billing details, invoice records, transaction records, commercial/accounting information                    | Subject to Xero service configuration and contractual terms | Accounting and invoicing provider |
 
 ## Provider categories
 
@@ -56,8 +57,11 @@ Google Analytics is used to measure visitor activity on the public Intent Archit
 ### Customer success and support providers
 
 - Monday.com
+- Slack
 
 Monday.com is used to manage support and customer success cases, and is hosted in the United States. It processes contact details and the content of the interactions customers have with us, which is separate from product telemetry and from customer project content.
+
+Slack is used for internal operational alerting when users experience crashes, and is hosted in the United States. It receives user and organisation names, pseudonymous identifiers, and technical crash/error diagnostics and stack traces, so that we are notified of users experiencing issues and can support them proactively. It does not receive customer project content.
 
 ### Commercial and billing providers
 
