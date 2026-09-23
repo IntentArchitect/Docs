@@ -171,7 +171,7 @@ A file row shows its git status, changed-line counts, any [file classification](
 
 ## Traceability and the Specifications section
 
-When a change was implemented through Spec-Driven Development, Intent Architect records links from each requirement to the model elements and files that realize it. Change Review consumes those links in two directions:
+When a change was implemented through [](xref:application-development.spec-driven-development), Intent Architect records links from each requirement to the model elements and files that realize it. Change Review consumes those links in two directions:
 
 - **Inline** - a requirement chip on any changed element or file, with a popover listing the linked requirements. The chip is marked **stale** when a linked requirement's text has changed since the link was recorded.
 - **Pivoted** - the **Specifications** section reverses the view: spec → requirement → the changes realizing it. This is how you answer "is this requirement actually built?" rather than "what is this file for?".
@@ -233,6 +233,7 @@ This is what `/sdd-verify` runs against. Requirement-side coverage can only see 
 ## Related articles
 
 - [](xref:application-development.pull-requests) - reviewing, discussing and merging a pull request on GitHub, Azure DevOps, GitLab or Bitbucket Cloud.
+- [](xref:application-development.spec-driven-development) - where the requirement links in the Specifications section come from.
 - [](xref:application-development.file-classifications) - the classification and severity labels that drive the Needs attention filter.
 - [](xref:application-development.software-factory.customizations-screen) - the Software Factory screen that manages the same customization approvals, with notes.
 - [](xref:application-development.code-management.about-code-management) - how Intent Architect decides which regions of a file are yours and which are its own.

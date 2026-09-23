@@ -2,8 +2,9 @@ items:
   - name: AI Assistant
     topicUid: application-development.ai-assistant
 
-  - name: Manage Agents
-    topicUid: application-development.manage-agents
+  - name: AI-Assisted Development
+    href: ai-assisted-development/toc.yml
+    topicUid: application-development.spec-driven-development
 
   - name: Development Practices and Guidance
     href: for-developers/toc.yml

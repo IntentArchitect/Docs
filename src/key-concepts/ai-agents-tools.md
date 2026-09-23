@@ -9,7 +9,7 @@ Leverage your existing context engineering setup and preferred AI-coding harness
 
 Intent Architect's own skills are bridged into each agent's native skill discovery – so your existing setup is respected rather than replaced. And the platform pre-engineers relevant context automatically, ensuring agents execute within the guardrails and in full conformance with your design and architecture, without overly complex context engineering or excessive validation.
 
-Spec-Driven Development features drive requirements through design to implemented code, with traceability maintained end to end. Reviewers can always establish what a change is for and where it came from.
+[Spec-Driven Development](xref:application-development.spec-driven-development) features drive requirements through design to implemented code, with traceability maintained end to end. Reviewers can always establish what a change is for and where it came from.
 
 Teams ultimately choose how much they hand over – fully agentic, developer-augmented, or even manually driven.
 
@@ -23,7 +23,7 @@ Teams ultimately choose how much they hand over – fully agentic, developer-aug
 
 - **📝 Specifications delivered as verified, traceable code**
 
-  Leverage Spec-Driven Development (SDD) features and agentically drive business requirements through design specifications to production-ready code, with full traceability. Requirements are captured as precise, testable user stories, realized through an approved design expressed as changes to your model, and verified against their acceptance criteria once implemented. Traceability links flow through to Changes Review, so reviewers see the requirement behind every change.
+  Leverage [Spec-Driven Development](xref:application-development.spec-driven-development) (SDD) features and agentically drive business requirements through design specifications to production-ready code, with full traceability. Requirements are captured as precise, testable user stories, realized through an approved design expressed as changes to your model, and verified against their acceptance criteria once implemented. Traceability links flow through to Changes Review, so reviewers see the requirement behind every change.
 
 - **🧰 Any model or coding harness, without re-engineering your setup**
 
@@ -71,7 +71,7 @@ The Intent MCP Server gives teams complete flexibility in how they configure the
 
 This means teams can use whichever tools suit them best, without conflicts between external agents and Intent Architect-managed code.
 
-Details on how to configure the Intent MCP can be found in the AI Configuration dialog (xref:ai.configuration).
+Details on how to configure the Intent MCP can be found in the [AI Configuration dialog](xref:ai.configuration).
 
 ---
 
