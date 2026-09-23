@@ -36,6 +36,7 @@
         "templatizing",
         "unintrusive",
         "unopinionated",
-        "webdeploy"
+        "webdeploy",
+        "worktreeinclude"
     ]
 }

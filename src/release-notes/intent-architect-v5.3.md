@@ -6,14 +6,89 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 ## Version 5.3.3
 
+### Highlights in 5.3.3
+
+#### See chat status for groups at a glance
+
+Group headers on the Agents board now show badges with counts of conversations in different statuses.
+
+![Counts of chats and their status on groups](images/5.3.x/group-chat-counts.png)
+
+#### AI Chat Tips
+
+New AI chats now show a rotating, clickable tip card that surfaces usage tips while the chat is empty.
+
+![AI Chat Tips](images/5.3.x/ai-chat-tips.png)
+
+#### `.worktreeinclude` support
+
+Intent Architect now supports [`.worktreeinclude`](https://code.claude.com/docs/en/worktrees#copy-gitignored-files-into-worktrees) files to automatically copy specified `.gitignore`d files into a new worktree it creates.
+
+When creating a new solution, Intent Architect will automatically create the following `.worktreeinclude` file at the repository root:
+
+```sh
+# Untracked, git-ignored paths copied into each new agent worktree, which git otherwise
+# checks out clean. Gitignore syntax: '!' negates, a trailing '/' means a directory, and a
+# pattern with no '/' inside it matches at ANY depth (add a leading '/' to pin it here).
+# Tracked files arrive with the checkout already, so only ignored ones are worth listing.
+
+# Intent Architect's module cache — without it every new worktree re-downloads every module
+# before the Software Factory can run. `.intent/` is the pre-5.x cache location.
+.cache/
+.intent/
+
+node_modules/
+
+# Local environment, never committed.
+.env
+.env.*
+
+# Per-machine AI agent config, which each agent reads from the repo root.
+.mcp.json
+.claude/
+.agents/
+.codex/
+.cursor/
+.github/
+.kiro/
+.opencode/
+```
+
 ### Improvements in 5.3.3
 
-- Improvement: A new popover on a locked chat's dispatch summary shows where that agent is actually running - working directory, repository and source repository roots, branch, the anchor root its built-in skills were restored into, its ACP session and provider ids, and its history file - each row copyable and revealable, rather than only being readable out of a Gather Diagnostics zip.
+- Improvement: A "Custom File Classification" stereotype set on a Solution Folder, folder or project now applies to the templates that qualify under it.
+- Improvement: Built-in skills and rules can declare `intent-updates` frontmatter to opt out of automated restores, and the ones you have modified yourself are now surfaced.
+- Improvement: A module restore that could not fetch modules now names them at the root of the console and in the Software Factory's error, instead of quietly opening designers with element types missing.
+- Improvement: `data-icon` in an MDX wireframe now resolves against the full Lucide icon set rather than a curated list of 57, so any valid icon name renders.
+- Improvement: Markdown blockquotes in AI replies now render as highlighted callouts rather than pale grey notes, in both light and dark themes.
+- Improvement: Attachments opened from the chat composer now open in the column beside the chat, so the caret stays in the composer.
 
 ### Fixes in 5.3.3
 
+- Fixed: Single newlines typed in a chat message are now preserved when the message is rendered.
+- Fixed: In light mode, chat list rows now read as distinct white cards on the same white background as the dashboard.
+- Fixed: The right-hand activity bar now lists every panel, showing the ones a conversation cannot use as muted and inert, so the buttons no longer shift under the pointer.
+- Fixed: `run_software_factory` could report "triggered but never started", or report a previous run's result and then claim the Software Factory was wedged - including after opening a file diff in the solution shell.
+- Fixed: `get_status` could hang a connected agent indefinitely when git or the filesystem stalled, instead of returning an error.
+- Fixed: The todo list stopped filling on ACP chats, so the todo pill never advanced.
+- Fixed: A coding sub-agent's `use_skill` calls could return "not found" for the application skills its own system prompt listed.
+- Fixed: An open designer tab kept showing the pre-install model after a module install, update or uninstall until it was closed and reopened.
+- Fixed: Reinstalling, updating or downgrading a module discarded any "Output Classification" customizations set on existing Template Outputs, and could remove the stereotype outright.
+- Fixed: A "Custom File Classification" glob written with backslashes, such as `**\MyFile.cs`, silently matched nothing.
+- Fixed: Designer and Solution Explorer layout was lost when the solution was closed or the application quit, and Solution Explorer selection was never restored.
+- Fixed: A chat started from one solution's shell could dispatch its turn into another window's solution and be filed under that repository.
+- Fixed: A new chat's Source Control and Codebase panels could show "No folder for this task" for the life of the draft, however plainly the composer named a folder.
+- Fixed: "Draft requirements" started the chat in whichever folder the last task ran rather than the current draft chat.
+- Fixed: A chat could fail pointing at a worktree that no longer exists on disk, including chats that had nothing to do with it.
+- Fixed: Deleting the conversation on screen from the AI Assistant pane's kebab menu left the pane rendering the home screen squashed into the dock.
+- Fixed: A new conversation's row could land in the wrong folder bucket on the Agents board, and show no "Creating worktree..." activity, while its worktree was still being cut.
+- Fixed: The agent command picker was unusable in a new worktree, and workspace-scoped commands from one workspace could be offered in another.
+- Fixed: A refused turn's "open in another Intent Architect instance" message named a worktree folder that was actually a branch, making an unrelated project look like the blocker. It now names the holding window's repository and branch.
+- Fixed: Pressing Enter in the Source Control history search box cleared the search and reset the results.
+- Fixed: The "provider disabled" dialog for Bitbucket was shown per repository and popped up again each time a tab was reopened.
+- Fixed: Console output could be attributed to the wrong task, and errors belonging to no task were adopted by whichever task was open.
 - Fixed: An auto-hyperlinked file reference carrying a line range, such as `WizardAutomation.ts:6-13`, now links and reveals the whole range instead of only its start line.
-- Fixed: A Software Factory run's message stream no longer runs through the main window, so the application stays responsive while a large application generates.
+- Fixed: A Software Factory run's message stream no longer runs through the main window, so the application stays responsive event for large applications or running many different applications at the same time.
 - Fixed: A chat's dispatch chip and its settled branch now follow the branch its checkout is on, updating when the branch changes - including when an AI run checks one out.
 - Fixed: A chat could report "Lost contact with the agent" and stop updating while its turn was still running and completing in the background; most likely with agents that send a message before the turn gets under way, such as Claude Code on Haiku.
 - Fixed: On Windows, changes made by a sub-agent were not recorded against the conversation that dispatched it, so a run that used sub-agents could fail to save, warn about data loss on a designer tab, and leave the Software Factory refusing to run against it.
@@ -169,7 +244,7 @@ Alongside those, this release also tightens up Spec-Driven Development's traceab
 
 ---
 
-## Manage Agents
+### Manage Agents
 
 Running more than one agent at a time used to mean one Intent Architect window per agent, each tied to a single solution and a single checkout, with no shared view of what was happening. Manage Agents is a new top-level window, reachable from the Home screen, that owns every agent conversation across every repository and solution on your machine.
 
@@ -177,43 +252,43 @@ Running more than one agent at a time used to mean one Intent Architect window p
 
 ![The Manage Agents window, with the conversation board, chat and right panel](images/5.3.x/manage-agents-shell.png)
 
-### The board
+#### The board
 
 Conversations are grouped by repository, with each row naming the checkout it ran in, its branch or worktree, and the uncommitted churn of that checkout, so you can see how much work a task actually produced before opening it. Rows carry a status indicator for running, waiting on a human, or unread, and order by run activity rather than save time. You can group by repository or by time, filter, sort, collapse, drag groups into your own order, file conversations into custom groups, rename a row inline with `F2`, mark rows read, and archive the ones you're done with. The list holds still while your pointer is over it, and `Ctrl + N` starts a new chat.
 
 ![The conversation board grouped by repository, showing churn badges and status indicators](images/5.3.x/manage-agents-conversation-list.png)
 
-### Each agent in its own checkout
+#### Each agent in its own checkout
 
 Before a conversation starts, the composer lets you choose where the agent will run: a folder, a branch, and optionally an isolated Git worktree cut just for that conversation, on a session branch you can name yourself. The worktree is created on the first turn and can be released - along with its session branch, once merged - from the row's "Archive and Delete Worktree" action. Worktrees live under a configurable `~/.worktrees` root. Approving a plan can also cut a worktree at that moment and move the plan document into it, so implementation starts on a clean branch rather than on top of whatever you happened to be doing.
 
 ![The composer's dispatch chips - folder, branch, worktree and solution](images/5.3.x/composer-dispatch-chips.png)
 
-### A real workspace around the chat
+#### A real workspace around the chat
 
 The window is not just a chat list. The centre hosts a tab strip scoped per conversation - the chat itself plus designers, files, diffs, terminals, Git and Change Review tabs - so each task keeps its own tabs, and can be split into two side-by-side columns. The right panel is a configurable set of the solution shell's own panels: Software Factory Changes, Source Control, Codebase Explorer and Specifications, all pointed at the selected conversation's own folder and solution. `Ctrl + T` Search Everywhere, `Ctrl + Tab`, `Ctrl + W`, `Ctrl + Shift + W`, Back/Forward, Tasks and "Open in IDE" work here as they do in a solution window, and Software Factory runs can be launched, watched and opened directly.
 
 ![The Manage Agents window with a designer open beside the chat and Source Control in the right panel](images/5.3.x/agents-shell-conversation-tab-well.png)
 
-### A single window for all your work tasks
+#### A single window for all your work tasks
 
 The point of hosting all of this here is that a task dispatched from this window can still read and change its own Intent model. The window answers designer requests on behalf of the conversations it hosts - opening designers in the background, in the asking conversation's own scope, resolved against that conversation's solution rather than whatever is on screen - so an agent working in a worktree of a repository nobody has open no longer has to ask you to open a solution first. A folder governed by several `.isln` files is handled as a first-class case, with a solution picker whose choice is remembered per folder.
 
 ---
 
-## Pull request reviews with complete Intent Architect context
+### Pull request reviews with complete Intent Architect context
 
 Neither Git source control (5.1) nor Change Review (5.2) covered what happens once a change becomes a pull request and required switching to a browser. 5.3 extends the same review experience out to the pull request itself, across GitHub, Azure DevOps, GitLab and Bitbucket Cloud.
 
 ![The Pull Requests list in the Git tab, showing state glyphs and host branding](images/5.3.x/pr-intro.png)
 
-### AI review, posted to the pull request itself
+#### AI review, posted to the pull request itself
 
 An AI review can now be run directly on a pull request. It reuses the same review engine as Change Review, over the pull request's actual merge-base...head range. Findings land as a pending review draft rather than being posted one at a time - you read, edit or drop each one and submit the whole review yourself, with staged comments shown in the Conversation timeline and counted in its badge until they're submitted. A re-run skips anything already flagged, including on threads that have since been resolved - repeated reviews turning into a pile of duplicate comments is the reason this kind of feature usually gets turned off, so avoiding that was a deliberate constraint, not an afterthought. AI can also draft the pull request's title and description, in a short "simple" style or a longer, diagram-capable "rich" one; descriptions and comments are written and previewed through the same document viewer covered below.
 
 ![AI review staged as a pending draft, with findings ready to submit](images/5.3.x/pr-staged-review-feedback.png)
 
-### Conflicts and keeping branches in sync
+#### Conflicts and keeping branches in sync
 
 Pull request conflicts can now be resolved in an isolated, throwaway worktree instead of your own checkout, with resolved files reflected live in Change Review as they're written. An "Update branch" action on the pull request merges or rebases in the base branch first when that's needed, switching between "Update branch from `<base>`" and "Resolve conflicts" depending on which state it's actually in. Inline comment threads can now also be anchored to a file line or a model element directly inside Change Review, with reply, resolve and nested-thread rollups.
 
@@ -221,7 +296,7 @@ Pull request conflicts can now be resolved in an isolated, throwaway worktree in
 
 ---
 
-## MDX support: plans and specs that can show, not just tell
+### MDX support: plans and specs that can show, not just tell
 
 Plans, specs and pull request descriptions previously rendered as plain Markdown, with a single `<ModelDiagram>` block standing in for any kind of visual content, regardless of what it was actually meant to show. It's been replaced with purpose-built MDX blocks - DataModel, ApiEndpoint, Wireframe, Canvas and ModelChanges - alongside the existing Mermaid diagrams, so an agent writing a plan can show a concrete data model or API surface directly instead of describing one in prose.
 
@@ -233,7 +308,7 @@ The document viewer itself, now shared by plans, specs and pull request content,
 
 ---
 
-## Spec-Driven Development updates
+### Spec-Driven Development updates
 
 Spec-Driven Development links requirements to the model elements and files that implement them. Until this release, that link was largely self-reported: `record_spec_traceability` accepted whatever operation (created/updated/deleted) the agent claimed to have performed, and a task could be marked complete even when its recorded link pointed at a file that didn't actually exist at that path.
 
@@ -243,7 +318,7 @@ Spec-Driven Development can now also detect, import and stay in sync with specs 
 
 ---
 
-## One-click setup for your AI agent of choice
+### One-click setup for your AI agent of choice
 
 Connecting an AI agent to Intent Architect's MCP server used to mean a single, generic prompt about a missing or misconfigured `.mcp.json` file - the same message regardless of which agent you were using, with no way to tell what was actually connected. The Intent MCP tab in AI Configuration replaces that with one row per supported agent (Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro, OpenCode), grouped by whether it's detected on your machine, each with a live Repo/User connection status and a one-click Connect (or Connect all). Connect also copies Intent's built-in skills and rules into that agent's own native folders - `.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on - rather than a Claude Code-only side channel, and an agent Intent Architect couldn't detect on your machine can be enabled and connected anyway instead of only linking its install guide. Preferences for dismissed notifications now persist through the shell, so the dialog won't keep reopening about an agent you've already told it to leave alone.
 
