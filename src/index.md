@@ -261,17 +261,17 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-ae" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
-  <path stroke="url(#grad-ae)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
+  <defs><linearGradient id="grad-mod" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <rect x="8.4" y="2.4" width="7.2" height="7.2" rx="1.3" stroke="url(#grad-mod)" fill="none" stroke-width="1.5"/>
+  <rect x="2.4" y="12.6" width="7.2" height="7.2" rx="1.3" stroke="url(#grad-mod)" fill="none" stroke-width="1.5"/>
+  <rect x="14.4" y="12.6" width="7.2" height="7.2" rx="1.3" stroke="url(#grad-mod)" fill="none" stroke-width="1.5"/>
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Architectural Guardrails</strong>
-        <p class="card-text">Guaranteed architectural adherence and consistency across teams and systems. Deterministic guardrails scale effortlessly to make AI-driven development more reliable without the need for constant validation – while deviations are automatically flagged to keep you in full control.</p>
+        <strong class="card-title">Reliable Architectural Guardrails</strong>
+        <p class="card-text">Safeguard codebase quality and maintainability. Intent Architect's advanced guardrail system combines both deterministic and probabilistic enforcement to ensure architectural adherence without adding to the validation burden, and scales across teams without developers having to internalize their standards and context files to validate agentic adherence.</p>
       </div>
-      <a href="xref:key-concepts.deterministic-codegen" aria-label="Pattern-Based Code Generation"></a>
+      <a href="xref:key-concepts.deterministic-codegen" aria-label="Reliable Architectural Guardrails"></a>
     </div>
   </li>
   <li>
@@ -288,76 +288,45 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 <!--      <span class="icon" aria-hidden="true">🧩</span>-->
       <div class="content">
         <strong class="card-title">Authoritative Design Blueprints</strong>
-        <p class="card-text">Condense validation and comprehension to a fraction of the time to minimize risk and sustain AI-driven velocity. Create living blueprints of your system design, that track code changes as they happen, and add advanced change-review tools to alleviate the bottlenecks of agentic coding.</p>
+        <p class="card-text">Stay on top of your system's design and minimize technical and cognitive debt. Living blueprints give you an always-accurate visualisation of your design, making architectural decisions explicit and visible to the whole team. And provide an intuitive way to consistently confirm whether agents are meeting your specifications and making good design decisions.</p>
       </div>
-      <a href="xref:key-concepts.visual-modeling" aria-label="Visual Modeling"></a>
+      <a href="xref:key-concepts.visual-modeling" aria-label="Authoritative Design Blueprints"></a>
     </div>
   </li>
   <li>
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-cc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-cc)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M7 8l-4 4 4 4M17 8l4 4-4 4M14 4l-4 16"/>
+  <defs><linearGradient id="grad-rev" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M20.5 12a8.5 8.5 0 0 1-14.2 6.3M3.5 12a8.5 8.5 0 0 1 14.2-6.3"/>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.7 2.5v3.2h-3.2M6.3 21.5v-3.2h3.2"/>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12.2l2.2 2.2 4.2-4.6"/>
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Codebase Governance</strong>
-        <p class="card-text">Complete codebase visibility and control. Prioritize files for review and automatically focus on what needs attention, set the exact architectural boundaries, and manage deviations by exception rather than by constant review.</p>
+        <strong class="card-title">Advanced Validation Tools</strong>
+        <p class="card-text">Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.</p>
       </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Codebase Governance"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Advanced Validation Tools"></a>
     </div>
   </li>
   <li>
     <div class="card">
       <span class="icon" aria-hidden="true">
-<svg class="landing-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41.81 41.81">
-  <defs>
-    <style>.ai25-a{stroke:url(#ai25-g1)}.ai25-a,.ai25-b,.ai25-c,.ai25-d,.ai25-e,.ai25-f,.ai25-g,.ai25-h{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5px}.ai25-b{stroke:url(#ai25-g5)}.ai25-c{stroke:url(#ai25-g2)}.ai25-d{stroke:url(#ai25-g4)}.ai25-e{stroke:url(#ai25-g7)}.ai25-f{stroke:url(#ai25-g0)}.ai25-g{stroke:url(#ai25-g3)}.ai25-h{stroke:url(#ai25-g6)}</style>
-    <linearGradient id="ai25-g0" x1="13.09" y1="24.39" x2="13.09" y2="7.98" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g1" x1="15.07" y1="20.94" x2="24.84" y2="4.77" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g2" x1="20.11" y1="15.68" x2="36.52" y2="15.68" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g3" x1="26.05" y1="17.34" x2="42.46" y2="33.75" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g4" x1="28.82" y1="22.8" x2="28.82" y2="39.22" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g5" x1="27.16" y1="28.73" x2="10.75" y2="45.14" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g6" x1="21.7" y1="31.41" x2="5.28" y2="31.41" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-    <linearGradient id="ai25-g7" x1="15.82" y1="29.81" x2="-.59" y2="13.4" gradientTransform="translate(0 44.5) scale(1 -1)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#09c4ff"/><stop offset="1" stop-color="#0070c0"/></linearGradient>
-  </defs>
-  <path class="ai25-f" d="M22.78,22.78c0-.38.38,3.94-1.6,7.13-1.88,3.19-4.32,4.22-8.16,5.07-2.16.47-3.47,0-5.07-.56-2.35-.75-3.57-2.72-3.94-3.19s-.84-1.97-.56-3.38c.56-2.35,2.16-3.57,4.22-4.03.38,0,2.35-.56,4.03.38s2.35,1.6,3.94,1.97c1.6.47,3.19,0,3.94-.38,1.69-.66,3-2.53,3.19-3.19,0,0,0,.19,0,.19Z"/>
-  <path class="ai25-a" d="M23.44,20.91c-.28-.28,3,2.53,3.94,6.19.94,3.66.19,6.19-2.16,9.48-1.31,1.78-2.44,2.53-3.94,3.28-2.25,1.13-4.41.56-5.07.56s-1.97-.75-2.81-1.97c-1.22-1.97-1.03-3.94,0-5.91.28-.28,1.22-1.97,3.1-2.63,1.88-.56,2.81-.56,4.13-1.41s2.25-2.25,2.53-3c.75-1.69.38-3.94,0-4.5l.28-.09Z"/>
-  <path class="ai25-c" d="M22.78,19.12c-.38,0,3.94-.38,7.13,1.6,3.19,1.88,4.5,4.22,5.07,8.16.38,2.16,0,3.47-.56,5.07-.75,2.35-2.72,3.57-3.19,3.94s-1.97.84-3.38.56c-2.35-.56-3.57-2.16-4.03-4.22,0-.38-.56-2.35.38-4.03s1.6-2.35,1.97-3.94,0-3.19-.38-3.94c-.66-1.69-2.53-3-3.19-3.19,0,0,.19,0,.19,0Z"/>
-  <path class="ai25-g" d="M20.91,18.47c-.28.28,2.53-3,6.19-3.94,3.66-.94,6.19-.19,9.48,2.16,1.78,1.31,2.53,2.44,3.28,3.94,1.13,2.25.56,4.41.56,5.07s-.75,1.97-1.97,2.81c-1.97,1.22-3.94,1.03-5.91,0-.28-.28-1.97-1.22-2.63-3.1s-.56-2.81-1.41-4.13-2.25-2.25-3-2.53c-1.69-.75-3.94-.38-4.5,0l-.09-.28Z"/>
-  <path class="ai25-d" d="M19.12,19.12c0,.38-.38-3.94,1.6-7.13s4.22-4.5,8.16-5.07c2.16-.38,3.47,0,5.07.56,2.35.75,3.57,2.72,3.94,3.19s.84,1.97.56,3.38c-.56,2.35-2.16,3.57-4.22,4.03-.38,0-2.35.56-4.03-.38s-2.35-1.6-3.94-1.97-3.19,0-3.94.38c-1.69.66-3,2.53-3.19,3.19,0,0,0-.19,0-.19Z"/>
-  <path class="ai25-b" d="M18.47,20.91c.28.28-3-2.53-3.94-6.19-.84-3.66-.19-6.19,2.16-9.48,1.31-1.78,2.44-2.53,3.94-3.28,2.25-1.13,4.41-.56,5.07-.56s1.97.75,2.81,1.97c1.22,1.97,1.03,3.94,0,5.91-.28.28-1.22,1.97-3.1,2.63s-2.81.56-4.13,1.41c-1.41.84-2.25,2.25-2.53,3-.75,1.69-.38,3.94,0,4.5l-.28.09Z"/>
-  <path class="ai25-h" d="M19.12,22.78c.38,0-3.94.38-7.13-1.6s-4.5-4.22-5.07-8.16c-.38-2.16,0-3.47.56-5.07.75-2.35,2.72-3.57,3.19-3.94s1.97-.84,3.38-.56c2.35.56,3.57,2.16,4.03,4.22,0,.38.56,2.35-.38,4.03s-1.6,2.35-1.97,3.94c-.47,1.6,0,3.19.38,3.94.66,1.69,2.53,3,3.19,3.19h-.19Z"/>
-  <path class="ai25-e" d="M20.91,23.44c.28-.28-2.53,3-6.19,3.94-3.66.84-6.19.19-9.48-2.16-1.78-1.31-2.53-2.44-3.28-3.94-1.13-2.25-.56-4.41-.56-5.07s.75-1.97,1.97-2.81c1.97-1.22,3.94-1.03,5.91,0,.28.28,1.97,1.22,2.63,3.1.56,1.88.56,2.81,1.41,4.13.84,1.41,2.25,2.25,3,2.53,1.69.75,3.94.38,4.5,0l.09.28Z"/>
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <defs><linearGradient id="grad-sdd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">AI Agents / Tools</strong>
-        <p class="card-text">Use any LLM or AI-coding harness and add the control you need to scale agentic development safely and reliably. Leverage your existing context engineering setup via the Intent MCP, or drive agents directly in the platform.</p>
+        <strong class="card-title">SDD with Traceability</strong>
+        <p class="card-text">Go from requirements to production-ready code, step by step, with full traceability. Drive agentic development with high-quality specifications that are easier to comprehend and traceability features that answer the why – exactly which requirements drove which code, and vice versa. So you stay in control from requirements through to code.</p>
       </div>
-      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="AI-Assisted Code Generation"></a>
+      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="SDD with Traceability"></a>
     </div>
   </li>
-<!--  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-  <path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-  <path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
-  <path d="M14 7l6 0" />
-  <path d="M17 4l0 6" />
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Extensible Platform</strong>
-        <p class="card-text">Intent Architect is fully modular. Every behavior,  from code generation to design tooling, is driven by open-source modules. Build your own or extend ours to automate your proprietary patterns, endlessly customizable, entirely under your control.</p>
-      </div>
-      <a href="xref:key-concepts.extensible-platform" aria-label="Extensible Platform"></a>
-    </div>
-  </li>-->
 </ul>
 
 ---

@@ -1,23 +1,19 @@
 ---
 uid: key-concepts.visual-modeling
-description: "Intent Architect's Domain, Services, and UI Designers produce living blueprints serving as context for AI agents and deterministic code generation."
+description: "How Intent Architect's visual models act as living design blueprints, keeping teams on top of system design and minimizing technical and cognitive debt."
 ---
 
 # Authoritative Design Blueprints
 
-Condense validation and comprehension to a fraction of the time to minimize risk and sustain AI-driven velocity. As developers spend less time writing code and more time validating and governing, they need better tools to stay in control of how their systems evolve as they scale agentic coding.
-
-Intent Architect provides powerful AI-driven visual designers for modeling applications, allowing you to express every layer of your system's design, from domain and services to architecture, in a way that's intuitive, precise, and always in sync with your codebase. Requirements can be captured as precise, testable user stories and converted agentically into authoritative design specifications and living blueprints, and then realized as code – so every requirement stays linked to the model elements and code files that realize it.
-
-Visuals are a highway to the brain, and by expressing complex systems in visual formats (e.g. entity-relationship diagrams), teams can quickly interpret and reason about design and architecture that would otherwise require deep codebase immersion. Unlike static diagrams or external modeling tools, these designs are living blueprints: they track code changes as they happen, and together with advanced Change Review features and end-to-end traceability, identify exactly where to focus and why each change exists, alleviating the validation and comprehension bottlenecks of agentic coding.
+To minimize technical and cognitive debt in an agentic development workflow, teams need to stay on top of their system's design. Intent Architect's visual modeling tools enable living design blueprints: the design is defined visually, in a model-centric way, with a bidirectional relationship between the models and the code. The models therefore always represent the current, living state of the design as agents build out your codebase, and model-centric diffs let you stay on top of design changes and the design decisions agents are making as they happen.
 
 ---
 
 ## Key Benefits
 
-- **📋 Condense validation and comprehension to alleviate delivery bottlenecks**
+- **📋 Stay on top of your design to minimize technical and cognitive debt**
 
-  As agents write more and more code, comprehensive code review becomes the delivery constraint, while approving output without adequate scrutiny pushes technical debt, cognitive debt, and latent quality risk downstream. Intent Architect's extensible designers give you an aggregated, model-centric view of your design specification that's easy to comprehend and always true to the underlying codebase, so you stay in control of what matters most. In addition, model-centric diffs highlight codebase-related changes as they happen, and advanced Change Review features prioritize files for review, streamlining the validation and comprehension process so teams can safely sustain AI-driven delivery speed.
+  As agents write more and more code, it's becoming harder for developers to stay on top of their system's design and in control of technical and cognitive debt. Intent Architect's extensible designers give you an aggregated, model-centric view of your system's design that's easy to comprehend and always true to the underlying codebase, so you stay on top of the system's design at all times. In addition, model-centric diffs highlight codebase-related design changes as part of your code-review process, streamlining the validation and comprehension around this as agents evolve the system.
 
 - **🗺️ Authoritative design blueprints bring design decisions to the forefront**
 
@@ -65,6 +61,6 @@ Because designs are stored as structured metadata alongside your source code, th
 
 ## Learn More
 
-- **[Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
-- **[AI Agents / Tools](xref:key-concepts.non-deterministic-codegen)**
-- **[Codebase Governance](xref:key-concepts.codebase-integration)**
+- **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
+- **[Advanced Validation Tools](xref:key-concepts.codebase-integration)**
+- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)**

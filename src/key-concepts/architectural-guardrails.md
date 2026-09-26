@@ -1,15 +1,11 @@
 ---
 uid: key-concepts.deterministic-codegen
-description: "How Intent Architect Modules translate visual design intent into consistent, predictable code across a codebase without lock-in."
+description: "How Intent Architect's guardrail system combines deterministic and probabilistic enforcement through Modules to guarantee architectural adherence at scale."
 ---
 
-# Architectural Guardrails
+# Reliable Architectural Guardrails
 
-Guaranteed architectural adherence and consistency across teams and systems. Intent Architect's guardrail system uses Modules – customizable and reusable architectural patterns – to deterministically turn your chosen architecture into code, guaranteeing consistent implementation at any scale.
-
-Although AI-assisted, this is deterministic code generation: 100% predictable, 100% consistent and developer-controlled – so guardrails scale effortlessly and AI-driven development becomes more reliable, without the need for constant validation. It's not a scaffolding system but a continuously synchronized process, where the architecture can evolve with the assistance of AI, or large-scale technology changes can be made across entire systems in one go, while adherence is automatically enforced and changes or customizations made by agents or developers are immediately flagged for review.
-
-Because any application can be configured with a completely unique set of modules, the system accommodates all the different patterns, standards, technologies, and architectures your teams may follow.
+To safeguard codebase quality and maintainability in an agentic development workflow, teams need reliable architectural guardrails. Intent Architect offers a best-in-class guardrail system driven by Modules. Modules ensure your architectural patterns are enforced both deterministically – making implementation accurate, consistent and easy to scale – and probabilistically, through context files, skills, hooks and instruction files. It is the optimal combination of "hard" and "soft" guardrails, configured and customised with AI, so adherence is ensured without adding to the validation burden and scales across teams without every developer having to internalize the standards first.
 
 ---
 
@@ -17,7 +13,7 @@ Because any application can be configured with a completely unique set of module
 
 - **✅ Guaranteed adherence that scales reliably without the validation burden**
 
-  Guardrails maintained purely through context files have to be internalized by every developer on every system and project before adherence can be efficiently validated, which makes them hard to scale and adds to the validation burden. Intent Architect's guardrails are encoded in Modules and enforced by the Software Factory on every run: a given architectural design produces the same code every time, with no drift and no room for interpretation. Customizations and deviations are still fully allowed, but tracked and flagged automatically, so adherence is managed by exception rather than by review.
+  Guardrails maintained purely through context files have to be internalized by every developer on every system and project before adherence can be efficiently validated, which makes them hard to scale and adds to the validation burden. Intent Architect's guardrails are encoded in Modules and enforced by the Software Factory on every run: a given architectural design produces the same code every time, with no drift and no room for interpretation. Customizations and deviations are tracked and flagged automatically, so adherence is managed by exception rather than by review.
 
 - **🔄 System-wide architectural changes in one action**
 
@@ -31,17 +27,16 @@ Because any application can be configured with a completely unique set of module
 
 ## Modules
 
-Modules are the core building blocks of Intent Architect's deterministic guardrail system. Each Module encodes one or more architectural patterns, translating your visual design intent into precise, consistent code. When a Module is applied, it produces the same output every time, without deviation. When a Module is updated, every instance of that pattern across your system is updated automatically.
+Modules are the core building blocks of Intent Architect's guardrail system. Each Module encodes one or more architectural patterns, translating your visual design intent into precise, consistent code. When a Module is applied, it produces the same output every time, without deviation. When a Module is updated, every instance of that pattern across your system is updated automatically.
 
 When you run the Software Factory, it analyzes your visual design and applies your installed Modules to generate and update code across your solution, producing precisely the changes needed to bring your codebase into alignment with your design. The process is transparent, controlled, and fully deterministic.
 
-The deterministic guardrail system is particularly well-suited to managing:
+The deterministic parts of the guardrail system are particularly well-suited to managing:
 
 - **Bootstrapping:** Microservices, Monolithic Applications, Application Modules, Identity, etc.
 - **Persistence Infrastructure:** ORM Mappings, Repositories, etc.
 - **Service Infrastructure:** RESTful Web Services, Data Transfer Objects, Dispatch Patterns (e.g. Mediator, Interface Dispatch), etc.
 - **Eventing Infrastructure:** Events, Message Broker Configuration, Message Dispatch Infrastructure, etc.
-- **Business Logic Placeholders:** Domain Entities, Service Call Handlers, Command / Query Handlers, etc.
 - **Front-End Infrastructure:** Components, Service Proxies, Models, etc.
 - **Workflow Design:** Workflow Infrastructure, Flow Control Systems, etc.
 
@@ -61,7 +56,7 @@ Intent Architect offers a library of over 100 pre-built Modules covering the mos
 
 ## Non-Prescriptive by Design
 
-Intent Architect does not impose an architecture, a framework, or a coding style. The code it manages is determined entirely by the Modules your team installs. Teams are free to design their system however suits them, automate as much or as little as they choose, and maintain full control over what is managed by the deterministic guardrail system, or what is handled by agents or by hand.
+Intent Architect does not impose an architecture, a framework, or a coding style. The code it manages is determined entirely by the Modules your team installs. Teams are free to design their guardrails however suits them and maintain full control over what is managed  deterministically and what is handled probabalistically.
 
 ---
 
@@ -74,5 +69,5 @@ Intent Architect is not a framework, a runtime, or a set of libraries. It introd
 ## Learn More
 
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
-- **[AI Agents / Tools](xref:key-concepts.non-deterministic-codegen)**
-- **[Codebase Governance](xref:key-concepts.codebase-integration)**
+- **[Advanced Validation Tools](xref:key-concepts.codebase-integration)**
+- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)**

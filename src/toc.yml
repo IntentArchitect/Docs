@@ -3,13 +3,13 @@ items:
   - name: Overview
     topicUid: index
 
-  - name: Getting started
-    href: introducing/toc.yml
-    topicHref: index.md#getting-started
-
   - name: Key Concepts
     href: key-concepts/toc.yml
     topicHref: index.md#key-concepts
+
+  - name: Getting started
+    href: introducing/toc.yml
+    topicHref: index.md#getting-started
 
   - name: Tutorials
     href: tutorials/toc.yml

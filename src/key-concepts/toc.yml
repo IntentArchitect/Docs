@@ -1,12 +1,12 @@
 items:
-- name: Architectural Guardrails
+- name: Reliable Architectural Guardrails
   href: architectural-guardrails.md
 
 - name: Authoritative Design Blueprints
   href: authoritative-design-blueprints.md
 
-- name: Codebase Governance
-  href: codebase-governance.md
+- name: Advanced Validation Tools
+  href: advanced-validation-tools.md
 
-- name: AI Agents / Tools
-  href: ai-agents-tools.md
+- name: Spec-Driven Development with Traceability
+  href: sdd-with-traceability.md
