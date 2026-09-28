@@ -190,9 +190,9 @@ html[data-theme="dark"] .ia-overview .card {
 
 # Introduction to Intent Architect
 
-Intent Architect is the first control plane for agentic .NET software development.
+Intent Architect is the first end-to-end control plane for agentic .NET software development.
 
-It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale delivery system, using their preferred service providers and coding harnesses.
+It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale software delivery system, using their preferred service providers and coding harnesses.
 
 It brings reliable architectural guardrails, authoritative design blueprints, and advanced governance tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality and accountability.
 
