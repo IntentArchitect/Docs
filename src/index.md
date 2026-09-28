@@ -322,7 +322,7 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
       </span>
       <div class="content">
         <strong class="card-title">SDD with Traceability</strong>
-        <p class="card-text">Go from requirements to production-ready code, step by step, with full traceability. Drive agentic development with high-quality specifications that are easier to comprehend and traceability features that answer the why – exactly which requirements drove which code, and vice versa. So you stay in control from requirements through to code.</p>
+        <p class="card-text">Go from requirements to production-ready code, step by step, with full traceability. Drive agentic development with high-quality specifications that are easier to comprehend and traceability features that answer the why – exactly which requirements drove which code, and vice versa.</p>
       </div>
       <a href="xref:key-concepts.non-deterministic-codegen" aria-label="SDD with Traceability"></a>
     </div>
