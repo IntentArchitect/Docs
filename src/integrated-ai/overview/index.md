@@ -1,10 +1,10 @@
 ---
 uid: ai.overview
-description: "How AI agents operate within Intent Architect's control framework, and the three ways to drive it: built-in agents, a CLI agent configured as the provider, or an external harness via the Intent MCP server."
+description: "How AI agents operate within Intent Architect's control framework, and the three ways to drive it: built-in agents, a CLI agent configured as the provider, or an external agent via the Intent MCP server."
 ---
 # AI in Intent Architect
 
-Intent Architect is a control plane for agentic software development. It works with a team's preferred AI service provider and coding harness, and gives teams a control framework made up of four components:
+Intent Architect works with a team's preferred AI service provider and coding harness, and adds a control framework made up of four components:
 
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the team's architecture and standards.
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help teams minimize technical and cognitive debt.
@@ -12,8 +12,6 @@ Intent Architect is a control plane for agentic software development. It works w
 - **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
 
 This section covers how AI agents operate within that control framework, and the options available for driving it.
-
-![The Manage Agents window, with agent conversations across several repositories](images/manage-agents-shell.png)
 
 ---
 
@@ -25,7 +23,7 @@ The control framework applies identically across all three paths – the same gu
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | **[Intent Architect's own agents](#intent-architects-own-agents)**             | In Intent Architect, using its built-in agents                                 |
 | **[Your CLI as a provider](#your-cli-as-a-provider)**                         | In Intent Architect, using an existing CLI agent as the provider                |
-| **[An external harness via Intent MCP](#an-external-harness-via-intent-mcp)**  | In an IDE or terminal – VS Code, Rider, Visual Studio – driving Intent Architect remotely |
+| **[An external agent via Intent MCP](#an-external-agent-via-intent-mcp)**     | In an IDE or terminal – VS Code, Rider, Visual Studio – driving Intent Architect remotely |
 
 ![The AI Providers tab, listing model providers and CLI agents that connect over the Agent Client Protocol](images/ai-providers.png)
 
