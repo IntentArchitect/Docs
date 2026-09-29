@@ -17,7 +17,7 @@ This section covers how AI agents operate within that control framework, and the
 
 ## Three ways to drive it
 
-The control framework applies identically across all three paths – the same guardrails, blueprints and traceability, regardless of which agent does the work or where it runs. Teams can adopt whichever path fits their existing workflow, and Change Review and the Specs panel remain available in Intent Architect throughout.
+The control framework applies identically across all three paths – the same guardrails, blueprints and traceability, regardless of which agent does the work or where it runs. Users can adopt whichever path fits their existing workflow, and Change Review and the Specs panel remain available in Intent Architect throughout.
 
 | Path                                                                          | Where it runs                                                                  |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
