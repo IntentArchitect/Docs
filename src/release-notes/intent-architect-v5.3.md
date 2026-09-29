@@ -4,6 +4,53 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
+## Version 5.3.4
+
+### Improvements in 5.3.4
+
+- Improvement: User chat messages now have a footer of icon actions. Forking from a user message starts the new chat from just before it, with that message's text already in the composer.
+- Improvement: When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
+- Improvement: Creating a pull request now defaults its target to the branch the source branch was originally created from.
+- Improvement: The conversation's Changes tab is now called "Agent's Changes", and "Keep All Changes" can be used while a turn is still running.
+- Improvement: The Agents window's Open in IDE button now names the solution and IDE it will open. Its drop-down lets you pick from the solutions found in the folder, pick a different IDE, or open the folder instead.
+- Improvement: ACP connector versions (Claude Code, Codex and Copilot) can now be updated without a new Intent Architect release, and the AI Providers tab has a "Connector package" field for overriding them. A connector download now shows progress in the chat.
+- Improvement: Pull request file diffs are easier to scan, with tinted gutters on changed lines and restyled collapsed hunks.
+- Improvement: In the scripting API, association ends can now add, remove and ensure stereotypes, and set comments.
+- Improvement: The error, lock, read-only and missing-skills banners have been restyled as cards.
+- Improvement: Confirmation dialogs now label destructive actions clearly, `Enter` no longer triggers them, and `Esc` or dismissing a prompt always takes the safe option.
+- Improvement: The Agents board now calls conversations "sessions" rather than "tasks" or "chats".
+
+### Fixes in 5.3.4
+
+- Fixed: Worktrees created to resolve pull request conflicts now go under the configured worktrees folder rather than `%AppData%`.
+- Fixed: Intent MCP Connect now creates any missing AI context folders instead of silently skipping those applications.
+- Fixed: The AI Providers tab now shows "CLI not found", together with the install command, when an agent's CLI can't be located.
+- Fixed: The "needs answer" status dot now stops pulsing once you've seen the question, and pulses again for the next one.
+- Fixed: Hooks never ran in Codex sessions launched from Intent Architect.
+- Fixed: Commits made through Intent Architect ignored a per-organization git identity and signing policy set through `includeIf`, including in linked worktrees.
+- Fixed: Built-in skills and rules could be written into folders unrelated to the conversation's solution.
+- Fixed: A long-running operation, such as a Software Factory run, git fetch or module install, could freeze every other action in the application until it finished.
+- Fixed: Restarting the Software Factory while it was still starting up, or several times in quick succession, could leave the run stuck "in progress" or finish on an older run.
+- Fixed: `run_software_factory` could restart another caller's perfectly healthy Software Factory run if that run took longer than two minutes.
+- Fixed: Switching branch in a conversation's worktree restarted the main window's running Software Factory and discarded its staged changes.
+- Fixed: Background shell tasks could stay "Running" after they had exited.
+- Fixed: A message sent while Claude Code was continuing on its own got no reply, and was sent again with the next turn.
+- Fixed: One conversation's designer script could save another conversation's unsaved designers to disk.
+- Fixed: A designer script from a conversation that wasn't on screen could open its designer in the chat that was.
+- Fixed: Opening an element from the changes review, or from a chat's attachment chip, could open the designer from a different worktree of the same repository.
+- Fixed: `Ctrl` + `T`, Find Usages, type-reference drop-downs and chat `@`-mentions could return nothing after another window was closed or several worktrees were open, or show results from a different worktree.
+- Fixed: Closing a conversation's worktree could shut down Software Factory and module task processes, tabs and terminals that another conversation on the same worktree was still using.
+- Fixed: Removing a conversation's worktree could fail after a designer script had run a module task in it.
+- Fixed: Folders created in the Codebase explorer after it loaded, such as by a Software Factory run, stayed hidden with their files until a refresh.
+- Fixed: Spec phase tasks started from the Specs panel could be dispatched onto the wrong branch in the Agents window.
+- Fixed: Specs panel turns could stay "busy" after they had finished.
+- Fixed: A solution's `tasks.json` could be missed by the Agents window.
+- Fixed: The conversation list could show entries for conversations whose history no longer existed.
+- Fixed: The create and rename branch popover in the docked Source Control pane could be cut off beneath an open designer.
+- Fixed: The cloud icon in source control pills could disappear or be clipped when the pills were narrow.
+- Fixed: Refocusing the window triggered excessive git refreshes, and debug output appeared in the task console.
+- Fixed: Tool status icons in chat weren't vertically centered.
+
 ## Version 5.3.3
 
 ### Highlights in 5.3.3
