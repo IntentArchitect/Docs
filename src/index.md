@@ -334,20 +334,18 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 ## Watch a demo of the latest features
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
-  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/bGofnbPQV8k?si=EAVqpiut4fVwkf_L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/xCKdbEf7O3k?si=3NXH4yLElA0J4hLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Watch the Intent Architect version 5.2 new-features demo.
+Watch the Intent Architect version 5.3 new-features demo.
 
-Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements around validating, trusting, and managing changes in an agentic development workflow, and expands on how Intent Architect gives teams enhanced control in this evolving landscape.
+Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements to the platform, focused on the agentic workflow experience – specifically, how we make it better for the human in the loop. It focuses on three key areas: inbox-style agent management, richer visual communication with AI, and pull requests in-app, with enriched context.
 
-What's covered in this demo:
-- New traceability features for reviewing commits, giving teams visibility and clarity even as codebases become increasingly "black-boxed".
-- Enhanced change-review features to better support agentic development, making it easy to prioritize and optimize code-review processes.
-- Specification change tracking, surfacing exactly how your authoritative design specifications evolve over time.
-- A simplified, unified UI that brings your model, your code, and your repository together in a single, streamlined workspace.
-- A new Git Source Control panel and Changes Review tab, so you can see and review everything flowing through your solution without tabbing out.
-- The new Specifications panel and Spec-Driven Development (SDD) system (Beta), turning design specifications into a control plane for fully agentic software development.
+What's covered in this demo - how to:
+- Enhance your SDD and planning processes
+- Streamline your GitHub & Azure DevOps PR reviews using our integrated design & architecture aware Review Changes feature.
+- Leverage traceability to understanding the "Why" behind changes
+- And much more...
 
 ---
 
