@@ -6,6 +6,8 @@ description: "Release notes for Intent Architect 3.1, covering new Software Fact
 
 ## Version 3.1.9
 
+_Released 2021-12-07._
+
 ### New features added in 3.1.9
 
 - Improved shortcuts for Software Factory Execution:
@@ -26,6 +28,8 @@ description: "Release notes for Intent Architect 3.1, covering new Software Fact
 
 ## Version 3.1.8
 
+_Released 2021-11-22._
+
 ### New features added in 3.1.8
 
 - When ignoring/un-ignoring files in the Software Factory Execution changes dialogue, the preference is now saved immediately whereas before it was saved only on acceptance of changes.
@@ -45,11 +49,15 @@ description: "Release notes for Intent Architect 3.1, covering new Software Fact
 
 ## Version 3.1.7
 
+_Released 2021-11-09._
+
 ### Issues fixed in 3.1.7
 
 - On Windows the diff tool for comparing staged changes would fail to launch if a user's `HOMEDRIVE` environment variable was set to an offline network drive.
 
 ## Version 3.1.6
+
+_Released 2021-11-03._
 
 ### New features added in 3.1.6
 
@@ -81,6 +89,8 @@ A warning will now show during Software Factory Execution when an installed modu
 
 ## Version 3.1.5
 
+_Released 2021-10-21._
+
 ### New features added in 3.1.5
 
 - Significant speed up of the "Running Templates" phase of the Software Factory Execution, particularly for applications with many template instances. For the speed benefits to properly take effect you are also required to update the following modules (if installed):
@@ -93,6 +103,8 @@ A warning will now show during Software Factory Execution when an installed modu
 
 ## Version 3.1.4
 
+_Released 2021-10-18._
+
 ### Issues fixed in 3.1.4
 
 - Sometimes the agent would crash completely during Software Factory Execution.
@@ -100,11 +112,15 @@ A warning will now show during Software Factory Execution when an installed modu
 
 ## Version 3.1.3
 
+_Released 2021-10-17._
+
 ### Issues fixed in 3.1.3
 
 - Sometimes during Software Factory Execution a `Collection was modified after the enumerator was instantiated` exception would occur during the `Committing Changes` phase.
 
 ## Version 3.1.2
+
+_Released 2021-10-15._
 
 ### New features added in 3.1.2
 
@@ -117,11 +133,15 @@ A warning will now show during Software Factory Execution when an installed modu
 
 ## Version 3.1.1
 
+_Released 2021-10-07._
+
 ### Issues fixed in 3.1.1
 
 - For accounts which already had Professional licenses and had not re-logged in some time, this fixes "no permission" errors from showing until you log out and then back in again.
 
 ## Version 3.1.0
+
+_Released 2021-10-03._
 
 ### New features added in 3.1.0
 

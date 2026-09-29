@@ -6,12 +6,16 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 
 ## Version 5.2.6
 
+_Released 2026-09-03._
+
 ### Fixes in 5.2.6
 
 - Fixed: `intent-cli`'s `update-modules` and `uninstall-modules` commands could fail immediately with a Win32Exception instead of running module migrations.
 - Fixed: Software Factory could crash with an unhandled IOException during "Processing changed file diffs" while writing a staged deviation.
 
 ## Version 5.2.5
+
+_Released 2026-08-31._
 
 ### Improvements in 5.2.5
 
@@ -53,6 +57,8 @@ description: "Intent Architect 5.2 release notes: a simplified, unified interfac
 - Fixed: `GlobTool`/`GrepTool` calls that omitted the `path` parameter could crash instead of defaulting to the workspace root.
 
 ## Version 5.2.4
+
+_Released 2026-08-21._
 
 ### Highlights in 5.2.4
 
@@ -155,9 +161,13 @@ OpenCode is now available as an ACP agent, with its model list discovered live f
 
 ## Version 5.2.3
 
+_Released 2026-08-19._
+
 This release was unlisted immediately.
 
 ## Version 5.2.2
+
+_Released 2026-08-13._
 
 ### Highlights in 5.2.2
 
@@ -214,6 +224,8 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 
 ## Version 5.2.1
 
+_Released 2026-08-06._
+
 ### Improvements in 5.2.1
 
 - Improvement: Cursor (via the `cursor-agent` CLI) is now available as an ACP agent, with its own provider icon and model list.
@@ -249,6 +261,8 @@ AI chat's model picker now lets you mark models as favourites, which persist acr
 - Fixed: Opening the AI Configuration or User Settings dialogs through the UI automation API would hang until the dialog was closed.
 
 ## Version 5.2.0
+
+_Released 2026-07-29._
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
   <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/bGofnbPQV8k?si=98znkTEDcWzad2n" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

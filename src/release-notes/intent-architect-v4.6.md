@@ -6,17 +6,23 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 
 ## Version 4.6.5
 
+_Released 2026-06-03._
+
 ### Fixes in 4.6.5
 
 - Fixed: Updated URL for Intent Architect endpoint to avoid possible disruption in functionality.
 
 ## Version 4.6.4
 
+_Released 2026-04-30._
+
 ### Improvements in 4.6.4
 
 - Improvement: Intent Architect will now show when a new version is available which can be installed side-by-side with the current version. For example, for major versions or when you're running a beta and a newer final release is available. In such cases automatic updates are not possible so the about dialog will direct you to the downloads page where you can manually download and install the newer version, you will also need to manually uninstall the old version should you no longer want it.
 
 ## Version 4.6.3
+
+_Released 2026-04-08._
 
 ### Improvements in 4.6.3
 
@@ -31,6 +37,8 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 - Fixed: Associations no longer show as dirty when adding a new child element to the same parent.
 
 ## Version 4.6.2
+
+_Released 2026-03-24._
 
 ### Improvements in 4.6.2
 
@@ -60,6 +68,8 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 
 ## Version 4.6.1
 
+_Released 2026-02-15._
+
 ### Improvements in 4.6.1
 
 - Improvement: Toggling the AI Assistant window (F8) will now move focus to the text input field.
@@ -74,6 +84,8 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 - Fixed: The "has possibly destructive changes" icon in the Software Factory change list was white instead of yellow.
 
 ## Version 4.6.0
+
+_Released 2026-02-03._
 
 We're super excited to announce the release of Intent Architect v4.6.0, which focuses on integrating AI directly into the platform and a step closer to offering an "AI-native" experience to users. To enable this, we've introduced an Integrated AI Assistant as the flagship feature for 4.6.0, allowing seamless access to documentation and agentic control of the platform's designers.
 

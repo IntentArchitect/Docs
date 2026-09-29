@@ -6,11 +6,15 @@ description: "Intent Architect 4.5 release notes: System Suggestions dialog, def
 
 ## Version 4.5.27
 
+_Released 2025-12-18._
+
 ### Fixes in 4.5.27
 
 - Fixed: The Software Factory CLI would fail to authenticate when authenticating using a username and password.
 
 ## Version 4.5.26
+
+_Released 2025-11-27._
 
 ### Improvements in 4.5.26
 
@@ -37,9 +41,13 @@ description: "Intent Architect 4.5 release notes: System Suggestions dialog, def
 
 ## Version 4.5.25
 
+_Released 2025-11-26._
+
 This version of Intent Architect was rolled back due to an error which would manifest when running the module builder. This version was only available for a very short period of time, but anyone running this version is advised to upgrade to a newer version.
 
 ## Version 4.5.24
+
+_Released 2025-11-20._
 
 ### Improvements in 4.5.24
 
@@ -57,6 +65,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: Visual elements added from designer scripts occasionally not rendering when long-running async tasks are called (e.g. a dialog is launched).
 
 ## Version 4.5.23
+
+_Released 2025-11-13._
 
 ### Improvements in 4.5.23
 
@@ -97,6 +107,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: Module Tasks showing as cancelled when restarting them.
 
 ## Version 4.5.22
+
+_Released 2025-10-30._
 
 ### Improvements in 4.5.22
 
@@ -147,6 +159,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.21
 
+_Released 2025-10-14._
+
 ### Issues fixed in 4.5.21
 
 - Fixed: Memory explosion when collapsing a large number of expanded tree nodes.
@@ -155,6 +169,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.20
 
+_Released 2025-10-06._
+
 ### Issues fixed in 4.5.20
 
 - Fixed: Critical error when trying to create a new application with Intent Architect.
@@ -162,11 +178,15 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.19
 
+_Released 2025-10-03._
+
 ### Issues fixed in 4.5.19
 
 - Fixed: An error saying `A handler for invocationType 'CancelAllTasksForApplicationRequest' has already been registered` would occur when pressing cancel on the dialogue which appears when opening a solution which requires a migration or has already been migrated to only work with a newer version of Intent Architect.
 
 ## Version 4.5.18
+
+_Released 2025-10-02._
 
 ### Features in 4.5.18
 
@@ -201,6 +221,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.17
 
+_Released 2025-09-17._
+
 ### Improvements in 4.5.17
 
 - Improvement: 🔥 The Software Factory now supports hot-restarting provided you have version `3.9.1-pre.0` or higher of the `Intent.Common` module installed in your application. When the Software Factory hot restarts it does not tear down the process, preventing the requirement of reloading DLLs and also allowing the CLR's runtime optimizations to be longer lived and more effective.
@@ -225,11 +247,15 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.16
 
+_Released 2025-09-09._
+
 ### Issues fixed in 4.5.16
 
 - Fixed: Certain users would experience a license validation error when trying to create a new application.
 
 ## Version 4.5.15
+
+_Released 2025-09-07._
 
 ### Improvements in 4.5.15
 
@@ -247,6 +273,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: ApplicationId is passed to solution-based metadata provider to prevent returning metadata from all applications.
 
 ## Version 4.5.14
+
+_Released 2025-08-26._
 
 ### Improvements in 4.5.14
 
@@ -266,6 +294,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.13
 
+_Released 2025-08-18._
+
 ### Improvements in 4.5.13
 
 - Improvement: Dynamic Forms now support pages in a wizard with asynchronous `onInitialize` and `onContinue` hook points for each page. This functionality has been applied to enhance the experience of the Database Importer.
@@ -281,6 +311,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: Diagram `New diagram elements` changes dropdown not saving unless diagram is opened.
 
 ## Version 4.5.12
+
+_Released 2025-08-11._
 
 ### Improvements in 4.5.12
 
@@ -302,6 +334,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.11
 
+_Released 2025-08-05._
+
 ### Improvements in 4.5.11
 
 - Improvement: Comments textarea now automatically resizes to fit its text.
@@ -311,6 +345,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: Designer null reference errors can potentially occur on any scripts (validation, accelerators, on-change events, etc.) which are working with empty stereotype values.
 
 ## Version 4.5.10
+
+_Released 2025-08-04._
 
 ### New Features in 4.5.10
 
@@ -341,6 +377,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.9
 
+_Released 2025-07-29._
+
 ### Improvements in 4.5.9
 
 - Improvement: Package Referenced Elements now support syntax highlighting and `ctrl + click` navigation.
@@ -363,6 +401,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.8
 
+_Released 2025-07-22._
+
 ### Improvements in 4.5.8
 
 - Improvement: Dynamic Forms can now set the icon used of the dialog.
@@ -380,6 +420,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.7
 
+_Released 2025-07-16._
+
 ### Improvements in 4.5.7
 
 - Improvement: Added `promptIfUnsavedChangesAsync(): Promise<boolean>` to the JS API which allows for programmatic prompting of the user to save any unsaved changes.
@@ -394,6 +436,8 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.6
 
+_Released 2025-07-15._
+
 ### Improvements in 4.5.6
 
 - Improvement: The Intent Software Factory CLI tool now allows use of Organization Access Tokens instead of requiring credentials for an Intent Architect user account. Refer to [this section in the  Software Factory CLI article](xref:tools.software-factory-cli#do-i-have-to-use-the-credentials-of-a-user-license) for more information.
@@ -405,11 +449,15 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.5
 
+_Released 2025-07-14._
+
 ### Issues fixed in 4.5.5
 
 - Fixed: Renaming of elements would sometimes not reflect in the tree views until the designer was reloaded.
 
 ## Version 4.5.4
+
+_Released 2025-07-13._
 
 ### Improvements in 4.5.4
 
@@ -426,6 +474,8 @@ This version of Intent Architect was rolled back due to an error which would man
 - Fixed: Warnings on application creation.
 
 ## Version 4.5.3
+
+_Released 2025-07-09._
 
 ### Improvements in 4.5.3
 
@@ -462,17 +512,23 @@ This version of Intent Architect was rolled back due to an error which would man
 
 ## Version 4.5.2
 
+_Released 2025-07-07._
+
 ### Issues fixed in 4.5.2
 
 - Fixed: Fixed issue where module migrations were not running.
 
 ## Version 4.5.1
 
+_Released 2025-07-04._
+
 ### Issues fixed in 4.5.1
 
 - Fixed: Fixed errors running Software Factories related to uninitialized **User Settings**.
 
 ## Version 4.5.0
+
+_Released 2025-07-03._
 
 Intent Architect v4.5.0 is the latest release focused on making integrated AI capabilities accessible to developers and on improving usability and discoverability of the platform's capabilities.
 

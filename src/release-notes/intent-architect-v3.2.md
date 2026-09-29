@@ -6,11 +6,15 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 
 ## Version 3.2.7
 
+_Released 2022-03-14._
+
 ### Issues fixed in 3.2.7
 
 - Fixed: Script context menu options captured in the Module Builder for packages would not actually appear on the package context menu when the designer was loaded.
 
 ## Version 3.2.6
+
+_Released 2022-03-07._
 
 ### Issues fixed in 3.2.6
 
@@ -18,11 +22,15 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 
 ## Version 3.2.5
 
+_Released 2022-03-04._
+
 ### Issues fixed in 3.2.5
 
 - Fixed: When installing a module, folders for template outputs would always get created in the root instead of being nested within projects or other folders.
 
 ## Version 3.2.4
+
+_Released 2022-03-04._
 
 ### New features added in 3.2.4
 
@@ -36,6 +44,8 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 
 ## Version 3.2.3
 
+_Released 2022-02-26._
+
 ### Issues fixed in 3.2.3
 
 - Fixed: It was not possible to load association metadata for template registration through `IMetadataManager`.
@@ -43,6 +53,8 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 - Fixed: The Software Factory Metadata Loader will now traverse module dependencies of package dependencies for Stereotype Definitions. This should make it no longer necessary to add direct references to module metadata to prevent certain Software Factory errors from occurring.
 
 ## Version 3.2.2
+
+_Released 2022-02-07._
 
 ### New features added in 3.2.2
 
@@ -78,6 +90,8 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 
 ## Version 3.2.1
 
+_Released 2022-01-24._
+
 ### New features added in 3.2.1
 
 - [Metadata export](#export-functionality) now also exports mapping details of elements.
@@ -89,6 +103,8 @@ description: "Release notes for Intent Architect 3.2, with fixes for module inst
 - Fixed: No error showing when type cannot be found for the type reference on elements.
 
 ## Version 3.2.0
+
+_Released 2022-01-23._
 
 ### New features added in 3.2.0
 

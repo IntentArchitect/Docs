@@ -7,11 +7,15 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 
 ## Version 4.0.6
 
+_Released 2023-10-01._
+
 ### Issues fixed in 4.0.6
 
 - Fixed: The [Software Factory CLI](xref:tools.software-factory-cli) would hang when generating diffs beyond a certain size.
 
 ## Version 4.0.5
+
+_Released 2023-09-28._
 
 ### Improvements in 4.0.5
 
@@ -23,6 +27,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 
 ## Version 4.0.4
 
+_Released 2023-09-13._
+
 ### Improvements in 4.0.4
 
 - Improved performance of change updates in and between designers.
@@ -33,6 +39,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 - Fixed: The Manage Repositories dialogue was not always able to correctly handle URLs for [self-hosted module servers](xref:tools.module-server).
 
 ## Version 4.0.3
+
+_Released 2023-07-27._
 
 ### Improvements in 4.0.3
 
@@ -55,6 +63,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 
 ## Version 4.0.2
 
+_Released 2023-07-17._
+
 ### Improvements in 4.0.2
 
 - Upgraded Package Reference manager to show Package Icon, Type and Source. Also supports filtering and sorting.
@@ -75,6 +85,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 
 ## Version 4.0.1
 
+_Released 2023-06-08._
+
 ### Improvements in 4.0.1
 
 - Module metadata installation will now occur only when a module is not currently installed, previously it would also occur when a module was being updated.
@@ -87,6 +99,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 - Fixed: If you start creating an association in the diagram but don't connect the target end and then click on properties, it puts the diagram in a broken state. Now cancels the association creation.
 
 ## Version 4.0.0
+
+_Released 2023-05-07._
 
 We're proud to announce the release of Version 4 of intent Architect. This release has the result of many hours of effort and planning by the Intent Architect team. We're also pleased to say that the feedback we've received thus far from our beta testers has been incredibly positive.
 

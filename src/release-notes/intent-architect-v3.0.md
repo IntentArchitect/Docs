@@ -2,11 +2,15 @@
 
 ## Version 3.0.17
 
+_Released 2021-09-03._
+
 ### Issues fixed in 3.0.17
 
 - It was not possible to change names for generic types.
 
 ## Version 3.0.16
+
+_Released 2021-08-09._
 
 ### New features added in 3.0.16
 

@@ -6,11 +6,15 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 
 ## Version 5.0.6
 
+_Released 2026-05-28._
+
 ### Fixes in 5.0.6
 
 - Fixed: Some module migrations would fail due to stale cached data being returned by the persistence SDK under certain circumstances.
 
 ## Version 5.0.5
+
+_Released 2026-05-25._
 
 ### Improvements in 5.0.5
 
@@ -26,11 +30,15 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 
 ## Version 5.0.4
 
+_Released 2026-05-18._
+
 ### Fixes in 5.0.4
 
 - Fixed: A `Method not found` exception would sometimes occur in Angular solutions.
 
 ## Version 5.0.3
+
+_Released 2026-05-15._
 
 ### Improvements in 5.0.3
 
@@ -45,6 +53,8 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 
 ## Version 5.0.2
 
+_Released 2026-05-13._
+
 ### Fixes in 5.0.2
 
 - Fixed: If version 5.0.1 was the first version you're running of Intent Architect v5 and v4 had been used in the past, it would always show a "data upgrade required" dialog regardless of whether all other instances of Intent Architect were closed.
@@ -52,12 +62,16 @@ description: "Intent Architect 5.0 release notes: MCP server support for AI agen
 
 ## Version 5.0.1
 
+_Released 2026-05-12._
+
 ### Fixes in 5.0.1
 
 - Fixed: Model picker with duplicate model names (including custom models with identical IDs across providers) will now display as separate entries grouped by provider, allowing you to select the correct one.
 - Fixed: A JavaScript "operation not permitted" error would occur on startup if running Intent Architect v5 for the first time while Intent Architect v4 was still running.
 
 ## Version 5.0.0
+
+_Released 2026-05-08._
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
   <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/vlEwOM8nRXo?si=GnW6IaJWmn2FwLFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

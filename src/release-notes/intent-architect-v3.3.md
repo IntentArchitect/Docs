@@ -6,6 +6,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.19
 
+_Released 2022-10-21._
+
 ### Issues fixed in 3.3.19
 
 - Fixed: Scripting API for the application's `name` and `description` returned the application's `id`.
@@ -15,6 +17,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 - Updates to the communication API contracts between the Intent Architect client and server.
 
 ## Version 3.3.18
+
+_Released 2022-10-08._
 
 ### Improvements added in 3.3.18
 
@@ -29,11 +33,15 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.17
 
+_Released 2022-09-25._
+
 ### Issues fixed in 3.3.17
 
 - Fixed: Designer buttons / shortcuts become disabled under certain, rare circumstances.
 
 ## Version 3.3.16
+
+_Released 2022-09-23._
 
 ### Improvements added in 3.3.16
 
@@ -53,11 +61,15 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.15
 
+_Released 2022-09-11._
+
 ### Issues fixed in 3.3.15
 
 - Fixed: Changing isNullable/isCollection on associations causes type to be changed.
 
 ## Version 3.3.14
+
+_Released 2022-09-07._
 
 ### Improvements added in 3.3.14
 
@@ -73,6 +85,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.13
 
+_Released 2022-08-21._
+
 ### Improvements added in 3.3.13
 
 - Enhanced designer loading performance.
@@ -84,6 +98,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 - Fixed: Incorrect error message tooltip not showing on Stereotype Properties
 
 ## Version 3.3.12
+
+_Released 2022-08-15._
 
 ### New features added in 3.3.12
 
@@ -104,11 +120,15 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.11
 
+_Released 2022-08-01._
+
 ### Issues fixed in 3.3.11
 
 - Fixed: Software Factory does not restart on model save if completed (introduced in last build). Causes save button to become disabled and possible errors.
 
 ## Version 3.3.10
+
+_Released 2022-07-31._
 
 > [!NOTE]
 > This build affects the way underlying Intent Architect model metadata is persisted. It is therefore highly recommended that users on a project all upgrade to this version together.
@@ -149,6 +169,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.9
 
+_Released 2022-06-30._
+
 ### Issues fixed in 3.3.9
 
 - Fixed: Multi-select type for Module Settings not working.
@@ -156,6 +178,8 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 - Fixed: Error on save in designers (e.g. Domain) after copying an element with an association
 
 ## Version 3.3.8
+
+_Released 2022-06-15._
 
 ### New features added in 3.3.8
 
@@ -177,11 +201,15 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.7
 
+_Released 2022-05-24._
+
 ### Issues fixed in 3.3.7
 
 - Fixed: (macOS) When a template's output file extension was an empty string the output file would have have a trailing period.
 
 ## Version 3.3.6
+
+_Released 2022-05-23._
 
 ### Issues fixed in 3.3.6
 
@@ -190,13 +218,15 @@ description: "Intent Architect 3.3 release notes: performance for multi-element 
 
 ## Version 3.3.5
 
+_Released 2022-05-22._
+
 ### Issues fixed in 3.3.5
 
 - Fixed: Repeated reads of the execution log during Software Factory execution would result in a significant increase in the total execution time.
 
 ## Version 3.3.4
 
-_Released 2022/05/16._
+_Released 2022-05-15._
 
 ### New features added in 3.3.4
 
@@ -210,7 +240,7 @@ _Released 2022/05/16._
 
 ## Version 3.3.3
 
-_Released 2022/05/11._
+_Released 2022-05-11._
 
 ### Issues fixed in 3.3.3
 
@@ -220,7 +250,7 @@ _Released 2022/05/11._
 
 ## Version 3.3.2
 
-_Released 2022/05/01._
+_Released 2022-05-01._
 
 ### Issues fixed in 3.3.2
 
@@ -229,7 +259,7 @@ _Released 2022/05/01._
 
 ## Version 3.3.1
 
-_Released 2022/04/28._
+_Released 2022-04-28._
 
 ### Issues fixed in 3.3.1
 
@@ -239,7 +269,7 @@ _Released 2022/04/28._
 
 ## Version 3.3.0
 
-_Released 2022/04/26._
+_Released 2022-04-26._
 
 ### New features added in 3.3.0
 

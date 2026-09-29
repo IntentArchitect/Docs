@@ -6,6 +6,8 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 
 ## Version 4.4.6
 
+_Released 2025-05-16._
+
 ### Improvements in 4.4.6
 
 - Improvement: The Software Factory SDK now exposes Application References when requesting SolutionConfig, providing access to all Application IDs within an Intent Architect solution. This allows for more effective cross-application metadata access.
@@ -16,17 +18,23 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 
 ## Version 4.4.5
 
+_Released 2025-05-05._
+
 ### Improvements in 4.4.5
 
 - Improvement: Support for overriding the automatically selected map-to parent when double clicking elements in the Advanced Mapping dialog. This improvement addresses the friction in mapping `Service Operation` elements to the domain.
 
 ## Version 4.4.4
 
+_Released 2025-04-07._
+
 ### Issues fixed in 4.4.4
 
 - Fixed: (MacOS) EACCESS error raised when attempting to open Rider IDE from Intent Architect when Rider is set as preferred IDE.
 
 ## Version 4.4.3
+
+_Released 2025-03-26._
 
 ### Improvements in 4.4.3
 
@@ -43,6 +51,8 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 
 ## Version 4.4.2
 
+_Released 2025-03-13._
+
 ### Issues fixed in 4.4.2
 
 - Fixed: Module interop dependencies could cause those dependencies to have their module installation settings changed to enable module options when installing seemingly unrelated modules.
@@ -51,6 +61,8 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 - Fixed: Casing functions (toPascalCase, toCamelCase, etc.) in macro scripts did not correctly format strings like "MyObject_IdentifierInputType".
 
 ## Version 4.4.1
+
+_Released 2025-03-07._
 
 ### Improvements in 4.4.1
 
@@ -68,6 +80,8 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 - Fixed: Advanced Mappings would show errors when moving components around in the tree view.
 
 ## Version 4.4.0
+
+_Released 2025-02-19._
 
 Intent Architect v4.4.0 primarily brings features and functionality to improve product usability and feature discoverability. Some examples of this would include new Help system, and a new suggestion system. This version is fully backwards compatible.
 

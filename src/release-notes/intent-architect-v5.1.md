@@ -28,6 +28,8 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 
 ## Version 5.1.2
 
+_Released 2026-06-30._
+
 ## Improvements in 5.1.2
 
 - Improvement: Google Gemini is no longer restricted to read-only.
@@ -55,6 +57,8 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Fixed: An exception could be thrown when an invalid `.git` directory was found.
 
 ## Version 5.1.1
+
+_Released 2026-06-17._
 
 ## Improvements in 5.1.1
 
@@ -84,6 +88,8 @@ description: "Intent Architect 5.1 release notes: built-in Git source control, m
 - Fixed: The app would always not close correctly when using the updater's "Restart Now" button.
 
 ## Version 5.1.0
+
+_Released 2026-06-09._
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
   <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/zOeaQ3aSLnE?si=5y3iV2tkkfKVDCHt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
