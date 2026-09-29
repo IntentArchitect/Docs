@@ -37,7 +37,7 @@ For running several tasks concurrently, **Manage Agents** is a top-level window 
 
 ### Your CLI as a provider
 
-An existing CLI coding agent can be configured as Intent Architect's AI provider in place of a raw model API. Claude Code, Codex, GitHub Copilot CLI and Kiro all connect over the Agent Client Protocol.
+An existing CLI coding agent can be configured as Intent Architect's AI provider in place of a raw model API. Claude Code, Codex, GitHub Copilot CLI, Kiro and OpenCode all connect over the Agent Client Protocol.
 
 The agent and its subscription perform the work; Intent Architect supplies the interface, the model tooling and the control framework around it. Configured in [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers).
 
