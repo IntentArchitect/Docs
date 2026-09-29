@@ -6,6 +6,8 @@ description: "Release notes for Intent Architect 3.4, introducing Application Te
 
 ## Version 3.4.3
 
+_Released 2023-04-03._
+
 ### Issues fixed in 3.4.5
 
 - Fixed: Output Location path was being computed incorrectly when creating a new application for an existing solution.
@@ -34,11 +36,15 @@ description: "Release notes for Intent Architect 3.4, introducing Application Te
 
 ## Version 3.4.2
 
+_Released 2023-03-02._
+
 ### Issues fixed in 3.4.2
 
 - Fixed: Search criteria would sometimes go out of sync between the "Browse", "Installed" and "Updates" tabs under "Modules".
 
 ## Version 3.4.1
+
+_Released 2023-02-15._
 
 ### Improvements in 3.4.1
 - Extended Designer Scripting API to support diagram control (e.g. adding and removing visual elements). The currently active diagram can be accessed through the `currentDiagram` property.
@@ -60,6 +66,8 @@ description: "Release notes for Intent Architect 3.4, introducing Application Te
 - Software Factory Executable skips running git diff if more than 50 file overwrites/renames occur. This prevents performance delays on large change sets.
 
 ## Version 3.4.0
+
+_Released 2023-01-07._
 
 ### New features in 3.4.0
 

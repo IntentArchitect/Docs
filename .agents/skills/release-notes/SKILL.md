@@ -68,6 +68,8 @@ The release-notes content lives in this docs repo, but the **changes come from t
 ```md
 ## Version 5.1.3
 
+_Released 2026-06-30._
+
 ## Improvements in 5.1.3
 
 - Improvement: <one-line, user-facing description>.
@@ -81,6 +83,13 @@ The release-notes content lives in this docs repo, but the **changes come from t
 
 - Every improvement bullet starts with `Improvement: `; every fix bullet starts with `Fixed: `.
 - If a version has no fixes (or no improvements), omit that empty subsection.
+- **Release date line.** Right after the `## Version X.Y.Z` heading, add `_Released YYYY-MM-DD._` using the **creation date of the `publish/client/X.Y.Z` tag** (not `-pre` tags, not committer/pusher time — `git log -1 --format='%ci' publish/client/X.Y.Z`), e.g.:
+
+  ```bash
+  git -C D:/Dev/Intent/main log -1 --format='%ci' publish/client/5.1.3
+  ```
+
+  If only a `-pre` tag exists (no final release tag yet), the version is still in progress — omit the release date line until the final tag appears.
 
 ## Writing style
 
@@ -119,6 +128,7 @@ Before finishing:
 
 - Both tags verified to exist (after a fetch).
 - New section placed newest-first, heading uses the plain patch version (no `-pre`).
+- `_Released YYYY-MM-DD._` line added right after the heading, dated from the `publish/client/X.Y.Z` tag (omitted if only a `-pre` tag exists).
 - Improvements and Fixes subsections present (non-empty ones only), correct prefixes.
 - Bullets are plain-text, one line, backticked where appropriate, and read as user-facing.
 - Internal/vague commits excluded — and reported to the user with reasons.

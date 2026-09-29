@@ -7,6 +7,8 @@ description: "Release notes for Intent Architect 4.1, adding application rename 
 
 ## Version 4.1.5
 
+_Released 2024-01-22._
+
 ### Improvements in 4.1.5
 
 - Renaming of applications allows user to synchronize underlying files and references throughout the solution.
@@ -22,11 +24,15 @@ description: "Release notes for Intent Architect 4.1, adding application rename 
 
 ## Version 4.1.4
 
+_Released 2024-01-16._
+
 ### Issues fixed in 4.1.4
 
 - Fixed: Service proxies fail to map to services when creating a Service Proxies Package from scratch
 
 ## Version 4.1.3
+
+_Released 2024-01-14._
 
 ### Improvements in 4.1.3
 
@@ -40,6 +46,8 @@ description: "Release notes for Intent Architect 4.1, adding application rename 
 - Fixed: Packages not loading when its application identifier can't be found. Now will warn if that is the case, and allow the package to load.
 
 ## Version 4.1.2
+
+_Released 2024-01-08._
 
 ### Improvements in 4.1.2
 
@@ -58,6 +66,8 @@ description: "Release notes for Intent Architect 4.1, adding application rename 
 
 ## Version 4.1.1
 
+_Released 2023-12-22._
+
 ### Improvements in 4.1.1
 
 - Improved designer performance through the caching paradigm of "JavaScript function" based configurations.
@@ -68,6 +78,8 @@ description: "Release notes for Intent Architect 4.1, adding application rename 
 - Fixed: Changes to the type-references of elements involved in advanced mappings causes incorrectly validation errors.
 
 ## Version 4.1.0
+
+_Released 2023-12-20._
 
 Intent Architect V4.1 is promising to be a pivotal release for the platform, with a set of incredibly versatile and powerful new features and capabilities. The Intent Architect team is very  proud to finally make this release available to our community after the many months of effort. We are looking forward to getting your feedback.
 

@@ -7,12 +7,16 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 ## Version 4.2.9
 
+_Released 2024-07-09._
+
 ### Issues fixed in 4.2.9
 
 - Fixed: Under certain circumstances, deleting an association between elements would not cause validation functions to run again until re-opening the designer.
 - Fixed: When both a `.deviations.log` files and `.deviations.log.xml` existed, an error would occur during Software Factory execution.
 
 ## Version 4.2.8
+
+_Released 2024-06-24._
 
 ### Improvements in 4.2.8
 
@@ -25,12 +29,16 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 ## Version 4.2.7
 
+_Released 2024-06-13._
+
 ### Issues fixed in 4.2.7
 
 - Fixed: SVG icons from web servers would not be able to change their color for dark mode.
 - Fixed: Implementations of `ITransformOutput` would not be executed for certain kinds of files (such as `.sln`s).
 
 ## Version 4.2.6
+
+_Released 2024-05-22._
 
 ### Issues fixed in 4.2.6
 
@@ -39,6 +47,8 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 - Fixed: The "Unsaved Changes" dialog would not show when restarting the application to apply an update.
 
 ## Version 4.2.5
+
+_Released 2024-05-20._
 
 ### Improvements in 4.2.5
 
@@ -54,6 +64,8 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 ## Version 4.2.4
 
+_Released 2024-04-05._
+
 ### Improvements in 4.2.4
 
 - Improvement: Installation of multiple modules is now significantly faster, this is especially noticeable when creating new applications.
@@ -66,6 +78,8 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 ## Version 4.2.3
 
+_Released 2024-03-23._
+
 ### Improvements in 4.2.3
 
 - Improvement: Hints on the application settings screen will now render "minimal markdown" (Bold, italics, inline code and URLs) for hints.
@@ -77,17 +91,23 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 ## Version 4.2.2
 
+_Released 2024-03-11._
+
 ### Issues fixed in 4.2.2
 
 - Fixed: The Software Factory CLI would update files in the `.intent` folder which could break CI builds if they were configured in a particular way.
 
 ## Version 4.2.1
 
+_Released 2024-03-11._
+
 ### Issues fixed in 4.2.1
 
 - Fixed: An exception would occur in the Software Factory CLI when using "legacy" command line arguments, i.e. if not explicitly using the newer `ensure-no-outstanding-changes` command. It's advised to upgrade any scripts you have to rather use the [`ensure-no-outstanding-changes` command](xref:tools.software-factory-cli#ensure-no-outstanding-changes-command).
 
 ## Version 4.2.0
+
+_Released 2024-03-08._
 
 Intent Architect V4.2.0 comes with several highly anticipated features, many of which are direct requests from yourselves, the users. This release also comes with several "groundwork" features that we've added to support future enhancements and capabilities. Please share your thoughts and feedback on this release with our team.
 

@@ -10,6 +10,7 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 - Improvement: User chat messages now have a footer of icon actions. Forking from a user message starts the new chat from just before it, with that message's text already in the composer.
 - Improvement: When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
+- Improvement: When the built-in Intent Architect skills or rules are missing from a chat's solution, a banner above the chat composer now offers to add them. It can be dismissed for that folder, and they can still be applied later from the Intent MCP tab.
 - Improvement: Creating a pull request now defaults its target to the branch the source branch was originally created from.
 - Improvement: The conversation's Changes tab is now called "Agent's Changes", and "Keep All Changes" can be used while a turn is still running.
 - Improvement: The Agents window's Open in IDE button now names the solution and IDE it will open. Its drop-down lets you pick from the solutions found in the folder, pick a different IDE, or open the folder instead.
@@ -52,6 +53,8 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: Tool status icons in chat weren't vertically centered.
 
 ## Version 5.3.3
+
+_Released 2026-09-23._
 
 ### Highlights in 5.3.3
 
@@ -151,6 +154,8 @@ node_modules/
 - Fixed: Adding or removing a repository could leave a window's repository list or its pinned repository showing the previous set.
 
 ## Version 5.3.2
+
+_Released 2026-09-17._
 
 ### Highlights in 5.3.2
 
@@ -269,11 +274,15 @@ For teams wishing to switch existing applications over it can be done so from th
 
 ## Version 5.3.1
 
+_Released 2026-09-10._
+
 ### Fixes in 5.3.1
 
 - macOS: Claude Code and other ACP installations would sometimes not be detected.
 
 ## Version 5.3.0
+
+_Released 2026-09-10._
 
 5.3's headline changes are all about the same problem: an agentic workflow only works if you can see what agents are doing, and judge what they've done. This release addresses that at the three points where it matters most - running a fleet of agents, reading a plan before it's built, and reviewing the change that finally gets merged.
 
