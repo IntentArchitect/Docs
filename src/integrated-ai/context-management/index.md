@@ -163,6 +163,8 @@ description: Plan and execute a safe DB migration with rollback
 
 The markdown body is the instruction content that gets loaded when the skill is activated.
 
+When Intent Architect's own built-in skills and rules are missing from a chat's solution, a banner above the chat composer offers to add them. It can be dismissed for that folder, and they can still be applied later from the Intent MCP tab in [AI Configuration](xref:ai.configuration#2-intent-mcp).
+
 ### Where skills are searched
 
 | Context    | Folders searched (first hit per skill `name` wins)                                          |

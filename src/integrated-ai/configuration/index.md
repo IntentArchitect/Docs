@@ -30,7 +30,11 @@ Connect Intent's agents to one or more LLM services. API keys are stored **local
 | **GitHub Copilot CLI**    | GitHub Copilot CLI agent (Agent Client Protocol)                                                                           |
 | **Kiro**                  | Kiro CLI agent (Agent Client Protocol)                                                                                    |
 
-Each provider shows a status pill: **Not configured** → **Save Changes** (after edits) → **Configured**.
+Each provider shows a status pill: **Not configured** → **Save Changes** (after edits) → **Configured**. A CLI agent that can't be located on the machine shows **CLI not found**, together with the command to install it.
+
+### Connector packages
+
+The ACP connectors behind Claude Code, Codex and GitHub Copilot can be updated independently of an Intent Architect release. A **Connector package** field on each of those providers overrides the version used, and a connector download reports its progress in the chat.
 
 ---
 
@@ -47,7 +51,7 @@ Connecting does two things:
 1. Registers Intent Architect's MCP server in that agent's own configuration.
 2. Copies Intent Architect's built-in skills and rules into the agent's native folders - `.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on - so the agent starts out equipped to work with the model.
 
-An agent that isn't detected on the machine can still be enabled and connected. The **Advanced** toggle reveals the raw executable path and arguments for assembling a configuration by hand.
+Connecting creates any AI context folders that are missing, so no application is silently skipped. An agent that isn't detected on the machine can still be enabled and connected. The **Advanced** toggle reveals the raw executable path and arguments for assembling a configuration by hand.
 
 For more details on what the Intent MCP server does and how external agents use it, see [](xref:ai.intent-mcp-server).
 
