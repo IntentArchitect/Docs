@@ -4,9 +4,9 @@ description: "How the Intent MCP server lets external AI agents like Claude Code
 ---
 # Intent MCP Server
 
-Intent Architect exposes an MCP (Model Context Protocol) server that lets external AI coding agents - Claude Code, GitHub Copilot, VS Code Chat, Cursor, and others - connect to Intent Architect and take over the parts of the codebase that Intent manages, while the agent continues handling the rest of the code as normal.
+Intent Architect exposes an MCP (Model Context Protocol) server that lets external AI coding agents - Claude Code, Codex, GitHub Copilot, GitHub Copilot CLI, Cursor, Kiro, OpenCode and others - connect to Intent Architect and take over the parts of the codebase that Intent Architect manages, while the agent continues handling the rest of the code as normal.
 
-For instructions on how to connect your AI client, see [](xref:ai.configuration).
+Connecting is a single click per agent from the Intent MCP tab in AI Configuration, which also copies Intent Architect's built-in skills and rules into that agent's native folders. See [](xref:ai.configuration#2-intent-mcp).
 
 ## How it works
 
@@ -20,6 +20,8 @@ The agent handles the coordination between these two modes automatically. You gi
 ## Usage notes
 
 The Intent MCP server instructions tell MCP clients that they must check for the existence of a `.isln` file and if found the client must use an MCP server tool to get full Intent Architect usage instructions. This means that MCP clients should automatically get all the guidance they need to be able to effectively use Intent Architect with no additional instructions needed.
+
+Those instructions list every built-in skill discovered at runtime, including the full `sdd-*` Spec-Driven Development flow, so an external agent can invoke the right skill for the phase of work it is in.
 
 ## Example: Building a feature with Claude Code
 

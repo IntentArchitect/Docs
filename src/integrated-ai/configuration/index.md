@@ -4,7 +4,7 @@ description: "The AI Configuration dialog: connect LLM providers (OpenAI, Anthro
 ---
 # AI Configuration
 
-Open via the **AI Configuration** dialog in the AI chat window. There are three tabs.
+Open via the **AI Configuration** dialog in the AI chat window. There are four tabs.
 
 ---
 
@@ -36,16 +36,18 @@ Each provider shows a status pill: **Not configured** → **Save Changes** (afte
 
 ## 2. Intent MCP
 
-Intent Architect exposes its own MCP server, so external AI agents (Claude Desktop, Cursor, VS Code Copilot, etc.) can drive Intent. Transport is **stdio**.
+Intent Architect exposes its own MCP server, so external AI agents can drive Intent Architect's designers directly. Transport is **stdio**.
 
-![Intent MCP tab in the AI Configuration dialog](images/intent-mcp.png)
+![Intent MCP tab in the AI Configuration dialog](images/intent-mcp-configuration-dialog.png)
 
-To set up:
+The tab lists one row per supported agent - Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro and OpenCode - grouped by whether the agent is detected on the machine. Each row shows a live **Repo** and **User** connection status and a one-click **Connect**, with **Connect all** available for the whole group.
 
-1. Pick your AI client from the segmented selector.
-2. Copy the generated snippet and paste it into that client's MCP configuration.
+Connecting does two things:
 
-The **Advanced** toggle reveals the raw executable path and arguments if you need to assemble a config by hand.
+1. Registers Intent Architect's MCP server in that agent's own configuration.
+2. Copies Intent Architect's built-in skills and rules into the agent's native folders - `.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on - so the agent starts out equipped to work with the model.
+
+An agent that isn't detected on the machine can still be enabled and connected. The **Advanced** toggle reveals the raw executable path and arguments for assembling a configuration by hand.
 
 For more details on what the Intent MCP server does and how external agents use it, see [](xref:ai.intent-mcp-server).
 
@@ -102,18 +104,7 @@ Each agent has two availability modes, controlled via its `.agent.md` frontmatte
 | **In picker**   | Agent appears as a selectable chat mode in the UI            |
 | **Dispatchable**| Agent can be invoked as a sub-agent by other agents          |
 
-### Built-in agents
-
-Intent Architect ships with six built-in agents:
-
-| Agent       | Context  | Purpose                                                                       |
-| ----------- | -------- | ----------------------------------------------------------------------------- |
-| **Agent**   | Modeling | Design and modify the model, run the Software Factory, and dispatch tasks    |
-| **Ask**     | Modeling | Read-only Q&A about the current model and codebase                           |
-| **Coding**  | Coding   | Read, write, and modify code in the current solution                         |
-| **Discovery**| None    | Read-only explorer—maps the model/codebase area you need and reports findings |
-| **Plan**    | Modeling | Iteratively write a plan file, ask clarifying questions, and hand off to agents |
-| **Spec Worker** | None | Runs one phase of the guided spec flow by following the matching rules       |
+For the full roster of agents that ship with Intent Architect, and what each one is for, see [](xref:ai.built-in-agents).
 
 ### Custom agents
 

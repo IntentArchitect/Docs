@@ -1,18 +1,28 @@
 ---
 uid: ai.built-in-agents
-description: "Intent Architect's built-in AI agents — Ask, Plan, and Agent for modeling work, plus the Coding sub-agent for delegated implementation tasks."
+description: "Intent Architect's built-in AI agents: Agent, Ask and Plan for modeling work, plus the Coding, Discovery and Spec Worker agents dispatched automatically."
 ---
 # Built-in Agents
 
-Intent ships with three agents in the AI chat dropdown for modeling work, plus a **Coding** sub-agent that handles delegated implementation tasks automatically. Pick the right chat agent for your task, then read the section below for details.
+Intent Architect comes with a set of built-in agents. Some are selectable in the AI chat dropdown; the others are dispatched automatically by other agents and are never selected directly.
 
-| Agent       | What it does                                                                 | When to pick it                                                       |
-| ----------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| **Agent**   | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
-| **Ask**     | Read-only Q&A over the model and codebase                                    | "Explain this", "where is X used", "how does Y work"                  |
-| **Plan**    | Iteratively writes a plan file, asks clarifying questions, requests approval | Larger or ambiguous changes you want reviewed before any work happens |
+## Selectable in the chat
 
-**Coding** is a sub-agent used internally for delegated coding tasks - you don't select it directly. When a qualifying Agent needs to implement code changes, they automatically delegate to the Coding agent. See [Agent Context Loading](xref:ai.context-management) to understand how modeling and coding contexts work behind the scenes.
+| Agent     | What it does                                                                 | When to select it                                                     |
+| --------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Agent** | Designs and modifies the model directly via designer tools                   | Quick model edits where the change is clear                           |
+| **Ask**   | Read-only Q&A over the model and codebase                                    | "Explain this", "where is X used", "how does Y work"                  |
+| **Plan**  | Iteratively writes a plan file, asks clarifying questions, requests approval | Larger or ambiguous changes you want reviewed before any work happens |
+
+## Dispatched automatically
+
+| Agent           | Context  | What it does                                                                  |
+| --------------- | -------- | ----------------------------------------------------------------------------- |
+| **Coding**      | Coding   | Reads, writes and modifies code in the current solution                       |
+| **Discovery**   | None     | Read-only explorer - maps a model or codebase area and reports its findings   |
+| **Spec Worker** | None     | Runs one phase of the guided spec flow by following the matching rules        |
+
+These are invoked through `create_sub_agent` when an agent delegates a piece of work, so they carry out focused tasks without cluttering the main conversation. See [Agent Context Loading](xref:ai.context-management) for how modeling and coding contexts work behind the scenes.
 
 ---
 
@@ -55,6 +65,24 @@ The Coding agent is a sub-agent that the Agent can delegate to when implementati
 - **What it does:** handles hand-written code changes that aren't expressed in the model - custom service implementations, bug fixes in partial files, refactors of generated extensions, and other implementation work.
 - **Behavior:** reads files before modifying them, prefers `patch_file` over full rewrites, preserves existing code style, and only invokes `run_task` / `apply_staged_file_changes` when explicitly asked to fix build/task errors.
 - **Tools:** full file/codebase toolset (`read_file`, `write_file`, `patch_file`, `delete_code_file`, `grep`, `glob`, `list_directory`, `get_project_overview`), plus `run_task`, `apply_staged_file_changes`, and `create_ai_task` for spawning follow-up coding tasks.
+
+---
+
+## Discovery (sub-agent)
+
+A read-only explorer dispatched when an agent needs to understand an unfamiliar area before acting on it. It maps the relevant part of the model or codebase and reports its findings back to the agent that dispatched it, without making any changes.
+
+- **What it does:** surveys a specified area and returns a written summary, keeping exploration out of the main conversation.
+- **Behavior:** read-only throughout. It cannot modify the model or the codebase.
+
+---
+
+## Spec Worker (sub-agent)
+
+Runs a single phase of the guided spec flow - requirements, design, tasks, implementation, or verification - by following the rules that apply to that phase. The Specs panel dispatches it as work moves through each phase.
+
+- **What it does:** executes one phase of a spec at a time, so a large feature is implemented in discrete, checkpointed steps rather than one long conversation.
+- **See also:** [Spec-Driven Development](xref:application-development.spec-driven-development).
 
 ---
 
