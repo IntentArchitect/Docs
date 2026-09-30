@@ -36,6 +36,9 @@ This document lists every built-in tool, what it does, and where it makes sense 
 | List a designer's package references       | `get_designer_package_references`                               |
 | Run the Software Factory and stage changes | `run_software_factory`                                          |
 | Hand off work to a coding-agent task tab   | `create_ai_task`                                                |
+| Dispatch a sub-agent for a focused task    | `create_sub_agent`                                              |
+| Run an ad-hoc shell command                | `shell`                                                         |
+| Read a pull request's open review threads  | `get_pull_request_review_threads`                               |
 | Search Intent / org documentation          | `search_docs`                                                   |
 | Ask the user a question (multi-choice)     | `ask_user_question`                                             |
 | Track progress with a todo list            | `todo_update`                                                   |
@@ -58,6 +61,16 @@ Tools aren't tied to a specific context - `coding` and `modeling` agents can pic
 > A tool's "context" is determined by which agents you list it in - there's no automatic enforcement.
 
 Most tools require an `applicationId` parameter to identify which application's output folder or designer model to act on. Most also require a short `intention` string explaining *why* the tool is being called - this is shown to the user as a one-line summary of the action.
+
+---
+
+### Tool behaviour worth knowing
+
+- **`patch_file`** accepts literal search/replace blocks only. Unified-diff-style patches are not supported.
+- **`apply_staged_file_changes`** requires the explicit list of files to apply, rather than applying everything currently pending.
+- **`shell`** runs ad-hoc bash or PowerShell commands, with output streamed to a terminal and persisted. A running command can be backgrounded or killed.
+- **`create_sub_agent`** dispatches a sub-agent - Coding, Discovery or Spec Worker - for an isolated piece of work. Multiple dispatches can run concurrently.
+- Agents are blocked from writing to Intent Architect's protected files (`.intent`, `Intent.Metadata`, `.application.config`).
 
 ---
 

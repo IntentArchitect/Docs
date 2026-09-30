@@ -13,7 +13,7 @@ Behind the scenes, Intent's AI operates in two contexts that load different inst
 - **`modeling`** - works with Intent designers (Domain, Services, User Interface, etc.) and delegates to the coding context when implementation work is needed.
 - **`coding`** - handles the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) and works against an application's generated source code.
 
-You interact with a single chat interface where the modeling agent handles your requests and automatically delegates coding tasks to the coding context. As a developer, you don't need to think about this distinction—you just describe what you want in one place.
+A modeling agent handles requests against the designers and delegates coding tasks to the coding context automatically, so implementation work is picked up without having to switch agents.
 
 Each context has its own root folder for instruction files and skills: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its context - a modeling-context agent will never see files in the application's output folder, and vice versa.
 
@@ -68,7 +68,9 @@ Files that guide the AI when handling implementation work (in your application o
     └── skills/<skill>/SKILL.md         ← listed for on-demand loading
 ```
 
-These coding-side conventions match the dotfile layouts used by Claude Code, GitHub Copilot, Cursor, and Intent - so existing repo-level guidance keeps working out of the box.
+These coding-side conventions match the dotfile layouts used by Claude Code, GitHub Copilot, Cursor, and Intent Architect - so existing repo-level guidance keeps working out of the box. Each supported agent uses its own context and instructions folder, matching that agent's real discovery convention, rather than several agents sharing one `.agents` folder.
+
+`CLAUDE.md` and `AGENTS.md` are discovered by walking up from an application's output folder toward the repository root, so conventions defined at the root of a repository are picked up during coding turns.
 
 ---
 
@@ -161,6 +163,8 @@ description: Plan and execute a safe DB migration with rollback
 
 The markdown body is the instruction content that gets loaded when the skill is activated.
 
+When Intent Architect's own built-in skills and rules are missing from a chat's solution, a banner above the chat composer offers to add them. It can be dismissed for that folder, and they can still be applied later from the Intent MCP tab in [AI Configuration](xref:ai.configuration#2-intent-mcp).
+
 ### Where skills are searched
 
 | Context    | Folders searched (first hit per skill `name` wins)                                          |
@@ -184,7 +188,7 @@ There are three ways a skill becomes active for a turn:
 
 ## Summary
 
-- **You interact with a single chat interface.** Behind the scenes, the modeling agent delegates to the coding context when implementation is needed—but you don't need to think about that distinction.
+- **Modeling agents delegate to the coding context automatically** when implementation work is needed.
 - **Modeling context files** live under `{solutionFolder}/.agents/` - agent definitions, instructions, skills, and the always-loaded `AGENTS.md`/`INTENT.md`.
 - **Coding context files** live under each application's output folder, using the dotfile conventions of Claude Code, GitHub Copilot, Cursor, and Intent.
 - **Instructions without frontmatter are always loaded.** Use `applyTo` patterns when you want to scope an instruction file to particular file attachments.

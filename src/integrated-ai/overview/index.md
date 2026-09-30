@@ -1,75 +1,94 @@
 ---
 uid: ai.overview
-description: "Intent Architect's integrated AI combines deterministic code generation with modeling and coding agents. Links to configuration, built-in agents, and tooling."
+description: "How AI agents operate within Intent Architect's control framework, and the three ways to drive it: built-in agents, a CLI agent configured as the provider, or an external agent via the Intent MCP server."
 ---
 # AI in Intent Architect
 
-Intent Architect has deeply integrated AI capabilities that operate inside the architecture you've designed, guided by your models, your standards, and your patterns and technologies. These capabilities are aligned with industry standards but also unique to the platform. The intent is simple: describe the design of your system, run the Software Factory, and out the other side comes working software - perfectly architected, consistent, readable, and maintainable. This is what we call the "golden path".
+Intent Architect works with a user's preferred AI service provider and coding harness, and adds a control framework made up of four components:
 
-![AI Modeling Assistant working alongside the Domain Designer](images/ai-modeling-assistant.png)
+- **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the user's architecture and standards.
+- **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help users minimize technical and cognitive debt.
+- **[Advanced Validation Tools](xref:key-concepts.codebase-integration)** – tools to denoise Pull Requests (PRs) and optimize validation processes for agentic development.
+- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
 
-Intent's AI presents a **single chat interface** where you work with your designs, describe features, and guide development. Behind the scenes, when coding tasks need to be delegated, the system automatically hands off to a dedicated coding agent. You don't need to think about this distinction—it just works.
+This section covers how AI agents operate within that control framework, and the options available for driving it.
 
-## Deterministic generation + AI
+---
 
-To achieve this, Intent Architect deploys both deterministic code generation and generative AI. Deterministic code generation rolls out the architecture, infrastructure, and boilerplate that flow from your design. When coding tasks need to be implemented, the AI automatically handles them—whether that's through your conversation or delegated in the background. These systems work together inside the [Software Factory](xref:application-development.software-factory.about-software-factory-execution), leveraging:
+## Three ways to drive it
 
-- **Virtual Codebase** which allows the AI to find and inspect files that have not yet been applied to the codebase, and to delegate implementation work as needed.
-- **[Context engineering](xref:ai.context-management)** ensures every agent turn is informed by the model, your instruction files, and the relevant slice of the codebase - so output conforms to your application's architecture, standards, and structure.
+The control framework applies identically across all three paths – the same guardrails, blueprints and traceability, regardless of which agent does the work or where it runs. Users can adopt whichever path fits their existing workflow, and Change Review and the Specs panel remain available in Intent Architect throughout.
 
-![AI Coding Assistant implementing a use case in the Software Factory](images/ai-coding-assistant.png)
+| Path                                                                          | Where it runs                                                                  |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **[Intent Architect's own agents](#intent-architects-own-agents)**             | In Intent Architect, using its built-in agents                                 |
+| **[Your CLI as a provider](#your-cli-as-a-provider)**                         | In Intent Architect, using an existing CLI agent as the provider                |
+| **[An external agent via Intent MCP](#an-external-agent-via-intent-mcp)**     | In an IDE or terminal – VS Code, Rider, Visual Studio – driving Intent Architect remotely |
 
-## Model-first development
+![The AI Providers tab, listing model providers and CLI agents that connect over the Agent Client Protocol](images/ai-providers.png)
 
-In your single chat interface, you work with Intent's designers - the source of truth from which all generated code flows. Rather than asking AI to write code directly, you can describe a feature, drop in a PRD or screenshot, and have the AI shape the model itself. When implementation work is needed, it happens automatically and transparently. Every change is staged in-memory and only persisted with your explicit approval, so model changes are transparent at every step of the way. Your interactions are backed by:
+### Intent Architect's own agents
 
-- **[Powerful Tooling](xref:ai.tooling)** that reads, analyzes, and modifies the designs of your system. The AI can also interact with you (e.g. to ask clarifying questions where the requirements are ambiguous) and handle implementation tasks automatically.
-- **[Designer-specific context](xref:ai.context-management)** - the AI works from live snapshots of your designers and diagrams, layered with per-solution guidance (`AGENTS.md`, `INTENT.md`, and any instruction files under `.agents/`) so your naming conventions, architectural rules, and project knowledge are applied to every change.
-- **[Plan mode](xref:ai.built-in-agents#plan)** - for larger or ambiguous changes, iterative markdown planning with clarifying questions and your explicit approval before any changes are made.
+Intent Architect comes with a set of built-in agents that operate directly against the designers, run the Software Factory, and delegate implementation work to a coding agent automatically. See [Built-in Agents](xref:ai.built-in-agents).
 
-![Plan mode showing an iterative markdown plan in the AI Modeling Assistant](images/ai-plan-mode.png)
+For running several tasks concurrently, **Manage Agents** is a top-level window that owns every agent session across every repository and solution on the machine. Each session can be allocated its own Git worktree, so parallel tasks remain isolated from one another, and each row reports the checkout it ran in and the volume of uncommitted work it has produced. A full workspace surrounds the chat – designers, files, diffs, terminals, Git and Change Review – scoped to the selected session. See [Manage Agents](xref:application-development.manage-agents).
 
-## What ships out of the box
+### Your CLI as a provider
 
-- **A single, powerful chat interface** - work with your designers, describe features, and guide development without worrying about which agent is handling which task.
-- **[Pluggable providers](xref:ai.configuration#1-ai-providers)** - OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint. Bring your own key.
-- **[A full toolbox](xref:ai.tooling)** - file ops, designer/model edits, build & test, plan-mode tools, and conversation primitives—all transparently available to the AI.
-- **[Customisation options](xref:ai.context-management)** - author your own `.agent.md` files, drop in `SKILL.md` skills, and write project-wide instruction files to shape every turn.
-- **Attachments** - drag-and-drop, paste, or open PRDs, screenshots, code files, and model elements directly into the chat as conversation context.
-- **Tool-call transparency** - every read, create, update, and delete the AI performs is shown as a color-coded interactive chip you can click to navigate straight to the affected element.
+An existing CLI coding agent can be configured as Intent Architect's AI provider in place of a raw model API. Claude Code, Codex, GitHub Copilot CLI, Kiro and OpenCode all connect over the Agent Client Protocol.
+
+The agent and its subscription perform the work; Intent Architect supplies the interface, the model tooling and the control framework around it. Configured in [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers).
+
+### An external agent via Intent MCP
+
+Intent Architect exposes an MCP server for teams whose workflow remains in their own IDE or terminal. The agent stays where it is and drives Intent Architect's designers directly – modelling what must be modelled, writing bespoke code for everything else, and coordinating between the two itself.
+
+The Intent MCP tab lists each supported agent – Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro, OpenCode – with a live connection status and a one-click **Connect**. Connecting also copies Intent Architect's built-in skills and rules into that agent's native folders (`.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on), so the agent starts out equipped to work with the model.
+
+![The Intent MCP tab listing per-agent connection rows](images/intent-mcp-configuration-dialog.png)
+
+See [Intent MCP Server](xref:ai.intent-mcp-server) for how it works, and [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp) to set it up.
 
 ---
 
 ## Documentation
 
-### Getting started
-- **[AI Configuration](xref:ai.configuration)** - connect to your AI provider (OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, or any OpenAI-compatible endpoint), expose Intent as an MCP server, and add external MCP servers per solution.
-- **[Using the AI Chat](xref:ai.built-in-agents)** - get started with the single chat interface for working with your designs and implementation.
+### Setting up
+
+- **[AI Configuration](xref:ai.configuration)** – connect an AI provider (OpenAI, Anthropic, Azure OpenAI, Gemini, OpenRouter, Ollama, any OpenAI-compatible endpoint, or a CLI agent over ACP), expose Intent Architect as an MCP server, and add external MCP servers per solution.
+- **[AI Data Privacy](xref:ai.data-privacy)** – what is sent to the configured provider, what Intent Architect retains, and where Zero Data Retention applies.
+
+### Working with Intent Architect's agents
+
+- **[Built-in Agents](xref:ai.built-in-agents)** – the agents that come with Intent Architect, what each is for, and when to use them.
+- **[Agent Tools](xref:ai.tooling)** – every tool an agent can be wired up with: file ops, designer and model edits, build and test, planning, and conversation tools.
 
 ### Customising agents and context
-- **[Agent Context Loading](xref:ai.context-management)** - where Intent looks for agent definitions, instruction files, and skills. The `.agents/` folder under your solution and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
-- **[Custom Agents](xref:ai.custom-agents)** - author your own `.agent.md` files: pick a context, choose tools, and write the system prompt that defines the agent's behaviour.
-- **[Agent Tools](xref:ai.tooling)** - every tool an agent can be wired up with: file ops, designer/model edits, build/test, planning, and conversation tools.
 
-### Connecting to MCP Servers
-- **[External MCP Servers](xref:ai.configuration#3-mcp-servers)** - give this solution's coding agents extra tools by wiring in external MCP servers (filesystem, GitHub, your own internal tools, etc.). Configuration is stored per-solution in `.agents/mcp.json` and supports both `stdio` (launch a local command) and `http` (call a remote endpoint) transports, with `${VAR}` substitution for secrets pulled from your environment. Each server has its own enable/disable toggle and live connection status, so you can park entries without deleting them.
+- **[Agent Context Loading](xref:ai.context-management)** – where Intent Architect looks for agent definitions, instruction files and skills. The `.agents/` folder under the solution, and the dotfile conventions inside an application's output (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules/`, `.github/instructions/`, etc.).
+- **[Custom Agents](xref:ai.custom-agents)** – authoring `.agent.md` files: selecting a context, choosing tools, and writing the system prompt that defines an agent's behaviour.
+
+### Driving Intent Architect from an external agent
+
+- **[Intent MCP Server](xref:ai.intent-mcp-server)** – how external agents (Claude Code, Copilot, Cursor, etc.) drive Intent Architect's designers directly, with a worked example.
+- **[Spec-Driven Development](xref:application-development.spec-driven-development)** – the guided flow from requirements through design and tasks to implementation, with traceability back to the code.
+- **[External MCP Servers](xref:ai.configuration#3-mcp-servers)** – extending a solution's coding agents with additional tools (filesystem, GitHub, internal tools). Configuration is stored per-solution in `.agents/mcp.json` and supports both `stdio` and `http` transports, with `${VAR}` substitution for secrets pulled from the environment.
 
 > [!NOTE]
 > External MCP server tools are surfaced to **coding-context** agents only.
-
-### Intent MCP
-- **[Intent Architect as an MCP server](xref:ai.configuration#2-intent-mcp)** lets external agents (Claude Code, Copilot, Cursor, etc.) drive Intent Architect's designers directly - no friction when an outside harness needs to change managed code.
 
 ---
 
 ## At a glance
 
-| You want to…                                                   | Go to                                                                                                   |
-| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Plug in your OpenAI / Anthropic / Azure key                    | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
-| Use Intent from Claude Code / Copilot / Cursor                 | [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp)                                 |
-| Add an MCP server (filesystem, GitHub, etc.) to your AI        | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
-| Get started with the AI chat interface                         | [Using the AI Chat](xref:ai.built-in-agents)                                                        |
-| Drop a project-wide instruction file                           | [Agent Context Loading → Instruction files](xref:ai.context-management#2-instruction-files)         |
-| Customize how the AI works for your solution                   | [Agent Context Loading → Agent definitions](xref:ai.context-management#1-agent-definitions-agentmd) |
-| See what capabilities the AI has available                     | [Agent Tools](xref:ai.tooling)                                                                      |
+| You want to…                                             | Go to                                                                                               |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Connect an OpenAI / Anthropic / Azure key                | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
+| Use an existing CLI agent as the provider                 | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
+| Drive Intent Architect from Claude Code / Copilot / Cursor| [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp)                                 |
+| Add an external MCP server (filesystem, GitHub, etc.)    | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
+| Get started with the built-in agents                   | [Built-in Agents](xref:ai.built-in-agents)                                                          |
+| Add a project-wide instruction file                     | [Agent Context Loading → Instruction files](xref:ai.context-management#2-instruction-files)         |
+| Customize agent behaviour for a solution                 | [Agent Context Loading → Agent definitions](xref:ai.context-management#1-agent-definitions-agentmd) |
+| Review the tools available to agents                     | [Agent Tools](xref:ai.tooling)                                                                      |
+| Understand what is sent to the AI provider               | [AI Data Privacy](xref:ai.data-privacy)                                                             |
