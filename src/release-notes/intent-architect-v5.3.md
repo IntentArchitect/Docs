@@ -9,7 +9,7 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ### Improvements in 5.3.4
 
 - Improvement: User chat messages now have a footer of icon actions. Forking from a user message starts the new chat from just before it, with that message's text already in the composer.
-- Improvement: When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
+- Improvement: When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge counting the chats you haven't seen. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
 - Improvement: When the built-in Intent Architect skills or rules are missing from a chat's solution, a banner above the chat composer now offers to add them. It can be dismissed for that folder, and they can still be applied later from the Intent MCP tab.
 - Improvement: Creating a pull request now defaults its target to the branch the source branch was originally created from.
 - Improvement: The conversation's Changes tab is now called "Agent's Changes", and "Keep All Changes" can be used while a turn is still running.
@@ -20,6 +20,11 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Improvement: The error, lock, read-only and missing-skills banners have been restyled as cards.
 - Improvement: Confirmation dialogs now label destructive actions clearly, `Enter` no longer triggers them, and `Esc` or dismissing a prompt always takes the safe option.
 - Improvement: The Agents board now calls conversations "sessions" rather than "tasks" or "chats".
+- Improvement: A solution `tasks.json` task with `"triggers": ["worktree.created"]` now runs in the background in each new agent worktree before the first turn, so setup steps such as `npm install` happen automatically. The chat shows its progress, and a banner if it fails.
+- Improvement: Branches now have a shared context menu with push, pull, fetch, rename and set-upstream actions. A branch that isn't checked out, including one checked out in another worktree, can now be fast-forwarded to its upstream.
+- Improvement: Chats now load MCP servers from installed Claude Code plugins.
+- Improvement: Files and git diffs opened in the Agents window now open as preview tabs, and markdown links can be copied from their right-click menu.
+- Improvement: The Codebase explorer no longer indexes the whole codebase when it loads, and only builds its search index when you search.
 
 ### Fixes in 5.3.4
 
@@ -51,6 +56,9 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: The cloud icon in source control pills could disappear or be clipped when the pills were narrow.
 - Fixed: Refocusing the window triggered excessive git refreshes, and debug output appeared in the task console.
 - Fixed: Tool status icons in chat weren't vertically centered.
+- Fixed: Clicking a row on the Agents board could switch the centre tab away from the one that chat was left on.
+- Fixed: "Save Changes" for Global MCP servers did nothing when no solution was open.
+- Fixed: Skills in folders ignored by `.gitignore`, including restored built-in skills, couldn't be loaded by agents.
 
 ## Version 5.3.3
 
