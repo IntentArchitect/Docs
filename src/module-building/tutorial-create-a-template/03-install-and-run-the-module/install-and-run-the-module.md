@@ -114,7 +114,7 @@ We've created a project structure, installed our Module, and set the Output Targ
 4. Open the codebase to verify that the new `EntityBase.cs` file was created in the correct location.
 
 > [!NOTE]
-> You may have noticed that a NuGet package (`Intent.RoslynWeaver.Attributes`) was added to the `TestProject.csproj` file. This package provides _non-executing_ C# attributes which are used to instruct the [Code-Management](xref:getting-started.welcome#code-management) systems in C#. This is not a hard dependency, does not affect runtime execution in any way and can be swapped out or removed if needed.
+> You may have noticed that a NuGet package (`Intent.RoslynWeaver.Attributes`) was added to the `TestProject.csproj` file. This package provides _non-executing_ C# attributes which are used to instruct the [Code-Management](xref:application-development.code-management.about-code-management) systems in C#. This is not a hard dependency, does not affect runtime execution in any way and can be swapped out or removed if needed.
 
 Looking at the generated file `EntityBase.cs`, you will see the generated code is as we expected and should look as follows:
 
