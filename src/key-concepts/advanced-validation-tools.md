@@ -52,6 +52,8 @@ Deviations and custom files are tagged with colour-coded File Classification ele
 
 Model-centric diffs show what a change means for the design, not just the code. Hovering a change pill reveals field-level before and after values for an element or association, and reviewers can click through to the affected models to see how the domain and service models shifted.
 
+![Severity Classification](images/severity-classification.png)
+
 ---
 
 ## Learn More
