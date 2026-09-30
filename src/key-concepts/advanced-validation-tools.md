@@ -50,9 +50,11 @@ A re-run skips anything already flagged, including on threads that have since be
 
 Deviations and custom files are tagged with colour-coded File Classification elements and a severity flag – none, low, medium or high. Classification is checked against git-classified file operations and canonicalized file paths, using the same logic Change Review itself uses, so severity reflects what actually changed rather than what an agent reported. A Needs Attention filter surfaces files by severity and classification, based on your bespoke configuration.
 
+![Severity Classification](images/severity-classification.png)
+
 Model-centric diffs show what a change means for the design, not just the code. Hovering a change pill reveals field-level before and after values for an element or association, and reviewers can click through to the affected models to see how the domain and service models shifted.
 
-![Severity Classification](images/severity-classification.png)
+![Model-Centric Diffs](images/model-centric-diffs.png)
 
 ---
 
