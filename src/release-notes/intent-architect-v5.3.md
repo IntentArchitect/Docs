@@ -6,10 +6,18 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 ## Version 5.3.4
 
+### Hightlights in 5.3.4
+
+#### Chat forking
+
+User chat messages now have a footer of icon actions. Forking from a user message starts the new chat from just before it, with that message's text already in the composer.
+
+#### OS notifications when a chat is finished or requires attention
+
+When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge counting the chats you haven't seen. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
+
 ### Improvements in 5.3.4
 
-- Improvement: User chat messages now have a footer of icon actions. Forking from a user message starts the new chat from just before it, with that message's text already in the composer.
-- Improvement: When an AI chat turn ends or needs your input while Intent Architect isn't focused, you now get an OS notification and a taskbar badge counting the chats you haven't seen. Clicking the notification brings up the right chat, and notifications are withdrawn once you've seen the chat. Both can be turned off in settings.
 - Improvement: When the built-in Intent Architect skills or rules are missing from a chat's solution, a banner above the chat composer now offers to add them. It can be dismissed for that folder, and they can still be applied later from the Intent MCP tab.
 - Improvement: Creating a pull request now defaults its target to the branch the source branch was originally created from.
 - Improvement: The conversation's Changes tab is now called "Agent's Changes", and "Keep All Changes" can be used while a turn is still running.
