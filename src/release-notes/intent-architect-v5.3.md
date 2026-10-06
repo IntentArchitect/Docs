@@ -4,6 +4,37 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
+<!-- 5.3.5: covers publish/client/5.3.4..8bbef494a7 (release/5.3.x, 2026-10-02). No publish/client/5.3.5 tag yet; add later commits from 8bbef494a7 onwards. -->
+
+## Version 5.3.5
+
+### Improvements in 5.3.5
+
+- Improvement: Generating commit messages, pull request descriptions and chat titles now runs through your own connected AI agent, so no prompt or key leaves your machine. A new General tab in AI configuration lets you pick the model used, defaulting to your agent's recommended model, with Intent's bundled key available as an explicit opt-in. Generate buttons are disabled when no agent is available.
+- Improvement: The chat composer has a new `/` button that opens the slash command picker, filtered to commands only.
+- Improvement: The branch picker now pins the selected, current and default branches to the top, sorts the rest alphabetically, highlights search matches and matches the styling of the other pickers.
+- Improvement: Errors and confirmations are now shown as Intent Architect's own modal windows instead of OS message boxes, so MCP and AI tools can see and respond to them.
+- Improvement: Expanding collapsed code in a pull request diff now reveals it in steps, up or down, without jumping your position.
+- Improvement: On macOS, the app icon is now a Liquid Glass icon with a dark variant, and `.isln` files show a proper document icon.
+
+### Fixes in 5.3.5
+
+- Fixed: Code diff added and removed line colours now match the Monaco diff editor in both light and dark themes.
+- Fixed: Pressing Stop now ends an AI turn that is still starting, and pressing Stop a second time forces the turn to end.
+- Fixed: On macOS, Intent Architect could ask for access to the Downloads folder on every launch when a recent solution was located there.
+- Fixed: On macOS, switching to a VPN or another network could log out your other Intent Architect sessions.
+- Fixed: Designers could stop reloading after an external git client such as SourceTree staged changes, leaving them showing stale models.
+- Fixed: Mdx and traceability links to designers didn't work in the Agents window.
+- Fixed: Switching between chats didn't restore each chat's scroll position.
+- Fixed: A rejected stored token couldn't be replaced when signing in for git pull requests. There is now a "Use a different token" option.
+- Fixed: Chats using Claude Code plugin MCP servers (e.g. Slack) asked to sign in again even after signing in through the Claude Code CLI.
+- Fixed: After the AI agent process restarted, chats could lose Intent's MCP tools, and plan approval requests showed a generic Allow/Deny prompt instead of the plan card.
+- Fixed: New AI chats could keep opening on a stale model instead of the one last picked, particularly after approving plans.
+- Fixed: Background sub-agents could leave a chat showing as running indefinitely.
+- Fixed: Terminal tabs for triggered tasks and AI-run commands could appear in whichever chat was on screen rather than the chat that started them.
+- Fixed: Some root keyboard shortcuts didn't work, and the chat composer didn't receive focus when opening a chat.
+- Fixed: The Create pull request item in the branch context menu was missing its icon.
+
 ## Version 5.3.4
 
 ### Hightlights in 5.3.4
