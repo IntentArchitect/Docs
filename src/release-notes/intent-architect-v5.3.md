@@ -4,7 +4,7 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
-<!-- 5.3.5: covers publish/client/5.3.4..8bbef494a7 (release/5.3.x, 2026-10-02). No publish/client/5.3.5 tag yet; add later commits from 8bbef494a7 onwards. -->
+<!-- 5.3.5: covers publish/client/5.3.4..a595670993 (release/5.3.x, 2026-10-06). publish/client/5.3.5-pre.0 is at 8bbef494a7; no final 5.3.5 tag yet. Add later commits from a595670993 onwards. -->
 
 ## Version 5.3.5
 
@@ -16,6 +16,7 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Improvement: Errors and confirmations are now shown as Intent Architect's own modal windows instead of OS message boxes, so MCP and AI tools can see and respond to them.
 - Improvement: Expanding collapsed code in a pull request diff now reveals it in steps, up or down, without jumping your position.
 - Improvement: On macOS, the app icon is now a Liquid Glass icon with a dark variant, and `.isln` files show a proper document icon.
+- Improvement: Bitbucket Cloud pull requests are enabled again, with sign-in through your browser. The pull requests panel also shows hints for browser sign-in and SSH remotes.
 
 ### Fixes in 5.3.5
 
@@ -34,6 +35,11 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: Terminal tabs for triggered tasks and AI-run commands could appear in whichever chat was on screen rather than the chat that started them.
 - Fixed: Some root keyboard shortcuts didn't work, and the chat composer didn't receive focus when opening a chat.
 - Fixed: The Create pull request item in the branch context menu was missing its icon.
+- Fixed: Names and paths with non-ASCII characters (e.g. `Dandré`, `répo`) could be garbled in git config reads, commits, credentials and repository lookups.
+- Fixed: Stop tracking could fail for files with unusual names, and could also untrack the wrong files for names containing brackets, such as `pages/[id].tsx`.
+- Fixed: `.gitattributes` line endings could be ignored for files with non-ASCII or unusual names.
+- Fixed: Long, structured AI answers (such as tables repeated per entity) could be cut off as "repeating itself", and the retry discarded completed tool results and redid the work.
+- Fixed: On Windows, a stray "Electron" entry could appear in the Start Menu or taskbar.
 
 ## Version 5.3.4
 
