@@ -10,7 +10,7 @@ Intent Architect runs locally on your machine, no cloud dependencies, no lock-in
 ---
 
 > [!NOTE]
-> To use Intent Architect, you’ll need a valid license. If your organization already subscribes, your license will be assigned automatically. If you would like to get a license, please [get in touch](https://intentarchitect.com/#/contact-us) with our team or send an email to [info@intentarchitect.com](mailto:info@intentarchitect.com?subject=Intent%20Architect%20-%20License%20Request).
+> To use Intent Architect, you’ll need a valid license. If your organization already subscribes, your license will be assigned automatically. If you would like to get a license, please [get in touch](https://intentarchitect.com/contact-us) with our team or send an email to [info@intentarchitect.com](mailto:info@intentarchitect.com?subject=Intent%20Architect%20-%20License%20Request).
 
 ### 1️⃣ Create an account
 
