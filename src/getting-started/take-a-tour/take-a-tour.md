@@ -153,6 +153,6 @@ Additional Applications can be created from the Solution Explorer through the by
 
 ## What's Next
 
-### [The "Hello World" tutorial](xref:tutorials.hello-world-tutorial)
+### [Intent Architect Fundamentals](xref:tutorials.fundamentals-landing-page)
 
-Tutorial on how to create a new Application from scratch.
+Tutorial series on how to create a new Application from scratch.
