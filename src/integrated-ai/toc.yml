@@ -5,6 +5,9 @@ items:
   - name: AI Configuration
     topicUid: ai.configuration
 
+  - name: CLI Agents as AI Providers
+    topicUid: ai.cli-agents
+
   - name: Intent MCP Server
     topicUid: ai.intent-mcp-server
 

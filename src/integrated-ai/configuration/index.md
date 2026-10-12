@@ -29,9 +29,10 @@ Connect Intent's agents to one or more LLM services. API keys are stored **local
 | **Codex**                 | OpenAI Codex CLI agent (Agent Client Protocol)                                                                             |
 | **GitHub Copilot CLI**    | GitHub Copilot CLI agent (Agent Client Protocol)                                                                           |
 | **Kiro**                  | Kiro CLI agent (Agent Client Protocol)                                                                                    |
+| **Cursor CLI**            | Cursor CLI agent (Agent Client Protocol)                                                                                  |
 | **OpenCode**              | OpenCode CLI agent (Agent Client Protocol)                                                                                |
 
-Each provider shows a status pill: **Not configured** → **Save Changes** (after edits) → **Configured**. A CLI agent that can't be located on the machine shows **CLI not found**, together with the command to install it.
+Each provider shows a status pill: **Not configured** → **Save Changes** (after edits) → **Configured**. A CLI agent that can't be located on the machine shows **Not installed**, with a link to its installation guide. For step-by-step setup of the CLI agents, see [](xref:ai.cli-agents).
 
 ### Connector packages
 

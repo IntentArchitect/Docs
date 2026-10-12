@@ -35,9 +35,9 @@ For running several tasks concurrently, **Manage Agents** is a top-level window 
 
 ### Your CLI as a provider
 
-An existing CLI coding agent can be configured as Intent Architect's AI provider in place of a raw model API. Claude Code, Codex, GitHub Copilot CLI, Kiro and OpenCode all connect over the Agent Client Protocol.
+An existing CLI coding agent can be configured as Intent Architect's AI provider in place of a raw model API. Claude Code, Codex, GitHub Copilot CLI, Kiro, Cursor CLI and OpenCode all connect over the Agent Client Protocol.
 
-The agent and its subscription perform the work; Intent Architect supplies the interface, the model tooling and the control framework around it. Configured in [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers).
+The agent and its subscription perform the work; Intent Architect supplies the interface, the model tooling and the control framework around it. See [CLI Agents as AI Providers](xref:ai.cli-agents) for setup.
 
 ### An external agent via Intent MCP
 
@@ -84,7 +84,7 @@ See [Intent MCP Server](xref:ai.intent-mcp-server) for how it works, and [AI Con
 | You want to…                                             | Go to                                                                                               |
 | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | Connect an OpenAI / Anthropic / Azure key                | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
-| Use an existing CLI agent as the provider                 | [AI Configuration → AI Providers](xref:ai.configuration#1-ai-providers)                             |
+| Use an existing CLI agent as the provider                 | [CLI Agents as AI Providers](xref:ai.cli-agents)                                         |
 | Drive Intent Architect from Claude Code / Copilot / Cursor| [AI Configuration → Intent MCP](xref:ai.configuration#2-intent-mcp)                                 |
 | Add an external MCP server (filesystem, GitHub, etc.)    | [AI Configuration → MCP Servers](xref:ai.configuration#3-mcp-servers)                               |
 | Get started with the built-in agents                   | [Built-in Agents](xref:ai.built-in-agents)                                                          |
