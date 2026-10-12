@@ -5,6 +5,8 @@ description: "Release notes for Intent Architect 4.0, featuring designer perform
 
 # Release notes: Intent Architect version 4.0
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.0.6
 
 _Released 2023-10-01._

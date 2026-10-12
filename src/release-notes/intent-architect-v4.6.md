@@ -4,6 +4,8 @@ description: "Intent Architect 4.6 release notes: side-by-side version notificat
 ---
 # Release notes: Intent Architect version 4.6
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.6.5
 
 _Released 2026-06-03._

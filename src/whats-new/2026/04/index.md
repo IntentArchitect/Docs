@@ -3,6 +3,8 @@ uid: whats-new.2026.04
 ---
 # What's new in Intent Architect (April 2026)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the April edition of What's New in Intent Architect.
 
 - Highlights

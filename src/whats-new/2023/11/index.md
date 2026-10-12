@@ -3,6 +3,8 @@ uid: whats-new.2023.11
 ---
 # What's new in Intent Architect (November / December 2023)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the 2023 Christmas edition of highlights of What's New in Intent Architect.
 
 - Highlights

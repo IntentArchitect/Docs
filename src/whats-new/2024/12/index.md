@@ -3,6 +3,8 @@ uid: whats-new.2024.12
 ---
 # What's new in Intent Architect (December 2024)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the 2024 Christmas edition of highlights of What's New in Intent Architect.
 
 We are proud to announce the release of Intent Architect 4.4 beta. This release has been largely focused on improving product usability and feature discoverability. This version is fully backwards compatible.

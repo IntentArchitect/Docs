@@ -3,6 +3,8 @@ uid: whats-new.2025.09
 ---
 # What's new in Intent Architect (September 2025)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the September edition of What’s New in Intent Architect. Here’s a roundup of the latest updates and improvements designed to make your development experience faster, cleaner, and more productive.
 
 - Highlights

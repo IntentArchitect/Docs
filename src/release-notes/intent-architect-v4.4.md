@@ -4,6 +4,8 @@ description: "Intent Architect 4.4 release notes: Solution References for cross-
 ---
 # Release notes: Intent Architect version 4.4
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.4.6
 
 _Released 2025-05-16._

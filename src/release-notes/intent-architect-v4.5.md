@@ -4,6 +4,8 @@ description: "Intent Architect 4.5 release notes: System Suggestions dialog, def
 ---
 # Release notes: Intent Architect version 4.5
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.5.27
 
 _Released 2025-12-18._

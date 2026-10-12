@@ -3,6 +3,8 @@ uid: whats-new.2025.12
 ---
 # What's new in Intent Architect (December 2025)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the December edition of What’s New in Intent Architect.
 
 We’re thrilled to announce that our team has been working diligently on our next front end automation, Angular -a long-term goal we are excited to achieve. The initial release includes application setup, UI modeling and AI generated views.

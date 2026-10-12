@@ -9,6 +9,8 @@ if (location.hash == "#integrated-ai-chat") {
 
 # What's new in Intent Architect (February 2026)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the February edition of What’s New in Intent Architect.
 
 Lot's of clients have been asking for it - in case you missed it, we recently shared that the team has been hard at work on our next front-end automation: Angular - a long-term milestone we’ve been looking forward to. The first release includes application setup, UI modeling, and AI-generated views.

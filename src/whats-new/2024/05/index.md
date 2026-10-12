@@ -3,6 +3,8 @@ uid: whats-new.2024.05
 ---
 # What's new in Intent Architect (May 2024)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the May 2024 edition of highlights of What's New in Intent Architect.
 
 We’re thrilled to announce that our team has been working diligently on our upcoming 4.3 release, focused on front end automation-a long-term goal we are excited to achieve. Our initial release will feature a Blazor implementation, and we aim to have an alpha release available by the end of June.

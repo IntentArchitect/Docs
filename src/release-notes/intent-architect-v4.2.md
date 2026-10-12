@@ -5,6 +5,8 @@ description: "Intent Architect 4.2 release notes: cross-platform deviation hash 
 
 # Release notes: Intent Architect version 4.2
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.2.9
 
 _Released 2024-07-09._

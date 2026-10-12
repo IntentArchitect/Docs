@@ -3,6 +3,8 @@ uid: whats-new.2023.06
 ---
 # What's new in Intent Architect (June 2023)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the June 2023 edition of highlights of What's New in Intent Architect.
 
 - Product updates

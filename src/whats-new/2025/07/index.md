@@ -3,6 +3,8 @@ uid: whats-new.2025.07
 ---
 # What's new in Intent Architect (July 2025)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the July 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 We are proud to announce 4.5 is officially live, for full details available in the [release notes](https://docs.intentarchitect.com/release-notes/intent-architect-v4.5.html) .

@@ -3,6 +3,8 @@ uid: whats-new.2025.06
 ---
 # What's new in Intent Architect (June 2025)
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 Welcome to the June 2025 edition of highlights of What's New in Intent Architect. Here's a roundup of the latest updates and improvements.
 
 We're super excited to announce that a beta version of **Intent Architect 4.5** is now available, packed with powerful new features including **generative AI capabilities**, a revamped **"Get Started"** experience, an all-new **sample system** and more.  

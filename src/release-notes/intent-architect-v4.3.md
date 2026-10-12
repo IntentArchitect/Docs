@@ -4,6 +4,8 @@ description: "Intent Architect 4.3 release notes: multi-select in Dynamic Forms,
 ---
 # Release notes: Intent Architect version 4.3
 
+This is a historical release note. Intent Architect is a control plane for agentic development today. See [overview](xref:index) for the latest content.
+
 ## Version 4.3.9
 
 _Released 2024-12-15._
