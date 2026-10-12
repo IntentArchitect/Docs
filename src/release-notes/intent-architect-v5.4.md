@@ -4,7 +4,7 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 ---
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x (b5fcb7964d, 2026-10-07). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from b5fcb7964d onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
+<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to fe1ef39839 (2026-10-11). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from fe1ef39839 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
 
 > [!NOTE]
 > These release notes are AI generated and are still pending human review.
@@ -21,7 +21,6 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 - Improvement: Pull requests have a "New chat on this pull request" menu item, and AI work on a pull request runs in an isolated worktree at the reviewed commit.
 - Improvement: Hovering a ref pill in the Source Control history now shows it in full in the commit popover.
 - Improvement: When a git operation is blocked by a stale `index.lock` file, Intent Architect now offers to remove it.
-- Improvement: Picking a named session branch that is already checked out in another worktree is now refused up front.
 - Improvement: Changes Review now shows test coverage for the lines a change added, read from Cobertura reports, as per-file and overall pills, with a Tests panel listing the reports found and flagging stale results.
 - Improvement: Tasks in `tasks.json` marked with `producesTestCoverage` can be run from Changes Review. For a pull request, the tests run in an isolated, reusable worktree at the reviewed commit, so your own checkout isn't touched, and "Clear test worktrees" in User Settings reclaims their disk space.
 - Improvement: Changes Review can also fetch coverage for a commit from its Azure Pipelines build, including for GitHub-hosted repositories, instead of running the tests locally.
@@ -46,20 +45,35 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 - Improvement: The Agents window stays more responsive with many conversations, switching between repositories, worktrees and chats does less git work, and Source Control refreshes on the first click after the window regains focus.
 - Improvement: Diagrams opened by drilling into an element now show breadcrumbs, and opening an element with no diagram of its own drills into its owning type.
 - Improvement: The MCP designer read tools are consolidated into the read-only `run_designer_query` and `run_solution_query` scripts, and `getDesignerModelStructure` supports drilling in by `elementId` and reports what was left out when a large model is truncated.
-- Improvement: Designer scripting adds `createPackage`, a search filter for `getApplicationSettings`, warnings for designer rules and inactive properties, and a report of new diagram elements left unplaced after applying a layout. `run_designer_script` now reports its changes grouped by kind, even when a script fails part-way.
+- Improvement: Designer scripting adds `createPackage`, `getUnloadedPackages()`, `loadPackage()` and `unloadPackage()` (asking before discarding unsaved changes), a search filter for `getApplicationSettings`, warnings for designer rules and inactive properties, and a report of new diagram elements left unplaced after applying a layout. `run_designer_script` now reports its changes grouped by kind, even when a script fails part-way.
 - Improvement: Spec-Driven Development: the new `request_spec_review` step lets you approve or comment on each changed block of a spec before its phase advances.
 - Improvement: Spec-Driven Development: acceptance criteria show their test status as chips, bound live from tests that cite `[spec:<slug> R1.4]` in their names, and collapsed spec cards show a Health summary of verdict gaps and drift since the last verify.
 - Improvement: Spec-Driven Development: verdicts now record what they judged, so requirements whose code moved since review are flagged, and re-verifies only re-judge what changed.
 - Improvement: Spec-Driven Development: a new `/sdd-run` skill takes a spec through to verification in one chat, `sdd-extract` and `sdd-sync` skills keep specs in step with traced code changes, and a spec advances to done after a clean verification.
 - Improvement: Requirement ids and `Table N.N` citations in documents and AI questions now link to the matching section, landing on the exact acceptance criterion.
 - Improvement: Spec documents now refresh when their sibling files change, and have a manual refresh action.
+- Improvement: New File History view pages through and searches a file's commits, shows each commit's diff and can restore an earlier revision.
+- Improvement: The file view now has a Git Blame gutter, and opens the commit's file diff from a blamed line.
+- Improvement: New Work Items tab in the Agents window keeps a searchable list of work items you can organise into custom groups, link chats to and edit with auto-save, which agents can also read and update.
+- Improvement: The Agents window's Sessions tab shows a badge counting chats that need attention.
+- Improvement: "Resolve with AI" can now optionally complete the merge or rebase once all conflicts are staged, and explains "ours" and "theirs" correctly during a rebase. Your choice is remembered in Source Control preferences.
+- Improvement: Pull request descriptions now accept pasted images.
+- Improvement: A new "Shut Down All" item in the taskbar's Software Factory menu stops every running Software Factory after confirming.
+- Improvement: Claude Code chats now load your own Claude Code MCP configuration, so claude.ai connectors, user-level servers, project `.mcp.json` and plugins are available in Intent Architect chats.
+- Improvement: Claude Code's reasoning effort can be set to None on models that allow thinking to be turned off, such as Haiku.
+- Improvement: Connecting OpenCode now updates an existing `opencode.jsonc`, keeping its comments, instead of creating `opencode.json` beside it.
+- Improvement: Intent's MCP server now works the same way for ACP and plain MCP clients, with the model-first rules delivered through the `intent-architect-mcp` skill and `get_full_instructions` removed.
+- Improvement: Spec-Driven Development: specs are grouped into Changes and Capabilities, the Specs panel health pill animates while loading, an auto-approve indicator shows on the activity pill, and health checks run about five times faster.
+- Improvement: Spec-Driven Development: `write_spec` reports acceptance criteria that are too long or combine several conditions, and new specs are drafted through `/sdd-run`.
 
 ### Fixes in 5.4.0
 
+- Fixed: Failed solution-level tasks now start an AI fix chat when auto-fix is on, instead of being skipped silently.
+- Fixed: AI turns are no longer ended or flagged as unresponsive because of silence, and now run until the agent finishes, errors or you press Stop.
+- Fixed: Picking a named session branch that is already checked out in another worktree is now refused up front.
 - Fixed: Re-opening a pull request review whose tab was already open always reloaded it, losing scroll position, expanded files and unsaved text.
 - Fixed: MCP designer calls could time out, or report that the solution was no longer open, on large solutions.
-- Fixed: An AI turn could keep showing as running indefinitely after the agent went silent, and chats waiting on your input kept the machine awake.
-- Fixed: Quitting Intent Architect while an AI question was waiting for an answer lost the question on reopen.
+- Fixed: Chats waiting on your input could keep the machine awake.
 - Fixed: Software Factory "Fix" and "Create AI task" actions didn't open a tab in the Agents window.
 - Fixed: The `/` command picker in the Agents window could miss repository skills when the solution was in a nested folder.
 - Fixed: For repositories reached through a symlink, including macOS temp folders, solution search, worktree reuse, `.gitattributes` line endings and moving a chat between checkouts could fail.
@@ -75,3 +89,14 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 - Fixed: Declining to delete a conversation from the board could still remove it from its custom group.
 - Fixed: The AI actions menu could be clipped off the left edge of its tab.
 - Fixed: Unordered tree nodes could have their sibling order reversed.
+- Fixed: AI designer tools could be refused on a tab after a module install, and renaming a package from an AI script could raise a "Rename underlying file?" prompt that blocked it.
+- Fixed: An AI designer save could report success while the designer was still loading and save nothing.
+- Fixed: `createPackage` could raise an error afterwards, and chose the wrong package type when none was given.
+- Fixed: A chat's turn could read another chat's solution, including one from a deleted worktree.
+- Fixed: Moving a chat into an existing worktree could refuse its first turn.
+- Fixed: Deleting a chat could remove a worktree that another chat was still working in.
+- Fixed: Opening plan, spec or review views from a chat that wasn't on screen could steal focus or switch your active tab.
+- Fixed: A Module Task dialog could fail to complete or close after a transient error.
+- Fixed: Un-ignoring a deleted file in Source Control gave an error.
+- Fixed: Single-file diff tabs showed the wrong file-type icon.
+- Fixed: A chat busy in another folder could make a spec show as busy.
