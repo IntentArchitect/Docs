@@ -150,12 +150,12 @@ function ConvertFrom-UrlEncoding {
 
 # ---------------------------------------------------------------------------
 # Get-MarkdownMetadata
-#   Returns: @{ Uid; Title; H1; HasFrontmatter }
+#   Returns: @{ Uid; Title; H1; HasFrontmatter; NoIndex }
 # ---------------------------------------------------------------------------
 function Get-MarkdownMetadata {
     param([string] $FilePath)
 
-    $result = @{ Uid = $null; Title = $null; H1 = $null; HasFrontmatter = $false }
+    $result = @{ Uid = $null; Title = $null; H1 = $null; HasFrontmatter = $false; NoIndex = $false }
 
     if (-not (Test-Path $FilePath -PathType Leaf)) { return $result }
 
@@ -176,6 +176,9 @@ function Get-MarkdownMetadata {
             }
             if ($lines[$i] -match '^title:\s*(.+)$') {
                 $result.Title = $Matches[1].Trim().Trim("'").Trim('"')
+            }
+            if ($lines[$i] -match '^_noindex:\s*true\s*$') {
+                $result.NoIndex = $true
             }
         }
     }
@@ -1056,9 +1059,12 @@ $absArticlesRoot = $absSourceRoot
 # - index.agent.md → LLM overview source; skipped in Phase 2 (Write-AgentIndex reads it
 #                    and writes the output to index.md).
 # - 404.md         → browser error page; skipped in both phases.
+# Files with `_noindex: true` frontmatter (e.g. archived pages) register their uid in
+# Phase 1 so xrefs to them still resolve, but are skipped in Phase 2.
 $srcRootIndexMd      = [System.IO.Path]::Combine($script:AbsDocfxSrc, "index.md")
 $srcRootIndexAgentMd = [System.IO.Path]::Combine($script:AbsDocfxSrc, "index.agent.md")
 $srcRoot404Md        = [System.IO.Path]::Combine($script:AbsDocfxSrc, "404.md")
+$noIndexFiles        = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::OrdinalIgnoreCase)
 
 $allMdFiles = Get-ChildItem -Path $absArticlesRoot -Filter "*.md" -Recurse
 
@@ -1067,6 +1073,8 @@ foreach ($file in $allMdFiles) {
 
     $meta       = Get-MarkdownMetadata -FilePath $file.FullName
     $outputPath = Get-OutputPath -SourcePath $file.FullName
+
+    if ($meta.NoIndex) { [void]$noIndexFiles.Add($file.FullName) }
 
     $title = if ($meta.Title)  { $meta.Title }
              elseif ($meta.H1) { $meta.H1 }
@@ -1097,6 +1105,7 @@ $allFiles = Get-ChildItem -Path $absArticlesRoot -Recurse |
 
 foreach ($file in $allFiles) {
     if ($file.FullName -in @($srcRootIndexMd, $srcRootIndexAgentMd, $srcRoot404Md)) { continue }
+    if ($noIndexFiles.Contains($file.FullName)) { continue }
 
     $ext        = $file.Extension.ToLower()
     $outputPath = Get-OutputPath -SourcePath $file.FullName

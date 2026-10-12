@@ -38,7 +38,7 @@ Should you alter the layout structure when you create a new Application, the fil
 
 ## Configuring Git (`.gitignore` files)
 
-As of version [3.1.8](xref:release-notes.version-3-1#new-features-added-in-318), Intent Architect has an option during creation of a new Solution or Application to add or update the appropriate `.gitignore` files.
+As of version 3.1.8, Intent Architect has an option during creation of a new Solution or Application to add or update the appropriate `.gitignore` files.
 
 If your application or solution was created in a version of Intent Architect less than 3.1.8, you can manually add the following to your `.gitignore` file:
 
