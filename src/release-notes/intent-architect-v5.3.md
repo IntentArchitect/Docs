@@ -4,7 +4,21 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
-<!-- 5.3.5: covers publish/client/5.3.4..a595670993 (release/5.3.x, 2026-10-06). publish/client/5.3.5-pre.0 is at 8bbef494a7; no final 5.3.5 tag yet. Add later commits from a595670993 onwards. -->
+<!-- 5.3.6: covers publish/client/5.3.5..044ab4b458 (release/5.3.x, 2026-10-12). No 5.3.6 tag yet. Add later commits from 044ab4b458 onwards. -->
+
+## Version 5.3.6
+
+### Improvements in 5.3.6
+
+- Improvement: A new Process Explorer window lists every Intent Architect process with its CPU and memory use and a clear label, and can capture a memory dump of any of them. Open it with Ctrl/Cmd + Shift + Alt + P, from the About window, or from the Help menu (and the Window menu on macOS).
+- Improvement: Stable releases are now published to Homebrew as the `intent-architect@5` cask in the `IntentArchitect/homebrew-tap` tap, and to the Chocolatey Community Repository as `intent-architect`.
+
+### Fixes in 5.3.6
+
+- Fixed: Intent Architect instances opened in the background or launched by an AI agent could take focus away from the app you were using.
+- Fixed: Intent Architect could get slower and use more resources the longer a session with AI chats stayed open.
+- Fixed: When several solutions were open in the same process, events for one solution could be delivered to windows showing another.
+- Fixed: A failed autostash re-apply during a git operation could go undetected when git was set to a language other than English.
 
 ## Version 5.3.5
 
