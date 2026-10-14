@@ -82,10 +82,30 @@ The release-notes content lives in this docs repo, but the **changes come from t
 - Every improvement bullet starts with `Improvement: `; every fix bullet starts with `Fixed: `.
 - If a version has no fixes (or no improvements), omit that empty subsection.
 
+## New minor versions: the "new features" section
+
+A new minor version's first release (`X.Y.0`) is not just Improvements and Fixes. Look at the older minor release notes (e.g. `intent-architect-v5.2.md`, `intent-architect-v5.3.md`, `## Version 5.3.0`) for the shape: an intro, then one `###` section per headline feature (a short description, screenshots where available), and only then the `### Improvements in X.Y.0` and `### Fixes in X.Y.0` lists.
+
+When starting or extending an `X.Y.0` section, **always** work out which changes deserve to be promoted from Improvements bullets into headline "new features" sections:
+
+1. Draft the Improvements/Fixes lists as normal.
+2. Pick candidates: themes made of several related commits, brand-new surfaces (new tabs, panels, windows, tools), and anything a user would describe as "a new thing" rather than "a better thing".
+3. **Use the `AskUserQuestion` tool to confirm** which candidates become new-features sections (multi-select, with a one-line description of each). Don't decide this alone, and don't skip the question because the list looks obvious. Re-ask only for candidates that appear in later pre-releases, not ones already decided.
+4. **Confirm each feature's rationale with the user before writing it.** Each section should explain the reason the feature was added and the user problem it solves, without using the word "why". Commit messages rarely state this, so draft 2–3 candidate rationales per feature and use `AskUserQuestion` (up to 4 features per call) to let the user pick or rewrite one. Don't write a feature section until its rationale is confirmed. If the user says a feature is self-explanatory, leave the rationale out of that section.
+5. For each confirmed feature, write a `###` section in the older style (a heading, the confirmed rationale stated plainly in a sentence or two, then a short description of what it does and how to use it, `![...](images/...)` placeholders if the user has screenshots to add), and remove its now-duplicated bullets from the Improvements list.
+6. Don't invent the intro/summary prose or release date if the release isn't final: leave a short placeholder or ask the user.
+
+Patch releases (`X.Y.Z` where `Z > 0`) don't get this treatment; they only use Improvements and Fixes (plus the occasional `### Highlights in X.Y.Z` the user asks for).
+
 ## Writing style
 
 Match the most recent version sections in the file — the style has evolved, so mirror what's currently there rather than older sections.
 
+- **Matter-of-fact prose.** Feature sections do give the rationale (the user problem the feature solves), but state it plainly as a fact rather than as a dramatic setup. Don't use a punchy narrative hook ("X used to mean Y", "No more Z"), marketing or conversational phrasing ("closes the loop", "as you'd expect", "rather than just claiming they work"), or the word "why".
+  - Bad: "Searching a solution used to mean leaving Intent Architect for your editor. Find and Replace in Files now searches…"
+  - Good: "It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel…"
+- **Keep feature sections short.** Open with the rationale, then the headline capability and how to reach it, in one or two short paragraphs. Leave out secondary details (settings, defaults, menu items, tool names, edge cases); they can go in the Improvements list if they matter.
+- **Natural but impersonal.** Write the way a person would describe the release, not like a list of spec facts, but don't address the reader directly. Prefer "It's now possible to…" or "X now does…" over "You can now…", and "a solution" over "your solution". Start with what the feature makes possible and how to get to it, and keep sentences short.
 - **Plain text, no bold.** Recent sections do not bold the lead phrase. (Older 5.1.0/5.1.1 sections use `**bold**` leads and long prose — do not copy that; follow the newest sections.)
 - **One line per bullet**, concise and user-facing. Lead with the value/behavior, not the implementation.
 - **Backticks** for tool names, API methods, file names and code: `run_designer_script`, `.mcp.json`, `get_status`, `getBasicMapping()`.

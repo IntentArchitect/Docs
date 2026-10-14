@@ -11,26 +11,73 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 ## Version 5.4.0
 
+<!-- TODO (human): add the intro/summary prose, the release date and screenshots once 5.4.0 is final. -->
+
+### Solution-wide Find and Replace
+
+It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
+
+---
+
+### Git Explorer and the Pull Requests panel
+
+Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
+
+A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter.
+
+---
+
+### Test coverage in Changes Review
+
+When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests. Changes Review now shows test coverage of the added lines, per file and overall, read from Cobertura reports. Tests can be run straight from Changes Review, with pull requests tested in an isolated worktree, or coverage can be fetched from an Azure Pipelines build.
+
+---
+
+### Rendered Markdown diffs and inline editing
+
+Raw Markdown diffs are hard to read, particularly for prose and tables. Markdown diffs can now be shown rendered, with added, removed and changed blocks, words and table cells highlighted, and can be edited in place.
+
+Markdown and MDX files can also be edited in a live preview, where only the block being edited shows its source.
+
+---
+
+### Comment on documents and send feedback to the agent
+
+Reviewing a plan usually turns up several points at once, which were awkward to collect into a single chat message. It's now possible to comment on selected text in a plan or other document and send all the comments to the agent as feedback in one go.
+
+---
+
+### App preview that agents can drive
+
+Checking an agent's UI changes meant running the application and testing it by hand after every change. An embedded browser now shows the running application, and AI agents can navigate, click, type, read the page and console, and take screenshots in it to verify their own changes. Agents can also start and stop the dev server themselves.
+
+---
+
+### Folders with several solutions
+
+Opening a folder that contains several `.isln` files now opens them together as one workspace, shown as a tree in Solution Explorer.
+
+---
+
+### Work Items
+
+Agents need a place to record the work they're doing that persists beyond a single chat. A new Work Items tab in the Agents window keeps a searchable list of work items that agents can read and update, and that can be grouped and linked to chats.
+
+---
+
+### Spec-Driven Development: tests and reviews
+
+A spec is only useful if the code actually meets it, and there was no way to see which requirements were tested or had drifted since they were last checked. Acceptance criteria now show the status of tests that cite them, such as `[spec:<slug> R1.4]`, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed.
+
+A new `request_spec_review` step allows each changed block of a spec to be approved or commented on before its phase advances, and the new `/sdd-run` skill takes a spec through to verification in a single chat.
+
+---
+
 ### Improvements in 5.4.0
 
-- Improvement: New solution-wide Find and Replace in Files, with flat or tree results, replace per match, per file or all at once, "Find in Folder" from the results tree, and your last query and replacement remembered per solution. In the Agents window it's available as a Search panel, opened with `Ctrl + Shift + F` and `Ctrl + Shift + H`.
 - Improvement: Chats can now be searched by their content as well as their title, branch, repository and solution, with quoted-phrase search, highlighted matches and a link to reveal matching archived chats. A find bar inside a chat steps through matches.
-- Improvement: Pull requests now have their own Pull Requests side panel, which groups checkouts of the same repository together, while branches, tags, worktrees and history move to a new Git Explorer tab.
-- Improvement: From Git Explorer you can create, reveal and remove worktrees, push, pull, fetch and rename branches, and start a new chat on a branch or worktree.
-- Improvement: A new "Merge current into branch" action merges into another branch without checking it out, and refuses up front if the merge would conflict.
-- Improvement: Pull requests have a "New chat on this pull request" menu item, and AI work on a pull request runs in an isolated worktree at the reviewed commit.
 - Improvement: Hovering a ref pill in the Source Control history now shows it in full in the commit popover.
 - Improvement: When a git operation is blocked by a stale `index.lock` file, Intent Architect now offers to remove it.
-- Improvement: Changes Review now shows test coverage for the lines a change added, read from Cobertura reports, as per-file and overall pills, with a Tests panel listing the reports found and flagging stale results.
-- Improvement: Tasks in `tasks.json` marked with `producesTestCoverage` can be run from Changes Review. For a pull request, the tests run in an isolated, reusable worktree at the reviewed commit, so your own checkout isn't touched, and "Clear test worktrees" in User Settings reclaims their disk space.
-- Improvement: Changes Review can also fetch coverage for a commit from its Azure Pipelines build, including for GitHub-hosted repositories, instead of running the tests locally.
-- Improvement: Markdown and MDX files can now be edited inline in a live preview, where only the block you're editing shows its source, with formatting shortcuts, block completions and clickable task checkboxes.
-- Improvement: Markdown diffs can be shown as a rendered preview that marks added, removed and changed blocks, words and table cells, with an overview ruler beside the scrollbar. Diffs can be edited in place, a block at a time from the preview or in the raw editor, and open in the mode you last used.
-- Improvement: You can now comment on text in plans and other documents and send those comments back to the agent as feedback, including from the plan approval card.
-- Improvement: Document headings can be folded, `[[wiki-links]]` and relative `.md`/`.mdx` links are resolved, and `<ModelRef>` links resolve even when no designer or solution is open.
-- Improvement: New app preview: an embedded browser for your running application that AI agents can drive to check their changes in the live app, using `run_preview_script` to navigate, click and type, `preview_look` to read the page and its console, and screenshots.
-- Improvement: Tasks in `tasks.json` can declare `previewUrl` or `urlPattern` so the app preview opens on the port the dev server actually bound, and `run_task` and `kill_command` are now available to ACP agents.
-- Improvement: Opening a folder containing several `.isln` files now opens them together as one workspace, shown as a foldered tree in Solution Explorer, with modules restored one solution at a time. A new user setting controls how deep to search for `.isln` files (default 3).
 - Improvement: Agents board groups can now be pinned above the rest.
 - Improvement: In the Agents window, `Left Arrow` or `Escape` in an empty composer moves focus to the board, and focus returns to the chat afterwards.
 - Improvement: The chat context popover now shows when a chat started, its last message time and its duration.
@@ -46,15 +93,6 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 - Improvement: Diagrams opened by drilling into an element now show breadcrumbs, and opening an element with no diagram of its own drills into its owning type.
 - Improvement: The MCP designer read tools are consolidated into the read-only `run_designer_query` and `run_solution_query` scripts, and `getDesignerModelStructure` supports drilling in by `elementId` and reports what was left out when a large model is truncated.
 - Improvement: Designer scripting adds `createPackage`, `getUnloadedPackages()`, `loadPackage()` and `unloadPackage()` (asking before discarding unsaved changes), a search filter for `getApplicationSettings`, warnings for designer rules and inactive properties, and a report of new diagram elements left unplaced after applying a layout. `run_designer_script` now reports its changes grouped by kind, even when a script fails part-way.
-- Improvement: Spec-Driven Development: the new `request_spec_review` step lets you approve or comment on each changed block of a spec before its phase advances.
-- Improvement: Spec-Driven Development: acceptance criteria show their test status as chips, bound live from tests that cite `[spec:<slug> R1.4]` in their names, and collapsed spec cards show a Health summary of verdict gaps and drift since the last verify.
-- Improvement: Spec-Driven Development: verdicts now record what they judged, so requirements whose code moved since review are flagged, and re-verifies only re-judge what changed.
-- Improvement: Spec-Driven Development: a new `/sdd-run` skill takes a spec through to verification in one chat, `sdd-extract` and `sdd-sync` skills keep specs in step with traced code changes, and a spec advances to done after a clean verification.
-- Improvement: Requirement ids and `Table N.N` citations in documents and AI questions now link to the matching section, landing on the exact acceptance criterion.
-- Improvement: Spec documents now refresh when their sibling files change, and have a manual refresh action.
-- Improvement: New File History view pages through and searches a file's commits, shows each commit's diff and can restore an earlier revision.
-- Improvement: The file view now has a Git Blame gutter, and opens the commit's file diff from a blamed line.
-- Improvement: New Work Items tab in the Agents window keeps a searchable list of work items you can organise into custom groups, link chats to and edit with auto-save, which agents can also read and update.
 - Improvement: The Agents window's Sessions tab shows a badge counting chats that need attention.
 - Improvement: "Resolve with AI" can now optionally complete the merge or rebase once all conflicts are staged, and explains "ours" and "theirs" correctly during a rebase. Your choice is remembered in Source Control preferences.
 - Improvement: Pull request descriptions now accept pasted images.
@@ -63,8 +101,6 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 - Improvement: Claude Code's reasoning effort can be set to None on models that allow thinking to be turned off, such as Haiku.
 - Improvement: Connecting OpenCode now updates an existing `opencode.jsonc`, keeping its comments, instead of creating `opencode.json` beside it.
 - Improvement: Intent's MCP server now works the same way for ACP and plain MCP clients, with the model-first rules delivered through the `intent-architect-mcp` skill and `get_full_instructions` removed.
-- Improvement: Spec-Driven Development: specs are grouped into Changes and Capabilities, the Specs panel health pill animates while loading, an auto-approve indicator shows on the activity pill, and health checks run about five times faster.
-- Improvement: Spec-Driven Development: `write_spec` reports acceptance criteria that are too long or combine several conditions, and new specs are drafted through `/sdd-run`.
 
 ### Fixes in 5.4.0
 
