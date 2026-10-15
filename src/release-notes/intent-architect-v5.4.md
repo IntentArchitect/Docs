@@ -17,11 +17,17 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
 
+<!-- TODO screenshot: ![Find and Replace across a solution](images/5.4.x/find-and-replace.png) - The Search panel in the Agents window with a search and replacement entered and results grouped by folder. -->
+
 ---
 
 ### Git Explorer and the Pull Requests panel
 
 Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
+
+<!-- TODO screenshot: ![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png) - The Pull Requests side panel open, with the count badge visible on its icon. -->
+
+<!-- TODO screenshot: ![The Git Explorer tab](images/5.4.x/git-explorer.png) - Git Explorer showing branches and worktrees, ideally with the context menu open on a worktree. -->
 
 A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter.
 
@@ -31,13 +37,19 @@ A new File History view searches a file's commits and can restore an earlier rev
 
 When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests. Changes Review now shows test coverage of the added lines, per file and overall, read from Cobertura reports. Tests can be run straight from Changes Review, with pull requests tested in an isolated worktree, or coverage can be fetched from an Azure Pipelines build.
 
+<!-- TODO screenshot: ![Test coverage in Changes Review](images/5.4.x/changes-review-coverage.png) - Changes Review with coverage pills on several files and on the change overall, including at least one file with partial coverage. -->
+
 ---
 
 ### Rendered Markdown diffs and inline editing
 
 Raw Markdown diffs are hard to read, particularly for prose and tables. Markdown diffs can now be shown rendered, with added, removed and changed blocks, words and table cells highlighted, and can be edited in place.
 
+<!-- TODO screenshot: ![A rendered Markdown diff](images/5.4.x/markdown-rendered-diff.png) - A rendered diff of a document showing an added block, a removed block, a changed sentence and a changed table cell. -->
+
 Markdown and MDX files can also be edited in a live preview, where only the block being edited shows its source.
+
+<!-- TODO screenshot: ![Editing Markdown in a live preview](images/5.4.x/markdown-inline-editing.png) - A document in the live preview with the cursor in one block showing its source, and the surrounding blocks rendered. -->
 
 ---
 
@@ -45,11 +57,15 @@ Markdown and MDX files can also be edited in a live preview, where only the bloc
 
 Reviewing a plan usually turns up several points at once, which were awkward to collect into a single chat message. It's now possible to comment on selected text in a plan or other document and send all the comments to the agent as feedback in one go.
 
+<!-- TODO screenshot: ![Comments on a plan, ready to send to the agent](images/5.4.x/document-comments.png) - A plan with two or three highlighted comments and the action to send them to the agent visible. -->
+
 ---
 
 ### App preview that agents can drive
 
 Checking an agent's UI changes meant running the application and testing it by hand after every change. An embedded browser now shows the running application, and AI agents can navigate, click, type, read the page and console, and take screenshots in it to verify their own changes. Agents can also start and stop the dev server themselves.
+
+<!-- TODO screenshot: ![An agent checking its changes in the app preview](images/5.4.x/app-preview.png) - The app preview showing a running application beside a chat in which the agent is driving the preview. -->
 
 ---
 
@@ -57,11 +73,15 @@ Checking an agent's UI changes meant running the application and testing it by h
 
 Opening a folder that contains several `.isln` files now opens them together as one workspace, shown as a tree in Solution Explorer.
 
+<!-- TODO screenshot: ![Several solutions opened from one folder](images/5.4.x/multi-solution-folder.png) - Solution Explorer showing two or three solutions from one folder in the foldered tree. -->
+
 ---
 
 ### Work Items
 
 Agents need a place to record the work they're doing that persists beyond a single chat. A new Work Items tab in the Agents window keeps a searchable list of work items that agents can read and update, and that can be grouped and linked to chats.
+
+<!-- TODO screenshot: ![The Work Items tab](images/5.4.x/work-items.png) - The Work Items tab with several items in custom groups and one item open, showing its linked chats. -->
 
 ---
 
@@ -69,7 +89,11 @@ Agents need a place to record the work they're doing that persists beyond a sing
 
 A spec is only useful if the code actually meets it, and there was no way to see which requirements were tested or had drifted since they were last checked. Acceptance criteria now show the status of tests that cite them, such as `[spec:<slug> R1.4]`, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed.
 
+<!-- TODO screenshot: ![Acceptance criteria with test status](images/5.4.x/spec-test-status.png) - A spec with test status chips on its acceptance criteria (a mix of passing, failing and untested), and a collapsed spec card showing its Health summary. -->
+
 A new `request_spec_review` step allows each changed block of a spec to be approved or commented on before its phase advances, and the new `/sdd-run` skill takes a spec through to verification in a single chat.
+
+<!-- TODO screenshot: ![Reviewing a spec before it advances](images/5.4.x/spec-review.png) - The spec review step with changed blocks marked, one approved and one with a comment. -->
 
 ---
 
