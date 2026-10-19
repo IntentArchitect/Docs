@@ -4,14 +4,13 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 ---
 # Release notes: Intent Architect version 5.3
 
-<!-- 5.3.6: covers publish/client/5.3.5..044ab4b458 (release/5.3.x, 2026-10-12). No 5.3.6 tag yet. Add later commits from 044ab4b458 onwards. -->
-
 ## Version 5.3.6
 
 ### Improvements in 5.3.6
 
 - Improvement: A new Process Explorer window lists every Intent Architect process with its CPU and memory use and a clear label, and can capture a memory dump of any of them. Open it with Ctrl/Cmd + Shift + Alt + P, from the About window, or from the Help menu (and the Window menu on macOS).
 - Improvement: Stable releases are now published to Homebrew as the `intent-architect@5` cask in the `IntentArchitect/homebrew-tap` tap, and to the Chocolatey Community Repository as `intent-architect`.
+- Improvement: The Plan persona can now read and write specs, so `/sdd-requirements`, `/sdd-design` and `/sdd-tasks` work from a Plan chat without having to enable the spec tools first.
 
 ### Fixes in 5.3.6
 
