@@ -109,6 +109,7 @@ The same command for installation (`dotnet tool install Intent.SoftwareFactory.C
 |`ensure-no-outstanding-changes <username> <password> <isln-path>` |Runs the Software Factory and if there are any outstanding changes it prints out an error and exits with a non-zero return code.|
 |`update-modules <username> <password> <isln-path>`                |Installs, updates, downgrades, or ensures the installation of one or more modules.|
 |`uninstall-modules <username> <password> <isln-path>`             |Uninstalls one or more modules.|
+|`verify-sdd <isln-path>`                                         |Checks that each spec's recorded hashes are still in sync, without AI, and exits with a non-zero return code if any spec is out of date.|
 
 ## apply-pending-changes command
 
@@ -277,6 +278,59 @@ Force-uninstall a module from one application, even if other installed modules s
 
 ```bash
 intent-cli uninstall-modules --application-id "db9e35a9-c663-478a-93cb-ba7c0fffee43" -- "user@example.com" "@Password1" "./intent-solution.isln" --module "Intent.AspNetCore.Swashbuckle" --force
+```
+
+## verify-sdd command
+
+Checks, without AI and without logging in, that every spec's content hashes still match its recorded verdict. This is the deterministic half of the `sdd-verify` skill: it catches a spec whose requirement wording, traced code files, traced model elements or citing tests have changed since the spec was last verified. It does not judge whether the code satisfies a requirement.
+
+Each spec is reported with one of these health values:
+
+|Health        |Meaning                                                                    |Result|
+|--------------|---------------------------------------------------------------------------|------|
+|`verified`    |Nothing the verdict depends on has moved.                                  |Passes|
+|`unverified`  |The spec has no verdict yet. Logged as a warning so in-flight work doesn't break the build.|Passes with a warning|
+|`out-of-date` |Requirements, traced files or traced model elements moved since the verdict.|Fails|
+|`gaps`        |The verdict recorded one or more gaps.                                     |Fails|
+|`unknown`     |The spec's health could not be computed (for example an unreadable `verdict.json`).|Fails|
+
+The command exits with `1` if any spec fails, or if a `--spec` slug does not exist, and with `0` otherwise. Failures are logged as errors and unverified specs as warnings, so on Azure Pipelines they appear on the build summary using the same [logging commands](#verify-sdd-options) as the other commands.
+
+### verify-sdd usage
+
+```bash
+intent-cli verify-sdd [options] -- <isln-path>
+```
+
+Options must be placed before the `--`, everything after it is treated as an argument.
+
+### verify-sdd arguments
+
+|Argument      |Description|
+|--------------|-----------|
+|`<isln-path>` |Path to the Intent Architect solution (.isln) file or folder containing a single .isln file.|
+
+### verify-sdd options
+
+|Option                                                |Description|
+|------------------------------------------------------|-----------|
+|`--spec <slug>`                                       |Only check the spec with this slug. Repeatable. If unspecified then every spec is checked.|
+|`--error-logging-command <error-logging-command>`     |Command to use for logging an error. Automatically configured for Azure Pipelines (`##vso[task.logissue type=error;]...`).|
+|`--warning-logging-command <warning-logging-command>` |Command to use for logging a warning. Automatically configured for Azure Pipelines (`##vso[task.logissue type=warning;]...`).|
+|`-?, -h, --help`                                      |Show help and usage information|
+
+### verify-sdd examples
+
+Check every spec in the solution:
+
+```bash
+intent-cli verify-sdd -- "./intent-solution.isln"
+```
+
+Check only two specs:
+
+```bash
+intent-cli verify-sdd --spec "ai-chat-surface" --spec "work-items" -- "./intent-solution.isln"
 ```
 
 ## FAQ
