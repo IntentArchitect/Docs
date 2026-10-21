@@ -13,25 +13,15 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 <!-- TODO (human): add the intro/summary prose and the release date once 5.4.0 is final. -->
 
-### Solution-wide Find and Replace
+### Spec-Driven Development: tests and reviews
 
-It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
+A spec is only useful if the code actually meets it, and there was no way to see which requirements were tested or had drifted since they were last checked. Acceptance criteria now show the status of tests that cite them, such as `[spec:<slug> R1.4]`, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed.
 
-![Find and Replace across a solution](images/5.4.x/find-and-replace.png)
+![Acceptance criteria with test status](images/5.4.x/spec-test-status.png)
 
----
+A new `request_spec_review` step allows each changed block of a spec to be approved or commented on before its phase advances, and the new `/sdd-run` skill takes a spec through to verification in a single chat.
 
-### Git Explorer and the Pull Requests panel
-
-Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
-
-![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
-
-![The Git Explorer tab](images/5.4.x/git-explorer.png)
-
-A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter.
-
-![File History and the Git Blame gutter](images/5.4.x/file-history-and-blame.png)
+![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
 
 ---
 
@@ -55,6 +45,20 @@ Markdown and MDX files can also be edited in a live preview, where only the bloc
 
 ---
 
+### Git Explorer and the Pull Requests panel
+
+Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
+
+![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
+
+![The Git Explorer tab](images/5.4.x/git-explorer.png)
+
+A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter.
+
+![File History and the Git Blame gutter](images/5.4.x/file-history-and-blame.png)
+
+---
+
 ### Comment on documents and send feedback to the agent
 
 Reviewing a plan usually turns up several points at once, which were awkward to collect into a single chat message. It's now possible to comment on selected text in a plan or other document and send all the comments to the agent as feedback in one go.
@@ -71,14 +75,6 @@ Checking an agent's UI changes meant running the application and testing it by h
 
 ---
 
-### Folders with several solutions
-
-Opening a folder that contains several `.isln` files now opens them together as one workspace, shown as a tree in Solution Explorer.
-
-![Several solutions opened from one folder](images/5.4.x/multi-solution-folder.png)
-
----
-
 ### Work Items
 
 Agents need a place to record the work they're doing that persists beyond a single chat. A new Work Items tab in the Agents window keeps a searchable list of work items that agents can read and update, and that can be grouped and linked to chats.
@@ -87,15 +83,19 @@ Agents need a place to record the work they're doing that persists beyond a sing
 
 ---
 
-### Spec-Driven Development: tests and reviews
+### Solution-wide Find and Replace
 
-A spec is only useful if the code actually meets it, and there was no way to see which requirements were tested or had drifted since they were last checked. Acceptance criteria now show the status of tests that cite them, such as `[spec:<slug> R1.4]`, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed.
+It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
 
-![Acceptance criteria with test status](images/5.4.x/spec-test-status.png)
+![Find and Replace across a solution](images/5.4.x/find-and-replace.png)
 
-A new `request_spec_review` step allows each changed block of a spec to be approved or commented on before its phase advances, and the new `/sdd-run` skill takes a spec through to verification in a single chat.
+---
 
-![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
+### Folders with several solutions
+
+Opening a folder that contains several `.isln` files now opens them together as one workspace, shown as a tree in Solution Explorer.
+
+![Several solutions opened from one folder](images/5.4.x/multi-solution-folder.png)
 
 ---
 
