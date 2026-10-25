@@ -87,8 +87,6 @@ Agents need a place to record the work they're doing that persists beyond a sing
 
 It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
 
-![Find and Replace across a solution](images/5.4.x/find-and-replace.png)
-
 ---
 
 ### Folders with several solutions
