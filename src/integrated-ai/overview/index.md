@@ -1,15 +1,17 @@
 ---
 uid: ai.overview
-description: "How AI agents operate within Intent Architect's control framework, and the three ways to drive it: built-in agents, a CLI agent configured as the provider, or an external agent via the Intent MCP server."
+description: "How Intent Architect, the control plane for agentic .NET development, governs AI agents from any provider or harness, and the three ways to drive it: built-in agents, a CLI agent configured as the provider, or an external agent via the Intent MCP server."
 ---
 # AI in Intent Architect
 
-Intent Architect works with a user's preferred AI service provider and coding harness, and adds a control framework made up of four components:
+Intent Architect is the control plane for agentic .NET development. It doesn't replace AI coding agents; it governs how they work. Teams keep their preferred AI service provider and coding harness (Claude Code, Codex, GitHub Copilot, Cursor and others), and Intent Architect adds a control framework made up of four components:
 
-- **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the user's architecture and standards.
-- **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help users minimize technical and cognitive debt.
+- **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the team's architecture and standards.
+- **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help teams minimize technical and cognitive debt.
 - **[Advanced Validation Tools](xref:key-concepts.codebase-integration)** – tools to denoise Pull Requests (PRs) and optimize validation processes for agentic development.
 - **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
+
+Together, these let teams scale agentic development safely and reliably. Agents write the code, while Intent Architect keeps it consistent with the architecture, easy to understand and quick to validate, so AI-driven velocity doesn't shift the delivery bottleneck to code review or push risk downstream.
 
 This section covers how AI agents operate within that control framework, and the options available for driving it.
 

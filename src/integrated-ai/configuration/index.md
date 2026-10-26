@@ -4,6 +4,8 @@ description: "The AI Configuration dialog: connect LLM providers (OpenAI, Anthro
 ---
 # AI Configuration
 
+Intent Architect works with any LLM provider and coding harness. The **AI Configuration** dialog is where you choose the providers behind Intent's agents, connect your own agent through the Intent MCP, and extend agents with external MCP servers.
+
 Open via the **AI Configuration** dialog in the AI chat window. There are four tabs.
 
 ---

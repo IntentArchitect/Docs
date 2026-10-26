@@ -6,6 +6,8 @@ description: "Use Claude Code, Codex, GitHub Copilot CLI, Kiro, Cursor CLI or Op
 
 Intent Architect can use a CLI coding agent you already have as the AI harness behind its chat. The agent runs locally under your own subscription and sign-in, and Intent Architect talks to it over the [Agent Client Protocol (ACP)](https://agentclientprotocol.com/), supplying its designers, Software Factory, agents and skills as tools and context.
 
+This lets teams keep the harness and subscription they already use. The agent does the work, and Intent Architect's control framework (architectural guardrails, design blueprints, validation tools and traceability) applies to it exactly as it does to Intent Architect's own agents.
+
 > [!TIP]
 > To drive Intent Architect from your own terminal or IDE instead, see [Intent MCP Server](xref:ai.intent-mcp-server).
 

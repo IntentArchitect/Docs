@@ -6,16 +6,18 @@ description: "How Intent AI agents discover agent definitions, instruction files
 
 How Intent's AI agents discover the files that shape their behavior - agent definitions, instruction files, and skills - and where each type is loaded from at runtime.
 
+Context files are the probabilistic ("soft") half of Intent Architect's [architectural guardrails](xref:key-concepts.deterministic-codegen): they guide agents, while Modules enforce the architecture deterministically. Intent's agents pick up the context files your team already uses (`CLAUDE.md`, `AGENTS.md`, `.cursor/rules/`, `.github/instructions/` and so on), so existing context engineering carries straight over.
+
 ## Contexts: `coding` vs `modeling`
 
 Behind the scenes, Intent's AI operates in two contexts that load different instruction files and skills:
 
 - **`modeling`** - works with Intent designers (Domain, Services, User Interface, etc.) and delegates to the coding context when implementation work is needed.
-- **`coding`** - handles the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) and works against an application's generated source code.
+- **`coding`** - handles the [Software Factory](xref:application-development.software-factory.about-software-factory-execution) and works against an application's source code.
 
 A modeling agent handles requests against the designers and delegates coding tasks to the coding context automatically, so implementation work is picked up without having to switch agents.
 
-Each context has its own root folder for instruction files and skills: modeling-time files live alongside the solution, code-time files live alongside the generated code. An agent only loads the context files for its context - a modeling-context agent will never see files in the application's output folder, and vice versa.
+Each context has its own root folder for instruction files and skills: modeling-time files live alongside the solution, code-time files live alongside the application's code. An agent only loads the context files for its context - a modeling-context agent will never see files in the application's output folder, and vice versa.
 
 > See [Custom Agents](xref:ai.custom-agents) for how an agent declares which context(s) it operates in.
 

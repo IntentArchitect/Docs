@@ -6,9 +6,9 @@ description: "List, create, review, discuss and merge pull requests inside Inten
 
 Intent Architect can list, create, review, discuss and merge pull requests without leaving the application, on **GitHub**, **Azure DevOps**, **GitLab** and **Bitbucket Cloud**.
 
-The reason it does is [](xref:application-development.change-review). A pull request raised from an Intent Architect solution carries three different kinds of change in one change set: designer metadata, the code the Software Factory generated from it, and code written by hand. **Intent Architect knows which is which** - it generated that code, and it holds the model change that caused it. **The Git host does not.** All it has is the files, so its web diff renders all three the same way: as text.
+The reason it does is [](xref:application-development.change-review). A pull request raised from an Intent Architect solution carries three different kinds of change in one change set: designer metadata, the architectural code that Intent Architect's deterministic guardrails maintain from that design, and bespoke code written by developers or AI agents. **Intent Architect knows which is which** - it is responsible for the architectural code, and it holds the model change that caused it. **The Git host does not.** All it has is the files, so its web diff renders all three the same way: as text.
 
-That distinction is what makes such a change reviewable. It separates the generated output you can take as read from the handful of files that genuinely need a human - and until 5.3 it was lost the moment the review moved to a browser.
+That distinction is what makes such a change reviewable, and it matters most when agents raise more and larger pull requests than anyone can read line by line. Architectural code that conforms to the design can be taken as read, so review happens by exception: design changes, deviations and the handful of files that genuinely need a human come first. Until 5.3, that distinction was lost the moment the review moved to a browser.
 
 Reviewing a pull request here is therefore the *same* Change Review screen, pointed at the pull request's changes instead of your working tree. Everything that screen does - element-level model diffs, the deterministic/custom split, [file classifications](xref:application-development.file-classifications) and severity, requirement traceability - applies unchanged. What this article covers is the pull request layer on top of it: finding pull requests, creating them, the conversation, and the actions that land them.
 
@@ -163,7 +163,7 @@ A thread can be anchored to a **line in a file**, or to a **model element**.
 
 Commenting on a model element posts an ordinary pull request comment - anchored to that element's entry in the designer metadata - so it appears on the host alongside every other comment, and anyone reading the pull request in a browser sees it. Inside Intent Architect it is shown against the element itself, named as the element rather than as a line of a metadata file.
 
-The reverse works too: a comment left on a generated line of code carries a chip naming the model element that produced it, and clicking the chip opens that element in its designer.
+The reverse works too: a comment left on a line of architectural code carries a chip naming the model element behind it, and clicking the chip opens that element in its designer.
 
 <!-- A comment thread anchored to a model element on the Change Review tab, showing
      the element row, the thread beneath it, and the reply / resolve actions. -->

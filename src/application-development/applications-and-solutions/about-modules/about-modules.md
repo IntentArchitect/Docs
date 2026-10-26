@@ -1,18 +1,21 @@
 ---
 uid: application-development.applications-and-solutions.about-modules
-description: "Modules are the building blocks of pattern reuse in Intent Architect, generating code files for architectural patterns with versioning and dependencies."
+description: "Modules are the building blocks of Intent Architect's architectural guardrails: versioned packages that encode architectural patterns and enforce them deterministically and through AI context files, with no runtime dependency on Intent Architect."
 ---
 # About Modules
 
 ## What is a Module
 
-Modules are the _building blocks_ and artifacts of pattern reuse in Intent Architect.
+Modules are the _building blocks_ of Intent Architect's [deterministic guardrails](xref:key-concepts.deterministic-codegen).
 
-Typically, the purpose of a Module is to generate and manage a set of code files in a codebase, usually centered around a particular architectural pattern. This could include domain entities, bootstrapping files, ORM mappings, API controllers, etc.
+Each Module encodes an architectural pattern, such as domain entities, application bootstrapping, ORM mappings or API controllers, and enforces it in your codebase in two complementary ways:
 
-Modules share similarities with package systems such as NuGet, NPM, and Maven. However, while those systems primarily focus on code reuse, the primary objective of Modules is _pattern reuse_.
+- **Deterministically ("hard" guardrails)** – The Software Factory applies the pattern from your design blueprints on every run, so a given design produces the same architectural code every time, with no drift. Customizations and deviations are tracked and flagged automatically, so adherence is managed by exception rather than by line-by-line review.
+- **Probabilistically ("soft" guardrails)** – Modules can install AI context files, such as skills and instruction files, so coding agents follow the same patterns when they implement business logic, whether they run inside Intent Architect or in your own harness (for example Claude Code, GitHub Copilot or Cursor).
 
-Modules have versions and dependencies and do not directly introduce any runtime dependencies. However, they can be configured to introduce package dependencies if the Module designer chooses to do so.
+Because every developer and agent works within the same Modules, architecture stays consistent across teams and projects. Architecture-wide changes are rolled out by updating a Module, rather than by prompting and reviewing every affected file.
+
+Modules share similarities with package systems such as NuGet and NPM. However, while those systems distribute code you call at runtime, Modules distribute _deterministic guardrails_. Modules have versions and dependencies, but introduce no runtime dependency on Intent Architect. A Module only adds package dependencies (for example, NuGet packages) where its pattern requires them.
 
 ![Application Modules](images/application-modules-installed.png)  
 _An example showing the list of installed Modules in a sample application. The `Intent.Application.MediatR` module is selected, with its details displayed in the pane on the right._
