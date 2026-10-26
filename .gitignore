@@ -259,6 +259,7 @@ ModelManifest.xml
 
 # Nothing in the src folder should ever be ignored
 !src/**
+.DS_Store
 
 # Jetbrains...
 .idea/

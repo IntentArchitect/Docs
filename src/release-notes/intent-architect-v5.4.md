@@ -1,10 +1,10 @@
 ---
 uid: release-notes.intent-architect-v5.4
-description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab and Pull Requests panel; test coverage in Changes Review; inline MDX editing, rendered markdown diffs and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development test bindings and spec reviews."
+description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development test bindings and spec reviews."
 ---
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to fe1ef39839 (2026-10-11). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from fe1ef39839 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
+<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to 9f104b5a39 (2026-10-25). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from 9f104b5a39 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
 
 > [!NOTE]
 > These release notes are AI generated and are still pending human review.
@@ -45,17 +45,47 @@ Markdown and MDX files can also be edited in a live preview, where only the bloc
 
 ---
 
-### Git Explorer and the Pull Requests panel
+### Git Explorer and pull requests
 
-Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
+Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge and the list is quicker to get to. The panel is a board of cards grouped by repository, showing merge status, assignees and requested reviewers, and other people's drafts are hidden by default.
 
 ![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
+
+A pull request's assignees, reviewers, labels and draft status can now be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description offers the people on the pull request and its changed files.
+
+Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
 
 ![The Git Explorer tab](images/5.4.x/git-explorer.png)
 
 A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter.
 
 ![File History and the Git Blame gutter](images/5.4.x/file-history-and-blame.png)
+
+---
+
+### Explorer Diagram
+
+To see an agent's model changes in context, an Explorer Diagram can now draw selected elements and their neighbours on demand, without a saved diagram being laid out by hand. `Show in Explorer Diagram` in a designer's tree opens the selected elements, and the `+` button on a box adds neighbours, with a right-click menu to pick an association type and see how many there are. `Keep Diagram` saves the result as a normal diagram.
+
+Agents show their model changes in an Explorer Diagram instead of laying out saved diagrams, with deleted elements drawn as ghosts.
+
+---
+
+### Application Overview
+
+To catch up on an application after time away, a new Application Overview tab shows the number of elements in each designer and the recent designer and spec activity, with the commit authors' avatars. The activity window can be today, yesterday, a week or a month, and activity rows link to the Specs panel and Source Control.
+
+---
+
+### Collapsible tool groups in AI chat
+
+Long agent turns are easier to follow in AI Chat now that two or more consecutive tool calls fold into one group with a summary such as "Ran 12 commands, read 3 files", and sub-agent rows nest under their own dispatch card. While an agent reasons, the Thinking row shows an estimated token count.
+
+---
+
+### Document outline and pasted images
+
+Long plans and specs can now be navigated with an "On this page" outline panel, which lists a document's headings and follows the scroll position. Images can be pasted or dropped into a document and are saved beside it.
 
 ---
 
@@ -125,6 +155,42 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Improvement: Claude Code's reasoning effort can be set to None on models that allow thinking to be turned off, such as Haiku.
 - Improvement: Connecting OpenCode now updates an existing `opencode.jsonc`, keeping its comments, instead of creating `opencode.json` beside it.
 - Improvement: Intent's MCP server now works the same way for ACP and plain MCP clients, with the model-first rules delivered through the `intent-architect-mcp` skill and `get_full_instructions` removed.
+- Improvement: Agents can open pull requests with the new `create_pull_request` tool, which prefills the Create Pull Request tab or opens the pull request directly, with embedded screenshots. Opening directly is behind a new "Let agents create pull requests directly" setting.
+- Improvement: Refreshing a pull request review after its head moves now shows files changed since they were approved as stale, and the review keeps unsent comment text when its tab is reopened.
+- Improvement: "Rebase with AI" is offered when a host refuses a rebase merge, and "Update branch" starts an update-branch chat on a `pr/<id>` session branch.
+- Improvement: The Pull Requests badge turns red when pull requests need attention, and the Work Items badge counts items whose linked chats are waiting on you.
+- Improvement: Work Items gain a priority, created and completed times, hidden old Done items, reordering of linked chats by dragging, a "Create work item" action on chat messages, "Link to new work item…" on Sessions rows, a Work Items chip on linked Sessions rows, and a setting to start work item chats in a worktree.
+- Improvement: New chats are saved as drafts as soon as they have text, an attachment or an open tab, and survive navigation and restarts. "Create now" cuts the worktree early, and "Apply now" or "Cancel" changes a chat's location without sending.
+- Improvement: AI Configuration is now a tab, opening on General and remembering the last tab used. Its Skills pane groups the built-in skills and rules, with per-agent install and update, and "Reset to bundled".
+- Improvement: Built-in skills and rules are only written to agent folders when auto sync is on or when asked for. An "Enable auto sync" banner in chat offers to turn it on, and System Suggestions are reachable from the user menu.
+- Improvement: A team setting in `.agents/team-settings.json` and a user default now decide whether plans and specs are `.md` or `.mdx`.
+- Improvement: AI summaries have a per-model "Thinking Levels" picker and run in stripped-down agent sessions that use far fewer tokens.
+- Improvement: Claude Code can stay in Auto permission mode instead of falling back to Edit automatically.
+- Improvement: Sub-agents that run in the background, are nested, or are resumed with `SendMessage` now appear under "Background agents and tasks", and several sub-agents can run in parallel.
+- Improvement: Messages sent mid-turn now reach the chat's own agent rather than being forwarded to sub-agents.
+- Improvement: Escape anywhere in the AI chat cancels the active question, approval or spec gate, and clicking the transcript lets the arrow and page keys scroll it.
+- Improvement: Folders named in AI replies, and `file:` links, now open in the Codebase Explorer or the OS file manager.
+- Improvement: Files dropped from the OS onto either shell, a chat's messages or a tab open as file tabs, and only the chat composer attaches them.
+- Improvement: The Agents window can move a tab to a new window, collapses its left panel by dragging past a threshold or clicking the active tab, and remembers each chat's open tabs and Solution Explorer expansion when switching between chats and shells.
+- Improvement: Zoom now offers 50% to 200% in 5% steps.
+- Improvement: Git Blame can show files larger than 2 MB, and "Annotate Current File with Git Blame" is offered from Git History commit rows.
+- Improvement: During a rebase, Source Control shows the branch being rebased and the step progress.
+- Improvement: The Task Console raises a dismissible error toast when it gets errors while hidden.
+- Improvement: ACP connectors can be installed on machines without Node.js, using the npm bundled with Intent Architect, and CLI locations are found after installs made following logon on Windows.
+- Improvement: Files can be classified from a popover in Changes Review, and Template Outputs can carry File Classification entries so files from one template are classified differently. "Severity" is now "review importance", and the Root Folder can carry entries on Codebase Structure 1.2.0-pre.1 or later.
+- Improvement: Association ends can have labels, with `getLabel()` and `setLabel()` in the macro API and a visual setting to hide them, and diagram element text and popover comments can be Markdown.
+- Improvement: Association lines now route around boxes in the way, and neighbours added to a diagram are laid out away from the box they were added from.
+- Improvement: Element comment diffs are rendered as Markdown.
+- Improvement: Rendered diffs show changed list numbers and front matter changes, and answers to question forms are sent together with comments from the document pane.
+- Improvement: Plain Markdown documents get the same links, references and inline editing as `.mdx`, and pasted Markdown is escaped in `.mdx` prose so braces and `<` aren't read as code.
+- Improvement: Acceptance criteria in Changes Review now show test coverage and criteria changes, specs are named by title in tabs and diffs, and the Specs panel shows a task progress bar while implementing and Approve and Request changes buttons for design and tasks reviews.
+- Improvement: Spec cards offer "Re-check" and "Fix N gaps", and the group header "Re-check all" and "Fix all" fill one `/sdd-run` chat for every spec that needs it. Waves can declare `dependsOn` and a `checkpoint` that pauses a run for review.
+- Improvement: A new `verify-sdd` Software Factory CLI command checks spec health in CI without AI, failing for out-of-date specs and specs with gaps.
+- Improvement: New MCP tools `run_instance_query`, `close_instance` and `stop_software_factory`, `resolve_designer_dialog` for the "Underlying metadata files have changed" prompt, `forceReinstall` on `install_or_update_modules`, and `location` on `create_solution` to add a separate solution in a repository subfolder.
+- Improvement: `run_software_factory` applies its own output in Staging mode unless a change is destructive, and agents' file edits are written straight to disk. Designer schema, script and search payloads are more compact to use fewer tokens.
+- Improvement: An agent must read a designer's rules before changing it, and rules from an application's `.agents/instructions` are included in agent prompts.
+- Improvement: Software Factory errors that are logged now show the same typed error cards as thrown ones.
+- Improvement: Module install, update, uninstall and restore are queued one at a time per Intent Architect instance.
 
 ### Fixes in 5.4.0
 
@@ -160,3 +226,32 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Fixed: Un-ignoring a deleted file in Source Control gave an error.
 - Fixed: Single-file diff tabs showed the wrong file-type icon.
 - Fixed: A chat busy in another folder could make a spec show as busy.
+- Fixed: Opening Codebase Structure or another designer could leave its tab marked as having unsaved changes, so a later external change raised "Underlying metadata files have changed" instead of reloading.
+- Fixed: A module install or update could leave a clean designer tab marked dirty, or raise a false "unsaved changes" prompt that blocked every AI designer tool.
+- Fixed: Changing application settings from an agent only reached open designers after they were closed and reopened, and could re-save every package.
+- Fixed: Saving a designer for the first time rewrote files written by a module install.
+- Fixed: Opening a diagram could mark it as edited, and diagram boxes could be lost when a referenced package reloaded.
+- Fixed: Package references added by path from a script could adopt another package's model.
+- Fixed: After a module update, designer settings and scripts stayed those of the old module until Intent Architect restarted.
+- Fixed: An AI script could leave a designer unresponsive so that saves never finished and the next chat message never started.
+- Fixed: A failed Software Factory run kept its lock, so later module installs for that application timed out.
+- Fixed: Save All could hang when it restarted the Software Factory during staging.
+- Fixed: Software Factory runs could use another application's older stereotype definitions for a shared module package.
+- Fixed: A template's relative output location could be placed outside the repository when the `.isln` had no `<workspaceRoot>`.
+- Fixed: In a multi-location template, every file was classified by the first Template Output.
+- Fixed: A chat docked in a window for one solution could be pinned to another solution under the same repository root, and every tool call was then refused.
+- Fixed: Approving a plan could overwrite the agent's current plan, or save a rich plan as plain Markdown after a refused skill load.
+- Fixed: Skills present in both `.agents/skills` and an agent's own folder couldn't be loaded natively by that agent.
+- Fixed: A follow-up round of a question form showed the previous round's answers and no Send button.
+- Fixed: AI summaries could fail for Cursor models, and abandoned summary sessions left `claude` processes running that delayed later summaries.
+- Fixed: Intent AI models and the Providers section were shown for accounts without an Intent AI key.
+- Fixed: `grep` and Search over folders containing packages and DLLs could run for minutes.
+- Fixed: Opening a file diff straight after an agent wrote to it could show the plain file, and diffs could fail while an agent was rewriting files.
+- Fixed: Remote and tracking branch reads could fail for repositories with negative refspecs, and stash and notes refs could appear as branches in Source Control history.
+- Fixed: Commit could be triggered twice by a double-click while Source Control re-checked what to commit.
+- Fixed: "Resolve with AI" could leave the previous tab's view drawn over the new chat.
+- Fixed: Staged pull request comments with a path and no line weren't treated as file-level comments.
+- Fixed: Saved files in Windows folders could fail to write or be locked when another program, such as the Doc Viewer, was reading them.
+- Fixed: On macOS, a dock click during startup could open a second main window and leave a splash screen running indefinitely.
+- Fixed: On macOS, own-window dialogs could resize as they appeared or never return their result.
+- Fixed: The Codebase Explorer could hide every folder on Linux and macOS once indexing finished.
