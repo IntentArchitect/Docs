@@ -1,6 +1,6 @@
 ---
 uid: release-notes.intent-architect-v5.4
-description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development test bindings and spec reviews."
+description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development living specifications with test bindings, drift detection and spec reviews."
 ---
 # Release notes: Intent Architect version 5.4
 
@@ -11,15 +11,37 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 ## Version 5.4.0
 
-<!-- TODO (human): add the intro/summary prose and the release date once 5.4.0 is final. -->
+<!-- TODO (human): add the release date once 5.4.0 is final. -->
 
-### Spec-Driven Development: tests and reviews
+We're very excited to announce the release of Intent Architect version 5.4. This version marks another massive milestone of innovation for the platform, offering many new capabilities and improvements, and effective solutions to problems that the industry is still wrestling with.
 
-A spec is only useful if the code actually meets it, and there was no way to see which requirements were tested or had drifted since they were last checked. Acceptance criteria now show the status of tests that cite them, such as `[spec:<slug> R1.4]`, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed. Spec cards offer "Re-check" and "Fix N gaps", and the group header offers "Re-check all" and "Fix all", each filling one `/sdd-run` chat for every spec that needs it. Acceptance criteria in Changes Review show test coverage and criteria changes. A `verify-sdd` Software Factory CLI command checks spec health in CI without AI, failing for out-of-date specs and specs with gaps.
+Where 5.3 was about *seeing* what your agents are doing, 5.4 is about *proving* that what they've done is right. When agents write most of the code, reading every line stops being a review. As Addy Osmani puts it, "The bottleneck has moved from writing code to knowing it's correct." So 5.4 moves the review to **intent and proof**: what a change was meant to do, and the evidence that it does.
+
+A big game changer in this release is the  [**living specifications**](#spec-driven-development-living-specifications). This new capability solves one of the biggest critiques of SDD (Spec-Driven Development) - that specs become stale almost immediately after the next change lands (aka "spec drift"). The system uses tests as proof of that requirements are implemented, and quickly detects gaps - plus a CI command to scale it across teams.
+
+This release also takes big strides in supporting the shift to reviewing "intent" and proof / evidence as the primary way to determine if code is correct. The enhanced PR and Change Review system now allows agents  to create PRs with images and snapshots taken while [**it drives the app**](#app-preview-that-agents-can-drive), users can explore the design changes more easily with the new [**Explorer Diagrams**](#explorer-diagram), spec changes are now rendered in rich  [**Markdown and MDX diffs**](#rendered-markdown-diffs-and-inline-editing), and [**Test coverage for the PR's changed files**](#test-coverage-in-changes-review) are just some of the highlights that 5.4 brings to the table in this regard.
+
+For teams running many agents, the Agent Manager has undergone a step-wise upgrade, bringing `.worktreeinclude` support and the ability to trigger CLI commands (e.g. `npm i`) on creation. In addition, 5.4 introduces [**Work Items**](#work-items) which group sessions and provide a markdown "scratch pad" to  track work, context, information, and whatever else you want :). The upgrades aim to ensure that users running high volumes of parallel agents have a smooth experience with more control.
+
+As always, there's a long list of improvements and fixes below, including the updated [**Application Overview**](#application-overview), the  [solution-wide find and replace](#solution-wide-find-and-replace) and support for working within[folders that contain several Intent Architect solutions](#folders-with-several-solutions).
+
+We hope you enjoy this version. Thank you for your continued support and feedback as we pioneer the future of agentic software engineering with you 🚀
+
+> [!TIP]
+>
+> Ready to get started? **Head to [our website](https://intentarchitect.com) and login to download it**.
+
+---
+
+### Spec-Driven Development: living specifications
+
+A completed spec is only useful to us if the code still meets it, otherwise it's stale and can't be trusted. Until now there was no way to tell which requirements were implemented as expressed, or which had drifted since they were last checked. 5.4 makes specs living: they make behavioural changes explicit to the team and hold agents accountable to them. This solves one of the biggest challenges and critiques of SDD and opens the door to true "intent" based review of our system's rules. It also avoids the "I could swear it used to work like this" experience we all have had as our systems evolve.
+
+Acceptance criteria now show the status of tests that cite them, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed  which keeps token usage efficient. A `verify-sdd` Software Factory CLI command checks spec health in CI without AI, failing for out-of-date specs and specs with gaps.
 
 ![Acceptance criteria with test status](images/5.4.x/spec-test-status.png)
 
-A new `request_spec_review` step allows each changed block of a spec to be approved or commented on before its phase advances, and design and tasks reviews have Approve and Request changes buttons. The new `/sdd-run` skill takes a spec through to verification in a single chat, and waves can declare a `checkpoint` that pauses a run for review.
+A Spec Review step allows each changed block of a spec to be approved or commented on by the user before its phase advances. Importantly, this helps catch misalignments between the user and agents before tokens have been spent. The spec panel keeps things simple with a single call to action button to move specs forward o address issues. And the new `/sdd-run` skill is able to a spec through to verification in a single chat.
 
 ![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
 
@@ -27,7 +49,7 @@ A new `request_spec_review` step allows each changed block of a spec to be appro
 
 ### Test coverage in Changes Review
 
-When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests. Changes Review now shows test coverage of the added lines, per file and overall, read from Cobertura reports. Tests can be run straight from Changes Review, with pull requests tested in an isolated worktree, or coverage can be fetched from an Azure Pipelines build.
+When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests. Rather than reading every line, a reviewer should be able to check the intent of a change and the proof that it works. Changes Review now shows test coverage of the added lines, per file and overall, read from Cobertura reports. This is heuristic but it bolsters confidence especially when paired with specs which make the rule changes crystal clear.
 
 ![Test coverage in Changes Review](images/5.4.x/changes-review-coverage.png)
 
@@ -45,13 +67,21 @@ Markdown and MDX files can also be edited in a live preview, where only the bloc
 
 ---
 
-### Git Explorer and pull requests
+### Enhanced Pull Requests
 
-Pull requests now have their own side panel, so the number of open pull requests can be shown as a badge, which turns red when pull requests need attention, and the list is quicker to get to. The panel is a board of cards grouped by repository, showing merge status, assignees and requested reviewers, and other people's drafts are hidden by default.
+Pull requests now have their own side panel, so the number of open pull requests that are assigned to you is shown as a badge. It now indicates the CI check status, whether it can be merged, who created it, who is assigned to it, the branch, etc.
 
 ![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
 
-A pull request's assignees, reviewers, labels and draft status can now be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description offers the people on the pull request and its changed files.
+A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description offers to tag the people on the pull request and its changed files.
+
+---
+
+### Git Explorer
+
+
+
+
 
 Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
 
