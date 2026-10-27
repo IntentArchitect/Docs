@@ -107,7 +107,7 @@ Reviewing a plan usually turns up several points at once, which were awkward to 
 
 ### App preview that agents can drive
 
-Checking an agent's UI changes meant running the application and testing it by hand after every change. An embedded browser now shows the running application, and AI agents can navigate, click, type, read the page and console, and take screenshots in it to verify their own changes. Agents can also start and stop the dev server themselves.
+An embedded browser tab now shows the running application beside the chat, so an agent's UI changes can be checked without leaving Intent Architect. Agents can use it to navigate, click, type, read the page and console, and take screenshots to verify their own changes, and can start and stop the dev server themselves.
 
 ![An agent checking its changes in the app preview](images/5.4.x/app-preview.png)
 
