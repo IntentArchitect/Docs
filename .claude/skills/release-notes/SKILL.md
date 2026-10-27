@@ -154,6 +154,10 @@ Match the most recent version sections in the file — the style has evolved, so
   - Example: a commit adds a new sticky tree-view header, and a later commit in the same range fixes that header's right-click handling — skip the fix, keep only the Improvement bullet for the header.
   - Contrast with a fix that touches code from a *previous* release (i.e. code not introduced within this range) — that's a real user-facing Fixed bullet even if it happens to land in a commit next to a new feature.
 
+- **Fixes for features or improvements that didn't exist before this minor version.** A fix is only user-facing if a shipped version had the bug. In a new minor version (`X.Y.0`), check whether the affected feature (a headline section or an Improvement bullet) is itself new in `X.Y`; if so, no earlier release had the bug, so drop the Fixed bullet and report it in the skip summary. Check this against the feature's introduction in git history or the previous minor's release notes, not just the same tag range.
+
+**Fold improvements to featured items into the feature section.** An improvement to something that is a headline feature of this version (or was added in this version) is not a separate Improvements bullet. Work it into that feature's `###` section (a clause or short sentence) or leave it out. Only improvements to things that existed in a previous release get an `Improvement:` bullet. Check each candidate Improvement against the list of this version's features before adding it.
+
 **Consolidate:** when several commits form one theme (e.g. multiple ACP-context or `.mcp.json`-configuration commits), write one bullet per distinct user-facing outcome rather than one per commit.
 
 When in doubt about a borderline commit, lean toward **skipping** but list it in your final summary so the user can decide.
@@ -167,5 +171,6 @@ Before finishing:
 - Improvements and Fixes subsections present (non-empty ones only), correct prefixes.
 - Bullets are plain-text, one line, backticked where appropriate, and read as user-facing.
 - No bullet explains *why* the bug happened (no "because...", "due to...", "since the code...") — only the symptom and, if useful, the user-observable conditions that triggered it.
+- No Improvement bullet for a featured item (folded into its section instead), and no Fixed bullet for a feature that is new in this minor version.
 - Internal/vague commits excluded — and reported to the user with reasons.
 - Re-read the file top before editing to respect any hand-edits.
