@@ -4,7 +4,7 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 ---
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to 9f104b5a39 (2026-10-25). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from 9f104b5a39 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
+<!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to d1f965e5e2 (2026-10-27). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from d1f965e5e2 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
 
 > [!NOTE]
 > These release notes are AI generated and are still pending human review.
@@ -69,11 +69,15 @@ To see an agent's model changes in context, an Explorer Diagram can now draw sel
 
 Agents show their model changes in an Explorer Diagram instead of laying out saved diagrams, with deleted elements drawn as ghosts.
 
+![An Explorer Diagram showing an entity and its neighbours](images/5.4.x/explorer-diagram.png)
+
 ---
 
 ### Application Overview
 
 To catch up on an application after time away, a new Application Overview tab shows the number of elements in each designer and the recent designer and spec activity, with the commit authors' avatars. The activity window can be today, yesterday, a week or a month, and activity rows link to the Specs panel and Source Control.
+
+![The Application Overview tab](images/5.4.x/application-overview.png)
 
 ---
 
@@ -81,11 +85,15 @@ To catch up on an application after time away, a new Application Overview tab sh
 
 Long agent turns are easier to follow in AI Chat now that two or more consecutive tool calls fold into one group with a summary such as "Ran 12 commands, read 3 files", and sub-agent rows nest under their own dispatch card. While an agent reasons, the Thinking row shows an estimated token count.
 
+![Consecutive tool calls folded into one group in AI Chat](images/5.4.x/ai-chat-tool-groups.png)
+
 ---
 
 ### Document outline and pasted images
 
 Long plans and specs can now be navigated with an "On this page" outline panel, which lists a document's headings and follows the scroll position. Images can be pasted or dropped into a document and are saved beside it.
+
+![The "On this page" outline beside a document](images/5.4.x/document-outline.png)
 
 ---
 
@@ -191,6 +199,7 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Improvement: An agent must read a designer's rules before changing it, and rules from an application's `.agents/instructions` are included in agent prompts.
 - Improvement: Software Factory errors that are logged now show the same typed error cards as thrown ones.
 - Improvement: Module install, update, uninstall and restore are queued one at a time per Intent Architect instance.
+- Improvement: The Skills tab's Open dropdown lists every file in a skill, not just `SKILL.md`, with added and removed line counts against the bundled copy.
 
 ### Fixes in 5.4.0
 
@@ -255,3 +264,5 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Fixed: On macOS, a dock click during startup could open a second main window and leave a splash screen running indefinitely.
 - Fixed: On macOS, own-window dialogs could resize as they appeared or never return their result.
 - Fixed: The Codebase Explorer could hide every folder on Linux and macOS once indexing finished.
+- Fixed: Tool call results from Kiro could show the wrong text, and failed tool calls were not always shown as failed.
+- Fixed: The Template Manager threw an error for a template with no published version; it now shows a clear message.
