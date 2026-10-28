@@ -14,11 +14,11 @@ We're very excited to announce the release of Intent Architect version 5.4. This
 
 Where 5.3 was about *seeing* what your agents are doing, 5.4 is about *proving* that what they've done is right. When agents write most of the code, reading every line stops being a review. As Addy Osmani puts it, "The bottleneck has moved from writing code to knowing it's correct." So 5.4 moves the review to **intent and proof**: what a change was meant to do, and the evidence that it does.
 
-A big game changer in this release is the  [**living specifications**](#spec-driven-development-living-specifications). This new capability solves one of the biggest critiques of SDD (Spec-Driven Development) - that specs become stale almost immediately after the next change lands (aka "spec drift"). The system uses tests as proof of that requirements are implemented, and quickly detects gaps - plus a CI command to scale it across teams.
+A big game changer in this release is the [**living specifications**](#spec-driven-development-living-specifications). This new capability solves one of the biggest critiques of SDD (Spec-Driven Development) - that specs become stale almost immediately after the next change lands (aka "spec drift"). The system uses tests as proof of that requirements are implemented, and quickly detects gaps - plus a CI command to scale it across teams.
 
-This release also takes big strides in supporting the shift to reviewing "intent" and proof / evidence as the primary way to determine if code is correct. The enhanced PR and Change Review system now allows agents  to create PRs with images and snapshots taken while [**it drives the app**](#app-preview-that-agents-can-drive), users can explore the design changes more easily with the new [**Explorer Diagrams**](#explorer-diagram), spec changes are now rendered in rich  [**Markdown and MDX diffs**](#rendered-markdown-diffs-and-inline-editing), and [**Test coverage for the PR's changed files**](#test-coverage-in-changes-review) are just some of the highlights that 5.4 brings to the table in this regard.
+This release also takes big strides in supporting the shift to reviewing "intent" and proof / evidence as the primary way to determine if code is correct. The enhanced PR and Change Review system now allows agents to create PRs with images and snapshots taken while [**it drives the app**](#agent-drivable-application-previews), users can explore the design changes more easily with the new [**Explorer Diagrams**](#explorer-diagram), spec changes are now rendered in rich [**Markdown and MDX diffs**](#rendered-markdown-diffs-and-inline-editing), and [**Test coverage for the PR's changed files**](#test-coverage-in-changes-review) are just some of the highlights that 5.4 brings to the table in this regard.
 
-For teams running many agents, the Agent Manager has undergone a step-wise upgrade, bringing `.worktreeinclude` support and the ability to trigger CLI commands (e.g. `npm i`) on creation. In addition, 5.4 introduces [**Work Items**](#work-items) which group sessions and provide a markdown "scratch pad" to  track work, context, information, and whatever else you want 🙂. The upgrades aim to ensure that users running high volumes of parallel agents have a smooth experience with more control.
+For teams running many agents, the Agent Manager has undergone a step-wise upgrade, bringing `.worktreeinclude` support and the ability to trigger CLI commands (e.g. `npm i`) on creation. In addition, 5.4 introduces [**Work Items**](#work-items), which group sessions and provide a markdown "scratch pad" to track work, context, information, and whatever else you want 🙂. The upgrades aim to ensure that users running high volumes of parallel agents have a smooth experience with more control.
 
 Agents are also cheaper and quicker to run: when [**building with Intent**](#lower-token-usage-and-faster-builds), they now use around half the tokens and finish about 30% faster compared with previous versions, with no loss in output quality.
 
@@ -36,11 +36,11 @@ We hope you enjoy this version. Thank you for your continued support and feedbac
 
 A completed spec is only useful to us if the code still meets it, otherwise it's stale and can't be trusted. Until now there was no way to tell which requirements were implemented as expressed, or which had drifted since they were last checked. 5.4 makes specs living: they make behavioural changes explicit to the team and hold agents accountable to them. This solves one of the biggest challenges and critiques of SDD and opens the door to true "intent" based review of our system's rules. It also avoids the "I could swear it used to work like this" experience we all have had as our systems evolve.
 
-Acceptance criteria now show the status of tests that cite them, and spec cards summarise verdict gaps and drift since the last verification, re-verification only re-judges what changed which keeps token usage efficient and a `verify-sdd` Software Factory CLI command checks spec health in CI without AI, failing for out-of-date specs and specs with gaps.
+Acceptance criteria now show the status of tests that cite them, and spec cards summarise verdict gaps and drift since the last verification. Re-verification only re-judges what changed, which keeps token usage efficient. A `verify-sdd` Software Factory CLI command also checks spec health in CI without AI, failing for out-of-date specs and specs with gaps.
 
 ![Acceptance criteria with test status](images/5.4.x/spec-test-status.png)
 
-A Spec Review step allows each changed block of a spec to be approved or commented on by the user before its phase advances, this importantly helps catch misalignments between the user and agents before tokens have been spent on implementations while the spec panel keeps things simple with a single call to action button to move specs forward to address issues. And the final piece is the new `/sdd-run` skill which is able to a spec through to verification in a single chat.
+A Spec Review step allows each changed block of a spec to be approved or commented on by the user before its phase advances. Importantly, this helps catch misalignments between the user and agents before tokens have been spent on implementations. The spec panel keeps things simple with a single call-to-action button to move specs forward or address issues. The final piece is the new `/sdd-run` skill, which is able to take a spec through to verification in a single chat.
 
 ![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
 
@@ -63,7 +63,7 @@ Agents building in Intent Architect, from modelling through to code generation, 
 
 ### Test coverage in Changes Review
 
-When reviewing a change, especially one written by an AI agent it's hard to tell whether the new code is actually covered by tests, so the Changes Review tab now shows test coverage of the added lines, per file and overall, read from Cobertura reports, while this is heuristic, it bolsters confidence especially when paired with specs which make rule changes crystal clear.
+When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests, so the Changes Review tab now shows test coverage of the added lines, per file and overall, read from Cobertura reports. Although this is heuristic, it bolsters confidence, especially when paired with specs that make rule changes crystal clear.
 
 ![Test coverage in Changes Review](images/5.4.x/changes-review-coverage.png)
 
@@ -71,11 +71,11 @@ When reviewing a change, especially one written by an AI agent it's hard to tell
 
 ### Rendered Markdown diffs and inline editing
 
-Raw Markdown diffs can be hard to read, particularly for prose and tables, so we've made it that Markdown diffs can be shown rendered, with added, removed and changed blocks, words and table cells highlighted, along with changed list numbers and front matter.
+Raw Markdown diffs can be hard to read, particularly for prose and tables, so Intent Architect's Markdown diffs can now be shown rendered, with added, removed and changed blocks, words and table cells highlighted, along with changed list numbers and front matter.
 
 ![A rendered Markdown diff](images/5.4.x/markdown-rendered-diff.png)
 
-Markdown and MDX files can also be edited in a live preview, where only the block being edited shows its "source", plain Markdown documents get the same links, references and inline editing as `.mdx`, and pasted Markdown is escaped in `.mdx` prose so braces and `<` are not read as code.
+Markdown and MDX files can also be edited in a live preview, where only the block being edited shows its "source". Plain Markdown documents get the same links, references and inline editing as `.mdx`, and pasted Markdown is escaped in `.mdx` prose so braces and `<` are not read as code.
 
 ![Editing Markdown in a live preview](images/5.4.x/markdown-inline-editing.png)
 
@@ -87,7 +87,7 @@ Pull requests now have their own side panel, so the number of open pull requests
 
 ![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
 
-A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website and `@` in a pull request comment or description allows tagging of people on the pull request and its changed files.
+A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description also allows tagging of people on the pull request and its changed files.
 
 ---
 
@@ -103,7 +103,7 @@ Agents show their model changes in an Explorer Diagram instead of laying out sav
 
 ### Application Overview
 
-The Application Overview tab has been completely overhauled, now showing the number of elements in each designer, recent designer and spec activity and commits with links to drill deeper as desired.
+The Application Overview tab has been completely overhauled, now showing the number of elements in each designer, recent designer activity, spec activity and commits, with links to drill deeper as desired.
 
 ![The Application Overview tab](images/5.4.x/application-overview.png)
 
@@ -111,7 +111,7 @@ The Application Overview tab has been completely overhauled, now showing the num
 
 ### Collapsible tool groups in AI chat
 
-Agent turns with many tool calls are now much easier to follow in AI Chats with two or more consecutive tool calls always being folded into one group with a summary such as "Ran 12 commands, read 3 files" while at the same time, sub-agent rows now nest under their own dispatch card and are titled from what they were asked to do.
+Agent turns with many tool calls are now much easier to follow in AI Chats. Two or more consecutive tool calls are always folded into one group with a summary such as "Ran 12 commands, read 3 files", and sub-agent rows now nest under their own dispatch card and are titled from what they were asked to do.
 
 ![Consecutive tool calls folded into one group in AI Chat](images/5.4.x/ai-chat-tool-groups.png)
 
@@ -133,9 +133,11 @@ Reviewing a plan usually turns up several points at once, which were awkward to 
 
 ---
 
-### App preview that agents can drive
+### Agent-drivable application previews
 
-An embedded browser tab now shows the running application beside the chat, so an agent's UI changes can be checked without leaving Intent Architect. Agents can use it to navigate, click, type, read the page and console, and take screenshots to verify their own changes, and can start and stop the dev server themselves.
+A productivity multiplier in agentic development is giving agents a means to spot and fix mistakes in their work all on their own, in a loop if needed, and all without requiring any input from a user. This is why Intent Architect now has an embedded browser tab that not only hosts a running application but also exposes tools that let the agent drive and inspect it.
+
+Agents can navigate, click, type, read the page DOM and console, take screenshots to verify their own changes, and start and stop the dev server themselves.
 
 ![An agent checking its changes in the app preview](images/5.4.x/app-preview.png)
 
@@ -143,7 +145,9 @@ An embedded browser tab now shows the running application beside the chat, so an
 
 ### Work Items
 
-Agents need a place to record the work they're doing that persists beyond a single chat. A new Work Items tab in the Agents window keeps a searchable list of work items that agents can read and update, and that can be grouped and linked to chats. Work items have a priority and created and completed times, old Done items are hidden, and linked chats can be reordered by dragging. A "Create work item" action on chat messages and "Link to new work item…" on Sessions rows add items from chats, linked Sessions rows show a Work Items chip, and a setting starts work item chats in a worktree. The tab's badge counts items whose linked chats are waiting on you.
+Even when using a ticketing system to track tasks for a project, every developer invariably has lots of informal tasks to keep track of as part of their day-to-day work. If agents can *also* see and update these tasks, this opens enormous automation possibilities.
+
+The Work Items tab in Intent Architect allows tracking of informal (or any) tasks while also exposing tools to agents for creating, reading and updating them. It also offers a one-click button to create a new chat to take on a work item, pre-filled with appropriate context and a pre-canned worktree name. You can ask a chat to create a new work item or to add itself to an existing one.
 
 ![The Work Items tab](images/5.4.x/work-items.png)
 
