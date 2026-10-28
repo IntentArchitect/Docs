@@ -89,6 +89,10 @@ Pull requests now have their own side panel, so the number of open pull requests
 
 A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description also allows tagging of people on the pull request and its changed files.
 
+Agents can also open pull requests themselves with the new `create_pull_request` tool, and embed the screenshots they captured while verifying their work, such as the running app in light and dark themes. By default the Create Pull Request tab opens prefilled for you to review and submit, and the new "Let agents create pull requests directly" setting lets an agent open the pull request without that step.
+
+![An agent's pull request description with the screenshots it captured, beside the chat that wrote it](images/5.4.x/agent-pull-request-screenshots.png)
+
 ---
 
 ### Explorer Diagram
@@ -193,7 +197,6 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Improvement: Claude Code's reasoning effort can be set to None on models that allow thinking to be turned off, such as Haiku.
 - Improvement: Connecting OpenCode now updates an existing `opencode.jsonc`, keeping its comments, instead of creating `opencode.json` beside it.
 - Improvement: Intent's MCP server now works the same way for ACP and plain MCP clients, with the model-first rules delivered through the `intent-architect-mcp` skill and `get_full_instructions` removed.
-- Improvement: Agents can open pull requests with the new `create_pull_request` tool, which prefills the Create Pull Request tab or opens the pull request directly, with embedded screenshots. Opening directly is behind a new "Let agents create pull requests directly" setting.
 - Improvement: Refreshing a pull request review after its head moves now shows files changed since they were approved as stale, and the review keeps unsent comment text when its tab is reopened.
 - Improvement: "Rebase with AI" is offered when a host refuses a rebase merge, and "Update branch" starts an update-branch chat on a `pr/<id>` session branch.
 - Improvement: New chats are saved as drafts as soon as they have text, an attachment or an open tab, and survive navigation and restarts. "Create now" cuts the worktree early, and "Apply now" or "Cancel" changes a chat's location without sending.
