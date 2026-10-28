@@ -1,6 +1,6 @@
 ---
 uid: release-notes.intent-architect-v5.4
-description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development living specifications with test bindings, drift detection and spec reviews."
+description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; around half the token usage and faster agent builds; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development living specifications with test bindings, drift detection and spec reviews."
 ---
 # Release notes: Intent Architect version 5.4
 
@@ -23,6 +23,8 @@ This release also takes big strides in supporting the shift to reviewing "intent
 
 For teams running many agents, the Agent Manager has undergone a step-wise upgrade, bringing `.worktreeinclude` support and the ability to trigger CLI commands (e.g. `npm i`) on creation. In addition, 5.4 introduces [**Work Items**](#work-items) which group sessions and provide a markdown "scratch pad" to  track work, context, information, and whatever else you want :). The upgrades aim to ensure that users running high volumes of parallel agents have a smooth experience with more control.
 
+Agents are also cheaper and quicker to run: when [**building with Intent**](#lower-token-usage-and-faster-builds), they now use around half the tokens and finish about 30% faster, with no loss in output quality.
+
 As always, there's a long list of improvements and fixes below, including the updated [**Application Overview**](#application-overview), the  [solution-wide find and replace](#solution-wide-find-and-replace) and support for working within[folders that contain several Intent Architect solutions](#folders-with-several-solutions).
 
 We hope you enjoy this version. Thank you for your continued support and feedback as we pioneer the future of agentic software engineering with you 🚀
@@ -44,6 +46,21 @@ Acceptance criteria now show the status of tests that cite them, and spec cards 
 A Spec Review step allows each changed block of a spec to be approved or commented on by the user before its phase advances. Importantly, this helps catch misalignments between the user and agents before tokens have been spent. The spec panel keeps things simple with a single call to action button to move specs forward o address issues. And the new `/sdd-run` skill is able to a spec through to verification in a single chat.
 
 ![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
+
+---
+
+### Lower token usage and faster builds
+
+Agents building in Intent Architect, from modelling through to code generation, now use far fewer tokens and finish sooner. We trimmed what the agent's tools send back and forth, so it spends less effort on round trips and re-reading context, and more on the work itself. In our benchmark of building a new application from a spec with Opus, the result was the same quality for roughly half the tokens:
+
+| Metric (Opus, new app from spec, median of multiple runs) | Improvement |
+|---|---|
+| Total tokens used | **51% fewer** |
+| Estimated token cost¹ | **48% lower** |
+| Time to complete | **31% faster** |
+| Output quality | Unchanged (all tests pass, same rubric score) |
+
+¹ *Estimated token cost weights each token by its API price. Re-reading cached context is cheap and writing output is expensive, so this reflects the real cost of a run more closely than a raw token count.*
 
 ---
 
