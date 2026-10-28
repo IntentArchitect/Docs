@@ -23,7 +23,7 @@ This release also takes big strides in supporting the shift to reviewing "intent
 
 For teams running many agents, the Agent Manager has undergone a step-wise upgrade, bringing `.worktreeinclude` support and the ability to trigger CLI commands (e.g. `npm i`) on creation. In addition, 5.4 introduces [**Work Items**](#work-items) which group sessions and provide a markdown "scratch pad" to  track work, context, information, and whatever else you want :). The upgrades aim to ensure that users running high volumes of parallel agents have a smooth experience with more control.
 
-Agents are also cheaper and quicker to run: when [**building with Intent**](#lower-token-usage-and-faster-builds), they now use around half the tokens and finish about 30% faster, with no loss in output quality.
+Agents are also cheaper and quicker to run: when [**building with Intent**](#lower-token-usage-and-faster-builds), they now use around half the tokens and finish about 30% faster compared with previous versions, with no loss in output quality.
 
 As always, there's a long list of improvements and fixes below, including the updated [**Application Overview**](#application-overview), the  [solution-wide find and replace](#solution-wide-find-and-replace) and support for working within[folders that contain several Intent Architect solutions](#folders-with-several-solutions).
 
@@ -51,9 +51,9 @@ A Spec Review step allows each changed block of a spec to be approved or comment
 
 ### Lower token usage and faster builds
 
-Agents building in Intent Architect, from modelling through to code generation, now use far fewer tokens and finish sooner. We trimmed what the agent's tools send back and forth, so it spends less effort on round trips and re-reading context, and more on the work itself. In our benchmark of building a new application from a spec with Opus, the result was the same quality for roughly half the tokens:
+Agents building in Intent Architect, from modelling through to code generation, now use far fewer tokens and finish sooner than in previous versions. We trimmed what the agent's tools send back and forth, so it spends less effort on round trips and re-reading context, and more on the work itself. In our benchmark of building a new application from a spec with Opus, the result was the same quality for roughly half the tokens:
 
-| Metric (Opus, new app from spec, median of multiple runs) | Improvement |
+| Metric (Opus, new app from spec, median of multiple runs) | Improvement over previous versions |
 |---|---|
 | Total tokens used | **51% fewer** |
 | Estimated token cost¹ | **48% lower** |
