@@ -146,6 +146,8 @@ The Work Items tab in Intent Architect allows creation of informal (or any) task
 
 ![The Work Items tab](images/5.4.x/work-items.png)
 
+![The Work Items tab, additional screenshot](images/5.4.x/work-items-alternate.png)
+
 ---
 
 ### Solution-wide Find and Replace
