@@ -56,6 +56,16 @@ The release-notes content lives in this docs repo, but the **changes come from t
 
 6. **Report** what you added and, explicitly, **which commits you skipped and why**, so the user can pull any back in.
 
+## Check for missing release dates
+
+Every time this skill runs, before adding new content, scan the current minor's file and the previous minor's file (e.g. `v5.4` and `v5.3`) for `## Version X.Y.Z` headings that have no `_Released YYYY-MM-DD._` line directly beneath them. Other minors are out of scope.
+
+- Treat the newest version in the current file as in progress if it has no final tag yet; don't flag it.
+- For each missing date, look up the final `publish/client/X.Y.Z` tag's commit date (`git -C <client> log -1 --format='%cs' publish/client/X.Y.Z`), after fetching tags.
+- **Offer** to add them (list each version with its proposed date and where the date came from) and use `AskUserQuestion` to confirm. Don't edit dates without confirmation.
+- If the client repo or a tag isn't available, say so and offer a fallback, labelled as inferred: the date the version's notes were first committed here (`git log -S"## Version X.Y.Z" --format=%ad --date=short -- src/release-notes`).
+- Format: a blank line, then `_Released YYYY-MM-DD._` directly under the `## Version` heading, matching existing sections.
+
 ## Section naming and placement
 
 - One `intent-architect-vX.Y.md` file per **minor** version (e.g. `v5.1`), covering all its patch releases.
@@ -166,6 +176,7 @@ When in doubt about a borderline commit, lean toward **skipping** but list it in
 
 Before finishing:
 
+- Current and previous minor files checked for missing release dates, and any found were offered to the user.
 - Both tags verified to exist (after a fetch).
 - New section placed newest-first, heading uses the plain patch version (no `-pre`).
 - Improvements and Fixes subsections present (non-empty ones only), correct prefixes.

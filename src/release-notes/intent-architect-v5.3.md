@@ -6,6 +6,8 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 
 ## Version 5.3.6
 
+_Released 2026-10-13._
+
 ### Improvements in 5.3.6
 
 - Improvement: A new Process Explorer window lists every Intent Architect process with its CPU and memory use and a clear label, and can capture a memory dump of any of them. Open it with Ctrl/Cmd + Shift + Alt + P, from the About window, or from the Help menu (and the Window menu on macOS).
@@ -20,6 +22,8 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: A failed autostash re-apply during a git operation could go undetected when git was set to a language other than English.
 
 ## Version 5.3.5
+
+_Released 2026-10-06._
 
 ### Improvements in 5.3.5
 
@@ -55,6 +59,8 @@ description: "Intent Architect 5.3 release notes: the new Manage Agents window w
 - Fixed: On Windows, a stray "Electron" entry could appear in the Start Menu or taskbar.
 
 ## Version 5.3.4
+
+_Released 2026-09-29._
 
 ### Hightlights in 5.3.4
 

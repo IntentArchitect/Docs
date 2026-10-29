@@ -8,7 +8,7 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 ## Version 5.4.0
 
-<!-- TODO (human): add the release date once 5.4.0 is final. -->
+_Released 2026-10-29._
 
 We're very excited to announce the release of Intent Architect version 5.4. This version marks another massive milestone of innovation for the platform, offering many new capabilities and improvements, and effective solutions to problems that the industry is still wrestling with.
 
