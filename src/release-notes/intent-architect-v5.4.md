@@ -140,9 +140,9 @@ Agents can navigate, click, type, read the page DOM and console, take screenshot
 
 ### Work Items
 
-Even when using a ticketing system to track tasks for a project, every developer invariably has lots of informal tasks to keep track of as part of their day-to-day work. If agents can *also* see and update these tasks, this opens enormous automation possibilities.
+Even when using a ticketing system to track tasks for a project, every developer invariably has lots of informal tasks to keep track of as part of their day-to-day work, or maybe they just need a "scratch pad" to write down _stuff_. If agents can *also* see and update these, this opens enormous automation possibilities.
 
-The Work Items tab in Intent Architect allows tracking of informal (or any) tasks while also exposing tools to agents for creating, reading and updating them. It also offers a one-click button to create a new chat to take on a work item, pre-filled with appropriate context and a pre-canned worktree name. You can ask a chat to create a new work item or to add itself to an existing one.
+The Work Items tab in Intent Architect allows creation of informal (or any) tasks or a "scratch pad" while also exposing tools to agents for creating, reading and updating them. It also offers a one-click button to create a new chat to take on a work item, pre-filled with appropriate context and a pre-canned worktree name. You can ask a chat to create a new work item or to add itself to an existing one.
 
 ![The Work Items tab](images/5.4.x/work-items.png)
 
