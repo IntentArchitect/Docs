@@ -11,12 +11,6 @@ It's the platform .NET teams use to turn AI into a well-governed, repeatable, an
 
 It brings reliable architectural guardrails, authoritative design blueprints, and advanced governance tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality and accountability.
 
-## Getting Started
-
-- [Get Intent Architect](xref:getting-started.get-the-application): Download and install the latest Intent Architect for your environment.
-- [Quick Start](xref:introducing.quickstart): Generate a working .NET solution in minutes and learn the core workflow.
-- [Tutorials](xref:tutorials.fundamentals-landing-page): Hands-on guides to learn the fundamentals and more.
-
 ## Key Concepts
 
 - [Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen): Safeguard codebase quality and maintainability. Intent Architect's advanced guardrail system combines both deterministic and probabilistic enforcement to ensure architectural adherence without adding to the validation burden, and scales across teams without developers having to internalize their standards and context files to validate agentic adherence.
@@ -41,5 +35,3 @@ What's covered in this demo - how to:
 ## Next Steps
 
 - [Get Intent Architect](xref:getting-started.get-the-application)
-- [Quick Start](xref:introducing.quickstart)
-- [Explore Tutorials](xref:tutorials.fundamentals-landing-page)

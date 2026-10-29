@@ -8,7 +8,4 @@ items:
     items:
       - name: Enable Long Path Support
         topicUid: application-development.getting-started.long-path-support-windows-only
-
-- name: Quick Start
-  href: quickstart.md
   

@@ -31,8 +31,3 @@ Install the app.
 ## Troubleshooting
 
 Having issues installing the app? Check out our [Detailed Installation  & Troubleshooting guide](xref:introducing.installation-guide).
-
-## Next Steps
-
-- Continue to **[Quick start](xref:introducing.quickstart)** to build your first application in under 15 minutes
-- Jump to **[Intent Architect fundamentals](xref:tutorials.fundamentals-landing-page)**

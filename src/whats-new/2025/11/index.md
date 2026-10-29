@@ -49,16 +49,14 @@ Each video walks through a key foundational concept, providing step-by-step demo
 
 The series currently covers:
 
-- [#1 Building Your First Application with Intent Architect](xref:tutorials.fundamentals-1-building-an-application) – Create a new application and generate your first end-to-end CRUD use case.
-- [#2 Introduction to Domain Modeling](xref:tutorials.fundamentals-2-intro-to-domain-modeling) – Learn how to model your domain with entities, attributes, and relationships.
-- [#3 Creating CRUD Services](xref:tutorials.fundamentals-3-create-crud-service) – Generate and wire up CRUD services to your domain models.
-- [#4 Creating non-CRUD Services](xref:tutorials.fundamentals-4-create-non-crud-service) – Build custom service operations for specialized business logic.
-- [#5 Customizing Code with Code Management](xref:tutorials.fundamentals-5-customizing-code) – Understand how Intent Architect integrates with your codebase and how to safely extend generated code.
-- [#6 Version Control with Intent Architect](xref:tutorials.fundamentals-6-version-control) – Keep your generated artifacts and metadata in sync across your team.
-- [#7 Application Settings & Migrating to SQLite](xref:tutorials.fundamentals-7-settings-migration) – Configure application settings and explore database provider migration.
-- [#8 Encapsulating Business Logic in the Domain](xref:tutorials.fundamentals-8-encapsulating-domain-logic) – Apply domain-driven principles to keep your business logic clean and maintainable.
-
-You can access all videos directly from the [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist) or via the [Fundamentals Tutorials landing page](https://docs.intentarchitect.com/tutorials/fundamentals/fundamentals-landing-page.html).
+- #1 Building Your First Application with Intent Architect – Create a new application and generate your first end-to-end CRUD use case.
+- #2 Introduction to Domain Modeling – Learn how to model your domain with entities, attributes, and relationships.
+- #3 Creating CRUD Services – Generate and wire up CRUD services to your domain models.
+- #4 Creating non-CRUD Services – Build custom service operations for specialized business logic.
+- #5 Customizing Code with Code Management – Understand how Intent Architect integrates with your codebase and how to safely extend generated code.
+- #6 Version Control with Intent Architect – Keep your generated artifacts and metadata in sync across your team.
+- #7 Application Settings & Migrating to SQLite – Configure application settings and explore database provider migration.
+- #8 Encapsulating Business Logic in the Domain – Apply domain-driven principles to keep your business logic clean and maintainable.
 
 ### Help topic improvements
 
