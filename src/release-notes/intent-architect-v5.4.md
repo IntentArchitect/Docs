@@ -72,17 +72,17 @@ Markdown and MDX files can also be edited in a live preview, where only the bloc
 
 ---
 
-### Enhanced Pull Requests
+### Users and agents can now post images to PRs
 
-Pull requests now have their own side panel, so the number of open pull requests that are assigned to you is shown as a badge. It now indicates the CI check status, whether it can be merged, who created it, who is assigned to it, the branch, etc.
+Agents can now open pull requests themselves with the new `create_pull_request` tool, and embed the screenshots they captured while verifying their work, such as the running app in light and dark themes. By default the Create Pull Request tab opens prefilled for you to review and submit, and the new "Let agents create pull requests directly" setting lets an agent open the pull request without that step.
+
+![An agent's pull request description with the screenshots it captured, beside the chat that wrote it](images/5.4.x/agent-pull-request-screenshots.png)
+
+Pull requests also now have their own side panel, so the number of open pull requests that are assigned to you is shown as a badge. It now indicates the CI check status, whether it can be merged, who created it, who is assigned to it, the branch, etc.
 
 ![The Pull Requests panel with its open pull request badge](images/5.4.x/pull-requests-panel.png)
 
 A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description also allows tagging of people on the pull request and its changed files.
-
-Agents can also open pull requests themselves with the new `create_pull_request` tool, and embed the screenshots they captured while verifying their work, such as the running app in light and dark themes. By default the Create Pull Request tab opens prefilled for you to review and submit, and the new "Let agents create pull requests directly" setting lets an agent open the pull request without that step.
-
-![An agent's pull request description with the screenshots it captured, beside the chat that wrote it](images/5.4.x/agent-pull-request-screenshots.png)
 
 ---
 
@@ -92,7 +92,7 @@ To see an agent's model changes in context, an Explorer Diagram can now draw sel
 
 Agents show their model changes in an Explorer Diagram instead of laying out saved diagrams, with deleted elements drawn as ghosts. Neighbours added to a diagram are laid out away from the box they were added from.
 
-![An Explorer Diagram showing an entity and its neighbours](images/5.4.x/explorer-diagram.png)
+![Show in Explorer Diagram on an entity, the diagram with its + button, and the diagram after adding neighbours](images/5.4.x/explorer-diagram.png)
 
 ---
 
