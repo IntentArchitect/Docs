@@ -22,7 +22,7 @@ At the top of the Solution Explorer, or the context menu, you will find these co
 
 ### Create New Application
 
-Create a new Application such as in the [](xref:tutorials.building-an-application).
+Create a new Application and add it to this Solution.
 
 ### Add Existing Application
 

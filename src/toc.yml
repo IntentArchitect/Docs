@@ -9,11 +9,7 @@ items:
 
   - name: Getting started
     href: introducing/toc.yml
-    topicHref: index.md#getting-started
-
-  - name: Tutorials
-    href: tutorials/toc.yml
-    topicUid: tutorials.fundamentals-landing-page
+    topicUid: getting-started.get-the-application
 
   - name: Application development
     href: application-development/toc.yml

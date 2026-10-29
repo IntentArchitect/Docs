@@ -60,8 +60,8 @@ This context menu option is now also available when right-clicking a Domain diag
 
 Two new tutorials have been added to the Intent Architect documentation website.
 
-- [Tutorial: Hello World](https://docs.intentarchitect.com/getting-started/tutorials/hello-world/hello-world-tutorial.html) - gives you a quick feel for what using Intent Architect can do.
-- [Tutorial: Build an Application](https://docs.intentarchitect.com/getting-started/tutorials/building-an-application/building-an-application.html) - a hands on guide to building a complete application using Intent Architect.
+- Tutorial: Hello World - gives you a quick feel for what using Intent Architect can do.
+- Tutorial: Build an Application - a hands on guide to building a complete application using Intent Architect.
 
 ## Module updates (C#)
 

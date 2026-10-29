@@ -23,7 +23,7 @@ Browse contextual tips and how-tos right inside the app
 Guides, tutorials, and best practices  
 *Explore how-to guides and tutorials to deepen your knowledge*  
 
-[Go to the docs website →](xref:tutorials.fundamentals-landing-page)
+[Go to the docs website →](xref:index)
 
 ──────
 
@@ -118,5 +118,3 @@ Clicking **Release Notes** displays a versioned list of *enhancements, bug fixes
 
 - **[Official site](https://intentarchitect.com)**  
 - **[Get Intent Architect](xref:getting-started.get-the-application)**
-- **[Quick start](xref:introducing.quickstart)**
-- **[Intent Architect fundamentals](xref:tutorials.fundamentals-landing-page)**

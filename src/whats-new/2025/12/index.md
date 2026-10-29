@@ -61,10 +61,8 @@ Available from:
 
 We have added 2 new videos for round off the **Fundamentals Training Series**, these new videos cover
 
-- [#9 Managing and Updating Architectures](xref:tutorials.fundamentals-9-managing-and-updating-architectures) – Learn how to manage and update application architecture, modules, and releases effectively during active development.
-- [#10 Essential Tips and Tricks](xref:tutorials.fundamentals-10-essential-tips-and-tricks) – Learn how to navigate Intent Architect effectively, using shortcuts for navigating between tabs, "Search Anywhere" functionality, and much more.
-
-You can access all videos directly from the [Fundamentals Training Series Playlist](https://intentarchitect.com/#/redirect/?category=docs-embedded&subCategory=fundamentals-series-playlist) or via the [Fundamentals Tutorials landing page](https://docs.intentarchitect.com/tutorials/fundamentals/fundamentals-landing-page.html).
+- #9 Managing and Updating Architectures – Learn how to manage and update application architecture, modules, and releases effectively during active development.
+- #10 Essential Tips and Tricks – Learn how to navigate Intent Architect effectively, using shortcuts for navigating between tabs, "Search Anywhere" functionality, and much more.
 
 ### .NET 10 support
 

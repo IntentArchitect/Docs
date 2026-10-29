@@ -200,60 +200,6 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 
 ---
 
-## Getting started
-
-<ul class="cards-grid cards-3">
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-get" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12"/>
-  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8 11l4 4 4-4"/>
-  <path stroke="url(#grad-get)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 17v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Get Intent Architect</strong>
-        <p class="card-text">Download and install the latest Intent Architect for your environment.</p>
-      </div>
-      <a href="xref:getting-started.get-the-application" aria-label="Get Intent Architect"></a>
-    </div>
-  </li>
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-qs" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-qs)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 3L4 14h7l-1 7 9-11h-7l1-7z"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Quick Start</strong>
-        <p class="card-text">Generate a working .NET solution in minutes and learn the core workflow.</p>
-      </div>
-      <a href="xref:introducing.quickstart" aria-label="Quick Start"></a>
-    </div>
-  </li>
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-tut" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-tut)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 19a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6a9 9 0 0 1 9 0 9 9 0 0 1 9 0M3 6v13M12 6v13M21 6v13"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Tutorials</strong>
-        <p class="card-text">Hands-on guides to learn the fundamentals and more.</p>
-      </div>
-      <a href="xref:tutorials.fundamentals-landing-page" aria-label="Tutorials"></a>
-    </div>
-  </li>
-</ul>
-
----
-
 ## Key Concepts
 
 <ul class="cards-grid cards-2x2">
@@ -352,7 +298,5 @@ What's covered in this demo - how to:
 ## Next Steps
 
 - Continue to **[Get Intent Architect](xref:getting-started.get-the-application)**
-- Jump to **[Quick start](xref:introducing.quickstart)**
-- Explore **[Tutorials](xref:tutorials.fundamentals-landing-page)**
 
 </div>
