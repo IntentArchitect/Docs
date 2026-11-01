@@ -2,6 +2,7 @@
 uid: application-development.change-review
 description: "Change Review presents everything that changed between two points - model elements, generated code, hand-written code and customizations - as one reviewable tree, with approvals, traceability and pull request conversations."
 ---
+
 # Change Review
 
 The **Change Review** screen is a single view of everything that changed between two points in time, presented as one reviewable tree covering model elements, generated code, hand-written code and customizations.
@@ -20,6 +21,7 @@ Taken together, this context narrows a review down to the changes that genuinely
 
 <!-- The full Change Review tab on a working-tree review, showing the headline chips, the
      composition bar, the Needs attention block and an expanded application below it. -->
+
 ![Change review overview](images/change-review-overview.png)
 
 > [!NOTE]
@@ -51,6 +53,7 @@ Committing while there are unreviewed hand-written files or unapproved customiza
 The prompt considers only the files actually going into the commit, so an unstaged file that needs review does not block a commit that does not contain it. You can turn the prompt off with **Warn about unreviewed changes** in the Source Control panel's `⋮` menu.
 
 <!-- The "Requires attention" three-way prompt raised from the commit button. -->
+
 ![Requires attention prompt](images/change-review-commit-gate.png)
 
 ## Reading the screen
@@ -80,13 +83,14 @@ A full-width band showing the split of **changed lines** three ways:
 This is the one-glance answer to "how much of this is machine output?". A change that is 95% deterministic is a very different review from one that is 60% custom.
 
 <!-- The headline chips, the % approved pill and the composition bar with its legend. -->
+
 ![Change review headline](images/change-review-headline.png)
 
 ## How a file is classified as deterministic or custom
 
 Every changed code file gets one of the three classifications above, and the mechanism is worth understanding because it decides what the whole screen emphasizes.
 
-Intent Architect keeps a **managed-files inventory** - committed to your repository - recording which files each application generated and, for each one, a hash of its recorded customization regions. Change Review reads that inventory *as it stood at each of the two refs*:
+Intent Architect keeps a **managed-files inventory** - committed to your repository - recording which files each application generated and, for each one, a hash of its recorded customization regions. Change Review reads that inventory _as it stood at each of the two refs_:
 
 - Listed at the ref → the file is **generated**.
 - Not listed → the file is **custom**. Nothing generated it, so there is no deterministic baseline to judge it against.
@@ -114,13 +118,14 @@ Rows are grouped by **severity**, highest band first, and each band has an **App
 
 <!-- The Needs attention block expanded, showing severity bands, file rows with their
      classification pills, badges and approval ticks. -->
+
 ![Change review needs attention](images/change-review-needs-attention.png)
 
 ### Filtering
 
 The filter button beside the block narrows the list by **severity** and by **file classification**. The two filters evaluate independently - unticking a severity never hides a file merely for lacking a classification - and the selection is remembered per solution.
 
-It records *exclusions* rather than inclusions, so a classification introduced by a module you install next week defaults to visible rather than being silently filtered out by a choice made before it existed. See [](xref:application-development.file-classifications) for how the classification vocabulary is defined.
+It records _exclusions_ rather than inclusions, so a classification introduced by a module you install next week defaults to visible rather than being silently filtered out by a choice made before it existed. See [](xref:application-development.file-classifications) for how the classification vocabulary is defined.
 
 ## Approving
 
@@ -147,7 +152,7 @@ Customization approvals are the same records the [](xref:application-development
 
 ## Model changes
 
-The **Designers** section under each application is what makes this a *design* review rather than a diff review.
+The **Designers** section under each application is what makes this a _design_ review rather than a diff review.
 
 Each designer row carries `+ created`, `~ updated`, `- deleted` element counts, computed per package between the two refs. Expanding it gives a change tree: changed elements, indented under unaffected ancestors that provide context, with single-child folder chains fused into one row. A synthetic **+N more** row appears where the tree is too large to inline.
 
@@ -159,6 +164,7 @@ On an element pill you can:
 
 <!-- A designer's change tree expanded, with the field-level before → after popover open
      on an element pill and its git attribution line visible. -->
+
 ![Change review element popover](images/change-review-element-popover.png)
 
 ## Files
@@ -168,6 +174,41 @@ Under each application, code files and other files are listed separately, and fi
 A file row shows its git status, changed-line counts, any [file classification](xref:application-development.file-classifications) pills, a severity flag, and its deterministic/custom badge. Clicking the row expands its **diff inline**; the row's `⋮` menu offers **Open full diff in editor** and **Go to classification setting**.
 
 `Other files` covers designer packages, application and solution metadata, and Software Factory build noise. Build artifacts are hidden until you tick **Build artifacts** in the view options.
+
+## Test coverage
+
+Change Review shows how much of the added lines are covered by tests, per file and overall, read from [Cobertura](https://cobertura.github.io/cobertura/) coverage reports. It looks for coverage in two places, preferring a local report.
+
+### Local test runs
+
+Intent Architect reads the newest Cobertura `.xml` report in any `TestResults` folder in the repository. There is nothing to configure: run your tests with coverage, then open or refresh the review. For .NET, for example:
+
+```bash
+dotnet test --collect:"XPlat Code Coverage"
+```
+
+For other test runners, write a Cobertura report into a `TestResults` folder.
+
+### Coverage from CI
+
+When there is no local report, Intent Architect fetches coverage from the CI build of the commit being reviewed. **Azure Pipelines** is currently the only supported CI system, and it works whether the repository is hosted on Azure DevOps or on GitHub.
+
+For it to work, the pipeline must publish its Cobertura reports as a build artifact. The simplest way is the `PublishCodeCoverageResults` task, which publishes a `Code Coverage Report` artifact. Any artifact whose name contains `coverage` or `cobertura` is also read.
+
+```yaml
+- task: DotNetCoreCLI@2
+inputs:
+     command: test
+     arguments: '--collect:"XPlat Code Coverage"'
+- task: PublishCodeCoverageResults@2
+inputs:
+     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+```
+
+- **Repository on Azure DevOps** - the build is found from the repository's recent builds.
+- **Repository on GitHub** - the build is found from the commit's checks, so the Azure Pipelines build must report its status on the commit.
+
+The fetch happens automatically when the review opens. If access is refused, Change Review asks for an Azure DevOps personal access token with **Build (Read)** scope, plus **Code (Read)** when the repository is on Azure DevOps. A build that is still running shows **Check again**, and coverage from a build that didn't succeed is flagged as possibly incomplete.
 
 ## Traceability and the Specifications section
 
@@ -180,6 +221,7 @@ Both are behind the **Traceability** toggle in the view options.
 
 <!-- The Specifications section expanded, showing a spec, its requirements and the model
      elements and files realizing one of them. -->
+
 ![Change review specifications](images/change-review-specifications.png)
 
 ## Reviewing a pull request
@@ -198,6 +240,7 @@ Supported hosts are GitHub, Azure DevOps, GitLab and Bitbucket Cloud. See [](xre
 
 <!-- A pull request open in Change Review, showing the Conversation / Change Review sub-tabs,
      the PR head card and a staged AI review finding. -->
+
 ![Change review pull request](images/change-review-pull-request.png)
 
 ## Banners

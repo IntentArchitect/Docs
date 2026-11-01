@@ -2,6 +2,7 @@
 uid: release-notes.intent-architect-v5.4
 description: "Intent Architect 5.4 release notes: solution-wide find and replace; chat content search; a new Git Explorer tab, a Pull Requests board with editable pull request metadata and @mentions; an Explorer Diagram; an Application Overview tab; improved token efficiency for MCP, ACP and BYOK agents; collapsible tool groups in AI chat; test coverage in Changes Review; inline MDX editing, rendered markdown diffs, a document outline and document comments; an agent-drivable app preview; multi-solution folders; and Spec-Driven Development living specifications with test bindings, drift detection and spec reviews."
 ---
+
 # Release notes: Intent Architect version 5.4
 
 <!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to d1f965e5e2 (2026-10-27). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from d1f965e5e2 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
@@ -12,7 +13,7 @@ _Released 2026-10-29._
 
 We're very excited to announce the release of Intent Architect version 5.4. This version marks another massive milestone of innovation for the platform, offering many new capabilities and improvements, and effective solutions to problems that the industry is still wrestling with.
 
-Where 5.3 was about *seeing* what your agents are doing, 5.4 is about *proving* that what they've done is right. When agents write most of the code, reading every line stops being a review. As Addy Osmani puts it, "The bottleneck has moved from writing code to knowing it's correct." So 5.4 moves the review to **intent and proof**: what a change was meant to do, and the evidence that it does.
+Where 5.3 was about _seeing_ what your agents are doing, 5.4 is about _proving_ that what they've done is right. When agents write most of the code, reading every line stops being a review. As Addy Osmani puts it, "The bottleneck has moved from writing code to knowing it's correct." So 5.4 moves the review to **intent and proof**: what a change was meant to do, and the evidence that it does.
 
 A big game changer in this release is the [**living specifications**](#spec-driven-development-living-specifications). This new capability solves one of the biggest critiques of SDD (Spec-Driven Development) - that specs become stale almost immediately after the next change lands (aka "spec drift"). The system uses tests as proof of that requirements are implemented, and quickly detects gaps - plus a CI command to scale it across teams.
 
@@ -44,11 +45,17 @@ A Spec Review step allows each changed block of a spec to be approved or comment
 
 ![Reviewing a spec before it advances](images/5.4.x/spec-review.png)
 
+> [!TIP]
+> **Try it:** In an AI chat, type `/sdd-extract` followed by the capability name or folder you want to turn into a living spec.
+
 ---
 
 ### Improved token efficiency for MCP, ACP and BYOK agents
 
 Agents building with Intent Architect, whether through the [Intent MCP server](xref:ai.intent-mcp-server), as a [CLI agent connected over ACP](xref:ai.cli-agents), or as a built-in agent using [your own API key](xref:ai.configuration) (BYOK), are now more efficient from modelling through to code generation. We streamlined what Intent Architect's tools exchange with the agent, so agents get straight to the work, and we've improved token efficiency by more than 20% in most use cases.
+
+> [!TIP]
+> **Try it:** There's nothing to set up. Keep building with Intent Architect over MCP, ACP or your own API key as before.
 
 ---
 
@@ -57,6 +64,9 @@ Agents building with Intent Architect, whether through the [Intent MCP server](x
 When reviewing a change, especially one written by an AI agent, it's hard to tell whether the new code is actually covered by tests, so the Changes Review tab now shows test coverage of the added lines, per file and overall, read from Cobertura reports. Although this is heuristic, it bolsters confidence, especially when paired with specs that make rule changes crystal clear.
 
 ![Test coverage in Changes Review](images/5.4.x/changes-review-coverage.png)
+
+> [!TIP]
+> **Try it:** Ask an agent to "add tests for this change and run them with Cobertura coverage" (for .NET, `dotnet test --collect:"XPlat Code Coverage"`), then open Changes Review. Coverage is read from the newest Cobertura report in any `TestResults` folder, so there's nothing to configure. To read coverage from your CI builds instead (currently Azure Pipelines), see [Coverage from CI](xref:application-development.change-review#coverage-from-ci).
 
 ---
 
@@ -69,6 +79,9 @@ Raw Markdown diffs can be hard to read, particularly for prose and tables, so In
 Markdown and MDX files can also be edited in a live preview, where only the block being edited shows its "source". Plain Markdown documents get the same links, references and inline editing as `.mdx`, and pasted Markdown is escaped in `.mdx` prose so braces and `<` are not read as code.
 
 ![Editing Markdown in a live preview](images/5.4.x/markdown-inline-editing.png)
+
+> [!TIP]
+> **Try it:** Ask an agent to update a `README.md`, open the file's diff and click **Preview** in the diff toolbar. Click **Edit** to edit the rendered view in place.
 
 ---
 
@@ -84,6 +97,9 @@ Pull requests also now have their own side panel, so the number of open pull req
 
 A pull request's assignees, reviewers, labels and draft status can now also be set from Intent Architect on GitHub, GitLab, Azure DevOps and Bitbucket, and a review can be re-requested, without going to the git host's website. Typing `@` in a pull request comment or description also allows tagging of people on the pull request and its changed files.
 
+> [!TIP]
+> **Try it:** After an agent finishes a UI change, ask it to "Open a pull request for this change." It captures screenshots and fills in the New pull request tab for you to submit.
+
 ---
 
 ### Explorer Diagram
@@ -94,6 +110,9 @@ Agents show their model changes in an Explorer Diagram instead of laying out sav
 
 ![Show in Explorer Diagram on an entity, the diagram with its + button, and the diagram after adding neighbours](images/5.4.x/explorer-diagram.png)
 
+> [!TIP]
+> **Try it:** Right-click one or more elements in a designer's tree and choose **Show in Explorer Diagram**.
+
 ---
 
 ### Application Overview
@@ -101,6 +120,9 @@ Agents show their model changes in an Explorer Diagram instead of laying out sav
 The Application Overview tab has been completely overhauled, now showing the number of elements in each designer, recent designer activity, spec activity and commits, with links to drill deeper as desired.
 
 ![The Application Overview tab](images/5.4.x/application-overview.png)
+
+> [!TIP]
+> **Try it:** Right-click an application in Solution Explorer and choose **Overview...**.
 
 ---
 
@@ -110,13 +132,19 @@ Agent turns with many tool calls are now much easier to follow in AI Chats. Two 
 
 ![Consecutive tool calls folded into one group in AI Chat](images/5.4.x/ai-chat-tool-groups.png)
 
+> [!TIP]
+> **Try it:** It's always on. Ask an agent to "summarise how this solution is structured", then click a group's header to expand it.
+
 ---
 
-### Document outline and pasted images
+### Document outline
 
-Long plans and specs can now be navigated with an "On this page" outline panel, which lists a document's headings and follows the scroll position. Images can be pasted or dropped into a document and are saved beside it, and pull request descriptions accept pasted images.
+Long plans and specs can now be navigated with an "On this page" outline panel, which lists a document's headings and follows the scroll position.
 
 ![The "On this page" outline beside a document](images/5.4.x/document-outline.png)
+
+> [!TIP]
+> **Try it:** Ask the Plan agent for a plan, open it and click the **Show outline** button in the top right. The outline needs at least three headings.
 
 ---
 
@@ -125,6 +153,9 @@ Long plans and specs can now be navigated with an "On this page" outline panel, 
 Reviewing a plan usually turns up several points at once, which were awkward to collect into a single chat message. You can now simply comment on as many pieces of selected text as you want in a plan or other document and then send all the comments to the agent as feedback in one go along with answers to question forms.
 
 ![Comments on a plan, ready to send to the agent](images/5.4.x/document-comments.png)
+
+> [!TIP]
+> **Try it:** Ask the Plan agent for a plan, select some text in it and click **Add Comment**, type your comments, then click **Send N comments**.
 
 ---
 
@@ -136,11 +167,14 @@ Agents can navigate, click, type, read the page DOM and console, take screenshot
 
 ![An agent checking its changes in the app preview](images/5.4.x/app-preview.png)
 
+> [!TIP]
+> **Try it:** Ask an agent to "start the app, open it in the preview, check the home page loads and take a screenshot".
+
 ---
 
 ### Work Items
 
-Even when using a ticketing system to track tasks for a project, every developer invariably has lots of informal tasks to keep track of as part of their day-to-day work, or maybe they just need a "scratch pad" to write down _stuff_. If agents can *also* see and update these, this opens enormous automation possibilities.
+Even when using a ticketing system to track tasks for a project, every developer invariably has lots of informal tasks to keep track of as part of their day-to-day work, or maybe they just need a "scratch pad" to write down _stuff_. If agents can _also_ see and update these, this opens enormous automation possibilities.
 
 The Work Items tab in Intent Architect allows creation of informal (or any) tasks or a "scratch pad" while also exposing tools to agents for creating, reading and updating them. It also offers a one-click button to create a new chat to take on a work item, pre-filled with appropriate context and a pre-canned worktree name. You can ask a chat to create a new work item or to add itself to an existing one.
 
@@ -148,11 +182,17 @@ The Work Items tab in Intent Architect allows creation of informal (or any) task
 
 ![The Work Items tab, additional screenshot](images/5.4.x/work-items-alternate.png)
 
+> [!TIP]
+> **Try it:** Ask an agent to "create a work item for the follow-ups from this chat". Then open **Work Items** from the Agents window's left-hand bar and click **Start chat** on the item.
+
 ---
 
 ### Solution-wide Find and Replace
 
 It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel and `Ctrl + Shift + H` goes straight to Replace. Replacements can be made one match at a time, per file or across all results, and only the listed matches are changed.
+
+> [!TIP]
+> **Try it:** Press `Ctrl + Shift + F` in the Agents window and search for any word.
 
 ---
 
@@ -161,6 +201,9 @@ It's now possible to search and replace across every file in a solution. In the 
 Opening a folder that contains several `.isln` files now opens them together as one workspace, shown as a tree in Solution Explorer.
 
 ![Several solutions opened from one folder](images/5.4.x/multi-solution-folder.png)
+
+> [!TIP]
+> **Try it:** On the Home screen, click **Open a folder** and pick a folder that contains two or more `.isln` files.
 
 ---
 
