@@ -104,9 +104,7 @@ A pull request's assignees, reviewers, labels and draft status can now also be s
 
 ### Explorer Diagram
 
-To see an agent's model changes in context, an Explorer Diagram can now draw selected elements and their neighbours on demand, without a saved diagram being laid out by hand. `Show in Explorer Diagram` in a designer's tree opens the selected elements, and the `+` button on a box adds neighbours, with a right-click menu to pick an association type and see how many there are. `Keep Diagram` saves the result as a normal diagram.
-
-Agents show their model changes in an Explorer Diagram instead of laying out saved diagrams, with deleted elements drawn as ghosts. Neighbours added to a diagram are laid out away from the box they were added from.
+Explorer Diagrams show design changes in context, whether an agent's model changes or a pull request's, along with the related elements and any deleted ones drawn as ghosts. The `+` button on any element adds its neighbours, filtered by association type, so you can follow relationships and explore the system's design and architecture without being overwhelmed, and `Keep Diagram` saves the result as a normal diagram. This way, when you review a PR, you can quickly check that the design change is what was intended before reading hundreds of lines of generated code.
 
 ![Show in Explorer Diagram on an entity, the diagram with its + button, and the diagram after adding neighbours](images/5.4.x/explorer-diagram.png)
 
@@ -161,9 +159,7 @@ Reviewing a plan usually turns up several points at once, which were awkward to 
 
 ### Agent-drivable application previews
 
-A productivity multiplier in agentic development is giving agents a means to spot and fix mistakes in their work all on their own, in a loop if needed, and all without requiring any input from a user. This is why Intent Architect now has an embedded browser tab that not only hosts a running application but also exposes tools that let the agent drive and inspect it.
-
-Agents can navigate, click, type, read the page DOM and console, take screenshots to verify their own changes, and start and stop the dev server themselves.
+A productivity multiplier in agentic development is letting agents spot and fix their own mistakes, in a loop if needed, without waiting on you. Agent-drivable app previews make this possible: an agent can start your app's dev server, open it in an embedded browser, then click through it, read the page and console, and take screenshots to verify its work. Those screenshots can go straight into the [pull request it opens](#users-and-agents-can-now-post-images-to-prs), so you see the change working before you read the code behind it.
 
 ![An agent checking its changes in the app preview](images/5.4.x/app-preview.png)
 
