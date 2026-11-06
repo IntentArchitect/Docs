@@ -17,13 +17,26 @@ Intent's MCP server no longer needs to have a different instance of Intent Archi
 
 Any work being done via the MCP server is now visible in "MCP session" rows in the the Manage Agents shell. It is also not necessary to have the Manage Agents shell open while work is in progress as it can still happen in the background, e.g. when on the Solution shell or Home Screen.
 
+![An MCP session in Manage Agents](images/5.4.x/mcp-sessions.png)
+
+> [!TIP]
+> **Try it:** There's nothing to set up. With Intent Architect open on any shell, ask a connected MCP client to work on a solution, then look for the "MCP session" row in Manage Agents.
+
 #### Child chats
 
 To split larger work into focused sessions, agents can now start child chats with `start_child_chats`. The proposed chats appear on an approval card with Start sessions, Create sessions without starting and Cancel. Each child chat runs on its own and is grouped under its parent, and the parent can follow and steer them with `list_child_chats`, `message_child_chat` and `stop_child_chat`.
 
+![The child chats approval card](images/5.4.x/child-chats.png)
+
+> [!TIP]
+> **Try it:** Ask an agent to "split this work into child chats", then review the approval card and choose Start sessions.
+
 #### Spec Areas
 
 To keep a growing set of Capabilities organised, the Specs panel can now group them into Areas. An Area is an overview spec, written with the new `sdd-area` skill, that rolls up the health of the Capabilities under it. Areas are created from the specs menu, and Capabilities are moved into them by dragging or with "Move to Area".
+
+> [!TIP]
+> **Try it:** Create an Area from the specs menu, then drag a Capability onto it or choose **Move to Area**.
 
 #### Git compatibility and speed improvements
 
@@ -33,9 +46,17 @@ The git executable is also faster compared to the library, status is about three
 
 To make it clear which git is used, Settings has a Git Executable setting under Tools with a status line saying which git was found and where, and a warning for git older than 2.29. When git is missing, too old or the configured path doesn't run, Source Control shows a notice with Open Settings, Download Git and Retry.
 
+![The Git Executable setting](images/5.4.x/git-executable.png)
+
+> [!TIP]
+> **Try it:** Open Settings and look under **Tools** for **Git Executable** to see which git was found.
+
 #### Faster designers and startup
 
 The home screen now shows sooner on startup and large designers are much more responsive. Switching diagrams, panning and scrolling the model tree do far less work, and the five most recently shown diagrams stay rendered, so switching back to one takes about 0.5s instead of 1.3s as measured for a large designer we use.
+
+> [!TIP]
+> **Try it:** It's always on. Open a large designer, then switch between a few diagrams and back.
 
 ### Improvements in 5.4.1
 
@@ -62,7 +83,6 @@ The home screen now shows sooner on startup and large designers are much more re
 - Improvement: Pull request sign-in can use a token from the GitHub, GitLab or Azure DevOps CLI (`gh`, `glab`, `az`), and "Sign in with Azure DevOps" is offered on dev.azure.com.
 - Improvement: When a clone is refused as not found or unauthenticated, the Clone dialog offers browser sign-in, token sign-in or another saved account.
 - Improvement: File tabs can play video and audio files, with seeking.
-- Improvement: The Deviations log can be turned off per application with the new "Generate Deviations log" application setting, which is off for new applications.
 - Improvement: The Software Factory CLI accepts a repeatable `--param name=value` option that modules can read with `GetParameter`. Implementers of `ISoftwareFactoryExecutionContext` need to add the new member.
 - Improvement: Each end of a diagram association can be positioned on its own, and dragging a straight link moves both ends.
 - Improvement: Element types can spread curved associations that meet the same edge with the new `anchorSpread` visual setting, and define their own anchor segments with `anchorSegmentsFunction`.

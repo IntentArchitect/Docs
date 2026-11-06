@@ -107,6 +107,21 @@ When starting or extending an `X.Y.0` section, **always** work out which changes
 
 Patch releases (`X.Y.Z` where `Z > 0`) don't get this treatment; they only use Improvements and Fixes (plus the occasional `### Highlights in X.Y.Z` the user asks for).
 
+## "Try it" tips for highlights
+
+Every highlight (each `###` feature section in an `X.Y.0` section, and each entry in a `### Highlights in X.Y.Z` section) ends with a "Try it" tip: after the prose and any screenshots, a blank line, then a GitHub-style `[!TIP]` block. See `intent-architect-v5.4.md` for examples.
+
+```md
+> [!TIP]
+> **Try it:** Right-click one or more elements in a designer's tree and choose **Show in Explorer Diagram**.
+```
+
+- One short, concrete first step a reader can do right now: the menu path (bold UI labels), the slash command or the prompt to give an agent (in quotes).
+- If the feature is always on, say so and give something to do to see it: "It's always on. Ask an agent to … then click …".
+- Link docs with `xref:` only when a setup step or option needs it.
+- Don't invent steps. Confirm the path against the commits or the app, and ask the user if unsure.
+- Improvements and Fixes bullets don't get one.
+
 ## Screenshots
 
 Feature sections get screenshots saved to `src/release-notes/images/X.Y.x/<feature-name>.png` and referenced as `![...](images/X.Y.x/<feature-name>.png)`. Capture them from the running dev app using the `drive-intent-with-playwright` skill.
@@ -184,5 +199,6 @@ Before finishing:
 - Bullets are plain-text, one line, backticked where appropriate, and read as user-facing.
 - No bullet explains *why* the bug happened (no "because...", "due to...", "since the code...") — only the symptom and, if useful, the user-observable conditions that triggered it.
 - No Improvement bullet for a featured item (folded into its section instead), and no Fixed bullet for a feature that is new in this minor version.
+- Every highlight / feature section ends with a `> [!TIP]` "Try it" block.
 - Internal/vague commits excluded — and reported to the user with reasons.
 - Re-read the file top before editing to respect any hand-edits.
