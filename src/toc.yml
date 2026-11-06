@@ -11,6 +11,10 @@ items:
     href: introducing/toc.yml
     topicUid: getting-started.get-the-application
 
+  - name: How-to guides
+    href: how-to-guides/toc.yml
+    topicUid: how-to-guides
+
   - name: Application development
     href: application-development/toc.yml
     topicUid: application-development.applications-and-solutions.about-applications
