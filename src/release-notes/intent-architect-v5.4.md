@@ -5,6 +5,124 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 # Release notes: Intent Architect version 5.4
 
+<!-- 5.4.1: covers publish/client/5.4.0..origin/release/5.4.x up to 05ba66a16f (2026-11-05). No 5.4.1 tag yet. Add later commits from 05ba66a16f onwards. -->
+
+## Version 5.4.1
+
+### Highlights in 5.4.1
+
+#### A single Intent Architect instance can now be used to serve all MCP clients
+
+Intent's MCP server no longer needs to have a different instance of Intent Architect open per solution it's working on, it can now use any currently open instance of Intent Architect to do any required work such as opening/updating designers and running the Software Factory.
+
+Any work being done via the MCP server is now visible in "MCP session" rows in the the Manage Agents shell. It is also not necessary to have the Manage Agents shell open while work is in progress as it can still happen in the background, e.g. when on the Solution shell or Home Screen.
+
+#### Child chats
+
+To split larger work into focused sessions, agents can now start child chats with `start_child_chats`. The proposed chats appear on an approval card with Start sessions, Create sessions without starting and Cancel. Each child chat runs on its own and is grouped under its parent, and the parent can follow and steer them with `list_child_chats`, `message_child_chat` and `stop_child_chat`.
+
+#### Spec Areas
+
+To keep a growing set of Capabilities organised, the Specs panel can now group them into Areas. An Area is an overview spec, written with the new `sdd-area` skill, that rolls up the health of the Capabilities under it. Areas are created from the specs menu, and Capabilities are moved into them by dragging or with "Move to Area".
+
+#### Git compatibility and speed improvements
+
+Intent Architect now exclusively uses your installed version of git instead of a built-in library ensuring complete compatibility even when using newer git features such as relative worktrees.
+
+The git executable is also faster compared to the library, status is about three times faster, blame about twenty times and other many activities are noticeably faster such as committing and listing branches.
+
+To make it clear which git is used, Settings has a Git Executable setting under Tools with a status line saying which git was found and where, and a warning for git older than 2.29. When git is missing, too old or the configured path doesn't run, Source Control shows a notice with Open Settings, Download Git and Retry.
+
+#### Faster designers and startup
+
+The home screen now shows sooner on startup and large designers are much more responsive. Switching diagrams, panning and scrolling the model tree do far less work, and the five most recently shown diagrams stay rendered, so switching back to one takes about 0.5s instead of 1.3s as measured for a large designer we use.
+
+### Improvements in 5.4.1
+
+- Improvement: Codex, Copilot and OpenCode chats now show Intent's tool calls by name with their intentions and file chips, nest sub-agents under their dispatch card, and hold mid-turn messages until the running prompt settles.
+- Improvement: Codex, Copilot and OpenCode now follow the chat's permission level and reasoning effort, and Plan mode uses each agent's own plan mode. Codex ACP 2.2.2 and Copilot CLI 1.0.103 are pinned, OpenCode 2.2.0 or later is required, and the usage popover shows the running connector version.
+- Improvement: Edit automatically still asks before edits to `.git`, `.claude`, `.vscode` and `.idea`, plus the folders each agent protects itself.
+- Improvement: AI Configuration has per-agent session settings, such as numeric limits and choices, that each ACP agent applies when it starts.
+- Improvement: Custom agents can be created, generated with the new `create-agent` skill, and edited as `.agent.md` files from the Agents tab of AI Configuration.
+- Improvement: The Coding persona has been retired, and agents and skills are no longer split into Modeling and Coding contexts.
+- Improvement: Permission mode and reasoning effort are now kept for each chat instead of being shared by all chats.
+- Improvement: Messages sent while a turn is running stay in the Queued strip until the agent reads them, and unread ones return to the message box after Stop. `Up Arrow` in an empty composer recalls earlier messages.
+- Improvement: When a Claude Code process fails partway through a prompt, the session is resumed once, so a sub-agent's work and answered questions aren't lost.
+- Improvement: Retry is no longer offered when an AI error reports a used-up spending limit or quota.
+- Improvement: An AI chat can now be moved to any folder, including one in another repository or one picked with the file picker, and the folder picker shows more rows.
+- Improvement: A chat's session branch can be an existing branch, and a worktree whose preferred folder holds another checkout is created in the next free folder (`<folder>-2`, `<folder>-3`) instead of failing.
+- Improvement: Going to the Agents window from a solution now opens a chat in that solution's folder.
+- Improvement: Agents use fewer tokens. Intent's Claude Code sessions start with a cached system prompt, skills load reference detail only when needed, `get_change_review` returns 50 rows by default with paging, `read_spec` can read a single section and returns only test counts for tested criteria, and a failed `patch_file` shows the nearby lines.
+- Improvement: A done Change now always offers Fold, with re-verify options in its menu, shows as verified when only re-checks are pending, and `/sdd-fold` asks before creating a new Capability.
+- Improvement: The `sdd-run`, `sdd-sync` and `sdd-heal` skills now track criteria that were verified by reading the code as "judged", and offer to write tests for them.
+- Improvement: Changes Review shows each edited spec's kind, state and health, with per-requirement health, and loads specs faster.
+- Improvement: Work Items can be stored in a folder set in Settings, can be `.md` as well as `.mdx` files, have a "Convert to Markdown" action, and can be linked to and unlinked from chats.
+- Improvement: Pull request review comments can now cover a range of lines on every git host, selected by dragging over the line numbers.
+- Improvement: Pull request assignee, reviewer and label pickers show changes immediately and undo them if the host refuses, and people search narrows its results while typing.
+- Improvement: Pull request sign-in can use a token from the GitHub, GitLab or Azure DevOps CLI (`gh`, `glab`, `az`), and "Sign in with Azure DevOps" is offered on dev.azure.com.
+- Improvement: When a clone is refused as not found or unauthenticated, the Clone dialog offers browser sign-in, token sign-in or another saved account.
+- Improvement: File tabs can play video and audio files, with seeking.
+- Improvement: The Deviations log can be turned off per application with the new "Generate Deviations log" application setting, which is off for new applications.
+- Improvement: The Software Factory CLI accepts a repeatable `--param name=value` option that modules can read with `GetParameter`. Implementers of `ISoftwareFactoryExecutionContext` need to add the new member.
+- Improvement: Each end of a diagram association can be positioned on its own, and dragging a straight link moves both ends.
+- Improvement: Element types can spread curved associations that meet the same edge with the new `anchorSpread` visual setting, and define their own anchor segments with `anchorSegmentsFunction`.
+- Improvement: A new "Configuring Designers" skill helps module authors set up element and association types, diagram anchors, visuals, menus and scripts.
+- Improvement: The `classify-codebase` skill now works for any language and prefers shorter classification names.
+- Improvement: Running Software Factory process pills show an animated border.
+
+### Fixes in 5.4.1
+
+- Fixed: Opening a large solution on macOS was slow, taking about 10s for a 178-application solution; it now takes about 0.6s.
+- Fixed: Open Folder on a folder holding a single solution opened that solution instead of the folder itself as a workspace.
+- Fixed: Cancelling a worktree's setup tasks didn't stop them, and a chat could hang on a setup task that was stopped before it started.
+- Fixed: While a turn was stopping, the chat composer could show both Send and Stop, and pressing Enter repeatedly could send the same message more than once. It now shows Stop until the turn has stopped, and a second Stop press shows "Force stopping…".
+- Fixed: The sticky prompt bar in AI chats pinned a message too late and couldn't reach earlier messages outside the rendered range. It now pins as soon as a message scrolls past the top, and has a history list for jumping to earlier messages.
+- Fixed: Sub-agent cards could show a "missing intention" error when `create_sub_agent` or `dispatch_sub_agent` was called without an `intention`. It's now optional, and the card's subtitle comes from the instructions.
+- Fixed: Markdown documents and diffs re-parsed on every re-render, and the Agents window lost their inline-edit and preview state when switching views.
+- Fixed: Leaving a solution while its Software Factory was starting or restoring modules could fail with "solution path header is not set".
+- Fixed: After a solution failed to open, opening another solution could fail with the first one's error.
+- Fixed: Creating an application while modules were being restored could time out because the application lock was still held.
+- Fixed: Restarting a Software Factory while it was starting could make the next run fail with "An invocation handler … has already been registered".
+- Fixed: If a module task process exited unexpectedly, creating an application could wait indefinitely instead of failing.
+- Fixed: Renaming an application could write its package files to the wrong folder and break other applications' references to its packages.
+- Fixed: After uninstalling a module, an open designer could keep offering that module's element types.
+- Fixed: Opening a diagram could still make a clean designer look dirty, so an external change raised "Underlying metadata files have changed" instead of reloading.
+- Fixed: Saving a designer twice in quick succession could make it reload as if its files had changed outside Intent Architect.
+- Fixed: Saving a designer didn't refresh Source Control.
+- Fixed: Search Everywhere could stop finding unsaved designer elements after a file in the application changed, such as after a Software Factory run.
+- Fixed: Drawing an association from an association end, such as a Perform Invocation from a Domain Event Handler's "handles event" end, failed with an error.
+- Fixed: The Redo button could stay enabled after a new edit, and Undo after picking a diagram from the toolbar dropdown didn't return to the previous diagram.
+- Fixed: A model tree suggestions popover stayed open, empty, when the pointer moved to a row without suggestions.
+- Fixed: Diagrams expanded with "+" could forget the lines they revealed, and model diff tabs could stop showing as loading before their Changes diagram appeared.
+- Fixed: Long type references overflowed their dropdown.
+- Fixed: Long hints in generated module settings forms were clipped or overlapped.
+- Fixed: Renamed files applied by the Software Factory could reappear as pending changes a few seconds later.
+- Fixed: The Codebase Roots weren't refreshed when an application's output location changed, until the solution was reopened.
+- Fixed: Revealing a file outside every codebase root did nothing, and files at a root's top level showed no containing folder.
+- Fixed: A deleted worktree could cause errors in the Solution Explorer and in spec reads instead of showing "No folder".
+- Fixed: Ticking Worktree in a repository with no commits failed after Send with git's "invalid reference: HEAD"; it's now refused up front with a clear message.
+- Fixed: A terminal tab for a task run by an AI agent could open in whichever chat was on screen instead of the chat that ran it.
+- Fixed: A designer or other tab opened by a sub-agent in the Agents window could close before it finished loading.
+- Fixed: The Agents window's Context Panel badges could show another chat's numbers, and the Changes badge stopped updating while the panel was collapsed.
+- Fixed: Typing in the AI chat composer could lag.
+- Fixed: Opening a solution on a slow machine could replace a chat draft that was being typed with an empty one.
+- Fixed: When an agent asked two questions or sought two approvals at the same time, the second could replace the first on screen, and a queued card could appear after Stop.
+- Fixed: Text from parallel sub-agents could be mixed into the chat's own answer.
+- Fixed: An ACP chat could wait indefinitely on a tool call after its connection to Intent's MCP server dropped; the call now fails with a message to start a new chat. Gathered diagnostics also keep logs past the chat's last saved message.
+- Fixed: An AI agent answering a confirmation dialog on a tab that wasn't on screen could hang.
+- Fixed: Skills auto sync updated skills for disabled AI providers.
+- Fixed: Kiro's rate-limit errors weren't reported as a usage limit, and Kiro chats could fail when setting a mode or model Kiro didn't list. Kiro's models are now discovered from the agent.
+- Fixed: An unnamed `create_application` in a folder holding several nested solutions reported that no solution was open instead of asking which one to use.
+- Fixed: A spec task could be ticked even when saving its open designers failed.
+- Fixed: A member added to a model element after its traceability link was recorded could show as traced by that older link.
+- Fixed: Spec verdicts recorded on Windows could show as out-of-date on other platforms for elements with multi-line comments.
+- Fixed: Links to a spec requirement (such as `#R18.3`) opened the spec file instead of the requirement, including for archived specs.
+- Fixed: Stepping between changes in a rendered document diff could scroll to the wrong place when diagrams finished laying out late.
+- Fixed: GitLab browser sign-in for pull requests failed with "requires higher privileges". It now signs in through GitLab CLI (`glab`).
+- Fixed: Signing out of Bitbucket pull requests could silently sign back in.
+- Fixed: Intent Architect could intermittently fail to connect to its backend at startup with a certificate error.
+- Fixed: Intent's MCP server could fail to launch an installed Intent Architect when none was running.
+
 <!-- 5.4.0: covers origin/release/5.3.x (a595670993)..origin/release/5.4.x. Extended to d1f965e5e2 (2026-10-27). Latest tag is publish/client/channel/beta/5.4.0-beta.2; no final 5.4.0 tag yet. Add later commits from d1f965e5e2 onwards. Commits also on release/5.3.x were excluded as they're covered by the 5.3.x notes. -->
 
 ## Version 5.4.0
