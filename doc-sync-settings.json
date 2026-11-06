@@ -54,8 +54,9 @@
   },
   "IngestionFilter": {
     "ExcludePatterns": [
-      "src/whats-new"
+      "src/whats-new",
+      "llms-full.txt",
+      "llms.txt"
     ]
   }
 }
-
