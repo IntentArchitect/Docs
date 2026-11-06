@@ -1,11 +1,11 @@
 ---
-uid: how-to.run-several-agents-at-once
-description: "Give each Agents Shell chat its own copy of the code, on its own branch, so you can start a second task while the first is still running and keep the agent away from your uncommitted work, then review and merge each one's work."
+uid: how-to.run-agents-in-parallel
+description: "Run AI agents in parallel in the Agents Shell while you carry on with your own work, each task in its own copy of your code so no agent touches your files or another agent's, then review and merge each one's work."
 ---
 
-# Run several agents at once
+# Run agents in parallel
 
-If you want to start a second task while the agent is still working on the first, or keep its changes away from work you haven't committed yet, give each chat its own copy of the code, on its own branch. Each agent's changes then stay apart until you've reviewed them and merged them into your branch.
+To really leverage the power of AI, you need to be running agents in parallel: one fixing a bug, another looking into a release branch, a third starting the next feature, while you carry on with your own work. Give each task its own copy of your code so no agent touches your files or another agent's, and merge its work back once you've reviewed it.
 
 This guide shows how to start, track, review, merge and clean up chats that each have their own worktree.
 
@@ -37,26 +37,6 @@ With _"Add a CompanyName property to Customer and include it in the customer DTO
 > [!TIP]
 > Forgot to tick **worktree**? When the agent has stopped, click the folder name above the message box and choose **Change location…**. The agent starts again there, with a summary of the chat so far.
 
-## Prepare new Agents Shell worktrees with .worktreeinclude and a setup task
-
-A new worktree only has committed files, so git-ignored ones such as `node_modules`, `.env` files and restored packages are missing.
-
-- **`.worktreeinclude`**, at the root of the Git repository, lists git-ignored files and folders to copy into each new worktree, in `.gitignore` syntax. It's the same file Claude Code reads, and Intent Architect creates one with each new solution.
-- **A setup task** runs a command in each new worktree before the agent starts. Add `"triggers": ["worktree.created"]` to a task in the solution's `tasks.json`, at the root of the Git repository or in its `intent` folder, and commit the file, because it's read from the new worktree.
-
-```json
-{
-    "tasks": {
-        "restore": {
-            "label": "Restore packages",
-            "icon": "fa-download",
-            "command": "dotnet restore Acme/Acme.sln",
-            "triggers": ["worktree.created"]
-        }
-    }
-}
-```
-
 ## Track running chats in the Agents Shell
 
 The **Sessions** panel lists every chat with the branch it's on and, when there's uncommitted work, how many lines it has added and removed. Hover a chat's status dot for where it is: **In progress**, **Waiting on your answer**, **Awaiting approval** or **Completed**. Click **Search sessions** to filter a long list.
@@ -68,24 +48,18 @@ While Intent Architect is in the background, it shows an OS notification when a 
 
 ## Review and merge a worktree chat's work in the Agents Shell
 
-Select the chat on the **Sessions** panel. The panels on the right follow its worktree:
+Select the chat on the **Sessions** panel. The panels on the right follow its worktree, so you deal with each chat's work on its own:
 
-1. Open **Agent’s Changes** to see what the agent changed, element by element and file by file.
-
-   ![Agent's Changes for the CompanyName chat](images/agents-changes.png)
-
-2. Review the changes in **Source Control**, or in [Change Review](xref:application-development.change-review) for a fuller review, and commit them. The message box names the chat's branch.
+1. **Review the changes.** Ask the agent to review them with a review skill, look through them in **Source Control**, or click the flag button in its toolbar to open them in [Change Review](xref:application-development.change-review).
 
    ![Source Control on the feature/customer-company branch](images/source-control-session-branch.png)
-   _Commit on the chat's branch, then open Git Explorer (boxed, top) to merge it._
+   _The flag button (boxed) opens the chat's uncommitted changes in Change Review._
 
-3. Click the Git Explorer button in the Source Control toolbar. In **Git Explorer**, right-click the branch you want the work in, such as `master`, and choose **Merge current branch "feature/customer-company" into "master"...**. The merge is made where `master` is checked out, in your main checkout.
+2. **Merge the changes or create a pull request.** Ask the agent to merge its branch into yours, or do it yourself from **Source Control**: commit, open **Git Explorer**, right-click your branch and choose **Merge current branch "…" into "…"...**. If your team uses pull requests, ask the agent to create one, or see [](xref:application-development.pull-requests).
 
    ![Git Explorer listing the branches and worktrees](images/git-explorer-branches.png)
 
-Worktrees keep agents apart while they work, but merging can still conflict when two chats changed the same lines. If it would, nothing is changed: merge the chat's branch from your main checkout instead, for example in the Solution Shell, and resolve the conflicts there.
-
-If your team uses pull requests, push the chat's branch and open one instead. See [](xref:application-development.pull-requests).
+Worktrees keep agents apart while they work, but merging can still conflict when two chats changed the same lines. If it would, nothing is changed: merge the chat's branch from your main checkout instead, and resolve the conflicts there.
 
 ## Clean up a chat's worktree in the Agents Shell
 
@@ -94,6 +68,27 @@ When a chat's work is merged or dropped, right-click it on the **Sessions** pane
 - If the worktree has uncommitted changes, you're asked first: they're lost, but commits on the chat's branch are kept.
 - The branch is deleted only if this chat created it and it's already merged into a remote. After a local merge, delete it yourself with **Delete branch "…"...** on its right-click menu in Git Explorer.
 - If another chat still uses the worktree, such as a fork, the folder is kept.
+
+## Things to be aware of with Agents Shell worktrees
+
+A new worktree only has committed files, so git-ignored ones such as `node_modules`, `.env` files and restored packages are missing until something puts them there:
+
+- **`.worktreeinclude`**, at the root of the Git repository, lists git-ignored files and folders to copy into each new worktree, in `.gitignore` syntax. It's the same file Claude Code reads, and Intent Architect creates one with each new solution.
+- If you want to run scripts that set up each new worktree, such as `npm install`, `dotnet restore` or building your LESS stylesheets, add a **setup task**: a task in the solution's `tasks.json` with `"triggers": ["worktree.created"]`. It runs in the new worktree before the agent starts. Put `tasks.json` at the root of the Git repository or in its `intent` folder, and commit it, because it's read from the new worktree. `"hidden": true` keeps the task off the **Tasks** toolbar.
+
+```json
+{
+    "tasks": {
+        "restore": {
+            "label": "Restore packages",
+            "icon": "fa-download",
+            "command": "dotnet restore Acme/Acme.sln",
+            "hidden": true,
+            "triggers": ["worktree.created"]
+        }
+    }
+}
+```
 
 ## Related articles
 

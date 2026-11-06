@@ -29,7 +29,7 @@ This is the default location that Intent Architect will use when creating a new 
 
 ## Worktree Location
 
-The folder Intent Architect creates Git worktrees in, for chats in the Agents Shell that run in a worktree of their own. Each worktree goes in a `<repository>/<branch>` folder under it. Leave it blank to use the default, `~/.worktrees`. See [](xref:how-to.run-several-agents-at-once).
+The folder Intent Architect creates Git worktrees in, for chats in the Agents Shell that run in a worktree of their own. Each worktree goes in a `<repository>/<branch>` folder under it. Leave it blank to use the default, `~/.worktrees`. See [](xref:how-to.run-agents-in-parallel).
 
 ## Diff Tools
 
