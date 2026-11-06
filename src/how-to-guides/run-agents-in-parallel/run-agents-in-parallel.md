@@ -74,21 +74,7 @@ When a chat's work is merged or dropped, right-click it on the **Sessions** pane
 A new worktree only has committed files, so git-ignored ones such as `node_modules`, `.env` files and restored packages are missing until something puts them there:
 
 - **`.worktreeinclude`**, at the root of the Git repository, lists git-ignored files and folders to copy into each new worktree, in `.gitignore` syntax. It's the same file Claude Code reads, and Intent Architect creates one with each new solution.
-- If you want to run scripts that set up each new worktree, such as `npm install`, `dotnet restore` or building your LESS stylesheets, add a **setup task**: a task in the solution's `tasks.json` with `"triggers": ["worktree.created"]`. It runs in the new worktree before the agent starts. Put `tasks.json` at the root of the Git repository or in its `intent` folder, and commit it, because it's read from the new worktree. `"hidden": true` keeps the task off the **Tasks** toolbar.
-
-```json
-{
-    "tasks": {
-        "restore": {
-            "label": "Restore packages",
-            "icon": "fa-download",
-            "command": "dotnet restore Acme/Acme.sln",
-            "hidden": true,
-            "triggers": ["worktree.created"]
-        }
-    }
-}
-```
+- If you want to run scripts that set up each new worktree, such as `npm install`, `dotnet restore` or building your LESS stylesheets, add a **setup task**: a task in the solution's `tasks.json` with `"triggers": ["worktree.created"]`. It runs in the new worktree before the agent starts. See [](xref:how-to.set-up-tasks#set-up-each-new-agents-shell-worktree-with-a-setup-task).
 
 ## Related articles
 

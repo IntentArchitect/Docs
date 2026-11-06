@@ -42,7 +42,7 @@ Tasks are wrapped by `cmd /d /s /c <command>` on Windows and `bash -c <command>`
 
 ## Tasks (`tasks.json`)
 
-Tasks are commands you configure per-application. Each task becomes a button on the Software Factory toolbar.
+Tasks are commands you configure for the whole solution or for one application. Each task becomes a button on the Software Factory toolbar. To set them up so the AI agent can build, test and run your app, see [](xref:how-to.set-up-tasks).
 
 > [!NOTE]
 > Access the `tasks.json` directly inside of Intent Architect by clicking on the cog icon in the Software Factory toolbar.
@@ -51,7 +51,7 @@ Tasks are commands you configure per-application. Each task becomes a button on 
 
 ### File location
 
-`tasks.json` lives in the **application's config folder** (next to the project metadata, alongside `.intent` and similar). The toolbar's **Edit Tasks** action will create it from a sample if it doesn't exist yet, then open it in the editor.
+An application's `tasks.json` lives in the **application's config folder**, next to its `.application.config` file. The solution's `tasks.json` lives at the root of the Git repository or in its `intent` folder, and is the only one the Agents Shell uses. The toolbar's cog creates the file from a sample if it doesn't exist yet, then opens it in the editor.
 
 > The file is hot-reloaded - edits made while the Software Factory view is open update the toolbar buttons immediately. No restart needed.
 
@@ -84,8 +84,16 @@ Tasks are commands you configure per-application. Each task becomes a button on 
 | `label`            | Yes      | Text shown on the toolbar button.                                                        |
 | `icon`             | Yes      | Font Awesome class (e.g. `fa-cogs`, `fa-play`, `fa-flask`).                              |
 | `command`          | Yes      | The shell command to run. Wrapped by the platform shell (cmd on Windows, bash on Unix).  |
-| `workingDirectory` | No       | Relative to the application's **output folder**. Defaults to `.` (the output folder root). |
+| `workingDirectory` | No       | For an application task, relative to the application's **output folder**. For a solution task, relative to the folder holding `tasks.json`. Defaults to `.`. |
 | `aiAutoFix`        | No       | See **AI Auto-Fix** below.                                                              |
+| `hidden`           | No       | `true` keeps the task off the toolbar. The agent can still run it, and it still runs as a setup task or a compound task's child. |
+| `dependsOn`        | No       | Names of tasks in the same file to run as part of this one, making it a compound task. `dependsOrder` is `"parallel"` (the default) or `"sequence"`. |
+| `isBackground`     | No       | `true` for a command that keeps running, such as a dev server or a watcher. |
+| `readyPattern`     | No       | For a background task, a regular expression matching the output line that means it's ready. Without one, it counts as ready as soon as it starts. |
+| `errorPattern`, `beginsPattern` | No | For a background task, regular expressions matching a failed build and the start of a new build. |
+| `urlPattern`, `previewUrl` | No | The address the app serves, so the agent can open it in the preview: a regular expression whose first group captures it from the output, or a fixed URL. |
+| `triggers`         | No       | `["worktree.created"]` runs the task in each new Agents Shell worktree before the agent starts. Solution `tasks.json` only. |
+| `producesTestCoverage` | No   | `true` marks the task that Change Review runs to measure test coverage. Solution `tasks.json` only. |
 
 The task's **key** in the `tasks` object is its name - referenced by the AI `run_task` tool and used internally for state tracking.
 
@@ -107,7 +115,7 @@ When a task fails, **AI Auto-Fix** can hand the failure to a coding agent that a
 | `enabled`     | Master switch for this task. If `false`, failures are just shown in the terminal and nothing further happens.        |
 | `errorParser` | How to extract structured errors from the task output. Built-in: `generic` (default - line/message heuristics) and `dotnet` (recognises `error CSxxxx:` and similar). Unknown values fall back to `generic`. |
 
-After each attempt the task is re-run. If it still fails, the parsed errors are fed back to the agent for another iteration, up to a maximum of **3 attempts**.
+This applies when you run the task from the toolbar. Each failure starts a new fix chat, up to **3** in a row, and a successful run resets the count. Any failed task's tab also shows **Resolve with AI**, which starts a fix chat on demand, whether or not `aiAutoFix` is on.
 
 
 ---
@@ -117,4 +125,4 @@ After each attempt the task is re-run. If it still fails, the parsed errors are 
 - **One task per concern.** A `build`, a `test`, a `lint`, a `migrate` - small, single-purpose tasks compose better than one all-in-one script.
 - **Pick the right error parser.** `dotnet` knows about `error CSxxxx:` and similar; `generic` falls back to line-and-message heuristics. Match the parser to the task's output.
 - **Use `workingDirectory` for monorepos.** If your build needs to run inside a subdirectory of the application output, set `workingDirectory` instead of `cd`-ing inside `command`.
-- **Put long-running watchers in shells, not tasks.** A task is meant to start, do a thing, and exit. Use a free-form shell for anything that lives forever (file watchers, dev servers, etc.).
+- **Make long-running watchers background tasks.** Set `isBackground` and a `readyPattern` for anything that keeps running, such as a file watcher or a dev server, so it counts as ready once it's up.
