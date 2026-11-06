@@ -21,7 +21,7 @@ Manage Agents is a separate top-level window - a peer of the solution window - t
 
 ## Opening Manage Agents
 
-The **Manage Agents** button on the Home screen is the only way in. It carries two live pills, so you can see from Home whether anything wants your attention before opening the window at all:
+Click the **Manage Agents** button on the Home screen, or in the Solution Shell's AI Assistant header. On the Home screen it carries two live pills, so you can see whether anything wants your attention before opening the window at all:
 
 | Pill  | Meaning                                             |
 | ----- | --------------------------------------------------- |
@@ -35,7 +35,7 @@ The window opens with no solution of its own. Each conversation carries its own 
 
 ## The board
 
-The left-hand **Chats** panel is the board. It reads the whole conversation store, so it lists every conversation on your machine - including the ones you started from a solution window's AI Assistant panel, which are ordinary rows here like any other.
+The left-hand **Sessions** panel is the board. It reads the whole conversation store, so it lists every conversation on your machine - including the ones you started from a solution window's AI Assistant panel, which are ordinary rows here like any other.
 
 > [!NOTE]
 > A conversation is not owned by the window that started it. Conversations live in one shared store, so the same chat can be opened and continued from either surface. A solution window's own history is scoped to that solution, which is usually what you want while working in it; the board is the unscoped view of the same store.
@@ -143,7 +143,7 @@ Three coupling rules are worth knowing, because they are enforced rather than ad
 
 1. **Picking a branch that is not the checked-out one forces a worktree on.** The only other way to honour that choice would be to check the branch out in your own working tree behind your back.
 2. **A folder that is in no Git repository offers neither branch nor worktree.** The chips present as unavailable rather than disappearing.
-3. **The location freezes once the conversation has sent its first message.** It is keyed into the agent session, so it cannot move without discarding that session. From then on the chips _report_ where the task actually landed rather than offering a choice.
+3. **The location freezes once the conversation has sent its first message.** It is keyed into the agent session, so it cannot move without starting a new session. From then on the chips _report_ where the task actually landed rather than offering a choice. For an ACP agent, **Change location…** in the popover on the chat's folder moves the chat to another folder, branch or worktree, and the agent starts a fresh session there with a summary of the chat so far.
 
 Worktrees are offered for ACP agents only (Claude Code, Codex and the rest) - Intent Architect's own in-product personas drive the open solution's designers and have no concept of running in a checkout of their own.
 
@@ -161,11 +161,11 @@ When an agent's plan comes up for approval in this window, the approval card can
 
 ### Releasing a worktree
 
-**Archive and Delete Worktree** removes the worktree folder and archives the conversation; the chat and its history survive. When the checkout has uncommitted changes, you are told exactly what is at stake before it proceeds:
+**Archive and Delete Worktree** removes the worktree folder and archives the conversation; the chat and its history survive. If another conversation still uses the worktree, such as a fork, the folder is kept. When the checkout has uncommitted changes, you are told exactly what is at stake before it proceeds:
 
 - Uncommitted changes in the worktree **are lost**.
 - Commits already made on the session branch **are kept**.
-- The session branch is removed **only if it is already merged into a remote**; otherwise it stays in the repository.
+- The session branch is removed **only if this conversation created it and it is already merged into a remote**; otherwise it stays in the repository.
 
 <!-- The "Archive and delete worktree" confirmation, showing the worktree path and the
      uncommitted-changes warning. -->
@@ -192,13 +192,13 @@ The chat itself is the pinned first tab. Beside it can sit:
 
 An activity bar on the right edge switches between panels, all of them the solution window's own, pointed at the **selected conversation's** folder and solution:
 
-| Panel              | Shows                                                                             | Needs a solution |
-| ------------------ | --------------------------------------------------------------------------------- | ---------------- |
-| **Changes**        | What this conversation changed - model elements and files, grouped by application | No               |
-| **Source Control** | Git for the conversation's own checkout                                           | No               |
-| **SF Changes**     | Files staged by Software Factory runs for the conversation's solution             | Yes              |
-| **Codebase**       | The Codebase Explorer tree over the conversation's workspace folder               | No               |
-| **Specifications** | `intent/.specs` under the conversation's workspace root                           | Yes              |
+| Panel               | Shows                                                                             | Needs a solution |
+| ------------------- | --------------------------------------------------------------------------------- | ---------------- |
+| **Agent’s Changes** | What this conversation changed - model elements and files, grouped by application | No               |
+| **Source Control**  | Git for the conversation's own checkout                                           | No               |
+| **SF Changes**      | Files staged by Software Factory runs for the conversation's solution             | Yes              |
+| **Codebase**        | The Codebase Explorer tree over the conversation's workspace folder               | No               |
+| **Specifications**  | `intent/.specs` under the conversation's workspace root                           | Yes              |
 
 Panel buttons carry a badge - a count, or a spinner while it is recomputing - and clicking the lit one collapses the panel to the bar. A task that has not settled on a folder yet (a worktree requested but not yet created) shows an empty state rather than borrowing the previous task's repository.
 

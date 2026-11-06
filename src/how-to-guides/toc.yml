@@ -1,3 +1,5 @@
 items:
+  - name: Run several agents at once
+    href: run-several-agents-at-once/run-several-agents-at-once.md
   - name: Work across related codebases
     href: work-across-related-codebases/work-across-related-codebases.md
