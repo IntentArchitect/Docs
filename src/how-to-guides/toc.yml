@@ -1,5 +1,7 @@
 items:
   - name: Run agents in parallel
     href: run-agents-in-parallel/run-agents-in-parallel.md
+  - name: "Vibe coding, Plan Mode or Spec-Driven Development: when to use which"
+    href: vibe-coding-plan-mode-or-sdd/vibe-coding-plan-mode-or-sdd.md
   - name: Work across related codebases
     href: work-across-related-codebases/work-across-related-codebases.md

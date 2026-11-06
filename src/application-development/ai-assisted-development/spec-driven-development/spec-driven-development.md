@@ -276,3 +276,4 @@ Ticking a checkbox in the rendered task document writes back to `tasks.md`, and 
 - [](xref:application-development.software-factory.about-software-factory-execution) - the generation step implementation runs after each wave's modelling.
 - [](xref:ai.intent-mcp-server) - connecting an external AI agent to Intent Architect.
 - [](xref:ai.tooling) - the tools an agent uses to read specs, record traceability and advance phases.
+- [](xref:how-to.vibe-coding-plan-mode-or-sdd) - when to write a spec rather than just prompting or planning first.
