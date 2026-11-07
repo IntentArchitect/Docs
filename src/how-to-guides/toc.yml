@@ -1,4 +1,6 @@
 items:
+  - name: Classify your codebase so reviews focus on what matters
+    href: classify-your-codebase/classify-your-codebase.md
   - name: Run agents in parallel
     href: run-agents-in-parallel/run-agents-in-parallel.md
   - name: Set up tasks so the agent can build, test and run your app

@@ -195,6 +195,7 @@ A few things to keep in mind when choosing values:
 ## Related articles
 
 - [](xref:application-development.change-review) - the screen these classifications drive, and how it reads a change set.
+- [](xref:how-to.classify-your-codebase) - have the AI agent classify your codebase for you, with a review document of the result.
 - [](xref:application-development.modelling.codebase-structure-designer) - the designer that hosts `Template Output`s, folders and `File Classification` elements.
 - [](xref:application-development.code-weaving-and-generation.about-template-output-targeting) - how a template's output is routed to a `Template Output` element in the first place.
 - [](xref:module-building.module-manifest) - the module manifest (`.imodspec`) that carries `<classifications>` and `<severity>`.
