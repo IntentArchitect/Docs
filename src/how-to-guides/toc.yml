@@ -1,6 +1,8 @@
 items:
   - name: Classify your codebase for review
     href: classify-your-codebase/classify-your-codebase.md
+  - name: Connect an MCP server to your chat
+    href: connect-an-mcp-server/connect-an-mcp-server.md
   - name: Get it right with Plan Mode
     href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
   - name: Get visual reports from the agent

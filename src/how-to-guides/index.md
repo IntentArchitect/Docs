@@ -8,6 +8,7 @@ description: "Each guide shows you how to do one thing in Intent Architect, in a
 Each guide here shows you how to do one thing in Intent Architect, in a short set of steps.
 
 - [Classify your codebase so reviews focus on what matters](xref:how-to.classify-your-codebase) - have the agent tag your code with what each part is for and how closely to review it, so you know which files in a large change to read first.
+- [Connect an MCP server to your chat](xref:how-to.connect-an-mcp-server) - stop copying work items, tickets or messages into the chat: connect that system's MCP server, such as Azure DevOps, Jira or Slack, and the agent reads and updates it itself, in the same chat in which it works on your code.
 - [Get it right the first time with Plan Mode](xref:how-to.get-it-right-with-plan-mode) - get the plan right before any code is written: check the data model, API and screens it sketches, comment on anything that's off and answer its questions, then choose the model that builds it and where.
 - [Get visual reports on your system from the agent](xref:how-to.visual-reports) - ask the agent for a report on part of your system, such as who can call which endpoint, and get a document you can read at a glance: diagrams, tables and links to your model and code.
 - [Open pull requests that prove they work](xref:how-to.prove-it-works) - have the agent show you its change works, with your tests, an AI review and your running app, then open a pull request that shows your reviewers what it checked.
