@@ -17,6 +17,8 @@ items:
     href: set-up-tasks/set-up-tasks.md
   - name: Use Claude Code, Cursor or Copilot
     href: use-claude-code-cursor-or-copilot/use-claude-code-cursor-or-copilot.md
+  - name: Use Spec Kit, Kiro, BMAD or OpenSpec
+    href: use-spec-kit-kiro-bmad-or-openspec/use-spec-kit-kiro-bmad-or-openspec.md
   - name: Vibe coding, Plan Mode or SDD
     href: vibe-coding-plan-mode-or-sdd/vibe-coding-plan-mode-or-sdd.md
   - name: Work across related codebases
