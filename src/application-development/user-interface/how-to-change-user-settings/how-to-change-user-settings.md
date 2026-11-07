@@ -1,6 +1,6 @@
 ---
 uid: application-development.user-interface.how-to-change-user-settings
-description: "How to access and configure user settings in Intent Architect: theme, update preferences, notifications, default application location, worktree location, diff tool, and preferred IDE."
+description: "How to access and configure user settings in Intent Architect: theme, update preferences, notifications, work item chats, default application location, worktree location, Work Items folder, diff tool, and preferred IDE."
 ---
 # How to change user settings
 
@@ -23,6 +23,10 @@ From time to time, Intent Architect may release pre-release versions of the prod
 
 Two switches for AI chats that finish or need your input while Intent Architect is in the background: an OS notification, and a badge on the Intent Architect taskbar icon. The taskbar badge isn't available on Linux. Both are on by default.
 
+## Agents
+
+**Start chats from work items in a worktree, on a `workitem/<id>` branch** decides where a chat you start from a [Work Item](xref:application-development.user-interface.work-items) runs: in a Git worktree of its own, on a `workitem/<id>` branch, or in the folder itself. It's on by default.
+
 ## Default Application locations
 
 This is the default location that Intent Architect will use when creating a new Application from the home view.
@@ -30,6 +34,10 @@ This is the default location that Intent Architect will use when creating a new 
 ## Worktree Location
 
 The folder Intent Architect creates Git worktrees in, for chats in the Agents Shell that run in a worktree of their own. Each worktree goes in a `<repository>/<branch>` folder under it. Leave it blank to use the default, `~/.worktrees`. See [](xref:how-to.run-agents-in-parallel).
+
+## Work Items Folder
+
+Where your [Work Items](xref:application-development.user-interface.work-items) are kept, by default `%APPDATA%\Intent Architect\work-items` on Windows. Changing it moves your Work Items there.
 
 ## Diff Tools
 
