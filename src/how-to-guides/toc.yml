@@ -3,6 +3,8 @@ items:
     href: classify-your-codebase/classify-your-codebase.md
   - name: Get it right with Plan Mode
     href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
+  - name: Get visual reports from the agent
+    href: visual-reports/visual-reports.md
   - name: Open PRs that prove they work
     href: prove-it-works/prove-it-works.md
   - name: Reuse prompts with Work Item templates
