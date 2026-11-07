@@ -7,6 +7,8 @@ items:
     href: prove-it-works/prove-it-works.md
   - name: Reuse prompts with Work Item templates
     href: work-item-templates/work-item-templates.md
+  - name: Review pull requests
+    href: review-pull-requests/review-pull-requests.md
   - name: Run agents in parallel
     href: run-agents-in-parallel/run-agents-in-parallel.md
   - name: Set up build, test and run tasks

@@ -49,7 +49,7 @@ The screens are the same whichever host you are on. A handful of capabilities ar
 
 ## The Pull Requests list
 
-The list lives in the **Pull Requests** section of the **Git** tab, above Branches / Tags. Each repository in the solution gets its own row, showing which host it is on, the account you are signed in as, and its own sign-in and sign-out actions.
+The list lives in the **Pull Requests** panel, opened from its own button in the activity bar. Each repository in the solution gets its own row, showing which host it is on, the account you are signed in as, and its own sign-in and sign-out actions.
 
 Under each repository, pull requests are bucketed:
 
@@ -126,7 +126,7 @@ It replaces the description, and the title as well - unless you have edited the 
 
 ## Reviewing a pull request
 
-Selecting a pull request opens it in the Git tab's right-hand pane; it can also be opened as a standalone Change Review tab. Either way the screen has two sub-tabs:
+Selecting a pull request opens it in a tab of its own, with two sub-tabs:
 
 - **Conversation** - the pull request itself: its description, its comments, and every action that manages it.
 - **Change Review** - the changes, as [](xref:application-development.change-review) renders them.
@@ -300,6 +300,7 @@ All three update the Pull Requests list straight away, so a pull request you jus
 ## Related articles
 
 - [](xref:application-development.change-review) - the review screen a pull request opens into, and everything it does with model changes, classifications and traceability.
+- [](xref:how-to.review-pull-requests) - get through a big pull request: AI review first, the design on a diagram, the code that needs you, and an agent fixing your comments.
 - [](xref:application-development.file-classifications) - the classification and severity labels the review filters on.
 - [](xref:application-development.understanding-and-resolving-merge-conflicts) - resolving conflicts in designer metadata.
 - [](xref:application-development.applications-and-solutions.git-and-scm-guidance) - which Intent Architect files belong in source control in the first place.

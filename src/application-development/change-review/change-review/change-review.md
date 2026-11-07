@@ -38,7 +38,7 @@ Change Review always compares two points. Where you open it from decides which t
 | A commit's **Review changes since this commit**   | Everything that has happened since that commit, uncommitted work included | That commit → your working tree                      |
 | A commit's **Review changes in this commit**      | What that one commit changed, on its own                                  | The commit's parent → the commit                     |
 | Two selected commits' **Review changes between**  | Everything that changed between the two commits you picked                | The older commit → the newer one                     |
-| A pull request in the **Git** tab                 | Everything the pull request would merge in                                | The pull request's merge-base → its head             |
+| A pull request in the **Pull Requests** panel     | Everything the pull request would merge in                                | The pull request's merge-base → its head             |
 
 The **merge-base** referred to above is the point at which your branch last had the same content as the base branch, in other words where the two diverged. Comparing against it means you see only the work your branch added, and not changes other people have since made to the base branch.
 
@@ -228,7 +228,7 @@ Both are behind the **Traceability** toggle in the view options.
 
 ## Reviewing a pull request
 
-Open a pull request from the **Pull Requests** list in the **Git** tab and you get the same review screen, covering everything that pull request would merge in. It opens with two sub-tabs: **Conversation**, for the pull request's description and comments, and **Change Review**, for the changes themselves.
+Open a pull request from the **Pull Requests** panel and you get the same review screen, covering everything that pull request would merge in. It opens with two sub-tabs: **Conversation**, for the pull request's description and comments, and **Change Review**, for the changes themselves.
 
 A pull request review adds the following:
 
@@ -281,6 +281,7 @@ This is what `/sdd-verify` runs against. Requirement-side coverage can only see 
 - [](xref:application-development.spec-driven-development) - where the requirement links in the Specifications section come from.
 - [](xref:application-development.file-classifications) - the classification and severity labels that drive the Needs attention filter.
 - [](xref:how-to.classify-your-codebase) - have the AI agent classify your codebase, and use the result to decide which files to review first.
+- [](xref:how-to.review-pull-requests) - review a pull request with AI review, the Explorer Diagram, Needs attention and Mark as reviewed, then have an agent fix your comments.
 - [](xref:application-development.software-factory.customizations-screen) - the Software Factory screen that manages the same customization approvals, with notes.
 - [](xref:application-development.code-management.about-code-management) - how Intent Architect decides which regions of a file are yours and which are its own.
 - [](xref:tools.software-factory-cli) - enforcing unapproved-customization checks on CI.
