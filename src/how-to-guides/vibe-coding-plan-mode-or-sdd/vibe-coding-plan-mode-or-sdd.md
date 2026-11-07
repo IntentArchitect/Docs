@@ -49,6 +49,9 @@ When you approve, the chat switches back to **Agent**, which starts fresh from t
 
 With _"Let customers cancel an order. Only orders that haven't shipped can be cancelled, and cancelling should record a reason."_, Plan asked three questions: how an order gets marked as shipped, who may cancel, and what form the reason takes. The plan was ready in about 4 minutes. Building it took another 5: a status on `Order`, a cancel command and endpoint, and five unit tests.
 
+> [!TIP]
+> To check and correct a plan before it's built, with comments, question answers and a choice of model, see [](xref:how-to.get-it-right-with-plan-mode).
+
 ## Use Spec-Driven Development when requirements must stay true
 
 Use a spec when the requirements need agreeing in detail before anything is built, when you need to show that each one was met, or when they must keep holding after the work ships: business rules, pricing, anything a reviewer or auditor will ask about later. A spec is a written set of requirements that the agent designs, builds and is checked against.

@@ -1,6 +1,8 @@
 items:
   - name: Classify your codebase for review
     href: classify-your-codebase/classify-your-codebase.md
+  - name: Get it right with Plan Mode
+    href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
   - name: Reuse prompts with Work Item templates
     href: work-item-templates/work-item-templates.md
   - name: Run agents in parallel

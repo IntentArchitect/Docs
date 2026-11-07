@@ -54,6 +54,7 @@ Plan mode is for changes large enough to want a written plan before anyone touch
 - **Use when:** the change has architectural implications, has open questions, spans multiple designers, or you'd just like to think it through with the agent before committing.
 - **Behavior:** explores the model and code, asks 1–4 multi-choice clarifying questions when judgement calls are needed, iteratively updates the plan file in a side panel, and finally calls `implement_plan` to request your approval. On approval, the plan is handed off to the implementation agent.
 - **Plan template:** Context → Approach → Model changes → Code changes (if any) → Steps → Verification → Open questions resolved.
+- **Reviewing a plan:** comment on it, answer its questions and choose the model that builds it; see [](xref:how-to.get-it-right-with-plan-mode).
 - **Tools:** all of Ask's read tools, plus `write_plan`, `ask_user_question`, and `implement_plan`.
 
 ---
