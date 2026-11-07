@@ -121,6 +121,9 @@ The ✨ control beside the description box offers two summaries of the range:
 
 It replaces the description, and the title as well - unless you have edited the title yourself, in which case yours is kept. The button reads **Cancel** for as long as a request is in flight, and cancelling aborts the model call rather than merely discarding its answer.
 
+> [!TIP]
+> To have the AI agent fill this page in, with a description that shows how it checked the change, see [](xref:how-to.prove-it-works).
+
 ## Reviewing a pull request
 
 Selecting a pull request opens it in the Git tab's right-hand pane; it can also be opened as a standalone Change Review tab. Either way the screen has two sub-tabs:

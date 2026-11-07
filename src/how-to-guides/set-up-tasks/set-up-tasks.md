@@ -119,4 +119,5 @@ _**Build** failed, and `aiAutoFix` started a fix chat by itself._
 
 - [](xref:application-development.software-factory.terminal-and-tasks) - every `tasks.json` field, and the terminal.
 - [](xref:how-to.run-agents-in-parallel) - running chats in their own worktrees.
+- [](xref:how-to.prove-it-works) - have the agent check its change with your tasks, an AI review and your running app, then open a pull request that shows it.
 - [](xref:application-development.user-interface.agents-shell-and-solution-shell) - how the Agents Shell and the Solution Shell differ.

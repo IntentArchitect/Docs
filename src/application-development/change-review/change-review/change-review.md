@@ -189,6 +189,8 @@ dotnet test --collect:"XPlat Code Coverage"
 
 For other test runners, write a Cobertura report into a `TestResults` folder.
 
+To run them from the review instead, click **Run tests** in the **Tests** panel. It runs the task marked `"producesTestCoverage": true` in the solution's `tasks.json`. With no such task, the button reads **Set up test coverage** and starts a chat that adds one. See [](xref:how-to.prove-it-works).
+
 ### Coverage from CI
 
 When there is no local report, Intent Architect fetches coverage from the CI build of the commit being reviewed. **Azure Pipelines** is currently the only supported CI system, and it works whether the repository is hosted on Azure DevOps or on GitHub.
