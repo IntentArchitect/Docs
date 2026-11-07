@@ -278,6 +278,7 @@ This is what `/sdd-verify` runs against. Requirement-side coverage can only see 
 - [](xref:application-development.pull-requests) - reviewing, discussing and merging a pull request on GitHub, Azure DevOps, GitLab or Bitbucket Cloud.
 - [](xref:application-development.spec-driven-development) - where the requirement links in the Specifications section come from.
 - [](xref:application-development.file-classifications) - the classification and severity labels that drive the Needs attention filter.
+- [](xref:how-to.classify-your-codebase) - have the AI agent classify your codebase, and use the result to decide which files to review first.
 - [](xref:application-development.software-factory.customizations-screen) - the Software Factory screen that manages the same customization approvals, with notes.
 - [](xref:application-development.code-management.about-code-management) - how Intent Architect decides which regions of a file are yours and which are its own.
 - [](xref:tools.software-factory-cli) - enforcing unapproved-customization checks on CI.
