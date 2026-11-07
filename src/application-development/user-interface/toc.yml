@@ -19,3 +19,6 @@ items:
 
   - name: The About Dialog
     href: the-about-dialog/the-about-dialog.md
+
+  - name: Work Items
+    href: work-items/work-items.md

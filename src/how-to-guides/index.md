@@ -8,6 +8,7 @@ description: "Each guide shows you how to do one thing in Intent Architect, in a
 Each guide here shows you how to do one thing in Intent Architect, in a short set of steps.
 
 - [Classify your codebase so reviews focus on what matters](xref:how-to.classify-your-codebase) - have the agent tag your code with what each part is for and how closely to review it, so you know which files in a large change to read first.
+- [Reuse your best prompts with Work Item templates](xref:how-to.work-item-templates) - write a prompt you keep retyping once, start a fresh chat from it whenever you need it, each in a worktree of its own, and turn it into a skill once your team wants it.
 - [Run agents in parallel](xref:how-to.run-agents-in-parallel) - keep several agents working while you carry on with your own work, each task in its own copy of your code so no agent touches your files or another agent's.
 - [Set up tasks so the agent can build, test and run your app](xref:how-to.set-up-tasks) - give the agent your build, test and run commands so it can check its own work, try your app and get each new worktree ready, and run the same tasks yourself with one click.
 - [Vibe coding, Plan Mode or Spec-Driven Development: when to use which](xref:how-to.vibe-coding-plan-mode-or-sdd) - get the outcome you're after: just prompt for a quick question or an easy fix, plan first for a larger goal, or use Spec-Driven Development when the requirements must be proven and stay true after the work ships.
