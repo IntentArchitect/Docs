@@ -50,12 +50,9 @@ Intent Architect exposes its own MCP server, so external AI agents can drive Int
 
 The tab lists one row per supported agent - Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro and OpenCode - grouped by whether the agent is detected on the machine. Each row shows a live **Repo** and **User** connection status and a one-click **Connect**, with **Connect all** available for the whole group.
 
-Connecting does two things:
+Connecting registers Intent Architect's MCP server in that agent's own configuration. It doesn't copy Intent Architect's built-in skills and rules; add those to the agent's native folders (`.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on) from the **Skills and Rules** tab.
 
-1. Registers Intent Architect's MCP server in that agent's own configuration.
-2. Copies Intent Architect's built-in skills and rules into the agent's native folders - `.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on - so the agent starts out equipped to work with the model.
-
-Connecting creates any AI context folders that are missing, so no application is silently skipped. An agent that isn't detected on the machine can still be enabled and connected. The **Advanced** toggle reveals the raw executable path and arguments for assembling a configuration by hand.
+An agent that isn't detected on the machine can still be enabled and connected. For an agent without a row, **Other agent / manual configuration** shows the executable path and arguments for assembling a configuration by hand.
 
 For more details on what the Intent MCP server does and how external agents use it, see [](xref:ai.intent-mcp-server).
 

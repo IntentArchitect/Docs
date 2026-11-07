@@ -6,7 +6,7 @@ description: "How the Intent MCP server lets external AI agents like Claude Code
 
 Intent Architect exposes an MCP (Model Context Protocol) server that lets external AI coding agents - Claude Code, Codex, GitHub Copilot, GitHub Copilot CLI, Cursor, Kiro, OpenCode and others - connect to Intent Architect and take over the parts of the codebase that Intent Architect manages, while the agent continues handling the rest of the code as normal.
 
-Connecting is a single click per agent from the Intent MCP tab in AI Configuration, which also copies Intent Architect's built-in skills and rules into that agent's native folders. See [](xref:ai.configuration#2-intent-mcp).
+Connecting is a single click per agent from the Intent MCP tab in AI Configuration. Intent Architect's built-in skills and rules are added to that agent's native folders from the **Skills and Rules** tab. See [](xref:ai.configuration#2-intent-mcp), and [](xref:how-to.use-claude-code-cursor-or-copilot) to choose between this and running your agent in Intent Architect's chat.
 
 ## How it works
 
@@ -21,7 +21,7 @@ The agent handles the coordination between these two modes automatically. You gi
 
 The Intent MCP server instructions tell MCP clients that they must check for the existence of a `.isln` file and if found the client must use an MCP server tool to get full Intent Architect usage instructions. This means that MCP clients should automatically get all the guidance they need to be able to effectively use Intent Architect with no additional instructions needed.
 
-Those instructions list every built-in skill discovered at runtime, including the full `sdd-*` Spec-Driven Development flow, so an external agent can invoke the right skill for the phase of work it is in.
+Those instructions list the built-in skills an external agent can carry out with its own file tools, so it can invoke the right skill for the phase of work it is in. Skills that need Intent Architect's chat, such as the `sdd-*` Spec-Driven Development flow, need your agent running in Intent Architect as a [CLI agent](xref:ai.cli-agents).
 
 ## Example: Building a feature with Claude Code
 

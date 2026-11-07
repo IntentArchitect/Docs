@@ -9,7 +9,7 @@ Intent Architect can use a CLI coding agent you already have as the AI harness b
 This lets teams keep the harness and subscription they already use. The agent does the work, and Intent Architect's control framework (architectural guardrails, design blueprints, validation tools and traceability) applies to it exactly as it does to Intent Architect's own agents.
 
 > [!TIP]
-> To drive Intent Architect from your own terminal or IDE instead, see [Intent MCP Server](xref:ai.intent-mcp-server).
+> To drive Intent Architect from your own terminal or IDE instead, see [Intent MCP Server](xref:ai.intent-mcp-server). To choose between the two, see [](xref:how-to.use-claude-code-cursor-or-copilot).
 
 ## Supported agents
 
@@ -146,7 +146,7 @@ When approval is needed, the chat shows **Allow**, **Allow all** (switches the c
 - The instructions of the selected [built-in](xref:ai.built-in-agents) or [custom](xref:ai.custom-agents) agent, plus applicable [instruction files](xref:ai.context-management#2-instruction-files).
 - Enabled `stdio` servers from [MCP Servers](xref:ai.configuration#3-mcp-servers) that are available to **Coding**.
 
-The first time an agent is used in a repository, the chat offers to **Add** Intent Architect's built-in skills and rules to that agent's native folders (`.claude/skills`, `.github/skills`, `.kiro/steering`, etc.). Commit them to share them with your team.
+When Intent Architect's built-in skills and rules are missing or out of date in that agent's native folders (`.claude/skills`, `.github/skills`, `.kiro/steering`, etc.), the chat shows a banner with **Enable auto sync**, which adds them and keeps them up to date. You can also update them from the **Skills and Rules** tab in AI Configuration. Commit them to share them with your team.
 
 ---
 

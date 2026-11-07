@@ -45,7 +45,7 @@ The agent and its subscription perform the work; Intent Architect supplies the i
 
 Intent Architect exposes an MCP server for teams whose workflow remains in their own IDE or terminal. The agent stays where it is and drives Intent Architect's designers directly – modelling what must be modelled, writing bespoke code for everything else, and coordinating between the two itself.
 
-The Intent MCP tab lists each supported agent – Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro, OpenCode – with a live connection status and a one-click **Connect**. Connecting also copies Intent Architect's built-in skills and rules into that agent's native folders (`.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on), so the agent starts out equipped to work with the model.
+The Intent MCP tab lists each supported agent – Claude Code, Codex, GitHub Copilot CLI, Cursor, Kiro, OpenCode – with a live connection status and a one-click **Connect**. Intent Architect's built-in skills and rules, added to that agent's native folders (`.claude/skills`, `.cursor/rules`, `.kiro/steering` and so on) from the **Skills and Rules** tab, equip the agent to work with the model.
 
 ![The Intent MCP tab listing per-agent connection rows](images/intent-mcp-configuration-dialog.png)
 
