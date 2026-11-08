@@ -35,3 +35,4 @@ What's covered in this demo - how to:
 ## Next Steps
 
 - [Get Intent Architect](xref:getting-started.get-the-application)
+- [Make your first change with the AI](xref:how-to.make-your-first-change)

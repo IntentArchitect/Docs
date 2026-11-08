@@ -24,7 +24,7 @@ Download the app from our [website](https://intentarchitect.com/#/downloads).
 
 Install the app.
 
-🚀 You’re all set!
+🚀 You’re all set! Next, [make your first change with the AI](xref:how-to.make-your-first-change): open your code, pick an AI, and get a change reviewed and committed.
 
 ---
 

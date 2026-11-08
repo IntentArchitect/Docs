@@ -298,5 +298,6 @@ What's covered in this demo - how to:
 ## Next Steps
 
 - Continue to **[Get Intent Architect](xref:getting-started.get-the-application)**
+- Then **[Make your first change with the AI](xref:how-to.make-your-first-change)**, from opening your code to a reviewed commit
 
 </div>
