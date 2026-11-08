@@ -25,6 +25,8 @@ items:
     href: run-agents-in-parallel/run-agents-in-parallel.md
   - name: Set up build, test and run tasks
     href: set-up-tasks/set-up-tasks.md
+  - name: Turn existing code into living specs
+    href: turn-existing-code-into-living-specs/turn-existing-code-into-living-specs.md
   - name: Use Claude Code, Cursor or Copilot
     href: use-claude-code-cursor-or-copilot/use-claude-code-cursor-or-copilot.md
   - name: Use Spec Kit, Kiro, BMAD or OpenSpec

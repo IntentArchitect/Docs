@@ -64,7 +64,7 @@ Alongside the range and a refresh button, the `⋮` **View options** menu contro
 
 - **File list** - `Flat list` or `Folder tree`.
 - **Diff** - `Inline` (one column), `Side-by-side` (two columns), and `Wrap long lines`.
-- **Show** - `Traceability` (the requirement chips, the requirements pill and the Specifications section) and `Build artifacts` (output logs and previous-output files, hidden by default).
+- **Show** - `Tested lines` (how much of each change its tests reach) and `Build artifacts` (output logs and previous-output files, hidden by default).
 
 ### The headline
 
@@ -218,8 +218,6 @@ When a change was implemented through [](xref:application-development.spec-drive
 
 - **Inline** - a requirement chip on any changed element or file, with a popover listing the linked requirements. The chip is marked **stale** when a linked requirement's text has changed since the link was recorded.
 - **Pivoted** - the **Specifications** section reverses the view: spec → requirement → the changes realizing it. This is how you answer "is this requirement actually built?" rather than "what is this file for?".
-
-Both are behind the **Traceability** toggle in the view options.
 
 <!-- The Specifications section expanded, showing a spec, its requirements and the model
      elements and files realizing one of them. -->

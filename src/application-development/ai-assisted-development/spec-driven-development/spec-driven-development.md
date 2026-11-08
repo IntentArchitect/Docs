@@ -22,6 +22,16 @@ What makes this version of it different from a generic one is that **the design 
 > [!NOTE]
 > Spec-Driven Development was introduced in Intent Architect 5.2. The **Verification** phase and Git-verified traceability arrived in 5.3.
 
+## Changes, Capabilities and Areas
+
+The **Specifications** panel groups specs by kind:
+
+- A **Change** covers one piece of work, such as a new feature. It goes through every phase below. Once it's done, **Fold into capabilities** merges its requirements into the Capabilities they belong to and archives it.
+- A **Capability** describes how one part of your system behaves now, and is kept true as the code changes. It has no tasks: it goes from design straight to verification. You get one by folding a done Change, or with **Extract from existing code**, which documents code you already have.
+- An **Area** groups related Capabilities under one overview. It has no requirements or phases of its own, and shows the worst health of the Capabilities in it.
+
+To document existing code as Capabilities, group them into Areas and keep them true as the code changes, see [](xref:how-to.turn-existing-code-into-living-specs).
+
 ## The phases
 
 A spec moves through six phases, and each one has to be approved before the next begins.
@@ -35,7 +45,7 @@ A spec moves through six phases, and each one has to be approved before the next
 | **Verification**   | A separate review pass judges each requirement against what was actually built.         | A pass/gap verdict    |
 | **Done**           | Everything passed and you took the last gate.                                           | -                     |
 
-You do not have to remember any of this. The Specs panel offers the one action that makes sense next, and the flow stops and waits at every gate.
+You do not have to remember any of this. The **Specifications** panel offers the one action that makes sense next, and the flow stops and waits at every gate.
 
 ### Requirements
 
@@ -131,7 +141,7 @@ Heal fixes exactly what verification judged deficient, one gap at a time, and no
 
 Heal never ticks tasks and never advances the phase. The repair is proved by verification running again afterwards, not by the healer saying it is done.
 
-## The Specs panel
+## The Specifications panel
 
 Specs live in the **Specifications** panel, one card each. A card shows the spec's title, a one-line description of what the feature does, and a rail marking how far through the flow it is.
 
@@ -141,7 +151,7 @@ Everything else on the card follows from where it is:
 | ----------------------- | ----------------------------------------------------------------------------------------------------------- |
 | **The phase rail**      | Requirements → Design → Tasks → Implementation → Verification. It reads complete once verification passes.  |
 | **Artifact buttons**    | **Requirements**, **Design** and **Tasks** open those documents as tabs.                                    |
-| **The main action**     | Whatever comes next - draft the requirements, approve, start or resume implementation, run the review, heal the gaps, mark it done. |
+| **The main action**     | Whatever comes next - draft the requirements, approve, start or resume implementation, run the review, heal the gaps, mark it done, or re-check a done spec. |
 | **Traceability**        | An expandable tree of what has been built for this spec, by model element and by requirement.               |
 | **Status**              | A short line saying what is going on: a wave in progress, a review running, gaps remaining, or that it needs you. |
 
@@ -151,17 +161,21 @@ Everything else on the card follows from where it is:
 
 A spec that is waiting on you says **Needs you** and links straight to the conversation where the question is; a spec that is busy says so and opens its live conversation when you click it. If a run is interrupted - the connection drops, or you close Intent Architect - the card offers **Resume** rather than losing the work.
 
+Once a Capability is done, its card shows its health in place of its phase: **Verified** while nothing it depends on has changed since its last verification, **Gaps** when that verification found requirements the code doesn't meet, and **Re-check** when the code behind a criterion no test proves, or the wording of a criterion, has changed since. The card's **Re-check** or **Fix** button fills a chat that verifies again only what changed, and fixes what no longer holds. A group heading offers **Re-check all** or **Fix all** for every spec under it that needs it.
+
 
 The panel's toolbar carries **New spec**, **Import**, search, **Refresh** and a sort control. Sorting by **Activity** puts the specs that need you at the top, which is usually the one you want.
 
 ### Starting a spec
 
-**New spec** offers two ways in:
+**New spec** offers four ways in:
 
 - **Describe it in chat** - start talking, and the requirements get drafted from the conversation.
 - **Name it first** - create the spec with a name now, and draft the requirements when you are ready.
+- **Extract from existing code** - document a feature you already have as a Capability, checked against its code. See [](xref:how-to.turn-existing-code-into-living-specs).
+- **New Area** - name an Area to group Capabilities under.
 
-Either way, the requirements are drafted from whatever you give the composer, including **attached files** - see [Requirements](#requirements) for starting from a PRD or a brief.
+For a new piece of work, the requirements are drafted from whatever you give the composer, including **attached files** - see [Requirements](#requirements) for starting from a PRD or a brief.
 
 If you have another spec framework installed in the solution, it also appears here and runs that framework's own command instead. See [Specs you already have](#specs-you-already-have).
 
@@ -175,6 +189,7 @@ If you have another spec framework installed in the solution, it also appears he
 Each card's **⋯** menu holds the spec-wide options - renaming, refreshing its state from disk, archiving, deleting, and two worth calling out:
 
 - **Auto-approve phase gates** - the phases still run in order, but each gate resolves immediately instead of waiting for you. Useful for a small, well-understood change; not what you want on anything you would review.
+- **Auto-update requirements** - the Capability version of the same option. The agent updates the requirements without waiting for your review, and the card marks them **Unreviewed** until you review or commit them.
 - **Reset to…** - rewinds the spec to an earlier phase and deletes the artifacts after it. It confirms first, and it tells you exactly what it is about to delete.
 
 ## Approving each phase
@@ -277,3 +292,4 @@ Ticking a checkbox in the rendered task document writes back to `tasks.md`, and 
 - [](xref:ai.intent-mcp-server) - connecting an external AI agent to Intent Architect.
 - [](xref:ai.tooling) - the tools an agent uses to read specs, record traceability and advance phases.
 - [](xref:how-to.vibe-coding-plan-mode-or-sdd) - when to write a spec rather than just prompting or planning first.
+- [](xref:how-to.turn-existing-code-into-living-specs) - document code you already have as Capabilities and catch it when a rule changes.
