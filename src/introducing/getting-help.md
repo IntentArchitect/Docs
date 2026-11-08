@@ -1,6 +1,6 @@
 ---
 uid: getting-help
-description: "All the ways to get help with Intent Architect: in-app help, the documentation site, email and GitHub support, in-app feedback, and module release notes."
+description: "All the ways to get help with Intent Architect: asking the AI Assistant, in-app help, the documentation site, email and GitHub support with chat diagnostics, in-app feedback, and module release notes."
 ---
 
 # Getting help: Reference & resources
@@ -8,6 +8,15 @@ description: "All the ways to get help with Intent Architect: in-app help, the d
 Have a question, issue, or suggestion? Here’s how to find help and get the support you need.
 
 ---
+
+## ![Ask the AI icon](images/ask-ai-g.png) **Ask the AI**
+
+Ask the AI Assistant, and get an answer from these docs  
+*Get an answer with a link to the docs, without leaving the app*  
+
+[Learn how to ask the AI →](#ask-the-ai)
+
+──────
 
 ## ![In-app Help icon](images/in-app-g.png) **In-app help**
 
@@ -20,8 +29,8 @@ Browse contextual tips and how-tos right inside the app
 
 ## ![Docs icon](images/docs-g.png) **Website documentation**
 
-Guides, tutorials, and best practices  
-*Explore how-to guides and tutorials to deepen your knowledge*  
+Guides and best practices  
+*Explore how-to guides to deepen your knowledge*  
 
 [Go to the docs website →](xref:index)
 
@@ -42,6 +51,14 @@ See what’s new, fixed, or changed by version
 *Check what's new in the latest module versions*  
 
 [Learn more about release notes →](#release-notes)
+
+---
+
+## Ask the AI
+
+Not sure how to do something, or what a term means? Open the AI Assistant with `F8`, choose **Ask** in the agent menu under the message box, and type your question. Ask searches this documentation before it answers a question about Intent Architect, and links the pages it used. It can also explain your own solution's model and code.
+
+See [](xref:how-to.ask-the-ai) for how to get answers you can check, and what the AI can't do for you.
 
 ---
 
@@ -69,6 +86,9 @@ You can browse through the suggested topics or use the **search box** to look up
 ## Contact support
 
 Need help, request a feature or share feedback? Here are a few ways to get in touch with us:
+
+> [!TIP]
+> If the problem is with an AI chat, type `/diagnostics` in that chat first. **Gather Diagnostics** saves the chat's logs and session details as a zip in your Downloads folder, ready to attach to your email or GitHub issue. No API keys or credentials are included.
 
 ### ![Email](images/email-g.png) **Email us**
 

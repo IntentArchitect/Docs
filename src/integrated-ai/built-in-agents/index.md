@@ -43,6 +43,7 @@ A read-only assistant for understanding the current solution. It can inspect des
 
 - **Use when:** you want to understand how something works, find where a concept is used, or get a written explanation. Quick orientation before deciding what to change.
 - **Behavior:** answers from the **model first**; only reaches into code for questions about runtime behavior or implementation logic.
+- **Questions about Intent Architect itself:** searches the Intent Architect documentation before it answers, and links the pages it used. See [](xref:how-to.ask-the-ai).
 - **Tools:** model snapshots, element details, diagram snapshots, model search, plus `read_file`/`grep`/`glob` for code-level questions, plus `search_docs` for product docs.
 
 ---

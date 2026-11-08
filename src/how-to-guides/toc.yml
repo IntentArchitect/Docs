@@ -1,4 +1,6 @@
 items:
+  - name: Ask the AI when you're stuck
+    href: ask-the-ai/ask-the-ai.md
   - name: Build your own dashboards
     href: build-your-own-dashboards/build-your-own-dashboards.md
   - name: Classify your codebase for review
