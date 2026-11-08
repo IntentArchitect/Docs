@@ -24,6 +24,8 @@ Intent Architect comes with a set of built-in agents. Some are selectable in the
 
 These are invoked through `create_sub_agent` when an agent delegates a piece of work, so they carry out focused tasks without cluttering the main conversation. See [Agent Context Loading](xref:ai.context-management) for how modeling and coding contexts work behind the scenes.
 
+Unlike these sub-agents, which work out of sight inside one reply, **child chats** are full chats you can see and steer. **Agent**, **Ask** and **Plan** can propose them when you ask, and each one starts once you approve it. See [](xref:how-to.split-a-big-task-across-child-chats).
+
 ---
 
 ## Agent

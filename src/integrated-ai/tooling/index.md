@@ -37,6 +37,10 @@ This document lists every built-in tool, what it does, and where it makes sense 
 | Run the Software Factory and stage changes | `run_software_factory`                                          |
 | Hand off work to a coding-agent task tab   | `create_ai_task`                                                |
 | Dispatch a sub-agent for a focused task    | `create_sub_agent`                                              |
+| Start parallel child chats (with approval) | `start_child_chats`                                             |
+| List this chat's child chats               | `list_child_chats`                                              |
+| Message one of this chat's child chats     | `message_child_chat`                                            |
+| Stop a child chat's current turn           | `stop_child_chat`                                               |
 | Run an ad-hoc shell command                | `shell`                                                         |
 | Read a pull request's open review threads  | `get_pull_request_review_threads`                               |
 | Search Intent / org documentation          | `search_docs`                                                   |
@@ -70,6 +74,7 @@ Most tools require an `applicationId` parameter to identify which application's 
 - **`apply_staged_file_changes`** requires the explicit list of files to apply, rather than applying everything currently pending.
 - **`shell`** runs ad-hoc bash or PowerShell commands, with output streamed to a terminal and persisted. A running command can be backgrounded or killed.
 - **`create_sub_agent`** dispatches a sub-agent - Coding, Discovery or Spec Worker - for an isolated piece of work. Multiple dispatches can run concurrently.
+- **`start_child_chats`** proposes 1 to 8 new chats, each in its own worktree by default, on a card the person approves. They run as full chats nested under this one, and this chat is sent each one's last reply when it finishes, fails, is stopped by the person or needs them. `list_child_chats`, `message_child_chat` and `stop_child_chat` act on this chat's own child chats only, and sub-agents can't use any of the four. See [](xref:how-to.split-a-big-task-across-child-chats).
 - Agents are blocked from writing to Intent Architect's protected files (`.intent`, `Intent.Metadata`, `.application.config`).
 
 ---

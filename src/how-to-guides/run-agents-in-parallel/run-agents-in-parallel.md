@@ -46,6 +46,9 @@ _Four chats in their own worktrees: two completed, one waiting on an answer and 
 
 While Intent Architect is in the background, it shows an OS notification when a chat finishes or needs your input, and a badge on its taskbar icon. You can switch both off under **Notifications** in [User Settings](xref:application-development.user-interface.how-to-change-user-settings#notifications).
 
+> [!TIP]
+> A chat's agent can start chats like these for you: ask it to split a task into child chats, each in its own worktree. They're listed under that chat on the **Sessions** panel. See [](xref:how-to.split-a-big-task-across-child-chats).
+
 ## Review and merge a worktree chat's work in the Agents Shell
 
 Select the chat on the **Sessions** panel. The panels on the right follow its worktree, so you deal with each chat's work on its own:

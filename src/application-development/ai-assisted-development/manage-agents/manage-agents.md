@@ -93,6 +93,8 @@ Beside it are a search box and a collapse/expand-all toggle. Choices are remembe
 
 When the recency scope is hiding rows, the empty state says so - _"N older - pick Show all chats from the view menu"_ - rather than claiming there is nothing there.
 
+**Child chats**, the chats another chat's agent started (see [](xref:how-to.split-a-big-task-across-child-chats)), are nested under that parent chat when both are in the same group. The chevron beside the parent (**Hide child chats** / **Show child chats**) folds them away, and a folded parent shows counts of the child chats under it, at every depth, that need you, are running, failed or are unread. Archiving a parent doesn't archive or stop its child chats: they become top-level rows.
+
 ### Organising the board
 
 - **Drag a group header** to put the board in the order you think in (workspace grouping only - a time bucket's position is the calendar's).
