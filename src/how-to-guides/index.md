@@ -7,6 +7,7 @@ description: "Each guide shows you how to do one thing in Intent Architect, in a
 
 Each guide here shows you how to do one thing in Intent Architect, in a short set of steps.
 
+- [Build your own dashboards and dev tools with the agent](xref:how-to.build-your-own-dashboards) - see your pipelines, your pull requests or anything else you keep checking on one screen without leaving Intent Architect: have the agent build a small dashboard of your own and open it in the app preview, with live data every time you look.
 - [Classify your codebase so reviews focus on what matters](xref:how-to.classify-your-codebase) - have the agent tag your code with what each part is for and how closely to review it, so you know which files in a large change to read first.
 - [Connect an MCP server to your chat](xref:how-to.connect-an-mcp-server) - stop copying work items, tickets or messages into the chat: connect that system's MCP server, such as Azure DevOps, Jira or Slack, and the agent reads and updates it itself, in the same chat in which it works on your code.
 - [Get it right the first time with Plan Mode](xref:how-to.get-it-right-with-plan-mode) - get the plan right before any code is written: check the data model, API and screens it sketches, comment on anything that's off and answer its questions, then choose the model that builds it and where.

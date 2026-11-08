@@ -1,4 +1,6 @@
 items:
+  - name: Build your own dashboards
+    href: build-your-own-dashboards/build-your-own-dashboards.md
   - name: Classify your codebase for review
     href: classify-your-codebase/classify-your-codebase.md
   - name: Connect an MCP server to your chat
