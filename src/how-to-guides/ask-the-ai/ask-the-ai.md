@@ -39,6 +39,9 @@ The AI knows which designer you have open, but not which element you've selected
 ![The @ list in the message box, showing the Models and Files that match "Ord"](images/mention-an-element.png)
 _Type @ and the start of a name, then pick the element or file from the list._
 
+> [!TIP]
+> You can also paste a screenshot, attach files, drag in a change from Change Review or say your question out loud. See [](xref:how-to.give-the-ai-context).
+
 To see how elements fit together, ask for a diagram. Ask draws one in the chat, from your model:
 
 ![Ask's answer to "Show me how Customer, Order and OrderStatus fit together on a diagram": a class diagram of the three, drawn in the chat](images/diagram-in-chat.png)

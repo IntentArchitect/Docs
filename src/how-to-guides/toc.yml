@@ -11,6 +11,8 @@ items:
     href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
   - name: Get visual reports from the agent
     href: visual-reports/visual-reports.md
+  - name: Give the AI the right context
+    href: give-the-ai-context/give-the-ai-context.md
   - name: Make your first change
     href: make-your-first-change/make-your-first-change.md
   - name: Open PRs that prove they work
