@@ -13,6 +13,8 @@ items:
     href: visual-reports/visual-reports.md
   - name: Open PRs that prove they work
     href: prove-it-works/prove-it-works.md
+  - name: Resolve merge conflicts with AI
+    href: resolve-merge-conflicts-with-ai/resolve-merge-conflicts-with-ai.md
   - name: Reuse prompts with Work Item templates
     href: work-item-templates/work-item-templates.md
   - name: Review pull requests

@@ -59,7 +59,7 @@ Select the chat on the **Sessions** panel. The panels on the right follow its wo
 
    ![Git Explorer listing the branches and worktrees](images/git-explorer-branches.png)
 
-Worktrees keep agents apart while they work, but merging can still conflict when two chats changed the same lines. If it would, nothing is changed: merge the chat's branch from your main checkout instead, and resolve the conflicts there.
+Worktrees keep agents apart while they work, but merging can still conflict when two chats changed the same lines. If it would, nothing is changed: have the chat bring your branch into its worktree and resolve the conflicts there, then merge again. See [](xref:how-to.resolve-merge-conflicts-with-ai#merge-an-agents-worktree-branch-back-when-it-conflicts-in-the-agents-shell).
 
 ## Clean up a chat's worktree in the Agents Shell
 
