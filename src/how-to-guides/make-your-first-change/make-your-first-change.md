@@ -1,13 +1,11 @@
 ---
 uid: how-to.make-your-first-change
-description: "Just installed Intent Architect? Get your first change from the AI, reviewed and committed: open your code or start something new, pick an AI, ask for the change, then check what it did in Change Review and commit it in Source Control."
+description: "Just installed Intent Architect? Get your first change from the AI, reviewed and committed: open your code or start something new, choose your coding agent, ask for the change, then check what it did in Change Review and commit it in Source Control."
 ---
 
 # Make your first change with the AI
 
-Just installed Intent Architect? Get your first change from the AI, reviewed and committed, without leaving the app: open your code or start something new, pick an AI, ask for the change, then check what it did and commit it.
-
-Each step offers a choice, so you can start from the code and the AI you already have.
+Just installed Intent Architect? Get your first change from the AI, reviewed and committed, without leaving the app: open your code or start something new, choose your coding agent, ask for the change, then check what it did and commit it.
 
 ## Sign in and open your code from the Home screen
 
@@ -30,9 +28,9 @@ Each one opens your code in the [Solution Shell](xref:application-development.us
 
 ## Use your own coding agent in the AI Assistant
 
-Bring the coding agent you already pay for. The AI Assistant chat can run Claude Code, Codex, GitHub Copilot CLI, Cursor CLI, Kiro or OpenCode, on your own subscription and sign-in:
+The AI Assistant chat can use a coding agent you already have: Claude Code, Codex, GitHub Copilot CLI, Cursor CLI, Kiro or OpenCode. The agent runs on your computer, signed in to your own account:
 
-1. Install the agent's CLI and sign in to it from a terminal, as you normally would.
+1. Install the agent's CLI and sign in to it from a terminal. If you haven't before, follow the [install steps for your agent](xref:ai.cli-agents#installing-an-agent).
 2. In the **AI Assistant**, docked on the right of the Solution Shell (press `F8` if it's hidden), open the model picker below the message box and click the cog at the top of the list. **AI Configuration** opens on the **AI Providers** tab.
 3. Check that your agent shows **Installed**, and turn on its power button if it's off.
 4. Back in the model picker, pick one of the agent's models, such as **Claude Code Default**.
@@ -40,7 +38,7 @@ Bring the coding agent you already pay for. The AI Assistant chat can run Claude
 ![The model picker in the AI Assistant, filtered to Claude Code](images/model-picker.png)
 _The model picker filtered to Claude Code, with **Claude Code Default** and the cog that opens AI Configuration boxed._
 
-The chat may show a banner offering to **Enable auto sync** for the agent's skills and rules. You can leave it for now: it adds files to your repository, and the change below was made without it. For each agent's setup, see [](xref:ai.cli-agents).
+The chat may show a banner offering to **Enable auto sync** for the agent's skills and rules. You can leave it for now; it adds files to your repository.
 
 ## Ask for your first change in the AI chat
 
@@ -48,7 +46,7 @@ Check that **Agent** is selected in the agent picker beside the model, then desc
 
 In an Intent Architect solution, the agent changes the design first and generates code from it. Asked _"Add an optional date of birth to Customer, and let the customer endpoints set and return it."_, Claude Code added the field to the domain and service designs, generated the code, added the field to the two hand-written request handlers itself, then checked that the solution built, in just under three minutes.
 
-The agent asks before it edits files or runs a command. Click **Allow** to approve that one step, or **Allow all** to switch the chat to **Bypass all permissions** so it stops asking.
+The agent asks before it edits files or runs a command. Click **Allow** to approve that one step, or **Allow all** to switch the chat to **Bypass all permissions**, so it stops asking for the rest of the chat and edits files and runs commands without checking with you.
 
 When it's done, **Agent’s Changes** above the message box lists everything it changed: the design changes in each designer, then the files.
 
@@ -74,7 +72,7 @@ _Change Review for the date-of-birth change, with the designers boxed and one ha
 
 In the **Source Control** pane (`Ctrl+Shift+G`), type a commit message, or click the wand in the message box to have the AI write one. Then click **Commit**, or press `Ctrl+Enter`. If you haven't staged any files, it asks whether to **Stage all and commit**; click that to commit the whole change.
 
-For the date-of-birth change, the AI wrote _"Add DateOfBirth to Customer"_, and the commit took all 13 changed files.
+For the date-of-birth change, the AI wrote _"Add DateOfBirth to Customer"_, and the commit took the whole change.
 
 ![The commit message and Commit button in Source Control](images/source-control-commit.png)
 _Source Control with the AI-written message and **Commit** boxed, beside Change Review._

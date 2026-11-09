@@ -33,6 +33,14 @@ Give the agent what it needs, and get more back from it.
 <li><a href="xref:how-to.build-your-own-dashboards"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg><span><strong>Build your own dashboards and dev tools with the agent</strong>Have the agent build a dashboard of your pipelines, pull requests or anything else, with live data.</span></a></li>
 </ul>
 
+## Configuring Your Workspace
+
+Set up your workspace once so the agent can build, test and run your app.
+
+<ul>
+<li><a href="xref:how-to.set-up-tasks"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg><span><strong>Set up tasks so the agent can build, test and run your app</strong>Give the agent your build, test and run commands so it can check its own work and try your app.</span></a></li>
+</ul>
+
 ## Planning and Spec-Driven Development
 
 Choose how much structure a change needs, from a quick prompt to a spec that stays true.
@@ -52,7 +60,6 @@ Keep several agents working at once, each in its own copy of your code.
 <li><a href="xref:how-to.run-agents-in-parallel"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="7" r="2"/><path d="M6 7v10M18 9a6 6 0 0 1-6 6H6"/></svg><span><strong>Run agents in parallel</strong>Hand tasks to agents that each work in their own worktree while you carry on with yours.</span></a></li>
 <li><a href="xref:how-to.stay-on-top-of-many-agents"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span><strong>Stay on top of many agents at once</strong>See which agents are waiting on you, deal with them from the keyboard, and put away what's finished.</span></a></li>
 <li><a href="xref:how-to.split-a-big-task-across-child-chats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9a2 2 0 0 1-2 2H6l-3 3V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2z"/><path d="M18 9h1a2 2 0 0 1 2 2v10l-3-3h-6a2 2 0 0 1-2-2v-1"/></svg><span><strong>Split a big task across child chats</strong>Have the agent split a big task into chats that run side by side, then bring the results together.</span></a></li>
-<li><a href="xref:how-to.set-up-tasks"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z"/></svg><span><strong>Set up tasks so the agent can build, test and run your app</strong>Give the agent your build, test and run commands so it can check its own work and try your app.</span></a></li>
 </ul>
 
 ## Reviewing and Shipping
