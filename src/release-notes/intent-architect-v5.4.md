@@ -349,7 +349,7 @@ Opening a folder that contains several `.isln` files now opens them together as 
 - Improvement: Branches, tags, worktrees and history have moved into a new Git Explorer tab, where worktrees and branches can be managed and new chats started on them.
 - Improvement: A new File History view searches a file's commits and can restore an earlier revision, and the file view now has a Git Blame gutter. Git Blame works on files larger than 2 MB, and "Annotate Current File with Git Blame" is offered from Git History commit rows.
 - Improvement: Agents board groups can now be pinned above the rest.
-- Improvement: In the Agents window, `Left Arrow` or `Escape` in an empty composer moves focus to the board, and focus returns to the chat afterwards.
+- Improvement: In the Agents window, `Left Arrow` in an empty composer moves focus to the board, and `Enter`, `Right Arrow` or `Escape` there returns focus to the chat.
 - Improvement: The chat context popover now shows when a chat started, its last message time and its duration.
 - Improvement: Answers to `ask_user_question` prompts are now shown inline in the tool call row, with questions and answers stacked so long text wraps.
 - Improvement: Failed terminal tasks now offer "Resolve with AI", which starts a fix chat with the task's output.

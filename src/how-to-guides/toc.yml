@@ -29,6 +29,8 @@ items:
     href: set-up-tasks/set-up-tasks.md
   - name: Split a big task across child chats
     href: split-a-big-task-across-child-chats/split-a-big-task-across-child-chats.md
+  - name: Stay on top of many agents
+    href: stay-on-top-of-many-agents/stay-on-top-of-many-agents.md
   - name: Turn existing code into living specs
     href: turn-existing-code-into-living-specs/turn-existing-code-into-living-specs.md
   - name: Use Claude Code, Cursor or Copilot

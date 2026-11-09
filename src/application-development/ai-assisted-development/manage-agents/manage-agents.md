@@ -44,6 +44,9 @@ The left-hand **Sessions** panel is the board. It reads the whole conversation s
      branch sublines, churn badges and a custom group. -->
 ![Manage Agents board](images/manage-agents-board.png)
 
+> [!TIP]
+> To work through many chats at once, from the keyboard and with notifications and search, see [](xref:how-to.stay-on-top-of-many-agents).
+
 ### What a row tells you
 
 Each row is two lines, and between them they answer "is this worth opening?":
@@ -64,8 +67,8 @@ One vocabulary, used by the dot's tooltip everywhere a conversation appears:
 | Status                     | Means                                                       |
 | -------------------------- | ----------------------------------------------------------- |
 | **In progress**            | A turn is running                                           |
-| **Awaiting approval**      | A tool call or plan approval is parked                      |
-| **Waiting on your answer** | The agent asked you a question - typing is what unblocks it |
+| **Awaiting approval**      | Rarely: an approval or question parked before a restart    |
+| **Waiting on your answer** | The agent asked a question or wants an approval - answer it |
 | **Completed**              | The last run finished                                       |
 | **Failed**                 | The last run ended in an error                              |
 | **Cancelled**              | The last run was stopped                                    |

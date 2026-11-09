@@ -39,7 +39,7 @@ With _"Add a CompanyName property to Customer and include it in the customer DTO
 
 ## Track running chats in the Agents Shell
 
-The **Sessions** panel lists every chat with the branch it's on and, when there's uncommitted work, how many lines it has added and removed. Hover a chat's status dot for where it is: **In progress**, **Waiting on your answer**, **Awaiting approval** or **Completed**. Click **Search sessions** to filter a long list.
+The **Sessions** panel lists every chat with the branch it's on and, when there's uncommitted work, how many lines it has added and removed. Hover a chat's status dot for where it is: **In progress**, **Waiting on your answer** or **Completed**. Click **Search sessions** to filter a long list, and see [](xref:how-to.stay-on-top-of-many-agents) for working through many chats at once.
 
 ![The Sessions panel filtered to four Acme chats](images/sessions-board.png)
 _Four chats in their own worktrees: two completed, one waiting on an answer and one in progress._
