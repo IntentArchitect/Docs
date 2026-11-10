@@ -5,7 +5,7 @@ description: "Just installed Intent Architect? Get your first change from the AI
 
 # Make your first change with the AI
 
-Just installed Intent Architect? Get your first change from the AI, reviewed and committed, without leaving the app: open your code or start something new, choose your coding agent, ask for the change, then check what it did and commit it.
+Just installed Intent Architect? Get your first change from the AI, reviewed and committed, without leaving Intent Architect: open your code or start something new, choose your coding agent, ask for the change, then check what it did and commit it.
 
 ## Sign in and open your code from the Home screen
 

@@ -1,43 +1,43 @@
 items:
-  - name: Ask the AI when you're stuck
-    href: ask-the-ai/ask-the-ai.md
-  - name: Build your own dashboards
-    href: build-your-own-dashboards/build-your-own-dashboards.md
-  - name: Classify your codebase for review
-    href: classify-your-codebase/classify-your-codebase.md
-  - name: Connect an MCP server to your chat
-    href: connect-an-mcp-server/connect-an-mcp-server.md
-  - name: Get it right with Plan Mode
-    href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
-  - name: Get visual reports from the agent
-    href: visual-reports/visual-reports.md
-  - name: Give the AI the right context
-    href: give-the-ai-context/give-the-ai-context.md
   - name: Make your first change
     href: make-your-first-change/make-your-first-change.md
+  - name: Use Claude Code, Cursor or Copilot
+    href: use-claude-code-cursor-or-copilot/use-claude-code-cursor-or-copilot.md
+  - name: Ask the AI when you're stuck
+    href: ask-the-ai/ask-the-ai.md
+  - name: Vibe coding, Plan Mode or SDD
+    href: vibe-coding-plan-mode-or-sdd/vibe-coding-plan-mode-or-sdd.md
+  - name: Give the AI the right context
+    href: give-the-ai-context/give-the-ai-context.md
+  - name: Connect an MCP server to your chat
+    href: connect-an-mcp-server/connect-an-mcp-server.md
+  - name: Work across related codebases
+    href: work-across-related-codebases/work-across-related-codebases.md
+  - name: Reuse prompts with Work Item templates
+    href: work-item-templates/work-item-templates.md
+  - name: Get visual reports from the agent
+    href: visual-reports/visual-reports.md
+  - name: Build your own dashboards
+    href: build-your-own-dashboards/build-your-own-dashboards.md
+  - name: Set up build, test and run tasks
+    href: set-up-tasks/set-up-tasks.md
+  - name: Get it right with Plan Mode
+    href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
+  - name: Turn existing code into living specs
+    href: turn-existing-code-into-living-specs/turn-existing-code-into-living-specs.md
+  - name: Use Spec Kit, Kiro, BMAD or OpenSpec
+    href: use-spec-kit-kiro-bmad-or-openspec/use-spec-kit-kiro-bmad-or-openspec.md
+  - name: Run agents in parallel
+    href: run-agents-in-parallel/run-agents-in-parallel.md
+  - name: Stay on top of many agents
+    href: stay-on-top-of-many-agents/stay-on-top-of-many-agents.md
+  - name: Split a big task across child chats
+    href: split-a-big-task-across-child-chats/split-a-big-task-across-child-chats.md
+  - name: Classify your codebase for review
+    href: classify-your-codebase/classify-your-codebase.md
+  - name: Review pull requests
+    href: review-pull-requests/review-pull-requests.md
   - name: Open PRs that prove they work
     href: prove-it-works/prove-it-works.md
   - name: Resolve merge conflicts with AI
     href: resolve-merge-conflicts-with-ai/resolve-merge-conflicts-with-ai.md
-  - name: Reuse prompts with Work Item templates
-    href: work-item-templates/work-item-templates.md
-  - name: Review pull requests
-    href: review-pull-requests/review-pull-requests.md
-  - name: Run agents in parallel
-    href: run-agents-in-parallel/run-agents-in-parallel.md
-  - name: Set up build, test and run tasks
-    href: set-up-tasks/set-up-tasks.md
-  - name: Split a big task across child chats
-    href: split-a-big-task-across-child-chats/split-a-big-task-across-child-chats.md
-  - name: Stay on top of many agents
-    href: stay-on-top-of-many-agents/stay-on-top-of-many-agents.md
-  - name: Turn existing code into living specs
-    href: turn-existing-code-into-living-specs/turn-existing-code-into-living-specs.md
-  - name: Use Claude Code, Cursor or Copilot
-    href: use-claude-code-cursor-or-copilot/use-claude-code-cursor-or-copilot.md
-  - name: Use Spec Kit, Kiro, BMAD or OpenSpec
-    href: use-spec-kit-kiro-bmad-or-openspec/use-spec-kit-kiro-bmad-or-openspec.md
-  - name: Vibe coding, Plan Mode or SDD
-    href: vibe-coding-plan-mode-or-sdd/vibe-coding-plan-mode-or-sdd.md
-  - name: Work across related codebases
-    href: work-across-related-codebases/work-across-related-codebases.md
