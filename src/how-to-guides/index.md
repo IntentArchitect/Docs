@@ -15,9 +15,10 @@ Each guide here shows you how to do one thing in Intent Architect, in a short se
 New to Intent Architect? Start here.
 
 <ul>
-<li><a href="xref:how-to.make-your-first-change"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4 2.5 4H5"/></svg><span><strong>Make your first change with the AI</strong>Open your code, ask the AI for a change, then review and commit it without leaving the app.</span></a></li>
+<li><a href="xref:how-to.make-your-first-change"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4 2.5 4H5"/></svg><span><strong>Make your first change with the AI</strong>Open your code, ask the AI for a change, then review and commit it without leaving Intent Architect.</span></a></li>
 <li><a href="xref:how-to.use-claude-code-cursor-or-copilot"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9.5l3 2.5-3 2.5M12.5 15H17"/></svg><span><strong>Use Claude Code, Cursor or Copilot with Intent Architect</strong>Keep the coding agent you already use, from your terminal, your editor or Intent Architect's chat.</span></a></li>
 <li><a href="xref:how-to.ask-the-ai"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg><span><strong>Ask the AI when you're stuck</strong>Get answers about Intent Architect and your own solution, linked to the docs they came from.</span></a></li>
+<li><a href="xref:how-to.vibe-coding-plan-mode-or-sdd"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg><span><strong>Vibe coding, Plan Mode or Spec-Driven Development: when to use which</strong>Prompt, plan or write a spec: pick the approach that fits the outcome you're after.</span></a></li>
 </ul>
 
 ## Working with the AI
@@ -46,7 +47,6 @@ Set up your workspace once so the agent can build, test and run your app.
 Choose how much structure a change needs, from a quick prompt to a spec that stays true.
 
 <ul>
-<li><a href="xref:how-to.vibe-coding-plan-mode-or-sdd"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg><span><strong>Vibe coding, Plan Mode or Spec-Driven Development: when to use which</strong>Prompt, plan or write a spec: pick the approach that fits the outcome you're after.</span></a></li>
 <li><a href="xref:how-to.get-it-right-with-plan-mode"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17M11 6h10M11 12h10M11 18h10"/></svg><span><strong>Get it right the first time with Plan Mode</strong>Check the data model, API and screens in the plan, and comment on it before any code is written.</span></a></li>
 <li><a href="xref:how-to.turn-existing-code-into-living-specs"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 15l2 2 4-4"/></svg><span><strong>Turn existing code into living specs</strong>Write down the rules your code already follows, back them with tests, and catch changes that break them.</span></a></li>
 <li><a href="xref:how-to.use-spec-kit-kiro-bmad-or-openspec"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5zM3 11l9 4.5 9-4.5M3 16l9 4.5 9-4.5"/></svg><span><strong>Use Spec Kit, Kiro, BMAD or OpenSpec with Intent Architect</strong>Bring in the specs you have, run the framework's own commands, and see which code realizes each requirement.</span></a></li>
@@ -67,9 +67,9 @@ Keep several agents working at once, each in its own copy of your code.
 Review changes with confidence and get them merged.
 
 <ul>
+<li><a href="xref:how-to.classify-your-codebase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4v7l10 10 8-8L11 3H4a1 1 0 0 0-1 1z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span><strong>Classify your codebase so reviews focus on what matters</strong>Tag your code by purpose and review importance, so you know which files in a large change to read first.</span></a></li>
 <li><a href="xref:how-to.review-pull-requests"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M6 8v8M18 16V9a2 2 0 0 0-2-2h-4M14 5l-2 2 2 2"/></svg><span><strong>Review pull requests effectively</strong>Let AI review first, check the design on a diagram, and spend your time where a person is needed.</span></a></li>
 <li><a href="xref:how-to.prove-it-works"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span><strong>Open pull requests that prove they work</strong>Have the agent prove its change with your tests, an AI review and your running app, then open the PR.</span></a></li>
-<li><a href="xref:how-to.classify-your-codebase"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4v7l10 10 8-8L11 3H4a1 1 0 0 0-1 1z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span><strong>Classify your codebase so reviews focus on what matters</strong>Tag your code by purpose and review importance, so you know which files in a large change to read first.</span></a></li>
 <li><a href="xref:how-to.resolve-merge-conflicts-with-ai"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10M6 7c0 3 3 5 10 5"/></svg><span><strong>Resolve merge conflicts with AI</strong>Hand a merge, rebase or pull request update that stopped on conflicts to the agent to finish.</span></a></li>
 </ul>
 
