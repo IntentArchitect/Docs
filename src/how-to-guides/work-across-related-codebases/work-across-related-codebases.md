@@ -9,6 +9,9 @@ If the agent needs code that isn't part of your solution, such as a frontend, a 
 
 This guide shows how to add a related folder, what to ask the agent, and how to review and commit the result.
 
+> [!NOTE]
+> This only works in the [Solution Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). Chats in the Agents Shell (**Manage Agents**) each run in a single folder of one Git repository and aren't told about folders you add, so start work that spans codebases from a Solution Shell chat.
+
 ## When to use this
 
 Add a related codebase to the Solution Shell's **Codebase** pane when a change reaches beyond your Intent Architect applications' code, for example into:
@@ -50,7 +53,7 @@ _Adding `acme-web` adds a `<folders>` entry to `Acme.isln`._
 
 ## Ask the agent to work across codebases
 
-In the Solution Shell's **AI Assistant**, the agent is told about every root in the **Codebase** pane, including added folders. It can read and edit files in those folders and query your Intent Architect model in the same turn, including in chats that run on Claude Code. Name the folder or file in your prompt, such as `acme-web/src/api.ts`, because the agent's searches don't start in added folders.
+In the Solution Shell's **AI Assistant**, the agent is told about every root in the **Codebase** pane, including added folders. It can read and edit files in those folders and query your Intent Architect model in the same turn. Name the folder or file in your prompt, such as `acme-web/src/api.ts`, because the agent's searches don't start in added folders.
 
 This prompt only reads:
 
@@ -70,7 +73,7 @@ Edits in an added folder are written straight to disk, not staged through the So
 
 ## Review and commit the changes
 
-Review the agent's changes in the Solution Shell's **Source Control** pane before you commit. The pane works on one Git repository at a time. It lists the Git repository holding the `.isln` file, the Git repositories holding each application's metadata and each added folder, and any Git repository exactly one folder level inside the `.isln` file's folder or an added folder.
+Review the agent's changes in the Solution Shell's **Source Control** pane before you commit. The pane shows details of one Git repository at a time. It lists the Git repository holding the `.isln` file, the Git repositories holding each application's metadata and each added folder, and any Git repository exactly one folder level inside the `.isln` file's folder or an added folder.
 
 When it lists more than one Git repository, the repository name at the top of the Source Control pane shows a caret. Click it to pick a Git repository, or choose **Follow active tab**, the default, to follow the file or application in the active tab. Your choice is remembered for you, per solution.
 
