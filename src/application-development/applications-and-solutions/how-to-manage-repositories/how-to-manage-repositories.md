@@ -4,7 +4,7 @@ description: "How to add, configure, and order Asset Repositories in Intent Arch
 ---
 # How to manage Repositories
 
-Asset Repositories manages the repository locations that are searched when discovering Modules and Application Templates. The official Intent Architect server `https://intentarchitect.com/` is available as a repository hosting all the official (and largely Open Source) Modules for use. Additional sources can be added too which can point to a physical drive, remote/network locations or the URL of a [self-hosted module server](https://docs.intentarchitect.com/tools/module-server/module-server.html).
+Asset Repositories manages the repository locations that are searched when discovering Modules and Application Templates. The official Intent Architect server `https://intentarchitect.com/` is available as a repository hosting all the official (and largely Open Source) Modules for use. It can also host any [private modules your organization has published](xref:module-building.module-distribution#distributing-modules-using-the-intent-architect-module-server), which you see automatically when signed in with an account in your organization. Additional sources can be added too which can point to a physical drive, remote/network locations or the URL of a [self-hosted module server](https://docs.intentarchitect.com/tools/module-server/module-server.html).
 
 ## Locate the Manage Repositories dialog
 

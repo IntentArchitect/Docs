@@ -1,10 +1,218 @@
 ---
 uid: module-building.module-distribution
-description: "How to distribute Intent Architect modules via a self-hosted Module Server or file-system repository, with versioning practices and the .imod artifact."
+description: "How to distribute Intent Architect modules and application templates: publish them privately to the Intent Architect Module Server, use a self-hosted Module Server or a file-system repository, with versioning practices and the .imod artifact."
 ---
 # Distributing your Modules to others
 
-Modules built using Intent Architect can be distributed to other team members using a [self-hosted Module Server](#distributing-modules-using-a-self-hosted-module-server) instance or a [file system based repository location](#distributing-modules-using-file-system-based-repositories).
+Modules built using Intent Architect can be distributed to other team members by [publishing them privately to the Intent Architect Module Server](#distributing-modules-using-the-intent-architect-module-server), using a [self-hosted Module Server](#distributing-modules-using-a-self-hosted-module-server) instance or a [file system based repository location](#distributing-modules-using-file-system-based-repositories).
+
+## Distributing modules using the Intent Architect Module Server
+
+Intent Architect can host your organization's custom modules (`.imod`) and application templates (`.iat`) on its own Module Server, so you don't have to run a [self-hosted Module Server](#distributing-modules-using-a-self-hosted-module-server) or share a [file system location](#distributing-modules-using-file-system-based-repositories).
+
+Artifacts you publish with your organization's id are **private**: they belong to your organization, and only Intent Architect users signed in with an account in your organization can see, search for or install them. Everyone else using the Intent Architect Module Server never sees them.
+
+Public artifacts, such as Intent Architect's own modules, stay visible to everyone, including members of your organization. Your developers see your private modules alongside the public ones in the same repository.
+
+The Intent Architect Module Server is at `https://modules.intentarchitect.com/`, which is the server address used in the commands in this section.
+
+### Prerequisites
+
+- The latest LTS version of [.NET](https://dotnet.microsoft.com/download).
+- The [](xref:tools.module-server-client-cli), installed as a .NET global tool:
+
+  ```powershell
+  dotnet tool install Intent.ModuleServer.Client.CLI --global
+  ```
+
+  After installation the command is available as `module-server-client-cli`.
+
+  > [!NOTE]
+  > If the install fails because a private NuGet feed can't be reached, add the `--ignore-failed-sources` option.
+
+- An **Organization Access Token** for your organization that grants the permission to upload modules, and your **organization id**. [Contact the Intent Architect support team](xref:getting-help#contact-support) to get both.
+- A **common prefix** for all of your modules. Every module identifier you publish must start with a prefix reserved for your organization, for example `Acme` for `Acme.Modules.Auditing`. Agree the prefix with the Intent Architect support team when you request your Organization Access Token. See [Reserved prefixes](#reserved-prefixes).
+- A version of Intent Architect that supports private modules on every developer machine that needs to use them.
+  <!-- TODO: give the minimum Intent Architect version that supports private modules. -->
+
+### How visibility works
+
+An artifact uploaded **with** an organization id is private to that organization. When a developer is signed in to Intent Architect, they see:
+
+- all public artifacts, **and**
+- all private artifacts owned by the organization their account belongs to.
+
+They never see another organization's private artifacts, whether in search results, version lists, artifact details, documentation topics or downloads.
+
+Visibility comes from the organization of the account the developer **signed in to Intent Architect with**. Nothing else needs to be configured on developer machines: there's no extra repository to add and no token to distribute.
+
+Documentation topics bundled inside a private module are private to the same organization.
+
+### Publishing a private module
+
+1. **Build your module.** Build the module project to produce the `.imod` file. The build output shows where it was written, for example `Successfully created module 'C:\Dev\MyModule\Intent.Modules\MyModule.1.0.0.imod'`. See [Copying your `.imod` file](#copying-your-imod-file) for more about the build output.
+
+1. **Set the module version.** Each identifier and version is published once, so make sure the version in your `.imodspec` hasn't been published before.
+
+1. **Upload the module** with your Organization Access Token and organization id:
+
+   ```bash
+   module-server-client-cli upload-module https://modules.intentarchitect.com/ <path-to-.imod> \
+     --access-token <organization-access-token> \
+     --organization-id <organization-id>
+   ```
+
+   > [!WARNING]
+   > Always pass `--organization-id` when you mean to publish a private artifact. Don't rely on any default.
+
+1. **Check that your developers can see it.** Ask a member of your organization, signed in to Intent Architect, to search for the module in the **Modules** screen of an application.
+
+The Organization Access Token must belong to the same organization as `--organization-id`, and it must grant the permission to upload modules. If either isn't true, the upload is rejected as forbidden.
+
+#### Upload options
+
+| Option                    | Description                                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------------------------- |
+| `--access-token`, `--oat` | The Organization Access Token used to authenticate.                                                |
+| `--organization-id`       | The organization that will own the artifact. Access is restricted to members of this organization. |
+| `--unlisted`              | Upload the version as unlisted: hidden from search but still installable by its exact version.     |
+
+To upload a version that is hidden from search from the start, for example a pre-release you only want a few projects to use, add `--unlisted`:
+
+```bash
+module-server-client-cli upload-module https://modules.intentarchitect.com/ <path-to-.imod> \
+  --access-token <organization-access-token> \
+  --organization-id <organization-id> \
+  --unlisted
+```
+
+#### Module ownership
+
+The first private upload of a module identifier makes your organization its owner.
+
+- Uploading a new version of a module your organization already owns adds that version, and the module stays private to your organization.
+- Another organization can't upload a module with an identifier your organization owns, and you can't upload one with an identifier another organization owns. These uploads are rejected.
+
+#### Reserved prefixes
+
+Module identifiers must start with a prefix reserved for your organization. The prefix is the first dot-separated segment of the identifier, so `Acme.Modules.Auditing` has the prefix `Acme`. Uploads that use a prefix not reserved for your organization are rejected.
+
+Your prefix is reserved by the Intent Architect support team, along with your Organization Access Token and organization id.
+
+#### Publishing from a CI/CD pipeline
+
+Store the Organization Access Token and organization id as secret pipeline variables, never in source control. The following Azure Pipelines steps install the CLI and upload every `.imod` file the build produced:
+
+```yaml
+variables:
+  # Defined as secret variables on the pipeline, or in a linked variable group:
+  #   IntentOrganizationAccessToken
+  #   IntentOrganizationId
+  intentModuleServerUrl: 'https://modules.intentarchitect.com/'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET'
+  inputs:
+    packageType: 'sdk'
+    version: '<dotnet-lts-version>'
+
+- task: PowerShell@2
+  displayName: 'Install the Module Server Client CLI'
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: dotnet tool install Intent.ModuleServer.Client.CLI --global
+
+- task: PowerShell@2
+  displayName: 'Publish private modules'
+  env:
+    INTENT_OAT: $(IntentOrganizationAccessToken)
+    INTENT_ORGANIZATION_ID: $(IntentOrganizationId)
+  inputs:
+    targetType: 'inline'
+    pwsh: true
+    script: |
+      Get-ChildItem -Path "$(Build.SourcesDirectory)" -Recurse -Filter *.imod | ForEach-Object {
+        module-server-client-cli upload-module "$(intentModuleServerUrl)" $_.FullName `
+          --access-token $env:INTENT_OAT `
+          --organization-id $env:INTENT_ORGANIZATION_ID
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      }
+```
+
+> [!TIP]
+> Azure Pipelines doesn't expose secret variables to scripts automatically, which is why the step maps them into environment variables with `env`. Other CI systems, such as GitHub Actions, work the same way: read the token from the system's secret store and pass it to `--access-token`.
+
+### Managing published versions
+
+Members of your organization with an Organization Access Token can **unlist** a version, which hides it from search, or **list** it again. You can only do this for your own organization's artifacts.
+
+To unlist a version:
+
+```bash
+module-server-client-cli unlist-module-version https://modules.intentarchitect.com/ <moduleId> <moduleVersion> \
+  --access-token <organization-access-token>
+```
+
+To list it again:
+
+```bash
+module-server-client-cli list-module-version https://modules.intentarchitect.com/ <moduleId> <moduleVersion> \
+  --access-token <organization-access-token>
+```
+
+Unlisting doesn't delete anything. Projects that already depend on the exact version can still restore it, so unlisting is a safe way to steer developers away from a version without breaking anyone.
+
+### Publishing application templates
+
+Application templates (`.iat`) follow the same visibility, authentication and `--organization-id` rules as modules:
+
+```bash
+module-server-client-cli upload-application-template https://modules.intentarchitect.com/ <path-to-.iat> \
+  --access-token <organization-access-token> \
+  --organization-id <organization-id>
+```
+
+Members of your organization see your private application templates in the **Create new application** wizard, alongside the public ones.
+
+### Important behaviours and warnings
+
+> [!WARNING]
+> **Keep your Organization Access Token secret.** Anyone holding it can publish and unlist artifacts for your organization. Store it in your CI system's secret store, and rotate it if it leaks.
+
+> [!WARNING]
+> **Always pass `--organization-id`** on uploads that are meant to be private.
+
+> [!NOTE]
+> **Your developers must sign in to Intent Architect with an account in your organization**, or they won't see your private modules and application templates.
+
+### Troubleshooting
+
+| Symptom                                               | Likely cause                                                                                                                                                                                                                                             |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Upload fails with _Forbidden_                         | The token is for a different organization than `--organization-id`, the token doesn't grant the permission to upload modules, the identifier is owned by another organization, or the identifier doesn't start with your organization's reserved prefix. |
+| Upload fails with _Conflict_ or "already exists"      | That identifier and version is already published. Increase the version and upload it again.                                                                                                                                                              |
+| A developer can't find the module in Intent Architect | They aren't signed in with an account in the owning organization, the version is unlisted, their version of Intent Architect is too old, or the module's supported client versions exclude their version of Intent Architect.                            |
+| `Token request failed`                                | The Organization Access Token is invalid, has expired or has been revoked.                                                                                                                                                                               |
+
+### FAQ
+
+#### Do my developers need to add a repository to see our private modules?
+
+No. Private modules are served from the same Intent Architect Module Server as the public modules. Signing in to Intent Architect with an account in your organization is enough.
+
+#### Can other organizations see that our module exists?
+
+No. Another organization's members don't see your private artifacts in search results, version lists, artifact details, documentation topics or downloads.
+
+#### Does unlisting a version break projects that use it?
+
+No. Unlisting only hides the version from search. Projects that depend on that exact version can still restore it.
+
+#### Should we use this or a self-hosted Module Server?
+
+Use the Intent Architect Module Server if you want to share modules with your organization without running any infrastructure. Use a [self-hosted Module Server](xref:tools.module-server) or a [file system repository](#distributing-modules-using-file-system-based-repositories) if your modules must stay on your own network.
 
 ## Distributing modules using a self-hosted Module Server
 
@@ -50,6 +258,9 @@ For example, if your organisation has SharePoint and OneDrive, you could use the
 ## Configure Intent Architect to use your repository location
 
 This [article](xref:application-development.applications-and-solutions.how-to-manage-repositories) explains how to setup your known Intent Architect module repositories which let Intent know from where it can install and update modules.
+
+> [!NOTE]
+> This isn't needed for modules published to the [Intent Architect Module Server](#distributing-modules-using-the-intent-architect-module-server). They're served from the built-in Intent Architect repository.
 
 ## Module versioning concerns
 

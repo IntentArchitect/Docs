@@ -148,6 +148,8 @@ If you have custom modules which you wish to distribute and don't want to go the
 
 For more information on deploying a Module Server, refer to the [](xref:tools.module-server) article.
 
+Alternatively, Intent Architect can host your custom modules privately for your organization on its own Module Server, see [Distributing modules using the Intent Architect Module Server](xref:module-building.module-distribution#distributing-modules-using-the-intent-architect-module-server).
+
 ## Configure your Development Environment
 
 When working with Intent Architect there are some best practices we recommend for configuring your development environment, these are detailed in the [](xref:application-development.development-environment-setup) article.

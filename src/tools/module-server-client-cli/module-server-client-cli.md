@@ -13,6 +13,8 @@ table th:first-of-type {
 
 The Module Server Client CLI tool can be used for interacting with an Intent Architect [](xref:tools.module-server) instance to perform tasks such as uploading artifacts.
 
+It's also used to publish your organization's private modules and application templates to the Intent Architect Module Server, with an Organization Access Token and the `--organization-id` option. See [Distributing modules using the Intent Architect Module Server](xref:module-building.module-distribution#distributing-modules-using-the-intent-architect-module-server).
+
 ## Pre-requisites
 
 Latest release version of [.NET](https://dotnet.microsoft.com/download).
