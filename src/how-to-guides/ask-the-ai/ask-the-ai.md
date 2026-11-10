@@ -3,15 +3,15 @@ uid: how-to.ask-the-ai
 description: "Not sure how to do something in Intent Architect, or what a term means? Ask the AI Assistant: it answers from these docs with links to the pages it used, explains your own solution too, and takes an error straight from the button next to it."
 ---
 
-# Ask the AI when you're stuck
+# Ask the AI Assistant about Intent Architect and your solution
 
 Not sure how to do something in Intent Architect, or what a term means? Ask the AI Assistant. It looks the answer up in these docs and gives you the steps with a link to the page, and it can explain how your own solution fits together too. Hit an error? Many have a button next to them that hands the problem straight to the AI.
 
-This guide shows how to get an answer you can check, point the AI at the part of your solution you mean, and know when F1 Help or support is the better route.
+This guide shows how to ask about Intent Architect and about your own solution, start a chat straight from an error or a file, and where to turn when the AI can't answer.
 
 ## Ask the AI Assistant how to do something in Intent Architect
 
-Open the AI Assistant with **F8**, or with the AI Assistant button on the toolbar. Under the message box, open the agent menu and choose **Ask**. Ask is the agent for questions: it can read your solution, but it can't change anything.
+Open the AI Assistant with **F8**, or with the AI Assistant button on the toolbar. Under the message box, open the agent menu and choose **Ask**. The Ask agent is the one for questions: it can read your solution, but it can't change anything.
 
 Then type your question the way you'd ask a colleague. Each of these got an answer with links on the Acme sample:
 
@@ -19,7 +19,7 @@ Then type your question the way you'd ask a colleague. Each of these got an answ
 - "What's a stereotype, and how do I add one to an attribute?"
 - "How do I stop the Software Factory from overwriting a method I changed by hand?"
 
-Whenever you ask about Intent Architect itself, Ask searches these docs before it answers. A **Search docs** step appears in the chat, and the answer links the pages it used, so you can read more or check it. The keyboard shortcuts question took 7 seconds: the answer was **Ctrl + .**, with a link to the Keyboard Shortcuts page.
+Whenever you ask about Intent Architect itself, Ask searches these docs before it answers. A **Search docs** step appears in the chat, and the answer links the pages it used, so you can read more or check it. For the keyboard shortcuts question, that was the Keyboard Shortcuts page.
 
 ![The agent menu under the message box with Ask selected, above Ask's answer about keyboard shortcuts with a Search docs step and a link](images/ask-agent-answer.png)
 _Choose Ask in the agent menu. Its answer links the docs pages it used._
@@ -51,7 +51,9 @@ To see the real elements laid out in a designer, ask in **Agent**, and say not t
 
 > Show me how Customer, Order and OrderStatus fit together on a diagram. Don't change anything.
 
-With Claude Sonnet 5.5 as the model, the agent opened a temporary Explorer Diagram of the three in the Domain designer and left the model unchanged. Click **Keep Diagram** if you want to save it as a normal diagram. Not every model manages this: with the Intent Architect Provided model, the same request came back with an empty diagram. If that happens, choose another model from the menu next to the agent menu and ask again.
+The agent opens a temporary Explorer Diagram of those elements in the designer they belong to, and leaves your model unchanged. To save it as a normal diagram, click **Keep Diagram**.
+
+Some models don't handle this well and come back with an empty diagram. If that happens, choose a different model from the menu next to the agent menu and ask again.
 
 ![A temporary Explorer Diagram of Order, Customer and OrderStatus in the Domain designer, with the Keep Diagram button](images/explorer-diagram.png)
 _The diagram is temporary until you click Keep Diagram._
@@ -67,7 +69,7 @@ Many places in Intent Architect have a button that starts a chat in the AI Assis
 - **A file Change Review shows as Unclassified:** click **Unclassified**, then **Ask AI**. The chat opens with the file's details for you to finish.
 - **A solution with no applications yet:** click **Ask the AI Assistant** and describe what you want to build.
 
-## Use F1 Help or support when the AI can't help
+## Open Help or contact support when the AI can't answer
 
 Press **F1**, or click the **?** button on the toolbar, to open **Help**. It lists help topics for the designer and element you're working in, such as **Adding a Diagram** in the Domain designer, and its search box searches every topic. Use it to browse what you can do where you are. It opens topics in your browser and doesn't connect to the AI chat. See [](xref:getting-help#in-app-help).
 
@@ -77,8 +79,8 @@ If the problem is with a chat itself, such as an agent that stops or errors, typ
 
 ## Limitations
 
-- **An answer without a link may be a guess.** Where the docs don't cover something, the AI falls back on its own general knowledge. Asked how to export a diagram to Visio, Ask said there's no direct export, then suggested an image export "commonly available via the diagram's toolbar", with no link. Treat any part of an answer without a link as unchecked, ask again in Ask, and contact support if the docs don't cover it.
-- **The AI can't operate Intent Architect for you.** It can't click menus, open dialogs or change your user settings. Asked to open the Keyboard Shortcuts dialog, Agent replied that it can't open UI dialogs, then named a Help menu that doesn't exist on Windows. Ask how to do it in Ask instead, and do it yourself. Agent can still change your model, your code and your application settings.
+- **An answer without a link may be a guess.** When the docs don't cover a question, the AI answers from its general knowledge instead. For example, asked how to export a diagram to Visio, it suggested an image export from the diagram's toolbar, with no link to back it up. Treat anything without a link as unchecked, and contact support if the docs don't cover it.
+- **The AI can't use Intent Architect's menus and dialogs for you.** It can't click menus, open dialogs or change your user settings, and it may describe menus that don't exist. Use the Ask agent to find out how to do it, then do it yourself. When you choose **Agent**, the AI can still change your model, your code and your application settings.
 
 ## Related articles
 
