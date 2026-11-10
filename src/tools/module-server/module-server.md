@@ -6,6 +6,9 @@ description: "Intent Architect Module Server Docker image reference: configurati
 
 Intent Architect offers a self-hostable "Module Server" in the form of a Docker image. The [](xref:tools.module-server-client-cli) can be used to upload Modules and Application templates to it and then Intent Architect clients can be configured to use the server as a repository for your organization's custom Modules and Application Templates.
 
+> [!TIP]
+> You don't have to host your own Module Server to share custom modules. Intent Architect can host your organization's modules and application templates on its own Module Server, visible only to members of your organization. See [Distributing modules using the Intent Architect Module Server](xref:module-building.module-distribution#distributing-modules-using-the-intent-architect-module-server).
+
 ## Dependencies
 
 The Module Server uses Microsoft SQL Server for persistence, all editions of SQL Server 2019 and later should be compatible, including the free [SQL Server Express](https://www.microsoft.com/download/details.aspx?id=101064) edition.
