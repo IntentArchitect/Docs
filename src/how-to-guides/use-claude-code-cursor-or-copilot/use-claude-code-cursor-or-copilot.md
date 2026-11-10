@@ -5,9 +5,12 @@ description: "Keep using Claude Code, Cursor, GitHub Copilot or another coding a
 
 # Use Claude Code, Cursor or Copilot with Intent Architect
 
-Keep the coding agent you already use and still get Intent Architect's modelling and hard guard rails. Want to stay in your terminal or editor? Connect Claude Code, Cursor, Copilot or another agent to Intent Architect, and it models and generates your code from there. Want to run tasks side by side in their own worktrees, or build from a spec? Pick the same agent as the AI in Intent Architect's chat. Or set up both, and use whichever suits the task.
+Keep the coding agent you already use, and get Intent Architect's modelling and deterministic guardrails with it. You can use it in two ways:
 
-This guide compares the two, then shows how to set up each.
+- **In Intent Architect's chat:** pick your agent as the model in the AI chat, to run tasks side by side in their own worktrees or build a feature from a spec.
+- **From your terminal or editor:** connect Claude Code, Cursor, Copilot or another agent to Intent Architect, and keep prompting where you already do. The agent updates your model and generates your code from there.
+
+You can set up both and use whichever suits the task. This guide compares the two, then shows how to set up each.
 
 ## Compare your agent in Intent Architect's chat with your terminal or editor
 
