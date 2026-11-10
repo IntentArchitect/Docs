@@ -5,9 +5,9 @@ description: "Stop copying work items, tickets or messages into the chat: connec
 
 # Connect an MCP server to your chat
 
-Copying work items, tickets or messages into the chat by hand? Connect that system's MCP server instead, such as Azure DevOps, Jira or Slack, and the agent can read and update it itself, in the same chat in which it works on your code.
+Let the agent work with the other systems your team uses, such as Azure DevOps, Jira or Slack. Instead of you copying work items, tickets or messages into the chat, the agent reads and updates them itself, in the same chat where it works on your code.
 
-An MCP server is a small program, or a web endpoint, that gives an AI agent a set of tools for one system. This guide connects Azure DevOps as the example. The steps are the same for any MCP server: the vendor's documentation tells you what to enter.
+To do this, you connect each system's MCP server: a small program or web endpoint that gives an AI agent a set of tools for that system. This guide uses Azure DevOps as the example. The steps are the same for any MCP server, and the vendor's documentation tells you what to enter.
 
 ## Add the server on the MCP Servers tab of AI Configuration
 
@@ -24,7 +24,9 @@ The tab has two lists. Choose where the server belongs, and click its **Add serv
 Then fill in the server:
 
 1. Enter a **Name**, such as `azure-devops`.
-2. Choose the **Transport** the vendor documents. **stdio** starts a program on your machine: enter its **Command** and its **Arguments**, one per row. **http** connects to a web endpoint: enter its **URL**.
+2. Choose the **Transport** the vendor documents, and fill in its fields:
+   - **stdio** starts a program on your machine. Enter its **Command**, and its **Arguments** one per row.
+   - **http** connects to a web endpoint. Enter its **URL**.
 3. Click **Save Changes**.
 
 For Azure DevOps, use Microsoft's [local Azure DevOps MCP server](https://github.com/microsoft/azure-devops-mcp): **stdio**, with the command `npx` and the arguments `-y`, `@azure-devops/mcp` and your Azure DevOps organization name. Microsoft also hosts an http version, but chats on Claude Code only get stdio servers, so the local one works in every chat.
@@ -66,13 +68,13 @@ _The agent calls the Azure DevOps server's tools from the chat._
 
 **Solution servers** are saved in `.agents/mcp.json`, in the folder that holds your `.isln` file. Commit that file, and your teammates get the same servers when they open the solution. The Azure DevOps example holds no secrets, because each person signs in with their own Microsoft account.
 
-Intent Architect encrypts what you enter under **Environment variables** and **Headers** before it saves them, so only you can read them, on your machine. Keep tokens out of a file you share: add a server that needs one under **Global servers** instead.
+Intent Architect encrypts anything you enter under **Environment variables** and **Headers** before saving it, and only you can read it, on your machine. Even so, don't put tokens in a file you share. If a server needs a token, add it under **Global servers** instead.
 
 ## Limitations
 
-- **Claude Code chats only get stdio servers.** To use an http server, pick a model from one of your AI providers for that chat instead, or use the vendor's stdio server if there is one.
-- **Claude Code chats only get Solution servers when your `.isln` file is at the root of the chat's folder,** which is usually your Git repository. If it's in a subfolder, such as `intent`, add the server under **Global servers** instead.
-- **Vendor setup changes.** The command, package name and sign-in steps belong to the vendor, so follow their documentation if the example no longer works.
+- **A Claude Code chat can only use stdio servers.** If the vendor offers a stdio server, use that one. If it only offers an http server, switch that chat to a model from another AI provider, such as an Intent Architect or OpenAI model.
+- **A Claude Code chat only loads Solution servers when your `.isln` file is at the top of the chat's folder,** usually the root of your Git repository. If your `.isln` file is in a subfolder, such as `intent`, add the server under **Global servers** instead.
+- **The vendor's setup can change.** The command, package name and sign-in steps come from the vendor, not Intent Architect. If the Azure DevOps example stops working, check the vendor's documentation for the current steps.
 
 ## Related articles
 
