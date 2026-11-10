@@ -1,6 +1,6 @@
 ---
 uid: how-to.use-claude-code-cursor-or-copilot
-description: "Keep using Claude Code, Cursor, GitHub Copilot or another coding agent with Intent Architect: connect it from your terminal or editor through the Intent MCP server, pick it as the AI in Intent Architect's chat to run tasks in their own worktrees and build from specs, or set up both."
+description: "Keep using Claude Code, Cursor, GitHub Copilot or another coding agent with Intent Architect: pick it as the model in Intent Architect's chat to run tasks in their own worktrees and build from specs, connect it from your terminal or editor through the Intent MCP server, or set up both."
 ---
 
 # Use Claude Code, Cursor or Copilot with Intent Architect
@@ -26,9 +26,9 @@ You can set up both and use whichever suits the task. This guide compares the tw
 | **Build, test and run tasks, app preview** | Yes                                                                | Your agent runs its own commands                                                                                                      |
 | **Watching and reviewing**                 | Agents Shell, **Source Control**, Change Review                    | The same, with the session shown as an **MCP** row in the Agents Shell                                                                |
 
-Either way, the agent updates the model, runs the Software Factory, then writes the code that isn't generated. If you live in an editor, connect from there. If you want several agents working at once, or a feature taken from requirements to tested code, use the chat. The two don't get in each other's way, so you can set up both.
+Either way, the agent updates the model, runs the Software Factory, then writes the code that isn't generated.
 
-## Pick your CLI agent as the AI in Intent Architect's chat
+## Use your CLI agent in Intent Architect's chat
 
 1. Install the agent and sign in to it from a terminal. [](xref:ai.cli-agents) has the commands for each one.
 2. Restart Intent Architect, which looks for installed agents when it starts.
@@ -37,7 +37,7 @@ Either way, the agent updates the model, runs the Software Factory, then writes 
 ![The model picker filtered to Claude Code](images/model-picker-claude-code.png)
 _The **Claude Code** group in the model picker._
 
-The first chat with Claude Code, Codex or GitHub Copilot CLI installs a connector for it, which can take a minute. The agent runs on your own subscription and still follows your `CLAUDE.md` or `AGENTS.md`, and Intent Architect adds its own agents, such as **Plan**, and its skills. To give a task its own copy of your code, start the chat in the Agents Shell and tick **worktree**; see [](xref:how-to.run-agents-in-parallel).
+The first chat with Claude Code, Codex or GitHub Copilot CLI installs a connector for it, which can take a minute. The agent runs signed in to your own account and still follows your `CLAUDE.md` or `AGENTS.md`, and Intent Architect adds its own agents, such as **Plan**, and its skills. To give a task its own copy of your code, start the chat in the Agents Shell and tick **worktree**; see [](xref:how-to.run-agents-in-parallel).
 
 With **worktree** ticked in the Agents Shell and the prompt _"Add an optional VatNumber to Customer and include it in the customer DTOs."_, Claude Code made the change in its own worktree, with all 60 tests passing. Because a spec covers customers, it also updated that spec, had the new wording reviewed first, and linked the new requirement to the code. Then it asked whether to check the spec now:
 
