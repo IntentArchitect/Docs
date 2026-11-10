@@ -1,11 +1,11 @@
 ---
 uid: how-to.give-the-ai-context
-description: "Want the AI to look at a particular element, file, error or work item? Hand it over instead of describing it: @ mention it, paste a screenshot, drag it in from Change Review or start the chat from it, and say what you want instead of typing it."
+description: "Want the AI to look at a particular element, file, error or work item? Reference it directly instead of describing it: @ mention it, paste a screenshot, drag it in from Change Review or start the chat from it, and say what you want instead of typing it."
 ---
 
 # Give the AI the right context, fast
 
-Want the AI to look at a particular element, file, error or work item? Hand it over instead of describing it: type `@` and pick it, paste a screenshot, or drag it in from Change Review, and the AI starts from the real thing. Got a lot to explain? Say it instead of typing it.
+Want the AI to look at a particular element, file, error or work item? Reference it directly instead of describing it: type `@` and pick it, paste a screenshot, or drag it in from Change Review, and the AI starts from the real thing. Got a lot to explain? Say it instead of typing it.
 
 This guide shows each way to add context to a chat in the AI Assistant, what the AI gets from it, and how to reuse what you've already written.
 
@@ -21,7 +21,7 @@ Each pick is attached to your message and shows above the message box. The AI ge
 You can also drag an element from a designer's model tree, or a file from the **Codebase** pane, and drop it on the message box.
 
 > [!NOTE]
-> The AI knows which designer you have open, but not which element you've selected in it or which file you're looking at. If you mean the thing in front of you, `@` it.
+> The AI knows which designer you have open, but not which element you've selected in it or which file you're looking at. To ask about the element or file you're working on, type `@` and pick it.
 
 ## Attach screenshots and files to your message
 
@@ -29,7 +29,7 @@ To show the AI what's on your screen, paste a screenshot into the AI Assistant's
 
 Images (PNG, JPG, GIF, WebP and BMP) reach the AI as images, so it can read an error, a mockup or a diagram from them. Other files, such as code, logs and Markdown, are read as text.
 
-On the Acme sample, with a tester's screenshot of a `400 Bad Request` pasted in, this message took 28 seconds with Claude Code:
+For example, we pasted in a tester's screenshot of a `400 Bad Request` error and sent:
 
 > A tester got this error placing an order. Which rule in @PlaceOrderCommandValidator.cs rejects it, and does @Order enforce the same limit?
 
@@ -45,11 +45,11 @@ When something in a review needs explaining, drag its pill from **Change Review*
 ![An element pill dragged from Change Review into the AI chat, where it shows as an attachment above a question](images/drag-from-change-review.png)
 _Drag the element from Change Review onto the message box._
 
-Reviewing the Acme commit that added order discounts, we dragged `Total: decimal` into a new chat and asked:
+For example, reviewing a commit that added order discounts, we dragged `Total: decimal` into a new chat and asked:
 
 > Why did this change in this commit, and does anything still treat Total as the amount before the discount?
 
-In a minute and a half, Claude Code explained that `Total` now holds the discounted amount, quoted the spec decision behind it, and flagged that `Total` on the place-order request still means the amount before the discount.
+The answer explained that `Total` now holds the discounted amount, quoted the spec decision behind it, and flagged that `Total` on the place-order request still means the amount before the discount.
 
 ## Start a chat from a file or a work item
 
@@ -75,7 +75,7 @@ The first time, you're asked to download a speech model of about 255 MB. Click *
 ![The / list filtered to "rev", with the review-changes skill, Claude Code's own commands and more skills](images/slash-commands.png)
 _Type / and a few letters to find a skill or command._
 
-**An earlier chat:** open it, hover the agent's reply you want to carry on from, and click **Fork from here**. You get a new chat, with "(fork)" added to its name, holding the conversation up to that reply. With Claude Code, you can instead ask it to read an earlier chat. It has no built-in tool for this, so it searches the transcripts Claude Code saves on your machine, which don't hold chat titles: describe the chat by what was in it. Asked for the Acme chat about the order error, it found the chat and summarised it in under two minutes.
+**An earlier chat:** open it, hover over the reply you want to continue from, and click **Fork from here**. A new chat opens with the conversation up to that reply, named after the original with "(fork)" added.
 
 ## Related articles
 
