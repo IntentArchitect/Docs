@@ -124,15 +124,15 @@ Every highlight (each `###` feature section in an `X.Y.0` section, and each entr
 
 ## Screenshots
 
-Feature sections get screenshots saved to `src/release-notes/images/X.Y.x/<feature-name>.png` and referenced as `![...](images/X.Y.x/<feature-name>.png)`. Capture them from the running dev app using the `drive-intent-with-playwright` skill.
+Feature sections get screenshots saved to `src/release-notes/images/X.Y.x/<feature-name>.png` and referenced as `![...](images/X.Y.x/<feature-name>.png)`. **Always link each saved image from its highlight's section in the release notes file** (after the prose, before the "Try it" tip); a saved but unlinked image isn't finished. Capture them from the running dev app using the `drive-intent-with-playwright` skill.
 
 - **Use the demo solution** `../Sample.Demo.eShop/intent/Demo.isln` (relative to the parent folder of this docs repo) so the screenshots show realistic content.
-- **Shell screenshots must include tab content.** The shell hosts designers, documents and other tab content in separate webviews, and a plain per-page capture (`browser_take_screenshot` on the shell page) shows those areas black. For any screenshot of the shell, use the composited capture (`captureAppScreenshot()` via `withIaMain`, in a spec) so webview content is included, and check the image shows the tab content before keeping it.
+- **Shell screenshots must include tab content.** The shell hosts designers, documents and other tab content in separate webviews, and a plain per-page capture (`browser_take_screenshot` on the shell page) shows those areas black. For any screenshot of the shell, use the composited capture: `window.__intentAutomation.windows.screenshot(filePath)` over the MCP (or `captureAppScreenshot()` via `withIaMain`, in a spec) so webview content is included, and check the image shows the tab content before keeping it.
 - **Maximise the app window** and bring it to the front before capturing (an OS-level capture of the window rectangle returns whatever window is on top, so check the image is the dev instance), so screenshots have the full-screen proportions of the existing ones.
 - **Highlights use the `annotate-screenshot` skill** (`.agents/skills/annotate-screenshot/SKILL.md`): Azure Blue `#06C4FF` boxes and bold arrows, no text labels. Never hand-draw annotations in other colours.
 - **Crop to the feature when the whole window makes it hard to see.** If the feature is one panel, tab, popup or list, crop to just that part of the UI (for example the document pane, the Solution Explorer tree or the AI chat pane) instead of the full window. Keep the full window only when the layout is the feature.
 - **No blank panes.** Webview panes (the AI Assistant pane, designers) can capture empty. Re-capture, or crop them out, so no screenshot contains a blank pane. Check every image before keeping it.
-- **Whole-window screenshots must not include the Windows title bar.** Capture the client area only, or crop the title bar (about 23px at 1920 wide) off.
+- **Whole-window screenshots must not include the Windows title bar.** Capture the client area only, or crop only the title bar off (measure it on the image: about 34px on a 1936 wide capture). Never crop into the toolbar below it.
 - Match the existing screenshots (dark theme).
 - When reviewing existing screenshots, apply all of the above to them too and re-crop or re-capture the ones that fail.
 
