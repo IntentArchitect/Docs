@@ -5,7 +5,89 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.1: covers publish/client/5.4.0..origin/release/5.4.x up to 05ba66a16f (2026-11-05). No 5.4.1 tag yet. Add later commits from 05ba66a16f onwards. -->
+<!-- 5.4.2: covers publish/client/5.4.1..origin/release/5.4.x up to 3919f0531a (2026-11-11). No 5.4.2 tag yet. Add later commits from 3919f0531a onwards. -->
+
+## Version 5.4.2
+
+### Highlights in 5.4.2
+
+#### Create and push git tags
+
+To release or mark a point in history without leaving Intent Architect, tags can now be created from the commit and branch menus in the Source Control panel and the Git tab. The Create Tag popover can replace an existing tag with Force and push the new tag to a chosen remote, and an existing tag can be pushed from its own menu. Fetch also has an opt-in Prune setting, off by default, that removes remote branches deleted on the server.
+
+> [!TIP]
+> **Try it:** Right-click a commit in the Git tab and choose **Create Tag**.
+
+#### A shared Status Bar
+
+To see what agents are doing from either shell, the solution shell and the Agents shell now end in the same Status Bar. The right side shows how many sessions are running, waiting for an answer, and in use by MCP clients, and each count opens a menu of those sessions. It also shows Intent Architect's CPU usage, which opens the Process Explorer when clicked. Right-clicking the bar hides or shows it.
+
+> [!TIP]
+> **Try it:** It's always on. Start an agent session, then click the running count at the bottom right of the window.
+
+#### Record App Preview runs as video
+
+To share or review what happened in the embedded App Preview, a run can now be recorded as a WebM video. The preview toolbar has a new Record button, and recordings made during a script run are reported in its results.
+
+> [!TIP]
+> **Try it:** Open an App Preview and click **Record** in its toolbar, interact with the app, then click it again to stop.
+
+#### Save a document as PDF
+
+To share a document outside Intent Architect, any previewed document, including a rendered diff, can now be saved as a single-page PDF in the light theme. The Save as PDF action is on the file tab toolbar, and a toast confirms the saved path.
+
+> [!TIP]
+> **Try it:** Open a `.md` or `.mdx` file in preview and choose **Save as PDF** on its toolbar.
+
+#### Revisit and re-ask agent questions
+
+To change an earlier answer, a settled `ask_user_question` row can now be expanded to show every option and what was picked. Its Fork and re-ask action forks the chat to just before the question and asks it again. Question cards now also render markdown.
+
+> [!TIP]
+> **Try it:** In a chat where an agent has asked you a question, click the answered question row to expand it, then choose **Fork and re-ask**.
+
+## Improvements in 5.4.2
+
+- Improvement: Pull request support is now consistent across Azure DevOps, GitHub, GitLab and Bitbucket, including reviews, labels, images, checks and sign-in help for each.
+- Improvement: A New pull request tab that hasn't been sent is kept as a Local Draft, listed first on the pull request board and counted in the badges, and it survives restarts and closing the tab.
+- Improvement: Change Review shows an amber "approved earlier, changed since" tick for local approvals whose file has changed, and an edited fully custom file no longer stays approved.
+- Improvement: Change Review can classify a folder, or all files of an extension in a folder, and applies classifications immediately without reloading.
+- Improvement: Change Review shows which files are covered by tested spec requirements, and the Needs Attention filter can hide them.
+- Improvement: Comments can be added to changed spec criteria from a pull request's Change Review.
+- Improvement: Files and tabs dropped onto an md/mdx document are inserted as links instead of pasting their contents, and F2 renames a linked file.
+- Improvement: The thinking level is now a slider in the model picker instead of a chip in the chat's action row.
+- Improvement: Switching AI provider mid-chat now continues the same conversation, with a "Switched from X to Y" divider showing what was handed over.
+- Improvement: Child chats run in the parent's folder when it isn't in Git, and the approval card lets each child chat's worktree be chosen.
+- Improvement: Child chat activity now shows in a chat's status, and deleting or archiving a parent chat cascades to its child chats.
+- Improvement: Claude Code sub-agent rows are named after the sub-agent's description, and a finished sub-agent reloads as done with its report.
+- Improvement: Spec phase-gate and review cards have an always-visible × that cancels instead of rejecting.
+- Improvement: Specs set to auto gates now approve Capabilities and done specs at once, marking them with an Unreviewed chip that opens the wording's diff.
+- Improvement: Archived specs can be viewed read-only, and the Specs panel explains spec mismatches with test details and fix guidance.
+- Improvement: Test coverage is now measured for Python, Java and Kotlin as well as .NET and TypeScript.
+- Improvement: In the Work Items panel, a dragged work item or chat now appears in its new place immediately, and the collapse button collapses work items first, then groups.
+- Improvement: Association labels in diagrams wrap to fit the width of their line.
+- Improvement: A `File.cs:line` link jumps to its line when the file is already open in another tab, and chat links to bare Windows paths open the file in the app.
+- Improvement: The Software Factory processes files concurrently for transformers that support it, making "Preparing changes" faster on large applications.
+- Improvement: When the Software Factory can't find a template's Output Anchor, the Output panel names the template, module and anchor and offers "Try fix with AI".
+- Improvement: The designer scripting API gains await guards for sandbox scripts and composite actions, stereotype and package reference scripting, and `resolveGenericParameterId`, and `setType` throws on unknown name-spec keys.
+
+## Fixes in 5.4.2
+
+- Fixed: Built-in skill sync settings weren't shared across worktrees, and built-in skills weren't added to new applications.
+- Fixed: Intent's file, plan, spec and pull request tools refused to work in a chat that had no solution.
+- Fixed: Spec reviews could be held up for off-screen chats, and a review could be approved from a chat other than the one that requested it.
+- Fixed: An AI turn from Claude Code or another ACP agent could stay open after it had reported its result.
+- Fixed: Search Everywhere and the Tab Selector could close on their own when they had only just been opened.
+- Fixed: Switching chats quickly under load could land on a chat other than the last one clicked.
+- Fixed: The Specs panel's dropdowns could open outside the panel in a short window, and spec coverage badge rows could disappear when spec data loaded late.
+- Fixed: A markdown quote rendered larger than the prose around it in the document viewer.
+- Fixed: Aborting a rebase or merge blocked by untracked files failed, and terminal tasks and compound groups couldn't be cancelled from the AI chat.
+- Fixed: Worktree setup tasks didn't run correctly, and releasing a worktree in the Agents shell could fail while its Git panels were still running.
+- Fixed: An on-prem Azure DevOps remote lost its port and `http` scheme for API calls.
+- Fixed: A commit GitHub doesn't have yet showed a raw 422 error instead of "No Build".
+- Fixed: "Add to .gitignore" on a collapsed Source Control row only offered the deepest folder of the row.
+- Fixed: Change Review offered "Create now" on a plain folder.
+- Fixed: A reopened chat view could be refused its invocation handlers after being recreated.
 
 ## Version 5.4.1
 
