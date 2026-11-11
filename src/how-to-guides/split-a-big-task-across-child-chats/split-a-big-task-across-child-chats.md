@@ -11,7 +11,7 @@ This guide shows how to ask for child chats, follow and steer them, get their re
 
 ## Ask the agent to split a task into child chats
 
-A child chat is an ordinary chat that another chat's agent proposes and you approve. It's listed under that chat, its parent, on the **Sessions** panel of the [Agents Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). It isn't a sub-agent, the hidden helper an agent uses inside one reply, in the same folder, while the chat waits for it.
+A child chat is an ordinary chat that another chat's agent proposes and you approve. It's listed under that chat, its parent, on the **Sessions** panel of the [Agents Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). That's different from a sub-agent. A sub-agent is a helper the agent runs behind the scenes during a single reply: it works in the same folder, and the chat waits until it's done. A child chat is a full chat of its own that you can open, follow and answer.
 
 Ask for child chats in your own words, or the agent may hand the work to a sub-agent or do it all in one chat. Say how to split the work, that each part gets its own worktree, and what you want back, for example:
 
@@ -22,7 +22,7 @@ Then list the items. On the Acme sample, with three items (unit tests for the Cu
 ![The Start 3 new chats? card in the parent chat, with its three buttons boxed](images/approval-card.png)
 _The agent's three proposals, each ticked, with **Start sessions**, **Create sessions without starting** and **Cancel** below._
 
-The card, **Start 3 new chats?**, lists each proposal with its title, where it will run, and the start of its prompt (**Show more** shows the rest). Untick any you don't want. You can't edit a proposal; if a brief is wrong, click **Cancel** and tell the agent what to change. Then choose:
+The card, **Start 3 new chats?**, lists each proposal with its title, where it will run, and the start of its prompt (**Show more** shows the rest). Untick any you don't want. If a brief is wrong, click **Cancel** and tell the agent what to change. Then choose:
 
 - **Start sessions** starts each ticked chat straight away.
 - **Create sessions without starting** saves them for you to start yourself. See [Prepare child chats to start yourself later](#prepare-child-chats-to-start-yourself-later).
@@ -35,12 +35,12 @@ By default, each child chat gets its own Git worktree, a second checkout of your
 
 ## Follow child chats on the Team Card and the Agents Shell's Sessions panel
 
-Once they've started, a **Team Card** under the agent's tool call lists the child chats, with each one's status (**running**, **needs you**, **finished**, **failed**, **stopped** or **not started**) and when it was last active. **Open** opens a child chat, and **Stop** stops its current turn, like the stop button in that chat.
+Once they've started, a **Team Card** under the agent's tool call lists the child chats, with each one's status (**running**, **needs you**, **finished**, **failed**, **stopped** or **not started**) and when it was last active. **Open** opens a child chat, and **Stop** stops its current turn, just like the stop button in the child chat itself.
 
 ![The Sessions panel with five child chats nested under the parent, beside the Team Card](images/sessions-team-card.png)
 _On Acme, two child chats wait on a permission and one has finished. The Team Card (boxed) lists the three the first card started; the two below them on the **Sessions** panel came from a second card._
 
-On the **Sessions** panel, child chats are nested under their parent. Click the chevron beside the parent (**Hide child chats**) to fold them away. A folded parent shows counts of its child chats that need you, are running, failed or have results you haven't read, so you can tell at a glance whether to look.
+On the **Sessions** panel, child chats are nested under their parent. Click the chevron beside the parent (**Hide child chats**) to fold them away. A folded parent shows counts of its child chats that need you, are running, failed or have results you haven't read, so you can tell at a glance what requires your attention.
 
 Each child chat is a chat like any other. Open it to see what it's doing, answer its questions, approve its permission prompts, or type to steer it. On Acme, both test chats asked before writing their test files to disk, and carried on after **Allow**.
 
@@ -77,7 +77,7 @@ Select the chat on the **Sessions** panel, or click **Open** on the Team Card, c
 
 ## Review and merge each child chat's work
 
-A child chat that worked in its own worktree leaves its changes there, on its own `chat/…` branch. Review and merge each one like any chat with its own worktree: see [Run agents in parallel](xref:how-to.run-agents-in-parallel#review-and-merge-a-worktree-chats-work-in-the-agents-shell). If two children changed the same lines, see [](xref:how-to.resolve-merge-conflicts-with-ai).
+A child chat that worked in its own worktree leaves its changes there, on a branch of its own whose name starts with `chat/`. Review and merge each one like any chat with its own worktree: see [Run agents in parallel](xref:how-to.run-agents-in-parallel#review-commit-and-merge-each-chats-work). If two children changed the same lines, see [](xref:how-to.resolve-merge-conflicts-with-ai).
 
 When a child chat's work is merged or dropped, use **Archive and Delete Worktree** on it. Archiving the parent doesn't archive or stop its child chats; they move up to the top level of the **Sessions** panel.
 

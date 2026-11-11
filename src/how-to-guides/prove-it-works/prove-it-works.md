@@ -5,7 +5,7 @@ description: "Have the AI agent show you its change works, with your build and t
 
 # Open pull requests that prove they work
 
-Don't take an agent's "done" on trust: have it show you the change works before you read it, and put that proof in the pull request. Want to know it builds and the tests pass? Have it run your tasks. Want a second opinion? Have it review its own change. Want to see it working? Have it try the change in your running app and take screenshots.
+Don't take an agent's "done" on trust: have it show you the change works before you review it, and put that proof in the pull request. Want to know it builds and the tests pass? Have it run your tasks. Want a second opinion? Have it review its own change. Want to see it working? Have it try the change in your running app and take screenshots.
 
 This guide shows each check, when to skip it, how to get your app ready for the agent to run, and how to open the pull request.
 
@@ -13,12 +13,12 @@ This guide shows each check, when to skip it, how to get your app ready for the 
 
 Once your build and test commands are tasks (see [](xref:how-to.set-up-tasks)), the agent can check its own change instead of telling you it works. Ask for it in the prompt.
 
-In the Solution Shell's AI Assistant, we asked _"Don't let a customer be deleted while they have orders that aren't cancelled. Return a 400 that says why, and add a unit test for it. Build and run the tests when you're done."_ The agent made the change and ran the **Build** and **Test** tasks, fixed a warning its new test had introduced, and ran them again. All 56 tests passed, five minutes after we asked.
+In the Solution Shell's AI Assistant, we asked _"Don't let a customer be deleted while they have orders that aren't cancelled. Return a 400 that says why, and add a unit test for it. Build and run the tests when you're done."_ The agent made the change and ran the **Build** and **Test** tasks, fixed a warning its new test had introduced, and ran them again. All 56 tests passed.
 
 Don't skip this one. It's the cheapest check, and every other check assumes the code builds.
 
 > [!NOTE]
-> Agents in the Agents Shell don't get your tasks yet. They run your build and test commands in their own terminal instead.
+> Tasks aren't available to agents in the Agents Shell yet. To have an agent run your tasks, use a chat in the Solution Shell. In the Agents Shell, tell the agent which command to run instead, and it runs it in its own terminal.
 
 ## See which new lines your tests reach in Change Review
 
@@ -37,7 +37,9 @@ The first time, the **Tests** panel offers **Set up test coverage**. Click it, a
 }
 ```
 
-From then on, click **Run tests** whenever you want to measure a change. It took about ten seconds, and the validator the agent had written was 100% tested. Skip this check if your test runner can't write either report format.
+From then on, click **Run tests** whenever you want to measure a change. On our change, the validator the agent had written was 100% tested.
+
+Change Review can only show coverage from a Cobertura or JaCoCo report. If your test runner can't write either format, skip this check. Your tests still run when you [build and test the change with your tasks](#build-and-test-the-change-with-your-tasks).
 
 ![Test coverage in Change Review](images/test-coverage.png)
 _The **Tests** panel is up to date, the change is 100% tested, and each changed file has its own pill._
@@ -51,7 +53,7 @@ Type `/review-changes` in the chat once the agent has finished. It's one of Inte
 
 The agent sends sub-agents to look for different kinds of problem, then hands each finding to another sub-agent whose job is to disprove it. Only findings that survive, with a concrete way to fail, are reported, each with a severity and a fix, under a verdict of **looks-good**, **minor-issues** or **changes-needed**. The review changes nothing, so ask for fixes in your next message.
 
-On our change it took seven minutes. Three findings were raised and merged into two, both were refuted, and the verdict was **looks-good**.
+On our change, three findings were raised and merged into two, both were refuted, and the verdict was **looks-good**.
 
 ![The /review-changes report in the AI Assistant](images/review-changes-findings.png)
 _Both findings were refuted, so neither was reported as a problem with the change._
@@ -65,7 +67,7 @@ Skip it for a one-line fix, or for a change you're going to read line by line an
 
 Ask for it in plain words. We asked _"Start the API and show me in the preview that deleting a customer with an open order now fails with your message. Take a screenshot of it."_
 
-The agent started the API with its **Run** task and opened it in the app preview, a browser tab inside Intent Architect that shows your own running app. In Swagger UI it created a customer, placed an order for them and tried to delete them. The delete returned a 400 with the new message, and the agent took a screenshot, two minutes after we asked.
+The agent started the API with its **Run** task and opened it in the app preview, a browser tab inside Intent Architect that shows your own running app. In Swagger UI it created a customer, placed an order for them and tried to delete them. The delete returned a 400 with the new message, and the agent took a screenshot.
 
 ![The app preview showing the 400 response](images/agent-tests-in-preview.png)
 _The agent's last request in the preview: the delete fails with a 400 that says why._
@@ -87,7 +89,7 @@ Set your expectations too. Each step in the preview takes a while, so ask for on
 
 When you're happy, type `/creating-pull-requests`, optionally with the base branch or "as a draft". The agent commits the change and writes the title and description. The description ends with a **Verification** section: what the agent ran, what it clicked and which tests passed, with each screenshot under a caption. If nothing visible changed, it says why there are no screenshots.
 
-The agent then fills in Intent Architect's **New pull request** tab. Nothing is pushed or created until you click **Push and create**, or **Create pull request** if the branch is already pushed. Ours was ready in under a minute, and the agent had committed only the change's own files, leaving the coverage setup out.
+The agent then fills in Intent Architect's **New pull request** tab. Nothing is pushed or created until you click **Push and create**, or **Create pull request** if the branch is already pushed. For our change, the agent committed only the change's own files, leaving the coverage setup out.
 
 ![The New pull request tab with the Verification section](images/pull-request-verification.png)
 _The **New pull request** tab the agent filled in, with its **Verification** section on the **Preview** tab._

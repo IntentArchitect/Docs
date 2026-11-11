@@ -55,7 +55,7 @@ The answer explained that `Total` now holds the discounted amount, quoted the sp
 
 To start a task from a file, right-click it in the **Codebase**, **Source Control** or **Changes** pane, or on its tab, and choose **Create AI Task**. A new chat opens with the file attached and nothing sent, so you type what you want. **Create AI Task** is in the Solution Shell only.
 
-To start from a work item, go to **Work Items** on the left-hand bar of the [Agents Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). Hover the item and click **Start chat**, or select it and press `Ctrl+Enter`. The chat opens with the item attached and linked to it, so the agent knows what the chat is for. By default it runs in a Git worktree of its own: a separate checkout of your repository, on a new branch.
+To start from a work item, go to **Work Items** on the left-hand bar of the [Agents Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). Hover over the item and click **Start chat**, or select it and press `Ctrl+Enter`. The chat opens with the item attached and linked to it, so the agent knows what the chat is for. By default it runs in a Git worktree of its own: a separate checkout of your repository, on a new branch.
 
 ![A Work Item's new chat, with the item attached above the message box](images/start-chat-from-work-item.png)
 _Start chat attaches the work item and links the chat to it._

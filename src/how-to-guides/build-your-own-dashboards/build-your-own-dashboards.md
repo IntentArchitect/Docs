@@ -7,7 +7,7 @@ description: "Have the AI agent build you a small dashboard or dev tool, such as
 
 Want your CI/CD pipelines, or every pull request waiting on you, on one screen without leaving Intent Architect? Have the agent build it as a small dashboard of your own and open it in the app preview, where it shows live data every time you look.
 
-This guide builds a CI/CD status board for GitHub Actions as the example, then shows where to keep its code, how to keep your tokens out of it, and how to open it again next week.
+This guide uses a CI/CD status board for GitHub Actions as the example. It shows where to keep the dashboard's code, how to store access tokens safely outside that code, and how to open the dashboard again later.
 
 ## Choose a live dashboard or an MDX report
 
@@ -26,7 +26,7 @@ Decide first whether the dashboard is for your team or only for you:
 ![The dev-tools folder in the Codebase pane](images/codebase-dev-tools-folder.png)
 _The `dev-tools` folder, added with **+**, next to the solution's own folders._
 
-Adding a folder adds a line to your solution's `.isln` file. Leave that change out of your commits, or your teammates get a folder they don't have.
+Adding a folder adds a line to your solution's `.isln` file. Leave that change out of your commits, or your teammates get a reference to a folder they don't have.
 
 ![The Acme.isln change in Source Control](images/isln-folder-change.png)
 _Source Control shows the new `<folder>` line in `Acme.isln`. Don't commit it._
@@ -40,9 +40,9 @@ Describe the dashboard in the **AI Assistant**: what it shows, where the data co
 
 > Build me a CI/CD status board as a small web app in `dev-tools/ci-board`. For each GitHub repository in a config file, starting with the one this solution pushes to, show the latest GitHub Actions run of each workflow on each branch: the repository name without its owner, the workflow, branch, status, commit message and how long ago it ran, failures first, each linking to its run. Refresh it every 30 seconds. Call GitHub from a small local server that reads the token from the GITHUB_TOKEN environment variable, and never write the token to a file or print it. Then start it and open it in the preview.
 
-About nine minutes later, the board was open in a tab beside the chat, with the one failing branch at the top. The agent had written a Node server with no packages to install, a `repos.json` file listing the repositories to watch, and a README saying how to start it. It had also checked in the preview that the page loaded and refreshed itself.
+When it finished, the board was open in a tab beside the chat, with the one failing branch at the top. The agent had written a Node server with no packages to install, a `repos.json` file listing the repositories to watch, and a README saying how to start it. It had also checked in the preview that the page loaded and refreshed itself.
 
-Change it the way you'd change any code: say what you want while you look at it. The table didn't fit beside the chat, so we asked _"The table is cut off in the preview next to the chat. Make it fit without a horizontal scrollbar at this width, and add a button that shows only failures."_ Four minutes later, it fitted and had a **Failures only** button.
+Change it the way you'd change any code: say what you want while you look at it. The table didn't fit beside the chat, so we asked _"The table is cut off in the preview next to the chat. Make it fit without a horizontal scrollbar at this width, and add a button that shows only failures."_ The agent made it fit and added a **Failures only** button.
 
 ![The CI board in the app preview, next to the chat](images/ci-board-in-preview.png)
 _The board after one follow-up prompt. The server the agent started runs in the background of the chat._
@@ -74,9 +74,9 @@ A dashboard that calls GitHub, Azure DevOps or another service needs a token. Ke
 
 Ask the agent to start your dashboard and open it in the preview whenever you want it, or better, set up a task so starting it is one click on the **Tasks** toolbar.
 
-A task is a command on the **Tasks** toolbar that you and the agent can both run. We asked _"Set up a task that starts my CI board in `dev-tools/ci-board` and keeps it running, so you can open it in the preview."_, and a minute and a half later the agent had added a **CI board** background task to the solution's `tasks.json`. From then on, start the board from the **Tasks** toolbar, where it's a button of its own, or an item in the **Tasks** menu when the window is narrow.
+A task is a command on the **Tasks** toolbar that you and the agent can both run. We asked _"Set up a task that starts my CI board in `dev-tools/ci-board` and keeps it running, so you can open it in the preview."_, and the agent added a **CI board** background task to the solution's `tasks.json`. From then on, start the board from the **Tasks** toolbar, where it's a button of its own, or an item in the **Tasks** menu when the window is narrow.
 
-The task starts the server and shows its output in a tab, but it doesn't open the preview, and there's no button to open one yourself. Clicking the address in the output opens the board in your web browser instead. To see it inside Intent Architect, ask any chat to open it in the preview, for example _"Open my CI board in the preview."_ That took 13 seconds, because the agent reads the board's address from the running task. The preview opens in a background tab, so click its tab, the one with a globe icon, to see the board. Closing the task's own tab stops the server.
+Running the task starts the server and shows its output in a tab. Click the address in the output to open the board in your web browser. To see it inside Intent Architect instead, ask any chat to open it in the preview, for example _"Open my CI board in the preview."_ The agent reads the board's address from the running task, so it doesn't have to start anything. The preview opens in a background tab, so click its tab, the one with a globe icon, to see the board. Closing the task's own tab stops the server.
 
 ![The CI board task in the Tasks menu](images/tasks-menu-ci-board.png)
 _**CI board** in the **Tasks** menu, running, and a chat that opened the board in the preview from it._
@@ -87,7 +87,7 @@ Without a task, ask any chat to start it:
 
 > Start my CI board in `dev-tools/ci-board` and open it in the preview.
 
-A fresh chat read the README in the dashboard's folder, started the server and opened the board in the preview, 36 seconds after we asked. The server runs in the background of that chat, under **Background & sub-agents**, where **Stop all** stops it.
+A fresh chat read the README in the dashboard's folder, started the server and opened the board in the preview. The server runs in the background of that chat, under **Background & sub-agents**, where **Stop all** stops it.
 
 ![The CI board reopened from a new chat](images/reopen-ci-board.png)
 _A one-line prompt in a new chat brings the board back. The server it started is under **Background & sub-agents**._

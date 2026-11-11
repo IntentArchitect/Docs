@@ -5,7 +5,7 @@ description: "Give the AI agent your build, test and run commands as tasks, so i
 
 # Set up tasks so the agent can build, test and run your app
 
-Give the agent the same build, test and run commands you use, so it can check its own work instead of guessing. Want it to build and test after a change? Add build and test tasks. Want it to try your app? Add a run task it can open in the preview. Starting agents in new worktrees? Add a setup task that gets each one ready first. Every task is a one-click button for you too.
+Give the agent the same build, test and run commands you use, so it can check its own work instead of guessing. Want it to build and test after a change? Add build and test tasks. Want it to run your app? Add a run task it can open in the preview. Starting agents in new worktrees? Add a setup task that gets each one ready first. Every task is a one-click button for you too.
 
 This guide shows how to add tasks, have the agent use them, keep your app running, set up new worktrees and hand failures to AI.
 
@@ -29,21 +29,21 @@ To write tasks yourself, click the cog at the end of the **Tasks** toolbar. If t
 }
 ```
 
-Click a task to run it. Its output opens in a tab named after it, and the button turns green or red. For every field, see [](xref:application-development.software-factory.terminal-and-tasks).
+Click a task to run it. Its output opens in a tab named after it, and the button turns green or red. For all available options, see [](xref:application-development.software-factory.terminal-and-tasks).
 
 ![The Tasks toolbar in the Solution Shell](images/tasks-toolbar.png)
 _The solution's **Restore packages** task, then the application's. **Build** passed, and **Run** is serving the API._
 
 ## Let the agent build and test with your tasks in the Solution Shell
 
-In the Solution Shell's AI Assistant, the agent sees your tasks and runs them when it needs to build, test or start your app. Its runs open in tabs and update the toolbar buttons too.
+In the Solution Shell's AI Assistant, the agent sees your tasks and runs them when it needs to build, test or start your app. When the agent runs a task, you see it just as if you'd run it yourself: the output opens in a tab and the task's toolbar button shows the result.
 
-When we asked _"Run the tests and tell me if anything fails."_, the agent ran the **Test** task and reported that all 45 tests passed, 24 seconds later.
+When we asked _"Run the tests and tell me if anything fails."_, the agent ran the **Test** task and reported that all 45 tests passed.
 
 ![The agent running the Test task](images/agent-runs-test-task.png)
 
 > [!NOTE]
-> Agents in the Agents Shell don't get your tasks yet. Asked to run one there, the agent ran the task's command in its own terminal instead, with the same result.
+> Tasks aren't available to agents in the Agents Shell yet. To have an agent run your tasks, use a chat in the Solution Shell. In the Agents Shell, tell the agent which command to run instead, and it runs it in its own terminal.
 
 ## Keep your app running for the agent with a background task
 
@@ -70,7 +70,9 @@ When you click a background task yourself, its button shows a green dot once the
 
 ## Set up each new Agents Shell worktree with a setup task
 
-When an Agents Shell chat runs in its own Git worktree, a second checkout of your Git repository in its own folder, the worktree only has committed files: packages aren't restored and tools aren't installed. Add `"triggers": ["worktree.created"]` to a task in the solution's `tasks.json`, and it runs in each new worktree before the agent starts:
+An Agents Shell chat can run in its own Git worktree: a second checkout of your Git repository, in its own folder. A new worktree only has your committed files, so packages aren't restored and tools aren't installed.
+
+To get each worktree ready, add `"triggers": ["worktree.created"]` to a task in the solution's `tasks.json`. The task then runs in every new worktree before the agent starts:
 
 ```json
 "restore": {
@@ -110,7 +112,7 @@ To have that happen as soon as a task you clicked fails, turn on `aiAutoFix`, wi
 }
 ```
 
-With a typo in a query handler, clicking **Build** failed and started a fix chat straight away. The agent put the line right and ran **Build** again, and the button turned green 27 seconds later.
+With a typo in a query handler, clicking **Build** failed and started a fix chat straight away. The agent put the line right and ran **Build** again, and the button turned green.
 
 ![A failed Build with Resolve with AI, and the fix chat it started](images/build-failed-resolve-with-ai.png)
 _**Build** failed, and `aiAutoFix` started a fix chat by itself._

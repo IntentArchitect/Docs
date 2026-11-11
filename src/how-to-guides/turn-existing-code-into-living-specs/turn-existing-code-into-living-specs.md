@@ -22,7 +22,7 @@ Last, it asked about **suspected bugs**: behaviour that works, but probably not 
 ![The agent asking about a suspected bug, beside the extracted requirements](images/suspected-bugs.png)
 _Extracting the Customers rules: a blank name is accepted, so the agent asks whether to fix it._
 
-It took 20 minutes and produced 9 requirements with 38 acceptance criteria.
+Extracting the Customers rules produced 9 requirements with 38 acceptance criteria.
 
 ## Read the spec and group it into an Area in the Specifications panel
 
@@ -39,7 +39,7 @@ To group related Capabilities, choose **New Area** from the **New spec** menu, t
 
 A judged criterion, one the agent checked by reading the code, has to be checked again whenever that code changes. A tested one is proven every time its tests run.
 
-Type `/sdd-run` and the spec's name in the AI Assistant. The agent counts the criteria no test proves and asks whether to write their tests now. For the Customers spec we chose **Write them now**: in 19 minutes it wrote tests for 24 judged criteria, and all 83 tests in the solution passed.
+Type `/sdd-run` and the spec's name in the AI Assistant. The agent counts the criteria no test proves and asks whether to write their tests now. For the Customers spec we chose **Write them now**: it wrote tests for 24 judged criteria, and all 83 tests in the solution passed.
 
 Each test cites the criteria it proves in its title, such as `[spec:customer-create-and-update R3.9]`, or in a comment directly above it, so your own tests can cite criteria too. A criterion's chip turns **Tested** once a separate agent confirms its tests assert everything it says.
 
@@ -50,7 +50,7 @@ When code behind a judged criterion changes, the spec's card says **Re-check**, 
 ![The Orders card asking for a re-check](images/re-check.png)
 _The hand edit touched code behind four Orders requirements. Customers is fully tested, so it stays verified._
 
-Click **Re-check** and send the chat it fills in. The agent checks only the requirements that moved. In 9 minutes it found that "an order that reaches the limit exactly is placed" no longer held, put the code back, and wrote a test for that rule. To change a rule on purpose, ask the agent for the change instead, so the spec changes first.
+Click **Re-check** and send the chat it fills in. The agent checks only the requirements that moved. On the sample, it found that "an order that reaches the limit exactly is placed" no longer held, put the code back, and wrote a test for that rule. To change a rule on purpose, ask the agent for the change instead, so the spec changes first.
 
 ## Review the spec change before the code changes with Spec Review
 

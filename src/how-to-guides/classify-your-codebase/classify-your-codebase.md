@@ -5,7 +5,7 @@ description: "Have the AI agent classify your codebase by what each part is for 
 
 # Classify your codebase so reviews focus on what matters
 
-Got an agent change that touches dozens of files? Classify your codebase once, and Change Review tags each changed code file with what it's for and how closely to look, so you start with the files that need your eyes. The agent does the classifying: it reads your code, proposes areas in your system's own terms, and sets them up once you agree.
+Got an agent change that affects numerous files? Classify your codebase once, and Change Review tags each changed code file with what it's for and how closely to look, so you start with the files that need your eyes. The agent does the classifying: it reads your code, proposes areas in your system's own terms, and sets them up once you agree.
 
 This guide shows how to have the agent classify your codebase, use the result in Change Review, correct a file as you review, and keep the classifications up to date.
 
@@ -14,7 +14,7 @@ This guide shows how to have the agent classify your codebase, use the result in
 Classifying gives every file two things:
 
 - **File Classifications** say what the file is for, in your system's terms. On the Acme sample they include **Credit Limit**, **Order Lifecycle** and **Customer Access**.
-- **Review Importance**, from **None** through **Low** and **Medium** to **High**, says how closely a developer needs to look at a change to the file.
+- **Review Importance** says how closely a developer needs to look when the file changes. It's one of four levels: **None**, **Low**, **Medium** or **High**.
 
 To set them up, type `/classify-codebase` in the Solution Shell's AI Assistant. You can add areas you already know matter after the command.
 
@@ -23,7 +23,7 @@ The agent learns what your system does, scans the code with sub-agents and draft
 - whether those are the right areas;
 - whether there's anything else to cover;
 - what **High** should mean. It recommends: a developer must review a change to the file, rather than leave it to AI review;
-- whether to retire the generic classifications your modules created.
+- whether to retire the generic classifications that Intent Architect's modules created.
 
 After a dry run, it shows you the totals and asks whether to apply them.
 

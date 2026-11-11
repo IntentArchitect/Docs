@@ -1,11 +1,11 @@
 ---
 uid: how-to.run-agents-in-parallel
-description: "Run AI agents in parallel in the Agents Shell while you carry on with your own work, each task in its own copy of your code so no agent touches your files or another agent's, then review and merge each one's work."
+description: "Run AI agents in parallel in the Agents Shell while you carry on with your own work, each task in its own copy of your code so no agent touches the code you or another agent is working on, then review and merge each one's work."
 ---
 
 # Run agents in parallel
 
-To really leverage the power of AI, you need to be running agents in parallel: one fixing a bug, another looking into a release branch, a third starting the next feature, while you carry on with your own work. Give each task its own copy of your code so no agent touches your files or another agent's, and merge its work back once you've reviewed it.
+To really leverage the power of AI, you need to be running agents in parallel: one fixing a bug, another looking into a release branch, a third starting the next feature, while you carry on with your own work. Give each task its own copy of your code so no agent touches the code you or another agent is working on, and merge its work back once you've reviewed it.
 
 This guide shows how to start, track, review, merge and clean up chats that each have their own worktree.
 
@@ -39,30 +39,33 @@ With _"Add a CompanyName property to Customer and include it in the customer DTO
 
 ## Track running chats in the Agents Shell
 
-The **Sessions** panel lists every chat with the branch it's on and, when there's uncommitted work, how many lines it has added and removed. Hover a chat's status dot for where it is: **In progress**, **Waiting on your answer** or **Completed**. Click **Search sessions** to filter a long list, and see [](xref:how-to.stay-on-top-of-many-agents) for working through many chats at once.
+The **Sessions** panel lists every chat with the branch it's on and, when there's uncommitted work, how many lines it has added and removed. Hover over a chat's status dot for where it is: **In progress**, **Waiting on your answer** or **Completed**. Click **Search sessions** to filter a long list, and see [](xref:how-to.stay-on-top-of-many-agents) for working through many chats at once.
 
 ![The Sessions panel filtered to four Acme chats](images/sessions-board.png)
 _Four chats in their own worktrees: two completed, one waiting on an answer and one in progress._
+
+If you start chats from Work Items, you can also track them on the **Work Items** panel. Click a Work Item to list the chats linked to it, and click a chat to open it. A Work Item moves to **In Progress** when one of its chats starts working. See [](xref:application-development.user-interface.work-items).
 
 While Intent Architect is in the background, it shows an OS notification when a chat finishes or needs your input, and a badge on its taskbar icon. You can switch both off under **Notifications** in [User Settings](xref:application-development.user-interface.how-to-change-user-settings#notifications).
 
 > [!TIP]
 > A chat's agent can start chats like these for you: ask it to split a task into child chats, each in its own worktree. They're listed under that chat on the **Sessions** panel. See [](xref:how-to.split-a-big-task-across-child-chats).
 
-## Review and merge a worktree chat's work in the Agents Shell
+## Review, commit and merge each chat's work
 
-Select the chat on the **Sessions** panel. The panels on the right follow its worktree, so you deal with each chat's work on its own:
+Select the chat on the **Sessions** panel, or under its Work Item on the **Work Items** panel. The panels on the right follow its worktree, so you deal with each chat's work on its own:
 
 1. **Review the changes.** Ask the agent to review them with a review skill, look through them in **Source Control**, or click the flag button in its toolbar to open them in [Change Review](xref:application-development.change-review).
 
    ![Source Control on the feature/customer-company branch](images/source-control-session-branch.png)
    _The flag button (boxed) opens the chat's uncommitted changes in Change Review._
 
-2. **Merge the changes or create a pull request.** Ask the agent to merge its branch into yours, or do it yourself from **Source Control**: commit, open **Git Explorer**, right-click your branch and choose **Merge current branch "…" into "…"...**. If your team uses pull requests, ask the agent to create one, or see [](xref:application-development.pull-requests).
+2. **Commit the changes.** The agent leaves its work uncommitted on the chat's branch. Ask it to commit, or commit the changes yourself in **Source Control**.
+3. **Merge the changes or create a pull request.** Ask the agent to merge its branch into yours, or do it yourself: open **Git Explorer**, right-click your branch and choose **Merge current branch "…" into "…"...**. If your team uses pull requests, ask the agent to create one, or see [](xref:application-development.pull-requests).
 
    ![Git Explorer listing the branches and worktrees](images/git-explorer-branches.png)
 
-Worktrees keep agents apart while they work, but merging can still conflict when two chats changed the same lines. If it would, nothing is changed: have the chat bring your branch into its worktree and resolve the conflicts there, then merge again. See [](xref:how-to.resolve-merge-conflicts-with-ai#merge-an-agents-worktree-branch-back-when-it-conflicts-in-the-agents-shell).
+Because each chat has its own worktree, agents don't get in each other's way while they work. Merging is different: if two chats changed the same lines, their branches conflict. When a merge would conflict, Intent Architect stops before changing anything. Ask the chat to bring your branch into its worktree and resolve the conflicts there, then merge again. See [](xref:how-to.resolve-merge-conflicts-with-ai#merge-an-agents-worktree-branch-back-when-it-conflicts-in-the-agents-shell).
 
 ## Clean up a chat's worktree in the Agents Shell
 

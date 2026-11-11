@@ -9,17 +9,20 @@ Got a dozen agents going? See at a glance which ones are waiting on you, deal wi
 
 This guide shows how to spot the chats that need you, work through them from the keyboard, keep the list tidy and find any chat again.
 
-## See which agents need you on the Agents Shell board
+## See at a glance which agents need you
 
 Click **Manage Agents** to open the [Agents Shell](xref:application-development.user-interface.agents-shell-and-solution-shell). Its **Sessions** panel is the board: every chat on your machine, grouped by Git repository.
 
-The dot beside each chat says where it is. Hover it for the words:
+The dot beside each chat indicates its status. Hover over the dot to see the status in words:
 
-- **Amber, Waiting on your answer:** the agent has a question, or wants you to approve an edit, a command or a plan. It glows until you open the chat.
-- **Blue and pulsing, In progress:** the agent is working.
-- **Green and filled, Completed — new:** it finished since you last looked. Once you open it, the dot becomes an empty ring.
-- **Red, Failed:** the last run ended in an error.
-- **"— background work running"** means the agent left something running after its turn, such as a dev server.
+| Dot           | Status                 | What it means                                                                                                          |
+| ------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Amber         | Waiting on your answer | The agent has a question, or wants you to approve an edit, a command or a plan. The dot glows until you open the chat. |
+| Blue, pulsing | In progress            | The agent is working.                                                                                                  |
+| Green, filled | Completed — new        | The chat finished since you last looked. Once you open it, the dot becomes an empty ring.                              |
+| Red           | Failed                 | The last run ended in an error.                                                                                        |
+
+If the status ends with "— background work running", the agent left something running after its turn, such as a dev server.
 
 ![The Sessions panel showing two groups of Acme chats, with their status dots and group counts](images/board-status.png)
 _The boxed counts: in this group, one chat needs you, one is running and one is unread._
@@ -60,13 +63,13 @@ _Three chats selected with the keyboard, ready to mark as read or archive togeth
 
 - **Group the chats for one piece of work.** Right-click a chat, choose **Move to group › New group…** and name the group, then move other chats into it from the same menu. Your own groups can hold chats from any Git repository. To keep one at the top, right-click its header and choose **Pin to top**. Both need the default **Group by workspace** in the board's **⋮** menu.
 - **Tag chats across groups.** **Categorise** on a chat's right-click menu tags it with one of six colours, for example red for anything you must look at today.
-- **Archive what's done.** Hover a chat and click **Archive chat**, select several and choose **Archive 3**, or right-click a group header and choose **Archive All**. Archiving only hides a chat; its history, worktree and branch stay. To bring one back, turn on **Show archived chats** in the **⋮** menu, then right-click the chat and choose **Unarchive**.
+- **Archive what's done.** Hover over a chat and click **Archive chat**, select several and choose **Archive 3**, or right-click a group header and choose **Archive All**. Archiving only hides a chat; its history, worktree and branch stay. To bring one back, turn on **Show archived chats** in the **⋮** menu, then right-click the chat and choose **Unarchive**.
 
 By default, **Show recent chats** hides chats that have been quiet for seven days, but never one that's waiting on you.
 
 ## Find an agent chat by what was said in it
 
-Click **Search sessions** (the magnifier) at the top of the Agents Shell board and type. Titles match anywhere, and branch, Git repository and solution names from the start of a word. From three characters, it also searches what you and the agent wrote in every chat, and shows the matching sentence under each chat. It doesn't search the agent's tool calls or their output, such as files it read. Put a phrase in quotes, such as `"weekend surcharge"`, to match those words together.
+Click **Search sessions** (the magnifier) at the top of the Agents Shell board and type. It matches your text anywhere in a chat's title, and at the start of any word in its branch, Git repository or solution name. From three characters, it also searches what you and the agent wrote in every chat, and shows the matching sentence under each chat. It doesn't search the agent's tool calls or their output, such as files it read. Put a phrase in quotes, such as `"weekend surcharge"`, to match those words together.
 
 Archived chats are left out, but the end of the list says how many match, such as **Show 1 archived match**. Click it to list them.
 

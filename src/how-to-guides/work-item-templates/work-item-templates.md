@@ -17,7 +17,7 @@ A Work Item is a Markdown note in the Agents Shell that the agent can read. Your
 2. Click **+** (**New work item**), type a name such as `Fix a bug from a stack trace`, and press `Enter`. The item opens as a document.
 3. Click **Edit** and write the template, or click **Open in IDE** to write it in your editor. It's saved as you type.
 
-Using a template moves it to **In Progress**, like any Work Item with a chat working on it. To keep your templates together, right-click one, choose **Move to group** > **New group**, name the group `Templates`, and move the others into it.
+Using a template moves it to **In Progress**, like any Work Item with a chat working on it. To keep your templates together, right-click one, choose **Move to group** > **New group** and name the group `Templates`. Then move your other templates into the same group.
 
 ![A template in the Templates group](images/template-in-work-items.png)
 _The **Work Items** button (boxed) and three templates in a group of their own, with the bug-fix template open._
@@ -61,7 +61,13 @@ Don't commit, and don't edit this work item.
 
 ## Start a chat from a Work Item template with Start chat
 
-Hover the template and click **Start chat**, right-click it and choose **Start chat**, or select it and press `Ctrl+Enter`. A new chat opens with the template attached and nothing sent, in the folder of the chat you had open. Paste the details for this run, check the folder and branch, and send it.
+To start a chat from a template, do one of these:
+
+- Hover over the template and click **Start chat**.
+- Right-click it and choose **Start chat**.
+- Select it and press `Ctrl+Enter`.
+
+A new chat opens with the template attached, ready for you to add to. It opens in the same folder as the chat you had open, and nothing is sent yet. Paste the details for this run, check the folder and branch, then send it.
 
 By default the chat runs in a Git worktree, a second checkout of your Git repository in its own folder, so it doesn't touch your files. Its branch is `workitem/<id>`, where `<id>` is the template's name in lower case with hyphens, and later chats from the same template get `workitem/<id>-2`, `-3` and so on.
 
@@ -71,9 +77,9 @@ _The second chat from the bug-fix template, on `workitem/fix-a-bug-from-a-stack-
 > [!NOTE]
 > Send each chat before you start the next one from the same template. Until a chat is sent its branch doesn't exist, so the next chat proposes the same name, and asks you for another once the first one takes it.
 
-The worktree needs a CLI agent such as Claude Code (see [](xref:ai.cli-agents)) and a Git repository. To work in your own checkout instead, untick **worktree** before you send, or turn off **Start chats from work items in a worktree** in [User Settings](xref:application-development.user-interface.how-to-change-user-settings#agents).
+The worktree needs a CLI agent such as Claude Code (see [](xref:ai.cli-agents)) and a Git repository. To work on the branch you currently have checked out instead, untick **worktree** before you send, or turn off **Start chats from work items in a worktree** in [User Settings](xref:application-development.user-interface.how-to-change-user-settings#agents).
 
-With the stack trace from a 500 on `GET /api/customers`, the agent found the cause in the last commit, wrote a test that failed with the same exception, fixed it and ran all 46 tests in under two minutes. It ended: _"Nothing is committed, and I didn't edit the work item."_
+With the stack trace from a 500 on `GET /api/customers`, the agent found the cause in the last commit, wrote a test that failed with the same exception, fixed it and ran all 46 tests. It ended: _"Nothing is committed, and I didn't edit the work item."_
 
 ## Improve a Work Item template from its runs
 
@@ -114,7 +120,7 @@ Check the work in this folder, then open a pull request for it.
 Don't edit this work item.
 ```
 
-**Add a small, tested feature.** Asked to trim spaces from the start and end of a customer's name and email, the agent changed two handlers, added a test for each, had `review-changes` check its work and ran all 47 tests, in about four minutes. It also pointed out that a name of only spaces would now be saved as an empty string.
+**Add a small, tested feature.** Asked to trim spaces from the start and end of a customer's name and email, the agent changed two handlers, added a test for each, had `review-changes` check its work and ran all 47 tests. It also pointed out that a name of only spaces would now be saved as an empty string.
 
 ```markdown
 Add a small feature, with tests.

@@ -11,7 +11,15 @@ This guide shows how, for your own branch, for an agent's worktree branch and fo
 
 ## Resolve a stopped merge or rebase with the Source Control conflict bar
 
-When Git can't combine two sets of changes, the merge or rebase stops partway. It doesn't matter where you started it: from a branch's right-click menu in **Source Control** or **Git Explorer**, such as **Merge "master" into current branch "…"...**, or from a terminal. **Source Control** shows a bar such as **Merge in progress — 3 conflicts to resolve**, and lists the files under **Conflicts**. During a rebase the bar also says which commit Git is replaying, for example **commit 1 of 3**.
+When Git can't combine two sets of changes, the merge or rebase stops partway. This works the same however you started it:
+
+- From a branch's right-click menu in **Source Control** or **Git Explorer**, such as **Merge "master" into current branch "…"...**.
+- From a terminal.
+
+**Source Control** then shows:
+
+- A bar saying what's in progress, such as **Merge in progress — 3 conflicts to resolve**. During a rebase, it also says which commit Git is replaying, for example **commit 1 of 3**.
+- The conflicted files, listed under **Conflicts**.
 
 ![Source Control with the merge conflict bar and three conflicted files, beside a file showing conflict markers](images/conflict-bar.png)
 _Merging `master` into a feature branch on the Acme sample: conflicts in a C# file, a model file and Intent Architect's customization log._
@@ -36,7 +44,7 @@ Two options sit on the caret beside **Resolve with AI**:
 To deal with one file on its own, use the buttons on its row under **Conflicts**: **Resolve with AI**, take your side or theirs, or **Mark resolved** once you've fixed it by hand.
 
 > [!NOTE]
-> Intent Architect's own agent can't edit model files, the ones under `Intent.Metadata`. If one is conflicted, it resolves the other files and stops, saying which one is left. Open that file from **Conflicts**, keep both changes, click **Mark resolved** on its row, and tell the chat to carry on. A CLI agent such as Claude Code can resolve model files too. For how model files merge, see [](xref:application-development.understanding-and-resolving-merge-conflicts).
+> A conflict can also be in a model file, where Intent Architect saves your designs. A CLI agent such as Claude Code resolves those like any other file. Intent Architect's built-in agent can't, so it resolves everything else and tells you which model file is left for you. Open that file from **Conflicts**, keep both changes, click **Mark resolved** on its row, then tell the chat to carry on. See [](xref:application-development.understanding-and-resolving-merge-conflicts).
 
 ## Merge an agent's worktree branch back when it conflicts in the Agents Shell
 

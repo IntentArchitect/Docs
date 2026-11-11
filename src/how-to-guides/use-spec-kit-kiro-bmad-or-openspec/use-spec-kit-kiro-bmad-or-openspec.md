@@ -7,7 +7,7 @@ description: "Already writing specs with Spec Kit, Kiro, BMAD or OpenSpec? Keep 
 
 Already writing specs with Spec Kit, Kiro, BMAD or OpenSpec? Keep going. Bring the specs you have into Intent Architect, or run your framework's own commands from it, and see which code realizes each requirement.
 
-This guide shows how to import your specs, keep driving your framework from the Specifications panel, trace requirements to code, and keep the two in step.
+This guide shows how to import your specs, keep driving your framework from the Specifications panel, trace requirements to code, and keep the two in sync.
 
 ## Import your specs in the Specifications panel
 
@@ -59,7 +59,7 @@ If the work happened outside the card, such as in your terminal or in a teammate
 
 ## Re-import when your framework's documents change, or un-adopt a spec
 
-Change your requirements in your framework, not in Intent Architect. When its documents change, the card shows **Source changed — re-import**. Click it, or choose **Re-import** from the card's **Spec options** (**⋯**) menu. Intent Architect reads the documents again, keeps your links, and reports how many requirements were added, changed and removed, so you know which to check.
+Your framework stays in charge of the requirements, so make any changes there, not in Intent Architect. Once you've changed the framework's documents, the spec's card shows **Source changed — re-import**. Click it, or choose **Re-import** from the card's **Spec options** (**⋯**) menu. Intent Architect reads the documents again, keeps your links, and reports how many requirements were added, changed and removed, so you know which to check.
 
 ![The Source changed — re-import pill on a spec card](images/source-changed-re-import.png)
 _The card spots that Spec Kit's documents have changed since the last import._

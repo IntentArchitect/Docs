@@ -62,7 +62,7 @@ Then work as usual in that Git repository. The agent finds the Intent Architect 
 > [!NOTE]
 > Claude Code asks you to approve a new server from `.mcp.json` the first time it starts in that folder. Approve `intent-architect`.
 
-From a terminal, with _"Add an optional Website to Customer and include it in the customer DTOs."_, Claude Code added `Website` to `Customer` and to the customer DTO and commands in the designers, ran the Software Factory, wrote the handler and test code, and finished with all 56 tests passing, in under 4 minutes. It noted that it had no spec tools, so it couldn't update the spec that covers customers.
+From a terminal, with _"Add an optional Website to Customer and include it in the customer DTOs."_, Claude Code added `Website` to `Customer` and to the customer DTO and commands in the designers, ran the Software Factory, wrote the handler and test code, and finished with all 56 tests passing. It noted that it had no spec tools, so it couldn't update the spec that covers customers.
 
 ## Follow a terminal agent's session in the Agents Shell
 

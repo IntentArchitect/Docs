@@ -44,7 +44,7 @@ The chat may show a banner offering to **Enable auto sync** for the agent's skil
 
 Check that **Agent** is selected in the agent picker beside the model, then describe the change in plain words and press `Enter`. Start with something small that you can check yourself.
 
-In an Intent Architect solution, the agent changes the design first and generates code from it. Asked _"Add an optional date of birth to Customer, and let the customer endpoints set and return it."_, Claude Code added the field to the domain and service designs, generated the code, added the field to the two hand-written request handlers itself, then checked that the solution built, in just under three minutes.
+In an Intent Architect solution, the agent changes the design first and generates code from it. Asked _"Add an optional date of birth to Customer, and let the customer endpoints set and return it."_, Claude Code added the field to the domain and service designs, generated the code, added the field to the two hand-written request handlers itself, then checked that the solution built.
 
 The agent asks before it edits files or runs a command. Click **Allow** to approve that one step, or **Allow all** to switch the chat to **Bypass all permissions**, so it stops asking for the rest of the chat and edits files and runs commands without checking with you.
 

@@ -5,7 +5,11 @@ description: "Ask the AI agent for a report on part of your system, such as who 
 
 # Get visual reports on your system from the agent
 
-Ask the agent for a report on part of your system, such as who can call which endpoint or which files change most, and it writes a document you can read at a glance: diagrams, tables and call-outs, with links that open the model elements and files it mentions. You get the answer as something to scan, not a wall of chat text.
+Instead of a long answer in the chat, ask the agent for a report you can take in at a glance. Pick a question about your system, such as who can call which endpoint or which files change most, and the agent writes up the answer as a document with:
+
+- Diagrams and tables.
+- Call-outs for anything that needs your attention.
+- Links that open the model elements and files it mentions.
 
 This guide gives you copy-paste prompts for two reports, then shows how to write a prompt for any question about your system.
 
@@ -31,7 +35,7 @@ Prompt for the AI Assistant, with your own API's name and path:
 
 > Write an MDX report at `docs/api-access-report.mdx` on who can call what in the Acme API. List every HTTP endpoint with its method, route and the command or query behind it, and what a caller needs to reach it. Show how a request travels as a diagram, the endpoints as a table, and each risk as a call-out. Link every model element and file you mention. Mark each claim as read from the model or code, or inferred, and say what you didn't check.
 
-On the Acme sample, the agent took about eight minutes, and the report shows:
+On the Acme sample, the report shows:
 
 - a table of every endpoint: the 8 in the model, each linked to its command or query, plus the health check and Swagger endpoints, which exist only in code;
 - that none of them needs a signed-in user, a role or a policy, and that the model defines no roles or policies;
@@ -45,7 +49,7 @@ _Each endpoint links to the command or query behind it and to its controller act
 ![Two diagrams of the stages a request passes through](images/access-report-diagram.png)
 _The colours show which stages let every caller through and which can reject a request._
 
-The tags are why the prompt asks for them. A report that mixes what the agent read with what it guessed sounds equally sure of both, and you need to know which is which before you act on it. On Acme, the agent read the routes and the security settings from the model and the code, but it only inferred the status codes a caller would get, because it never called the running API.
+The prompt asks for these tags because, without them, a report sounds just as sure about what the agent guessed as about what it actually read. The tags show you which is which before you act on anything. On Acme, the agent read the routes and the security settings from the model and the code, but it only inferred the status codes a caller would get, because it never called the running API.
 
 ![The first risk call-out in the access report](images/access-report-risks.png)
 _Each risk is a call-out with its evidence, its impact and a fix, and every claim carries a tag._

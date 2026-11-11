@@ -1,11 +1,15 @@
 ---
 uid: how-to.get-it-right-with-plan-mode
-description: "Get a change right the first time by getting its plan right first: check the data model, API and screens the plan sketches, comment on anything that's off, answer its questions, then choose the model that builds it and where."
+description: "Fix a change before it's built, in its plan: check the data model, API and screens the plan sketches, comment on anything that's off, answer its questions, then choose the model that builds it and where."
 ---
 
 # Get it right the first time with Plan Mode
 
-Get a change right the first time by getting its plan right first. Aligning with the AI upfront ensures a better implementation with less rework. Got a plan from Plan Mode? Check the data model, API and screens it sketches, then comment on anything that's off and answer its questions, all in one go. Happy with it? Choose the model that builds it, and build it in a worktree of its own so your own code stays untouched.
+The cheapest time to fix a change is before it's built. With Plan Mode, the agent writes a plan first, so you can agree the approach with it up front and get a better result with less rework. When the plan is ready:
+
+- Check the data model, API and screens it sketches.
+- Comment on anything that's off and answer its questions, all in one go.
+- Choose the model that builds it, and build it in a worktree of its own so your own code stays untouched.
 
 This guide shows how to review and correct a plan before the agent writes any code.
 
@@ -18,7 +22,7 @@ Pick **Plan** in the agent picker below the message box, or press `Shift+Tab` in
 
 Plan reads your model and code but changes nothing. It asks about any decision it can't make, with its recommended answer marked, then writes the plan to `intent/.plans` and opens it in a tab of its own.
 
-With _"Customers should be able to save several delivery addresses and pick one when they place an order. Show a customer's addresses on the customer page of the web app."_, Plan asked four questions, such as whether an order should keep a copy of the address or a link to it. The plan was ready 9 minutes after the prompt was sent.
+With _"Customers should be able to save several delivery addresses and pick one when they place an order. Show a customer's addresses on the customer page of the web app."_, Plan asked four questions, such as whether an order should keep a copy of the address or a link to it.
 
 ## Check the data model, API and screens in a plan
 
@@ -49,7 +53,7 @@ _Commenting on the text above a wireframe. Text inside a wireframe or diagram ca
 
 The comments reach the agent as one message, each quoting its text. The agent revises the plan, asking first about any new decision a comment raises, and puts it up for review again. The **Plan ready for review** card in the chat lists the same comments, and its **Send feedback and keep planning** button sends them too.
 
-On the sample, three comments asked for a required label, at most five addresses per customer, and a **Remove** button on the new page. After two rounds of follow-up questions, such as whether labels must be unique, the revised plan was back about 3 minutes later, with the buttons drawn into the wireframe.
+On the sample, three comments asked for a required label, at most five addresses per customer, and a **Remove** button on the new page. After two rounds of follow-up questions, such as whether labels must be unique, the revised plan came back with the buttons drawn into the wireframe.
 
 To see what the agent decided on its own, click **No, keep planning** on the card and ask it to add those decisions as questions at the end of the plan. On the sample it added five, such as whether every address needs a postal code. Answer them in the plan; leave one unanswered and the agent keeps its recommendation. The answers go with your comments, on the same button.
 

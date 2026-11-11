@@ -5,7 +5,7 @@ description: "Get through a large pull request, from a teammate or an AI agent, 
 
 # Review pull requests effectively
 
-Got a pull request that touches dozens of files, from a teammate or an agent? Let AI review it first, check the design change on a diagram, spend your own time on the code and tests that need a person, and hand your comments to an agent to fix.
+Got a pull request that affects numerous files, from a teammate or an agent? Let AI review it first, check the design change on a diagram, spend your own time on the code and tests that need a person, and hand your comments to an agent to fix.
 
 This guide shows how, for pull requests on GitHub, Azure DevOps, GitLab or Bitbucket Cloud.
 
@@ -19,18 +19,18 @@ _A 38-file pull request on the Acme sample, which lets an order have lines._
 > [!NOTE]
 > If you already `git push` to the host over HTTPS, Intent Architect is signed in for you. If not, the panel asks for a personal access token. See [Connecting to a Git host](xref:application-development.pull-requests#connecting-to-a-git-host).
 
-Click **Review with AI**. A new chat runs the `review-changes` skill over exactly the changes in the pull request. It tries to disprove each problem it finds, keeps only the ones it can show going wrong, and grades them blocking, minor or nit. It skips generated code that matches your model.
+Click **Review with AI**. A new chat runs the `review-changes` skill over exactly the changes in the pull request. It tries to disprove each problem it finds, keeps only the ones it can show going wrong, and grades them blocking, minor or nit. It doesn't review generated code that still matches your model, because that code comes straight from the design.
 
 Nothing it finds is posted. Each finding goes into your pending review, the comments only you can see until you submit them, and appears as **Pending** on the line it's about. Edit or delete any you disagree with. The AI's summary fills in the body of your review.
 
 ![An AI finding staged as a Pending comment, with Edit and Delete](images/ai-finding-pending.png)
-_On Acme, the review took about four minutes and found that a null order line got past validation and caused a 500 error._
+_On Acme, the AI review found that a null order line got past validation and caused a 500 error._
 
 When the pull request gets new commits, review it again. The AI skips anything it has already raised, so nobody gets the same comment twice.
 
 ## Check the design change on an Explorer Diagram
 
-Before you read any code, check that the design changed the way you meant. Open the pull request's **Change Review** tab. Under each application, **Designers** lists the designers the pull request changed, with how many elements were added, changed and removed.
+Before you read any code, check that the design changed the way it was supposed to. Open the pull request's **Change Review** tab. Under each application, **Designers** lists the designers the pull request changed, with how many elements were added, changed and removed.
 
 Click a designer's name to open its model diff. It opens on an Explorer Diagram of the change, where new elements and members are green and changed ones are amber.
 
@@ -39,7 +39,7 @@ _The Domain changes on Acme: a new `OrderLine`, a new `AddLine` operation, and c
 
 If the design is wrong, say so on the design itself: expand the designer in **Change Review** and click the **+** beside an element. Getting the design right first pays off: generated code that matches the model isn't listed for review, so once the design is right you can take that code as read.
 
-## Read the code that needs you in Needs attention
+## Read the code that needs a developer's review
 
 **Needs attention**, near the top of the **Change Review** tab, lists the hand-written code in the pull request, and the generated files where the change touched hand-written parts. Generated code that matches the model isn't in it.
 
@@ -72,7 +72,7 @@ Then click **Address review with AI** in the pull request's header. The agent ru
 When it's done, the header shows **AI changes ready**. Click **Push to** _branch_ to put the commit on the pull request, then submit your review to post the agent's replies. Any file you'd ticked that the fix changed now has an amber tick in **Needs attention**, so you know exactly what to re-read.
 
 ![AI changes ready, with one commit not yet on the pull request's branch and a Push to feature/order-lines button](images/ai-changes-ready.png)
-_On Acme, the agent dealt with both comments in about six minutes, in one commit with a reply on each thread._
+_On Acme, the agent dealt with both comments in one commit, with a reply on each thread._
 
 ## Related articles
 

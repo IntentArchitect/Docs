@@ -22,12 +22,12 @@ This guide compares the three, then shows how to start each one.
 | **What's left afterwards**          | The change                                                         | The change, plus the plan in `intent/.plans`                 | The change, plus specs in `intent/.specs`                                                                                                |
 | **Traceability**                    | None beyond your Git history                                       | The plan explains the approach, but isn't linked to the code | Both ways: from each requirement to the model elements and code that realize it, and from any change back to the requirements behind it |
 | **Stays true later**                | No                                                                 | No. The plan records what you intended at the time           | Yes, through Capability specs. Before the agent changes what one covers, it updates the spec and asks you to review it                   |
-| **Time on the sample below**        | 3 minutes                                                          | 9 minutes                                                    | 44 minutes                                                                                                                               |
+| **Example time**                    | 3 minutes                                                          | 9 minutes                                                    | 44 minutes                                                                                                                               |
 
 Start with the lightest one that fits. If a prompt turns out to be bigger than you thought, stop and plan it. If a plan turns up rules that must always hold true going forward, write a spec.
 
 > [!NOTE]
-> The times come from running each one on the same small .NET sample, with Claude Code as the agent.
+> These are example timings, to give you a sense of how long each approach might take. They come from running each one on the same small .NET sample, with Claude Code as the agent, so your own times will vary with the size of the change and your solution.
 
 ## Vibe code by prompting the agent in the AI chat
 

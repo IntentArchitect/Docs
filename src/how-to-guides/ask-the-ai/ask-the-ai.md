@@ -28,7 +28,7 @@ Agent and Plan can search the docs too, so you can ask a quick question in the m
 
 ## Ask the AI Assistant about your own solution
 
-The **Ask** agent reads your designers and your code as well, so you can ask what's in your solution or how part of it works. On the Acme sample, this question took 36 seconds:
+The **Ask** agent reads your designers and your code as well, so you can ask what's in your solution or how part of it works. On the Acme sample, for example:
 
 > How does cancelling an @Order work in this solution, from the API down to the database?
 
