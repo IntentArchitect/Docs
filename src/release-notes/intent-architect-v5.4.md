@@ -5,9 +5,19 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.2: covers publish/client/5.4.1..origin/release/5.4.x up to 3919f0531a (2026-11-11). No 5.4.2 tag yet. Add later commits from 3919f0531a onwards. -->
+<!-- 5.4.3: covers publish/client/5.4.2..publish/client/5.4.3-pre.0 (c608e5538c, 2026-11-12). No 5.4.3 tag yet. Add later commits after c608e5538c. -->
+
+## Version 5.4.3
+
+<!-- TODO: confirm the release narrative (one or two sentences on what 5.4.3 is about) once more changes arrive. -->
+
+### Fixes in 5.4.3
+
+- Fixed: The exclude tree in the RDBMS import dialog could appear empty, and a selection made in it might not reach the import script.
 
 ## Version 5.4.2
+
+_Released 2026-11-12._
 
 This release polishes features introduced in 5.4: pull request support, Change Review, specs, child chats and the Software Factory are refined and made more consistent, alongside a broad set of fixes.
 
@@ -74,6 +84,8 @@ To release or mark a point in history without leaving Intent Architect, tags can
 - Improvement: A `File.cs:line` link jumps to its line when the file is already open in another tab, and chat links to bare Windows paths open the file in the app.
 - Improvement: When the Software Factory can't find a template's Output Anchor, the Output panel names the template, module and anchor and offers "Try fix with AI".
 - Improvement: The designer scripting API gains await guards for sandbox scripts and composite actions, stereotype and package reference scripting, and `resolveGenericParameterId`, and `setType` throws on unknown name-spec keys.
+- Improvement: Pull request and review tabs show the repository name (`owner/repo` or the folder name), so same-named branches in different repositories can't be confused.
+- Improvement: `record_spec_traceability`, `record_spec_verdict` and `write_spec_catalog` now reject input they used to drop silently (a target with no `id` or `relativePath`, a result with no `requirementId` or an unknown one, a gap with no reason, a requirement with an empty id), and a spec verdict is refused before the spec reaches verification.
 
 ### Fixes in 5.4.2
 
@@ -92,8 +104,16 @@ To release or mark a point in history without leaving Intent Architect, tags can
 - Fixed: "Add to .gitignore" on a collapsed Source Control row only offered the deepest folder of the row.
 - Fixed: Change Review offered "Create now" on a plain folder.
 - Fixed: A reopened chat view could be refused its invocation handlers after being recreated.
+- Fixed: On macOS, Redo didn't work in file and diff editors, and switching tabs discarded a file's undo history. The diff editor's change-level undo now uses Cmd + Alt + Z so Cmd + Shift + Z is Redo.
+- Fixed: Save All could hang forever when a designer with validation errors was in a background tab, with no "Save anyway?" question visible.
+- Fixed: An architecture template's `.mcp.json` in an output folder outside the application folder wasn't git-ignored, so the first commit asked "Requires attention" when no AI agent was installed.
+- Fixed: A deleted hand-written file couldn't be approved in Change Review, leaving it in Needs attention and the header at 0%.
+- Fixed: Every comment on a list in the document viewer was reported to the agent at the list's first line instead of the commented item's line, and long quotes are now shortened in the agent message.
+- Fixed: Chats that were running when the app closed unexpectedly were counted as needing an answer on the Agents board.
 
 ## Version 5.4.1
+
+_Released 2026-11-06._
 
 ### Highlights in 5.4.1
 
