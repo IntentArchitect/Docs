@@ -36,6 +36,8 @@ To shorten the wait before changes are ready for review, the Software Factory's 
 
 To share or review what happened in the embedded App Preview, a run can now be recorded as a WebM video. The preview toolbar has a new Record button, and recordings made during a script run are reported in its results.
 
+![Recording an App Preview](images/5.4.x/app-preview-record.png)
+
 > [!TIP]
 > **Try it:** Open an App Preview and click **Record** in its toolbar, interact with the app, then click it again to stop.
 
@@ -43,9 +45,16 @@ To share or review what happened in the embedded App Preview, a run can now be r
 
 To share a document outside Intent Architect, any previewed document, including a rendered diff, can now be saved as a single-page PDF in the light theme. The Save as PDF action is on the file tab toolbar, and a toast confirms the saved path.
 
+![The PDF action on a previewed document's toolbar](images/5.4.x/save-as-pdf.png)
+
+> [!TIP]
+> **Try it:** Open a `.md` or `.mdx` file in preview and choose **Save as PDF** on its toolbar.
+
 #### Revisit and re-ask agent questions
 
 To change an earlier answer, a settled `ask_user_question` row can now be expanded to show every option and what was picked. Its Fork and re-ask action forks the chat to just before the question and asks it again. Question cards now also render markdown.
+
+![An answered question expanded, with its Fork and re-ask action](images/5.4.x/ask-question-reask.png)
 
 > [!TIP]
 > **Try it:** In a chat where an agent has asked you a question, click the answered question row to expand it, then choose **Fork and re-ask**.
@@ -54,11 +63,10 @@ To change an earlier answer, a settled `ask_user_question` row can now be expand
 
 To release or mark a point in history without leaving Intent Architect, tags can now be created from the commit and branch menus in the Source Control panel and the Git tab. The Create Tag popover can replace an existing tag with Force and push the new tag to a chosen remote, and an existing tag can be pushed from its own menu. Fetch also has an opt-in Prune setting, off by default, that removes remote branches deleted on the server.
 
-> [!TIP]
-> **Try it:** Right-click a commit in the Git tab and choose **Create Tag**.
+![The Create Tag popover on a commit in the Source Control history](images/5.4.x/git-create-tag.png)
 
 > [!TIP]
-> **Try it:** Open a `.md` or `.mdx` file in preview and choose **Save as PDF** on its toolbar.
+> **Try it:** Right-click a commit in the Git tab and choose **Create Tag**.
 
 ### Improvements in 5.4.2
 
