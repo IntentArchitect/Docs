@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect width="900" height="360" rx="12" fill="#1e1e1e"/>
+  <text x="30" y="44" font-size="22" font-weight="700" fill="#ffffff">Software Factory "Preparing changes" on one of our own applications</text>
+  <text x="30" y="68" font-size="14" fill="#9a9a9a">Time taken in milliseconds, lower is better</text>
+
+  <text x="30" y="118" font-size="16" font-weight="600" fill="#ffffff">Cold run</text>
+  <rect x="140" y="92" width="560" height="30" rx="4" fill="#5a5a5a"/>
+  <text x="708" y="113" font-size="14" fill="#c8c8c8">12,111 ms (before)</text>
+  <rect x="140" y="132" width="264" height="30" rx="4" fill="#06C4FF"/>
+  <text x="412" y="153" font-size="14" font-weight="700" fill="#ffffff">5,701 ms (after)</text>
+  <text x="30" y="150" font-size="14" font-weight="700" fill="#06C4FF">2.1x faster</text>
+
+  <text x="30" y="238" font-size="16" font-weight="600" fill="#ffffff">Hot run</text>
+  <rect x="140" y="212" width="417" height="30" rx="4" fill="#5a5a5a"/>
+  <text x="565" y="233" font-size="14" fill="#c8c8c8">9,010 ms (before)</text>
+  <rect x="140" y="252" width="135" height="30" rx="4" fill="#06C4FF"/>
+  <text x="283" y="273" font-size="14" font-weight="700" fill="#ffffff">2,921 ms (after)</text>
+  <text x="30" y="270" font-size="14" font-weight="700" fill="#06C4FF">3.1x faster</text>
+
+  <text x="30" y="324" font-size="13" fill="#9a9a9a">Cold: 53% less time. Hot: 68% less time.</text>
+</svg>

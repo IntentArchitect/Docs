@@ -73,10 +73,22 @@ Every time this skill runs, before adding new content, scan the current minor's 
 - **Accumulate pre-releases under one patch heading.** When later `X.Y.Z-pre.N` builds arrive before the final `X.Y.Z` release, merge their changes into the existing `## Version X.Y.Z` section rather than creating a new `-pre` section.
 - **Newest version on top.** Insert the new section directly below the H1 (`# Release notes: ...`) and above the previously-latest `## Version` section.
 
+## Release narrative
+
+Every release (each `## Version X.Y.Z` section, patch releases included) has a narrative: a short statement of what the release is about, placed directly under the version heading (and under the `_Released ..._` line when present), before any `### Highlights`, Improvements or Fixes. Examples: 5.4.2 is about polishing existing features; a minor's `X.Y.0` is about the new capabilities it introduces.
+
+- One or two plain sentences, following the "Writing style" rules (matter-of-fact, impersonal, no marketing phrasing, no "why").
+- Work the theme out from the categorized commits: what most of the Improvements and Fixes have in common (polish, performance, stability, a new area of the product, and so on).
+- **Confirm it with the user using `AskUserQuestion`** before writing it: offer 2-3 candidate themes drawn from the commits, and let the user pick or rewrite one. Don't invent a theme the commits don't support.
+- When extending an in-progress version with a later pre-release, re-check that the existing narrative still fits the combined changes; re-ask only if it no longer does.
+- Never leave a version without one. If the user can't confirm it yet, leave a clearly marked placeholder and say so in the report.
+
 ## Required structure
 
 ```md
 ## Version 5.1.3
+
+<Release narrative: one or two sentences on what this release is about.>
 
 ## Improvements in 5.1.3
 
@@ -195,6 +207,7 @@ Before finishing:
 - Current and previous minor files checked for missing release dates, and any found were offered to the user.
 - Both tags verified to exist (after a fetch).
 - New section placed newest-first, heading uses the plain patch version (no `-pre`).
+- Version has a confirmed release narrative under its heading.
 - Improvements and Fixes subsections present (non-empty ones only), correct prefixes.
 - Bullets are plain-text, one line, backticked where appropriate, and read as user-facing.
 - No bullet explains *why* the bug happened (no "because...", "due to...", "since the code...") — only the symptom and, if useful, the user-observable conditions that triggered it.

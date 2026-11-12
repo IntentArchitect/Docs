@@ -9,7 +9,18 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 ## Version 5.4.2
 
+This release polishes features introduced in 5.4: pull request support, Change Review, specs, child chats and the Software Factory are refined and made more consistent, alongside a broad set of fixes.
+
 ### Highlights in 5.4.2
+
+#### Faster Software Factory
+
+To shorten the wait before changes are ready for review, the Software Factory's "Preparing changes" stage now processes files concurrently for transformers that support it. The chart below shows an example from one of Intent Architect's own applications; results vary with the size of the application.
+
+![Preparing changes stage timings on one of Intent Architect's own applications, before and after: cold run 12,111 ms to 5,701 ms, hot run 9,010 ms to 2,921 ms](images/5.4.x/software-factory-speed.svg)
+
+> [!TIP]
+> **Try it:** Update the `Intent.OutputManager.RoslynWeaver` module to version 5.1.0-pre.0 or later, run the Software Factory on an application and watch the time the "Preparing changes" stage takes in the Output panel.
 
 #### Create and push git tags
 
@@ -77,7 +88,6 @@ To change an earlier answer, a settled `ask_user_question` row can now be expand
 - Improvement: In the Work Items panel, a dragged work item or chat now appears in its new place immediately, and the collapse button collapses work items first, then groups.
 - Improvement: Association labels in diagrams wrap to fit the width of their line.
 - Improvement: A `File.cs:line` link jumps to its line when the file is already open in another tab, and chat links to bare Windows paths open the file in the app.
-- Improvement: The Software Factory processes files concurrently for transformers that support it, making "Preparing changes" faster on large applications.
 - Improvement: When the Software Factory can't find a template's Output Anchor, the Output panel names the template, module and anchor and offers "Try fix with AI".
 - Improvement: The designer scripting API gains await guards for sandbox scripts and composite actions, stereotype and package reference scripting, and `resolveGenericParameterId`, and `setType` throws on unknown name-spec keys.
 
