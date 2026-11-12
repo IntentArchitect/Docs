@@ -22,29 +22,9 @@ To shorten the wait before changes are ready for review, the Software Factory's 
 > [!TIP]
 > **Try it:** Update the `Intent.OutputManager.RoslynWeaver` module to version 5.1.0-pre.0 or later, run the Software Factory on an application and watch the time the "Preparing changes" stage takes in the Output panel.
 
-#### Create and push git tags
-
-To release or mark a point in history without leaving Intent Architect, tags can now be created from the commit and branch menus in the Source Control panel and the Git tab. The Create Tag popover can replace an existing tag with Force and push the new tag to a chosen remote, and an existing tag can be pushed from its own menu. Fetch also has an opt-in Prune setting, off by default, that removes remote branches deleted on the server.
-
-![The Create Tag popover on a commit in the Source Control history](images/5.4.x/git-create-tag.png)
-
-> [!TIP]
-> **Try it:** Right-click a commit in the Git tab and choose **Create Tag**.
-
-#### A shared Status Bar
-
-To see what agents are doing from either shell, the solution shell and the Agents shell now end in the same Status Bar. The right side shows how many sessions are running, waiting for an answer, and in use by MCP clients, and each count opens a menu of those sessions. It also shows Intent Architect's CPU usage, which opens the Process Explorer when clicked. Right-clicking the bar hides or shows it.
-
-![The Status Bar showing running and waiting sessions](images/5.4.x/status-bar.png)
-
-> [!TIP]
-> **Try it:** It's always on. Start an agent session, then click the running count at the bottom right of the window.
-
 #### Record App Preview runs as video
 
 To share or review what happened in the embedded App Preview, a run can now be recorded as a WebM video. The preview toolbar has a new Record button, and recordings made during a script run are reported in its results.
-
-![Recording an App Preview](images/5.4.x/app-preview-record.png)
 
 > [!TIP]
 > **Try it:** Open an App Preview and click **Record** in its toolbar, interact with the app, then click it again to stop.
@@ -53,22 +33,26 @@ To share or review what happened in the embedded App Preview, a run can now be r
 
 To share a document outside Intent Architect, any previewed document, including a rendered diff, can now be saved as a single-page PDF in the light theme. The Save as PDF action is on the file tab toolbar, and a toast confirms the saved path.
 
-![The PDF action on a previewed document's toolbar](images/5.4.x/save-as-pdf.png)
-
-> [!TIP]
-> **Try it:** Open a `.md` or `.mdx` file in preview and choose **Save as PDF** on its toolbar.
-
 #### Revisit and re-ask agent questions
 
 To change an earlier answer, a settled `ask_user_question` row can now be expanded to show every option and what was picked. Its Fork and re-ask action forks the chat to just before the question and asks it again. Question cards now also render markdown.
 
-![An answered question expanded, with its Fork and re-ask action](images/5.4.x/ask-question-reask.png)
-
 > [!TIP]
 > **Try it:** In a chat where an agent has asked you a question, click the answered question row to expand it, then choose **Fork and re-ask**.
 
-## Improvements in 5.4.2
+#### Create and push git tags
 
+To release or mark a point in history without leaving Intent Architect, tags can now be created from the commit and branch menus in the Source Control panel and the Git tab. The Create Tag popover can replace an existing tag with Force and push the new tag to a chosen remote, and an existing tag can be pushed from its own menu. Fetch also has an opt-in Prune setting, off by default, that removes remote branches deleted on the server.
+
+> [!TIP]
+> **Try it:** Right-click a commit in the Git tab and choose **Create Tag**.
+
+> [!TIP]
+> **Try it:** Open a `.md` or `.mdx` file in preview and choose **Save as PDF** on its toolbar.
+
+### Improvements in 5.4.2
+
+- Improvement: The solution shell and the Agents shell now end in the same Status Bar, showing how many agent sessions are running, waiting for an answer and in use by MCP clients (each count opens a menu of those sessions) and Intent Architect's CPU usage, which opens the Process Explorer. Right-click the bar to hide or show it.
 - Improvement: Pull request support is now consistent across Azure DevOps, GitHub, GitLab and Bitbucket, including reviews, labels, images, checks and sign-in help for each.
 - Improvement: A New pull request tab that hasn't been sent is kept as a Local Draft, listed first on the pull request board and counted in the badges, and it survives restarts and closing the tab.
 - Improvement: Change Review shows an amber "approved earlier, changed since" tick for local approvals whose file has changed, and an edited fully custom file no longer stays approved.
@@ -91,7 +75,7 @@ To change an earlier answer, a settled `ask_user_question` row can now be expand
 - Improvement: When the Software Factory can't find a template's Output Anchor, the Output panel names the template, module and anchor and offers "Try fix with AI".
 - Improvement: The designer scripting API gains await guards for sandbox scripts and composite actions, stereotype and package reference scripting, and `resolveGenericParameterId`, and `setType` throws on unknown name-spec keys.
 
-## Fixes in 5.4.2
+### Fixes in 5.4.2
 
 - Fixed: Built-in skill sync settings weren't shared across worktrees, and built-in skills weren't added to new applications.
 - Fixed: Intent's file, plan, spec and pull request tools refused to work in a chat that had no solution.
