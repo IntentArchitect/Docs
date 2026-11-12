@@ -364,7 +364,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20230814124652_Initial', N'9.0.4');
+    VALUES (N'20230814124652_Initial', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -381,7 +381,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20230817095136_AddModuleVersionIndex', N'9.0.4');
+    VALUES (N'20230817095136_AddModuleVersionIndex', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -447,7 +447,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20230817110919_BreakOutIcons', N'9.0.4');
+    VALUES (N'20230817110919_BreakOutIcons', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -482,7 +482,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20240130161055_ApplicationTemplate_Version_IsPrerelease', N'9.0.4');
+    VALUES (N'20240130161055_ApplicationTemplate_Version_IsPrerelease', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -507,7 +507,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20240131082207_UpdatedIndex_IX_ApplicationTemplates_Identifier_Version', N'9.0.4');
+    VALUES (N'20240131082207_UpdatedIndex_IX_ApplicationTemplates_Identifier_Version', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -548,7 +548,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20240910134034_AddCreateFolderForSolution', N'9.0.4');
+    VALUES (N'20240910134034_AddCreateFolderForSolution', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -1031,7 +1031,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250513225308_ModuleVersionOptimizations', N'9.0.4');
+    VALUES (N'20250513225308_ModuleVersionOptimizations', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -1092,7 +1092,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250521194724_BreakOutReleaseNotes', N'9.0.4');
+    VALUES (N'20250521194724_BreakOutReleaseNotes', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -1259,7 +1259,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250523130151_AddDepuplicatedFilesAndAppTemplateType', N'9.0.4');
+    VALUES (N'20250523130151_AddDepuplicatedFilesAndAppTemplateType', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -1284,7 +1284,7 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250524150528_AddModuleVersionIndexes', N'9.0.4');
+    VALUES (N'20250524150528_AddModuleVersionIndexes', N'9.0.9');
 END;
 
 IF NOT EXISTS (
@@ -1435,7 +1435,970 @@ IF NOT EXISTS (
 )
 BEGIN
     INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-    VALUES (N'20250525193144_ApplicationTemplateUpdatesForSamples', N'9.0.4');
+    VALUES (N'20250525193144_ApplicationTemplateUpdatesForSamples', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250526225639_AddValueToVersionsIndex'
+)
+BEGIN
+    DROP INDEX [IX_ForRepositoryMethod_FindVersions] ON [ModuleVersion];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250526225639_AddValueToVersionsIndex'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_FindVersions] ON [ModuleVersion] ([IsListed], [Identifier], [VersionIsPrerelease], [MinClientInclusive], [MaxClientInclusive], [VersionNormalized]) INCLUDE ([MinClientVersionNormalized], [MaxClientVersionNormalized], [Version], [SupportedClientVersions]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250526225639_AddValueToVersionsIndex'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250526225639_AddValueToVersionsIndex', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DROP INDEX [IX_ApplicationTemplates_Identifier_Version] ON [ApplicationTemplates];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DROP INDEX [IX_ApplicationTemplates_MaxClientMajor_MaxClientMinor_MaxClientPatch_MaxClientInclusive] ON [ApplicationTemplates];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DROP INDEX [IX_ApplicationTemplates_MinClientMajor_MinClientMinor_MinClientPatch_MinClientInclusive] ON [ApplicationTemplates];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    EXEC sp_rename N'[ApplicationTemplates].[LastUpdated]', N'PublishedDate', 'COLUMN';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    EXEC sp_rename N'[ApplicationTemplates].[IsPrerelease]', N'VersionIsPrerelease', 'COLUMN';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    EXEC sp_rename N'[ApplicationTemplates].[IconSource]', N'IconUrl', 'COLUMN';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var24 sysname;
+    SELECT @var24 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'SupportedClientVersions');
+    IF @var24 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var24 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [SupportedClientVersions] nvarchar(64) NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var25 sysname;
+    SELECT @var25 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MinClientInclusive');
+    IF @var25 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var25 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [MinClientInclusive] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var26 sysname;
+    SELECT @var26 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MaxClientInclusive');
+    IF @var26 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var26 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [MaxClientInclusive] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [MaxClientVersionNormalized] nvarchar(100) NULL;
+    DECLARE @defaultSchema27 AS sysname;
+    SET @defaultSchema27 = SCHEMA_NAME();
+    DECLARE @description27 AS sql_variant;
+    SET @description27 = N'Stores a normalized string of the version (e.g. 0000000001.0000000002.0000000004-pre.0000000000) which is lexically sortable and comparable without requiring complicated SQL.';
+    EXEC sp_addextendedproperty 'MS_Description', @description27, 'SCHEMA', @defaultSchema27, 'TABLE', N'ApplicationTemplates', 'COLUMN', N'MaxClientVersionNormalized';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [MinClientVersionNormalized] nvarchar(100) NULL;
+    DECLARE @defaultSchema28 AS sysname;
+    SET @defaultSchema28 = SCHEMA_NAME();
+    DECLARE @description28 AS sql_variant;
+    SET @description28 = N'Stores a normalized string of the version (e.g. 0000000001.0000000002.0000000004-pre.0000000000) which is lexically sortable and comparable without requiring complicated SQL.';
+    EXEC sp_addextendedproperty 'MS_Description', @description28, 'SCHEMA', @defaultSchema28, 'TABLE', N'ApplicationTemplates', 'COLUMN', N'MinClientVersionNormalized';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [VersionNormalized] nvarchar(100) NULL;
+    DECLARE @defaultSchema29 AS sysname;
+    SET @defaultSchema29 = SCHEMA_NAME();
+    DECLARE @description29 AS sql_variant;
+    SET @description29 = N'Stores a normalized string of the version (e.g. 0000000001.0000000002.0000000004-pre.0000000000) which is lexically sortable and comparable without requiring complicated SQL.';
+    EXEC sp_addextendedproperty 'MS_Description', @description29, 'SCHEMA', @defaultSchema29, 'TABLE', N'ApplicationTemplates', 'COLUMN', N'VersionNormalized';
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    EXECUTE('---------------------------------------------------------------------------
+    -- Icons
+    ---------------------------------------------------------------------------
+    UPDATE [dbo].[ApplicationTemplates]
+    SET [IconUrl] = CASE
+        WHEN [IconType] = 1 THEN ''client-embedded://'' + [IconUrl]
+        WHEN [IconType] = 2 THEN ''font-awesome://'' + [IconUrl]
+        WHEN [IconType] = 3 THEN ''character-box://'' + [IconUrl]
+        ELSE [IconUrl]
+    END
+
+    ---------------------------------------------------------------------------
+    -- Versions
+    ---------------------------------------------------------------------------
+    DECLARE @padding as varchar(max) = ''0000000000000000000000000000000000'';
+    DECLARE @amount as int = 10;
+    DECLARE @specialChar as varchar(1) = ''Ð'';
+                     
+    WITH [VersionComponentsCTE_Pre0] AS (
+        SELECT
+            [Id],
+            JSON_VALUE(''["'' + REPLACE([Version], ''-'',''","'') + ''"]'',''$[0]'') AS [Version],
+            JSON_VALUE(''["'' + REPLACE(REPLACE([Version], ''+'', ''-''), ''-'', ''","'') + ''"]'',''$[1]'') AS [Prerelease]
+        FROM [ApplicationTemplates]
+    ),
+    [VersionComponentsCTE_Pre1] AS (
+        SELECT
+            *,
+            JSON_VALUE(''["'' + REPLACE([Version], ''.'', ''","'') + ''"]'',''$[0]'') AS [Major],
+            JSON_VALUE(''["'' + REPLACE([Version], ''.'', ''","'') + ''"]'',''$[1]'') AS [Minor],
+            JSON_VALUE(''["'' + REPLACE([Version], ''.'', ''","'') + ''"]'',''$[2]'') AS [Patch],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[0]'') AS [Pre0],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[1]'') AS [Pre1],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[2]'') AS [Pre2],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[3]'') AS [Pre3],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[4]'') AS [Pre4],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[5]'') AS [Pre5],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[6]'') AS [Pre6],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[7]'') AS [Pre7],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[8]'') AS [Pre8],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[9]'') AS [Pre9],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[10]'') AS [Pre10],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[11]'') AS [Pre11],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[12]'') AS [Pre12],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[13]'') AS [Pre13],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[14]'') AS [Pre14],
+            JSON_VALUE(''["'' + REPLACE([Prerelease], ''.'', ''","'') + ''"]'',''$[15]'') AS [Pre15]
+        FROM [VersionComponentsCTE_Pre0]
+    ),
+    [VersionComponentsCTE] AS (
+        SELECT
+            [Id],
+            CAST((CASE WHEN [Pre0] IS NOT NULL THEN 1 ELSE 0 END) AS bit) AS [VersionIsPrerelease],
+            CONCAT(
+                RIGHT(@padding + [Major], @amount),
+                ''.'',
+                RIGHT(@padding + [Minor], @amount),
+                ''.'',
+                RIGHT(@padding + [Patch], @amount),
+                ''-'',
+                CASE WHEN [Pre0] IS NULL THEN @specialChar ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre0] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre0], @amount) ELSE [Pre0] END,
+                CASE WHEN [Pre1] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre1] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre1], @amount) ELSE [Pre1] END,
+                CASE WHEN [Pre2] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre2] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre2], @amount) ELSE [Pre2] END,
+                CASE WHEN [Pre3] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre3] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre3], @amount) ELSE [Pre3] END,
+                CASE WHEN [Pre4] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre4] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre4], @amount) ELSE [Pre4] END,
+                CASE WHEN [Pre5] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre5] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre5], @amount) ELSE [Pre5] END,
+                CASE WHEN [Pre6] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre6] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre6], @amount) ELSE [Pre6] END,
+                CASE WHEN [Pre7] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre7] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre7], @amount) ELSE [Pre7] END,
+                CASE WHEN [Pre8] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre8] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre8], @amount) ELSE [Pre8] END,
+                CASE WHEN [Pre9] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre9] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre9], @amount) ELSE [Pre9] END,
+                CASE WHEN [Pre10] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre10] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre10], @amount) ELSE [Pre10] END,
+                CASE WHEN [Pre11] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre11] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre11], @amount) ELSE [Pre11] END,
+                CASE WHEN [Pre12] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre12] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre12], @amount) ELSE [Pre12] END,
+                CASE WHEN [Pre13] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre13] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre13], @amount) ELSE [Pre13] END,
+                CASE WHEN [Pre14] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre14] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre14], @amount) ELSE [Pre14] END,
+                CASE WHEN [Pre15] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([Pre15] AS INT) IS NOT NULL THEN RIGHT(@padding + [Pre15], @amount) ELSE [Pre15] END
+            ) AS [VersionNormalized]
+        FROM [VersionComponentsCTE_Pre1]
+    ),
+    [SupportedVersionsCTE_Pre0] AS (
+        SELECT DISTINCT([SupportedClientVersions])
+        FROM [ApplicationTemplates]
+    ),
+    [SupportedVersionsCTE_Pre1] AS (
+        SELECT
+            [SupportedClientVersions],
+            RTRIM(LTRIM(JSON_VALUE(''["'' + REPLACE([SupportedClientVersions], '','',''","'') + ''"]'',''$[0]''), ''[( ''), '' '') AS [Min],
+            LTRIM(RTRIM(JSON_VALUE(''["'' + REPLACE([SupportedClientVersions], '','',''","'') + ''"]'',''$[1]''), '']) ''), '' '') AS [Max],
+            CAST((CASE WHEN LEFT([SupportedClientVersions], 1) = ''('' THEN 0 ELSE 1 END) AS bit) AS [MinIsInclusive],
+            CAST((CASE WHEN RIGHT([SupportedClientVersions], 1) = '')'' THEN 0 ELSE 1 END) AS bit) AS [MaxIsInclusive]
+        FROM [SupportedVersionsCTE_Pre0]
+    ),
+    [SupportedVersionsCTE_Pre2] AS (
+        SELECT
+            *,
+            JSON_VALUE(''["'' + REPLACE([Min], ''-'',''","'') + ''"]'',''$[0]'') AS [MinVersion],
+            JSON_VALUE(''["'' + REPLACE(REPLACE([Min], ''+'', ''-''), ''-'', ''","'') + ''"]'',''$[1]'') AS [MinPrerelease],
+            JSON_VALUE(''["'' + REPLACE([Max], ''-'',''","'') + ''"]'',''$[0]'') AS [MaxVersion],
+            JSON_VALUE(''["'' + REPLACE(REPLACE([Max], ''+'', ''-''), ''-'', ''","'') + ''"]'',''$[1]'') AS [MaxPrerelease]
+        FROM [SupportedVersionsCTE_Pre1]
+    ),
+    [SupportedVersionsCTE_Pre3] AS (
+        SELECT
+            *,
+            JSON_VALUE(''["'' + REPLACE([MinVersion], ''.'', ''","'') + ''"]'',''$[0]'') AS [MinMajor],
+            JSON_VALUE(''["'' + REPLACE([MinVersion], ''.'', ''","'') + ''"]'',''$[1]'') AS [MinMinor],
+            JSON_VALUE(''["'' + REPLACE([MinVersion], ''.'', ''","'') + ''"]'',''$[2]'') AS [MinPatch],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[0]'') AS [MinPre0],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[1]'') AS [MinPre1],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[2]'') AS [MinPre2],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[3]'') AS [MinPre3],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[4]'') AS [MinPre4],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[5]'') AS [MinPre5],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[6]'') AS [MinPre6],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[7]'') AS [MinPre7],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[8]'') AS [MinPre8],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[9]'') AS [MinPre9],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[10]'') AS [MinPre10],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[11]'') AS [MinPre11],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[12]'') AS [MinPre12],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[13]'') AS [MinPre13],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[14]'') AS [MinPre14],
+            JSON_VALUE(''["'' + REPLACE([MinPrerelease], ''.'', ''","'') + ''"]'',''$[15]'') AS [MinPre15],
+            JSON_VALUE(''["'' + REPLACE([MaxVersion], ''.'', ''","'') + ''"]'',''$[0]'') AS [MaxMajor],
+            JSON_VALUE(''["'' + REPLACE([MaxVersion], ''.'', ''","'') + ''"]'',''$[1]'') AS [MaxMinor],
+            JSON_VALUE(''["'' + REPLACE([MaxVersion], ''.'', ''","'') + ''"]'',''$[2]'') AS [MaxPatch],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[0]'') AS [MaxPre0],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[1]'') AS [MaxPre1],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[2]'') AS [MaxPre2],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[3]'') AS [MaxPre3],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[4]'') AS [MaxPre4],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[5]'') AS [MaxPre5],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[6]'') AS [MaxPre6],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[7]'') AS [MaxPre7],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[8]'') AS [MaxPre8],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[9]'') AS [MaxPre9],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[10]'') AS [MaxPre10],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[11]'') AS [MaxPre11],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[12]'') AS [MaxPre12],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[13]'') AS [MaxPre13],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[14]'') AS [MaxPre14],
+            JSON_VALUE(''["'' + REPLACE([MaxPrerelease], ''.'', ''","'') + ''"]'',''$[15]'') AS [MaxPre15]
+        FROM [SupportedVersionsCTE_Pre2]
+    ),
+    [SupportedVersionsCTE] AS (
+        SELECT
+            [SupportedClientVersions],
+            [MinIsInclusive],
+            CONCAT(
+                RIGHT(@padding + [MinMajor], @amount),
+                ''.'',
+                RIGHT(@padding + [MinMinor], @amount),
+                ''.'',
+                RIGHT(@padding + [MinPatch], @amount),
+                ''-'',
+                CASE WHEN [MinPre0] IS NULL THEN @specialChar ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre0] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre0], @amount) ELSE [MinPre0] END,
+                CASE WHEN [MinPre1] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre1] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre1], @amount) ELSE [MinPre1] END,
+                CASE WHEN [MinPre2] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre2] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre2], @amount) ELSE [MinPre2] END,
+                CASE WHEN [MinPre3] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre3] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre3], @amount) ELSE [MinPre3] END,
+                CASE WHEN [MinPre4] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre4] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre4], @amount) ELSE [MinPre4] END,
+                CASE WHEN [MinPre5] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre5] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre5], @amount) ELSE [MinPre5] END,
+                CASE WHEN [MinPre6] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre6] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre6], @amount) ELSE [MinPre6] END,
+                CASE WHEN [MinPre7] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre7] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre7], @amount) ELSE [MinPre7] END,
+                CASE WHEN [MinPre8] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre8] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre8], @amount) ELSE [MinPre8] END,
+                CASE WHEN [MinPre9] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre9] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre9], @amount) ELSE [MinPre9] END,
+                CASE WHEN [MinPre10] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre10] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre10], @amount) ELSE [MinPre10] END,
+                CASE WHEN [MinPre11] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre11] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre11], @amount) ELSE [MinPre11] END,
+                CASE WHEN [MinPre12] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre12] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre12], @amount) ELSE [MinPre12] END,
+                CASE WHEN [MinPre13] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre13] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre13], @amount) ELSE [MinPre13] END,
+                CASE WHEN [MinPre14] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre14] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre14], @amount) ELSE [MinPre14] END,
+                CASE WHEN [MinPre15] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MinPre15] AS INT) IS NOT NULL THEN RIGHT(@padding + [MinPre15], @amount) ELSE [MinPre15] END
+            ) AS [MinClientVersionNormalized],
+            [MaxIsInclusive],
+            CONCAT(
+                RIGHT(@padding + [MaxMajor], @amount),
+                ''.'',
+                RIGHT(@padding + [MaxMinor], @amount),
+                ''.'',
+                RIGHT(@padding + [MaxPatch], @amount),
+                ''-'',
+                CASE WHEN [MaxPre0] IS NULL THEN @specialChar ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre0] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre0], @amount) ELSE [MaxPre0] END,
+                CASE WHEN [MaxPre1] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre1] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre1], @amount) ELSE [MaxPre1] END,
+                CASE WHEN [MaxPre2] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre2] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre2], @amount) ELSE [MaxPre2] END,
+                CASE WHEN [MaxPre3] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre3] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre3], @amount) ELSE [MaxPre3] END,
+                CASE WHEN [MaxPre4] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre4] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre4], @amount) ELSE [MaxPre4] END,
+                CASE WHEN [MaxPre5] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre5] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre5], @amount) ELSE [MaxPre5] END,
+                CASE WHEN [MaxPre6] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre6] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre6], @amount) ELSE [MaxPre6] END,
+                CASE WHEN [MaxPre7] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre7] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre7], @amount) ELSE [MaxPre7] END,
+                CASE WHEN [MaxPre8] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre8] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre8], @amount) ELSE [MaxPre8] END,
+                CASE WHEN [MaxPre9] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre9] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre9], @amount) ELSE [MaxPre9] END,
+                CASE WHEN [MaxPre10] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre10] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre10], @amount) ELSE [MaxPre10] END,
+                CASE WHEN [MaxPre11] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre11] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre11], @amount) ELSE [MaxPre11] END,
+                CASE WHEN [MaxPre12] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre12] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre12], @amount) ELSE [MaxPre12] END,
+                CASE WHEN [MaxPre13] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre13] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre13], @amount) ELSE [MaxPre13] END,
+                CASE WHEN [MaxPre14] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre14] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre14], @amount) ELSE [MaxPre14] END,
+                CASE WHEN [MaxPre15] IS NOT NULL THEN ''.'' ELSE NULL END,
+                CASE WHEN TRY_CAST([MaxPre15] AS INT) IS NOT NULL THEN RIGHT(@padding + [MaxPre15], @amount) ELSE [MaxPre15] END
+            ) AS [MaxClientVersionNormalized]
+        FROM [SupportedVersionsCTE_Pre3]
+    )
+    UPDATE [AT]
+    SET
+        [AT].[VersionNormalized] = [VC].[VersionNormalized],
+        [AT].[VersionIsPrerelease] = [VC].[VersionIsPrerelease],
+        [AT].[MinClientInclusive] = [SV].[MinIsInclusive],
+        [AT].[MinClientVersionNormalized] = [SV].[MinClientVersionNormalized],
+        [AT].[MaxClientInclusive] = CASE WHEN [SV].[MaxClientVersionNormalized] = ''..-Ð'' THEN NULL ELSE [SV].[MaxIsInclusive] END,
+        [AT].[MaxClientVersionNormalized] = CASE WHEN [SV].[MaxClientVersionNormalized] = ''..-Ð'' THEN NULL ELSE [SV].[MaxClientVersionNormalized] END
+    FROM [dbo].[ApplicationTemplates] AS [AT]
+    LEFT OUTER JOIN [VersionComponentsCTE] AS [VC] ON [VC].[Id] = [AT].[Id]
+    LEFT OUTER JOIN [SupportedVersionsCTE] AS [SV] ON [SV].[SupportedClientVersions] = [AT].[SupportedClientVersions]')
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var30 sysname;
+    SELECT @var30 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'CreateDateTime');
+    IF @var30 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var30 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [CreateDateTime];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var31 sysname;
+    SELECT @var31 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'CreatedBy');
+    IF @var31 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var31 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [CreatedBy];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var32 sysname;
+    SELECT @var32 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'IconType');
+    IF @var32 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var32 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [IconType];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var33 sysname;
+    SELECT @var33 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MajorVersion');
+    IF @var33 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var33 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MajorVersion];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var34 sysname;
+    SELECT @var34 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MaxClientMajor');
+    IF @var34 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var34 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MaxClientMajor];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var35 sysname;
+    SELECT @var35 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MaxClientMinor');
+    IF @var35 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var35 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MaxClientMinor];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var36 sysname;
+    SELECT @var36 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MaxClientPatch');
+    IF @var36 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var36 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MaxClientPatch];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var37 sysname;
+    SELECT @var37 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MinClientMajor');
+    IF @var37 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var37 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MinClientMajor];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var38 sysname;
+    SELECT @var38 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MinClientMinor');
+    IF @var38 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var38 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MinClientMinor];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var39 sysname;
+    SELECT @var39 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MinClientPatch');
+    IF @var39 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var39 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MinClientPatch];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var40 sysname;
+    SELECT @var40 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'MinorVersion');
+    IF @var40 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var40 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [MinorVersion];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var41 sysname;
+    SELECT @var41 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'PatchVersion');
+    IF @var41 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var41 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [PatchVersion];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var42 sysname;
+    SELECT @var42 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'ProjectUrl');
+    IF @var42 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var42 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [ProjectUrl];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var43 sysname;
+    SELECT @var43 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'UpdateDateTime');
+    IF @var43 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var43 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [UpdateDateTime];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var44 sysname;
+    SELECT @var44 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'UpdatedBy');
+    IF @var44 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var44 + '];');
+    ALTER TABLE [ApplicationTemplates] DROP COLUMN [UpdatedBy];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    DECLARE @var45 sysname;
+    SELECT @var45 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'VersionNormalized');
+    IF @var45 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var45 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [VersionNormalized] nvarchar(100) NOT NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_Find] ON [ApplicationTemplates] ([Identifier], [Version]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_Search] ON [ApplicationTemplates] ([IsListed], [VersionIsPrerelease]) INCLUDE ([Identifier], [Version], [Type], [Priority], [DisplayName], [ShortDescription], [Authors], [IconUrl], [Tags], [SupportedClientVersions], [MinClientInclusive], [MinClientVersionNormalized], [MaxClientInclusive], [MaxClientVersionNormalized], [IconFileId], [CoverImageFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527130019_ApplicationTemplateSearchOptimizations'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250527130019_ApplicationTemplateSearchOptimizations', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527151159_TweakAppTemplatesSearchIndex'
+)
+BEGIN
+    DROP INDEX [IX_ForRepositoryMethod_Search] ON [ApplicationTemplates];
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527151159_TweakAppTemplatesSearchIndex'
+)
+BEGIN
+    CREATE INDEX [IX_ForRepositoryMethod_Search] ON [ApplicationTemplates] ([IsListed], [VersionIsPrerelease]) INCLUDE ([Identifier], [Version], [Type], [Priority], [DisplayName], [ShortDescription], [Authors], [IconUrl], [Tags], [SupportedClientVersions], [MinClientInclusive], [MinClientVersionNormalized], [MaxClientInclusive], [MaxClientVersionNormalized], [IconFileId], [CoverImageFileId], [VersionNormalized]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250527151159_TweakAppTemplatesSearchIndex'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250527151159_TweakAppTemplatesSearchIndex', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250808082726_AddedSampleCreationRuleFields'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [AllowRenameApplication] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250808082726_AddedSampleCreationRuleFields'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [IncludesSourceCode] bit NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250808082726_AddedSampleCreationRuleFields'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250808082726_AddedSampleCreationRuleFields', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132732_AddedDocumentationTable'
+)
+BEGIN
+    CREATE TABLE [DocumentationTopics] (
+        [Id] uniqueidentifier NOT NULL,
+        [ModuleId] uniqueidentifier NOT NULL,
+        [IconFileId] uniqueidentifier NULL,
+        [Title] nvarchar(150) NOT NULL,
+        [Description] nvarchar(1000) NOT NULL,
+        [IconUrl] nvarchar(1000) NULL,
+        [Href] nvarchar(2048) NOT NULL,
+        [Tags] nvarchar(1000) NULL,
+        [ContextIds] nvarchar(4000) NULL,
+        CONSTRAINT [PK_DocumentationTopics] PRIMARY KEY ([Id]),
+        CONSTRAINT [FK_DocumentationTopics_DeduplicatedFiles_IconFileId] FOREIGN KEY ([IconFileId]) REFERENCES [DeduplicatedFiles] ([Id]) ON DELETE NO ACTION,
+        CONSTRAINT [FK_DocumentationTopics_Modules_ModuleId] FOREIGN KEY ([ModuleId]) REFERENCES [Modules] ([Id]) ON DELETE CASCADE
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132732_AddedDocumentationTable'
+)
+BEGIN
+    CREATE INDEX [IX_DocumentationTopics_IconFileId] ON [DocumentationTopics] ([IconFileId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132732_AddedDocumentationTable'
+)
+BEGIN
+    CREATE INDEX [IX_DocumentationTopics_ModuleId] ON [DocumentationTopics] ([ModuleId]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132732_AddedDocumentationTable'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250930132732_AddedDocumentationTable', N'9.0.9');
+END;
+
+COMMIT;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132753_AddedDocumentationFullTextIndex'
+)
+BEGIN
+    EXECUTE('IF FULLTEXTSERVICEPROPERTY(''IsFullTextInstalled'') = 1
+       AND EXISTS (SELECT 1
+                   FROM sys.databases
+                   WHERE database_id = DB_ID()
+                     AND is_fulltext_enabled = 1)
+    BEGIN
+        EXECUTE(''
+            IF NOT EXISTS (SELECT 1 FROM sys.fulltext_catalogs WHERE name = N''''ftc_docs'''')
+                CREATE FULLTEXT CATALOG [ftc_docs];
+
+            IF NOT EXISTS (
+                SELECT 1
+                FROM sys.fulltext_indexes fi
+                JOIN sys.objects o ON o.object_id = fi.object_id
+                WHERE o.name = N''''DocumentationTopics''''
+                  AND SCHEMA_NAME(o.schema_id) = N''''dbo''''
+            )
+            BEGIN
+                CREATE FULLTEXT INDEX ON [dbo].[DocumentationTopics]
+                (
+                    [Title] LANGUAGE 1033,
+                    [Description] LANGUAGE 1033,
+                    [Tags] LANGUAGE 1033
+                )
+                KEY INDEX [PK_DocumentationTopics]
+                ON [ftc_docs]
+                WITH CHANGE_TRACKING AUTO;
+            END
+        '')
+    END')
+END;
+GO
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20250930132753_AddedDocumentationFullTextIndex'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20250930132753_AddedDocumentationFullTextIndex', N'9.0.9');
+END;
+GO
+
+BEGIN TRANSACTION;
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251105061316_AddOrganizationId'
+)
+BEGIN
+    ALTER TABLE [ModuleVersion] ADD [OrganizationId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251105061316_AddOrganizationId'
+)
+BEGIN
+    ALTER TABLE [Modules] ADD [OrganizationId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251105061316_AddOrganizationId'
+)
+BEGIN
+    ALTER TABLE [DocumentationTopics] ADD [OrganizationId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251105061316_AddOrganizationId'
+)
+BEGIN
+    ALTER TABLE [ApplicationTemplates] ADD [OrganizationId] uniqueidentifier NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251105061316_AddOrganizationId'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20251105061316_AddOrganizationId', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251111231737_AddAuditing'
+)
+BEGIN
+    CREATE TABLE [AuditEntries] (
+        [Id] uniqueidentifier NOT NULL,
+        [ApiKey] nvarchar(128) NULL,
+        [PerformedById] uniqueidentifier NULL,
+        [PerformedBy] nvarchar(max) NULL,
+        [Timestamp] datetimeoffset NOT NULL,
+        [Type] int NOT NULL,
+        [AdditionalDetails] nvarchar(max) NOT NULL,
+        CONSTRAINT [PK_AuditEntries] PRIMARY KEY ([Id])
+    );
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251111231737_AddAuditing'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20251111231737_AddAuditing', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251120114738_Module_MinimumLicenseRequired'
+)
+BEGIN
+    ALTER TABLE [ModuleVersion] ADD [MinimumLicenseRequired] nvarchar(64) NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251120114738_Module_MinimumLicenseRequired'
+)
+BEGIN
+    ALTER TABLE [Modules] ADD [MinimumLicenseRequired] nvarchar(64) NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20251120114738_Module_MinimumLicenseRequired'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20251120114738_Module_MinimumLicenseRequired', N'9.0.9');
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20261109135133_WidenVersionColumns'
+)
+BEGIN
+    DECLARE @var46 sysname;
+    SELECT @var46 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[Modules]') AND [c].[name] = N'LatestStableVersion');
+    IF @var46 IS NOT NULL EXEC(N'ALTER TABLE [Modules] DROP CONSTRAINT [' + @var46 + '];');
+    ALTER TABLE [Modules] ALTER COLUMN [LatestStableVersion] nvarchar(64) NOT NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20261109135133_WidenVersionColumns'
+)
+BEGIN
+    DECLARE @var47 sysname;
+    SELECT @var47 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ModuleDependency]') AND [c].[name] = N'VersionSpec');
+    IF @var47 IS NOT NULL EXEC(N'ALTER TABLE [ModuleDependency] DROP CONSTRAINT [' + @var47 + '];');
+    ALTER TABLE [ModuleDependency] ALTER COLUMN [VersionSpec] nvarchar(132) NOT NULL;
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20261109135133_WidenVersionColumns'
+)
+BEGIN
+    DROP INDEX [IX_ForRepositoryMethod_Find] ON [ApplicationTemplates];
+    DROP INDEX [IX_ForRepositoryMethod_Search] ON [ApplicationTemplates];
+    DECLARE @var48 sysname;
+    SELECT @var48 = [d].[name]
+    FROM [sys].[default_constraints] [d]
+    INNER JOIN [sys].[columns] [c] ON [d].[parent_column_id] = [c].[column_id] AND [d].[parent_object_id] = [c].[object_id]
+    WHERE ([d].[parent_object_id] = OBJECT_ID(N'[ApplicationTemplates]') AND [c].[name] = N'Version');
+    IF @var48 IS NOT NULL EXEC(N'ALTER TABLE [ApplicationTemplates] DROP CONSTRAINT [' + @var48 + '];');
+    ALTER TABLE [ApplicationTemplates] ALTER COLUMN [Version] nvarchar(64) NOT NULL;
+    CREATE INDEX [IX_ForRepositoryMethod_Find] ON [ApplicationTemplates] ([Identifier], [Version]);
+    CREATE INDEX [IX_ForRepositoryMethod_Search] ON [ApplicationTemplates] ([IsListed], [VersionIsPrerelease]) INCLUDE ([Identifier], [Version], [Type], [Priority], [DisplayName], [ShortDescription], [Authors], [IconUrl], [Tags], [SupportedClientVersions], [MinClientInclusive], [MinClientVersionNormalized], [MaxClientInclusive], [MaxClientVersionNormalized], [IconFileId], [CoverImageFileId], [VersionNormalized]);
+END;
+
+IF NOT EXISTS (
+    SELECT * FROM [ModuleServer].[__EFMigrationsHistory]
+    WHERE [MigrationId] = N'20261109135133_WidenVersionColumns'
+)
+BEGIN
+    INSERT INTO [ModuleServer].[__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20261109135133_WidenVersionColumns', N'9.0.9');
 END;
 
 COMMIT;
