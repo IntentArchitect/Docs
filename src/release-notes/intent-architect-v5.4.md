@@ -61,7 +61,7 @@ To change an earlier answer, a settled `ask_user_question` row can now be expand
 
 #### Switch AI provider mid-chat
 
-To get a second opinion or use a different model's strengths, the AI provider can now be changed in the middle of a chat, for example from Claude Code to Codex or Intent AI. The new provider continues the same conversation with the earlier messages handed over, instead of starting from scratch. A "Switched from X to Y" divider marks each switch, and expanding it shows how many messages and tool calls were handed over.
+Previously, switching AI provider in a chat left the new provider with no memory of what had been discussed. To get a second opinion or use a different model's strengths without repeating yourself, the new provider now continues the same conversation with the earlier messages handed over, for example when switching from Claude Code to Codex or Intent AI. A "Switched from X to Y" divider marks each switch, and expanding it shows how many messages and tool calls were handed over.
 
 ![A "Switched from Claude Code to Codex CLI" divider, with Codex answering from the earlier conversation](images/5.4.x/ai-provider-switch.png)
 
