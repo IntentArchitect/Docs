@@ -23,15 +23,6 @@ This release polishes features introduced in 5.4: pull request support, Change R
 
 ### Highlights in 5.4.2
 
-#### Switch AI provider mid-chat
-
-To get a second opinion or use a different model's strengths, the AI provider can now be changed in the middle of a chat, for example from Claude Code to Codex or Intent AI. The new provider continues the same conversation with the earlier messages handed over, instead of starting from scratch. A "Switched from X to Y" divider marks each switch, and expanding it shows how many messages and tool calls were handed over.
-
-![A "Switched from Claude Code to Codex CLI" divider, with Codex answering from the earlier conversation](images/5.4.x/ai-provider-switch.png)
-
-> [!TIP]
-> **Try it:** In an existing chat, pick a different provider in the model picker and send your next message.
-
 #### Faster Software Factory
 
 To shorten the wait before changes are ready for review, the Software Factory's "Preparing changes" stage now processes files concurrently for transformers that support it. The chart below shows an example from one of Intent Architect's own applications; results vary with the size of the application.
@@ -67,6 +58,15 @@ To change an earlier answer, a settled `ask_user_question` row can now be expand
 
 > [!TIP]
 > **Try it:** In a chat where an agent has asked you a question, click the answered question row to expand it, then choose **Fork and re-ask**.
+
+#### Switch AI provider mid-chat
+
+To get a second opinion or use a different model's strengths, the AI provider can now be changed in the middle of a chat, for example from Claude Code to Codex or Intent AI. The new provider continues the same conversation with the earlier messages handed over, instead of starting from scratch. A "Switched from X to Y" divider marks each switch, and expanding it shows how many messages and tool calls were handed over.
+
+![A "Switched from Claude Code to Codex CLI" divider, with Codex answering from the earlier conversation](images/5.4.x/ai-provider-switch.png)
+
+> [!TIP]
+> **Try it:** In an existing chat, pick a different provider in the model picker and send your next message.
 
 #### Create and push git tags
 
