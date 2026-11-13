@@ -23,6 +23,15 @@ This release polishes features introduced in 5.4: pull request support, Change R
 
 ### Highlights in 5.4.2
 
+#### Switch AI provider mid-chat
+
+To get a second opinion or use a different model's strengths, the AI provider can now be changed in the middle of a chat, for example from Claude Code to Codex or Intent AI. The new provider continues the same conversation with the earlier messages handed over, instead of starting from scratch. A "Switched from X to Y" divider marks each switch, and expanding it shows how many messages and tool calls were handed over.
+
+![A "Switched from Claude Code to Codex CLI" divider, with Codex answering from the earlier conversation](images/5.4.x/ai-provider-switch.png)
+
+> [!TIP]
+> **Try it:** In an existing chat, pick a different provider in the model picker and send your next message.
+
 #### Faster Software Factory
 
 To shorten the wait before changes are ready for review, the Software Factory's "Preparing changes" stage now processes files concurrently for transformers that support it. The chart below shows an example from one of Intent Architect's own applications; results vary with the size of the application.
@@ -79,7 +88,6 @@ To release or mark a point in history without leaving Intent Architect, tags can
 - Improvement: Comments can be added to changed spec criteria from a pull request's Change Review.
 - Improvement: Files and tabs dropped onto an md/mdx document are inserted as links instead of pasting their contents, and F2 renames a linked file.
 - Improvement: The thinking level is now a slider in the model picker instead of a chip in the chat's action row.
-- Improvement: Switching AI provider mid-chat now continues the same conversation, with a "Switched from X to Y" divider showing what was handed over.
 - Improvement: Child chats run in the parent's folder when it isn't in Git, and the approval card lets each child chat's worktree be chosen.
 - Improvement: Child chat activity now shows in a chat's status, and deleting or archiving a parent chat cascades to its child chats.
 - Improvement: Claude Code sub-agent rows are named after the sub-agent's description, and a finished sub-agent reloads as done with its report.
