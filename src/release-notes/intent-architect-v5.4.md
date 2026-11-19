@@ -17,6 +17,8 @@ This release introduces mockups in documents and chat, alongside the usual fixes
 
 To show what a screen will look like once a requirement is built, a spec or an agent's chat reply can now include an HTML mockup. A `mockup-kit` skill captures an application's real styles so mockups match its look.
 
+![Comments being added to an Order History mockup of the eShop storefront in an AI chat reply](images/5.4.x/mockups-in-chat.png)
+
 > [!TIP]
 > **Try it:** Ask an agent to "mock up an order history screen for the eShop" and use the `mockup-kit` skill, then click Maximize on the mockup in the reply.
 
@@ -24,12 +26,16 @@ To show what a screen will look like once a requirement is built, a spec or an a
 
 When a child chat needs an answer, it can now be answered from any chat above it, so the person doesn't have to open each child. A switcher strip moves between the questions waiting, and an unanswered question counts as needing attention on every ancestor. Proposals on the Approval Card can also have their model and branch changed before they start.
 
+![Two child chat questions waiting in the parent chat, with a switcher strip above the question](images/5.4.x/child-chat-questions.png)
+
 > [!TIP]
 > **Try it:** Ask an agent to "start two child chats that each ask me a question before they begin", then answer one from the parent chat using the switcher strip.
 
 #### Simpler AI Providers setup
 
 To get a provider working without leaving the app, the AI Providers tab now lists each provider in a row with its connection status, API key and inline setup. The setup runs the provider's install, update and sign-in commands in a terminal, and a card in the chat offers to run the login command when an agent is signed out.
+
+![The AI Providers tab listing connected providers and providers that can be added](images/5.4.x/ai-providers-setup.png)
 
 > [!TIP]
 > **Try it:** Open the AI Configuration tab, choose **AI Providers** and use the setup box on a provider that isn't connected.
