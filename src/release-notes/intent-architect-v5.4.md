@@ -5,15 +5,90 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.3: covers publish/client/5.4.2..publish/client/5.4.3-pre.0 (c608e5538c, 2026-11-12). No 5.4.3 tag yet. Add later commits after c608e5538c. -->
+<!-- 5.4.3: covers publish/client/5.4.2..HEAD of release/5.4.x (d166816f9d, 2026-11-18). No 5.4.3 tag yet (only 5.4.3-pre.0). Add later commits after d166816f9d. -->
 
 ## Version 5.4.3
 
-<!-- TODO: confirm the release narrative (one or two sentences on what 5.4.3 is about) once more changes arrive. -->
+This release introduces mockups in documents and chat, alongside the usual fixes and performance improvements.
+
+### Highlights in 5.4.3
+
+#### Mockups in documents and chat
+
+To show what a screen will look like once a requirement is built, a spec or an agent's chat reply can now include an HTML mockup. A `mockup-kit` skill captures an application's real styles so mockups match its look.
+
+> [!TIP]
+> **Try it:** Ask an agent to "mock up an order history screen for the eShop" and use the `mockup-kit` skill, then click Maximize on the mockup in the reply.
+
+#### Answering child chat questions from any ancestor chat
+
+When a child chat needs an answer, it can now be answered from any chat above it, so the person doesn't have to open each child. A switcher strip moves between the questions waiting, and an unanswered question counts as needing attention on every ancestor. Proposals on the Approval Card can also have their model and branch changed before they start.
+
+> [!TIP]
+> **Try it:** Ask an agent to "start two child chats that each ask me a question before they begin", then answer one from the parent chat using the switcher strip.
+
+#### Simpler AI Providers setup
+
+To get a provider working without leaving the app, the AI Providers tab now lists each provider in a row with its connection status, API key and inline setup. The setup runs the provider's install, update and sign-in commands in a terminal, and a card in the chat offers to run the login command when an agent is signed out.
+
+> [!TIP]
+> **Try it:** Open the AI Configuration tab, choose **AI Providers** and use the setup box on a provider that isn't connected.
+
+### Improvements in 5.4.3
+
+- Improvement: PDF exports keep headings with the content after them, and default the file name to the spec's title.
+- Improvement: The chat composer has a redesigned floating card, send and stop buttons and pills, and the card also shows in the docked chat.
+- Improvement: The Model picker shows the thinking level in use next to the model name, and Claude Code's Ultracode mode is a per-chat switch beside it.
+- Improvement: The plan card's "Implement with" picker has a Thinking level slider.
+- Improvement: Pressing Stop in an AI chat now returns at once instead of waiting for the agent to shut down.
+- Improvement: Usage-limit notices from Claude Code fail the turn as an error instead of completing it, and a reopened chat shows the permission mode it was using.
+- Improvement: A free-text "Other" answer to a question is now sent to the agent as the person's next message, so the agent replies to it before doing anything else.
+- Improvement: Clicking the image icon of a linked image in a chat reply shows it inline and opens it in the pan and zoom pane when clicked.
+- Improvement: File and external links in chat and documents show their full path in tooltips and have right-click menus with Copy path and reveal in the file manager, and bare file names link sooner.
+- Improvement: Changed files in the docked chat have a right-click menu, and HTML files can be previewed from the codebase tree and chat changes with zoom.
+- Improvement: A Tabs Readout in the Status Bar lists every open tab in a menu, with a Close all tabs item.
+- Improvement: Right-clicking an image in an Image View offers Copy image, and Ctrl + C copies it too.
+- Improvement: Chat reply rows, the sent message and tool rows animate in only as they arrive live.
+- Improvement: Refresh buttons spin and are disabled while their panel is busy.
+- Improvement: Change Review shows "Loading diff…" while a diff is fetched and painted, keeps its file lists when a refresh can't reach Git, and distinguishes files that aren't classified from files with an explicit review importance of None.
+- Improvement: Change Review hides design and tasks document changes, tints added and removed spec criteria, and shows criterion wording in comments.
+- Improvement: Specs can live at the repository root and in each solution's folder, and the Specs panel lists each home as a section when several hold specs.
+- Improvement: A nested git repository appears in Source Control as a repository row, with a Switch to this repository action.
+- Improvement: Pull requests accept WebM and MP4 videos, uploaded at up to 100 MB.
+- Improvement: The Software Factory pill plays a sheen when a run starts and a green wash when it completes, and an idle run reads "Stopped" in its tooltip.
+- Improvement: Loading indicators use one standard ring across the app.
+- Improvement: The MDX validator reports prose placeholders such as `{step}` when a document is written.
+- Improvement: Built-in skills and rules are seeded when a solution is created instead of when an application is added, and the Sync preference reads Ask me, Auto sync or Off, with a Sync now button on the chat banner.
+- Improvement: `install_or_update_modules` can target several applications in one call and reports each application's result, and `getModuleUpdates` lists installed modules that have an update.
+- Improvement: Intent tool definitions are shorter, and the `import_code` tool has been removed.
+- Improvement: Scripts can call `console.info`.
+- Improvement: Analytics events for tool calls are coalesced, so a script that loops over a designer no longer exhausts memory.
+- Improvement: `initialize-brown-field` runs its phases in sub-agents and `classify-codebase` builds File Classifications around the existing designer entries.
 
 ### Fixes in 5.4.3
 
 - Fixed: The exclude tree in the RDBMS import dialog could appear empty, and a selection made in it might not reach the import script.
+- Fixed: A message sent just after pressing Stop could itself be stopped.
+- Fixed: AI chat turns could hang for minutes after the agent had finished, and Stop could not interrupt them.
+- Fixed: A turn that stalled late could end silently after earlier stalls had been nudged.
+- Fixed: Ctrl + Tab, Ctrl + Shift + Tab, Ctrl + W and Ctrl + Shift + W did nothing on the AI Configuration tab.
+- Fixed: A restored file tab could show a blank pane the first time a folder was opened.
+- Fixed: An async macro that never finished could cause every later save to fail with "designer did not settle".
+- Fixed: A chat's plan could open over an unrelated work item.
+- Fixed: Module icons that use Font Awesome showed blank.
+- Fixed: Console output from a script run through `navigateToDesigner` didn't reach the AI caller, and such a script could hang waiting on a dialog.
+- Fixed: A change made while a designer was reloading, such as after applying a stash, could be lost.
+- Fixed: A newly opened designer tab could show as unsaved for a moment after loading.
+- Fixed: `findElements({ type })` silently matched every element.
+- Fixed: A tall question card could scroll its close and Submit buttons out of view.
+- Fixed: The spec approval bar could jump while a file loaded.
+- Fixed: Association ends in a `ModelRef` showed the raw ID and "no longer in the model".
+- Fixed: Module search failed when a single repository had a problem, and the install change count included modules that hadn't changed.
+- Fixed: Skills and Rules group header names overlapped "Update all" in a narrow panel.
+- Fixed: A preview recording's video time bar ran ahead of the picture and jumped to the end.
+- Fixed: An unknown block, or a block that failed to render, stopped the whole document from displaying.
+- Fixed: A paragraph holding only a URL showed as an empty line in the Inline editor.
+- Fixed: The expanded row of an answered question showed its question and option descriptions as plain text instead of markdown.
 
 ## Version 5.4.2
 

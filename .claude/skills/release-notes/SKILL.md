@@ -132,6 +132,7 @@ Every highlight (each `###` feature section in an `X.Y.0` section, and each entr
 - If the feature is always on, say so and give something to do to see it: "It's always on. Ask an agent to … then click …".
 - Link docs with `xref:` only when a setup step or option needs it.
 - Don't invent steps. Confirm the path against the commits or the app, and ask the user if unsure.
+- Examples a reader could run in a prompt (agent prompts, sample content) must suit the eShop sample solution (`../Sample.Demo.eShop`), not Intent Architect itself, e.g. "mock up an order history screen for the eShop".
 - Improvements and Fixes bullets don't get one.
 
 ## Screenshots
@@ -156,6 +157,7 @@ Match the most recent version sections in the file — the style has evolved, so
   - Bad: "Searching a solution used to mean leaving Intent Architect for your editor. Find and Replace in Files now searches…"
   - Good: "It's now possible to search and replace across every file in a solution. In the Agents window, `Ctrl + Shift + F` opens the Search panel…"
 - **Keep feature sections short.** Open with the rationale, then the headline capability and how to reach it, in one or two short paragraphs. Leave out secondary details (settings, defaults, menu items, tool names, edge cases); they can go in the Improvements list if they matter.
+- **Describe what it gives, not how it works.** Don't list the mechanics of a feature (views, toggles, controls, gestures, internal blocks or syntax, the steps it takes). State the capability and its outcome in a sentence or two, and leave the how to the Try it tip. Bad: "The mockup appears in place with Before and After views, and can be maximized, zoomed and commented on." Good: "A spec or an agent's chat reply can now include an HTML mockup of a screen."
 - **Natural but impersonal.** Write the way a person would describe the release, not like a list of spec facts, but don't address the reader directly. Prefer "It's now possible to…" or "X now does…" over "You can now…", and "a solution" over "your solution". Start with what the feature makes possible and how to get to it, and keep sentences short.
 - **Lead the rationale with the capability, not a "used to" setup.** Don't open with "X meant doing Y", "Y was hard", or "A did not…" before the feature appears; it reads as AI-generated. State the capability first and fold the reason in as a purpose, e.g. "To catch up on an application after time away, a new Application Overview tab shows…" or "A pull request's assignees can now be set from Intent Architect… without going to the git host's website."
   - Bad: "Setting assignees or labels meant switching to the git host's website. These can now be done from a pull request."
