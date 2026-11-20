@@ -17,7 +17,7 @@ This release introduces mockups in documents and chat, alongside the usual fixes
 
 To show what a screen will look like once a requirement is built, a spec or an agent's chat reply can now include an HTML mockup. A `mockup-kit` skill captures an application's real styles so mockups match its look.
 
-![Comments being added to an Order History mockup of the eShop storefront in an AI chat reply](images/5.4.x/mockups-in-chat.png)
+<p><video style="max-width: 100%" controls src="videos/5.4.x/mockups-in-chat.mp4"></video></p>
 
 > [!TIP]
 > **Try it:** Ask an agent to "mock up an order history screen for the eShop" and use the `mockup-kit` skill, then click Maximize on the mockup in the reply.
