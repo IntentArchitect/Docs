@@ -8,5 +8,5 @@ items:
 - name: Advanced Validation Tools
   href: advanced-validation-tools.md
 
-- name: Spec-Driven Development with Traceability
+- name: Living Specifications and Mockups
   href: sdd-with-traceability.md

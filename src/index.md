@@ -190,11 +190,11 @@ html[data-theme="dark"] .ia-overview .card {
 
 # Introduction to Intent Architect
 
-Intent Architect is the first end-to-end control plane for agentic .NET software development.
+Intent Architect is the first end-to-end control plane for agentic software development.
 
-It's the platform .NET teams use to turn AI into a well-governed, repeatable, and enterprise-scale software delivery system, using their preferred service providers and coding harnesses.
+It's the platform teams use to turn AI into a well-governed, repeatable, and enterprise-scale software delivery system, using their preferred service providers and coding harnesses.
 
-It brings reliable architectural guardrails, authoritative design blueprints, and advanced governance tools to agentic development – giving teams the control they need to scale AI-driven velocity, without compromising on quality and accountability.
+It brings living specifications, reliable architectural guardrails, authoritative design blueprints, and intent-based review systems to agentic development – adding the control teams need to scale it quickly, safely, and reliably.
 
 ![Overview](introducing/images/docs-landing-page-v1.png)
 
@@ -267,10 +267,10 @@ It brings reliable architectural guardrails, authoritative design blueprints, an
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Spec-Driven Development with Traceability</strong>
-        <p class="card-text">Go from requirements to production-ready code, step by step, with full traceability. Drive agentic development with high-quality specifications that are easier to comprehend and traceability features that answer the why – exactly which requirements drove which code, and vice versa.</p>
+        <strong class="card-title">Living Specifications and Mockups</strong>
+        <p class="card-text">Hold agents accountable and prevent behavioural regressions. Living specs give you an always-accurate, proven description of your system's behaviour, so you can track how it evolves in natural language. Plus, preview changes as mockups of your actual system before implementation.</p>
       </div>
-      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="SDD with Traceability"></a>
+      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="Living Specifications and Mockups"></a>
     </div>
   </li>
 </ul>

@@ -3,25 +3,27 @@ uid: key-concepts.non-deterministic-codegen
 description: "How Intent Architect's Spec-Driven Development environment takes teams from requirements to production-ready code, with end-to-end traceability."
 ---
 
-# Spec-Driven Development with Traceability
+# Living Specifications and Mockups
 
-Driving an agentic coding process starts with generating good specifications – without them, coding agents are inaccurate and inconsistent. Intent Architect provides a full spec-driven development (SDD) environment that guides teams from requirements to design specifications to code, step by step, and can import specifications from external tools such as BMAD, Spec Kit and Kiro. Traceability systems then answer the why: exactly which requirements or specifications drove which code, and which code exists because of which requirement. These links are discoverable in Change Review, the visual models and the SDD environment, connecting the upstream to the downstream across the entire SDLC.
+To drive an agentic development process, teams need high-quality specifications. But specifications go stale, so they can't describe how the system behaves or prevent behavioral regressions. Intent Architect is the first platform to enable living specifications: an always-accurate description of your system's behavior, traced to the code and proven by the tests that cite it. Every behavioral change is made explicit, so teams can track how the system evolves in natural language, instead of reverse engineering code.
+
+Teams can also generate mockups of their actual system, built from its real layout, screens and styles, to preview changes and confirm requirements before implementation.
 
 ---
 
 ## Key benefits
 
-- **📋 Go from business requirements to production-ready code, step by step**
+- **📋 Hold agents accountable and prevent behavioral regressions**
 
-  Effective agentic software delivery requires high-quality specifications. Intent Architect provides a full spec-driven development (SDD) environment that guides teams from business requirements through design specifications to production-ready code, step by step, so agents implement accurately, and teams deliver predictably. It also allows teams to import specifications from external tools such as BMAD, Spec Kit, Kiro, etc.
+  Intent Architect is the first platform to enable living specifications: specs that always represent the current state of the codebase, and are continuously tested and updated as agents make changes to the system. Teams prevent behavioral regressions by tracking changes in natural language, rather than relying purely on tests or onerous code reviews. Specs can also be imported from tools like BMAD, Spec Kit, OpenSpec, Kiro etc. and transformed into living specifications.
 
-- **📖 MDX format – More intuitive and easier to internalize**
+- **🖼️ Preview changes as mockups of your actual system**
 
-  Specifications can only drive development if they remain intuitive and easy to comprehend. Intent Architect generates specifications in MDX, giving developers a richer and far more usable experience than standard markdown files, so requirements and design specifications are easy to follow, internalize and action. This means specifications stay valuable to humans as well as consumable by AI.
+  Confirm that requirements will actually be met before implementation. Intent Architect lets teams gauge the impact of new requirements on the system's behavior up front, and generate mockups of their actual system. This means teams can preview changes and confirm requirements with business analysts and other stakeholders before any code is written.
 
 - **🔗 Trace code to requirements, and requirements to code**
 
-  Traceability connects requirements and code directly. Links run in both directions – from a requirement to the code that implements it, and from any piece of code back to the relevant specification and requirement – and are discoverable in Change Review, the visual models and the SDD environment. This means teams can always confirm why code exists and why changes were made.
+  Traceability answers the why: why code was implemented, and why changes were made. Links run in both directions, from each requirement to the model elements and code that realize it, and from any piece of code back to the specification and requirement that drove it. They are discoverable in Change Review, the visual models and the SDD environment. This means teams can see why code exists across the entire SDLC, from upstream to downstream.
 
 ---
 
