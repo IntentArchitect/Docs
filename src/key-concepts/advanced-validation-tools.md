@@ -62,4 +62,4 @@ Model-centric diffs show what a change means for the design, not just the code. 
 
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
-- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)**
+- **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)**

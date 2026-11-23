@@ -9,7 +9,7 @@ Intent Architect is the control plane for agentic .NET development. It doesn't r
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the team's architecture and standards.
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help teams minimize technical and cognitive debt.
 - **[Advanced Validation Tools](xref:key-concepts.codebase-integration)** – tools to denoise Pull Requests (PRs) and optimize validation processes for agentic development.
-- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
+- **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
 
 Together, these let teams scale agentic development safely and reliably. Agents write the code, while Intent Architect keeps it consistent with the architecture, easy to understand and quick to validate, so AI-driven velocity doesn't shift the delivery bottleneck to code review or push risk downstream.
 

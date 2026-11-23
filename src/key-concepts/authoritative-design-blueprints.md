@@ -63,4 +63,4 @@ Because designs are stored as structured metadata alongside your source code, th
 
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
 - **[Advanced Validation Tools](xref:key-concepts.codebase-integration)**
-- **[Spec-Driven Development with Traceability](xref:key-concepts.non-deterministic-codegen)**
+- **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)**
