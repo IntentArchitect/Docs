@@ -236,7 +236,7 @@ From 5.3 these links are **checked against Git rather than taken on trust**. Rec
 
 ## Running it from anywhere
 
-The same flow runs wherever the conversation lives - the Specs panel, the [](xref:application-development.ai-assistant), the [](xref:application-development.manage-agents) window, or an external agent connected over Intent Architect's MCP server. There is no separate spec mode and no surface that owns it.
+The same flow runs wherever the conversation lives - the Specs panel, the [AI Assistant](xref:ai.overview), the [](xref:application-development.manage-agents) window, or an external agent connected over Intent Architect's MCP server. There is no separate spec mode and no surface that owns it.
 
 Each phase has a command, and the panel's buttons simply run them:
 
@@ -286,7 +286,7 @@ Ticking a checkbox in the rendered task document writes back to `tasks.md`, and 
 ## Related articles
 
 - [](xref:application-development.change-review) - the review screen that shows a spec's requirements against the changes realizing them.
-- [](xref:application-development.ai-assistant) - the assistant that runs every phase.
+- [](xref:ai.overview) - the AI agents that run every phase.
 - [](xref:application-development.manage-agents) - running several agent conversations at once, each in its own checkout.
 - [](xref:application-development.software-factory.about-software-factory-execution) - the generation step implementation runs after each wave's modelling.
 - [](xref:ai.intent-mcp-server) - connecting an external AI agent to Intent Architect.

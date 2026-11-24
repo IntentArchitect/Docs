@@ -7,7 +7,7 @@ description: "Manage Agents is a top-level Intent Architect window that owns eve
 
 **Manage Agents** answers one question: _what are all of my agents doing right now, and which of them needs me?_
 
-For a single task, a solution window is the natural place to work: the chat sits beside the model it is changing, in the source control checkout you are already working in, with the designers, Software Factory and Change Review it needs right there. That way of working is unchanged - see [](xref:application-development.ai-assistant).
+For a single task, a solution window is the natural place to work: the chat sits beside the model it is changing, in the source control checkout you are already working in, with the designers, Software Factory and Change Review it needs right there. That way of working is unchanged - see [](xref:ai.overview).
 
 The trade-offs show up when you need to **run several agents at the same time**. A solution window is bound to one solution and one checkout, so parallel tasks either queue behind each other in a single chat panel, or spread across several windows with no single place that shows what is running, what has finished, and what is blocked waiting on an answer. Tasks that do run concurrently share that one working directory, so their uncommitted changes land on top of each other and neither is reviewable on its own.
 
@@ -244,7 +244,7 @@ See [](xref:application-development.user-interface.keyboard-shortcuts) for the f
 
 ## Related articles
 
-- [](xref:application-development.ai-assistant) - the AI Assistant itself: modes, providers and configuration.
+- [](xref:ai.overview) - the AI Assistant, its agents, AI providers and the ways to drive it.
 - [](xref:application-development.change-review) - reviewing what a task actually changed, in the model and in code.
 - [](xref:application-development.user-interface.how-to-change-user-settings) - where the worktree scratch root is configured.
 - [](xref:application-development.software-factory.terminal-and-tasks) - the `tasks.json` behind the Tasks toolbar.
