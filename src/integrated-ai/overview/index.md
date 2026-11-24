@@ -33,6 +33,10 @@ The control framework applies identically across all three paths – the same gu
 
 Intent Architect comes with a set of built-in agents that operate directly against the designers, run the Software Factory, and delegate implementation work to a coding agent automatically. See [Built-in Agents](xref:ai.built-in-agents).
 
+In a solution window, the AI Assistant pane sits on the right. If you've hidden it, use the icon in the toolbar or press F8 to bring it back:
+
+![Toolbar button for un-hiding the AI Assistant](images/unhiding-the-ai-assistant.png)
+
 For running several tasks concurrently, **Manage Agents** is a top-level window that owns every agent session across every repository and solution on the machine. Each session can be allocated its own Git worktree, so parallel tasks remain isolated from one another, and each row reports the checkout it ran in and the volume of uncommitted work it has produced. A full workspace surrounds the chat – designers, files, diffs, terminals, Git and Change Review – scoped to the selected session. See [Manage Agents](xref:application-development.manage-agents).
 
 ### Your CLI as a provider

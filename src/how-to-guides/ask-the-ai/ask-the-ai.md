@@ -84,7 +84,7 @@ If the problem is with a chat itself, such as an agent that stops or errors, typ
 
 ## Related articles
 
-- [](xref:application-development.ai-assistant) - the AI Assistant, its agents and its AI providers.
+- [](xref:ai.overview) - the AI Assistant, its agents and its AI providers.
 - [](xref:ai.built-in-agents) - what Ask, Agent and Plan can each do.
 - [](xref:getting-help) - every way to get help, including how to contact support.
 - [](xref:how-to.vibe-coding-plan-mode-or-sdd) - when to just prompt, plan first or write a spec.

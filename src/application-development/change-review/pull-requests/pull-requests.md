@@ -304,4 +304,4 @@ All three update the Pull Requests list straight away, so a pull request you jus
 - [](xref:application-development.file-classifications) - the classification and severity labels the review filters on.
 - [](xref:application-development.understanding-and-resolving-merge-conflicts) - resolving conflicts in designer metadata.
 - [](xref:application-development.applications-and-solutions.git-and-scm-guidance) - which Intent Architect files belong in source control in the first place.
-- [](xref:application-development.ai-assistant) - the AI Assistant that runs the review and fix conversations.
+- [](xref:ai.overview) - the AI agents that run the review and fix conversations.

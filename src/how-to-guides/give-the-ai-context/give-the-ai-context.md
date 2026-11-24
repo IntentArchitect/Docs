@@ -79,7 +79,7 @@ _Type / and a few letters to find a skill or command._
 
 ## Related articles
 
-- [](xref:application-development.ai-assistant) - the AI Assistant, its agents and its AI providers.
+- [](xref:ai.overview) - the AI Assistant, its agents and its AI providers.
 - [](xref:application-development.user-interface.work-items) - Work Items and the chats linked to them.
 - [](xref:application-development.change-review) - everything Change Review shows.
 - [](xref:ai.context-management) - skills, slash commands and instruction files.
