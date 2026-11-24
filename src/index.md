@@ -280,18 +280,21 @@ It brings living specifications, reliable architectural guardrails, authoritativ
 ## Watch a demo of the latest features
 
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 9;">
-  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/xCKdbEf7O3k?si=3NXH4yLElA0J4hLY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe style="width: 100%; height: 100%; border: 0" src="https://www.youtube.com/embed/ynpJXprfuZ4?si=0hVqMXMS4O8MDvav" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
 
-Watch the Intent Architect version 5.3 new-features demo.
+Watch the Intent Architect v5.4 agentic-development demo.
 
-Gareth Baars, founder and CEO of Intent Architect, shares some of the recent enhancements to the platform, focused on the agentic workflow experience – specifically, how we make it better for the human in the loop. It focuses on three key areas: inbox-style agent management, richer visual communication with AI, and pull requests in-app, with enriched context.
+In this video, Gareth Baars (founder and CEO of Intent Architect) walks through what’s new in v5.4 and how it elevates spec-driven development and agentic delivery. A key theme is keeping living specs aligned with implementation—detecting when “intent” and code drift, and providing workflows to bring them back together. Gareth also shows Intent Architect’s updated approach to code reviews, focusing on reviewing intent and evidence rather than trying to read (or AI-summarize) every line of code, plus a look at how the Intent Architect team uses these workflows end-to-end.
 
-What's covered in this demo - how to:
-- Enhance your SDD and planning processes
-- Streamline your GitHub & Azure DevOps PR reviews using our integrated design & architecture aware Review Changes feature.
-- Leverage traceability to understanding the "Why" behind changes
-- And much more...
+What’s covered in this demo — how to:
+- Use Change specs and Capability specs to structure SDD in Intent Architect
+- Keep requirements aligned with code and address spec drift as it happens
+- Extract specs from an existing codebase to establish trustworthy baseline intent
+- Streamline PR reviews with intent- and architecture-aware review systems
+- Use visual explorer diagrams and richer context for understanding changes
+- Configure agent skills/rules and manage work with the Work Item Manager
+- See the Intent Architect team’s agentic workflow from requirements through validation
 
 ---
 
