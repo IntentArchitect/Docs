@@ -1,9 +1,9 @@
 items:
 - name: Living Specifications and Mockups
-  href: sdd-with-traceability.md
+  href: living-specifications-and-mockups.md
 
 - name: Intent-based Review Systems
-  href: advanced-validation-tools.md
+  href: intent-based-review-systems.md
 
 - name: Reliable Architectural Guardrails
   href: architectural-guardrails.md
