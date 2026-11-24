@@ -13,13 +13,13 @@ Before the agent writes any code for a screen, ask it to show you the screen. It
 
 This guide shows the flow on a small sample web app, an orders page, in the chat of the Agents Shell. The Solution Shell's **AI Assistant** works the same way.
 
-## Capture your app's styles once with the mockup-kit skill
+## Capture your app's styles once
 
-Mockups only look like your app if the agent has a copy of its styles. Capture them once per web app, with the `mockup-kit` skill, before you ask for your first mockup. Start a chat in the application's repository and send:
+Mockups are introduced by the built-in `mockup-kit` skill. They only look like your app if the agent has a copy of its styles. Start a chat in the application's repository and ask for some mockups:
 
-> Use the mockup-kit skill to snapshot the styles of the web app in the `acme-web` folder.
+> Make some mockup screens for the `acme-web` app.
 
-The agent finds the app's stylesheet and theme switch, saves a snapshot under `intent/.mockups/<app>/`, and checks it in the preview in both light and dark. The snapshot is a folder of files in your repository, so you can commit it and share it with your team.
+The first time, the agent captures the app's styles once. It finds the app's stylesheet and theme switch, saves a snapshot under `intent/.mockups/<app>/`, and checks it in the preview in both light and dark. The snapshot is a folder of files in your repository, so you can commit it and share it with your team.
 
 > [!NOTE]
 > The agent writes files while it snapshots. In the default **Ask before edits** mode, each write waits for you to approve it.
