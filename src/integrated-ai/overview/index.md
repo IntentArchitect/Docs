@@ -4,12 +4,12 @@ description: "How Intent Architect, the control plane for agentic .NET developme
 ---
 # AI in Intent Architect
 
-Intent Architect is the control plane for agentic .NET development. It doesn't replace AI coding agents; it governs how they work. Teams keep their preferred AI service provider and coding harness (Claude Code, Codex, GitHub Copilot, Cursor and others), and Intent Architect adds a control framework made up of four components:
+Intent Architect is a control plane for agentic development, not an AI service provider or coding harness. Teams keep their preferred AI service providers and coding harnesses (Claude Code, Codex, GitHub Copilot, Cursor and others), and Intent Architect adds a control framework made up of four primary components:
 
+- **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)** – living specs to hold agents accountable and prevent behavioral regressions, plus mockups to preview changes before implementation.
+- **[Intent-based Review Systems](xref:key-concepts.codebase-integration)** – tools to denoise Pull Requests (PRs) and optimize validation processes for agentic development.
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)** – deterministic and probabilistic enforcement that ensure agents consistently adhere to the team's architecture and standards.
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)** – living visual models of the system's design that stay true to the codebase and help teams minimize technical and cognitive debt.
-- **[Intent-based Review Systems](xref:key-concepts.codebase-integration)** – tools to denoise Pull Requests (PRs) and optimize validation processes for agentic development.
-- **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)** – a system for building high-quality requirements and specifications, and driving them through to code, with full traceability.
 
 Together, these let teams scale agentic development safely and reliably. Agents write the code, while Intent Architect keeps it consistent with the architecture, easy to understand and quick to validate, so AI-driven velocity doesn't shift the delivery bottleneck to code review or push risk downstream.
 
