@@ -1,12 +1,12 @@
 items:
+- name: Living Specifications and Mockups
+  href: sdd-with-traceability.md
+
+- name: Advanced Validation Tools
+  href: advanced-validation-tools.md
+
 - name: Reliable Architectural Guardrails
   href: architectural-guardrails.md
 
 - name: Authoritative Design Blueprints
   href: authoritative-design-blueprints.md
-
-- name: Advanced Validation Tools
-  href: advanced-validation-tools.md
-
-- name: Living Specifications and Mockups
-  href: sdd-with-traceability.md

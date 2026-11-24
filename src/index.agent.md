@@ -13,12 +13,12 @@ It brings living specifications, reliable architectural guardrails, authoritativ
 
 ## Key Concepts
 
+- [Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen): Hold agents accountable and prevent behavioural regressions. Living specs give you an always-accurate, proven description of your system's behaviour, so you can track how it evolves in natural language. Plus, preview changes as mockups of your actual system before implementation.
+- [Advanced Validation Tools](xref:key-concepts.codebase-integration): Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.
 - [Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen): Safeguard codebase quality and maintainability. Intent Architect's advanced guardrail system combines both deterministic and probabilistic enforcement to ensure architectural adherence without adding to the validation burden, and scales across teams without developers having to internalize their standards and context files to validate agentic adherence.
 - [Authoritative Design Blueprints](xref:key-concepts.visual-modeling): Stay on top of your system's design and minimize technical and cognitive debt. Living blueprints give you an always-accurate visualisation of your design, making architectural decisions explicit and visible to the whole team. And provide an intuitive way to consistently confirm whether agents are meeting your specifications and making good design decisions.
-- [Advanced Validation Tools](xref:key-concepts.codebase-integration): Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.
-- [Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen): Hold agents accountable and prevent behavioural regressions. Living specs give you an always-accurate, proven description of your system's behaviour, so you can track how it evolves in natural language. Plus, preview changes as mockups of your actual system before implementation.
 
-## Watch a Demo
+## Watch a demo of the latest features
 
 [Watch video on YouTube](https://www.youtube.com/embed/ynpJXprfuZ4?si=0hVqMXMS4O8MDvav)
 
@@ -37,5 +37,5 @@ What’s covered in this demo — how to:
 
 ## Next Steps
 
-- [Get Intent Architect](xref:getting-started.get-the-application)
-- [Make your first change with the AI](xref:how-to.make-your-first-change)
+- Continue to **[Get Intent Architect](xref:getting-started.get-the-application)**
+- Then **[Make your first change with the AI](xref:how-to.make-your-first-change)**, from opening your code to a reviewed commit

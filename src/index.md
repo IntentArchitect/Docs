@@ -207,6 +207,40 @@ It brings living specifications, reliable architectural guardrails, authoritativ
     <div class="card">
       <span class="icon" aria-hidden="true">
 <svg class="landing-svg" viewBox="0 0 24 24">
+  <defs><linearGradient id="grad-sdd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
+  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
+</svg>
+      </span>
+      <div class="content">
+        <strong class="card-title">Living Specifications and Mockups</strong>
+        <p class="card-text">Hold agents accountable and prevent behavioural regressions. Living specs give you an always-accurate, proven description of your system's behaviour, so you can track how it evolves in natural language. Plus, preview changes as mockups of your actual system before implementation.</p>
+      </div>
+      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="Living Specifications and Mockups"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
+  <defs><linearGradient id="grad-rev" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M20.5 12a8.5 8.5 0 0 1-14.2 6.3M3.5 12a8.5 8.5 0 0 1 14.2-6.3"/>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.7 2.5v3.2h-3.2M6.3 21.5v-3.2h3.2"/>
+  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12.2l2.2 2.2 4.2-4.6"/>
+</svg>
+      </span>
+      <div class="content">
+        <strong class="card-title">Advanced Validation Tools</strong>
+        <p class="card-text">Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.</p>
+      </div>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Advanced Validation Tools"></a>
+    </div>
+  </li>
+  <li>
+    <div class="card">
+      <span class="icon" aria-hidden="true">
+<svg class="landing-svg" viewBox="0 0 24 24">
   <defs><linearGradient id="grad-mod" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
   <rect x="8.4" y="2.4" width="7.2" height="7.2" rx="1.3" stroke="url(#grad-mod)" fill="none" stroke-width="1.5"/>
   <rect x="2.4" y="12.6" width="7.2" height="7.2" rx="1.3" stroke="url(#grad-mod)" fill="none" stroke-width="1.5"/>
@@ -237,40 +271,6 @@ It brings living specifications, reliable architectural guardrails, authoritativ
         <p class="card-text">Stay on top of your system's design and minimize technical and cognitive debt. Living blueprints give you an always-accurate visualisation of your design, making architectural decisions explicit and visible to the whole team. And provide an intuitive way to consistently confirm whether agents are meeting your specifications and making good design decisions.</p>
       </div>
       <a href="xref:key-concepts.visual-modeling" aria-label="Authoritative Design Blueprints"></a>
-    </div>
-  </li>
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-rev" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M20.5 12a8.5 8.5 0 0 1-14.2 6.3M3.5 12a8.5 8.5 0 0 1 14.2-6.3"/>
-  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17.7 2.5v3.2h-3.2M6.3 21.5v-3.2h3.2"/>
-  <path stroke="url(#grad-rev)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M8.8 12.2l2.2 2.2 4.2-4.6"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Advanced Validation Tools</strong>
-        <p class="card-text">Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.</p>
-      </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Advanced Validation Tools"></a>
-    </div>
-  </li>
-  <li>
-    <div class="card">
-      <span class="icon" aria-hidden="true">
-<svg class="landing-svg" viewBox="0 0 24 24">
-  <defs><linearGradient id="grad-sdd" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09C4FF"/><stop offset="100%" stop-color="#0070C0"/></linearGradient></defs>
-  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2l9 4.5-9 4.5-9-4.5 9-4.5z"/>
-  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 11l9 4.5 9-4.5"/>
-  <path stroke="url(#grad-sdd)" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M3 16l9 4.5 9-4.5"/>
-</svg>
-      </span>
-      <div class="content">
-        <strong class="card-title">Living Specifications and Mockups</strong>
-        <p class="card-text">Hold agents accountable and prevent behavioural regressions. Living specs give you an always-accurate, proven description of your system's behaviour, so you can track how it evolves in natural language. Plus, preview changes as mockups of your actual system before implementation.</p>
-      </div>
-      <a href="xref:key-concepts.non-deterministic-codegen" aria-label="Living Specifications and Mockups"></a>
     </div>
   </li>
 </ul>
