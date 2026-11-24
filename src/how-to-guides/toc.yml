@@ -21,6 +21,8 @@ items:
     href: build-your-own-dashboards/build-your-own-dashboards.md
   - name: Set up build, test and run tasks
     href: set-up-tasks/set-up-tasks.md
+  - name: Mock up a screen before it's built
+    href: mock-up-a-screen/mock-up-a-screen.md
   - name: Get it right with Plan Mode
     href: get-it-right-with-plan-mode/get-it-right-with-plan-mode.md
   - name: Turn existing code into living specs
