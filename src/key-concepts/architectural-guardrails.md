@@ -69,5 +69,5 @@ Intent Architect is not a framework, a runtime, or a set of libraries. It introd
 ## Learn More
 
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
-- **[Advanced Validation Tools](xref:key-concepts.codebase-integration)**
+- **[Intent-based Review Systems](xref:key-concepts.codebase-integration)**
 - **[Living Specifications and Mockups](xref:key-concepts.non-deterministic-codegen)**

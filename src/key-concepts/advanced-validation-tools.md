@@ -3,9 +3,9 @@ uid: key-concepts.codebase-integration
 description: "How Intent Architect's Change Review denoises the pull request process with AI review and healing, severity classification, and model-centric diffs."
 ---
 
-# Advanced Validation Tools
+# Intent-based Review Systems
 
-When agents do most of the coding, validation processes become the new delivery bottleneck – and teams either slow down to review properly or just rubberstamp code and push lots of risk downstream. Intent Architect's Change Review system optimizes code reviews and denoises the pull request (PR) process. It runs a comprehensive AI-driven review and healing pass, and combines it with deterministically-driven severity classification and model-centric diffs, so the most important and high-impact changes are prioritized in a way that's intuitive to developers – and you can review quickly and effectively at the same time.
+When agents do the coding, validation becomes the new delivery bottleneck – teams either slow down to review properly, or rely purely on tests and agentic reviews/suggestions and push risk downstream. Intent Architect's Change Review system adds a deterministic review layer to both, so teams can review intent instead of lines of code and not rely on tests and agentic reviews alone. Spec diffs show behavioral changes, model-centric diffs show design and architectural changes, and risk classification lets teams zone their codebase and review only the most important files and changes. Combined with an AI-driven review and healing pass, teams can review quickly and effectively at the volume and speed of agentic coding.
 
 ---
 
@@ -29,7 +29,7 @@ When agents do most of the coding, validation processes become the new delivery 
 
 Change Review is a code review system built for agentic development, where the volume of change is amplified beyond what conventional review processes can practically handle. It is a central place to optimize and review all codebase changes, whether deterministically generated or written by agents (or developers).
 
-It hooks into your team's preferred PR platform – GitHub, Azure DevOps, GitLab, Bitbucket etc. – and denoises the pull request process through four components. An AI review and healing system finds and corrects issues across the change. Deterministically-driven severity classification flags what carries risk, so review effort goes to what matters most. Model-centric diffs show what a change means for the design, not just the code. And traceability links surface the requirements and specifications behind a change, so reviewers can establish why it exists.
+It hooks into your team's preferred PR platform – GitHub, Azure DevOps, GitLab, Bitbucket etc. – and denoises the pull request process through five components. An AI review and healing system finds and corrects issues across the change. Deterministically-driven severity classification flags what carries risk, so review effort goes to what matters most. Spec diffs show what a change means for the system's behavior. Model-centric diffs show what a change means for the design, not just the code. And traceability links surface the requirements and specifications behind a change, so reviewers can establish why it exists.
 
 <br>
 

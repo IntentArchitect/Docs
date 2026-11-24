@@ -231,10 +231,10 @@ It brings living specifications, reliable architectural guardrails, authoritativ
 </svg>
       </span>
       <div class="content">
-        <strong class="card-title">Advanced Validation Tools</strong>
-        <p class="card-text">Streamline validation and alleviate delivery bottlenecks. Denoise the review process and focus on the things that matter most, e.g., design shifts, architectural shifts and high-risk changes. Teams aren't overwhelmed by large PRs, don't just rubberstamp code, and never push significant risk downstream.</p>
+        <strong class="card-title">Intent-based Review Systems</strong>
+        <p class="card-text">Quickly validate intent and keep up with agentic coding volume. Spec diffs show behavioural changes, model-centric diffs show design and architectural changes, and risk classification surfaces the files that really need review. This adds a deterministic review layer, so you don't rely on tests and agentic reviews alone.</p>
       </div>
-      <a href="xref:key-concepts.codebase-integration" aria-label="Advanced Validation Tools"></a>
+      <a href="xref:key-concepts.codebase-integration" aria-label="Intent-based Review Systems"></a>
     </div>
   </li>
   <li>

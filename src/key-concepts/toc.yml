@@ -2,7 +2,7 @@ items:
 - name: Living Specifications and Mockups
   href: sdd-with-traceability.md
 
-- name: Advanced Validation Tools
+- name: Intent-based Review Systems
   href: advanced-validation-tools.md
 
 - name: Reliable Architectural Guardrails

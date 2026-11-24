@@ -83,4 +83,4 @@ _A DataModel block rendered inline in a plan document._
 
 - **[Reliable Architectural Guardrails](xref:key-concepts.deterministic-codegen)**
 - **[Authoritative Design Blueprints](xref:key-concepts.visual-modeling)**
-- **[Advanced Validation Tools](xref:key-concepts.codebase-integration)**
+- **[Intent-based Review Systems](xref:key-concepts.codebase-integration)**
