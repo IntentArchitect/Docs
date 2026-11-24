@@ -29,22 +29,34 @@ Teams can also generate mockups of their actual system, built from its real layo
 
 ## The Specs Panel
 
-Spec-Driven Development is a structured, model-native way to go from an idea to implemented, traceable code, driven by AI but anchored to your Intent Architect model. A dedicated Specs panel guides teams through a phased flow:
+The Specs panel holds two kinds of spec. A **Change spec** covers one piece of work, a new feature, story, ticket, etc. A **Capability spec** is a living specification of how one area of your system behaves, kept true as the code changes. Related Capabilities can be grouped into **Areas**.
 
-1. **Requirements** – capture a feature as precise, testable user stories (EARS-style) with stable IDs.
-2. **Design** – turn those requirements into intended model changes plus a per-requirement realization plan.
-3. **Tasks** – break the design into a checkpointed task list, organised into dependency-ordered waves.
-4. **Implement** – work the waves in order, applying model changes, generating code, and implementing and testing the bespoke logic.
-5. **Verify & Heal** – check the implementation against its acceptance criteria, and repair any gaps the verification finds.
+A Change spec moves through these phases:
 
-Because the design is expressed as changes to your designer model – not just prose – SDD stays true to Intent Architect's core principle: the model is the source of truth, and code is generated output.
+1. **Requirements**: testable acceptance criteria with stable IDs. They name each Capability the Change affects and what it changes, and you approve that in **Spec Review**, so the effect on your system's behavior is agreed before any code is written.
+2. **Design and Tasks**: intended model changes, broken into dependency-ordered waves.
+3. **Implement**: apply the model changes, generate code, and implement and test.
+4. **Verify & Heal**: check every acceptance criterion against the code and tests, and repair any gaps.
+5. **Fold**: merge what the Change spec established into its Capabilities, which then stay living.
 
-Existing specification documents, such as BMAD PRDs, can be imported and integrated with the SDD system, so teams can bring specs and workflows they already have into Intent Architect's model-native flow.
+To share a spec outside Intent Architect, any spec document, including a rendered diff, can be exported as a PDF.
 
 <br>
 
-![The Specs panel](images/specs-panel.png)
-_The Specs panel, showing a spec and its phase progress._
+![Review spec changes for the Orders Capability](images/spec-review-changes.png)
+_A change to the Orders Capability, waiting for review before any code changes._
+
+---
+
+## Mockups
+
+To confirm what a requirement will look like before it's built, an agent can mock up the screen in your app's own look. The built-in `mockup-kit` skill captures a snapshot of your application's styles once, so mockups match the real system. A mockup appears right in the agent's chat reply as a before and after, in light and dark, with numbered pins that explain each change.
+
+Instead of describing changes in words alone, you can click any part of a mockup, comment on it, and send your comments to the agent, which revises the mockup. When the change goes into a spec, the approved mockup is kept in its requirements, in a **Screens** section, so whoever reviews the spec sees the screen as well as the requirements.
+
+<p><video style="max-width: 100%" controls src="videos/mockups-in-chat.mp4"></video></p>
+
+For a step-by-step walkthrough, see [Mock up a screen before it's built](xref:how-to.mock-up-a-screen).
 
 ---
 
