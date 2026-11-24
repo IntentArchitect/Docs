@@ -29,7 +29,7 @@ Teams can also generate mockups of their actual system, built from its real layo
 
 ## The Specs Panel
 
-The Specs panel holds two kinds of spec. A **Change spec** covers one piece of work, a new feature, story, ticket, etc. A **Capability spec** is a living specification of how one area of your system behaves, kept true as the code changes. Related Capabilities can be grouped into **Areas**.
+The Specs panel holds two kinds of specs. A **Change spec** covers one piece of work: an update, a new feature, story, ticket, etc. A **Capability spec** is a living specification of how one area of your system behaves, kept true as the code changes. Related Capabilities can be grouped into **Areas**.
 
 A Change spec moves through these phases:
 
