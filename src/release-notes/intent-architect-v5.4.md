@@ -5,9 +5,94 @@ description: "Intent Architect 5.4 release notes: solution-wide find and replace
 
 # Release notes: Intent Architect version 5.4
 
-<!-- 5.4.3: covers publish/client/5.4.2..HEAD of release/5.4.x (d166816f9d, 2026-11-18). No 5.4.3 tag yet (only 5.4.3-pre.0). Add later commits after d166816f9d. -->
+<!-- 5.4.4: covers publish/client/5.4.3..publish/client/5.4.4-pre.0 (41d334aa12, 2026-11-26). -->
+
+## Version 5.4.4
+
+As we start focussing our efforts on 5.5, this release focuses on stability, responsiveness, with faster chat switching, streaming and large designers, alongside redesigned right-click menus across the app.
+
+### Highlights in 5.4.4
+
+#### Faster chats, designers and Source Control
+
+Intent Architect stays responsive with many chats and large models:
+
+- Switching chats, streaming replies and the Agents board do less work.
+- Large expanded designer trees scroll, search and respond to clicks faster.
+- A designer with thousands of saved expanded nodes no longer hangs on open.
+- `run_designer_script` stays fast as unsaved changes pile up, and no longer stalls the designer after changing thousands of elements.
+- `run_designer_script` has a new `showChanges` argument that skips the Changes diagram for bulk imports.
+- Opening a pull request is faster.
+- Source Control refreshes faster on large repositories.
+
+#### Videos play from chat links
+
+Clicking a link to a video in a chat reply now opens it in a tab and plays it, resuming from where it was left. A User Settings switch turns this off.
+
+> [!TIP]
+> **Try it:** Ask an agent to "record a video of the app in the preview", then click the video link in its reply.
+
+### Improvements in 5.4.4
+
+- Improvement: Right-click and toolbar menus across the app (tabs, status bar, Tasks, user menu, Git, explorers, Board, Work Items, chat and document links) open as compact HTML menus with an icon on every item, grouped under headings with destructive actions last.
+- Improvement: The tab menu has Close to the Right, and the tab caret menu has Pinned and Open headings, an unsaved dot, the active tab highlighted and a Find a tab box past 10 tabs.
+- Improvement: Copy Path and Copy Relative Path are separate menu items, and View in Designer, Move to Area and Git's Set upstream lists are searchable.
+- Improvement: Chat and document link menus offer Open, Open in IDE, Copy relative path, Copy path with line and Reveal in Codebase, and external links can open in the Preview Browser.
+- Improvement: The image preview menu has Fit to window, Actual size, Zoom in and Zoom out.
+- Improvement: The Home recent-solution menu has Open, Pin to Top and Copy Path.
+- Improvement: A chat can be moved under another chat, or back to top level, from its context menu.
+- Improvement: A parent chat can approve or reject its child chats' spec reviews and phase gates, and a waiting spec review or gate counts as needing attention on every ancestor chat.
+- Improvement: The Sessions panel's view menu has a Show branches setting that folds every row to one line.
+- Improvement: The Agents shell's buttons read "+ New session" and "+ New work item".
+- Improvement: An unsent message and its attachments in a started chat are kept across an Intent Architect restart.
+- Improvement: Chat replies containing a `<Wireframe>` or `<Canvas>` now render.
+- Improvement: Hand-written mockups get zoom, pan, theme, pins and comments, and Ctrl/Cmd or middle-button drags pan a maximized or zoomed mockup.
+- Improvement: The Plan agent can write spec mockups while planning.
+- Improvement: ACP agents (Claude Code, Codex, GitHub Copilot and others) connect only when chosen, sent to, or connected from the AI Providers tab, and a signed-out agent can be signed in from the chat.
+- Improvement: The Model picker lists the models each ACP agent's account offers, and on first run new chats default to a signed-in agent.
+- Improvement: The default thinking level is Medium for Claude Code, Codex and Kiro.
+- Improvement: A "No AI providers configured" banner with Configure now shows when chat has no model to send to.
+- Improvement: The computer is kept awake while agents are working, with a Keep-awake switch in AI Configuration.
+- Improvement: An unreachable credential manager is reported separately from not being signed in when opening a pull request.
+- Improvement: Source Control churn counts update when the checkout changes instead of every 20 seconds.
+- Improvement: A branch's review base uses its recorded base when there is one, labelled "(recorded base)".
+- Improvement: The Source Control review flag and the New pull request tab's Open Change Review flag are coloured by the highest review importance still needing approval.
+- Improvement: A git operation that hits Windows' path length limit offers Enable long paths and retry, and git errors show as one line with details behind Copy / Details.
+- Improvement: Plain MCP clients are told about Intent Architect and module updates, and a new `update_intent_architect` tool installs an Intent Architect update.
+- Improvement: For plain MCP clients, a script dialog that needs an answer fails at once instead of waiting, and `close_instance` with `force` quits immediately.
+- Improvement: The Software Factory run menu has Run with Caches Cleared, and the CLI has `--clear-caches`, to reproduce CI's outstanding-changes result locally.
+- Improvement: Spec Health counts a deleted traced file or element as a code change, and shows "Error" when a target can't be read.
+
+### Fixes in 5.4.4
+
+- Fixed: A node expanded while a designer loaded needed two clicks to open again.
+- Fixed: Creating elements from a script saved their parent elements as expanded.
+- Fixed: Undoing the add of a selected tree node left the selection pointing at a node no longer in the tree.
+- Fixed: A second free-text answer in one turn was never sent to the agent, and a sub-agent's question was cancelled as if the main agent had asked it.
+- Fixed: The chat could stop following the bottom when a reply's content sized late.
+- Fixed: The Todos and Background & sub-agents pills could sit behind a decision card.
+- Fixed: Mockups and file links in a child chat's replies could fail to resolve in its own folder.
+- Fixed: A Spec's card could show "Open chat" instead of "Answer" while its chat waited on a phase gate.
+- Fixed: App previews stayed open for the life of the app after their chat was archived or deleted.
+- Fixed: Background App Preview tabs added a taskbar button that did nothing on Windows.
+- Fixed: An AI run could keep showing as running in Source Control, the terminal and the PR Tab after its chat had finished.
+- Fixed: The PR Tab listed an old failed run of a GitHub check beside its newer passing run, and reported the checks as failing.
+- Fixed: Source Control could stay refreshing during a Software Factory run.
+- Fixed: Change review summaries failed for a folder opened without a solution.
+- Fixed: A Mockup or Canvas in a rendered diff had a line drawn across its header.
+- Fixed: Relative application icons didn't show on the Overview, Settings and Choose Icon picker when a folder was opened.
+- Fixed: Opening a solution could overwrite newer edits to the Home screen's recent solutions list.
+- Fixed: A tree-view field in a dialog could ignore a value set before it displayed.
+- Fixed: After an external MCP client created a solution with `create_solution`, a following `create_application` without `solutionPath` failed or used an older solution.
+- Fixed: On macOS and Linux, secrets saved by one Intent Architect build failed to decrypt in another.
+- Fixed: The Software Factory CLI's `verify-sdd` command reported Areas as unverified, and naming an Area didn't check its Capabilities.
+- Fixed: A Bitbucket Cloud remote using `git@ssh.bitbucket.org` (the SSH clone URL Bitbucket now gives out) showed "Couldn't recognise the Git host".
+- Fixed: Signing out of Bitbucket didn't stick after Git Credential Manager had refreshed the token.
+- Fixed: After a pull request comment or review was posted, its text could reappear in the composer and be posted again (seen on Azure DevOps and GitLab).
 
 ## Version 5.4.3
+
+_Released 2026-11-19._
 
 This release introduces mockups in documents and chat, alongside the usual fixes and performance improvements.
 
@@ -20,7 +105,7 @@ To show what a screen will look like once a requirement is built, a spec or an a
 <p><video style="max-width: 100%" controls src="videos/5.4.x/mockups-in-chat.mp4"></video></p>
 
 > [!TIP]
-> **Try it:** Ask an agent to "mock up an order history screen for the eShop" and use the `mockup-kit` skill, then click Maximize on the mockup in the reply.
+> **Try it:** Ask an agent to "mock up a screen for this application" and use the `mockup-kit` skill, then click Maximize on the mockup in the reply.
 
 #### Answering child chat questions from any ancestor chat
 
@@ -95,6 +180,9 @@ To get a provider working without leaving the app, the AI Providers tab now list
 - Fixed: An unknown block, or a block that failed to render, stopped the whole document from displaying.
 - Fixed: A paragraph holding only a URL showed as an empty line in the Inline editor.
 - Fixed: The expanded row of an answered question showed its question and option descriptions as plain text instead of markdown.
+- Fixed: A chat turn could hang when Intent Architect's background service exited during it; it now ends with a Retry banner.
+- Fixed: Re-importing a Kiro spec didn't count a reworded acceptance criterion as a changed requirement.
+- Fixed: BMAD v6 implementation artifacts didn't import, and a folder could be detected as Kiro or OpenSpec from another framework's documents.
 
 ## Version 5.4.2
 
